@@ -1,0 +1,544 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://t3thr.github.io/JaoKob/specs/schemas/common.schema.json",
+  "title": "JaoKob Common Definitions",
+  "description": "ข้อกำหนดชนิดข้อมูลร่วมสำหรับเนื้อหา สถานะเกม และการอ้างอิงข้ามเอกสารของ JaoKob",
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 96,
+      "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+    },
+    "semanticVersion": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$"
+    },
+    "localeTag": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 35,
+      "pattern": "^[a-z]{2,3}(?:-[A-Z][a-z]{3})?(?:-(?:[A-Z]{2}|[0-9]{3}))?$"
+    },
+    "localizedText": {
+      "type": "object",
+      "description": "แผนที่ข้อความตาม BCP 47 แบบจำกัด โดยภาษาไทยเป็นข้อความฐานและต้องมีเสมอ",
+      "required": [
+        "th"
+      ],
+      "properties": {
+        "th": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 12000
+        }
+      },
+      "patternProperties": {
+        "^[a-z]{2,3}(?:-[A-Z][a-z]{3})?(?:-(?:[A-Z]{2}|[0-9]{3}))?$": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 12000
+        }
+      },
+      "additionalProperties": false
+    },
+    "localizedShortText": {
+      "type": "object",
+      "description": "ข้อความสั้นตามภาษา โดยภาษาไทยเป็นข้อความฐานและต้องมีเสมอ",
+      "required": [
+        "th"
+      ],
+      "properties": {
+        "th": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
+        }
+      },
+      "patternProperties": {
+        "^[a-z]{2,3}(?:-[A-Z][a-z]{3})?(?:-(?:[A-Z]{2}|[0-9]{3}))?$": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
+        }
+      },
+      "additionalProperties": false
+    },
+    "localizedStringList": {
+      "type": "object",
+      "description": "รายการข้อความตามภาษา แต่ละภาษาต้องมีจำนวนรายการและความหมายเรียงตรงกัน",
+      "required": [
+        "th"
+      ],
+      "properties": {
+        "th": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 24,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          }
+        }
+      },
+      "patternProperties": {
+        "^[a-z]{2,3}(?:-[A-Z][a-z]{3})?(?:-(?:[A-Z]{2}|[0-9]{3}))?$": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 24,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "gameState": {
+      "type": "string",
+      "enum": [
+        "Title",
+        "Cutscene",
+        "Exploration",
+        "Decision",
+        "GameOver",
+        "Ending"
+      ]
+    },
+    "metricName": {
+      "type": "string",
+      "enum": [
+        "hp",
+        "sanity",
+        "bond"
+      ]
+    },
+    "metricSnapshot": {
+      "type": "object",
+      "required": [
+        "hp",
+        "sanity",
+        "bond"
+      ],
+      "properties": {
+        "hp": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "sanity": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "bond": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "additionalProperties": false
+    },
+    "flagValue": {
+      "oneOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "integer",
+          "minimum": -1000000,
+          "maximum": 1000000
+        },
+        {
+          "type": "string",
+          "maxLength": 240
+        }
+      ]
+    },
+    "flagEntry": {
+      "type": "object",
+      "required": [
+        "id",
+        "value"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "value": {
+          "$ref": "#/$defs/flagValue"
+        }
+      },
+      "additionalProperties": false
+    },
+    "atomicCondition": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "kind"
+          ],
+          "properties": {
+            "kind": {
+              "const": "always"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "kind",
+            "metric",
+            "operator",
+            "value"
+          ],
+          "properties": {
+            "kind": {
+              "const": "metric"
+            },
+            "metric": {
+              "$ref": "#/$defs/metricName"
+            },
+            "operator": {
+              "type": "string",
+              "enum": [
+                "eq",
+                "neq",
+                "gt",
+                "gte",
+                "lt",
+                "lte"
+              ]
+            },
+            "value": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "kind",
+            "flagId",
+            "operator"
+          ],
+          "properties": {
+            "kind": {
+              "const": "flag"
+            },
+            "flagId": {
+              "$ref": "#/$defs/identifier",
+              "x-jaokob-reference": "flag.id"
+            },
+            "operator": {
+              "type": "string",
+              "enum": [
+                "exists",
+                "not-exists"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "kind",
+            "flagId",
+            "operator",
+            "value"
+          ],
+          "properties": {
+            "kind": {
+              "const": "flag"
+            },
+            "flagId": {
+              "$ref": "#/$defs/identifier",
+              "x-jaokob-reference": "flag.id"
+            },
+            "operator": {
+              "type": "string",
+              "enum": [
+                "eq",
+                "neq"
+              ]
+            },
+            "value": {
+              "$ref": "#/$defs/flagValue"
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "condition": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/atomicCondition"
+        },
+        {
+          "type": "object",
+          "required": [
+            "all"
+          ],
+          "properties": {
+            "all": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 32,
+              "items": {
+                "$ref": "#/$defs/condition"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "any"
+          ],
+          "properties": {
+            "any": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 32,
+              "items": {
+                "$ref": "#/$defs/condition"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "not"
+          ],
+          "properties": {
+            "not": {
+              "$ref": "#/$defs/condition"
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "effect": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "metric",
+            "amount"
+          ],
+          "properties": {
+            "type": {
+              "const": "adjust-metric"
+            },
+            "metric": {
+              "$ref": "#/$defs/metricName"
+            },
+            "amount": {
+              "type": "integer",
+              "minimum": -100,
+              "maximum": 100
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "metric",
+            "value"
+          ],
+          "properties": {
+            "type": {
+              "const": "set-metric"
+            },
+            "metric": {
+              "$ref": "#/$defs/metricName"
+            },
+            "value": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "flagId",
+            "value"
+          ],
+          "properties": {
+            "type": {
+              "const": "set-flag"
+            },
+            "flagId": {
+              "$ref": "#/$defs/identifier",
+              "x-jaokob-reference": "flag.id"
+            },
+            "value": {
+              "$ref": "#/$defs/flagValue"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "flagId",
+            "amount"
+          ],
+          "properties": {
+            "type": {
+              "const": "adjust-flag"
+            },
+            "flagId": {
+              "$ref": "#/$defs/identifier",
+              "x-jaokob-reference": "flag.id"
+            },
+            "amount": {
+              "type": "integer",
+              "minimum": -1000000,
+              "maximum": 1000000
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "flagId"
+          ],
+          "properties": {
+            "type": {
+              "const": "clear-flag"
+            },
+            "flagId": {
+              "$ref": "#/$defs/identifier",
+              "x-jaokob-reference": "flag.id"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "checkpointId"
+          ],
+          "properties": {
+            "type": {
+              "const": "set-checkpoint"
+            },
+            "checkpointId": {
+              "$ref": "#/$defs/identifier",
+              "x-jaokob-reference": "checkpoint.id"
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "settings": {
+      "type": "object",
+      "required": [
+        "locale",
+        "textSpeed",
+        "fontScale",
+        "reducedMotion",
+        "highContrast",
+        "storyAssist",
+        "immersiveUi",
+        "confirmHighImpactChoices",
+        "typewriterEffect",
+        "autoAdvance",
+        "masterVolume",
+        "musicVolume",
+        "ambienceVolume",
+        "effectsVolume",
+        "reducedIntensityAudio"
+      ],
+      "properties": {
+        "locale": {
+          "$ref": "#/$defs/localeTag"
+        },
+        "textSpeed": {
+          "type": "string",
+          "enum": [
+            "slow",
+            "normal",
+            "fast",
+            "instant"
+          ]
+        },
+        "fontScale": {
+          "type": "number",
+          "minimum": 0.875,
+          "maximum": 2
+        },
+        "reducedMotion": {
+          "type": "boolean"
+        },
+        "highContrast": {
+          "type": "boolean"
+        },
+        "storyAssist": {
+          "type": "boolean"
+        },
+        "immersiveUi": {
+          "type": "boolean"
+        },
+        "confirmHighImpactChoices": {
+          "type": "boolean"
+        },
+        "typewriterEffect": {
+          "type": "boolean"
+        },
+        "autoAdvance": {
+          "type": "boolean"
+        },
+        "masterVolume": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "musicVolume": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "ambienceVolume": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "effectsVolume": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "reducedIntensityAudio": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

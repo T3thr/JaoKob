@@ -1,0 +1,65 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and ISO/IEC/IEEE 12207 configuration management processes.
+
+---
+
+## [Unreleased]
+
+### Planned for Sprint 1 (Phase 1A & Phase 1B)
+- Core Domain State Machine implementation (`src/core/state-machine/`)
+- Deterministic Meters and Invariants calculation (`src/core/domain/`)
+- Choice Transaction and Guard resolver (`src/core/use-cases/`)
+- Ports contracts for Renderer and Storage (`src/core/ports/`)
+- LocalStorage Envelope Persistence with staging/backup (`src/data/persistence/`)
+- Semantic DOM Renderer adapter (`src/ui/renderers/dom/`)
+- Initial playable Vertical Slice flow (`src/bootstrap/index.js`, `index.html`)
+
+---
+
+## [0.1.1] - 2026-09-01
+
+> Detailed Audit Record: [CR-20260901-1350](docs/changelog/2026-09/2026-09-01-1350-sprint-1-prep.md)
+
+### Added
+- **Enterprise Documentation Portal:** Added `docs/README.md` as the unified master documentation index.
+- **Documentation Reorganization Audit Log:** Added `docs/ORGANIZATION-LOG.md` recording the structural evolution from Phase 0 flat layout to Enterprise ISO structure.
+- **Sprint 1 SSOT:** Added `docs/sprints/sprint-01-ssot.md` establishing the Single Source of Truth for Sprint 1 (Vertical Slice).
+- **ISO Changelog Standard:** Added `docs/changelog/README.md` and monthly execution log archives (`docs/changelog/YYYY-MM/`).
+- **Codebase Skeleton:** Initialized production folder structure under `src/` (`bootstrap`, `core`, `ui`, `data`) and `tests/` per `05-production-directory-plan.md`.
+
+### Changed
+- Refined `docs/phase-0/01-game-design-document.md` state machine diagram to explicitly include chapter replay transition from `Ending` to `Cutscene`.
+- Clarified `END-NEARBY` conditions in GDD to avoid ambiguity with `END-HOME`.
+- Configured `.gitignore` for initial repository setup.
+
+---
+
+## [0.1.0] - 2026-08-31
+
+> Detailed Audit Record: [CR-20260831-1941](docs/changelog/2026-08/2026-08-31-1941-phase-0-baseline.md)
+
+### Added
+- **Phase 0 Baseline Specifications:**
+  - `00-phase-0-charter.md`: Project charter, life cycle tailoring (ISO/IEC/IEEE 12207), and compliance baseline.
+  - `01-game-design-document.md`: 5-act structure, core loop, player meters (HP, Sanity/พลังใจ, Bond), and ending resolver policies.
+  - `02-narrative-bible.md`: Story world, sensory perceptions, character arcs, and dialogue guidelines.
+  - `03-software-requirements-specification.md`: SRS according to ISO/IEC/IEEE 29148:2018 with 50 Functional and 38 Non-Functional requirements.
+  - `04-architecture-blueprint.md`: Clean Architecture / Ports and Adapters specification and ADRs.
+  - `05-production-directory-plan.md`: Repository layout, ownership boundaries, and phase progression plan.
+  - `06-ai-agent-engineering-guide.md`: Engineering instructions and rules for AI Agents.
+  - `07-git-governance-and-deployment-runbook.md`: Branching strategy, Conventional Commits, and GitHub Pages release flow.
+  - `08-verification-traceability-and-quality-gates.md`: Verification, Validation, and Quality Gates plan.
+- **Machine-Readable Schemas (Draft 2020-12):**
+  - `specs/schemas/common.schema.json`
+  - `specs/schemas/character.schema.json`
+  - `specs/schemas/dialogue.schema.json`
+  - `specs/schemas/event.schema.json`
+  - `specs/schemas/narrative-tree.schema.json`
+  - `specs/schemas/save-state.schema.json`
+  - `specs/schemas/content-package.schema.json`
+- **Agent Governance:**
+  - `AGENTS.md` and repository skill `.agents/skills/jaokob-spec-loop/SKILL.md`.

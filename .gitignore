@@ -13,8 +13,3 @@ coverage/
 _site/
 *.log
 
-# Internal specifications, agent governance, and documentation
-/docs/
-/specs/
-/.agents/
-/AGENTS.md

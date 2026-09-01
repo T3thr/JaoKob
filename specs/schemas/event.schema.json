@@ -1,0 +1,214 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://t3thr.github.io/JaoKob/specs/schemas/event.schema.json",
+  "title": "JaoKob Event Catalog",
+  "description": "ข้อกำหนดเหตุการณ์ เงื่อนไขกระตุ้น และผลลัพธ์แบบกำหนดด้วยข้อมูล",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "events"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "events": {
+      "type": "array",
+      "maxItems": 5000,
+      "items": {
+        "$ref": "#/$defs/event"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "event": {
+      "type": "object",
+      "required": [
+        "id",
+        "category",
+        "title",
+        "priority",
+        "trigger",
+        "conditions",
+        "maxOccurrences",
+        "resolution"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/identifier"
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "story",
+            "hazard",
+            "recovery",
+            "observation",
+            "system"
+          ]
+        },
+        "title": {
+          "$ref": "common.schema.json#/$defs/localizedShortText"
+        },
+        "priority": {
+          "type": "integer",
+          "minimum": -1000,
+          "maximum": 1000
+        },
+        "trigger": {
+          "$ref": "#/$defs/trigger"
+        },
+        "conditions": {
+          "$ref": "common.schema.json#/$defs/condition"
+        },
+        "maxOccurrences": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000
+        },
+        "resolution": {
+          "type": "object",
+          "required": [
+            "effects"
+          ],
+          "properties": {
+            "dialogueIds": {
+              "type": "array",
+              "maxItems": 128,
+              "items": {
+                "$ref": "common.schema.json#/$defs/identifier",
+                "x-jaokob-reference": "dialogue.id"
+              }
+            },
+            "effects": {
+              "type": "array",
+              "maxItems": 64,
+              "items": {
+                "$ref": "common.schema.json#/$defs/effect"
+              }
+            },
+            "nextNodeId": {
+              "$ref": "common.schema.json#/$defs/identifier",
+              "x-jaokob-reference": "narrative-node.id"
+            }
+          },
+          "additionalProperties": false
+        },
+        "tags": {
+          "type": "array",
+          "maxItems": 24,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "common.schema.json#/$defs/identifier"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "trigger": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "state"
+          ],
+          "properties": {
+            "type": {
+              "const": "state-entered"
+            },
+            "state": {
+              "$ref": "common.schema.json#/$defs/gameState"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "nodeId"
+          ],
+          "properties": {
+            "type": {
+              "const": "node-entered"
+            },
+            "nodeId": {
+              "$ref": "common.schema.json#/$defs/identifier",
+              "x-jaokob-reference": "narrative-node.id"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "choiceId"
+          ],
+          "properties": {
+            "type": {
+              "const": "choice-committed"
+            },
+            "choiceId": {
+              "$ref": "common.schema.json#/$defs/identifier",
+              "x-jaokob-reference": "choice.id"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "metric",
+            "operator",
+            "value"
+          ],
+          "properties": {
+            "type": {
+              "const": "metric-threshold"
+            },
+            "metric": {
+              "$ref": "common.schema.json#/$defs/metricName"
+            },
+            "operator": {
+              "type": "string",
+              "enum": [
+                "eq",
+                "gt",
+                "gte",
+                "lt",
+                "lte"
+              ]
+            },
+            "value": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "flagId"
+          ],
+          "properties": {
+            "type": {
+              "const": "flag-changed"
+            },
+            "flagId": {
+              "$ref": "common.schema.json#/$defs/identifier",
+              "x-jaokob-reference": "flag.id"
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}

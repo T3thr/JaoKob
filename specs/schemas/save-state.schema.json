@@ -1,0 +1,328 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://t3thr.github.io/JaoKob/specs/schemas/save-state.schema.json",
+  "title": "JaoKob Save State Envelope",
+  "description": "ซองข้อมูลบันทึกเกมแบบมีเวอร์ชันสำหรับ LocalStorage โดยไม่เก็บข้อมูลส่วนบุคคล",
+  "type": "object",
+  "required": [
+    "saveFormatVersion",
+    "contentVersion",
+    "revision",
+    "createdAt",
+    "savedAt",
+    "reason",
+    "payload",
+    "settings"
+  ],
+  "properties": {
+    "saveFormatVersion": {
+      "const": 1
+    },
+    "contentVersion": {
+      "$ref": "common.schema.json#/$defs/semanticVersion"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "savedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reason": {
+      "type": "string",
+      "enum": [
+        "new-game",
+        "checkpoint",
+        "choice-committed",
+        "settings-changed",
+        "lifecycle-suspend",
+        "migration"
+      ]
+    },
+    "payload": {
+      "$ref": "#/$defs/payload"
+    },
+    "settings": {
+      "$ref": "common.schema.json#/$defs/settings"
+    },
+    "integrity": {
+      "type": "object",
+      "description": "ผลตรวจความเสียหายเชิงอุบัติเหตุ ไม่ใช่ลายมือชื่อเพื่อความมั่นคงปลอดภัย",
+      "required": [
+        "algorithm",
+        "canonicalization",
+        "digest"
+      ],
+      "properties": {
+        "algorithm": {
+          "const": "sha-256"
+        },
+        "canonicalization": {
+          "const": "jaokob-canonical-json-v1"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "payload": {
+      "type": "object",
+      "required": [
+        "sessionId",
+        "startedAt",
+        "playTimeMs",
+        "state",
+        "currentTreeId",
+        "currentNodeId",
+        "checkpoint",
+        "metrics",
+        "flags",
+        "eventOccurrences",
+        "progress",
+        "history",
+        "rng"
+      ],
+      "properties": {
+        "sessionId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "startedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "playTimeMs": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 315576000000
+        },
+        "state": {
+          "$ref": "common.schema.json#/$defs/gameState"
+        },
+        "currentTreeId": {
+          "$ref": "common.schema.json#/$defs/identifier",
+          "x-jaokob-reference": "narrative-tree.treeId"
+        },
+        "currentNodeId": {
+          "$ref": "common.schema.json#/$defs/identifier",
+          "x-jaokob-reference": "narrative-node.id"
+        },
+        "checkpoint": {
+          "$ref": "#/$defs/checkpoint"
+        },
+        "metrics": {
+          "$ref": "common.schema.json#/$defs/metricSnapshot"
+        },
+        "flags": {
+          "type": "array",
+          "maxItems": 5000,
+          "items": {
+            "$ref": "common.schema.json#/$defs/flagEntry"
+          }
+        },
+        "eventOccurrences": {
+          "type": "array",
+          "maxItems": 5000,
+          "items": {
+            "$ref": "#/$defs/eventOccurrence"
+          }
+        },
+        "progress": {
+          "$ref": "#/$defs/progress"
+        },
+        "history": {
+          "type": "array",
+          "maxItems": 200,
+          "items": {
+            "$ref": "#/$defs/historyEntry"
+          }
+        },
+        "rng": {
+          "$ref": "#/$defs/rng"
+        }
+      },
+      "additionalProperties": false
+    },
+    "checkpoint": {
+      "type": "object",
+      "required": [
+        "id",
+        "capturedAt",
+        "treeId",
+        "nodeId",
+        "state",
+        "metrics",
+        "flags",
+        "eventOccurrences",
+        "rng"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/identifier",
+          "x-jaokob-reference": "checkpoint.id"
+        },
+        "capturedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "treeId": {
+          "$ref": "common.schema.json#/$defs/identifier",
+          "x-jaokob-reference": "narrative-tree.treeId"
+        },
+        "nodeId": {
+          "$ref": "common.schema.json#/$defs/identifier",
+          "x-jaokob-reference": "narrative-node.id"
+        },
+        "state": {
+          "$ref": "common.schema.json#/$defs/gameState"
+        },
+        "metrics": {
+          "$ref": "common.schema.json#/$defs/metricSnapshot"
+        },
+        "flags": {
+          "type": "array",
+          "maxItems": 5000,
+          "items": {
+            "$ref": "common.schema.json#/$defs/flagEntry"
+          }
+        },
+        "eventOccurrences": {
+          "type": "array",
+          "maxItems": 5000,
+          "items": {
+            "$ref": "#/$defs/eventOccurrence"
+          }
+        },
+        "rng": {
+          "$ref": "#/$defs/rng"
+        }
+      },
+      "additionalProperties": false
+    },
+    "progress": {
+      "type": "object",
+      "required": [
+        "completedNodeIds",
+        "viewedDialogueIds",
+        "unlockedEndingIds"
+      ],
+      "properties": {
+        "completedNodeIds": {
+          "type": "array",
+          "maxItems": 10000,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "common.schema.json#/$defs/identifier",
+            "x-jaokob-reference": "narrative-node.id"
+          }
+        },
+        "viewedDialogueIds": {
+          "type": "array",
+          "maxItems": 10000,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "common.schema.json#/$defs/identifier",
+            "x-jaokob-reference": "dialogue.id"
+          }
+        },
+        "unlockedEndingIds": {
+          "type": "array",
+          "maxItems": 128,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "common.schema.json#/$defs/identifier",
+            "x-jaokob-reference": "ending.endingId"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "rng": {
+      "type": "object",
+      "required": [
+        "algorithm",
+        "seed",
+        "state"
+      ],
+      "properties": {
+        "algorithm": {
+          "const": "xorshift32-v1"
+        },
+        "seed": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "state": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        }
+      },
+      "additionalProperties": false
+    },
+    "eventOccurrence": {
+      "type": "object",
+      "required": [
+        "eventId",
+        "count"
+      ],
+      "properties": {
+        "eventId": {
+          "$ref": "common.schema.json#/$defs/identifier",
+          "x-jaokob-reference": "event.id"
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000
+        }
+      },
+      "additionalProperties": false
+    },
+    "historyEntry": {
+      "type": "object",
+      "required": [
+        "sequence",
+        "nodeId",
+        "actionId",
+        "committedAt",
+        "metricsAfter"
+      ],
+      "properties": {
+        "sequence": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "nodeId": {
+          "$ref": "common.schema.json#/$defs/identifier",
+          "x-jaokob-reference": "narrative-node.id"
+        },
+        "actionId": {
+          "$ref": "common.schema.json#/$defs/identifier",
+          "x-jaokob-reference": "choice-or-interaction.id"
+        },
+        "committedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metricsAfter": {
+          "$ref": "common.schema.json#/$defs/metricSnapshot"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
