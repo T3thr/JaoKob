@@ -61,9 +61,9 @@
 - [x] **Task 2: Ports Definition (`src/core/ports/`)**
   - สร้าง `ports/renderer-port.js`: Interface สัญญาระหว่าง Core และ UI
   - สร้าง `ports/storage-port.js`: Interface สัญญาระหว่าง Core และ Persistence
-- [ ] **Task 3: Persistence Adapter (`src/data/persistence/`)**
+- [x] **Task 3: Persistence Adapter (`src/data/persistence/`)**
   - สร้าง `local-storage-adapter.js`: จัดการ Staging, Canonical, Backup Save Envelope
-  - สร้าง Unit Tests สำหรับ Save/Load ใน `tests/unit/persistence/`
+  - สร้าง Unit Tests สำหรับ Save/Load ใน `tests/unit/persistence.test.js`
 - [ ] **Task 4: Semantic DOM Renderer Adapter (`src/ui/`)**
   - สร้าง `renderers/dom/dom-renderer.js`: วาด UI จาก View Model ด้วย Semantic HTML
   - วางโครงสร้าง CSS พื้นฐาน (Tokens, Mobile-First Layout, Reset) ใน `styles/`
@@ -105,3 +105,4 @@
 | `CR-20260901-1411` | 2026-09-01T14:11 | สร้าง Branch `develop` และวางแนวทาง Multi-AI Governance | [CR-20260901-1411](../changelog/2026-09/2026-09-01-1411-develop-branch-and-multi-ai-guidelines.md) | Verified |
 | `CR-20260901-1940` | 2026-09-01T19:40 | พัฒนาและตรวจสอบ Core Domain, State Machine, Choice Transaction และ Port Contracts | [CR-20260901-1940](../changelog/2026-09/2026-09-01-1940-core-domain-state-machine.md) | Verified |
 | `CR-20260902-0325` | 2026-09-02T03:25 | รวม PR #1 ของ Core Domain และ State Machine เข้า `develop` และส่งมอบ handoff ให้ Task 3 | [CR-20260902-0325](../changelog/2026-09/2026-09-02-0325-core-domain-merge.md) | Verified |
+| `CR-20260902-0337` | 2026-09-02T03:37 | พัฒนาและตรวจสอบ LocalStorage Persistence Adapter พร้อม sync จาก PR #1/#2 | [CR-20260902-0337](../changelog/2026-09/2026-09-02-0337-persistence-adapter.md) | Verified (scoped unit evidence) |
