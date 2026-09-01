@@ -9,11 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Implemented deterministic Core metrics, the guarded `TR-001` through `TR-020` state machine, and atomic Choice Transaction with 140 passing unit cases. [Detailed audit record](docs/changelog/2026-09/2026-09-01-1940-core-domain-state-machine.md)
+- Added immutable structural contracts for Renderer and Save Repository ports without Browser API or runtime dependencies.
+
 ### Planned for Sprint 1 (Phase 1A & Phase 1B)
-- Core Domain State Machine implementation (`src/core/state-machine/`)
-- Deterministic Meters and Invariants calculation (`src/core/domain/`)
-- Choice Transaction and Guard resolver (`src/core/use-cases/`)
-- Ports contracts for Renderer and Storage (`src/core/ports/`)
 - LocalStorage Envelope Persistence with staging/backup (`src/data/persistence/`)
 - Semantic DOM Renderer adapter (`src/ui/renderers/dom/`)
 - Initial playable Vertical Slice flow (`src/bootstrap/index.js`, `index.html`)

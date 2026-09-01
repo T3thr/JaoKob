@@ -53,12 +53,12 @@
 
 ## 4. แผนงานย่อย (Work Breakdown Structure - WBS)
 
-- [ ] **Task 1: Core Domain Foundation (`src/core/`)**
+- [x] **Task 1: Core Domain Foundation (`src/core/`)**
   - สร้าง `domain/meters.js`: ฟังก์ชันคำนวณและ clamp ค่า HP, Sanity, Bond (0-100)
   - สร้าง `state-machine/game-state.js`: Finite State Machine ที่มี Transition Guards
   - สร้าง `use-cases/choice-transaction.js`: จัดการการเลือก choice และคำนวณผลลัพธ์
-  - สร้าง Unit Tests สำหรับ Core Logic ใน `tests/unit/core/`
-- [ ] **Task 2: Ports Definition (`src/core/ports/`)**
+  - สร้าง Unit Tests สำหรับ Core Logic ใน `tests/unit/`
+- [x] **Task 2: Ports Definition (`src/core/ports/`)**
   - สร้าง `ports/renderer-port.js`: Interface สัญญาระหว่าง Core และ UI
   - สร้าง `ports/storage-port.js`: Interface สัญญาระหว่าง Core และ Persistence
 - [ ] **Task 3: Persistence Adapter (`src/data/persistence/`)**
@@ -103,3 +103,4 @@
 | `CR-20260901-1401` | 2026-09-01T14:01 | กำหนด Autonomous Execution Protocol ใน `AGENTS.md` | [CR-20260901-1401](../changelog/2026-09/2026-09-01-1401-agent-autonomous-protocol.md) | Verified |
 | `CR-20260901-1402` | 2026-09-01T14:02 | ย้าย Prompt Template ออกจาก `docs/` ไปยัง `.agents/prompts/` | [CR-20260901-1402](../changelog/2026-09/2026-09-01-1402-master-prompt-template.md) | Verified |
 | `CR-20260901-1411` | 2026-09-01T14:11 | สร้าง Branch `develop` และวางแนวทาง Multi-AI Governance | [CR-20260901-1411](../changelog/2026-09/2026-09-01-1411-develop-branch-and-multi-ai-guidelines.md) | Verified |
+| `CR-20260901-1940` | 2026-09-01T19:40 | พัฒนาและตรวจสอบ Core Domain, State Machine, Choice Transaction และ Port Contracts | [CR-20260901-1940](../changelog/2026-09/2026-09-01-1940-core-domain-state-machine.md) | Verified |
