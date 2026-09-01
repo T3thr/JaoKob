@@ -13,9 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Implemented deterministic Core metrics, the guarded `TR-001` through `TR-020` state machine, and atomic Choice Transaction with 140 passing unit cases. [Detailed audit record](docs/changelog/2026-09/2026-09-01-1940-core-domain-state-machine.md)
 - Added immutable structural contracts for Renderer and Save Repository ports without Browser API or runtime dependencies.
 - Merged PR #1 (`53a458a`) from `feat/sprint-01-core-domain` into `develop`; Sprint 1 Tasks 1 and 2 are now integrated. [Merge audit record](docs/changelog/2026-09/2026-09-02-0325-core-domain-merge.md)
+- Added a resilient current-v1 LocalStorage SaveRepository adapter with staging/backup recovery, typed failure handling, 250 KB guard, and 36 passing focused unit tests. [Detailed audit record](docs/changelog/2026-09/2026-09-02-0337-persistence-adapter.md)
 
 ### Planned for Sprint 1 (Phase 1A & Phase 1B)
-- LocalStorage Envelope Persistence with staging/backup (`src/data/persistence/`)
 - Semantic DOM Renderer adapter (`src/ui/renderers/dom/`)
 - Initial playable Vertical Slice flow (`src/bootstrap/index.js`, `index.html`)
 
