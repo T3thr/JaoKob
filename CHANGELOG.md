@@ -14,9 +14,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added immutable structural contracts for Renderer and Save Repository ports without Browser API or runtime dependencies.
 - Merged PR #1 (`53a458a`) from `feat/sprint-01-core-domain` into `develop`; Sprint 1 Tasks 1 and 2 are now integrated. [Merge audit record](docs/changelog/2026-09/2026-09-02-0325-core-domain-merge.md)
 - Added a resilient current-v1 LocalStorage SaveRepository adapter with staging/backup recovery, typed failure handling, 250 KB guard, and 36 passing focused unit tests. [Detailed audit record](docs/changelog/2026-09/2026-09-02-0337-persistence-adapter.md)
+- Added a semantic DOM RendererPort adapter with safe text rendering, focus/live-region recovery behavior, Thai system fallback, and mobile-first accessible nostalgic styles. [Detailed audit record](docs/changelog/2026-09/2026-09-02-0427-dom-renderer.md)
 
 ### Planned for Sprint 1 (Phase 1A & Phase 1B)
-- Semantic DOM Renderer adapter (`src/ui/renderers/dom/`)
 - Initial playable Vertical Slice flow (`src/bootstrap/index.js`, `index.html`)
 
 ---

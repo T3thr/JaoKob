@@ -1,0 +1,86 @@
+/* Mobile-first responsive structure: HUD, story, then action tray. */
+
+.jk-app-content {
+  min-block-size: 100%;
+}
+
+.jk-app-shell {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  min-block-size: 100dvb;
+  max-inline-size: var(--jk-content-max);
+  margin-inline: auto;
+  background:
+    linear-gradient(160deg, rgb(169 202 214 / 32%), transparent 34rem),
+    var(--jk-color-cloud);
+}
+
+.jk-hud {
+  display: grid;
+  gap: var(--jk-space-3);
+  padding: var(--jk-space-4);
+  color: var(--jk-color-cloud);
+  background: var(--jk-color-moss-950);
+  border-block-end: 0.25rem solid var(--jk-color-gold-600);
+}
+
+.jk-eyebrow {
+  color: var(--jk-color-gold-300);
+  font-size: var(--jk-text-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.jk-scene-title {
+  max-inline-size: var(--jk-reading-max);
+  font-family: var(--jk-font-serif);
+  font-size: var(--jk-text-xl);
+  line-height: 1.25;
+}
+
+.jk-story {
+  display: grid;
+  align-content: center;
+  padding: var(--jk-space-5) var(--jk-space-4);
+}
+
+.jk-narrative {
+  inline-size: min(100%, var(--jk-reading-max));
+  margin-inline: auto;
+}
+
+.jk-choice-area {
+  padding: var(--jk-space-4);
+  background: var(--jk-color-mist);
+  border-block-start: 1px solid var(--jk-color-slate-300);
+}
+
+.jk-choice-list {
+  display: grid;
+  gap: var(--jk-space-3);
+  max-inline-size: var(--jk-reading-max);
+  margin-inline: auto;
+  list-style: none;
+}
+
+@media (min-width: 48rem) {
+  .jk-hud {
+    grid-template-columns: minmax(12rem, 1fr) minmax(24rem, 2fr);
+    align-items: end;
+    padding: var(--jk-space-5) var(--jk-space-6);
+  }
+
+  .jk-story {
+    padding: var(--jk-space-8) var(--jk-space-6);
+  }
+
+  .jk-choice-area {
+    padding: var(--jk-space-5) var(--jk-space-6);
+  }
+}
+
+@media (min-width: 90rem) {
+  .jk-app-shell {
+    box-shadow: var(--jk-shadow-soft);
+  }
+}

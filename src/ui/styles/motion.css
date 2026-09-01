@@ -1,0 +1,60 @@
+/* Gentle scene feedback; all non-essential motion honours the OS preference. */
+
+@keyframes jk-scene-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes jk-feedback-settle {
+  from {
+    opacity: 0;
+    transform: translateY(0.25rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.jk-app .jk-scene-enter {
+  animation: jk-scene-fade-in var(--jk-motion-base) ease-out both;
+}
+
+.jk-app .jk-feedback {
+  animation: jk-feedback-settle var(--jk-motion-base) ease-out both;
+}
+
+.jk-app .jk-choice-button,
+.jk-app .jk-secondary-button {
+  transition: background-color var(--jk-motion-fast) ease, transform var(--jk-motion-fast) ease;
+}
+
+.jk-app .jk-choice-button:active,
+.jk-app .jk-secondary-button:active {
+  transform: translateY(0.0625rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jk-app .jk-scene-enter,
+  .jk-app .jk-feedback {
+    animation: none;
+  }
+
+  .jk-app .jk-choice-button,
+  .jk-app .jk-secondary-button {
+    transition: none;
+  }
+
+  .jk-app .jk-choice-button:active,
+  .jk-app .jk-secondary-button:active {
+    transform: none;
+  }
+}

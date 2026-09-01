@@ -1,0 +1,54 @@
+/*
+ * JaoKob visual tokens. Scope stays inside .jk-app so embedding the game does
+ * not alter a host page's global styles.
+ *
+ * Trace: GDD-VIS-001, NFR-CO-001, NFR-US-006.
+ */
+
+.jk-app {
+  --jk-color-moss-950: #19352b;
+  --jk-color-moss-800: #285d46;
+  --jk-color-moss-600: #4f8061;
+  --jk-color-rain-900: #1d3f56;
+  --jk-color-rain-700: #35647d;
+  --jk-color-rain-300: #a9cad6;
+  --jk-color-soil-900: #432f23;
+  --jk-color-soil-700: #72533a;
+  --jk-color-gold-800: #8a5718;
+  --jk-color-gold-600: #b57822;
+  --jk-color-gold-300: #efcf8b;
+  --jk-color-slate-950: #1d2830;
+  --jk-color-slate-700: #43535d;
+  --jk-color-slate-300: #bdc9cc;
+  --jk-color-cloud: #f8f3e8;
+  --jk-color-mist: #e8ede8;
+  --jk-color-white: #ffffff;
+  --jk-color-danger: #9c3e36;
+  --jk-color-focus: #8a5718;
+
+  --jk-font-sans: "Noto Sans Thai", "Leelawadee UI", Tahoma, Arial, sans-serif;
+  --jk-font-serif: "Noto Serif Thai", "Th Sarabun New", Georgia, serif;
+  --jk-text-xs: 0.8125rem;
+  --jk-text-sm: 0.9375rem;
+  --jk-text-base: 1rem;
+  --jk-text-lg: 1.25rem;
+  --jk-text-xl: clamp(1.5rem, 5vw, 2.25rem);
+
+  --jk-space-1: 0.25rem;
+  --jk-space-2: 0.5rem;
+  --jk-space-3: 0.75rem;
+  --jk-space-4: 1rem;
+  --jk-space-5: 1.5rem;
+  --jk-space-6: 2rem;
+  --jk-space-8: 3rem;
+  --jk-content-max: 72rem;
+  --jk-reading-max: 46rem;
+  --jk-radius-sm: 0.5rem;
+  --jk-radius-md: 0.875rem;
+  --jk-radius-lg: 1.25rem;
+  --jk-shadow-soft: 0 0.75rem 2rem rgb(29 40 48 / 16%);
+  --jk-shadow-raised: 0 0.4rem 0.85rem rgb(29 40 48 / 20%);
+  --jk-focus-ring: 0 0 0 0.25rem rgb(138 87 24 / 42%);
+  --jk-motion-fast: 140ms;
+  --jk-motion-base: 260ms;
+}
