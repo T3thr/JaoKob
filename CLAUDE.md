@@ -3,6 +3,11 @@
 Welcome to the **JaoKob (เจ้ากบ)** repository.  
 This project adheres to **ISO/IEC/IEEE 12207:2017** and **Clean Architecture (Ports and Adapters)** standards.
 
+## Contributor Identity (Strict Rule)
+- **Git Committer Name:** `T3thr`
+- **Git Committer Email:** `t.theerapat33@gmail.com`
+- **MANDATORY CHECK:** Before any commit, verify `git config user.email` is `t.theerapat33@gmail.com`. Never commit with corporate/external emails (e.g. `theerapat.p@codefin.io`).
+
 ## Authoritative Governance (Must Read)
 1. **Repository System Rules:** Read [AGENTS.md](AGENTS.md) unconditionally before taking any action.
 2. **Operations Manual:** Read [docs/README.md](docs/README.md) for repository directory structure, pre-execution and post-execution checklists.

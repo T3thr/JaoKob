@@ -54,6 +54,18 @@ GitHub เปลี่ยนหน้าจอ สิทธิ์ Action Version
 
 Branch Name ใช้อักษรอังกฤษตัวเล็ก ตัวเลข ขีดกลาง และ Requirement หรือ Change ID ที่เกี่ยวข้อง เช่น `feat/fr-sta-003-decision-guard`
 
+### 4.1 Contributor Identity Standard
+
+เพื่อให้ประวัติ Git และ GitHub Contributors ถูกต้องตามสิทธิ์ความเป็นเจ้าของโครงการ:
+- **Repository Owner & Author Name:** `T3thr`
+- **Author Email:** `t.theerapat33@gmail.com`
+- **การบังคับใช้ระดับ Local:** ทุกสภาพแวดล้อมการพัฒนาและ AI Agent ต้องตั้งค่า Local Config:
+  ```bash
+  git config --local user.name "T3thr"
+  git config --local user.email "t.theerapat33@gmail.com"
+  ```
+- **ข้อห้ามเด็ดขาด:** ห้ามใช้บัญชีองค์กรภายนอก (เช่น บัญชีงาน บัญชีสถาบัน หรืออีเมลอื่นใด) ในการ Commit หรือ Push สู่ Repository นี้เด็ดขาด
+
 ห้ามสร้าง Branch แยกตามบุคคล ห้ามเก็บ Integration Branch ระยะยาว และห้าม Force Push ไปยัง Shared Branch หากจำเป็นต้องแก้ Topic Branch ส่วนบุคคล ต้องตรวจว่าไม่มีผู้ใช้งานร่วมและได้รับอนุญาตก่อน
 
 ข้อยกเว้นเดียวของกฎ Pull Request สำหรับ `main` คือ Bootstrap ครั้งแรกไปยัง Remote ที่ตรวจยืนยันแล้วว่าไม่มี Ref ใดเลย เพราะยังไม่มี Base Branch สำหรับสร้าง Pull Request ข้อยกเว้นนี้ต้องได้รับ Human Approval แยก บันทึก Commit SHA และเปิด Ruleset ทันทีหลัง Push สำเร็จ การ Push ครั้งถัดไปต้องผ่าน Pull Request ตามปกติ

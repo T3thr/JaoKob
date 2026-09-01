@@ -44,6 +44,7 @@
 เมื่อผู้ใช้สั่งงานด้วยข้อความสั้น เช่น *"เริ่ม Task 1"*, *"ทำ Task ถัดไป"*, *"เขียน meters.js"*, หรือ *"ลุยต่อได้เลย"* AI Agent ต้องเข้าใจบริบทและทำงานแบบ Full-Cycle ทันทีโดยไม่ต้องให้ผู้ใช้พิมพ์ Prompt ซ้ำซ้อน:
 
 1. **Pre-Execution (เตรียมตัว):**
+   - ตรวจสอบ Git Identity ทันทีตามข้อ 5 (ต้องเป็น `T3thr <t.theerapat33@gmail.com>` เท่านั้น)
    - โหลด `docs/sprints/sprint-01-ssot.md` เพื่อทราบว่า Task ดังกล่าวมี Requirement IDs, Acceptance Criteria และไฟล์เป้าหมายอะไร
    - อ่านบันทึก Change Record ล่าสุดใน `docs/changelog/2026-09/` เพื่อทราบสถานะก่อนหน้า
    - ตรวจสอบ Git Branch: แตก Branch ใหม่จาก `develop` เสมอตามข้อ 5
@@ -56,13 +57,17 @@
    - บันทึกรหัส Record ลงในทะเบียน Section 7 ของ `docs/sprints/sprint-01-ssot.md` และทำเครื่องหมาย `[x]` ใน WBS
    - ทำ Commit และ Push ขึ้น Feature Branch แล้วสร้าง Pull Request (PR) สู่ `develop`
 
-## 5. Git Governance & Branching Workflow (กติกาการจัดการ Branch สำหรับ AI)
+## 5. Contributor Identity & Git Governance (กติกาตัวตนและ Branching สำหรับ AI)
 
+- **Repository Owner Identity (อัตลักษณ์เจ้าของโครงการ):**
+  - **Git Committer Name:** `T3thr`
+  - **Git Committer Email:** `t.theerapat33@gmail.com`
+  - **กฎเหล็กเรื่องตัวตน (Strict Identity Rule):** AI Agent ทุกตัวต้องตรวจสอบ `git config user.email` ก่อนทำการ commit เสมอ หากไม่ใช่ `t.theerapat33@gmail.com` ให้สั่งการ `git config --local user.name "T3thr"` และ `git config --local user.email "t.theerapat33@gmail.com"` ทันที ห้ามใช้บัญชีองค์กร/ภายนอก (เช่น `theerapat.p@codefin.io` หรืออื่นๆ) มา commit หรือ push ใน repository นี้โดยเด็ดขาด
 - **Remote:** `https://github.com/T3thr/JaoKob.git`
 - **Protected Branches:**
   - `main`: Production Release Source เท่านั้น (ห้าม AI ทำ Direct Commit หรือ Direct Push เด็ดขาด)
   - `develop`: Integration Staging Branch สำหรับรวบรวมงานในแต่ละ Sprint
-- **Feature Branching Protocol:**
+- **Feature Branching & PR Protocol:**
   1. ก่อนเริ่ม Task ให้ตรวจสอบและดึงโค้ดล่าสุด: `git checkout develop && git pull`
   2. แตก Short-lived Feature Branch ตาม Task: `git checkout -b feat/sprint-NN-<task-slug>` (เช่น `feat/sprint-01-core-domain`)
   3. พัฒนาและรัน Automated Tests ให้ผ่าน 100%

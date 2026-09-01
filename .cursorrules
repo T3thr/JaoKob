@@ -1,6 +1,7 @@
 # Cursor AI Rules for JaoKob
 # You MUST strictly adhere to AGENTS.md, docs/README.md, and docs/sprints/sprint-01-ssot.md.
 # Key invariants:
-# 1. src/core/ must be pure ES Modules (Zero DOM/Web API, Zero external runtime dependencies).
-# 2. Develop on feat/sprint-NN-<task-slug> branches branched off 'develop'. Never commit to 'main'.
-# 3. Always create an audit record in docs/changelog/YYYY-MM/ and update CHANGELOG.md before finishing any task.
+# 1. Contributor Identity: ALWAYS commit as 'T3thr <t.theerapat33@gmail.com>'. Never use corporate/external accounts.
+# 2. src/core/ must be pure ES Modules (Zero DOM/Web API, Zero external runtime dependencies).
+# 3. Develop on feat/sprint-NN-<task-slug> branches branched off 'develop'. Never commit to 'main'.
+# 4. Always create an audit record in docs/changelog/YYYY-MM/ and update CHANGELOG.md before finishing any task.
