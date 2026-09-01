@@ -104,3 +104,4 @@
 | `CR-20260901-1402` | 2026-09-01T14:02 | ย้าย Prompt Template ออกจาก `docs/` ไปยัง `.agents/prompts/` | [CR-20260901-1402](../changelog/2026-09/2026-09-01-1402-master-prompt-template.md) | Verified |
 | `CR-20260901-1411` | 2026-09-01T14:11 | สร้าง Branch `develop` และวางแนวทาง Multi-AI Governance | [CR-20260901-1411](../changelog/2026-09/2026-09-01-1411-develop-branch-and-multi-ai-guidelines.md) | Verified |
 | `CR-20260901-1940` | 2026-09-01T19:40 | พัฒนาและตรวจสอบ Core Domain, State Machine, Choice Transaction และ Port Contracts | [CR-20260901-1940](../changelog/2026-09/2026-09-01-1940-core-domain-state-machine.md) | Verified |
+| `CR-20260902-0325` | 2026-09-02T03:25 | รวม PR #1 ของ Core Domain และ State Machine เข้า `develop` และส่งมอบ handoff ให้ Task 3 | [CR-20260902-0325](../changelog/2026-09/2026-09-02-0325-core-domain-merge.md) | Verified |
