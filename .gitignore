@@ -1,0 +1,20 @@
+# Operating-system metadata
+.DS_Store
+**/.DS_Store
+
+# Local secrets and machine-specific configuration
+.env
+.env.*
+!.env.example
+
+# Generated development and deployment artifacts
+node_modules/
+coverage/
+_site/
+*.log
+
+# Internal specifications, agent governance, and documentation
+/docs/
+/specs/
+/.agents/
+/AGENTS.md
