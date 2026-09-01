@@ -22,19 +22,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.1] - 2026-09-01
 
-> Detailed Audit Record: [CR-20260901-1350](docs/changelog/2026-09/2026-09-01-1350-sprint-1-prep.md)
+> Detailed Audit Records: 
+> - [CR-20260901-1350: Sprint 1 Preparation & Directory Setup](docs/changelog/2026-09/2026-09-01-1350-sprint-1-prep.md)
+> - [CR-20260901-1358: Unlocking Gitignore, Operations Manual, and Baseline Push](docs/changelog/2026-09/2026-09-01-1358-unlock-gitignore-and-ops-manual.md)
 
 ### Added
-- **Enterprise Documentation Portal:** Added `docs/README.md` as the unified master documentation index.
+- **Enterprise Documentation Portal & Operations Manual:** Added `docs/README.md` as the unified master documentation index and engineering operating manual.
 - **Documentation Reorganization Audit Log:** Added `docs/ORGANIZATION-LOG.md` recording the structural evolution from Phase 0 flat layout to Enterprise ISO structure.
 - **Sprint 1 SSOT:** Added `docs/sprints/sprint-01-ssot.md` establishing the Single Source of Truth for Sprint 1 (Vertical Slice).
 - **ISO Changelog Standard:** Added `docs/changelog/README.md` and monthly execution log archives (`docs/changelog/YYYY-MM/`).
-- **Codebase Skeleton:** Initialized production folder structure under `src/` (`bootstrap`, `core`, `ui`, `data`) and `tests/` per `05-production-directory-plan.md`.
+- **Codebase Skeleton:** Initialized production folder structure under `src/` (`bootstrap`, `core`, `ui`, `data`) and `tests/` per `05-production-directory-plan.md` with `.gitkeep`.
 
 ### Changed
+- **Git Tracking:** Unlocked `.gitignore` to track all `docs/`, `specs/`, `.agents/`, and `AGENTS.md` per ISO 12207 configuration management and audit requirements.
 - Refined `docs/phase-0/01-game-design-document.md` state machine diagram to explicitly include chapter replay transition from `Ending` to `Cutscene`.
 - Clarified `END-NEARBY` conditions in GDD to avoid ambiguity with `END-HOME`.
-- Configured `.gitignore` for initial repository setup.
 
 ---
 
