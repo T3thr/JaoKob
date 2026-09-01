@@ -88,4 +88,17 @@
 1. โค้ดทั้งหมดผ่านการตรวจสอบ Dependency Direction ไม่มีการ import ข้ามชั้นผิดกฎ
 2. Unit Test สำหรับ State Machine และ Choice Transaction รันผ่าน 100%
 3. ทดสอบการเล่นบนเบราว์เซอร์จริงผ่าน Core Loop: Title -> Cutscene -> Choice -> State Update -> Save สำเร็จ
-4. อัปเดตบันทึกการส่งมอบใน [CHANGELOG.md](../../CHANGELOG.md) ทุกครั้ง
+4. บันทึกผลการทำงานลงใน `docs/changelog/` และ [CHANGELOG.md](../../CHANGELOG.md) ตามมาตรฐาน
+
+---
+
+## 7. ทะเบียนประวัติการเปลี่ยนแปลงของสปรินต์ (Sprint Audit Trail & Changelog Register)
+
+ตารางนี้เป็นตัวเชื่อมโยงระหว่าง Sprint SSOT กับบันทึกใน `docs/changelog/` เพื่อให้สามารถตรวจสอบย้อนกลับ (Traceability) ได้อย่างโปร่งใสตามมาตรฐาน ISO/IEC/IEEE 12207:
+
+| รหัสบันทึก (Record ID) | วันที่-เวลา (Timestamp) | หัวข้องาน (Task / Milestone) | ไฟล์บันทึกฉบับเต็ม | สถานะ |
+|---|---|---|---|:---:|
+| `CR-20260901-1350` | 2026-09-01T13:50 | เตรียมความพร้อม Sprint 1, จัดระเบียบ docs และโครงสร้างโฟลเดอร์ | [CR-20260901-1350](../changelog/2026-09/2026-09-01-1350-sprint-1-prep.md) | Verified |
+| `CR-20260901-1358` | 2026-09-01T13:58 | ปลดล็อค Gitignore, ปรับปรุง Operations Manual, และ Baseline Push | [CR-20260901-1358](../changelog/2026-09/2026-09-01-1358-unlock-gitignore-and-ops-manual.md) | Verified |
+| `CR-20260901-1401` | 2026-09-01T14:01 | กำหนด Autonomous Execution Protocol ใน `AGENTS.md` | [CR-20260901-1401](../changelog/2026-09/2026-09-01-1401-agent-autonomous-protocol.md) | Verified |
+| `CR-20260901-1402` | 2026-09-01T14:02 | ย้าย Prompt Template ออกจาก `docs/` ไปยัง `.agents/prompts/` | [CR-20260901-1402](../changelog/2026-09/2026-09-01-1402-master-prompt-template.md) | Verified |
