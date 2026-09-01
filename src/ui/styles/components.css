@@ -1,0 +1,221 @@
+/* Semantic component styling. Text and iconography supplement every color cue. */
+
+.jk-meter-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: var(--jk-space-2);
+}
+
+.jk-meter {
+  display: grid;
+  gap: var(--jk-space-1);
+  min-inline-size: 0;
+}
+
+.jk-meter-label,
+.jk-meter-value {
+  display: flex;
+  align-items: center;
+  gap: var(--jk-space-2);
+}
+
+.jk-meter-label {
+  color: var(--jk-color-cloud);
+  font-size: var(--jk-text-sm);
+  font-weight: 700;
+}
+
+.jk-meter-icon {
+  display: inline-grid;
+  place-items: center;
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  color: var(--jk-color-gold-300);
+}
+
+.jk-meter-value {
+  color: var(--jk-color-cloud);
+}
+
+.jk-meter-track {
+  flex: 1 1 auto;
+  min-inline-size: 3rem;
+  overflow: hidden;
+  background: rgb(255 255 255 / 21%);
+  border: 1px solid rgb(255 255 255 / 48%);
+  border-radius: 999px;
+}
+
+.jk-meter-fill {
+  display: block;
+  block-size: 0.625rem;
+  background: var(--jk-color-gold-300);
+  border-radius: inherit;
+}
+
+.jk-meter-number {
+  min-inline-size: 3.5rem;
+  font-size: var(--jk-text-xs);
+  text-align: end;
+}
+
+.jk-speaker {
+  margin-block-end: var(--jk-space-2);
+  color: var(--jk-color-moss-800);
+}
+
+.jk-dialogue {
+  font-family: var(--jk-font-serif);
+  font-size: var(--jk-text-lg);
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+
+.jk-feedback,
+.jk-first-run-notice,
+.jk-cutscene-controls,
+.jk-game-over,
+.jk-fatal-shell {
+  margin-block-start: var(--jk-space-5);
+  padding: var(--jk-space-4);
+  background: var(--jk-color-white);
+  border: 1px solid var(--jk-color-slate-300);
+  border-radius: var(--jk-radius-md);
+  box-shadow: var(--jk-shadow-soft);
+}
+
+.jk-feedback {
+  border-inline-start: 0.375rem solid var(--jk-color-rain-700);
+}
+
+.jk-first-run-notice {
+  border-inline-start: 0.375rem solid var(--jk-color-gold-600);
+}
+
+.jk-meter-changes,
+.jk-first-run-list,
+.jk-cutscene-log {
+  display: grid;
+  gap: var(--jk-space-2);
+  margin-block-start: var(--jk-space-3);
+  padding-inline-start: var(--jk-space-5);
+}
+
+.jk-meter-changes {
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+.jk-meter-change {
+  display: flex;
+  gap: var(--jk-space-2);
+  align-items: baseline;
+}
+
+.jk-meter-change-symbol {
+  min-inline-size: 1em;
+  color: var(--jk-color-moss-800);
+  font-weight: 800;
+}
+
+.jk-meter-change[data-direction="negative"] .jk-meter-change-symbol {
+  color: var(--jk-color-danger);
+}
+
+.jk-choice-button,
+.jk-secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 100%;
+  min-inline-size: 44px;
+  min-block-size: 44px;
+  padding: var(--jk-space-3) var(--jk-space-4);
+  color: var(--jk-color-white);
+  background: var(--jk-color-moss-800);
+  border: 2px solid transparent;
+  border-radius: var(--jk-radius-sm);
+  box-shadow: var(--jk-shadow-raised);
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: start;
+}
+
+.jk-choice-button:hover,
+.jk-secondary-button:hover {
+  background: var(--jk-color-moss-950);
+}
+
+.jk-choice-button:disabled {
+  color: var(--jk-color-slate-700);
+  background: var(--jk-color-slate-300);
+  box-shadow: none;
+}
+
+.jk-choice-reason {
+  margin-block-start: var(--jk-space-2);
+  color: var(--jk-color-slate-700);
+  font-size: var(--jk-text-sm);
+}
+
+.jk-cutscene-actions,
+.jk-game-over-actions {
+  display: grid;
+  gap: var(--jk-space-3);
+  margin-block-start: var(--jk-space-3);
+}
+
+.jk-cutscene-speed,
+.jk-cutscene-toggle {
+  display: grid;
+  gap: var(--jk-space-2);
+  font-weight: 700;
+}
+
+.jk-cutscene-speed select {
+  min-inline-size: 44px;
+  min-block-size: 44px;
+  padding-inline: var(--jk-space-3);
+  color: var(--jk-color-slate-950);
+  background: var(--jk-color-cloud);
+  border: 2px solid var(--jk-color-slate-700);
+  border-radius: var(--jk-radius-sm);
+}
+
+.jk-cutscene-toggle {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  min-block-size: 44px;
+}
+
+.jk-cutscene-toggle input {
+  inline-size: 44px;
+  block-size: 44px;
+}
+
+.jk-game-over {
+  border-inline-start: 0.375rem solid var(--jk-color-gold-800);
+}
+
+.jk-fatal-shell {
+  max-inline-size: var(--jk-reading-max);
+  margin: var(--jk-space-6) auto;
+  border-color: var(--jk-color-danger);
+  border-inline-start: 0.375rem solid var(--jk-color-danger);
+}
+
+.jk-fatal-shell .jk-secondary-button,
+.jk-game-over .jk-secondary-button {
+  margin-block-start: var(--jk-space-4);
+}
+
+@media (min-width: 48rem) {
+  .jk-choice-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .jk-cutscene-actions,
+  .jk-game-over-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
