@@ -27,6 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 > - [CR-20260901-1358: Unlocking Gitignore, Operations Manual, and Baseline Push](docs/changelog/2026-09/2026-09-01-1358-unlock-gitignore-and-ops-manual.md)
 > - [CR-20260901-1401: Autonomous Execution Protocol in AGENTS.md](docs/changelog/2026-09/2026-09-01-1401-agent-autonomous-protocol.md)
 > - [CR-20260901-1402: Sprint 1 Master Execution Prompt Template](docs/changelog/2026-09/2026-09-01-1402-master-prompt-template.md)
+> - [CR-20260901-1411: Develop Branch Setup and Multi-AI Guidelines](docs/changelog/2026-09/2026-09-01-1411-develop-branch-and-multi-ai-guidelines.md)
 
 ### Added
 - **Enterprise Documentation Portal & Operations Manual:** Added `docs/README.md` as the unified master documentation index and engineering operating manual.
