@@ -2,7 +2,7 @@
 
 รหัสสปรินต์: `SPRINT-01`  
 เป้าหมายหลัก: **Core Vertical Slice & Architecture Foundation**  
-สถานะ: Ready for Execution  
+สถานะ: Completed (100% WBS; pending human PR review)
 รอบการส่งมอบ: Phase 1A & Phase 1B  
 มาตรฐานอ้างอิง: ISO/IEC/IEEE 12207:2017 (Software Implementation Process), ISO/IEC/IEEE 29148:2018  
 
@@ -67,7 +67,7 @@
 - [x] **Task 4: Semantic DOM Renderer Adapter (`src/ui/`)**
   - สร้าง `renderers/dom/dom-renderer.js`: วาด UI จาก View Model ด้วย Semantic HTML
   - วางโครงสร้าง CSS พื้นฐาน (Tokens, Mobile-First Layout, Reset) ใน `styles/`
-- [ ] **Task 5: Bootstrap & Vertical Slice Verification (`src/bootstrap/` & `index.html`)**
+- [x] **Task 5: Bootstrap & Vertical Slice Verification (`src/bootstrap/` & `index.html`)**
   - สร้าง `index.html` แบบ semantic
   - สร้าง `src/bootstrap/index.js` ประกอบระบบและรัน First Playable Slice
   - บันทึกผลการทดสอบและการทำงานลงใน [CHANGELOG.md](../../CHANGELOG.md)
@@ -107,3 +107,4 @@
 | `CR-20260902-0325` | 2026-09-02T03:25 | รวม PR #1 ของ Core Domain และ State Machine เข้า `develop` และส่งมอบ handoff ให้ Task 3 | [CR-20260902-0325](../changelog/2026-09/2026-09-02-0325-core-domain-merge.md) | Verified |
 | `CR-20260902-0337` | 2026-09-02T03:37 | พัฒนาและตรวจสอบ LocalStorage Persistence Adapter พร้อม sync จาก PR #1/#2 | [CR-20260902-0337](../changelog/2026-09/2026-09-02-0337-persistence-adapter.md) | Verified (scoped unit evidence) |
 | `CR-20260902-0427` | 2026-09-02T04:27 | พัฒนา Semantic DOM Renderer, Thai recovery fallback, accessible styles และ unit tests | [CR-20260902-0427](../changelog/2026-09/2026-09-02-0427-dom-renderer.md) | Verified (scoped DOM/unit evidence) |
+| `CR-20260902-0958` | 2026-09-02T09:58 | ประกอบ First Playable Slice, ตรวจ Core Loop/Auto-save/Resume บนเบราว์เซอร์ และปิด Sprint 1 | [CR-20260902-0958](../changelog/2026-09/2026-09-02-0958-bootstrap-playable-slice.md) | Verified (183 unit tests + browser smoke) |

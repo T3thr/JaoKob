@@ -9,15 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-09-02
+
+> Sprint 1: Core Vertical Slice Complete
+
 ### Added
 - Implemented deterministic Core metrics, the guarded `TR-001` through `TR-020` state machine, and atomic Choice Transaction with 140 passing unit cases. [Detailed audit record](docs/changelog/2026-09/2026-09-01-1940-core-domain-state-machine.md)
 - Added immutable structural contracts for Renderer and Save Repository ports without Browser API or runtime dependencies.
 - Merged PR #1 (`53a458a`) from `feat/sprint-01-core-domain` into `develop`; Sprint 1 Tasks 1 and 2 are now integrated. [Merge audit record](docs/changelog/2026-09/2026-09-02-0325-core-domain-merge.md)
 - Added a resilient current-v1 LocalStorage SaveRepository adapter with staging/backup recovery, typed failure handling, 250 KB guard, and 36 passing focused unit tests. [Detailed audit record](docs/changelog/2026-09/2026-09-02-0337-persistence-adapter.md)
 - Added a semantic DOM RendererPort adapter with safe text rendering, focus/live-region recovery behavior, Thai system fallback, and mobile-first accessible nostalgic styles. [Detailed audit record](docs/changelog/2026-09/2026-09-02-0427-dom-renderer.md)
-
-### Planned for Sprint 1 (Phase 1A & Phase 1B)
-- Initial playable Vertical Slice flow (`src/bootstrap/index.js`, `index.html`)
+- Completed the first browser-playable prologue slice by composing Core, LocalStorage persistence, and the DOM renderer through a single bootstrap dispatcher; full regression passes 183 tests. [Detailed audit record](docs/changelog/2026-09/2026-09-02-0958-bootstrap-playable-slice.md)
 
 ---
 
