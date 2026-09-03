@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added a resilient current-v1 LocalStorage SaveRepository adapter with staging/backup recovery, typed failure handling, 250 KB guard, and 36 passing focused unit tests. [Detailed audit record](docs/changelog/2026-09/2026-09-02-0337-persistence-adapter.md)
 - Added a semantic DOM RendererPort adapter with safe text rendering, focus/live-region recovery behavior, Thai system fallback, and mobile-first accessible nostalgic styles. [Detailed audit record](docs/changelog/2026-09/2026-09-02-0427-dom-renderer.md)
 - Completed the first browser-playable prologue slice by composing Core, LocalStorage persistence, and the DOM renderer through a single bootstrap dispatcher; full regression passes 183 tests. [Detailed audit record](docs/changelog/2026-09/2026-09-02-0958-bootstrap-playable-slice.md)
+- Merged PR #5 (`ae2e103`) into `develop`, completing Sprint 1 (Phase 1A & Phase 1B) 100% and stabilizing the first playable baseline. [Sprint 1 closeout audit record](docs/changelog/2026-09/2026-09-03-1040-sprint-01-merge-closeout.md)
 
 ---
 

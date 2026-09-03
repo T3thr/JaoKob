@@ -2,7 +2,7 @@
 
 รหัสสปรินต์: `SPRINT-01`  
 เป้าหมายหลัก: **Core Vertical Slice & Architecture Foundation**  
-สถานะ: Completed (100% WBS; pending human PR review)
+สถานะ: Integrated into develop (100% WBS Complete & Verified)
 รอบการส่งมอบ: Phase 1A & Phase 1B  
 มาตรฐานอ้างอิง: ISO/IEC/IEEE 12207:2017 (Software Implementation Process), ISO/IEC/IEEE 29148:2018  
 
@@ -108,3 +108,4 @@
 | `CR-20260902-0337` | 2026-09-02T03:37 | พัฒนาและตรวจสอบ LocalStorage Persistence Adapter พร้อม sync จาก PR #1/#2 | [CR-20260902-0337](../changelog/2026-09/2026-09-02-0337-persistence-adapter.md) | Verified (scoped unit evidence) |
 | `CR-20260902-0427` | 2026-09-02T04:27 | พัฒนา Semantic DOM Renderer, Thai recovery fallback, accessible styles และ unit tests | [CR-20260902-0427](../changelog/2026-09/2026-09-02-0427-dom-renderer.md) | Verified (scoped DOM/unit evidence) |
 | `CR-20260902-0958` | 2026-09-02T09:58 | ประกอบ First Playable Slice, ตรวจ Core Loop/Auto-save/Resume บนเบราว์เซอร์ และปิด Sprint 1 | [CR-20260902-0958](../changelog/2026-09/2026-09-02-0958-bootstrap-playable-slice.md) | Verified (183 unit tests + browser smoke) |
+| `CR-20260903-1040` | 2026-09-03T10:40 | รวม PR #5 เข้าสู่ `develop` และปิดฉาก Sprint 1 อย่างเป็นทางการ | [CR-20260903-1040](../changelog/2026-09/2026-09-03-1040-sprint-01-merge-closeout.md) | Verified |
