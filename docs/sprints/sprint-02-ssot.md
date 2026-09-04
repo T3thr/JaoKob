@@ -2,14 +2,14 @@
 
 รหัสสปรินต์: `SPRINT-02`\
 เป้าหมายหลัก: **Content Engine Architecture & Act 1 Full Narrative Package**\
-สถานะ: `In Progress — Tasks 1–3 implemented and verified locally; ready for Step 3`\
+สถานะ: `Implementation Complete — Tasks 1–5 verified locally; ready for final review`\
 รอบการส่งมอบ: **Phase 2A (Content Expansion)**\
-เวอร์ชันเอกสาร: `0.3.0` — Canonical Act 1 package และ scoped graph verification\
+เวอร์ชันเอกสาร: `0.4.0` — Act 1 integrated runtime และ local Sprint 2 closeout\
 วันที่จัดทำ: 2026-09-04 (Asia/Bangkok)\
 เจ้าของแผน: Senior Technical Lead & Narrative Operations Director\
 มาตรฐานอ้างอิง: `ISO/IEC/IEEE 12207:2017`, `ISO/IEC/IEEE 29148:2018`, `WCAG 2.2 AA`
 
-**ความหมายของสถานะ:** แผนได้รับอนุมัติและ merge ผ่าน PR #6 ที่ `be9bbcb` แล้ว Tech Lead Step 1 อนุมัติ Task 1 พร้อม D1/D2/D4; Step 2 อนุมัติ package ทั้งเจ็ดฉากและ graph tests บนฐาน `c7d60f4` Tasks 1–3 เสร็จในขอบเขต local implementation/automated verification ส่วน human editorial/sensitivity review ก่อน merge และ application integration/browser verification ยังเป็นงาน Step 3
+**ความหมายของสถานะ:** แผนได้รับอนุมัติและ merge ผ่าน PR #6 ที่ `be9bbcb` แล้ว Tech Lead Step 1 อนุมัติ Task 1 พร้อม D1/D2/D4; Step 2 อนุมัติ package ทั้งเจ็ดฉากและ graph tests บนฐาน `c7d60f4` Step 3 อนุมัติ D3/D4 สำหรับ integration บนฐาน `a85a5e5` ตาม [ADR-P0-014](../adr/ADR-P0-014-content-orchestration-and-resume.md). Tasks 1–5 เสร็จในขอบเขต implementation, automated verification และ real-browser smoke; Human Thai editorial/sensitivity, Architecture/QA sign-off และ assistive-technology review ยังต้องตรวจจริงก่อน merge ไม่ถือว่าปิดด้วยสถานะ `[x]`
 
 ฐานการวางแผนคือ `develop@53de19e` ซึ่งรวม Sprint 1 ครบ Tasks 1–5 และมี regression 183 tests; commit รวมตัวเกมคือ `ae2e103` ส่วน `53de19e` เป็นบันทึก closeout ต่อจากนั้น ตาม [Sprint 1 SSOT](sprint-01-ssot.md) และ [บันทึกปิด Sprint 1](../changelog/2026-09/2026-09-03-1040-sprint-01-merge-closeout.md) การอนุมัติ Phase 0 ยึดคำยืนยันของเจ้าของโครงการในคำสั่งวางแผนนี้ แม้ส่วนหัวเอกสารเดิมบางฉบับยังใช้คำว่า Proposed/Candidate
 
@@ -19,7 +19,7 @@
 
 ## 1. วิสัยทัศน์และเป้าหมายของสปรินต์ (Sprint Goal)
 
-Sprint 2 เป็นสะพานจาก First Playable Slice สู่ระบบที่ผู้เขียนเรื่องเพิ่มเนื้อหาได้ผ่าน JSON ซึ่งผ่านสัญญาข้อมูล โดย Engine Core ไม่ต้องรู้จักบทบรรยายหรือฉากเฉพาะเรื่อง ปัจจุบัน `src/data/content/prologue-slice.js` เป็น JavaScript resource สำหรับ Mock ที่ใช้รูปแบบเฉพาะของ Sprint 1 แม้แยกบทบรรยายออกจาก Engine แล้ว แต่ยังไม่ใช่ aggregate Content Package ตาม Schema การเปลี่ยนครั้งนี้จึงรวมการโหลด ตรวจสอบ สร้างดัชนี และเชื่อมคำสั่งของฉากเข้ากับระบบเดิม
+Sprint 2 เป็นสะพานจาก First Playable Slice สู่ระบบที่ผู้เขียนเรื่องเพิ่มเนื้อหาได้ผ่าน JSON ซึ่งผ่านสัญญาข้อมูล โดย Engine Core ไม่ต้องรู้จักบทบรรยายหรือฉากเฉพาะเรื่อง ณ ฐาน Sprint 1 `src/data/content/prologue-slice.js` เป็น JavaScript resource สำหรับ Mock ที่ใช้รูปแบบเฉพาะของ Sprint 1 แม้แยกบทบรรยายออกจาก Engine แล้ว แต่ยังไม่ใช่ aggregate Content Package ตาม Schema การเปลี่ยนครั้งนี้จึงรวมการโหลด ตรวจสอบ สร้างดัชนี และเชื่อมคำสั่งของฉากเข้ากับระบบเดิม
 
 ผลที่ผู้เล่นจะได้รับคือ **Act 1: บ้านในหนองน้ำ ฉบับเต็ม** ตั้งแต่ความอบอุ่นของครอบครัว การสำรวจและเลือกความทรงจำ พายุและการพลัดพราก การเรียกหาครอบครัวหรือหาช่องอากาศ การเก็บหรือปล่อยเศษใบบัว จนถึงความเงียบที่เปิดพื้นที่ให้เลือกมีชีวิตต่อ ทางเลือกเปลี่ยนพลังใจ วิธีรับมือ และความทรงจำ โดยไม่กล่าวโทษผู้เล่นหรือยืนยันชะตาครอบครัว
 
@@ -80,7 +80,7 @@ Sprint 2 เป็นสะพานจาก First Playable Slice สู่ร�
 
 `act-01.json` ต้องเป็น **aggregate Content Package** ตาม [content-package.schema.json](../../specs/schemas/content-package.schema.json) ไม่ใช่ tree เดี่ยวหรือ manifest ที่เพิ่ม field เอง มี `schemaVersion`, `contentVersion`, `defaultLocale`, `supportedLocales`, `entryTreeId`, `gameDefaults`, `flagDefinitions`, `contentWarnings`, `assets`, `characters`, `dialogues`, `events`, `narrativeTrees` ครบ ส่วน `narrativeTrees[]` แต่ละรายการตรวจด้วย [narrative-tree.schema.json](../../specs/schemas/narrative-tree.schema.json) และ `$ref` ไป common/character/dialogue/event schemas ตาม catalog ใน [specs/README.md](../../specs/README.md)
 
-- ฐาน Schema ปัจจุบันคือ `1.0.0`; `contentVersion` เป็นคนละแกนกับ `saveFormatVersion` ห้ามใช้แทนกัน การเปลี่ยนสัญญาที่จำเป็นต้องผ่าน CR และ version decision ก่อน ไม่อ้างว่า Schema ปัจจุบันรองรับสิ่งที่ยังไม่มี
+- ฐาน Schema เดิมคือ `1.0.0`; Act 1 opt-in package/narrative schema `1.1.0` ตาม ADR-P0-013 และใช้ contentVersion `2.0.0`; `contentVersion` เป็นคนละแกนกับ `saveFormatVersion` ห้ามใช้แทนกัน การเปลี่ยนสัญญาที่จำเป็นต้องผ่าน CR และ version decision ก่อน ไม่อ้างว่า Schema ปัจจุบันรองรับสิ่งที่ยังไม่มี
 - โหลดเฉพาะ path ของ static package ที่ Composition Root กำหนด URL ต้องใช้ได้ทั้ง `/` และ repository subpath; ไม่ให้ JSON กำหนด URL navigation หรือ dynamic import
 - ลำดับคือ Load → Parse → Structural Validation → Unique IDs/References/Semantic Policies → Critical Graph Checks → Immutable Indexes สำเร็จทั้งชุดจึง compose playable session
 - Draft 2020-12 `$id` เป็น identifier; register schemas จาก local catalog ไม่ download จาก canonical URL ระหว่างเล่น ต้องตรวจ `$ref`, required/unknown fields, type/enum/oneOf/limits และ `format` assertions ตาม Blueprint Section 13
@@ -104,22 +104,22 @@ Mock มี `title`, `actions`, `scene`, `tree.id` และ policy ใน flags
 
 Core ปัจจุบันมี `evaluateCondition`, Choice Transaction และตาราง `TR-001` ถึง `TR-020`; Choice Transaction ใช้กับ `Decision` และไม่ใช่ executor ทั่วไปสำหรับ `onEnterEffects`/hotspot/event งานที่ยังขาดต้องกำหนด pure application orchestration ผ่าน RFC ก่อน ห้ามย้าย domain effect runner ไป Data/UI หรือคัดลอกกฎคำนวณใส่ bootstrap เพื่อหลบข้อจำกัด ไม่มีการเปลี่ยน Core State Machine หรือ Save Schema ใน Sprint นี้
 
-**ข้อจำกัด Resume ที่ต้องออกแบบใน D3:** `TR-003` Continue และ `TR-016` Retry ของ Core เดิมกลับสู่ `Cutscene` และ bootstrap เดิมรับ resume เฉพาะ current/checkpoint node แบบ Cutscene แต่ Act 1 มี Exploration/Decision ด้วย อีกทั้ง Save Schema ไม่มี dialogue-cursor field โดยตรง ต้องระบุ approved resume bridge/safe Cutscene checkpoint และวิธี reconstruct ตำแหน่งอ่านจาก fields เดิม เช่น current node และ `progress.viewedDialogueIds` พร้อมพิสูจน์ว่าเพียงพอและไม่เล่น effect ซ้ำ ห้ามเพิ่ม cursor field ลง Save Schema, เปลี่ยนชื่อ state เป็น Cutscene ขณะที่ node ยังเป็นคนละชนิด หรือย้อน choice ที่บันทึกแล้วโดยเงียบ ๆ ให้ทดสอบ reload หลัง exploration interaction และหลัง choice แต่ละคู่แยกจาก reload กลาง cutscene หากรักษาสัญญาไม่ได้ภายใต้ fields/transitions เดิมต้อง replan ก่อน Coding
+**ข้อจำกัด Resume และคำตัดสิน D3:** `TR-003` Continue และ `TR-016` Retry ของ Core เดิมกลับสู่ `Cutscene` และ bootstrap เดิมรับ resume เฉพาะ current/checkpoint node แบบ Cutscene แต่ Act 1 มี Exploration/Decision ด้วย อีกทั้ง Save Schema ไม่มี dialogue-cursor field โดยตรง ต้องระบุ approved resume bridge/safe Cutscene checkpoint และวิธี reconstruct ตำแหน่งอ่านจาก fields เดิม เช่น current node และ `progress.viewedDialogueIds` พร้อมพิสูจน์ว่าเพียงพอและไม่เล่น effect ซ้ำ ห้ามเพิ่ม cursor field ลง Save Schema, เปลี่ยนชื่อ state เป็น Cutscene ขณะที่ node ยังเป็นคนละชนิด หรือย้อน choice ที่บันทึกแล้วโดยเงียบ ๆ ให้ทดสอบ reload หลัง exploration interaction และหลัง choice แต่ละคู่แยกจาก reload กลาง cutscene คำตัดสินที่ implement แล้วคือ snapshot rehydration + transient TR-003/005/006 และ recency order ของ real viewed IDs ตาม ADR-P0-014; unit tests คืน snapshot ทุกหน้าตรงเดิมโดยไม่มี on-enter/save write ซ้ำ หากขยาย capability เกินสัญญานี้ต้อง replan
 
 | กรณี | นโยบายที่แผนต้องรักษา / Evidence |
 |---|---|
 | New Game | defaults จาก package; flags ทุกตัวมีค่าตั้งต้น; Bond=0; entry resolve ภายใต้ version เดียว |
 | เซฟ Act 1 รุ่นเดียวกัน | current node, checkpoint, cursor, flags, metrics และ event occurrence resolve; Resume ไม่เล่น on-enter effect ซ้ำ |
-| เซฟ Mock `contentVersion=1.0.0`, `tree.prologue`, `node.prologue.*` | ห้ามแปลงเป็น Act 1 ด้วย version string เท่ากันหรือเปลี่ยนความหมาย ID; ต้องมี compatibility decision ก่อน Task 4 |
+| เซฟ Mock `contentVersion=1.0.0`, `tree.prologue`, `node.prologue.*` | ห้ามแปลงเป็น Act 1 ด้วย version string เท่ากันหรือเปลี่ยนความหมาย ID; ไม่ Resume ข้าม version; explicit confirm/cancel ก่อน clear ตาม ADR-P0-014 |
 | ไม่มี mapping ที่อนุมัติ / future version / corrupt save | ไม่เสนอ Continue ที่ใช้ไม่ได้; เก็บ raw candidates; อธิบายทางเลือก recovery/New Game และขอ consent ก่อน destructive reset/overwrite ตาม `FR-SAV-006` |
 | Storage unavailable/quota | session เล่นได้แบบ memory-only พร้อมข้อความเตือน; ไม่แสดงว่าบันทึกสำเร็จ |
-| Rollback | ทดสอบการกลับ artifact รุ่นก่อนกับเซฟใหม่ด้วยหลัก fail safely; ไม่ downgrade content/save โดยเดาและไม่ลบข้อมูลอัตโนมัติ |
+| Rollback | legacy composition + retained compatibility write guard ผ่าน test กับ save 2.0.0; ห้าม rollback แบบ raw revert ที่ถอน guard; ไม่ downgrade content/save โดยเดาและไม่ลบข้อมูลอัตโนมัติ |
 
-**ข้อเสนอ compatibility:** เลือก content version ใหม่ที่ไม่ชน Mock และไม่อ้างรองรับ migration จาก Mock จนมี explicit mapping ที่ตรวจได้ วิธีนี้ไม่ต้องแก้ Save Schema แต่ต้องแก้ flow consent ให้ครบก่อนแทนที่ Mock ห้ามใช้พฤติกรรมเก่าที่เริ่มใหม่หรือบันทึกทับข้อมูลที่ incompatible โดยเงียบ ๆ เป็นเกณฑ์รับงาน
+**คำตัดสิน compatibility:** Act 1 ใช้ `2.0.0` แยก Mock `1.0.0` และไม่รองรับ implicit migration จาก Mock; raw records อยู่จนผู้เล่นยืนยัน reset วิธีนี้ไม่ต้องแก้ Save Schema แต่ต้องแก้ flow consent ให้ครบก่อนแทนที่ Mock ห้ามใช้พฤติกรรมเก่าที่เริ่มใหม่หรือบันทึกทับข้อมูลที่ incompatible โดยเงียบ ๆ เป็นเกณฑ์รับงาน
 
 ### 3.5 RFC ภายในแผน: `CR-0002` — Act 1 Package Execution Contract
 
-สถานะ: **D1/D2/D4 direction locked by Tech Lead Step 1; D3 และ application/save integration ยังรอ Step 3** ประเภท C2 cross-layer implementation พร้อม versioned schema extension รายละเอียดใน [ADR-P0-013](../adr/ADR-P0-013-content-validation-contract.md) ตาราง Options ด้านล่างเก็บบริบทก่อนตัดสิน ส่วน disposition ถัดไปเป็นคำตัดสินปัจจุบัน
+สถานะ: **D1–D4 implemented under Tech Lead Steps 1–3; local verification complete, final human diff review pending** ประเภท C2 cross-layer implementation พร้อม versioned schema extension รายละเอียดใน [ADR-P0-013](../adr/ADR-P0-013-content-validation-contract.md) [ADR-P0-014](../adr/ADR-P0-014-content-orchestration-and-resume.md) ปิด D3/D4 ของ runtime/save integration; ตาราง Options ด้านล่างเก็บบริบทก่อนตัดสิน ส่วน disposition ถัดไปเป็นคำตัดสินปัจจุบัน
 
 **Context / Problem:** Act 1 เต็มต้องใช้รูปแบบที่ Mock ยังไม่รองรับ และ [CR-0001 Section 2.3](../rfc/CR-0001-sprint-01-core-contract-clarifications.md) ยังเปิดเรื่อง flag semantics จึงห้ามถือว่า Sprint 1 complete เท่ากับ Content Engine ทุก capability พร้อมแล้ว
 
@@ -164,7 +164,7 @@ Core ปัจจุบันมี `evaluateCondition`, Choice Transaction แ�
 
 DoR ของ Step 2 ครอบคลุม inputs/outputs/errors, canonical deltas, schema version, Thai resources, fixture/expected outcomes, file ownership, security/provenance (ไม่มี asset ใหม่), compatibility=ยังไม่ activate package และ rollback local commit ตาม [บันทึก Task 2/3](../changelog/2026-09/2026-09-04-0959-sprint-02-task-02-03-content-graph.md). ข้อความเรื่อง Bond ใน Act 2 ต่างจาก NAR-CON-005 เป็น follow-up ของ CR-0002 สำหรับองก์ถัดไป; ทุกแหล่งตรงกันว่า Act 1 Bond=0 จึงไม่ขวางงานรอบนี้และไม่เปลี่ยน future Canon
 
-Checklist ด้านบนยังเป็นแม่แบบสำหรับ Tasks 4–5; หลักฐาน Tasks 1–3 ใน Section 7 ไม่ถือว่าปิด D3 ของ Application หรือแทนการอนุมัติ Thai editorial/sensitivity ก่อน merge
+Checklist ด้านบนเป็นแม่แบบราย Task; Step 3 ผ่าน DoR ภายใต้ directive ล่าสุดและ [บันทึก Intake/Impact/Design](../changelog/2026-09/2026-09-04-1039-sprint-02-task-04-05-bootstrap-playthrough.md). D3 ใช้ pure orchestration, cursor recency และ snapshot-only Resume; D4 คง Save format 1 และเก็บ raw Mock 1.0.0 จน explicit reset consent ก่อนเริ่ม Content 2.0.0. การตัดสินและข้อจำกัดอยู่ใน ADR-P0-014; ไม่แทน Human editorial/sensitivity approval
 
 ---
 
@@ -241,7 +241,9 @@ Checklist ด้านบนยังเป็นแม่แบบสำหร�
   7. ตรวจ checkpoints, Thai coverage, dialogue fallback/ambiguous priority, setup/callback ledger และ semantic policy; negative fixtures ต้องทำให้ตรวจจับ orphan, missing target, impossible guard, forbidden transition, dead cycle, missing `th`, invalid checkpoint และ missing callback reference ได้จริง
   8. ทดสอบ crisis priority/retry ด้วย fault/synthetic state fixtures แยกจาก Canon routes ไม่เติมอันตรายใหม่เพื่อให้เกิด GameOver ใน Act 1; รายงาน `GRAPH-GATE` ว่า scoped Act 1 พร้อมอัตรา node/edge/route coverage จริง ส่วนเส้นทางไปสาม Ending เป็น Deferred to remaining Phase 2
 
-- [ ] **Task 4: Bootstrap Content Integration & Mock Deprecation (`src/bootstrap/index.js`)**
+- [x] **Task 4: Bootstrap Content Integration & Mock Deprecation (`src/bootstrap/index.js`)**
+
+  **Local delivery:** production JSON loader → normalized catalog → pure orchestrator → immutable localized view; autosave ทุกหน้า, exact Resume, consent receipts และ conservative write guard. Mock ย้ายไป test fixtures/helper; Save Schema/State Machine/Choice Transaction/Canon package ไม่เปลี่ยน. ชุดใหม่ 30 orchestration + 35 application tests ผ่าน รวมทั้งระบบ 444 tests
 
   **Owner:** Application Maintainer; Review: Architect, Data/UI Maintainers และ QA\
   **Dependencies:** Tasks 1–3 ผ่านขอบเขตที่เกี่ยวข้อง, D1–D4 ปิดครบ\
@@ -257,7 +259,9 @@ Checklist ด้านบนยังเป็นแม่แบบสำหร�
   7. Main startup ไม่ import/use Mock หลัง Integration; regression fixture เก็บ Mock ได้ใน tests โดย Production ห้าม import tests การเลิกใช้ไม่ลบ stable IDs จาก compatibility record หรือทำให้ old-save recovery หาย
   8. จบ Act 1 ด้วย checkpoint และทางเลือกที่ใช้งานได้ตาม D1; reload/resume ที่ boundary ไม่เล่น effect ซ้ำ ไม่มี game-state ใหม่หรือ `RETURN_TITLE` transition จาก Cutscene ที่ตารางเดิมไม่รองรับ
 
-- [ ] **Task 5: End-to-End Act 1 Playthrough Smoke Test & Verification**
+- [x] **Task 5: End-to-End Act 1 Playthrough Smoke Test & Verification**
+
+  **Local delivery:** [browser runner/evidence](../../tests/e2e/README.md) เล่นจบ 12/12 เส้นทางจริงบน Chromium พร้อม root/subpath, rest/post-storm Resume, keyboard, Bond DOM/AX absence, save faults/consent, 320 px/200% และ payload checks. `[x]` ครอบคลุมงานพัฒนาและ smoke ที่รันแล้ว; AC7 และการฟัง screen reader โดยผู้ตรวจจริงยังเป็น approval gate ก่อน merge
 
   **Owner:** Quality and DevOps Specialist; Review: Narrative Director, Accessibility Reviewer และ Technical Lead\
   **Dependencies:** Task 4 integrated candidate, Tasks 1–3 evidence ครบ\
@@ -303,7 +307,9 @@ Checklist ด้านบนยังเป็นแม่แบบสำหร�
 
 ### 6.2 สถานะ Tooling และวิธีรายงานหลักฐาน
 
-**Step 2 update:** `node --test tests/unit/content-loader.test.js` ผ่าน **120/120** (รวมโหลด Act 1 จริง); `node --test tests/unit/content-graph.test.js` ผ่าน **76/76**; full suite **379/379 = 183 Sprint 1 + 117 Task 1 + 79 Step 2**, fail/cancel/skip/todo=0. `node --check` ผ่าน JS ใหม่ 2 ไฟล์และ loader tests ที่แก้. Scoped GRAPH-GATE Act 1 ครบ structural/state-feasible witnesses; events 11/13 และ dialogues 44/46 จาก Canon routes อีก 2/2 เป็น synthetic defaults. Node/edge denominator ไม่มีข้อยกเว้น Browser/Save/Resume และ human review ยังไม่รัน
+**Step 3 update:** full suite **444/444 = 379 baseline + 30 orchestration + 35 production application**, fail/cancel/skip/todo=0; `node --check` ผ่าน JavaScript ที่สร้าง/แก้ 15/15 ไฟล์. Browser จริง 12/12 routes และ negative smoke ผ่าน พร้อม [JSON evidence และ runtime hashes](../../tests/e2e/evidence/sprint-02/act1-evidence.json). ตรวจพบและแก้ 320 px/200% HUD overflow และ default adapter options regression ก่อนผลผ่านรอบสุดท้าย. โปรดใช้ [Task 4/5 audit](../changelog/2026-09/2026-09-04-1039-sprint-02-task-04-05-bootstrap-playthrough.md) สำหรับ gate dispositions และข้อจำกัด
+
+**Step 2 update (historical):** `node --test tests/unit/content-loader.test.js` ผ่าน **120/120** (รวมโหลด Act 1 จริง); `node --test tests/unit/content-graph.test.js` ผ่าน **76/76**; full suite **379/379 = 183 Sprint 1 + 117 Task 1 + 79 Step 2**, fail/cancel/skip/todo=0. `node --check` ผ่าน JS ใหม่ 2 ไฟล์และ loader tests ที่แก้. Scoped GRAPH-GATE Act 1 ครบ structural/state-feasible witnesses; events 11/13 และ dialogues 44/46 จาก Canon routes อีก 2/2 เป็น synthetic defaults. Node/edge denominator ไม่มีข้อยกเว้น Browser/Save/Resume และ human review ยังไม่รัน
 
 **Step 1 update:** มี `content-loader.test.js` แล้ว จำนวน 117 tests; รวม regression เดิม 183 เป็น **300/300 ผ่าน**, ไม่มี fail/cancel/skip ใช้ `node --test tests/unit/*.test.js` และ syntax checks ตามบันทึก Task 1 มี schema snapshot/ref/keyword parity และ typed semantic checks; full metaschema validation ด้วย external reference implementation ยังไม่ได้รัน และไม่อ้าง Full GRAPH-GATE ซึ่งเป็น Task 3
 
@@ -338,3 +344,4 @@ Test evidence ต้องระบุ commit, content/schema/save versions, com
 |---|---|---|---|---|
 | `CR-20260904-0927` | 2026-09-04T09:27:52+07:00 | Step 1 / Task 1 Content Validator & Package Loader | [Task 1 audit](../changelog/2026-09/2026-09-04-0927-sprint-02-task-01-content-validator.md) | Verified locally: 300 tests; not pushed |
 | `CR-20260904-0959` | 2026-09-04T09:59:48+07:00 | Step 2 / Tasks 2–3 Canonical Act 1 & Graph Suite | [Tasks 2–3 audit](../changelog/2026-09/2026-09-04-0959-sprint-02-task-02-03-content-graph.md) | Verified locally: 379 tests; human editorial pending before merge; not pushed |
+| `CR-20260904-1039` | 2026-09-04T10:39:36+07:00 | Step 3 / Tasks 4–5 Bootstrap, Consent, Resume & Browser Closeout | [Tasks 4–5 audit](../changelog/2026-09/2026-09-04-1039-sprint-02-task-04-05-bootstrap-playthrough.md) | 444 tests / 12 browser routes; local review ready; human approvals pending; not pushed |

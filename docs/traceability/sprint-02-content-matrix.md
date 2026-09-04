@@ -128,3 +128,20 @@ Checkpoint IDs ใช้ prefix `checkpoint.act1.`: opening/storm/survival/keeps
 - Bond คง 0 ในขอบเขตนี้; directive กล่าวถึง Act 2 แต่ NAR-CON-005 กำหนด Act 4 จดเป็นประเด็น future Canon เพื่อให้ Lead Narrative Director/Designer ตัดสินก่อนขยายองก์ ไม่เปลี่ยน baseline ขององก์หลังใน package นี้
 - No migration/write ต่อ save ในรอบนี้; Mock ยังคงเป็นเส้นทาง bootstrap จน Step 3. Rollback ใช้ revert commit content/test/docs นี้ ไม่ถอน Task 1 และไม่ rewrite history
 - Audit/ผลคำสั่งจริง: [CR-20260904-0959](../changelog/2026-09/2026-09-04-0959-sprint-02-task-02-03-content-graph.md). Full-game ending reachability, release G2 และ deployment ไม่อยู่ในขอบเขต GRAPH-GATE Act 1
+
+## 8. Step 3 execution trace and local closeout
+
+[ADR-P0-014](../adr/ADR-P0-014-content-orchestration-and-resume.md) implements CR-0002 D3/D4 under the Finale directive. Section 7's “Not run / Mock active” statements describe Step 2; the evidence below supersedes that execution status, while human review and later-act obligations remain pending.
+
+| Requirements / contract | Production artifact | Verification |
+|---|---|---|
+| FR-CNT-001/002/004, DEC-002 | content-runtime → content-loader; normalized immutable catalog | load/capability/fetch faults; actual root/subpath browser startup |
+| FR-ENG-001/002/003/008, FR-STA-001/004 | content-orchestration + existing choice/transition planners | 30 focused tests; 36 Core walks across 12 outcomes; every saved page restores exactly |
+| FR-SAV-001/003/006/007/009 | bootstrap + conservative LocalStorage guard/consent receipt | 35 application tests: old/future/corrupt/mixed saves, cancel/confirm/race, quota/blocked access, recovery, cursor and checkpoints |
+| GDD-UX-003, FR-LOC-001/002, FR-ACC-001/002, GDD-SAFE-005 | localized content-view-model + DOM renderer | 12 browser walks; no Bond DOM/AX nodes; Thai notices, native controls, confirmations, safe text, 320 px/200%, reduced motion |
+| NAR-SC-A1-001..007 / approved rest | unchanged act-01.json + runtime cursor/completion | all Canon final metric combinations match Section 6; final checkpoint only after last page; no Ending/Act 2 placeholder |
+
+- [Orchestration tests](../../tests/unit/content-orchestration.test.js), [production bootstrap tests](../../tests/unit/act1-bootstrap.test.js), [browser runner and limits](../../tests/e2e/README.md). Full suite 444/444, no failures/skips.
+- Mock stable IDs remain in [legacy fixture](../../tests/fixtures/legacy/prologue-slice.js); original five Sprint 1 bootstrap assertions are preserved through a test-only composition helper. No runtime imports tests or Mock.
+- Content/package/save versions: 2.0.0 / 1.1.0 / 1. Exact Resume uses the current snapshot and recency-ordered real dialogue IDs; it performs no entry effects or save write. No silent Mock migration.
+- [Closeout audit](../changelog/2026-09/2026-09-04-1039-sprint-02-task-04-05-bootstrap-playthrough.md) records implementation completion, concrete verification and pending Human Narrative/Thai/A11y/Architecture/QA sign-off. No push, PR, merge, release or G2 claim.

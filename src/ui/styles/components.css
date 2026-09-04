@@ -2,7 +2,7 @@
 
 .jk-meter-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
   gap: var(--jk-space-2);
 }
 
@@ -35,6 +35,7 @@
 
 .jk-meter-value {
   color: var(--jk-color-cloud);
+  flex-wrap: wrap;
 }
 
 .jk-meter-track {
@@ -66,9 +67,15 @@
 
 .jk-dialogue {
   font-family: var(--jk-font-serif);
-  font-size: var(--jk-text-lg);
+  font-size: 1.25em;
   line-height: 1.9;
   overflow-wrap: anywhere;
+  white-space: pre-line;
+}
+
+.jk-page-label {
+  margin-block-end: var(--jk-space-2);
+  color: var(--jk-color-slate-700);
 }
 
 .jk-feedback,

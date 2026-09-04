@@ -1,862 +1,271 @@
-import { createMetrics } from "../core/domain/meters.js";
+import { createContentOrchestrator } from "../core/use-cases/content-orchestration.js";
+import { planGameStateTransition } from "../core/state-machine/game-state.js";
 import { assertRendererPort } from "../core/ports/renderer-port.js";
 import { assertStoragePort } from "../core/ports/storage-port.js";
-import { planGameStateTransition } from "../core/state-machine/game-state.js";
-import { resolveChoiceTransaction } from "../core/use-cases/choice-transaction.js";
-import { PROLOGUE_SLICE, validatePrologueSlice } from "../data/content/prologue-slice.js";
+import { loadGameContent } from "../data/content/content-runtime.js";
+import { projectContentView } from "../data/content/content-view-model.js";
+import { TH_APPLICATION as messages } from "../data/localization/th-application.js";
 import { createLocalStorageAdapter } from "../data/persistence/local-storage-adapter.js";
-import {
-  CURRENT_SAVE_FORMAT_VERSION,
-  validateSaveEnvelope,
-} from "../data/validation/save-envelope-validator.js";
+import { validateSaveEnvelope, CURRENT_SAVE_FORMAT_VERSION } from "../data/validation/save-envelope-validator.js";
+import { deepFreeze } from "../data/validation/content-values.js";
 import { createDomRenderer } from "../ui/renderers/dom/dom-renderer.js";
 
-/**
- * Composition root for Sprint 1's first playable slice.
- *
- * The module owns application-session coordination only: it composes concrete
- * adapters, projects immutable views, dispatches user intents to the Core, and
- * persists Core-approved snapshots. Narrative copy, stable IDs, metric effects
- * and navigation declarations remain in `src/data/content/prologue-slice.js`.
- *
- * Trace: FR-STA-001..004, FR-ENG-001..003, FR-SAV-001..003, FR-UI-001..003,
- * FR-UI-006..007, FR-ACC-001, ADR-P0-001, ADR-P0-004..007.
- */
+/** Composition root. Trace: CR-0002 D3/D4, ADR-P0-014, FR-SAV-006, FR-ENG-008. */
+const failure = (code) => Object.freeze({ ok: false, error: Object.freeze({ code }) });
+const success = () => Object.freeze({ ok: true });
+const SAVE_ERRORS = new Set(["SAVE_PARSE", "SAVE_SCHEMA", "SAVE_MIGRATION", "STORAGE_UNAVAILABLE", "STORAGE_QUOTA"]);
 
-export const BOOTSTRAP_ERROR_CODES = Object.freeze({
-  CONTENT_SCHEMA: "CONTENT_SCHEMA",
-  INVALID_TRANSITION: "INVALID_TRANSITION",
-  PORT_FAILURE: "PORT_FAILURE",
-  UNEXPECTED: "UNEXPECTED",
-});
+export function createGameApplication(options = {}) {
+  const configuredDocument = options.document ?? globalThis.document;
+  const root = options.root ?? configuredDocument?.getElementById("app");
+  const renderer = options.renderer ?? createDomRenderer({ root, document: configuredDocument, onIntent: (intent) => { void dispatch(intent); } });
+  const storage = options.storage ?? createLocalStorageAdapter({ canReplaceExistingEnvelope: compatible });
+  const clock = options.clock ?? (() => new Date().toISOString());
+  const sessionIdFactory = options.sessionIdFactory ?? createSessionId;
+  assertRendererPort(renderer); assertStoragePort(storage);
+  let loaded, orchestrator, settings, snapshot = null, resumeEnvelope = null;
+  let mode = "title", confirmation = null, notice = null, feedbackActionId = null, meterChanges = [];
+  let memoryOnly = false, fatal = false, booted = false, busy = false, lastViewModel = null;
+  let viewRevision = 0, revisionFloor = 0, lastAt = null, operation = Promise.resolve();
 
-const RECOVERABLE_SAVE_ERRORS = new Set([
-  "SAVE_PARSE",
-  "SAVE_SCHEMA",
-  "SAVE_MIGRATION",
-  "STORAGE_UNAVAILABLE",
-  "STORAGE_QUOTA",
-]);
-
-/**
- * Compose and control the first playable slice.
- *
- * All external concerns are injectable so application integration can be
- * verified without a browser or mutable global test state. Production defaults
- * are the DOM renderer and the LocalStorage adapter.
- *
- * @param {Readonly<Record<string, unknown>>} [options]
- * @returns {Readonly<{
- *   boot: () => Promise<Readonly<Record<string, unknown>>>,
- *   dispatch: (intent: Readonly<Record<string, unknown>>) => Promise<Readonly<Record<string, unknown>>>,
- *   whenIdle: () => Promise<unknown>,
- *   getSnapshot: () => Readonly<Record<string, unknown>> | null,
- *   getViewModel: () => Readonly<Record<string, unknown>> | null,
- *   getStatus: () => Readonly<Record<string, unknown>>
- * }>}
- */
-export function createPlayableSlice(options = {}) {
-  const content = options.content === undefined ? PROLOGUE_SLICE : options.content;
-  const clock = typeof options.clock === "function" ? options.clock : defaultClock;
-  const sessionIdFactory = typeof options.sessionIdFactory === "function"
-    ? options.sessionIdFactory
-    : createSessionId;
-  const configuredDocument = options.document === undefined
-    ? globalThis.document
-    : options.document;
-  const root = options.root === undefined
-    ? configuredDocument?.getElementById?.("app") ?? null
-    : options.root;
-
-  let operationQueue = Promise.resolve();
-  let snapshot = null;
-  let resumeEnvelope = null;
-  let settings = isRecord(readSettings(content)) ? cloneJson(readSettings(content)) : {};
-  let feedback = null;
-  let meterChanges = [];
-  let persistenceNotice = null;
-  let persistenceDegraded = false;
-  let busy = false;
-  let fatal = false;
-  let booted = false;
-  let lastViewModel = null;
-
-  const renderer = options.renderer === undefined
-    ? createDomRenderer({
-      root,
-      document: configuredDocument,
-      onIntent(intent) {
-        void dispatch(intent);
-      },
-    })
-    : options.renderer;
-
-  const storage = options.storage === undefined
-    ? createDefaultStorage(options, content)
-    : options.storage;
-  const reload = typeof options.reload === "function" ? options.reload : defaultReload;
-
-  assertRendererPort(renderer);
-  assertStoragePort(storage);
-
-  function boot() {
-    return enqueue(bootInternal);
-  }
-
-  function dispatch(intent) {
-    return enqueue(() => dispatchInternal(intent));
-  }
-
-  function whenIdle() {
-    return operationQueue;
-  }
-
-  function getSnapshot() {
-    return snapshot === null ? null : cloneAndFreezeJson(snapshot);
-  }
-
-  function getViewModel() {
-    return lastViewModel === null ? null : cloneAndFreezeJson(lastViewModel);
-  }
-
-  function getStatus() {
-    return Object.freeze({
-      booted,
-      busy,
-      fatal,
-      persistenceDegraded,
-      hasResumeCandidate: resumeEnvelope !== null,
-    });
-  }
-
-  async function bootInternal() {
+  async function invoke(port, method, argument) {
     try {
-      const contentResult = validatePrologueSlice(content);
-      if (!contentResult.valid) {
-        await presentFatal(contentResult.issue);
-        return failure(contentResult.issue.code);
-      }
-
-      const titleTransition = planGameStateTransition({
-        snapshot: null,
-        event: "BOOT_COMPLETED",
-        context: { contentValid: true, applicationComposed: true },
-      });
-      if (!titleTransition.ok) {
-        await presentFatal({ code: BOOTSTRAP_ERROR_CODES.INVALID_TRANSITION });
-        return failure(BOOTSTRAP_ERROR_CODES.INVALID_TRANSITION);
-      }
-
-      resumeEnvelope = null;
-      persistenceDegraded = false;
-      persistenceNotice = null;
-      feedback = null;
-      meterChanges = [];
-      fatal = false;
-
-      const loaded = await invokePort(storage, "load", { contentVersion: content.version });
-      if (loaded.ok && loaded.value !== null) {
-        const candidate = readCandidateEnvelope(loaded.value, content);
-        if (candidate !== null) {
-          resumeEnvelope = candidate;
-          settings = cloneJson(candidate.settings);
-          persistenceNotice = makeNotice(content, content.ui.messages.saveRecovered);
-        } else {
-          persistenceNotice = makeNotice(content, content.ui.messages.saveIgnored);
-        }
-      } else if (!loaded.ok) {
-        if (!RECOVERABLE_SAVE_ERRORS.has(readErrorCode(loaded))) {
-          await presentFatal({ code: readErrorCode(loaded) });
-          return failure(readErrorCode(loaded));
-        }
-        persistenceDegraded = true;
-        persistenceNotice = makeNotice(
-          content,
-          readErrorCode(loaded) === "STORAGE_UNAVAILABLE"
-            ? content.ui.messages.saveUnavailable
-            : content.ui.messages.saveIgnored,
-        );
-      }
-
-      snapshot = createTitleSnapshot(content, titleTransition.value.target, timestamp(clock), sessionIdFactory);
-      booted = true;
-      const rendered = await renderCurrent();
-      return rendered ? success() : failure(BOOTSTRAP_ERROR_CODES.PORT_FAILURE);
-    } catch {
-      await presentFatal({ code: BOOTSTRAP_ERROR_CODES.UNEXPECTED });
-      return failure(BOOTSTRAP_ERROR_CODES.UNEXPECTED);
-    }
+      const result = await port[method](argument);
+      if (typeof result?.ok === "boolean") return result;
+    } catch { /* Never expose adapter internals or raw player data. */ }
+    return failure("PORT_FAILURE");
   }
-
-  async function dispatchInternal(intent) {
-    if (!isRecord(intent) || typeof intent.type !== "string") {
-      return failure(BOOTSTRAP_ERROR_CODES.UNEXPECTED);
-    }
-    if (!booted && intent.type !== "RETRY_RENDER") {
-      return failure(BOOTSTRAP_ERROR_CODES.UNEXPECTED);
-    }
-
-    switch (intent.type) {
-      case "SELECT_CHOICE":
-        return selectChoice(intent.choiceId);
-      case "RETRY_FROM_CHECKPOINT":
-        return retryFromCheckpoint();
-      case "OPEN_STORY_ASSIST":
-        return enableStoryAssist();
-      case "OPEN_SETTINGS":
-        return announceAndRender(content.ui.messages.settingsUnavailable);
-      case "RETURN_TO_TITLE":
-        return returnToTitle();
-      case "RETRY_RENDER":
-        fatal = false;
-        return await renderCurrent()
-          ? success()
-          : failure(BOOTSTRAP_ERROR_CODES.PORT_FAILURE);
-      case "RELOAD_APPLICATION":
-        reload();
-        return success();
-      default:
-        return announceAndRender(content.ui.messages.actionUnavailable);
-    }
-  }
-
-  async function selectChoice(choiceId) {
-    if (typeof choiceId !== "string" || snapshot === null || busy || fatal) {
-      return failure(BOOTSTRAP_ERROR_CODES.UNEXPECTED);
-    }
-
-    busy = true;
-    const locked = await setRendererBusy(true);
-    if (!locked) {
-      busy = false;
-      return failure(BOOTSTRAP_ERROR_CODES.PORT_FAILURE);
-    }
-
-    let result;
-    try {
-      result = snapshot.state === "Decision"
-        ? await resolveDecisionChoice(choiceId)
-        : await resolveNodeAction(choiceId);
-    } catch {
-      await presentFatal({ code: BOOTSTRAP_ERROR_CODES.UNEXPECTED });
-      result = failure(BOOTSTRAP_ERROR_CODES.UNEXPECTED);
-    } finally {
-      busy = false;
-      if (!fatal) await setRendererBusy(false);
-    }
-
-    if (!fatal) await renderCurrent();
-    return result;
-  }
-
-  async function resolveNodeAction(actionId) {
-    const node = getNode(content, snapshot.currentNodeId);
-    const action = node?.actions?.find((candidate) => candidate.id === actionId);
-    if (action === undefined) return announceOnly(content.ui.messages.actionUnavailable);
-
-    switch (action.command) {
-      case "NEW_GAME":
-        return startNewGame();
-      case "CONTINUE":
-        return continueGame();
-      case "REQUEST_DECISION":
-        return requestDecision(action.targetNodeId);
-      default:
-        return announceOnly(content.ui.messages.actionUnavailable);
-    }
-  }
-
-  async function startNewGame() {
-    const transition = planGameStateTransition({
-      snapshot,
-      event: "NEW_GAME",
-      context: { confirmationComplete: true, entryReferencesValid: true },
-    });
-    if (!transition.ok) return announceOnly(content.ui.messages.actionUnavailable);
-
-    const initialRevision = resumeEnvelope === null ? 1 : resumeEnvelope.revision + 1;
-    snapshot = createNewGameSnapshot(
-      content,
-      transition.value.target,
-      timestamp(clock),
-      sessionIdFactory,
-      initialRevision,
-    );
-    feedback = null;
-    meterChanges = [];
-    const persisted = await persistSnapshot("new-game");
-    return announceOnly(
-      persisted ? content.ui.messages.saveSucceeded : content.ui.messages.saveUnavailable,
-    );
-  }
-
-  async function continueGame() {
-    if (resumeEnvelope === null || !isCompatibleEnvelope(resumeEnvelope, content)) {
-      return announceOnly(content.ui.messages.actionUnavailable);
-    }
-    const transition = planGameStateTransition({
-      snapshot,
-      event: "CONTINUE",
-      context: { compatibleRecoveredSave: true },
-    });
-    if (!transition.ok) return announceOnly(content.ui.messages.actionUnavailable);
-
-    snapshot = hydrateSnapshot(resumeEnvelope, transition.value.target);
-    feedback = null;
-    meterChanges = [];
-    return announceOnly(content.ui.messages.resumeReady);
-  }
-
-  async function requestDecision(targetNodeId) {
-    const target = getNode(content, targetNodeId);
-    if (target === null || target.type !== "decision") {
-      return announceOnly(content.ui.messages.actionUnavailable);
-    }
-    const transition = planGameStateTransition({
-      snapshot,
-      event: "REQUEST_DECISION",
-      context: {
-        targetNodeType: target.type,
-        entryConditionMet: true,
-        eligibleChoiceCount: target.choices.length,
-      },
-    });
-    if (!transition.ok) return announceOnly(content.ui.messages.actionUnavailable);
-
-    snapshot = cloneAndFreezeJson({
-      ...snapshot,
-      state: transition.value.target,
-      currentNodeId: target.id,
-    });
-    feedback = null;
-    meterChanges = [];
-    return success();
-  }
-
-  async function resolveDecisionChoice(choiceId) {
-    const node = getNode(content, snapshot.currentNodeId);
-    const choice = node?.choices?.find((candidate) => candidate.id === choiceId);
-    if (choice === undefined) return announceOnly(content.ui.messages.actionUnavailable);
-
-    const transaction = resolveChoiceTransaction({
-      snapshot,
-      command: {
-        id: `command.${snapshot.revision}.${choice.id}`,
-        expectedRevision: snapshot.revision,
-        choiceId: choice.id,
-        committedAt: timestamp(clock),
-      },
-      choice,
-      flagDefinitions: content.flags.map(({ id, valueType, defaultValue }) => ({
-        id,
-        valueType,
-        defaultValue,
-      })),
-      flagPolicies: Object.fromEntries(content.flags.map(({ id, policy }) => [id, policy])),
-      target: toCoreTarget(getNode(content, choice.nextNodeId)),
-      crisisTarget: toCoreTarget(getNode(content, content.tree.crisisNodeId)),
-      recoveryTarget: toCoreTarget(getNode(content, content.tree.recoveryNodeId)),
-      inputLocked: false,
-      storyAssistEnabled: settings.storyAssist === true,
-    });
-
-    if (!transaction.ok) return announceOnly(content.ui.messages.choiceRejected);
-
-    snapshot = transaction.value.snapshot;
-    feedback = choice.feedback;
-    meterChanges = transaction.value.effectSummary.metricChanges;
-    await persistSnapshot("choice-committed");
-    return announceOnly(choice.feedback);
-  }
-
-  async function retryFromCheckpoint() {
-    if (snapshot === null || snapshot.state !== "GameOver" || !isRecord(snapshot.checkpoint)) {
-      return announceAndRender(content.ui.messages.actionUnavailable);
-    }
-    const checkpoint = snapshot.checkpoint;
-    const node = getNode(content, checkpoint.nodeId);
-    const transition = planGameStateTransition({
-      snapshot,
-      event: "RETRY_CHECKPOINT",
-      context: {
-        checkpointValid: node !== null && checkpoint.state === "Cutscene",
-        contentReferencesCompatible: node !== null,
-      },
-    });
-    if (!transition.ok) return announceAndRender(content.ui.messages.actionUnavailable);
-
-    const beforeMetrics = snapshot.metrics;
-    snapshot = cloneAndFreezeJson({
-      ...snapshot,
-      state: transition.value.target,
-      revision: snapshot.revision + 1,
-      currentNodeId: checkpoint.nodeId,
-      metrics: checkpoint.metrics,
-      flags: checkpoint.flags,
-      eventOccurrences: checkpoint.eventOccurrences,
-      rng: checkpoint.rng,
-    });
-    feedback = content.ui.messages.retryReady;
-    meterChanges = diffMeterChanges(beforeMetrics, snapshot.metrics);
-    await persistSnapshot("checkpoint");
-    await announceOnly(content.ui.messages.retryReady);
-    await renderCurrent();
-    return success();
-  }
-
-  async function enableStoryAssist() {
-    settings = cloneJson({ ...settings, storyAssist: true });
-    return announceAndRender(content.ui.messages.storyAssistEnabled);
-  }
-
-  async function returnToTitle() {
-    if (snapshot === null || snapshot.state !== "GameOver") {
-      return announceAndRender(content.ui.messages.actionUnavailable);
-    }
-    const transition = planGameStateTransition({
-      snapshot,
-      event: "RETURN_TITLE",
-      context: { activeTransaction: false },
-    });
-    if (!transition.ok) return announceAndRender(content.ui.messages.actionUnavailable);
-
-    snapshot = createTitleSnapshot(content, transition.value.target, timestamp(clock), sessionIdFactory);
-    feedback = null;
-    meterChanges = [];
-    await renderCurrent();
-    return success();
-  }
-
-  async function persistSnapshot(reason) {
-    const envelope = createSaveEnvelope(content, snapshot, settings, reason, timestamp(clock));
-    const staged = await invokePort(storage, "stage", envelope);
-    if (!staged.ok) {
-      markPersistenceFailure();
-      return false;
-    }
-    const committed = await invokePort(storage, "commit", {
-      expectedRevision: envelope.revision,
-      reason,
-    });
-    if (!committed.ok) {
-      markPersistenceFailure();
-      return false;
-    }
-    persistenceDegraded = false;
-    persistenceNotice = makeNotice(content, content.ui.messages.saveSucceeded);
-    resumeEnvelope = envelope;
-    return true;
-  }
-
-  function markPersistenceFailure() {
-    persistenceDegraded = true;
-    persistenceNotice = makeNotice(content, content.ui.messages.saveUnavailable);
-  }
-
-  async function announceAndRender(message) {
-    await announceOnly(message);
-    if (!fatal) await renderCurrent();
-    return success();
-  }
-
-  async function announceOnly(message) {
-    const announced = await invokePort(renderer, "announce", { text: message });
-    if (!announced.ok) {
-      await presentFatal(announced.error);
-      return failure(BOOTSTRAP_ERROR_CODES.PORT_FAILURE);
-    }
-    return success();
-  }
-
-  async function setRendererBusy(nextBusy) {
-    const result = await invokePort(renderer, "setBusy", nextBusy);
-    if (result.ok) return true;
-    await presentFatal(result.error);
-    return false;
-  }
-
-  async function renderCurrent() {
-    if (snapshot === null) {
-      await presentFatal({ code: BOOTSTRAP_ERROR_CODES.UNEXPECTED });
-      return false;
-    }
-    const viewModel = projectViewModel({
-      content,
-      snapshot,
-      feedback,
-      meterChanges,
-      persistenceNotice,
-      hasResumeCandidate: resumeEnvelope !== null,
-    });
-    lastViewModel = viewModel;
-    const rendered = await invokePort(renderer, "render", viewModel);
-    if (!rendered.ok) {
-      await presentFatal(rendered.error);
-      return false;
-    }
-    const focus = await invokePort(renderer, "applyFocusDirective", {
-      target: viewModel.choices.length > 0 ? "first-choice" : "dialogue",
-    });
-    if (focus.ok) return true;
-    await presentFatal(focus.error);
-    return false;
-  }
-
-  async function presentFatal(failureDetail) {
+  async function presentFatal(code) {
     fatal = true;
-    const code = typeof failureDetail?.code === "string"
-      ? failureDetail.code
-      : BOOTSTRAP_ERROR_CODES.UNEXPECTED;
-    await invokePort(renderer, "showFatalShell", { code });
+    await invoke(renderer, "showFatalShell", { code });
+    return failure(code);
   }
-
-  function enqueue(operation) {
-    const next = operationQueue.then(operation, operation);
-    operationQueue = next.catch(() => undefined);
-    return next;
+  function run(task) {
+    if (busy) return Promise.resolve(failure("APPLICATION_BUSY"));
+    busy = true;
+    operation = (async () => {
+      try {
+        const lock = await invoke(renderer, "setBusy", true);
+        if (!lock.ok) return await presentFatal("RENDER_FAILURE");
+        return await task();
+      } catch { return await presentFatal("PORT_FAILURE"); }
+      finally {
+        busy = false;
+        await invoke(renderer, "setBusy", false);
+        if (!fatal && lastViewModel) {
+          // Focus only after controls have been unlocked; disabled buttons
+          // cannot receive focus in real browsers.
+          await invoke(renderer, "applyFocusDirective", { target: snapshot && mode === "game" ? "dialogue" : "first-choice" });
+        }
+      }
+    })();
+    return operation;
   }
-
-  return Object.freeze({
-    boot,
-    dispatch,
-    whenIdle,
-    getSnapshot,
-    getViewModel,
-    getStatus,
-  });
-}
-
-/**
- * Produce a frozen, localized-independent view model from the current state.
- *
- * @param {Readonly<Record<string, unknown>>} input
- * @returns {Readonly<Record<string, unknown>>}
- */
-export function projectViewModel(input) {
-  const { content, snapshot } = input;
-  const node = getNode(content, snapshot.currentNodeId);
-  const titleNode = getNode(content, content.tree.titleNodeId);
-  const scene = node?.scene ?? titleNode.scene;
-  const viewModel = {
-    locale: content.locale,
-    state: snapshot.state,
-    scene,
-    meters: {
-      hp: snapshot.metrics.hp,
-      sanity: snapshot.metrics.sanity,
-      // GDD-UX-003 keeps Bond hidden until Act 4; the value still remains
-      // visible to the Core and save contract for this integration slice.
-      bond: { value: snapshot.metrics.bond, visible: false },
-    },
-    feedback: input.feedback ?? undefined,
-    meterChanges: Array.isArray(input.meterChanges)
-      ? input.meterChanges.filter((change) => change?.meter !== "bond")
-      : [],
-    notice: input.persistenceNotice ?? undefined,
-    choices: choicesForView({
-      content,
-      snapshot,
-      node,
-      hasResumeCandidate: input.hasResumeCandidate === true,
-    }),
-  };
-
-  if (snapshot.state === "Title"
-    && input.hasResumeCandidate !== true
-    && input.persistenceNotice == null) {
-    viewModel.firstRunNotice = content.ui.firstRunNotice;
+  async function render() {
+    lastViewModel = projectContentView({ loaded, snapshot, facts: snapshot ? orchestrator.facts(snapshot) : null,
+      settings, notice, feedbackActionId, meterChanges, mode, hasResume: Boolean(resumeEnvelope), memoryResume: memoryOnly,
+      confirmation, viewRevision: ++viewRevision });
+    const result = await invoke(renderer, "render", lastViewModel);
+    if (!result.ok) return presentFatal("RENDER_FAILURE");
+    await invoke(renderer, "announce", { text: [lastViewModel.feedback, notice].filter(Boolean).join(" "), meterChanges: lastViewModel.meterChanges });
+    return success();
   }
-  if (snapshot.state === "GameOver") {
-    viewModel.gameOver = {
-      title: scene.title,
-      description: scene.dialogue,
-    };
+  function compatible(envelope) {
+    return validateSaveEnvelope(envelope).valid && envelope.contentVersion === loaded.catalog.version
+      && orchestrator.validateSnapshot({ ...envelope.payload, revision: envelope.revision }).ok;
   }
-  return cloneAndFreezeJson(viewModel);
-}
-
-function choicesForView({ content, snapshot, node, hasResumeCandidate }) {
-  if (snapshot.state === "Title") {
-    return titleActions(node, hasResumeCandidate);
+  async function recover() {
+    const result = await invoke(storage, "recoverCandidates", { captureConsent: true });
+    if (!result.ok) {
+      if (!SAVE_ERRORS.has(result.error.code)) return { fatalCode: result.error.code };
+      memoryOnly = true; notice = messages.unavailable;
+      return { unavailable: true, hasRecords: false };
+    }
+    const { candidates, rejected, consentToken } = result.value;
+    const candidate = candidates.find((item) => compatible(item.envelope));
+    revisionFloor = Math.max(revisionFloor, ...candidates.map((item) => item.envelope.revision));
+    const protectedRecords = rejected.length > 0 || candidates.some((item) => !compatible(item.envelope));
+    // Recovery is read-only. Even a valid backup must not overwrite a corrupt
+    // or newer incompatible record without a separate player decision.
+    if (protectedRecords) { memoryOnly = true; notice = candidate ? messages.recoveredMemory : messages.protected; }
+    if (candidate && !resumeEnvelope) {
+      resumeEnvelope = candidate.envelope; settings = { ...candidate.envelope.settings };
+      if (!protectedRecords) notice = messages.recovered;
+    }
+    return { hasRecords: candidates.length + rejected.length > 0, consentToken };
   }
-  if (snapshot.state === "Decision") {
-    return Array.isArray(node?.choices)
-      ? node.choices.map(({ id, label }) => ({ id, label }))
-      : [];
+  function time() {
+    const value = clock();
+    const at = value instanceof Date ? value.toISOString() : value;
+    if (typeof at !== "string" || !Number.isFinite(Date.parse(at))) throw new TypeError("Invalid clock");
+    return at;
   }
-  if (snapshot.state === "Cutscene") {
-    return Array.isArray(node?.actions)
-      ? node.actions
-        .filter((action) => action.command === "REQUEST_DECISION")
-        .map(({ id, label }) => ({ id, label }))
-      : [];
+  function command() {
+    const at = time();
+    return { at, expectedRevision: snapshot.revision, elapsedMs: lastAt ? Math.max(0, Date.parse(at) - Date.parse(lastAt)) : 0 };
   }
-  return [];
-}
-
-function titleActions(node, hasResumeCandidate) {
-  if (!Array.isArray(node?.actions)) return [];
-  return node.actions
-    .filter((action) => action.command !== "CONTINUE" || hasResumeCandidate)
-    .map(({ id, label }) => ({ id, label }));
-}
-
-function createDefaultStorage(options, content) {
-  const adapterOptions = {
-    validateEnvelope(envelope) {
-      return isCompatibleEnvelope(envelope, content);
-    },
-  };
-  if (Object.hasOwn(options, "localStorage")) adapterOptions.storage = options.localStorage;
-  return createLocalStorageAdapter(adapterOptions);
-}
-
-function createTitleSnapshot(content, state, createdAt, sessionIdFactory) {
-  const metrics = createMetrics(content.defaults.metrics);
-  const base = {
-    sessionId: sessionIdFactory(),
-    startedAt: createdAt,
-    playTimeMs: 0,
-    state,
-    revision: 1,
-    currentTreeId: content.tree.id,
-    currentNodeId: content.tree.titleNodeId,
-    metrics,
-    flags: createDefaultFlags(content.flags),
-    eventOccurrences: [],
-    progress: emptyProgress(),
-    history: [],
-    rng: cloneJson(content.defaults.rng),
-  };
-  return cloneAndFreezeJson({
-    ...base,
-    checkpoint: createCheckpoint(content.tree.initialCheckpointId, base, createdAt),
-  });
-}
-
-function createNewGameSnapshot(
-  content,
-  state,
-  startedAt,
-  sessionIdFactory,
-  revision = 1,
-) {
-  const metrics = createMetrics(content.defaults.metrics);
-  const base = {
-    sessionId: sessionIdFactory(),
-    startedAt,
-    playTimeMs: 0,
-    state,
-    revision,
-    currentTreeId: content.tree.id,
-    currentNodeId: content.tree.entryNodeId,
-    metrics,
-    flags: createDefaultFlags(content.flags),
-    eventOccurrences: [],
-    progress: emptyProgress(),
-    history: [],
-    rng: cloneJson(content.defaults.rng),
-  };
-  return cloneAndFreezeJson({
-    ...base,
-    checkpoint: createCheckpoint(content.tree.initialCheckpointId, base, startedAt),
-  });
-}
-
-function createCheckpoint(id, snapshot, capturedAt) {
-  return {
-    id,
-    capturedAt,
-    treeId: snapshot.currentTreeId,
-    nodeId: snapshot.currentNodeId,
-    state: snapshot.state,
-    metrics: cloneJson(snapshot.metrics),
-    flags: cloneJson(snapshot.flags),
-    eventOccurrences: cloneJson(snapshot.eventOccurrences),
-    rng: cloneJson(snapshot.rng),
-  };
-}
-
-function createDefaultFlags(definitions) {
-  return definitions
-    .map(({ id, defaultValue }) => ({ id, value: defaultValue }))
-    .sort((left, right) => (left.id < right.id ? -1 : left.id > right.id ? 1 : 0));
-}
-
-function emptyProgress() {
-  return {
-    completedNodeIds: [],
-    viewedDialogueIds: [],
-    unlockedEndingIds: [],
-  };
-}
-
-function createSaveEnvelope(content, snapshot, settings, reason, savedAt) {
-  return {
-    saveFormatVersion: CURRENT_SAVE_FORMAT_VERSION,
-    contentVersion: content.version,
-    revision: snapshot.revision,
-    createdAt: snapshot.startedAt,
-    savedAt,
-    reason,
-    payload: toSavePayload(snapshot),
-    settings: cloneJson(settings),
-  };
-}
-
-function toSavePayload(snapshot) {
-  return {
-    sessionId: snapshot.sessionId,
-    startedAt: snapshot.startedAt,
-    playTimeMs: snapshot.playTimeMs,
-    state: snapshot.state,
-    currentTreeId: snapshot.currentTreeId,
-    currentNodeId: snapshot.currentNodeId,
-    checkpoint: cloneJson(snapshot.checkpoint),
-    metrics: cloneJson(snapshot.metrics),
-    flags: cloneJson(snapshot.flags),
-    eventOccurrences: cloneJson(snapshot.eventOccurrences),
-    progress: cloneJson(snapshot.progress),
-    history: cloneJson(snapshot.history),
-    rng: cloneJson(snapshot.rng),
-  };
-}
-
-function hydrateSnapshot(envelope, state) {
-  return cloneAndFreezeJson({
-    ...envelope.payload,
-    revision: envelope.revision,
-    state,
-  });
-}
-
-function readCandidateEnvelope(candidate, content) {
-  if (!isRecord(candidate) || !isRecord(candidate.envelope)) return null;
-  return isCompatibleEnvelope(candidate.envelope, content) ? candidate.envelope : null;
-}
-
-function isCompatibleEnvelope(envelope, content) {
-  if (validateSaveEnvelope(envelope).valid !== true) return false;
-  if (envelope.contentVersion !== content.version) return false;
-  if (envelope.payload.state !== "Cutscene") return false;
-  const currentNode = getNode(content, envelope.payload.currentNodeId);
-  const checkpointNode = getNode(content, envelope.payload.checkpoint.nodeId);
-  return currentNode?.type === "cutscene"
-    && checkpointNode?.type === "cutscene"
-    && envelope.payload.currentTreeId === content.tree.id;
-}
-
-function toCoreTarget(node) {
-  if (node === null) {
-    return { id: "node.invalid", type: "invalid", entryConditionMet: false };
+  async function persist(reason, at) {
+    const { revision, ...payload } = snapshot;
+    revisionFloor = Math.max(revisionFloor, revision);
+    const envelope = deepFreeze({ saveFormatVersion: CURRENT_SAVE_FORMAT_VERSION, contentVersion: loaded.catalog.version,
+      revision, createdAt: snapshot.startedAt, savedAt: at, reason, payload, settings: { ...settings } });
+    if (!compatible(envelope)) return presentFatal("SAVE_SCHEMA");
+    resumeEnvelope = envelope;
+    if (!memoryOnly) {
+      // A record may have appeared since boot (for example in another tab).
+      // Inspect all slots again before allowing any replacement attempt.
+      const current = await invoke(storage, "recoverCandidates");
+      if (!current.ok) {
+        if (!SAVE_ERRORS.has(current.error.code)) return presentFatal(current.error.code);
+        memoryOnly = true; notice = messages.unavailable;
+      } else if (current.value.rejected.length || current.value.candidates.some((item) => !compatible(item.envelope))) {
+        memoryOnly = true; notice = messages.recoveredMemory;
+      }
+    }
+    if (!memoryOnly) {
+      let result = await invoke(storage, "stage", envelope);
+      if (result.ok) result = await invoke(storage, "commit", { expectedRevision: revision });
+      if (!result.ok) {
+        if (!SAVE_ERRORS.has(result.error.code)) return presentFatal(result.error.code);
+        memoryOnly = true; notice = messages.unavailable;
+      } else notice = messages.saved;
+    }
+    return success();
   }
-  return {
-    id: node.id,
-    type: node.type,
-    entryConditionMet: true,
-  };
-}
-
-function getNode(content, id) {
-  if (!isRecord(content) || !Array.isArray(content.nodes)) return null;
-  return content.nodes.find((node) => node?.id === id) ?? null;
-}
-
-function diffMeterChanges(before, after) {
-  return ["hp", "sanity", "bond"]
-    .filter((meter) => before[meter] !== after[meter])
-    .map((meter) => ({
-      meter,
-      before: before[meter],
-      after: after[meter],
-      delta: after[meter] - before[meter],
-    }));
-}
-
-function makeNotice(content, text) {
-  return { title: content.ui.labels.saveStatus, text };
-}
-
-function readSettings(content) {
-  return content?.defaults?.settings ?? {};
-}
-
-async function invokePort(port, operation, ...args) {
-  try {
-    const outcome = await port[operation](...args);
-    if (isRecord(outcome) && typeof outcome.ok === "boolean") return outcome;
-  } catch {
-    // Browser and adapter exceptions are intentionally translated at the
-    // composition boundary; raw implementation details are never rendered.
+  async function startSession() {
+    if (revisionFloor >= Number.MAX_SAFE_INTEGER) return failure("REVISION_OVERFLOW");
+    const at = time();
+    const started = orchestrator.start({ sessionId: sessionIdFactory(), at, revision: revisionFloor + 1 });
+    if (!started.ok) return started;
+    snapshot = started.value.snapshot; lastAt = at; mode = "game"; confirmation = null; feedbackActionId = null; meterChanges = [];
+    const saved = await persist("new-game", at);
+    return saved.ok ? render() : saved;
   }
-  return Object.freeze({
-    ok: false,
-    error: Object.freeze({ code: BOOTSTRAP_ERROR_CODES.PORT_FAILURE }),
-  });
-}
-
-function readErrorCode(outcome) {
-  return typeof outcome?.error?.code === "string"
-    ? outcome.error.code
-    : BOOTSTRAP_ERROR_CODES.PORT_FAILURE;
-}
-
-function success() {
-  return Object.freeze({ ok: true });
-}
-
-function failure(code) {
-  return Object.freeze({ ok: false, error: Object.freeze({ code }) });
-}
-
-function timestamp(clock) {
-  const value = clock();
-  if (typeof value === "string" && value.length > 0) return value;
-  if (value instanceof Date && !Number.isNaN(value.valueOf())) return value.toISOString();
-  return new Date().toISOString();
-}
-
-function defaultClock() {
-  return new Date().toISOString();
-}
-
-function defaultReload() {
-  if (typeof globalThis.location?.reload === "function") globalThis.location.reload();
+  async function bootInternal() {
+    if (booted) return failure("ALREADY_BOOTED");
+    loaded = await loadGameContent(options);
+    if (!loaded.valid) return presentFatal(loaded.errors[0].code);
+    orchestrator = createContentOrchestrator(loaded.catalog);
+    settings = { ...loaded.catalog.defaults.settings };
+    const admission = planGameStateTransition({ snapshot: null, event: "BOOT_COMPLETED", context: { contentValid: true, applicationComposed: true } });
+    if (!admission.ok) return presentFatal("CONTENT_TRANSITION");
+    const recovered = await recover();
+    if (recovered.fatalCode) return presentFatal(recovered.fatalCode);
+    booted = true;
+    return render();
+  }
+  async function accept(result, at) {
+    if (!result.ok) {
+      notice = messages.rejected;
+      await render();
+      return result;
+    }
+    const previous = snapshot;
+    snapshot = result.value.snapshot; lastAt = at; mode = "game"; confirmation = null;
+    feedbackActionId = result.value.feedbackActionId ?? null;
+    meterChanges = ["hp", "sanity"].filter((meter) => previous.metrics[meter] !== snapshot.metrics[meter])
+      .map((meter) => ({ meter, before: previous.metrics[meter], after: snapshot.metrics[meter], delta: snapshot.metrics[meter] - previous.metrics[meter] }));
+    revisionFloor = Math.max(revisionFloor, snapshot.revision);
+    const saved = await persist(result.value.reason, at);
+    return saved.ok ? render() : saved;
+  }
+  async function dispatchInternal(intent) {
+    if (intent?.type === "RELOAD_APPLICATION") { (options.reload ?? (() => globalThis.location?.reload()))(); return success(); }
+    if (intent?.type === "RETRY_RENDER") {
+      fatal = false;
+      return booted && loaded?.valid ? render() : bootInternal();
+    }
+    if (!booted || fatal) return failure("APPLICATION_UNAVAILABLE");
+    if (intent?.type !== "SELECT_CHOICE") return failure("INVALID_INTENT");
+    if ((intent.viewRevision !== undefined && intent.viewRevision !== viewRevision)
+      || (intent.expectedRevision !== undefined && intent.expectedRevision !== (snapshot?.revision ?? 0))) return failure("REVISION_MISMATCH");
+    const id = intent.choiceId;
+    if (!lastViewModel.choices.some((item) => item.id === id && !item.disabled)) return failure("CONTENT_ACTION_UNAVAILABLE");
+    switch (id) {
+      case "application.new-game": {
+        const recovered = await recover();
+        if (recovered.fatalCode) return presentFatal(recovered.fatalCode);
+        if (recovered.hasRecords || resumeEnvelope) {
+          mode = "replace-confirmation"; confirmation = { consentToken: recovered.consentToken, hasRecords: recovered.hasRecords };
+          return render();
+        }
+        return startSession();
+      }
+      case "application.cancel-replace": mode = "title"; confirmation = null; return render();
+      case "application.confirm-replace": {
+        if (revisionFloor >= Number.MAX_SAFE_INTEGER) return failure("REVISION_OVERFLOW");
+        if (confirmation.hasRecords) {
+          const cleared = await invoke(storage, "clearWithConsent", { consent: true, consentToken: confirmation.consentToken });
+          if (!cleared.ok) {
+            if (!SAVE_ERRORS.has(cleared.error.code)) return presentFatal(cleared.error.code);
+            notice = cleared.error.details?.reason === "CONSENT_STALE" ? messages.consentChanged : messages.unavailable;
+            mode = "title"; confirmation = null; memoryOnly = true;
+            await render(); return cleared;
+          }
+          memoryOnly = false; notice = null;
+        }
+        resumeEnvelope = null;
+        return startSession();
+      }
+      case "application.resume": {
+        const resumed = orchestrator.resume({ ...resumeEnvelope.payload, revision: resumeEnvelope.revision });
+        if (!resumed.ok) return resumed;
+        snapshot = resumed.value.snapshot; settings = { ...resumeEnvelope.settings }; lastAt = time(); mode = "game";
+        feedbackActionId = null; meterChanges = [];
+        return render(); // No save write and no enter-node execution on Resume.
+      }
+      case "application.advance": {
+        const next = command(); return accept(orchestrator.advance(snapshot, next), next.at);
+      }
+      case "application.finish":
+        if (!orchestrator.facts(snapshot).complete) return failure("CONTENT_ACTION_UNAVAILABLE");
+        snapshot = null; mode = "title"; feedbackActionId = null; meterChanges = []; return render();
+      case "application.settings": mode = "settings"; return render();
+      case "application.close-settings": mode = snapshot ? "game" : "title"; return render();
+      case "application.toggle-font":
+      case "application.toggle-motion": {
+        const nextSettings = { ...settings };
+        if (id === "application.toggle-font") nextSettings.fontScale = settings.fontScale > 1 ? 1 : 1.5;
+        else nextSettings.reducedMotion = !settings.reducedMotion;
+        if (snapshot) {
+          const next = command(), touched = orchestrator.touch(snapshot, next);
+          if (!touched.ok) return touched;
+          snapshot = touched.value.snapshot; lastAt = next.at; settings = nextSettings;
+          const saved = await persist("settings-changed", next.at);
+          if (!saved.ok) return saved;
+        } else settings = nextSettings;
+        return render();
+      }
+      case "application.cancel-choice": confirmation = null; mode = "game"; return render();
+      case "application.confirm-choice": {
+        const next = { ...command(), actionId: confirmation.actionId, expectedRevision: confirmation.expectedRevision };
+        return accept(orchestrator.act(snapshot, next), next.at);
+      }
+      default: {
+        const action = loaded.indexes.choices[id] ?? loaded.indexes.interactions[id];
+        if (settings.confirmHighImpactChoices && ["high", "irreversible"].includes(action.impact)) {
+          confirmation = { actionId: id, expectedRevision: snapshot.revision }; mode = "choice-confirmation"; return render();
+        }
+        const next = { ...command(), actionId: id };
+        return accept(orchestrator.act(snapshot, next), next.at);
+      }
+    }
+  }
+  function dispatch(intent) { return run(() => dispatchInternal(intent)); }
+  return Object.freeze({ boot: () => run(bootInternal), dispatch, whenIdle: () => operation,
+    getSnapshot: () => snapshot, getViewModel: () => lastViewModel,
+    getStatus: () => Object.freeze({ booted, busy, fatal, persistenceDegraded: memoryOnly, hasResumeCandidate: Boolean(resumeEnvelope), mode }) });
 }
 
 function createSessionId() {
   if (typeof globalThis.crypto?.randomUUID === "function") return globalThis.crypto.randomUUID();
-  const randomHex = () => Math.floor(Math.random() * 16).toString(16);
   return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (token) => {
-    const value = Number.parseInt(randomHex(), 16);
-    return (token === "x" ? value : ((value & 0x3) | 0x8)).toString(16);
+    const value = Math.floor(Math.random() * 16);
+    return (token === "x" ? value : (value & 3) | 8).toString(16);
   });
-}
-
-function cloneAndFreezeJson(value) {
-  return deepFreeze(cloneJson(value));
-}
-
-function cloneJson(value) {
-  return JSON.parse(JSON.stringify(value));
-}
-
-function deepFreeze(value) {
-  if (value !== null && typeof value === "object" && !Object.isFrozen(value)) {
-    for (const nested of Object.values(value)) deepFreeze(nested);
-    Object.freeze(value);
-  }
-  return value;
-}
-
-function isRecord(value) {
-  return value !== null && typeof value === "object" && !Array.isArray(value);
 }
 
 if (typeof document !== "undefined") {
   const root = document.getElementById("app");
-  if (root !== null) {
-    const application = createPlayableSlice({ root, document });
-    void application.boot();
-  }
+  if (root !== null) void createGameApplication({ root, document }).boot();
 }

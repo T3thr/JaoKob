@@ -4,8 +4,8 @@ import assert from "node:assert/strict";
 import {
   createPlayableSlice,
   projectViewModel,
-} from "../../src/bootstrap/index.js";
-import { PROLOGUE_SLICE } from "../../src/data/content/prologue-slice.js";
+} from "../helpers/prologue-bootstrap.js";
+import { PROLOGUE_SLICE } from "../fixtures/legacy/prologue-slice.js";
 import {
   LOCAL_STORAGE_KEYS,
   createLocalStorageAdapter,
