@@ -1,0 +1,356 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://t3thr.github.io/JaoKob/specs/schemas/v1.1.0/content-package.schema.json",
+  "title": "JaoKob Content Package",
+  "description": "หน่วยเผยแพร่เนื้อหาที่รวมรายการตัวละคร บทสนทนา เหตุการณ์ กราฟเรื่องเล่า สินทรัพย์ และค่าตั้งต้น",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "contentVersion",
+    "defaultLocale",
+    "supportedLocales",
+    "entryTreeId",
+    "gameDefaults",
+    "flagDefinitions",
+    "contentWarnings",
+    "assets",
+    "characters",
+    "dialogues",
+    "events",
+    "narrativeTrees"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.1.0"
+    },
+    "contentVersion": {
+      "$ref": "../common.schema.json#/$defs/semanticVersion"
+    },
+    "defaultLocale": {
+      "const": "th"
+    },
+    "supportedLocales": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 32,
+      "uniqueItems": true,
+      "contains": {
+        "const": "th"
+      },
+      "items": {
+        "$ref": "../common.schema.json#/$defs/localeTag"
+      }
+    },
+    "entryTreeId": {
+      "$ref": "../common.schema.json#/$defs/identifier",
+      "x-jaokob-reference": "narrative-tree.treeId"
+    },
+    "gameDefaults": {
+      "type": "object",
+      "required": [
+        "metrics",
+        "settings"
+      ],
+      "properties": {
+        "metrics": {
+          "$ref": "../common.schema.json#/$defs/metricSnapshot"
+        },
+        "settings": {
+          "$ref": "../common.schema.json#/$defs/settings"
+        }
+      },
+      "additionalProperties": false
+    },
+    "flagDefinitions": {
+      "type": "array",
+      "maxItems": 5000,
+      "items": {
+        "$ref": "#/$defs/flagDefinition"
+      }
+    },
+    "contentWarnings": {
+      "type": "array",
+      "maxItems": 256,
+      "items": {
+        "$ref": "#/$defs/contentWarning"
+      }
+    },
+    "assets": {
+      "type": "array",
+      "maxItems": 10000,
+      "items": {
+        "$ref": "#/$defs/asset"
+      }
+    },
+    "characters": {
+      "$ref": "../character.schema.json"
+    },
+    "dialogues": {
+      "$ref": "../dialogue.schema.json"
+    },
+    "events": {
+      "$ref": "../event.schema.json"
+    },
+    "narrativeTrees": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 128,
+      "items": {
+        "$ref": "narrative-tree.schema.json"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "flagDefinition": {
+      "type": "object",
+      "required": [
+        "id",
+        "valueType",
+        "defaultValue",
+        "description",
+        "policy"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "../common.schema.json#/$defs/identifier"
+        },
+        "valueType": {
+          "type": "string",
+          "enum": [
+            "boolean",
+            "integer",
+            "string"
+          ]
+        },
+        "defaultValue": {
+          "$ref": "../common.schema.json#/$defs/flagValue"
+        },
+        "description": {
+          "$ref": "../common.schema.json#/$defs/localizedText"
+        },
+        "policy": {
+          "$ref": "#/$defs/flagPolicy"
+        }
+      },
+      "additionalProperties": false
+    },
+    "contentWarning": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "detail",
+        "intensity"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "../common.schema.json#/$defs/identifier"
+        },
+        "title": {
+          "$ref": "../common.schema.json#/$defs/localizedShortText"
+        },
+        "detail": {
+          "$ref": "../common.schema.json#/$defs/localizedText"
+        },
+        "intensity": {
+          "type": "string",
+          "enum": [
+            "mild",
+            "moderate",
+            "strong"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "asset": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "path",
+        "rights"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "../common.schema.json#/$defs/identifier"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "image",
+            "audio",
+            "font"
+          ]
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512,
+          "pattern": "^(?![A-Za-z][A-Za-z0-9+.-]*:)(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9_./-]+$"
+        },
+        "alt": {
+          "$ref": "../common.schema.json#/$defs/localizedShortText"
+        },
+        "rights": {
+          "type": "object",
+          "required": [
+            "origin",
+            "licenseId"
+          ],
+          "properties": {
+            "origin": {
+              "type": "string",
+              "enum": [
+                "original",
+                "commissioned",
+                "licensed",
+                "public-domain"
+              ]
+            },
+            "licenseId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "sourceUrl": {
+              "type": "string",
+              "format": "uri",
+              "maxLength": 2048
+            },
+            "attribution": {
+              "$ref": "../common.schema.json#/$defs/localizedShortText"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "image"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "alt": true
+            },
+            "required": [
+              "alt"
+            ]
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "flagPolicy": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "kind",
+            "reversible"
+          ],
+          "properties": {
+            "kind": {
+              "const": "boolean"
+            },
+            "reversible": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "kind",
+            "reversible"
+          ],
+          "properties": {
+            "kind": {
+              "const": "marker"
+            },
+            "reversible": {
+              "const": false
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "kind",
+            "values",
+            "reversible"
+          ],
+          "properties": {
+            "kind": {
+              "const": "enum"
+            },
+            "values": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 64,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "maxLength": 240
+              }
+            },
+            "reversible": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "kind",
+            "min",
+            "max",
+            "overflow",
+            "monotonic",
+            "reversible"
+          ],
+          "properties": {
+            "kind": {
+              "const": "counter"
+            },
+            "min": {
+              "type": "integer",
+              "minimum": -1000000,
+              "maximum": 1000000
+            },
+            "max": {
+              "type": "integer",
+              "minimum": -1000000,
+              "maximum": 1000000
+            },
+            "overflow": {
+              "enum": [
+                "saturate",
+                "reject"
+              ]
+            },
+            "monotonic": {
+              "type": "boolean"
+            },
+            "reversible": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}

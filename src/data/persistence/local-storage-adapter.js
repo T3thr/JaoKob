@@ -42,6 +42,10 @@ const SOURCE_PRIORITY = Object.freeze({ canonical: 0, staging: 1, backup: 2 });
  * @property {(envelope: Readonly<Record<string, unknown>>, context: Readonly<{source: string, request?: Readonly<Record<string, unknown>>}>) => unknown} [validateEnvelope]
  * Additional pure semantic/content-compatibility validation after the built-in
  * current Save Envelope schema check.
+ * @property {(envelope: Readonly<Record<string, unknown>>) => boolean} [canReplaceExistingEnvelope]
+ * Optional conservative write guard. If present, malformed records and records
+ * rejected by this predicate cannot be replaced by stage/commit. Recovery
+ * remains read-only and exposes older versions for explicit reset consent.
  */
 
 /**
@@ -66,6 +70,11 @@ export function createLocalStorageAdapter(storageOrOptions) {
   const additionalValidator = typeof options.validateEnvelope === "function"
     ? options.validateEnvelope
     : null;
+  const canReplaceExisting = typeof options.canReplaceExistingEnvelope === "function"
+    ? options.canReplaceExistingEnvelope
+    : null;
+  let consentSequence = 0;
+  let consentSnapshot = null;
 
   function recoverCandidates(request = undefined) {
     const unavailable = unavailableStorageResult(storageResolution, "recoverCandidates");
@@ -74,6 +83,7 @@ export function createLocalStorageAdapter(storageOrOptions) {
     const candidates = [];
     const rejected = [];
     const storageFailures = [];
+    const rawRecords = Object.create(null);
 
     for (const source of CANDIDATE_SOURCES) {
       const read = readStorage(storageResolution.storage, source, "recoverCandidates");
@@ -82,6 +92,7 @@ export function createLocalStorageAdapter(storageOrOptions) {
         rejected.push(rejectedRecord(source, read.error.code, "STORAGE_READ_FAILED"));
         continue;
       }
+      rawRecords[source] = read.value;
       if (read.value === null) continue;
 
       const parsed = parseAndValidate(read.value, source, request, additionalValidator);
@@ -101,9 +112,15 @@ export function createLocalStorageAdapter(storageOrOptions) {
       return storageFailures[0];
     }
 
+    let consent = {};
+    if (request?.captureConsent === true) {
+      consentSnapshot = storageFailures.length ? null : { token: `recovery.${++consentSequence}`, rawRecords };
+      consent = { consentToken: consentSnapshot?.token ?? null };
+    }
     return success(Object.freeze({
       candidates: Object.freeze(candidates),
       rejected: Object.freeze(rejected),
+      ...consent,
     }));
   }
 
@@ -140,6 +157,7 @@ export function createLocalStorageAdapter(storageOrOptions) {
       "stage",
       undefined,
       additionalValidator,
+      canReplaceExisting,
     );
     if (!replacementGuard.ok) return replacementGuard;
     if (replacementGuard.value.stagingMatches) {
@@ -213,6 +231,7 @@ export function createLocalStorageAdapter(storageOrOptions) {
       "commit",
       request,
       additionalValidator,
+      canReplaceExisting,
     );
     if (!replacementGuard.ok) return replacementGuard;
 
@@ -282,6 +301,24 @@ export function createLocalStorageAdapter(storageOrOptions) {
     const unavailable = unavailableStorageResult(storageResolution, "clearWithConsent");
     if (unavailable !== null) return unavailable;
 
+    // Optional receipt binds player consent to the exact records reviewed.
+    // Raw values remain private to the adapter. Legacy callers retain the
+    // original literal-consent contract; the application always uses a receipt.
+    if (Object.hasOwn(request, "consentToken")) {
+      if (!consentSnapshot || request.consentToken !== consentSnapshot.token) {
+        return failure(STORAGE_ERROR_CODES.SAVE_SCHEMA, { operation: "clearWithConsent", reason: "CONSENT_STALE" });
+      }
+      for (const source of CANDIDATE_SOURCES) {
+        const current = readStorage(storageResolution.storage, source, "clearWithConsent");
+        if (!current.ok) return current;
+        if (current.value !== consentSnapshot.rawRecords[source]) {
+          consentSnapshot = null;
+          return failure(STORAGE_ERROR_CODES.SAVE_SCHEMA, { operation: "clearWithConsent", reason: "CONSENT_STALE" });
+        }
+      }
+      consentSnapshot = null;
+    }
+
     const removedKeys = [];
     for (const source of ["staging", "backup", "canonical"]) {
       const removed = removeStorage(storageResolution.storage, source, "clearWithConsent");
@@ -308,7 +345,7 @@ function normalizeOptions(storageOrOptions) {
   if (storageOrOptions === undefined) return {};
   if (
     isRecord(storageOrOptions)
-    && (Object.hasOwn(storageOrOptions, "storage") || Object.hasOwn(storageOrOptions, "validateEnvelope"))
+    && ["storage", "validateEnvelope", "canReplaceExistingEnvelope"].some((key) => Object.hasOwn(storageOrOptions, key))
   ) {
     return storageOrOptions;
   }
@@ -521,6 +558,7 @@ function guardCandidateReplacement(
   operation,
   request,
   validator,
+  canReplaceExisting,
 ) {
   let stagingMatches = false;
 
@@ -532,12 +570,20 @@ function guardCandidateReplacement(
     const current = parseAndValidate(read.value, source, request, validator);
     if (!current.ok) {
       if (
-        current.error.code === STORAGE_ERROR_CODES.SAVE_MIGRATION
+        canReplaceExisting !== null && canReplaceExisting !== undefined
+        || current.error.code === STORAGE_ERROR_CODES.SAVE_MIGRATION
         || current.error.code === STORAGE_ERROR_CODES.STORAGE_QUOTA
       ) {
         return current;
       }
       continue;
+    }
+    if (canReplaceExisting) {
+      let compatible = false;
+      try { compatible = canReplaceExisting(current.value) === true; } catch { /* Fail closed at the write boundary. */ }
+      if (!compatible) return failure(STORAGE_ERROR_CODES.SAVE_MIGRATION, {
+        operation, source, reason: "CONTENT_REPLACEMENT_BLOCKED",
+      });
     }
     if (candidate.revision < current.value.revision) {
       return failure(STORAGE_ERROR_CODES.SAVE_SCHEMA, {

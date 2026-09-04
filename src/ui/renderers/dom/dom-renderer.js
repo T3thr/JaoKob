@@ -25,6 +25,9 @@ const FATAL_CONTENT_CODES = new Set([
   "CONTENT_SCHEMA",
   "CONTENT_REFERENCE",
   "CONTENT_VERSION",
+  "CONTENT_CAPABILITY",
+  "CONTENT_LOAD",
+  "CONTENT_ORIGIN",
 ]);
 
 const FATAL_STORAGE_CODES = new Set([
@@ -70,6 +73,10 @@ export function createDomRenderer(optionsOrRoot) {
       assertRecord(viewModel, "View model must be an object.");
       const activeScaffold = ensureScaffold();
       const built = buildGameShell(activeScaffold.document, viewModel, messages, emitIntent);
+      root.setAttribute("data-reduced-motion", viewModel.settings?.reducedMotion === true ? "true" : "false");
+      const scale = viewModel.settings?.fontScale;
+      root.style.fontSize = `${typeof scale === "number" && scale >= 1 && scale <= 2 ? scale * 100 : 100}%`;
+      if (viewModel.viewRevision !== undefined) root.setAttribute("data-view-revision", String(viewModel.viewRevision));
       activeScaffold.content.replaceChildren(built.element);
       references = built.references;
       applyBusyState(activeScaffold, references, busy);
@@ -216,6 +223,20 @@ function buildGameShell(document, viewModel, messages, emitIntent) {
     classNames: ["jk-narrative"],
   });
 
+  const contentNotice = buildFirstRunNotice(document, { notice: viewModel.contentNotice }, messages);
+  if (contentNotice !== null) {
+    contentNotice.setAttribute("data-jk-role", "content-notice");
+    narrative.append(contentNotice);
+  }
+  const feedback = buildFeedback(document, viewModel, messages);
+  if (feedback !== null) narrative.append(feedback);
+  if (scene.pageLabel) narrative.append(createElement(document, "p", {
+    classNames: ["jk-page-label"], attributes: { "data-jk-role": "page-label" }, text: scene.pageLabel,
+  }));
+  if (scene.context) narrative.append(createElement(document, "p", {
+    classNames: ["jk-visually-hidden"], text: scene.context,
+  }));
+
   if (scene.speaker) {
     const speaker = createElement(document, "p", {
       classNames: ["jk-speaker"],
@@ -232,13 +253,10 @@ function buildGameShell(document, viewModel, messages, emitIntent) {
 
   const dialogue = createElement(document, "p", {
     classNames: ["jk-dialogue"],
-    attributes: { "data-jk-role": "dialogue-text" },
+    attributes: { "data-jk-role": "dialogue-text", id: "jk-current-dialogue" },
     text: scene.dialogue,
   });
   narrative.append(dialogue);
-
-  const feedback = buildFeedback(document, viewModel, messages);
-  if (feedback !== null) narrative.append(feedback);
 
   const firstRunNotice = buildFirstRunNotice(document, viewModel, messages);
   if (firstRunNotice !== null) narrative.append(firstRunNotice);
@@ -577,11 +595,14 @@ function buildChoices(document, viewModel, messages, emitIntent) {
     });
     const choiceId = readString(choice.id);
     if (choiceId) button.setAttribute("data-choice-id", choiceId);
+    if (viewModel.confirmationRequired === true) button.setAttribute("aria-describedby", "jk-current-dialogue");
     button.disabled = disabled;
     button.setAttribute("aria-disabled", disabled ? "true" : "false");
     button.addEventListener("click", () => {
       if (button.disabled || !choiceId) return;
-      emitIntent({ type: "SELECT_CHOICE", choiceId });
+      emitIntent({ type: "SELECT_CHOICE", choiceId,
+        ...(viewModel.viewRevision === undefined ? {} : { viewRevision: viewModel.viewRevision, expectedRevision: viewModel.revision }),
+      });
     });
     item.append(button);
 
@@ -685,6 +706,8 @@ function readScene(viewModel) {
       || readString(scene.speaker)
       || readString(isRecord(viewModel.speaker) ? viewModel.speaker.name : undefined),
     dialogue,
+    pageLabel: readString(scene.pageLabel),
+    context: readString(scene.context),
   });
 }
 
@@ -720,7 +743,14 @@ function readLogEntry(entry) {
 function readStatusText(status, messages) {
   if (typeof status === "string" && status) return status;
   if (isRecord(status)) {
-    return readString(status.text) || readString(status.message) || message(messages, "status.generic");
+    const text = readString(status.text) || readString(status.message) || message(messages, "status.generic");
+    const changes = Array.isArray(status.meterChanges) ? status.meterChanges : [];
+    const descriptions = changes.filter((change) => ["hp", "sanity"].includes(change.meter) && Number.isFinite(change.delta)).map((change) => (
+      formatMessage(message(messages, change.delta > 0 ? "meter.change.positive" : change.delta < 0 ? "meter.change.negative" : "meter.change.neutral"), {
+        label: message(messages, `meter.${change.meter}`), amount: Math.abs(change.delta),
+      })
+    ));
+    return [text, ...descriptions].join(" ");
   }
   throw new TypeError("Status must be a string or an object with display text.");
 }

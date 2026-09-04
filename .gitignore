@@ -11,5 +11,5 @@
 node_modules/
 coverage/
 _site/
+output/playwright/
 *.log
-

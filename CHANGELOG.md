@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Completed Sprint 2 implementation locally: real Act 1 orchestration, exact Resume, explicit save replacement consent, Mock deprecation, 444 passing tests and 12 browser playthroughs. Human review remains required before the single Sprint PR. [Tasks 4–5 closeout audit](docs/changelog/2026-09/2026-09-04-1039-sprint-02-task-04-05-bootstrap-playthrough.md)
+- Implemented the seven-scene canonical Act 1 JSON package and graph suite: 14/14 nodes, 21/21 edges, 12 routes across three exploration profiles, and 379 passing tests. [Tasks 2–3 audit record](docs/changelog/2026-09/2026-09-04-0959-sprint-02-task-02-03-content-graph.md)
+- Implemented Task 1 Content Validator & same-origin Package Loader with immutable records/indexes, local schema resolution, versioned Act 1 rest/flag policies, and 300 passing tests (183 existing + 117 new). [Task 1 audit record](docs/changelog/2026-09/2026-09-04-0927-sprint-02-task-01-content-validator.md)
 - Drafted Sprint 2 SSOT for Content Engine Architecture & the full Act 1 narrative package, with five tasks, requirement traceability, scoped quality gates, and CR-0002 execution-contract decisions. [Planning audit record](docs/changelog/2026-09/2026-09-04-0228-sprint-02-ssot-baseline.md)
 
 ## [0.2.0] - 2026-09-02

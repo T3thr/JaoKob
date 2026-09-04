@@ -42,6 +42,17 @@
   transform: translateY(0.0625rem);
 }
 
+.jk-app[data-reduced-motion="true"] .jk-scene-enter,
+.jk-app[data-reduced-motion="true"] .jk-feedback {
+  animation: none;
+}
+
+.jk-app[data-reduced-motion="true"] .jk-choice-button,
+.jk-app[data-reduced-motion="true"] .jk-secondary-button {
+  transition: none;
+  transform: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .jk-app .jk-scene-enter,
   .jk-app .jk-feedback {

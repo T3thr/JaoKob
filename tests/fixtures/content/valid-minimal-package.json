@@ -1,0 +1,199 @@
+{
+  "schemaVersion": "1.1.0",
+  "contentVersion": "1.1.0",
+  "defaultLocale": "th",
+  "supportedLocales": [
+    "th"
+  ],
+  "entryTreeId": "tree.fixture",
+  "gameDefaults": {
+    "metrics": {
+      "hp": 80,
+      "sanity": 70,
+      "bond": 0
+    },
+    "settings": {
+      "locale": "th",
+      "textSpeed": "normal",
+      "fontScale": 1,
+      "reducedMotion": false,
+      "highContrast": false,
+      "storyAssist": false,
+      "immersiveUi": true,
+      "confirmHighImpactChoices": true,
+      "typewriterEffect": true,
+      "autoAdvance": false,
+      "masterVolume": 1,
+      "musicVolume": 0,
+      "ambienceVolume": 0,
+      "effectsVolume": 0,
+      "reducedIntensityAudio": false
+    }
+  },
+  "flagDefinitions": [
+    {
+      "id": "story.act1_complete",
+      "valueType": "boolean",
+      "defaultValue": false,
+      "description": {
+        "th": "ข้อมูลทดสอบ"
+      },
+      "policy": {
+        "kind": "marker",
+        "reversible": false
+      }
+    },
+    {
+      "id": "exploration.safe_observations",
+      "valueType": "integer",
+      "defaultValue": 0,
+      "description": {
+        "th": "ข้อมูลทดสอบ"
+      },
+      "policy": {
+        "kind": "counter",
+        "min": 0,
+        "max": 20,
+        "overflow": "saturate",
+        "monotonic": true,
+        "reversible": false
+      }
+    },
+    {
+      "id": "memory.home_focus",
+      "valueType": "string",
+      "defaultValue": "unset",
+      "description": {
+        "th": "ข้อมูลทดสอบ"
+      },
+      "policy": {
+        "kind": "enum",
+        "values": [
+          "unset",
+          "mother",
+          "roots",
+          "siblings"
+        ],
+        "reversible": false
+      }
+    },
+    {
+      "id": "keepsake.lily_fragment",
+      "valueType": "boolean",
+      "defaultValue": false,
+      "description": {
+        "th": "ข้อมูลทดสอบ"
+      },
+      "policy": {
+        "kind": "boolean",
+        "reversible": false
+      }
+    }
+  ],
+  "contentWarnings": [],
+  "assets": [],
+  "characters": {
+    "schemaVersion": "1.0.0",
+    "characters": [
+      {
+        "id": "character.fixture.narrator",
+        "name": {
+          "th": "ผู้บรรยาย"
+        },
+        "shortName": {
+          "th": "ผู้บรรยาย"
+        },
+        "narrativeRole": "narrator",
+        "description": {
+          "th": "ตัวละครทดสอบ"
+        },
+        "traits": {
+          "th": [
+            "อ่อนโยน"
+          ]
+        },
+        "visualProfile": {
+          "species": {
+            "th": "ผู้บรรยาย"
+          },
+          "lifeStage": "non-living",
+          "appearance": {
+            "th": "ไม่มีภาพ"
+          }
+        }
+      }
+    ]
+  },
+  "dialogues": {
+    "schemaVersion": "1.0.0",
+    "dialogues": [
+      {
+        "id": "dialogue.fixture.line",
+        "speakerCharacterId": "character.fixture.narrator",
+        "text": {
+          "th": "น้ำค่อย ๆ สงบลง"
+        },
+        "delivery": {
+          "emotion": "neutral",
+          "pace": "normal"
+        }
+      }
+    ]
+  },
+  "events": {
+    "schemaVersion": "1.0.0",
+    "events": []
+  },
+  "narrativeTrees": [
+    {
+      "schemaVersion": "1.1.0",
+      "treeId": "tree.fixture",
+      "title": {
+        "th": "เนื้อหาทดสอบ"
+      },
+      "description": {
+        "th": "ไม่ใช่เนื้อเรื่องจริง"
+      },
+      "entryNodeId": "node.fixture.rest",
+      "nodes": [
+        {
+          "id": "node.fixture.rest",
+          "type": "cutscene",
+          "act": 1,
+          "title": {
+            "th": "พัก"
+          },
+          "entryCondition": {
+            "kind": "always"
+          },
+          "contentWarningIds": [],
+          "checkpointPolicy": "after-node",
+          "checkpointId": "checkpoint.fixture.rest",
+          "testReferenceIds": [
+            "tc.content.fixture"
+          ],
+          "dialogueIds": [
+            "dialogue.fixture.line"
+          ],
+          "onEnterEffects": [
+            {
+              "type": "set-flag",
+              "flagId": "story.act1_complete",
+              "value": true
+            }
+          ],
+          "completion": {
+            "kind": "act-rest",
+            "flagId": "story.act1_complete",
+            "message": {
+              "th": "พักการเดินทาง"
+            },
+            "actionLabel": {
+              "th": "กลับหน้าเริ่มต้น"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

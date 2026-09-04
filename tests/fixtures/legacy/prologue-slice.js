@@ -1,3 +1,4 @@
+/** @deprecated Sprint 1 fixture. Production replacement: src/data/content/packages/act-01.json. */
 /**
  * Approved mock content for Sprint 1's first playable slice.
  *
