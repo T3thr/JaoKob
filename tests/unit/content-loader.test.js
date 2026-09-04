@@ -11,6 +11,47 @@ const fixture = async (name = "valid-minimal-package") => JSON.parse(await readF
 const text = (th = "ข้อมูลทดสอบ") => ({ th });
 const first = (data) => data.narrativeTrees[0].nodes[0];
 
+test("tc.act1.schema FR-CNT-001/002: canonical Act 1 loads from JSON and object with immutable indexes", async () => {
+  const [source, catalogText] = await Promise.all([
+    readFile(new URL("../../src/data/content/packages/act-01.json", import.meta.url), "utf8"),
+    readFile(new URL("../../src/data/content/packages/act-01-test-catalog.json", import.meta.url), "utf8"),
+  ]);
+  const actOptions = { testReferenceIds: JSON.parse(catalogText), expectedContentVersion: "2.0.0" };
+  const input = JSON.parse(source);
+  const before = structuredClone(input);
+  const fromJson = loadContentPackageFromJson(source, actOptions);
+  const fromObject = await loadContentPackage(input, actOptions);
+  for (const result of [fromJson, fromObject]) {
+    assert.equal(result.valid, true, JSON.stringify(result.errors));
+    assert.equal(result.packageData.schemaVersion, "1.1.0");
+    assert.equal(result.entry.tree.treeId, "tree.act1");
+    assert.equal(result.entry.node.id, "node.act1.opening");
+    assert.equal(Object.keys(result.indexes.nodes).length, 14);
+    assert.equal(result.indexes.nodes["node.act1.rest"].completion.kind, "act-rest");
+    const walk = (value) => { if (value && typeof value === "object") { assert.ok(Object.isFrozen(value)); Object.values(value).forEach(walk); } };
+    walk(result);
+    assert.throws(() => { result.indexes.choices["choice.act1.keep-fragment"].effects[0].amount = 100; }, TypeError);
+  }
+  assert.deepEqual(input, before);
+  input.dialogues.dialogues[0].text.th = "เปลี่ยนต้นฉบับภายหลัง";
+  assert.notEqual(input.dialogues.dialogues[0].text.th, fromObject.packageData.dialogues.dialogues[0].text.th);
+  expectFailure(validateContentPackage(before), "CONTENT_REFERENCE", "testReferenceIds");
+  expectFailure(validateContentPackage(before, { ...actOptions, expectedContentVersion: "1.0.0" }), "CONTENT_VERSION", "contentVersion");
+});
+
+for (const prefix of ["/", "/JaoKob/"]) test(`tc.act1.schema canonical JSON same-origin load at ${prefix}`, async () => {
+  const source = await readFile(new URL("../../src/data/content/packages/act-01.json", import.meta.url), "utf8");
+  const testReferenceIds = JSON.parse(await readFile(new URL("../../src/data/content/packages/act-01-test-catalog.json", import.meta.url), "utf8"));
+  let requested;
+  const result = await loadContentPackage("src/data/content/packages/act-01.json", { testReferenceIds, baseUrl: `https://example.test${prefix}index.html`, fetch: async (url) => {
+    requested = url;
+    return { ok: true, redirected: false, url, text: async () => source };
+  } });
+  assert.equal(result.valid, true, JSON.stringify(result.errors));
+  assert.equal(String(requested), `https://example.test${prefix}src/data/content/packages/act-01.json`);
+  assert.equal(result.entry.node.id, "node.act1.opening");
+});
+
 function expectFailure(result, code, path = "$") {
   assert.equal(result.valid, false);
   assert.ok(result.errors.some((e) => e.code === code && e.path.includes(path)), JSON.stringify(result.errors));

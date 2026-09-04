@@ -1,0 +1,97 @@
+{
+  "contentVersion": "2.0.0",
+  "schemaVersion": "1.1.0",
+  "nodeCount": 14,
+  "edgeCount": 21,
+  "scenes": {
+    "NAR-SC-A1-001": [
+      "node.act1.opening"
+    ],
+    "NAR-SC-A1-002": [
+      "node.act1.nursery",
+      "node.act1.observe-lily",
+      "node.act1.observe-roots",
+      "node.act1.observe-shadows",
+      "node.act1.observe-mother"
+    ],
+    "NAR-SC-A1-003": [
+      "node.act1.home-focus",
+      "node.act1.home-reflection"
+    ],
+    "NAR-SC-A1-004": [
+      "node.act1.storm"
+    ],
+    "NAR-SC-A1-005": [
+      "node.act1.survival"
+    ],
+    "NAR-SC-A1-006": [
+      "node.act1.lily-fragment",
+      "node.act1.leaf-discovery",
+      "node.act1.keepsake"
+    ],
+    "NAR-SC-A1-007": [
+      "node.act1.rest"
+    ]
+  },
+  "variantSlots": [
+    {
+      "id": "slot.act1.home",
+      "nodeId": "node.act1.home-reflection",
+      "eventIds": [
+        "event.act1.home-mother",
+        "event.act1.home-roots",
+        "event.act1.home-siblings",
+        "event.act1.home-default"
+      ],
+      "defaultEventId": "event.act1.home-default"
+    },
+    {
+      "id": "slot.act1.coping",
+      "nodeId": "node.act1.lily-fragment",
+      "eventIds": [
+        "event.act1.coping-call",
+        "event.act1.coping-safety",
+        "event.act1.coping-default"
+      ],
+      "defaultEventId": "event.act1.coping-default"
+    }
+  ],
+  "prototypes": {
+    "dialogue.act1.first-light": "ก่อนโลกจะมีชื่อ โลกคือแสงที่ไหวอยู่เหนือผิวน้ำ และจังหวะคุ้นเคยที่ว่ายอยู่ข้างกัน",
+    "dialogue.act1.mother-roots": "ถ้าน้ำไหว ให้ฟังรากบัวนะ รากจำทางกลับได้ดีกว่าคลื่น",
+    "dialogue.act1.voice-of-home": "เสียงของบ้านอยู่ตรงไหน หรือเสียงของเรากำลังไหลไปไกลกว่าเดิม",
+    "dialogue.act1.leaf-memory": "ใบบัวชิ้นเล็กไม่ใช่บ้านทั้งหลัง แต่มันยังจำสีของบ้านได้",
+    "dialogue.act1.coping-call": "เจ้ากบเรียกจนเสียงบางลง แต่การเรียกนั้นยืนยันว่าบ้านเคยมีอยู่จริง",
+    "dialogue.act1.coping-safety": "เจ้ากบหาช่องหายใจก่อน แล้วจึงปล่อยให้ความคิดถึงตามมาทัน"
+  },
+  "deferredCallbacks": [
+    {
+      "setupChoiceId": "choice.act1.call-family",
+      "flagId": "coping.called_for_family",
+      "requirementId": "NAR-MTX-A1-001",
+      "milestone": "Phase 2 Act 5",
+      "owner": "Lead Narrative Director"
+    },
+    {
+      "setupChoiceId": "choice.act1.seek-safety",
+      "flagId": "coping.sought_safety",
+      "requirementId": "NAR-BRN-002",
+      "milestone": "Phase 2 Act 3",
+      "owner": "Lead Narrative Director"
+    },
+    {
+      "setupChoiceId": "choice.act1.keep-fragment",
+      "flagId": "keepsake.lily_fragment",
+      "requirementId": "NAR-MTX-A3-003",
+      "milestone": "Phase 2 Acts 3/4/5",
+      "owner": "Lead Narrative Director"
+    },
+    {
+      "setupChoiceId": "choice.act1.release-fragment",
+      "flagId": "coping.let_go_early",
+      "requirementId": "NAR-CON-002",
+      "milestone": "Phase 2 Acts 3/4/5",
+      "owner": "Lead Narrative Director"
+    }
+  ]
+}

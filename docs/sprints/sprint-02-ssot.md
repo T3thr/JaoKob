@@ -2,18 +2,18 @@
 
 รหัสสปรินต์: `SPRINT-02`\
 เป้าหมายหลัก: **Content Engine Architecture & Act 1 Full Narrative Package**\
-สถานะ: `In Progress — Task 1 complete locally; awaiting Step 2`\
+สถานะ: `In Progress — Tasks 1–3 implemented and verified locally; ready for Step 3`\
 รอบการส่งมอบ: **Phase 2A (Content Expansion)**\
-เวอร์ชันเอกสาร: `0.2.0` — Task 1 implementation และ Tech Lead decision lock\
+เวอร์ชันเอกสาร: `0.3.0` — Canonical Act 1 package และ scoped graph verification\
 วันที่จัดทำ: 2026-09-04 (Asia/Bangkok)\
 เจ้าของแผน: Senior Technical Lead & Narrative Operations Director\
 มาตรฐานอ้างอิง: `ISO/IEC/IEEE 12207:2017`, `ISO/IEC/IEEE 29148:2018`, `WCAG 2.2 AA`
 
-**ความหมายของสถานะ:** แผนได้รับอนุมัติและ merge ผ่าน PR #6 ที่ `be9bbcb` แล้ว Tech Lead Step 1 อนุมัติ Task 1 พร้อม D1/D2/D4 ตาม disposition ด้านล่าง งานที่เหลือยังต้องผ่าน DoR ตาม dependencies และคำสั่งรอบถัดไป
+**ความหมายของสถานะ:** แผนได้รับอนุมัติและ merge ผ่าน PR #6 ที่ `be9bbcb` แล้ว Tech Lead Step 1 อนุมัติ Task 1 พร้อม D1/D2/D4; Step 2 อนุมัติ package ทั้งเจ็ดฉากและ graph tests บนฐาน `c7d60f4` Tasks 1–3 เสร็จในขอบเขต local implementation/automated verification ส่วน human editorial/sensitivity review ก่อน merge และ application integration/browser verification ยังเป็นงาน Step 3
 
 ฐานการวางแผนคือ `develop@53de19e` ซึ่งรวม Sprint 1 ครบ Tasks 1–5 และมี regression 183 tests; commit รวมตัวเกมคือ `ae2e103` ส่วน `53de19e` เป็นบันทึก closeout ต่อจากนั้น ตาม [Sprint 1 SSOT](sprint-01-ssot.md) และ [บันทึกปิด Sprint 1](../changelog/2026-09/2026-09-03-1040-sprint-01-merge-closeout.md) การอนุมัติ Phase 0 ยึดคำยืนยันของเจ้าของโครงการในคำสั่งวางแผนนี้ แม้ส่วนหัวเอกสารเดิมบางฉบับยังใช้คำว่า Proposed/Candidate
 
-รอบวางแผนเดิมเป็น documentation-only; รอบ Step 1 ปัจจุบันอนุมัติ Production เฉพาะ Content Validator/Loader และ contracts/tests ที่จำเป็น ใช้ Branch เดียว `feat/sprint-02-act-01-expansion` สำหรับทั้งสามรอบ มี atomic local commit ต่อรอบ และห้าม push/เปิด PR/merge จนได้รับคำสั่งเมื่อครบสามรอบ กติกานี้แทนแผนแยก PR ต่อ Task ในรอบวางแผน
+รอบวางแผนเดิมเป็น documentation-only; Step 1 อนุมัติ Content Validator/Loader และ Step 2 อนุมัติ Act 1 JSON พร้อม graph tests/trace ใช้ Branch เดียว `feat/sprint-02-act-01-expansion` สำหรับทั้งสามรอบ มี atomic local commit ต่อรอบ และห้าม push/เปิด PR/merge จนได้รับคำสั่งเมื่อครบสามรอบ กติกานี้แทนแผนแยก PR ต่อ Task ในรอบวางแผน
 
 ---
 
@@ -160,7 +160,11 @@ Core ปัจจุบันมี `evaluateCondition`, Choice Transaction แ�
 - [ ] Stable-ID registry, flag policy, callback mapping, checkpoint และ rollback ตัดสินครบตามผลกระทบ
 - [ ] Narrative/Game Design/Architecture/QA อนุมัติเฉพาะส่วนที่อยู่ในอำนาจตน; Asset ใดที่จะนำเข้ามี provenance
 
-Checklist นี้ยังคงเป็นแม่แบบสำหรับ Tasks 2–5; Task 1 ผ่านตาม disposition และหลักฐานใน Section 7 ไม่ตีความว่าการผ่าน Task 1 ปิด D3 หรือ readiness ของ Application ทุกส่วนแล้ว
+**Disposition จาก Tech Lead Step 2 (2026-09-04):** อนุมัติ Tasks 2/3 ตาม directive พร้อม schema 1.1 ที่ล็อกแล้วและ Act 1 Canon ทั้งเจ็ดฉาก มี contentVersion `2.0.0` แยก Mock, explicit node/edge/test registry และ callback ledger ใน [Content Matrix](../traceability/sprint-02-content-matrix.md). Hotspot ใช้ node-entered events/maxOccurrences=1; leaf discovery เป็น graph dominator พร้อม occurrence evidence โดยไม่เพิ่ม progress flag. Test-only model ตรวจ ordering ด้วย Core เดิม; capability review ของ D3 ระบุว่าต้องประกอบ on-enter/variant/cursor/checkpoint/Resume จริงใน Task 4 ก่อนเล่นผ่าน browser
+
+DoR ของ Step 2 ครอบคลุม inputs/outputs/errors, canonical deltas, schema version, Thai resources, fixture/expected outcomes, file ownership, security/provenance (ไม่มี asset ใหม่), compatibility=ยังไม่ activate package และ rollback local commit ตาม [บันทึก Task 2/3](../changelog/2026-09/2026-09-04-0959-sprint-02-task-02-03-content-graph.md). ข้อความเรื่อง Bond ใน Act 2 ต่างจาก NAR-CON-005 เป็น follow-up ของ CR-0002 สำหรับองก์ถัดไป; ทุกแหล่งตรงกันว่า Act 1 Bond=0 จึงไม่ขวางงานรอบนี้และไม่เปลี่ยน future Canon
+
+Checklist ด้านบนยังเป็นแม่แบบสำหรับ Tasks 4–5; หลักฐาน Tasks 1–3 ใน Section 7 ไม่ถือว่าปิด D3 ของ Application หรือแทนการอนุมัติ Thai editorial/sensitivity ก่อน merge
 
 ---
 
@@ -182,7 +186,9 @@ Checklist นี้ยังคงเป็นแม่แบบสำหรั�
   5. คืน immutable versioned records/indexes ที่ caller แก้ไม่ได้; caller เปลี่ยน fixture ต้นฉบับภายหลังไม่เปลี่ยนข้อมูลของ session
   6. Register local `$id/$ref` และมี valid/invalid parity evidence สำหรับ contract ที่ใช้จริง; runtime ไม่ใช้ Node API หรือ remote Schema service
 
-- [ ] **Task 2: Canonical Act 1 Content Package (`src/data/content/packages/act-01.json`)**
+- [x] **Task 2: Canonical Act 1 Content Package (`src/data/content/packages/act-01.json`)**
+
+  **Local delivery:** package 14 nodes / 7 scenes / 46 dialogue records / 13 events ผ่าน validator และ graph; contentVersion 2.0.0 / schema 1.1.0. `[x]` หมายถึง implementation/automated verification ใน Step 2; Thai human editorial และ sensitivity approval ตาม AC7 ยังรอตรวจจริงก่อน merge ไม่ถือว่าผ่านโดยการเขียน package
 
   **Owner:** Lead Narrative Director; Review: Game Designer, Thai Editor, Data Maintainer และ QA\
   **Dependencies:** Task 1 contract freeze, CR-0002 D1–D3; ผลตรวจรับใช้ Task 3\
@@ -217,7 +223,9 @@ Checklist นี้ยังคงเป็นแม่แบบสำหรั�
   7. Thai source/labels/warnings/accessibility resources ครบ, Schema/graph ผ่าน, มี Thai human editorial และ sensitivity review พร้อมผู้ตรวจ/วันที่ก่อน merge Content; budget Act 1 20–30 นาทีเป็นเป้าประเมินการอ่าน ไม่เพิ่มฉากเติมเวลา
   8. จบที่ Act 1 boundary ซึ่งอนุมัติใน D1 และ checkpoint เล่นต่อได้; ไม่ตั้ง `endingId`, ไม่สร้าง Act 2 placeholder หรือ claim Full Release ending coverage
 
-- [ ] **Task 3: Automated Content Graph & Reachability Test Suite (`tests/unit/content-graph.test.js`)**
+- [x] **Task 3: Automated Content Graph & Reachability Test Suite (`tests/unit/content-graph.test.js`)**
+
+  **Local delivery:** 76 tests ผ่าน; nodes 14/14, edges 21/21, 689 reachable states และ 192 terminal states (16 hotspot subsets × 12 Canon outcomes). 36 route cases, 24 hotspot orders, replay/counter bounds และ negative graph fixtures ผ่าน; [Content Matrix](../traceability/sprint-02-content-matrix.md) แยก Canon/synthetic-default evidence และ deferred payoffs
 
   **Owner:** Quality Owner; Review: Data Maintainer และ Narrative Director\
   **Dependencies:** Task 1 contract, Task 2 candidate package, approved D1 boundary\
@@ -295,6 +303,8 @@ Checklist นี้ยังคงเป็นแม่แบบสำหรั�
 
 ### 6.2 สถานะ Tooling และวิธีรายงานหลักฐาน
 
+**Step 2 update:** `node --test tests/unit/content-loader.test.js` ผ่าน **120/120** (รวมโหลด Act 1 จริง); `node --test tests/unit/content-graph.test.js` ผ่าน **76/76**; full suite **379/379 = 183 Sprint 1 + 117 Task 1 + 79 Step 2**, fail/cancel/skip/todo=0. `node --check` ผ่าน JS ใหม่ 2 ไฟล์และ loader tests ที่แก้. Scoped GRAPH-GATE Act 1 ครบ structural/state-feasible witnesses; events 11/13 และ dialogues 44/46 จาก Canon routes อีก 2/2 เป็น synthetic defaults. Node/edge denominator ไม่มีข้อยกเว้น Browser/Save/Resume และ human review ยังไม่รัน
+
 **Step 1 update:** มี `content-loader.test.js` แล้ว จำนวน 117 tests; รวม regression เดิม 183 เป็น **300/300 ผ่าน**, ไม่มี fail/cancel/skip ใช้ `node --test tests/unit/*.test.js` และ syntax checks ตามบันทึก Task 1 มี schema snapshot/ref/keyword parity และ typed semantic checks; full metaschema validation ด้วย external reference implementation ยังไม่ได้รัน และไม่อ้าง Full GRAPH-GATE ซึ่งเป็น Task 3
 
 ณ `53de19e` มีคำสั่ง `node --test tests/unit/*.test.js` ที่ใช้จริงและผ่าน 183 tests ส่วน `content-loader.test.js`, `content-graph.test.js` และ Act 1 E2E ยังไม่มี จึงยังไม่อ้างว่ารันหรือผ่าน `SCHEMA-GATE`/`GRAPH-GATE` ของ Sprint 2 แล้ว ชื่อไฟล์และ Test IDs ในแผนเป็น deliverable เป้าหมาย ต้อง materialize และบันทึกคำสั่งจริงใน Task ที่รับผิดชอบก่อนใช้เป็น gate evidence
@@ -327,3 +337,4 @@ Test evidence ต้องระบุ commit, content/schema/save versions, com
 | รหัสบันทึก (Record ID) | วันที่-เวลา (Timestamp) | หัวข้องาน (Task / Milestone) | ไฟล์บันทึกฉบับเต็ม | สถานะ |
 |---|---|---|---|---|
 | `CR-20260904-0927` | 2026-09-04T09:27:52+07:00 | Step 1 / Task 1 Content Validator & Package Loader | [Task 1 audit](../changelog/2026-09/2026-09-04-0927-sprint-02-task-01-content-validator.md) | Verified locally: 300 tests; not pushed |
+| `CR-20260904-0959` | 2026-09-04T09:59:48+07:00 | Step 2 / Tasks 2–3 Canonical Act 1 & Graph Suite | [Tasks 2–3 audit](../changelog/2026-09/2026-09-04-0959-sprint-02-task-02-03-content-graph.md) | Verified locally: 379 tests; human editorial pending before merge; not pushed |

@@ -1,0 +1,9 @@
+[
+  "tc.act1.schema",
+  "tc.act1.structure",
+  "tc.act1.routes",
+  "tc.act1.observations",
+  "tc.act1.variants",
+  "tc.act1.preconditions",
+  "tc.act1.boundary"
+]
