@@ -9,6 +9,8 @@
 
 เอกสารนี้ทำหน้าที่เป็น **Single Source of Truth (SSOT)** และคู่มือนำทางสำหรับนักพัฒนาและ AI Agent ทุกตัวในการทำงานร่วมกันอย่างมีวินัย ตรวจสอบย้อนกลับได้ และไร้ข้อผิดพลาด
 
+**Current integrated baseline:** Sprint 2 ปิด WBS 5/5 และรวมเข้า `develop` ผ่าน PR #7 ที่ `70bac18` แล้ว ดู [Sprint 2 SSOT](sprints/sprint-02-ssot.md) และ [Merge Closeout CR-20260905-0128](changelog/2026-09/2026-09-05-0128-sprint-02-merge-closeout.md). เป้าหมายถัดไปคือวางแผน Sprint 3: **Act 2 — The Rushing Stream**; ยังไม่มีอำนาจเริ่ม Coding จน Sprint 3 SSOT/DoR ผ่าน
+
 ---
 
 ## 1. แผนผังโครงสร้างโฟลเดอร์ของโครงการ (Repository Directory Standard)
@@ -29,7 +31,8 @@ JaoKob/
 │   │   ├── 2026-08/               <-- บันทึกประจำเดือนสิงหาคม 2026
 │   │   └── 2026-09/               <-- บันทึกประจำเดือนกันยายน 2026
 │   ├── sprints/                   <-- เอกสาร SSOT ประจำรอบการพัฒนา (Sprint Execution)
-│   │   └── sprint-01-ssot.md      <-- SSOT ประจำ Sprint 1: Core Vertical Slice
+│   │   ├── sprint-01-ssot.md      <-- Baseline Sprint 1: Core Vertical Slice
+│   │   └── sprint-02-ssot.md      <-- Integrated Sprint 2: Content Engine & Canonical Act 1
 │   ├── phase-0/                   <-- เอกสารข้อกำหนดรากฐาน (Baseline Specifications 9 ฉบับ)
 │   │   ├── 00-phase-0-charter.md  <-- ขอบเขต กฎบัตร และมาตรฐานอ้างอิง
 │   │   ├── 01-game-design-document.md <-- GDD ฉบับเต็ม (Core Loop, Meters, Endings)
@@ -80,7 +83,7 @@ flowchart TD
 
 ### Checklist ที่ต้องตรวจสอบก่อนเริ่มเขียนโค้ด (Definition of Ready - DoR):
 1. [ ] **อ่าน [`AGENTS.md`](../AGENTS.md):** ยืนยันข้อห้าม Boundary และขอบเขตความปลอดภัย
-2. [ ] **อ่าน SSOT ประจำ Sprint:** เช่น [`docs/sprints/sprint-01-ssot.md`](sprints/sprint-01-ssot.md) เพื่อทราบ Goal, Scope, Requirement IDs และเกณฑ์ส่งมอบ (DoD)
+2. [ ] **อ่าน SSOT ประจำ Sprint:** ใช้ [Sprint 2 SSOT](sprints/sprint-02-ssot.md) เป็น integrated baseline จนกว่าจะมี Sprint 3 SSOT ที่อนุมัติ เพื่อทราบ Goal, Scope, Requirement IDs และเกณฑ์ส่งมอบ (DoD)
 3. [ ] **อ่าน Change Record ล่าสุด:** ใน [`docs/changelog/2026-09/`](changelog/2026-09/) เพื่อทราบสถานะว่ารอบที่แล้วทำอะไรเสร็จไปแล้วบ้าง
 4. [ ] **ตรวจสอบ Requirement ID:** ทราบแน่ชัดว่างานที่กำลังจะทำตอบโจทย์ Requirement ID ใด (เช่น `FR-STA-001`, `FR-ENG-001`)
 
@@ -104,7 +107,7 @@ flowchart TD
 ### Checklist ที่ต้องอัปเดตก่อนส่งมอบงาน (Definition of Done - DoD Documentation Gate):
 1. [ ] **สร้าง Execution Change Record:** สร้างไฟล์ใหม่ใน `docs/changelog/YYYY-MM/YYYY-MM-DD-HHmm-<slug>.md` ตามแม่แบบใน [`docs/changelog/README.md`](changelog/README.md) โดยระบุวันเวลา, วัตถุประสงค์, Requirement IDs, รายการไฟล์ที่แก้ และผลการทดสอบ
 2. [ ] **อัปเดต Root [`CHANGELOG.md`](../CHANGELOG.md):** เพิ่มสรุปสั้น 1-3 บรรทัดภายใต้หัวข้อ Release หรือ Unreleased พร้อมทำลิงก์ Markdown ชี้ไปยังไฟล์ Change Record ในข้อ 1
-3. [ ] **อัปเดตสถานะใน Sprint SSOT:** เปิด [`docs/sprints/sprint-NN-ssot.md`](sprints/sprint-01-ssot.md) แล้วทำเครื่องหมาย `[x]` หน้า Task ที่ทำเสร็จแล้วในหัวข้อ Work Breakdown Structure (WBS)
+3. [ ] **อัปเดตสถานะใน Sprint SSOT:** เปิด [`docs/sprints/sprint-NN-ssot.md`](sprints/sprint-02-ssot.md) แล้วทำเครื่องหมาย `[x]` หน้า Task ที่ทำเสร็จแล้วในหัวข้อ Work Breakdown Structure (WBS)
 4. [ ] **บันทึก ADR (ถ้ามี):** หากมีการตัดสินใจทางสถาปัตยกรรมที่เปลี่ยนไปจาก Phase 0 ให้บันทึก ADR ฉบับใหม่ใน [`docs/adr/`](adr/)
 
 ---

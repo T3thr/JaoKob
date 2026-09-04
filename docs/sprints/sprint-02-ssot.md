@@ -2,14 +2,14 @@
 
 รหัสสปรินต์: `SPRINT-02`\
 เป้าหมายหลัก: **Content Engine Architecture & Act 1 Full Narrative Package**\
-สถานะ: `Implementation Complete — Tasks 1–5 verified locally; ready for final review`\
+สถานะ: `Integrated into develop (100% WBS Complete & Verified)`\
 รอบการส่งมอบ: **Phase 2A (Content Expansion)**\
-เวอร์ชันเอกสาร: `0.4.0` — Act 1 integrated runtime และ local Sprint 2 closeout\
+เวอร์ชันเอกสาร: `0.5.0` — PR #7 merge integration และ Sprint 2 governance closeout\
 วันที่จัดทำ: 2026-09-04 (Asia/Bangkok)\
 เจ้าของแผน: Senior Technical Lead & Narrative Operations Director\
 มาตรฐานอ้างอิง: `ISO/IEC/IEEE 12207:2017`, `ISO/IEC/IEEE 29148:2018`, `WCAG 2.2 AA`
 
-**ความหมายของสถานะ:** แผนได้รับอนุมัติและ merge ผ่าน PR #6 ที่ `be9bbcb` แล้ว Tech Lead Step 1 อนุมัติ Task 1 พร้อม D1/D2/D4; Step 2 อนุมัติ package ทั้งเจ็ดฉากและ graph tests บนฐาน `c7d60f4` Step 3 อนุมัติ D3/D4 สำหรับ integration บนฐาน `a85a5e5` ตาม [ADR-P0-014](../adr/ADR-P0-014-content-orchestration-and-resume.md). Tasks 1–5 เสร็จในขอบเขต implementation, automated verification และ real-browser smoke; Human Thai editorial/sensitivity, Architecture/QA sign-off และ assistive-technology review ยังต้องตรวจจริงก่อน merge ไม่ถือว่าปิดด้วยสถานะ `[x]`
+**ความหมายของสถานะ:** แผนได้รับอนุมัติผ่าน PR #6 ที่ `be9bbcb`; Tasks 1–5 ดำเนินงานบน feature branch ตาม Tech Lead Steps 1–3 และรวมเข้า `develop` ผ่าน [PR #7](https://github.com/T3thr/JaoKob/pull/7) ด้วย Squash Commit `70bac18` ตาม Official Owner/Tech Lead Integration Directive. Merged `develop` ผ่าน 444/444 tests หลัง sync; WBS `[x]` ครบ 5/5. สถานะนี้ปิด Sprint 2 engineering/integration และพร้อม Sprint 3 planning แต่ไม่อ้าง deployment, Release Gate G2, WCAG certification หรือ role-specific review ที่ไม่มีหลักฐานแยก
 
 ฐานการวางแผนคือ `develop@53de19e` ซึ่งรวม Sprint 1 ครบ Tasks 1–5 และมี regression 183 tests; commit รวมตัวเกมคือ `ae2e103` ส่วน `53de19e` เป็นบันทึก closeout ต่อจากนั้น ตาม [Sprint 1 SSOT](sprint-01-ssot.md) และ [บันทึกปิด Sprint 1](../changelog/2026-09/2026-09-03-1040-sprint-01-merge-closeout.md) การอนุมัติ Phase 0 ยึดคำยืนยันของเจ้าของโครงการในคำสั่งวางแผนนี้ แม้ส่วนหัวเอกสารเดิมบางฉบับยังใช้คำว่า Proposed/Candidate
 
@@ -188,7 +188,7 @@ Checklist ด้านบนเป็นแม่แบบราย Task; Step 3
 
 - [x] **Task 2: Canonical Act 1 Content Package (`src/data/content/packages/act-01.json`)**
 
-  **Local delivery:** package 14 nodes / 7 scenes / 46 dialogue records / 13 events ผ่าน validator และ graph; contentVersion 2.0.0 / schema 1.1.0. `[x]` หมายถึง implementation/automated verification ใน Step 2; Thai human editorial และ sensitivity approval ตาม AC7 ยังรอตรวจจริงก่อน merge ไม่ถือว่าผ่านโดยการเขียน package
+  **Integrated delivery:** package 14 nodes / 7 scenes / 46 dialogue records / 13 events ผ่าน validator/graph และรวมใน PR #7; contentVersion 2.0.0 / schema 1.1.0. Owner/Tech Lead อนุมัติ integration ตาม closeout directive; role-specific Thai editorial/sensitivity evidence ไม่ได้บันทึกแยก จึงไม่อ้างเป็น Release/G2 certification
 
   **Owner:** Lead Narrative Director; Review: Game Designer, Thai Editor, Data Maintainer และ QA\
   **Dependencies:** Task 1 contract freeze, CR-0002 D1–D3; ผลตรวจรับใช้ Task 3\
@@ -261,7 +261,7 @@ Checklist ด้านบนเป็นแม่แบบราย Task; Step 3
 
 - [x] **Task 5: End-to-End Act 1 Playthrough Smoke Test & Verification**
 
-  **Local delivery:** [browser runner/evidence](../../tests/e2e/README.md) เล่นจบ 12/12 เส้นทางจริงบน Chromium พร้อม root/subpath, rest/post-storm Resume, keyboard, Bond DOM/AX absence, save faults/consent, 320 px/200% และ payload checks. `[x]` ครอบคลุมงานพัฒนาและ smoke ที่รันแล้ว; AC7 และการฟัง screen reader โดยผู้ตรวจจริงยังเป็น approval gate ก่อน merge
+  **Integrated delivery:** [browser runner/evidence](../../tests/e2e/README.md) เล่นจบ 12/12 เส้นทางจริงบน Chromium พร้อม root/subpath, rest/post-storm Resume, keyboard, Bond DOM/AX absence, save faults/consent, 320 px/200% และ payload checks. `[x]` ครอบคลุม engineering/browser smoke ที่รวมใน PR #7; การฟัง assistive technology โดยผู้ตรวจจริงยังไม่ได้บันทึกและคงเป็น Release/G2 quality backlog
 
   **Owner:** Quality and DevOps Specialist; Review: Narrative Director, Accessibility Reviewer และ Technical Lead\
   **Dependencies:** Task 4 integrated candidate, Tasks 1–3 evidence ครบ\
@@ -328,9 +328,9 @@ Test evidence ต้องระบุ commit, content/schema/save versions, com
 
 ### 6.3 การส่งมอบเอกสารวางแผนรอบนี้
 
-แผนเสร็จในระดับส่ง review เมื่อ Section 1–7 ครบ, รหัส/ลิงก์และข้อจำกัดตรวจแล้ว, ช่องว่างมี CR/owner/dependency, Change Record และ CHANGELOG เชื่อมกัน และมี feature PR ไป `develop` การตรวจในรอบนี้เป็น documentation review และ baseline regression เท่านั้น ไม่ใช่การรับรอง Act 1 implementation ที่ยังไม่เริ่ม
+Sprint 2 ผ่าน execution และ integration แล้ว: Section 1–7, CR/ADR/trace, Change Records, browser evidence และ PR #7 เชื่อมครบ. Closeout นี้รับรอง engineering scope ของ Act 1 ที่ทดสอบจริง ไม่ขยายเป็น Full Release, deployment หรือ G2 ซึ่งยังต้องอาศัย Act 2–5 และ release gates ตาม Phase 0
 
-ไม่มี migration ของข้อมูลในรอบเอกสาร การ rollback แผนใช้ revert commit เอกสารผ่าน PR โดยไม่ rewrite shared history ส่วน deployment และการ merge ต้องรอคำสั่งอนุมัติแยก
+ไม่มี implicit save migration. PR #7 merge เสร็จตามอำนาจ Owner/Tech Lead แล้ว; rollback ต้องคง compatibility write guard ตาม ADR-P0-014. Deployment, `main`, production release และ G2 ยังต้องรอคำสั่งและ gate แยก
 
 ---
 
@@ -338,10 +338,11 @@ Test evidence ต้องระบุ commit, content/schema/save versions, com
 
 บันทึกตั้งต้นของแผน: [CR-20260904-0228 — Sprint 2 SSOT Baseline](../changelog/2026-09/2026-09-04-0228-sprint-02-ssot-baseline.md)
 
-ทะเบียน Execution เริ่มจาก Step 1; เพิ่ม Record ID, timestamp พร้อม timezone และหลักฐานตามผลจริง PR จะเชื่อมเมื่อครบสามรอบและได้รับคำสั่ง
+ทะเบียนนี้ครอบคลุม Planning, Tasks 1–5 และ Merge Closeout; PR #7/merge commit และ post-merge verification อยู่ใน Record ปิดรอบ
 
 | รหัสบันทึก (Record ID) | วันที่-เวลา (Timestamp) | หัวข้องาน (Task / Milestone) | ไฟล์บันทึกฉบับเต็ม | สถานะ |
 |---|---|---|---|---|
-| `CR-20260904-0927` | 2026-09-04T09:27:52+07:00 | Step 1 / Task 1 Content Validator & Package Loader | [Task 1 audit](../changelog/2026-09/2026-09-04-0927-sprint-02-task-01-content-validator.md) | Verified locally: 300 tests; not pushed |
-| `CR-20260904-0959` | 2026-09-04T09:59:48+07:00 | Step 2 / Tasks 2–3 Canonical Act 1 & Graph Suite | [Tasks 2–3 audit](../changelog/2026-09/2026-09-04-0959-sprint-02-task-02-03-content-graph.md) | Verified locally: 379 tests; human editorial pending before merge; not pushed |
-| `CR-20260904-1039` | 2026-09-04T10:39:36+07:00 | Step 3 / Tasks 4–5 Bootstrap, Consent, Resume & Browser Closeout | [Tasks 4–5 audit](../changelog/2026-09/2026-09-04-1039-sprint-02-task-04-05-bootstrap-playthrough.md) | 444 tests / 12 browser routes; local review ready; human approvals pending; not pushed |
+| `CR-20260904-0927` | 2026-09-04T09:27:52+07:00 | Step 1 / Task 1 Content Validator & Package Loader | [Task 1 audit](../changelog/2026-09/2026-09-04-0927-sprint-02-task-01-content-validator.md) | Integrated through PR #7 |
+| `CR-20260904-0959` | 2026-09-04T09:59:48+07:00 | Step 2 / Tasks 2–3 Canonical Act 1 & Graph Suite | [Tasks 2–3 audit](../changelog/2026-09/2026-09-04-0959-sprint-02-task-02-03-content-graph.md) | Integrated through PR #7 |
+| `CR-20260904-1039` | 2026-09-04T10:39:36+07:00 | Step 3 / Tasks 4–5 Bootstrap, Consent, Resume & Browser Closeout | [Tasks 4–5 audit](../changelog/2026-09/2026-09-04-1039-sprint-02-task-04-05-bootstrap-playthrough.md) | Integrated through PR #7: 444 tests / 12 browser routes |
+| `CR-20260905-0128` | 2026-09-05T01:28:44+07:00 | Sprint 2 PR #7 Squash Merge & Governance Closeout | [Merge closeout](../changelog/2026-09/2026-09-05-0128-sprint-02-merge-closeout.md) | Integrated `develop@70bac18`; post-merge 444/444; WBS 5/5 |
