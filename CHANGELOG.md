@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Implemented Task 1 Content Validator & same-origin Package Loader with immutable records/indexes, local schema resolution, versioned Act 1 rest/flag policies, and 300 passing tests (183 existing + 117 new). [Task 1 audit record](docs/changelog/2026-09/2026-09-04-0927-sprint-02-task-01-content-validator.md)
 - Drafted Sprint 2 SSOT for Content Engine Architecture & the full Act 1 narrative package, with five tasks, requirement traceability, scoped quality gates, and CR-0002 execution-contract decisions. [Planning audit record](docs/changelog/2026-09/2026-09-04-0228-sprint-02-ssot-baseline.md)
 
 ## [0.2.0] - 2026-09-02

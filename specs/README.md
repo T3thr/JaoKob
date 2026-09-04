@@ -13,10 +13,18 @@
 | `schemas/narrative-tree.schema.json` | graph, node, entry point, act และเส้นเชื่อม |
 | `schemas/save-state.schema.json` | envelope ของ save, versions, state, flags และ integrity metadata |
 | `schemas/content-package.schema.json` | release unit ที่รวม catalog, narrative trees, defaults, warnings, asset provenance และ versions |
+| `schemas/v1.1.0/content-package.schema.json` | opt-in package 1.1 พร้อม explicit boolean/marker/enum/counter policy ตาม CR-0002 D2 |
+| `schemas/v1.1.0/narrative-tree.schema.json` | opt-in tree 1.1 ที่มี Act 1 resting Cutscene completion แทน outgoing target ตาม CR-0002 D1 |
 
 ชื่อจริงของไฟล์ให้ยึดตามไฟล์ใน `schemas/` หากต่างจาก catalog นี้ และต้องอัปเดต catalog ใน change เดียวกัน
 
 Canonical `$id` ใช้ namespace `https://t3thr.github.io/JaoKob/specs/schemas/` เพื่อเป็น stable identifier ของ schema การ validate ในเครื่องต้องใช้ local catalog mapping และไม่ควรต้อง fetch schema ผ่าน network
+
+Task 1 มี [Content Validator](../src/data/validation/content-validator.js) และ [Loader](../src/data/content/content-loader.js) พร้อม [ADR-P0-013](../docs/adr/ADR-P0-013-content-validation-contract.md) เป็น execution contract: local `$ref` resolve จาก [runtime catalog](../src/data/validation/content-schema-catalog.js) ซึ่งทดสอบ deep equality กับไฟล์ต้นฉบับทุกฉบับ ไม่ fetch `specs/` ในตัวเกม และไม่ใช้ npm validator
+
+Schema 1.0 เดิมไม่เปลี่ยน; เลือกรุ่นด้วย `schemaVersion` และห้ามผสม package/tree คนละรุ่น Character/dialogue/event catalogs ยังคง 1.0 ทั้งสอง package versions ส่วน `testReferenceIds` ต้องตรวจจาก external reviewed ID catalog ที่ส่งให้ Validator ไม่ให้ package รับรอง references ของตนเอง
+
+คำสั่งตรวจที่มีจริง: `node --test tests/unit/content-loader.test.js` รวม structural/ref/semantic/keyword parity และ fixtures ส่วน full metaschema conformance ด้วย reference validator และ full narrative graph gate ต้องรายงานแยก ไม่อนุมานว่าผ่านจาก schema snapshot equality
 
 ## Versioning Contract
 

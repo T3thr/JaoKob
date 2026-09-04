@@ -2,18 +2,18 @@
 
 รหัสสปรินต์: `SPRINT-02`\
 เป้าหมายหลัก: **Content Engine Architecture & Act 1 Full Narrative Package**\
-สถานะ: `Planned / Ready for Execution`\
+สถานะ: `In Progress — Task 1 complete locally; awaiting Step 2`\
 รอบการส่งมอบ: **Phase 2A (Content Expansion)**\
-เวอร์ชันเอกสาร: `0.1.0` — Planning baseline สำหรับ Owner Review\
+เวอร์ชันเอกสาร: `0.2.0` — Task 1 implementation และ Tech Lead decision lock\
 วันที่จัดทำ: 2026-09-04 (Asia/Bangkok)\
 เจ้าของแผน: Senior Technical Lead & Narrative Operations Director\
 มาตรฐานอ้างอิง: `ISO/IEC/IEEE 12207:2017`, `ISO/IEC/IEEE 29148:2018`, `WCAG 2.2 AA`
 
-**ความหมายของสถานะ:** แผนอยู่ขั้น Planned; การเข้าสู่ Ready for Execution ของแต่ละ Task ต้องผ่าน Definition of Ready ใน Section 3.6 รวมคำตัดสินที่เกี่ยวข้องใน `CR-0002` ก่อน สถานะส่วนหัวไม่ใช่หลักฐานอนุมัติ Canon, Schema หรือเริ่ม Coding โดยอัตโนมัติ
+**ความหมายของสถานะ:** แผนได้รับอนุมัติและ merge ผ่าน PR #6 ที่ `be9bbcb` แล้ว Tech Lead Step 1 อนุมัติ Task 1 พร้อม D1/D2/D4 ตาม disposition ด้านล่าง งานที่เหลือยังต้องผ่าน DoR ตาม dependencies และคำสั่งรอบถัดไป
 
 ฐานการวางแผนคือ `develop@53de19e` ซึ่งรวม Sprint 1 ครบ Tasks 1–5 และมี regression 183 tests; commit รวมตัวเกมคือ `ae2e103` ส่วน `53de19e` เป็นบันทึก closeout ต่อจากนั้น ตาม [Sprint 1 SSOT](sprint-01-ssot.md) และ [บันทึกปิด Sprint 1](../changelog/2026-09/2026-09-03-1040-sprint-01-merge-closeout.md) การอนุมัติ Phase 0 ยึดคำยืนยันของเจ้าของโครงการในคำสั่งวางแผนนี้ แม้ส่วนหัวเอกสารเดิมบางฉบับยังใช้คำว่า Proposed/Candidate
 
-รอบจัดทำเอกสารนี้แก้เฉพาะ SSOT นี้, Change Record และ Root CHANGELOG งาน Production ที่ระบุด้านล่างเป็นแผนสำหรับรอบ Execution ถัดไป
+รอบวางแผนเดิมเป็น documentation-only; รอบ Step 1 ปัจจุบันอนุมัติ Production เฉพาะ Content Validator/Loader และ contracts/tests ที่จำเป็น ใช้ Branch เดียว `feat/sprint-02-act-01-expansion` สำหรับทั้งสามรอบ มี atomic local commit ต่อรอบ และห้าม push/เปิด PR/merge จนได้รับคำสั่งเมื่อครบสามรอบ กติกานี้แทนแผนแยก PR ต่อ Task ในรอบวางแผน
 
 ---
 
@@ -119,7 +119,7 @@ Core ปัจจุบันมี `evaluateCondition`, Choice Transaction แ�
 
 ### 3.5 RFC ภายในแผน: `CR-0002` — Act 1 Package Execution Contract
 
-สถานะ: **Proposed / ต้องตัดสินก่อน Execution ส่วนที่เกี่ยวข้อง**; ประเภท C2 cross-layer planning พร้อมประเมิน C3 หากเลือกแก้ Schema รหัสนี้เป็น Change Request ไม่ใช่ Approved Requirement เอกสาร SSOT นี้เก็บ RFC ไว้ในตัวตามขอบเขตงานเอกสารรอบนี้ หากแยกเป็น `docs/rfc/` ในรอบ Execution ให้คงรหัสและลิงก์ trace เดิม
+สถานะ: **D1/D2/D4 direction locked by Tech Lead Step 1; D3 และ application/save integration ยังรอ Step 3** ประเภท C2 cross-layer implementation พร้อม versioned schema extension รายละเอียดใน [ADR-P0-013](../adr/ADR-P0-013-content-validation-contract.md) ตาราง Options ด้านล่างเก็บบริบทก่อนตัดสิน ส่วน disposition ถัดไปเป็นคำตัดสินปัจจุบัน
 
 **Context / Problem:** Act 1 เต็มต้องใช้รูปแบบที่ Mock ยังไม่รองรับ และ [CR-0001 Section 2.3](../rfc/CR-0001-sprint-01-core-contract-clarifications.md) ยังเปิดเรื่อง flag semantics จึงห้ามถือว่า Sprint 1 complete เท่ากับ Content Engine ทุก capability พร้อมแล้ว
 
@@ -144,6 +144,13 @@ Core ปัจจุบันมี `evaluateCondition`, Choice Transaction แ�
 
 ### 3.6 Definition of Ready ก่อนเริ่มแต่ละ Task
 
+**Disposition จาก Tech Lead Step 1 (2026-09-04):**
+
+- D1 materialize schema `v1.1.0` ให้ Cutscene Act 1 มี `completion.kind=act-rest` แทน `nextNodeId`, checkpoint หลัง node และ completion marker ชัด ไม่สร้าง Ending/Act 2 placeholder; พฤติกรรม UI/บันทึกเมื่ออ่านจบยังอยู่ Task 4
+- D2 ใช้ `flagDefinition.policy` ใน package schema 1.1 แบบ strict enum/boolean/marker/counter ตาม ADR-P0-013 (เลือก schema extension แทน sidecar proposal เดิม) ตรวจ `exploration.safe_observations` 0–20 monotonic/saturating และ `memory.home_focus` พร้อม default `unset`; CR-0001 Section 2.3 มี data-policy disposition แล้ว ส่วน runtime enforcement/unique hotspot เป็น D3
+- D4 ใช้ pure JS schema assertions + local registry snapshot, ไม่มี npm; schema 1.0 เดิมคงไว้และตรวจได้ แพ็กเกจรุ่นใหม่ opt-in 1.1; actual Act 1 contentVersion และ old-save migration/consent ยังต้องล็อกเมื่อทำ Content/Integration
+- Task 1 ผ่าน DoR ตาม directive: inputs/outputs/typed errors, schema versions, negative fixtures, privacy/boundaries, migration=none และ rollback ระบุใน ADR/Test/Audit Record ไม่มีการใช้ D3 ที่ยังไม่อนุมัติมาขวางงาน Validator ซึ่งไม่ execute state
+
 ใช้ [JKB-P0-AI-001 Section 6](../phase-0/06-ai-agent-engineering-guide.md) และ [Spec-driven loop](../../.agents/workflows/spec-driven-loop.md):
 
 - [ ] Requirement/Canon ที่เกี่ยวข้องไม่มี conflict; คำตัดสิน CR-0001/CR-0002 ที่ Task พึ่งพามีผู้อนุมัติและหลักฐาน
@@ -153,15 +160,15 @@ Core ปัจจุบันมี `evaluateCondition`, Choice Transaction แ�
 - [ ] Stable-ID registry, flag policy, callback mapping, checkpoint และ rollback ตัดสินครบตามผลกระทบ
 - [ ] Narrative/Game Design/Architecture/QA อนุมัติเฉพาะส่วนที่อยู่ในอำนาจตน; Asset ใดที่จะนำเข้ามี provenance
 
-ตอนจัดทำแผน ยังไม่ผ่าน DoR สำหรับ Coding ส่วนที่ขึ้นกับ D1–D4 ให้ดำเนิน review/specification ต่อได้และห้ามทำเครื่องหมาย Task ว่าเสร็จล่วงหน้า
+Checklist นี้ยังคงเป็นแม่แบบสำหรับ Tasks 2–5; Task 1 ผ่านตาม disposition และหลักฐานใน Section 7 ไม่ตีความว่าการผ่าน Task 1 ปิด D3 หรือ readiness ของ Application ทุกส่วนแล้ว
 
 ---
 
 ## 4. แผนงานย่อย (Work Breakdown Structure - WBS)
 
-ลำดับส่งมอบคือ **Contract Review → Task 1 → Task 2/3 → Task 4 → Task 5** Task 2 เริ่มวาง narrative mapping และ Task 3 เริ่มออกแบบ invalid fixtures คู่ขนานได้เมื่อ interface ล็อกแล้ว การผ่าน Task 2 ต้องใช้ผลจาก Task 3 และ Narrative Review ร่วมกัน ทุก Task มี Owner หนึ่งรายและ PR ไป `develop` พร้อม Change Record
+ลำดับส่งมอบคือ **Contract Review → Task 1 → Task 2/3 → Task 4 → Task 5** Task 2 เริ่มวาง narrative mapping และ Task 3 เริ่มออกแบบ invalid fixtures คู่ขนานได้เมื่อ interface ล็อกแล้ว การผ่าน Task 2 ต้องใช้ผลจาก Task 3 และ Narrative Review ร่วมกัน ทุก Task มี Owner หนึ่งรายและ Change Record; ตาม directive ล่าสุดให้ commit ภายใน feature branch เดียวก่อน และรอครบสามรอบจึงเปิด PR ตามคำสั่ง
 
-- [ ] **Task 1: Content Schema Validator & Package Loader (`src/data/content/content-loader.js`)**
+- [x] **Task 1: Content Schema Validator & Package Loader (`src/data/content/content-loader.js`)**
 
   **Owner:** Data Maintainer; Review: Architect และ QA\
   **Dependencies:** CR-0002 D1/D2/D4 และ CR-0001 flag-policy disposition\
@@ -288,6 +295,8 @@ Core ปัจจุบันมี `evaluateCondition`, Choice Transaction แ�
 
 ### 6.2 สถานะ Tooling และวิธีรายงานหลักฐาน
 
+**Step 1 update:** มี `content-loader.test.js` แล้ว จำนวน 117 tests; รวม regression เดิม 183 เป็น **300/300 ผ่าน**, ไม่มี fail/cancel/skip ใช้ `node --test tests/unit/*.test.js` และ syntax checks ตามบันทึก Task 1 มี schema snapshot/ref/keyword parity และ typed semantic checks; full metaschema validation ด้วย external reference implementation ยังไม่ได้รัน และไม่อ้าง Full GRAPH-GATE ซึ่งเป็น Task 3
+
 ณ `53de19e` มีคำสั่ง `node --test tests/unit/*.test.js` ที่ใช้จริงและผ่าน 183 tests ส่วน `content-loader.test.js`, `content-graph.test.js` และ Act 1 E2E ยังไม่มี จึงยังไม่อ้างว่ารันหรือผ่าน `SCHEMA-GATE`/`GRAPH-GATE` ของ Sprint 2 แล้ว ชื่อไฟล์และ Test IDs ในแผนเป็น deliverable เป้าหมาย ต้อง materialize และบันทึกคำสั่งจริงใน Task ที่รับผิดชอบก่อนใช้เป็น gate evidence
 
 | Gate | หลักฐานสำหรับ Sprint 2 | ขอบเขตที่ยังไม่อ้างว่าผ่าน |
@@ -313,7 +322,8 @@ Test evidence ต้องระบุ commit, content/schema/save versions, com
 
 บันทึกตั้งต้นของแผน: [CR-20260904-0228 — Sprint 2 SSOT Baseline](../changelog/2026-09/2026-09-04-0228-sprint-02-ssot-baseline.md)
 
-ตารางด้านล่างเตรียมว่างสำหรับ Task/Milestone ในรอบ Execution ตามคำขอ เมื่อทำงานจริงให้เพิ่ม Record ID, timestamp พร้อม timezone, ลิงก์หลักฐาน/PR และสถานะตามผลจริง พร้อมทำเครื่องหมาย WBS เฉพาะงานที่ผ่าน DoD แล้ว
+ทะเบียน Execution เริ่มจาก Step 1; เพิ่ม Record ID, timestamp พร้อม timezone และหลักฐานตามผลจริง PR จะเชื่อมเมื่อครบสามรอบและได้รับคำสั่ง
 
 | รหัสบันทึก (Record ID) | วันที่-เวลา (Timestamp) | หัวข้องาน (Task / Milestone) | ไฟล์บันทึกฉบับเต็ม | สถานะ |
 |---|---|---|---|---|
+| `CR-20260904-0927` | 2026-09-04T09:27:52+07:00 | Step 1 / Task 1 Content Validator & Package Loader | [Task 1 audit](../changelog/2026-09/2026-09-04-0927-sprint-02-task-01-content-validator.md) | Verified locally: 300 tests; not pushed |
