@@ -9,7 +9,10 @@
 
 เอกสารนี้ทำหน้าที่เป็น **Single Source of Truth (SSOT)** และคู่มือนำทางสำหรับนักพัฒนาและ AI Agent ทุกตัวในการทำงานร่วมกันอย่างมีวินัย ตรวจสอบย้อนกลับได้ และไร้ข้อผิดพลาด
 
-**Current integrated baseline:** Sprint 2 ปิด WBS 5/5 และรวมเข้า `develop` ผ่าน PR #7 ที่ `70bac18` แล้ว ดู [Sprint 2 SSOT](sprints/sprint-02-ssot.md) และ [Merge Closeout CR-20260905-0128](changelog/2026-09/2026-09-05-0128-sprint-02-merge-closeout.md). เป้าหมายถัดไปคือวางแผน Sprint 3: **Act 2 — The Rushing Stream**; ยังไม่มีอำนาจเริ่ม Coding จน Sprint 3 SSOT/DoR ผ่าน
+**Current integrated baseline:** Sprint 2 ปิด WBS 5/5 และรวมเข้า `develop` ผ่าน PR #7 ที่ `70bac18` แล้ว ดู [Sprint 2 SSOT](sprints/sprint-02-ssot.md) และ [Merge Closeout CR-20260905-0128](changelog/2026-09/2026-09-05-0128-sprint-02-merge-closeout.md).
+**Proposal archive:** ข้อเสนอการยกระดับสู่ Interactive Light Novel RPG และ Asset Customization Pipeline สำหรับ Phase 2 / Sprint 3 ดู [JKB-PROP-P2-001 Proposal](proposals/phase-02-visual-novel-architecture/01-visual-novel-transformation-tech-lead-proposal.md); มติที่ใช้จริงอยู่ใน Sprint 3 SSOT/CR-0003; proposal เป็นข้อมูลประวัติ
+
+**APPROVED Sprint 3 architecture:** [Sprint 3 SSOT](sprints/sprint-03-ssot.md), [CR-0003](rfc/CR-0003-interactive-light-novel-presentation.md) และ [ADR-P0-015](adr/ADR-P0-015-interactive-light-novel-presentation.md) ผ่าน joint approval 2026-09-07: Scene 3 three-choice handoff, ลูกอ๊อดลวดลาย/ผ้าผูกคอสีน้ำเงิน, Bond Locked Chip และ deferred Log/Typewriter. รอบนี้ documentation integration เท่านั้น; implementation เริ่ม Session ใหม่เมื่อ task DoR พร้อม
 
 ---
 
@@ -26,13 +29,18 @@ JaoKob/
 ├── docs/                          <-- ศูนย์รวมเอกสารและข้อกำหนดของโครงการ
 │   ├── README.md                  <-- (ไฟล์นี้) คู่มือการปฏิบัติงานและสารบัญนำทางเอกสาร
 │   ├── ORGANIZATION-LOG.md        <-- บันทึกประวัติการจัดระเบียบโครงสร้างเอกสาร
+│   ├── proposals/                 <-- ข้อเสนอทางเทคนิค การวิจัย และ Brainstorming ก่อนเปิด RFC/Sprint
+│   │   ├── README.md              <-- สารบัญข้อเสนอและการใช้งาน
+│   │   └── phase-02-visual-novel-architecture/ <-- ข้อเสนอ Phase 2 Visual Novel Transformation
+│   ├── raw/                       <-- พื้นที่รับไฟล์ดิบ/สื่อร่างชั่วคราวก่อนจัดหมวดหมู่
 │   ├── changelog/                 <-- คลังบันทึกประวัติการทำงานระดับ Execution Session (ISO 12207)
 │   │   ├── README.md              <-- มาตรฐานและแม่แบบการบันทึกระดับวัน-เวลา
 │   │   ├── 2026-08/               <-- บันทึกประจำเดือนสิงหาคม 2026
 │   │   └── 2026-09/               <-- บันทึกประจำเดือนกันยายน 2026
 │   ├── sprints/                   <-- เอกสาร SSOT ประจำรอบการพัฒนา (Sprint Execution)
 │   │   ├── sprint-01-ssot.md      <-- Baseline Sprint 1: Core Vertical Slice
-│   │   └── sprint-02-ssot.md      <-- Integrated Sprint 2: Content Engine & Canonical Act 1
+│   │   ├── sprint-02-ssot.md      <-- Integrated Sprint 2: Content Engine & Canonical Act 1
+│   │   └── sprint-03-ssot.md      <-- Approved Sprint 3: Interactive Light Novel RPG benchmark
 │   ├── phase-0/                   <-- เอกสารข้อกำหนดรากฐาน (Baseline Specifications 9 ฉบับ)
 │   │   ├── 00-phase-0-charter.md  <-- ขอบเขต กฎบัตร และมาตรฐานอ้างอิง
 │   │   ├── 01-game-design-document.md <-- GDD ฉบับเต็ม (Core Loop, Meters, Endings)
@@ -83,7 +91,7 @@ flowchart TD
 
 ### Checklist ที่ต้องตรวจสอบก่อนเริ่มเขียนโค้ด (Definition of Ready - DoR):
 1. [ ] **อ่าน [`AGENTS.md`](../AGENTS.md):** ยืนยันข้อห้าม Boundary และขอบเขตความปลอดภัย
-2. [ ] **อ่าน SSOT ประจำ Sprint:** ใช้ [Sprint 2 SSOT](sprints/sprint-02-ssot.md) เป็น integrated baseline จนกว่าจะมี Sprint 3 SSOT ที่อนุมัติ เพื่อทราบ Goal, Scope, Requirement IDs และเกณฑ์ส่งมอบ (DoD)
+2. [ ] **อ่าน SSOT ประจำ Sprint:** ใช้ [Sprint 3 SSOT](sprints/sprint-03-ssot.md) เป็น approved plan และ [Sprint 2 SSOT](sprints/sprint-02-ssot.md) เป็น integrated runtime baseline เพื่อทราบ Goal, Scope, Requirement IDs และเกณฑ์ส่งมอบ (DoD)
 3. [ ] **อ่าน Change Record ล่าสุด:** ใน [`docs/changelog/2026-09/`](changelog/2026-09/) เพื่อทราบสถานะว่ารอบที่แล้วทำอะไรเสร็จไปแล้วบ้าง
 4. [ ] **ตรวจสอบ Requirement ID:** ทราบแน่ชัดว่างานที่กำลังจะทำตอบโจทย์ Requirement ID ใด (เช่น `FR-STA-001`, `FR-ENG-001`)
 
