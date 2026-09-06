@@ -45,7 +45,9 @@ Historical evidence: planning unit baseline 444/444 and in-memory draft structur
 - Starting base: local/remote develop `b07523c4a7ce16888bcc20873e4f60b3cd90197f`, runtime merge `70bac18`.
 - Identity: `T3thr <t.theerapat33@gmail.com>`; GitHub active account verified as T3thr.
 - Branch: `feat/sprint-03-architecture-plan`; explicit documentation-only path list reviewed before staging.
-- PR/head/check evidence: pending execution in this authorized Session; update before merge. Merge commit/status are reported by the GitHub PR timeline and final handoff to avoid a self-referential commit hash.
+- Documentation PR: [#8 — approve interactive light novel architecture](https://github.com/T3thr/JaoKob/pull/8), `develop` ← `feat/sprint-03-architecture-plan`.
+- Initial approval commit: `52950d872df4acbe1dc2af0e0e31242d31764227`; PR file list is 14 documentation paths. Initial checks: MERGEABLE / CLEAN; GitGuardian Security Checks SUCCESS. No independent GitHub review is fabricated; merge authority is the explicit joint directive.
+- A follow-up documentation trace commit records this PR link. Recheck GitGuardian and the final head before squash merge, using `--match-head-commit` with that verified SHA; no admin bypass, force push or branch deletion. Final merge SHA/status are authoritative in the PR timeline and handoff, avoiding a self-referential commit hash in the merged record.
 
 ## 5. Compatibility, rollback and follow-up
 

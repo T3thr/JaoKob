@@ -9,6 +9,7 @@
 | Plan author | GPT-6 Astra — Senior Software Engineer / Principal Systems Architect |
 | Collaborators / reviewers | CEO / Product Owner; Gemini 3.8 Flash — Tech Lead; Narrative, Game Design, Accessibility, QA, Art/Audio owners |
 | Planning branch | `feat/sprint-03-architecture-plan`, from verified `develop@b07523c` |
+| Documentation PR | [#8](https://github.com/T3thr/JaoKob/pull/8) → develop; implementation PRs remain separate |
 | Standards | Repository Spec-Driven AI Loop, ISO/IEC/IEEE 12207:2017, ISO/IEC/IEEE 29148:2018, WCAG 2.2 AA |
 | Change proposal | [CR-0003 — presentation, audio and compatibility contracts](../rfc/CR-0003-interactive-light-novel-presentation.md) |
 

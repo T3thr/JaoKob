@@ -9,6 +9,7 @@
 | Baseline | Runtime `70bac18`; governance HEAD `b07523c`; schema 1.1.0, content 2.0.0, save format 1 |
 | Change class | C2 cross-layer presentation; C3 review for version compatibility and public Port changes |
 | Execution plan | [Sprint 3 SSOT](../sprints/sprint-03-ssot.md) |
+| Documentation PR | [#8](https://github.com/T3thr/JaoKob/pull/8) → develop; implementation PRs remain separate |
 | Required approvers | PO, Tech Lead / Architecture, Narrative / Game Design for D5–D7, QA / Accessibility; rights review for production assets |
 
 PO และ Tech Lead อนุมัติ CR-0003 D1–D8 ผ่าน **PO & TECH LEAD JOINT DIRECTIVE: SPRINT 3 ARCHITECTURAL APPROVAL**, 2026-09-07. มติ D5–D8 ด้านล่างแทนข้อเสนอเดิม โดยเฉพาะ D7 ที่เปลี่ยนจาก Bond absence เป็น Locked Chip. ดู [approval record](../changelog/2026-09/2026-09-07-0042-sprint-03-architecture-approval.md) และ [ADR-P0-015](../adr/ADR-P0-015-interactive-light-novel-presentation.md). การอนุมัตินี้ครอบคลุม design และ documentation commit/push/PR/squash merge สู่ develop เท่านั้น; implementation เริ่มใน Session ใหม่หลัง task DoR พร้อม. ไม่อ้างว่า QA, asset clearance หรือ runtime verification เสร็จแล้ว
