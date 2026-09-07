@@ -5,6 +5,7 @@
 - **Sprint/Milestone:** Sprint 3 / Task 1
 - **Operator:** GPT-6 Astra — Senior Software Engineer / Principal Systems Architect
 - **Status:** Task 1 implemented and verified; Tech Lead/QA PR review pending
+- **Implementation commit / PR:** `1e9f1b2`; [PR #9](https://github.com/T3thr/JaoKob/pull/9) → `develop`, pushed on `feat/sprint-03-interactive-light-novel`; no merge/deployment performed
 
 ## 1. Objective, authority and readiness
 
@@ -42,7 +43,7 @@ CR-0003 D1/D3/D5/D7/D8; ADR-P0-015; FR-CNT-001/002/004/005, FR-UI-001/005, FR-LO
 | Reference `JKB_AJV_PATH=/tmp/jkb-schema-reference-node/node_modules/ajv/dist/2020.js node tests/schema/presentation-reference.mjs` | **11/11 Draft 2020-12 metaschemas, 36/36 structural cases** using Ajv 8.20.0; all refs resolved locally. Format/semantic policy coverage belongs to runtime tests, not this structural reference gate |
 | Existing `node tests/e2e/act1-playthrough.mjs` with bundled Playwright path | **12/12 Chromium routes**, root and `/JaoKob/`, nine checks, zero console/page errors; Chromium 151.0.7922.34 on darwin, Node 22.23.2. [Retained evidence](../../../tests/e2e/evidence/sprint-03/task-01/act1-evidence.json) |
 | Browser evidence freshness / visual spot check | All 29 served runtime SHA-256 hashes match final source. Inspected 320px/200% text screenshot: vertical reading flow, no horizontal overflow. Existing renderer evidence only |
-| Diff, local documentation links and secret scan | `git diff --cached --check` passed; 75 local links/anchors passed; 31 staged files inspected and Gitleaks 8.30.1 found no leaks (451,214 scanned bytes before this evidence-line update); final staged text rescanned before commit. GitHub repo verified PUBLIC, remote/identity correct. PR link added after creation |
+| Diff, local documentation links and secret scan | `git diff --cached --check` passed; 75 local links/anchors passed; 31 staged files inspected and Gitleaks 8.30.1 found no leaks (451,460 scanned bytes in final implementation scan). GitHub repo verified PUBLIC, remote/identity correct. PR trace update is scanned separately before its documentation commit |
 
 Tooling: Python reference-validator installation could not run because this host's macOS version probe was empty. Used temporary Ajv 8.20.0 installed under `/tmp` with scripts disabled instead; no repository dependency/config change. Existing approved Gitleaks 8.30.1 is reused for staged files, with redacted output. The existing browser runner needed permission for its temporary loopback listener; it used disposable profiles and never real player saves.
 
