@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile, readdir } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import { loadContentPackage, loadContentPackageFromJson } from "../../src/data/content/content-loader.js";
 import { validateContentPackage } from "../../src/data/validation/content-validator.js";
 import { CONTENT_SCHEMA_CATALOG } from "../../src/data/validation/content-schema-catalog.js";
@@ -10,6 +11,7 @@ const options = { testReferenceIds: ["tc.content.fixture"] };
 const fixture = async (name = "valid-minimal-package") => JSON.parse(await readFile(new URL(`../fixtures/content/${name}.json`, import.meta.url), "utf8"));
 const text = (th = "ข้อมูลทดสอบ") => ({ th });
 const first = (data) => data.narrativeTrees[0].nodes[0];
+const presentationFixture = async () => JSON.parse(await readFile(new URL("../fixtures/presentation/schema/valid-v1.2-package.json", import.meta.url), "utf8"));
 
 test("tc.act1.schema FR-CNT-001/002: canonical Act 1 loads from JSON and object with immutable indexes", async () => {
   const [source, catalogText] = await Promise.all([
@@ -251,10 +253,11 @@ test("NFR-SE-002 __proto__ cannot pollute indexes or records", () => {
   assert.equal({}.polluted, undefined);
 });
 
-test("CR-0002 D4 frozen catalog exactly matches all local content schema sources", async () => {
+test("TC-S3-CONTRACT-001 CR-0002 D4/CR-0003 D1 frozen catalog exactly matches all local content schema sources", async () => {
   const root = new URL("../../specs/schemas/", import.meta.url);
   const rootFiles = (await readdir(root)).filter((name) => name.endsWith(".json") && name !== "save-state.schema.json");
-  const versioned = (await readdir(new URL("v1.1.0/", root))).map((name) => `v1.1.0/${name}`);
+  const versioned = (await Promise.all(["v1.1.0", "v1.2.0"].map(async (version) =>
+    (await readdir(new URL(`${version}/`, root))).map((name) => `${version}/${name}`)))).flat();
   assert.deepEqual(Object.keys(CONTENT_SCHEMA_CATALOG).sort(), [...rootFiles, ...versioned].sort());
   for (const [path, schema] of Object.entries(CONTENT_SCHEMA_CATALOG)) {
     assert.deepEqual(schema, JSON.parse(await readFile(new URL(path, root), "utf8")), path);
@@ -273,6 +276,165 @@ test("CR-0002 D1 old 1.0 schema remains supported and never accepts the new rest
   const retry = p.narrativeTrees[0].nodes[1]; delete retry.summary; delete retry.retryNodeId; delete retry.checkpointId;
   assert.equal(validateContentPackage(p, options).valid, true);
 });
+
+test("TC-S3-CONTRACT-001 CR-0003 D1 published root/1.1 schemas remain byte-identical", async () => {
+  const hashes = JSON.parse(await readFile(new URL("../fixtures/presentation/schema/published-schema-sha256.json", import.meta.url), "utf8"));
+  for (const [path, expected] of Object.entries(hashes)) {
+    const bytes = await readFile(new URL(`../../specs/schemas/${path}`, import.meta.url));
+    assert.equal(createHash("sha256").update(bytes).digest("hex"), expected, path);
+  }
+});
+
+test("TC-S3-CONTRACT-001 CR-0003 D1 schema 1.2 is exactly the approved additive 1.1 delta", async () => {
+  const root = new URL("../../specs/schemas/", import.meta.url);
+  for (const name of ["content-package", "narrative-tree"]) {
+    const previous = JSON.parse(await readFile(new URL(`v1.1.0/${name}.schema.json`, root), "utf8"));
+    const actual = JSON.parse(await readFile(new URL(`v1.2.0/${name}.schema.json`, root), "utf8"));
+    previous.$id = `https://t3thr.github.io/JaoKob/specs/schemas/v1.2.0/${name}.schema.json`;
+    previous.properties.schemaVersion.const = "1.2.0";
+    if (name === "narrative-tree") {
+      previous.$defs.environment = {
+        type: "object",
+        properties: {
+          backgroundAssetId: { $ref: "../common.schema.json#/$defs/identifier", "x-jaokob-reference": "asset.id" },
+          bgmAssetId: { $ref: "../common.schema.json#/$defs/identifier", "x-jaokob-reference": "asset.id" },
+          ambientAssetId: { $ref: "../common.schema.json#/$defs/identifier", "x-jaokob-reference": "asset.id" },
+        },
+        additionalProperties: false,
+      };
+      for (const type of ["cutsceneNode", "explorationNode", "decisionNode"]) {
+        previous.$defs[type].properties.environment = { $ref: "#/$defs/environment" };
+      }
+      previous.$defs.explorationNode.not = { required: ["backgroundAssetId", "environment"] };
+    }
+    assert.deepEqual(actual, previous);
+  }
+});
+
+test("TC-S3-CONTRACT-001 FR-CNT-001/002 schema 1.2 resolves immutable environment and portrait asset records", async () => {
+  const p = await presentationFixture();
+  const before = structuredClone(p);
+  for (const result of [await loadContentPackage(p, options), loadContentPackageFromJson(JSON.stringify(p), options)]) {
+    assert.equal(result.valid, true, JSON.stringify(result.errors));
+    assert.equal(result.packageData.schemaVersion, "1.2.0");
+    assert.equal(result.packageData.contentVersion, "2.1.0");
+    assert.deepEqual(result.packageData.characters.schemaVersion, "1.0.0");
+    for (const node of Object.values(result.indexes.nodes).slice(0, 3)) {
+      assert.ok(Object.isFrozen(node.environment));
+      assert.equal(result.indexes.assets[node.environment.backgroundAssetId].type, "image");
+      assert.equal(result.indexes.assets[node.environment.bgmAssetId].type, "audio");
+      assert.equal(result.indexes.assets[node.environment.ambientAssetId].type, "audio");
+    }
+  }
+  assert.deepEqual(p, before);
+});
+
+for (const [ni, type] of ["cutscene", "exploration", "decision"].entries()) {
+  test(`TC-S3-CONTRACT-001 CR-0003 D1 ${type} permits absent, empty and individual environment channels`, async () => {
+    for (const channels of [undefined, {}, { backgroundAssetId: "asset.fixture.background" }, { bgmAssetId: "asset.fixture.music" }, { ambientAssetId: "asset.fixture.ambience" }]) {
+      const p = await presentationFixture();
+      if (channels === undefined) delete p.narrativeTrees[0].nodes[ni].environment;
+      else p.narrativeTrees[0].nodes[ni].environment = channels;
+      assert.equal(validateContentPackage(p, options).valid, true);
+    }
+  });
+  for (const [label, environment] of [["null", null], ["unknown weather", { weather: "rain" }], ["raw URL", { backgroundAssetId: "https://example.test/a.png" }], ["null channel", { bgmAssetId: null }], ["arbitrary metadata", { metadata: {} }]]) {
+    test(`TC-S3-CONTRACT-001 CR-0003 D1 ${type} rejects ${label}`, async () => {
+      const p = await presentationFixture();
+      p.narrativeTrees[0].nodes[ni].environment = environment;
+      expectFailure(validateContentPackage(p, options), "CONTENT_SCHEMA", `nodes[${ni}]`);
+    });
+  }
+}
+
+test("TC-S3-CONTRACT-001 CR-0003 D1 legacy exploration background is accepted alone and rejected beside any environment", async () => {
+  const p = await presentationFixture();
+  const node = p.narrativeTrees[0].nodes[1];
+  node.backgroundAssetId = "asset.fixture.background";
+  delete node.environment;
+  assert.equal(validateContentPackage(p, options).valid, true);
+  for (const value of [{}, { bgmAssetId: "asset.fixture.music" }, { backgroundAssetId: "asset.fixture.background" }]) {
+    node.environment = value;
+    expectFailure(validateContentPackage(p, options), "CONTENT_SCHEMA", "nodes[1]");
+  }
+});
+
+for (const version of ["1.0.0", "1.1.0"]) test(`TC-S3-CONTRACT-001 CR-0003 D1 schema ${version} retains legacy forms and rejects environment`, async () => {
+  const p = await presentationFixture();
+  p.schemaVersion = version;
+  p.narrativeTrees[0].schemaVersion = version;
+  const nodes = p.narrativeTrees[0].nodes;
+  for (const node of nodes) delete node.environment;
+  nodes[1].backgroundAssetId = "asset.fixture.background";
+  if (version === "1.0.0") {
+    for (const flag of p.flagDefinitions) delete flag.policy;
+    // The 1.0 contract has no resting completion; use its existing GameOver form.
+    nodes[3] = { id: "node.fixture.rest", type: "game-over", act: 1, title: text(), summary: text(), entryCondition: { kind: "always" }, contentWarningIds: [], checkpointPolicy: "none", testReferenceIds: options.testReferenceIds, onEnterEffects: [], retryNodeId: nodes[0].id };
+    // Remove 1.1-only flag policies/requirements from this schema parity fixture.
+    p.flagDefinitions = [];
+  }
+  assert.equal(validateContentPackage(p, options).valid, true);
+  for (const node of nodes.slice(0, 3)) {
+    node.environment = {};
+    expectFailure(validateContentPackage(p, options), "CONTENT_SCHEMA", "environment");
+    delete node.environment;
+  }
+});
+
+for (const [packageVersion, treeVersion] of [["1.2.0", "1.1.0"], ["1.1.0", "1.2.0"], ["1.2.0", "1.0.0"], ["1.2.0", "1.3.0"]]) {
+  test(`TC-S3-CONTRACT-001 CR-0003 D1 rejects mixed ${packageVersion} package/${treeVersion} tree`, async () => {
+    const p = await presentationFixture();
+    p.schemaVersion = packageVersion; p.narrativeTrees[0].schemaVersion = treeVersion;
+    expectFailure(validateContentPackage(p, options), "CONTENT_VERSION", "narrativeTrees[0].schemaVersion");
+  });
+}
+
+test("TC-S3-CONTRACT-001 CR-0003 D1 future versions and version 1.2 nested catalogs fail closed", async () => {
+  for (const version of ["1.3.0", "1.2.1", "__proto__", 1.2, null]) {
+    const p = await presentationFixture(); p.schemaVersion = version;
+    expectFailure(validateContentPackage(p, options), "CONTENT_VERSION", "schemaVersion");
+  }
+  for (const catalog of ["characters", "dialogues", "events"]) {
+    const p = await presentationFixture(); p[catalog].schemaVersion = "1.2.0";
+    expectFailure(validateContentPackage(p, options), "CONTENT_VERSION", `${catalog}.schemaVersion`);
+  }
+});
+
+for (const type of ["game-over", "ending"]) test(`TC-S3-CONTRACT-001 CR-0003 D1 ${type} cannot acquire environment`, async () => {
+  const p = await presentationFixture();
+  const node = { id: "node.fixture.terminal", type, act: type === "ending" ? 5 : 1, title: text(), summary: text(), entryCondition: { kind: "always" }, contentWarningIds: [], checkpointPolicy: "none", testReferenceIds: options.testReferenceIds, onEnterEffects: [] };
+  if (type === "ending") { node.endingId = "ending.fixture"; node.dialogueIds = ["dialogue.fixture.line"]; }
+  else node.retryNodeId = first(p).id;
+  p.narrativeTrees[0].nodes.push(node);
+  assert.equal(validateContentPackage(p, options).valid, true);
+  node.environment = {};
+  expectFailure(validateContentPackage(p, options), "CONTENT_SCHEMA", "environment");
+});
+
+const presentationReferences = [
+  ...[0, 1, 2].flatMap((ni) => [
+    [`node ${ni} background`, (p, id) => { p.narrativeTrees[0].nodes[ni].environment.backgroundAssetId = id; }, "image", `nodes[${ni}].environment.backgroundAssetId`],
+    [`node ${ni} music`, (p, id) => { p.narrativeTrees[0].nodes[ni].environment.bgmAssetId = id; }, "audio", `nodes[${ni}].environment.bgmAssetId`],
+    [`node ${ni} ambience`, (p, id) => { p.narrativeTrees[0].nodes[ni].environment.ambientAssetId = id; }, "audio", `nodes[${ni}].environment.ambientAssetId`],
+  ]),
+  ["legacy exploration background", (p, id) => { delete p.narrativeTrees[0].nodes[1].environment; p.narrativeTrees[0].nodes[1].backgroundAssetId = id; }, "image", "nodes[1].backgroundAssetId"],
+  ["default character portrait", (p, id) => { p.characters.characters[0].visualProfile.defaultPortraitAssetId = id; }, "image", "visualProfile.defaultPortraitAssetId"],
+  ["dialogue portrait", (p, id) => { p.dialogues.dialogues[0].delivery.portraitAssetId = id; }, "image", "delivery.portraitAssetId"],
+];
+for (const [name, set, expectedType, path] of presentationReferences) {
+  test(`TC-S3-CONTRACT-001 FR-CNT-002 ${name} rejects dangling IDs and every wrong asset type`, async () => {
+    for (const [id, code] of [
+      ["asset.absent", "CONTENT_REFERENCE"],
+      [expectedType === "image" ? "asset.fixture.music" : "asset.fixture.background", "CONTENT_SEMANTIC"],
+      ["asset.fixture.font", "CONTENT_SEMANTIC"],
+    ]) {
+      const p = await presentationFixture(); set(p, id);
+      const result = validateContentPackage(p, options);
+      expectFailure(result, code, path);
+      assert.equal(result.errors.filter((error) => error.path.endsWith(path)).length, 1);
+    }
+  });
+}
 
 test("Draft 2020-12 local refs apply sibling assertions, Unicode lengths and conditional required fields", () => {
   const id = "https://example.invalid/local.schema.json";

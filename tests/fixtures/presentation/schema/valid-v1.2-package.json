@@ -1,0 +1,381 @@
+{
+  "schemaVersion": "1.2.0",
+  "contentVersion": "2.1.0",
+  "defaultLocale": "th",
+  "supportedLocales": [
+    "th"
+  ],
+  "entryTreeId": "tree.fixture",
+  "gameDefaults": {
+    "metrics": {
+      "hp": 80,
+      "sanity": 70,
+      "bond": 0
+    },
+    "settings": {
+      "locale": "th",
+      "textSpeed": "normal",
+      "fontScale": 1,
+      "reducedMotion": false,
+      "highContrast": false,
+      "storyAssist": false,
+      "immersiveUi": true,
+      "confirmHighImpactChoices": true,
+      "typewriterEffect": true,
+      "autoAdvance": false,
+      "masterVolume": 1,
+      "musicVolume": 0,
+      "ambienceVolume": 0,
+      "effectsVolume": 0,
+      "reducedIntensityAudio": false
+    }
+  },
+  "flagDefinitions": [
+    {
+      "id": "story.act1_complete",
+      "valueType": "boolean",
+      "defaultValue": false,
+      "description": {
+        "th": "ข้อมูลทดสอบ"
+      },
+      "policy": {
+        "kind": "marker",
+        "reversible": false
+      }
+    },
+    {
+      "id": "exploration.safe_observations",
+      "valueType": "integer",
+      "defaultValue": 0,
+      "description": {
+        "th": "ข้อมูลทดสอบ"
+      },
+      "policy": {
+        "kind": "counter",
+        "min": 0,
+        "max": 20,
+        "overflow": "saturate",
+        "monotonic": true,
+        "reversible": false
+      }
+    },
+    {
+      "id": "memory.home_focus",
+      "valueType": "string",
+      "defaultValue": "unset",
+      "description": {
+        "th": "ข้อมูลทดสอบ"
+      },
+      "policy": {
+        "kind": "enum",
+        "values": [
+          "unset",
+          "mother",
+          "roots",
+          "siblings"
+        ],
+        "reversible": false
+      }
+    },
+    {
+      "id": "keepsake.lily_fragment",
+      "valueType": "boolean",
+      "defaultValue": false,
+      "description": {
+        "th": "ข้อมูลทดสอบ"
+      },
+      "policy": {
+        "kind": "boolean",
+        "reversible": false
+      }
+    }
+  ],
+  "contentWarnings": [],
+  "assets": [
+    {
+      "id": "asset.fixture.background",
+      "type": "image",
+      "path": "assets/fixtures/background.png",
+      "rights": {
+        "origin": "original",
+        "licenseId": "test-metadata-only"
+      },
+      "alt": {
+        "th": "ภาพสมมติสำหรับตรวจสัญญา ไม่ใช่ภาพเผยแพร่"
+      }
+    },
+    {
+      "id": "asset.fixture.portrait",
+      "type": "image",
+      "path": "assets/fixtures/portrait.png",
+      "rights": {
+        "origin": "original",
+        "licenseId": "test-metadata-only"
+      },
+      "alt": {
+        "th": "ภาพสมมติสำหรับตรวจสัญญา ไม่ใช่ภาพเผยแพร่"
+      }
+    },
+    {
+      "id": "asset.fixture.music",
+      "type": "audio",
+      "path": "assets/fixtures/music.ogg",
+      "rights": {
+        "origin": "original",
+        "licenseId": "test-metadata-only"
+      }
+    },
+    {
+      "id": "asset.fixture.ambience",
+      "type": "audio",
+      "path": "assets/fixtures/ambience.ogg",
+      "rights": {
+        "origin": "original",
+        "licenseId": "test-metadata-only"
+      }
+    },
+    {
+      "id": "asset.fixture.font",
+      "type": "font",
+      "path": "assets/fixtures/font.woff2",
+      "rights": {
+        "origin": "original",
+        "licenseId": "test-metadata-only"
+      }
+    }
+  ],
+  "characters": {
+    "schemaVersion": "1.0.0",
+    "characters": [
+      {
+        "id": "character.fixture.narrator",
+        "name": {
+          "th": "ผู้บรรยาย"
+        },
+        "shortName": {
+          "th": "ผู้บรรยาย"
+        },
+        "narrativeRole": "narrator",
+        "description": {
+          "th": "ตัวละครทดสอบ"
+        },
+        "traits": {
+          "th": [
+            "อ่อนโยน"
+          ]
+        },
+        "visualProfile": {
+          "species": {
+            "th": "ผู้บรรยาย"
+          },
+          "lifeStage": "non-living",
+          "appearance": {
+            "th": "ไม่มีภาพ"
+          },
+          "defaultPortraitAssetId": "asset.fixture.portrait"
+        }
+      }
+    ]
+  },
+  "dialogues": {
+    "schemaVersion": "1.0.0",
+    "dialogues": [
+      {
+        "id": "dialogue.fixture.line",
+        "speakerCharacterId": "character.fixture.narrator",
+        "text": {
+          "th": "น้ำค่อย ๆ สงบลง"
+        },
+        "delivery": {
+          "emotion": "neutral",
+          "pace": "normal",
+          "portraitAssetId": "asset.fixture.portrait"
+        }
+      }
+    ]
+  },
+  "events": {
+    "schemaVersion": "1.0.0",
+    "events": []
+  },
+  "narrativeTrees": [
+    {
+      "schemaVersion": "1.2.0",
+      "treeId": "tree.fixture",
+      "title": {
+        "th": "เนื้อหาทดสอบ"
+      },
+      "description": {
+        "th": "ไม่ใช่เนื้อเรื่องจริง"
+      },
+      "entryNodeId": "node.fixture.intro",
+      "nodes": [
+        {
+          "act": 1,
+          "title": {
+            "th": "ข้อมูลทดสอบสัญญาภาพและเสียง"
+          },
+          "entryCondition": {
+            "kind": "always"
+          },
+          "contentWarningIds": [],
+          "checkpointPolicy": "none",
+          "testReferenceIds": [
+            "tc.content.fixture"
+          ],
+          "onEnterEffects": [],
+          "id": "node.fixture.intro",
+          "type": "cutscene",
+          "dialogueIds": [
+            "dialogue.fixture.line"
+          ],
+          "nextNodeId": "node.fixture.explore",
+          "environment": {
+            "backgroundAssetId": "asset.fixture.background",
+            "bgmAssetId": "asset.fixture.music",
+            "ambientAssetId": "asset.fixture.ambience"
+          }
+        },
+        {
+          "act": 1,
+          "title": {
+            "th": "ข้อมูลทดสอบสัญญาภาพและเสียง"
+          },
+          "entryCondition": {
+            "kind": "always"
+          },
+          "contentWarningIds": [],
+          "checkpointPolicy": "none",
+          "testReferenceIds": [
+            "tc.content.fixture"
+          ],
+          "onEnterEffects": [],
+          "id": "node.fixture.explore",
+          "type": "exploration",
+          "description": {
+            "th": "ข้อมูลทดสอบสัญญาภาพและเสียง"
+          },
+          "interactions": [
+            {
+              "id": "interaction.fixture.observe",
+              "label": {
+                "th": "ข้อมูลทดสอบสัญญาภาพและเสียง"
+              },
+              "condition": {
+                "kind": "always"
+              },
+              "unavailableBehavior": "hidden",
+              "impact": "standard",
+              "effects": [],
+              "immediateFeedback": {
+                "th": "ข้อมูลทดสอบสัญญาภาพและเสียง"
+              },
+              "nextNodeId": "node.fixture.decision"
+            }
+          ],
+          "environment": {
+            "backgroundAssetId": "asset.fixture.background",
+            "bgmAssetId": "asset.fixture.music",
+            "ambientAssetId": "asset.fixture.ambience"
+          }
+        },
+        {
+          "act": 1,
+          "title": {
+            "th": "ข้อมูลทดสอบสัญญาภาพและเสียง"
+          },
+          "entryCondition": {
+            "kind": "always"
+          },
+          "contentWarningIds": [],
+          "checkpointPolicy": "none",
+          "testReferenceIds": [
+            "tc.content.fixture"
+          ],
+          "onEnterEffects": [],
+          "id": "node.fixture.decision",
+          "type": "decision",
+          "prompt": {
+            "th": "ข้อมูลทดสอบสัญญาภาพและเสียง"
+          },
+          "choices": [
+            {
+              "id": "choice.fixture.mother",
+              "label": {
+                "th": "ข้อมูลทดสอบสัญญาภาพและเสียง"
+              },
+              "condition": {
+                "kind": "always"
+              },
+              "unavailableBehavior": "hidden",
+              "impact": "standard",
+              "effects": [],
+              "immediateFeedback": {
+                "th": "ข้อมูลทดสอบสัญญาภาพและเสียง"
+              },
+              "nextNodeId": "node.fixture.rest"
+            },
+            {
+              "id": "choice.fixture.roots",
+              "label": {
+                "th": "ข้อมูลทดสอบสัญญาภาพและเสียง"
+              },
+              "condition": {
+                "kind": "always"
+              },
+              "unavailableBehavior": "hidden",
+              "impact": "standard",
+              "effects": [],
+              "immediateFeedback": {
+                "th": "ข้อมูลทดสอบสัญญาภาพและเสียง"
+              },
+              "nextNodeId": "node.fixture.rest"
+            }
+          ],
+          "environment": {
+            "backgroundAssetId": "asset.fixture.background",
+            "bgmAssetId": "asset.fixture.music",
+            "ambientAssetId": "asset.fixture.ambience"
+          }
+        },
+        {
+          "id": "node.fixture.rest",
+          "type": "cutscene",
+          "act": 1,
+          "title": {
+            "th": "พัก"
+          },
+          "entryCondition": {
+            "kind": "always"
+          },
+          "contentWarningIds": [],
+          "checkpointPolicy": "after-node",
+          "checkpointId": "checkpoint.fixture.rest",
+          "testReferenceIds": [
+            "tc.content.fixture"
+          ],
+          "dialogueIds": [
+            "dialogue.fixture.line"
+          ],
+          "onEnterEffects": [
+            {
+              "type": "set-flag",
+              "flagId": "story.act1_complete",
+              "value": true
+            }
+          ],
+          "completion": {
+            "kind": "act-rest",
+            "flagId": "story.act1_complete",
+            "message": {
+              "th": "พักการเดินทาง"
+            },
+            "actionLabel": {
+              "th": "กลับหน้าเริ่มต้น"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 /** Generated from specs/schemas; update with the catalog parity test when contracts change.
- * Runtime-only local registry: no network or filesystem reads. Trace: CR-0002 D4, ADR-P0-013. */
+ * Runtime-only local registry: no network or filesystem reads. Trace: CR-0002 D4, CR-0003 D1, ADR-P0-013/015. */
 import { deepFreeze } from "./content-values.js";
 
 export const CONTENT_SCHEMA_CATALOG = deepFreeze({
@@ -2667,6 +2667,971 @@ export const CONTENT_SCHEMA_CATALOG = deepFreeze({
           },
           "onEnterEffects": {
             "$ref": "#/$defs/effects"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "v1.2.0/content-package.schema.json": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://t3thr.github.io/JaoKob/specs/schemas/v1.2.0/content-package.schema.json",
+    "title": "JaoKob Content Package",
+    "description": "หน่วยเผยแพร่เนื้อหาที่รวมรายการตัวละคร บทสนทนา เหตุการณ์ กราฟเรื่องเล่า สินทรัพย์ และค่าตั้งต้น",
+    "type": "object",
+    "required": [
+      "schemaVersion",
+      "contentVersion",
+      "defaultLocale",
+      "supportedLocales",
+      "entryTreeId",
+      "gameDefaults",
+      "flagDefinitions",
+      "contentWarnings",
+      "assets",
+      "characters",
+      "dialogues",
+      "events",
+      "narrativeTrees"
+    ],
+    "properties": {
+      "schemaVersion": {
+        "const": "1.2.0"
+      },
+      "contentVersion": {
+        "$ref": "../common.schema.json#/$defs/semanticVersion"
+      },
+      "defaultLocale": {
+        "const": "th"
+      },
+      "supportedLocales": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 32,
+        "uniqueItems": true,
+        "contains": {
+          "const": "th"
+        },
+        "items": {
+          "$ref": "../common.schema.json#/$defs/localeTag"
+        }
+      },
+      "entryTreeId": {
+        "$ref": "../common.schema.json#/$defs/identifier",
+        "x-jaokob-reference": "narrative-tree.treeId"
+      },
+      "gameDefaults": {
+        "type": "object",
+        "required": [
+          "metrics",
+          "settings"
+        ],
+        "properties": {
+          "metrics": {
+            "$ref": "../common.schema.json#/$defs/metricSnapshot"
+          },
+          "settings": {
+            "$ref": "../common.schema.json#/$defs/settings"
+          }
+        },
+        "additionalProperties": false
+      },
+      "flagDefinitions": {
+        "type": "array",
+        "maxItems": 5000,
+        "items": {
+          "$ref": "#/$defs/flagDefinition"
+        }
+      },
+      "contentWarnings": {
+        "type": "array",
+        "maxItems": 256,
+        "items": {
+          "$ref": "#/$defs/contentWarning"
+        }
+      },
+      "assets": {
+        "type": "array",
+        "maxItems": 10000,
+        "items": {
+          "$ref": "#/$defs/asset"
+        }
+      },
+      "characters": {
+        "$ref": "../character.schema.json"
+      },
+      "dialogues": {
+        "$ref": "../dialogue.schema.json"
+      },
+      "events": {
+        "$ref": "../event.schema.json"
+      },
+      "narrativeTrees": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 128,
+        "items": {
+          "$ref": "narrative-tree.schema.json"
+        }
+      }
+    },
+    "additionalProperties": false,
+    "$defs": {
+      "flagDefinition": {
+        "type": "object",
+        "required": [
+          "id",
+          "valueType",
+          "defaultValue",
+          "description",
+          "policy"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "../common.schema.json#/$defs/identifier"
+          },
+          "valueType": {
+            "type": "string",
+            "enum": [
+              "boolean",
+              "integer",
+              "string"
+            ]
+          },
+          "defaultValue": {
+            "$ref": "../common.schema.json#/$defs/flagValue"
+          },
+          "description": {
+            "$ref": "../common.schema.json#/$defs/localizedText"
+          },
+          "policy": {
+            "$ref": "#/$defs/flagPolicy"
+          }
+        },
+        "additionalProperties": false
+      },
+      "contentWarning": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "detail",
+          "intensity"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "../common.schema.json#/$defs/identifier"
+          },
+          "title": {
+            "$ref": "../common.schema.json#/$defs/localizedShortText"
+          },
+          "detail": {
+            "$ref": "../common.schema.json#/$defs/localizedText"
+          },
+          "intensity": {
+            "type": "string",
+            "enum": [
+              "mild",
+              "moderate",
+              "strong"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "asset": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "path",
+          "rights"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "../common.schema.json#/$defs/identifier"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "image",
+              "audio",
+              "font"
+            ]
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512,
+            "pattern": "^(?![A-Za-z][A-Za-z0-9+.-]*:)(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9_./-]+$"
+          },
+          "alt": {
+            "$ref": "../common.schema.json#/$defs/localizedShortText"
+          },
+          "rights": {
+            "type": "object",
+            "required": [
+              "origin",
+              "licenseId"
+            ],
+            "properties": {
+              "origin": {
+                "type": "string",
+                "enum": [
+                  "original",
+                  "commissioned",
+                  "licensed",
+                  "public-domain"
+                ]
+              },
+              "licenseId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "sourceUrl": {
+                "type": "string",
+                "format": "uri",
+                "maxLength": 2048
+              },
+              "attribution": {
+                "$ref": "../common.schema.json#/$defs/localizedShortText"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "type": {
+                  "const": "image"
+                }
+              },
+              "required": [
+                "type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "alt": true
+              },
+              "required": [
+                "alt"
+              ]
+            }
+          }
+        ],
+        "additionalProperties": false
+      },
+      "flagPolicy": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [
+              "kind",
+              "reversible"
+            ],
+            "properties": {
+              "kind": {
+                "const": "boolean"
+              },
+              "reversible": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "kind",
+              "reversible"
+            ],
+            "properties": {
+              "kind": {
+                "const": "marker"
+              },
+              "reversible": {
+                "const": false
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "kind",
+              "values",
+              "reversible"
+            ],
+            "properties": {
+              "kind": {
+                "const": "enum"
+              },
+              "values": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 64,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "maxLength": 240
+                }
+              },
+              "reversible": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "kind",
+              "min",
+              "max",
+              "overflow",
+              "monotonic",
+              "reversible"
+            ],
+            "properties": {
+              "kind": {
+                "const": "counter"
+              },
+              "min": {
+                "type": "integer",
+                "minimum": -1000000,
+                "maximum": 1000000
+              },
+              "max": {
+                "type": "integer",
+                "minimum": -1000000,
+                "maximum": 1000000
+              },
+              "overflow": {
+                "enum": [
+                  "saturate",
+                  "reject"
+                ]
+              },
+              "monotonic": {
+                "type": "boolean"
+              },
+              "reversible": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "v1.2.0/narrative-tree.schema.json": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://t3thr.github.io/JaoKob/specs/schemas/v1.2.0/narrative-tree.schema.json",
+    "title": "JaoKob Narrative Tree",
+    "description": "กราฟเรื่องเล่าห้าองก์แบบกำหนดด้วยข้อมูล พร้อมทางเลือก เงื่อนไข และผลลัพธ์",
+    "type": "object",
+    "required": [
+      "schemaVersion",
+      "treeId",
+      "title",
+      "description",
+      "entryNodeId",
+      "nodes"
+    ],
+    "properties": {
+      "schemaVersion": {
+        "const": "1.2.0"
+      },
+      "treeId": {
+        "$ref": "../common.schema.json#/$defs/identifier"
+      },
+      "title": {
+        "$ref": "../common.schema.json#/$defs/localizedShortText"
+      },
+      "description": {
+        "$ref": "../common.schema.json#/$defs/localizedText"
+      },
+      "entryNodeId": {
+        "$ref": "../common.schema.json#/$defs/identifier",
+        "x-jaokob-reference": "narrative-node.id"
+      },
+      "nodes": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 10000,
+        "items": {
+          "$ref": "#/$defs/node"
+        }
+      }
+    },
+    "additionalProperties": false,
+    "$defs": {
+      "effects": {
+        "type": "array",
+        "maxItems": 64,
+        "items": {
+          "$ref": "../common.schema.json#/$defs/effect"
+        }
+      },
+      "dialogueIds": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 256,
+        "items": {
+          "$ref": "../common.schema.json#/$defs/identifier",
+          "x-jaokob-reference": "dialogue.id"
+        }
+      },
+      "contentWarningIds": {
+        "type": "array",
+        "maxItems": 32,
+        "uniqueItems": true,
+        "items": {
+          "$ref": "../common.schema.json#/$defs/identifier",
+          "x-jaokob-reference": "content-warning.id"
+        }
+      },
+      "testReferenceIds": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 64,
+        "uniqueItems": true,
+        "items": {
+          "$ref": "../common.schema.json#/$defs/identifier",
+          "x-jaokob-reference": "test-case.id"
+        }
+      },
+      "checkpointPolicy": {
+        "type": "string",
+        "enum": [
+          "none",
+          "before-node",
+          "after-node"
+        ]
+      },
+      "interaction": {
+        "type": "object",
+        "required": [
+          "id",
+          "label",
+          "condition",
+          "unavailableBehavior",
+          "impact",
+          "effects",
+          "immediateFeedback",
+          "nextNodeId"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "../common.schema.json#/$defs/identifier"
+          },
+          "label": {
+            "$ref": "../common.schema.json#/$defs/localizedShortText"
+          },
+          "condition": {
+            "$ref": "../common.schema.json#/$defs/condition"
+          },
+          "unavailableBehavior": {
+            "type": "string",
+            "enum": [
+              "hidden",
+              "disabled"
+            ]
+          },
+          "impact": {
+            "type": "string",
+            "enum": [
+              "standard",
+              "high",
+              "irreversible"
+            ]
+          },
+          "disabledReason": {
+            "$ref": "../common.schema.json#/$defs/localizedShortText"
+          },
+          "effects": {
+            "$ref": "#/$defs/effects"
+          },
+          "immediateFeedback": {
+            "$ref": "../common.schema.json#/$defs/localizedText"
+          },
+          "nextNodeId": {
+            "$ref": "../common.schema.json#/$defs/identifier",
+            "x-jaokob-reference": "narrative-node.id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "choice": {
+        "type": "object",
+        "required": [
+          "id",
+          "label",
+          "condition",
+          "unavailableBehavior",
+          "impact",
+          "effects",
+          "immediateFeedback",
+          "nextNodeId"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "../common.schema.json#/$defs/identifier"
+          },
+          "label": {
+            "$ref": "../common.schema.json#/$defs/localizedShortText"
+          },
+          "condition": {
+            "$ref": "../common.schema.json#/$defs/condition"
+          },
+          "unavailableBehavior": {
+            "type": "string",
+            "enum": [
+              "hidden",
+              "disabled"
+            ]
+          },
+          "impact": {
+            "type": "string",
+            "enum": [
+              "standard",
+              "high",
+              "irreversible"
+            ]
+          },
+          "disabledReason": {
+            "$ref": "../common.schema.json#/$defs/localizedShortText"
+          },
+          "effects": {
+            "$ref": "#/$defs/effects"
+          },
+          "immediateFeedback": {
+            "$ref": "../common.schema.json#/$defs/localizedText"
+          },
+          "nextNodeId": {
+            "$ref": "../common.schema.json#/$defs/identifier",
+            "x-jaokob-reference": "narrative-node.id"
+          },
+          "outcomePreview": {
+            "$ref": "../common.schema.json#/$defs/localizedShortText"
+          },
+          "callbackEventIds": {
+            "type": "array",
+            "maxItems": 32,
+            "uniqueItems": true,
+            "items": {
+              "$ref": "../common.schema.json#/$defs/identifier",
+              "x-jaokob-reference": "event.id"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "node": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/cutsceneNode"
+          },
+          {
+            "$ref": "#/$defs/explorationNode"
+          },
+          {
+            "$ref": "#/$defs/decisionNode"
+          },
+          {
+            "$ref": "#/$defs/gameOverNode"
+          },
+          {
+            "$ref": "#/$defs/endingNode"
+          }
+        ]
+      },
+      "cutsceneNode": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "act",
+          "title",
+          "entryCondition",
+          "contentWarningIds",
+          "checkpointPolicy",
+          "testReferenceIds",
+          "dialogueIds",
+          "onEnterEffects"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "../common.schema.json#/$defs/identifier"
+          },
+          "type": {
+            "const": "cutscene"
+          },
+          "act": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "title": {
+            "$ref": "../common.schema.json#/$defs/localizedShortText"
+          },
+          "entryCondition": {
+            "$ref": "../common.schema.json#/$defs/condition"
+          },
+          "contentWarningIds": {
+            "$ref": "#/$defs/contentWarningIds"
+          },
+          "checkpointPolicy": {
+            "$ref": "#/$defs/checkpointPolicy"
+          },
+          "testReferenceIds": {
+            "$ref": "#/$defs/testReferenceIds"
+          },
+          "dialogueIds": {
+            "$ref": "#/$defs/dialogueIds"
+          },
+          "onEnterEffects": {
+            "$ref": "#/$defs/effects"
+          },
+          "checkpointId": {
+            "$ref": "../common.schema.json#/$defs/identifier"
+          },
+          "nextNodeId": {
+            "$ref": "../common.schema.json#/$defs/identifier",
+            "x-jaokob-reference": "narrative-node.id"
+          },
+          "completion": {
+            "type": "object",
+            "required": [
+              "kind",
+              "flagId",
+              "message",
+              "actionLabel"
+            ],
+            "properties": {
+              "kind": {
+                "const": "act-rest"
+              },
+              "flagId": {
+                "$ref": "../common.schema.json#/$defs/identifier",
+                "x-jaokob-reference": "flag.id"
+              },
+              "message": {
+                "$ref": "../common.schema.json#/$defs/localizedText"
+              },
+              "actionLabel": {
+                "$ref": "../common.schema.json#/$defs/localizedShortText"
+              }
+            },
+            "additionalProperties": false
+          },
+          "environment": {
+            "$ref": "#/$defs/environment"
+          }
+        },
+        "additionalProperties": false,
+        "oneOf": [
+          {
+            "required": [
+              "nextNodeId"
+            ],
+            "not": {
+              "required": [
+                "completion"
+              ]
+            }
+          },
+          {
+            "required": [
+              "completion",
+              "checkpointId"
+            ],
+            "not": {
+              "required": [
+                "nextNodeId"
+              ]
+            },
+            "properties": {
+              "act": {
+                "const": 1
+              },
+              "checkpointPolicy": {
+                "const": "after-node"
+              }
+            }
+          }
+        ]
+      },
+      "explorationNode": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "act",
+          "title",
+          "entryCondition",
+          "contentWarningIds",
+          "checkpointPolicy",
+          "testReferenceIds",
+          "description",
+          "onEnterEffects",
+          "interactions"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "../common.schema.json#/$defs/identifier"
+          },
+          "type": {
+            "const": "exploration"
+          },
+          "act": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "title": {
+            "$ref": "../common.schema.json#/$defs/localizedShortText"
+          },
+          "entryCondition": {
+            "$ref": "../common.schema.json#/$defs/condition"
+          },
+          "contentWarningIds": {
+            "$ref": "#/$defs/contentWarningIds"
+          },
+          "checkpointPolicy": {
+            "$ref": "#/$defs/checkpointPolicy"
+          },
+          "testReferenceIds": {
+            "$ref": "#/$defs/testReferenceIds"
+          },
+          "description": {
+            "$ref": "../common.schema.json#/$defs/localizedText"
+          },
+          "backgroundAssetId": {
+            "$ref": "../common.schema.json#/$defs/identifier",
+            "x-jaokob-reference": "asset.id"
+          },
+          "onEnterEffects": {
+            "$ref": "#/$defs/effects"
+          },
+          "checkpointId": {
+            "$ref": "../common.schema.json#/$defs/identifier"
+          },
+          "interactions": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 32,
+            "items": {
+              "$ref": "#/$defs/interaction"
+            }
+          },
+          "environment": {
+            "$ref": "#/$defs/environment"
+          }
+        },
+        "additionalProperties": false,
+        "not": {
+          "required": [
+            "backgroundAssetId",
+            "environment"
+          ]
+        }
+      },
+      "decisionNode": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "act",
+          "title",
+          "entryCondition",
+          "contentWarningIds",
+          "checkpointPolicy",
+          "testReferenceIds",
+          "prompt",
+          "onEnterEffects",
+          "choices"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "../common.schema.json#/$defs/identifier"
+          },
+          "type": {
+            "const": "decision"
+          },
+          "act": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "title": {
+            "$ref": "../common.schema.json#/$defs/localizedShortText"
+          },
+          "entryCondition": {
+            "$ref": "../common.schema.json#/$defs/condition"
+          },
+          "contentWarningIds": {
+            "$ref": "#/$defs/contentWarningIds"
+          },
+          "checkpointPolicy": {
+            "$ref": "#/$defs/checkpointPolicy"
+          },
+          "testReferenceIds": {
+            "$ref": "#/$defs/testReferenceIds"
+          },
+          "prompt": {
+            "$ref": "../common.schema.json#/$defs/localizedText"
+          },
+          "onEnterEffects": {
+            "$ref": "#/$defs/effects"
+          },
+          "checkpointId": {
+            "$ref": "../common.schema.json#/$defs/identifier"
+          },
+          "choices": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 12,
+            "items": {
+              "$ref": "#/$defs/choice"
+            }
+          },
+          "environment": {
+            "$ref": "#/$defs/environment"
+          }
+        },
+        "additionalProperties": false
+      },
+      "gameOverNode": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "act",
+          "title",
+          "entryCondition",
+          "contentWarningIds",
+          "checkpointPolicy",
+          "testReferenceIds",
+          "summary",
+          "onEnterEffects",
+          "retryNodeId"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "../common.schema.json#/$defs/identifier"
+          },
+          "type": {
+            "const": "game-over"
+          },
+          "act": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "title": {
+            "$ref": "../common.schema.json#/$defs/localizedShortText"
+          },
+          "entryCondition": {
+            "$ref": "../common.schema.json#/$defs/condition"
+          },
+          "contentWarningIds": {
+            "$ref": "#/$defs/contentWarningIds"
+          },
+          "checkpointPolicy": {
+            "$ref": "#/$defs/checkpointPolicy"
+          },
+          "testReferenceIds": {
+            "$ref": "#/$defs/testReferenceIds"
+          },
+          "summary": {
+            "$ref": "../common.schema.json#/$defs/localizedText"
+          },
+          "onEnterEffects": {
+            "$ref": "#/$defs/effects"
+          },
+          "retryNodeId": {
+            "$ref": "../common.schema.json#/$defs/identifier",
+            "x-jaokob-reference": "narrative-node.id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "endingNode": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "act",
+          "endingId",
+          "title",
+          "entryCondition",
+          "contentWarningIds",
+          "checkpointPolicy",
+          "testReferenceIds",
+          "summary",
+          "dialogueIds",
+          "onEnterEffects"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "../common.schema.json#/$defs/identifier"
+          },
+          "type": {
+            "const": "ending"
+          },
+          "act": {
+            "const": 5
+          },
+          "endingId": {
+            "$ref": "../common.schema.json#/$defs/identifier"
+          },
+          "title": {
+            "$ref": "../common.schema.json#/$defs/localizedShortText"
+          },
+          "entryCondition": {
+            "$ref": "../common.schema.json#/$defs/condition"
+          },
+          "contentWarningIds": {
+            "$ref": "#/$defs/contentWarningIds"
+          },
+          "checkpointPolicy": {
+            "$ref": "#/$defs/checkpointPolicy"
+          },
+          "testReferenceIds": {
+            "$ref": "#/$defs/testReferenceIds"
+          },
+          "summary": {
+            "$ref": "../common.schema.json#/$defs/localizedText"
+          },
+          "dialogueIds": {
+            "$ref": "#/$defs/dialogueIds"
+          },
+          "onEnterEffects": {
+            "$ref": "#/$defs/effects"
+          }
+        },
+        "additionalProperties": false
+      },
+      "environment": {
+        "type": "object",
+        "properties": {
+          "backgroundAssetId": {
+            "$ref": "../common.schema.json#/$defs/identifier",
+            "x-jaokob-reference": "asset.id"
+          },
+          "bgmAssetId": {
+            "$ref": "../common.schema.json#/$defs/identifier",
+            "x-jaokob-reference": "asset.id"
+          },
+          "ambientAssetId": {
+            "$ref": "../common.schema.json#/$defs/identifier",
+            "x-jaokob-reference": "asset.id"
           }
         },
         "additionalProperties": false

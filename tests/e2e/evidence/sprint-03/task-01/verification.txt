@@ -1,0 +1,25 @@
+Sprint 3 Task 1 — CR-20260907-0119 / CR-0003 / ADR-P0-015
+
+Base: develop@559b6d7; feature: feat/sprint-03-interactive-light-novel.
+Verified implementation commit: 1e9f1b2; PR https://github.com/T3thr/JaoKob/pull/9.
+Candidate identity: act1-evidence.json runtimeFiles includes 29 exact served SHA-256 hashes, checked against final runtime source.
+This evidence uses the existing renderer and production content 2.0.0.
+It does not certify the new stage, visible Bond chip, audio, media rights or production migration writes.
+
+node --test tests/unit/*.test.js
+tests 550; pass 550; fail 0; cancelled 0; skipped 0; todo 0
+duration_ms 1665.554458
+
+JKB_AJV_PATH=<external ajv/dist/2020.js> node tests/schema/presentation-reference.mjs
+Ajv 8.20.0; 11 metaschemas; 36 structural cases; PASS; no schema network fetch.
+Formats and semantic policies covered separately by runtime contract tests.
+
+JKB_PLAYWRIGHT_PATH=<existing development playwright/index.mjs> node tests/e2e/act1-playthrough.mjs
+Chromium 151.0.7922.34; darwin; Node v22.23.2.
+12 canonical routes; root and /JaoKob/; 9 checks; errors []; result PASS.
+Browser run began at 2026-09-07T00:51:30.032Z.
+Five screenshots and raw observations are in act1-evidence.json.
+The 320 CSS px / 200% text screenshot was visually inspected.
+
+Task 3/5 must replace production Bond absence assertions with locked-chip presence plus no numeric leak.
+Task 4 must wire the proven migration predicate through bootstrap and both storage write guards.

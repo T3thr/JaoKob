@@ -1,0 +1,11 @@
+{
+  "character.schema.json": "d92b85e611fa129905e5f96a221908f5c81a884a2b6d4a033d9b5a8954446f81",
+  "common.schema.json": "285a1c5076483895e8725fe7161e9f1fa1b80a5d7111c5ce84276918dd4f76b4",
+  "content-package.schema.json": "f2f2896840ddfbbcb621ca5d4fb5215fe62806b3173cc15bbadd3a61a7d388c4",
+  "dialogue.schema.json": "bc7436a502af4402be9384dcb47f3a6932b47345caa7c6b0899e67848bc8bd6e",
+  "event.schema.json": "15ee984a559696ff13f5f1931cb2423a2a40c04ebb48a6e6ea34aa55000f2f22",
+  "narrative-tree.schema.json": "21e6b6fcb2843f12721a57c2b668d5a693d2db51d2a3c27a9fbc7bf8d265d546",
+  "save-state.schema.json": "74d374a5687e502fc14fad411c8df2b10ab7d907b2e6a77df37a58035de4332a",
+  "v1.1.0/content-package.schema.json": "ea3e6661f802668492bf2b20ed00a68550ce80e3a066adb922346c5fc0c50aed",
+  "v1.1.0/narrative-tree.schema.json": "aa5bd968fde0ee762a0791744ed7482c703432cc27c532b8ad7a251ad98a28d5"
+}
