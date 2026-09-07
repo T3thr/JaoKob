@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Implemented Sprint 3 Task 1: schema 1.2 environments, immutable presentation/locked-Bond contracts, and pure 2.0→2.1 save compatibility proof; 550 unit tests, reference schema checks and 12 existing browser routes passed. Production media/UI/write integration follows in Tasks 2–5. [Execution record](docs/changelog/2026-09/2026-09-07-0119-sprint-03-task-01-presentation-contracts.md)
 - Approved Sprint 3 architecture and CR-0003 through the PO/Tech Lead joint directive: three-choice Scene 3 boundary, blue-marked/scarf tadpole, Bond Locked Chip, and deferred Full Log/Animated Typewriter; recorded ADR-P0-015. Documentation integration only; runtime starts in a new Session. [Approval record](docs/changelog/2026-09/2026-09-07-0042-sprint-03-architecture-approval.md)
 - Drafted Sprint 3 Interactive Light Novel RPG benchmark plan and CR-0003 for versioned scene environments, audio orchestration, and save compatibility; five tasks and visual/audio verification were prepared for review (historical planning record). [Planning audit record](docs/changelog/2026-09/2026-09-06-2003-sprint-03-architecture-plan.md)
 

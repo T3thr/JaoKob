@@ -34,4 +34,6 @@ export const TH_APPLICATION = Object.freeze({
   reduceMotion: "ลดการเคลื่อนไหว",
   allowMotion: "ใช้การเคลื่อนไหวตามอุปกรณ์",
   closeSettings: "กลับไปอ่านต่อ",
+  bondLocked: "Bond: Locked",
+  bondLockedDescription: "ความผูกพัน: ยังไม่เริ่มต้น",
 });

@@ -1,13 +1,18 @@
 /**
  * Content trust boundary: strict local schemas, semantic policies and references.
  * Does not execute effects, evaluate gameplay guards, render, fetch or persist.
- * Trace: FR-CNT-001/002/004/005, DR-001..012, CR-0002 D1/D2/D4, ADR-P0-013.
+ * Trace: FR-CNT-001/002/004/005, DR-001..012, CR-0002 D1/D2/D4, CR-0003 D1, ADR-P0-013/015.
  */
 import { CONTENT_SCHEMA_CATALOG } from "./content-schema-catalog.js";
 import { createContentSchemaValidator } from "./content-schema-validator.js";
 import { contentFailure, copyJsonData, deepFreeze } from "./content-values.js";
 
 const SCHEMA_ROOT = "https://t3thr.github.io/JaoKob/specs/schemas/";
+const PACKAGE_SCHEMA_PATHS = Object.freeze({
+  "1.0.0": "content-package.schema.json",
+  "1.1.0": "v1.1.0/content-package.schema.json",
+  "1.2.0": "v1.2.0/content-package.schema.json",
+});
 const IDENTIFIER = /^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$/;
 
 /**
@@ -27,7 +32,7 @@ export function validateContentPackage(input, options = {}) {
   if (!Object.hasOwn(data, "schemaVersion")) {
     return contentFailure("$.schemaVersion", "CONTENT_SCHEMA", "Required schema version is missing.");
   }
-  if (!["1.0.0", "1.1.0"].includes(data.schemaVersion)) {
+  if (typeof data.schemaVersion !== "string" || !Object.hasOwn(PACKAGE_SCHEMA_PATHS, data.schemaVersion)) {
     return contentFailure("$.schemaVersion", "CONTENT_VERSION", "Unsupported package schema version.");
   }
   for (const name of ["characters", "dialogues", "events"]) {
@@ -42,7 +47,7 @@ export function validateContentPackage(input, options = {}) {
     }
   }
   const schema = createContentSchemaValidator(CONTENT_SCHEMA_CATALOG);
-  const schemaId = `${SCHEMA_ROOT}${data.schemaVersion === "1.1.0" ? "v1.1.0/" : ""}content-package.schema.json`;
+  const schemaId = `${SCHEMA_ROOT}${PACKAGE_SCHEMA_PATHS[data.schemaVersion]}`;
   const structural = schema.validate(data, schemaId);
   if (structural.errors.length) return deepFreeze({ valid: false, errors: structural.errors });
   const errors = [];
@@ -74,6 +79,18 @@ export function validateContentPackage(input, options = {}) {
       add(ref.path, "CONTENT_REFERENCE", "Reference does not resolve in its declared namespace.");
     }
   }
+  // Reference existence and media capability are separate failures. Missing IDs
+  // have already been reported above; a declared asset must suit its authored use.
+  const assetType = (id, expectedType, path) => {
+    const asset = namespaces["asset.id"].get(id)?.value;
+    if (asset && asset.type !== expectedType) semantic(path, `Referenced asset must have type ${expectedType}.`);
+  };
+  data.characters.characters.forEach((character, i) => {
+    assetType(character.visualProfile.defaultPortraitAssetId, "image", `$.characters.characters[${i}].visualProfile.defaultPortraitAssetId`);
+  });
+  data.dialogues.dialogues.forEach((dialogue, i) => {
+    assetType(dialogue.delivery.portraitAssetId, "image", `$.dialogues.dialogues[${i}].delivery.portraitAssetId`);
+  });
   for (const { value, path } of structural.localized) {
     if (typeof value.th === "string" && !value.th.trim()) semantic(`${path}.th`, "Thai text must not be blank.");
     if (Array.isArray(value.th) && Object.values(value).some((list) => list.length !== value.th.length)) {
@@ -99,6 +116,12 @@ export function validateContentPackage(input, options = {}) {
     if (!tree.nodes.some((n) => n.id === tree.entryNodeId)) add(`$.narrativeTrees[${ti}].entryNodeId`, "CONTENT_REFERENCE", "Tree entry must belong to that tree.");
   }
   for (const { value: node, path } of nodeEntries) {
+    assetType(node.backgroundAssetId, "image", `${path}.backgroundAssetId`);
+    if (node.environment) {
+      assetType(node.environment.backgroundAssetId, "image", `${path}.environment.backgroundAssetId`);
+      assetType(node.environment.bgmAssetId, "audio", `${path}.environment.bgmAssetId`);
+      assetType(node.environment.ambientAssetId, "audio", `${path}.environment.ambientAssetId`);
+    }
     if ((node.checkpointPolicy === "none") === Object.hasOwn(node, "checkpointId")) {
       semantic(`${path}.checkpointId`, "Checkpoint ID must match the node checkpoint policy.");
     }

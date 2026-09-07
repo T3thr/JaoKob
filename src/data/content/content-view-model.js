@@ -1,5 +1,6 @@
 import { deepFreeze } from "../validation/content-values.js";
 import { TH_APPLICATION as messages } from "../localization/th-application.js";
+import { projectContentPresentation } from "./content-presentation.js";
 
 /** Localize pure presentation facts into a renderer-only immutable view. */
 export function projectContentView({ loaded, snapshot, facts, settings, notice, feedbackActionId, meterChanges = [], mode, hasResume, memoryResume, confirmation, viewRevision }) {
@@ -9,10 +10,12 @@ export function projectContentView({ loaded, snapshot, facts, settings, notice, 
   const choices = [];
   const view = { locale, state: snapshot?.state ?? "Title", viewRevision, revision: snapshot?.revision ?? 0,
     confirmationRequired: mode === "replace-confirmation" || mode === "choice-confirmation",
-    settings: { fontScale: settings.fontScale, reducedMotion: settings.reducedMotion },
+    settings: { fontScale: settings.fontScale, reducedMotion: settings.reducedMotion, highContrast: settings.highContrast },
+    presentation: projectContentPresentation({ loaded, snapshot, facts, settings, mode }).visual,
     scene: { title: messages.title, dialogue: messages.introduction },
-    meters: { hp: snapshot?.metrics.hp ?? loaded.catalog.defaults.metrics.hp, sanity: snapshot?.metrics.sanity ?? loaded.catalog.defaults.metrics.sanity, bond: { value: 0, visible: false } },
-    choices, meterChanges, notice: notice ? { title: messages.saveTitle, text: notice } : undefined,
+    meters: { hp: snapshot?.metrics.hp ?? loaded.catalog.defaults.metrics.hp, sanity: snapshot?.metrics.sanity ?? loaded.catalog.defaults.metrics.sanity,
+      bond: snapshot ? { state: "locked", label: messages.bondLocked, accessibleLabel: messages.bondLockedDescription, icons: ["lotus", "lock"] } : { state: "hidden" } },
+    choices, meterChanges: meterChanges.filter((change) => change.meter !== "bond").map((change) => ({ ...change })), notice: notice ? { title: messages.saveTitle, text: notice } : undefined,
   };
   const add = (id, label) => choices.push({ id, label });
   if (mode === "replace-confirmation") {

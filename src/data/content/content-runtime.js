@@ -25,7 +25,7 @@ export function prepareRuntimeContent(loaded) {
   const data = loaded.packageData, indexes = loaded.indexes;
   const nodes = Object.values(indexes.nodes), events = Object.values(indexes.events);
   const unsupported = (path) => contentFailure(path, "CONTENT_CAPABILITY", "The current executor cannot safely represent this capability.");
-  if (data.schemaVersion !== "1.1.0" || data.narrativeTrees.length !== 1 || nodes.length > 256) return unsupported("$.narrativeTrees");
+  if (!["1.1.0", "1.2.0"].includes(data.schemaVersion) || data.narrativeTrees.length !== 1 || nodes.length > 256) return unsupported("$.narrativeTrees");
   if (loaded.entry.node.type !== "cutscene" || loaded.entry.node.checkpointPolicy !== "before-node") return unsupported("$.entryTreeId");
   const adjacency = Object.fromEntries(nodes.map((node) => [node.id, []]));
   for (const node of nodes) {

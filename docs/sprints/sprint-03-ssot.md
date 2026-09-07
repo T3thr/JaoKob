@@ -3,8 +3,8 @@
 | Document control | Value |
 |---|---|
 | Sprint / document | `SPRINT-03` / `JKB-SPRINT-03-SSOT` |
-| Version / date | `1.0.0` / approved 2026-09-07; created 2026-09-06 (Asia/Bangkok) |
-| Status | **APPROVED — Documentation Gate; implementation deferred to a new Session** |
+| Version / date | `1.1.0` / Task 1 implementation evidence 2026-09-07; design approved 2026-09-07 (Asia/Bangkok) |
+| Status | **APPROVED architecture — Task 1 implemented and verified; PR owner review pending** |
 | Phase | Phase 2: Interactive Light Novel RPG Transformation, benchmark slice |
 | Plan author | GPT-6 Astra — Senior Software Engineer / Principal Systems Architect |
 | Collaborators / reviewers | CEO / Product Owner; Gemini 3.8 Flash — Tech Lead; Narrative, Game Design, Accessibility, QA, Art/Audio owners |
@@ -15,9 +15,9 @@
 
 PO และ Tech Lead อนุมัติแผนและ CR-0003 ตาม **PO & TECH LEAD JOINT DIRECTIVE: SPRINT 3 ARCHITECTURAL APPROVAL**, 2026-09-07. มติ D5–D8 ในแผนฉบับนี้เป็นข้อยุติ: three-choice Scene 3 handoff, ลูกอ๊อดลวดลาย/ผ้าผูกคอสีน้ำเงิน, Bond Locked Chip และ deferred Full Log/Animated Typewriter. ดู [approval record](../changelog/2026-09/2026-09-07-0042-sprint-03-architecture-approval.md) และ [ADR-P0-015](../adr/ADR-P0-015-interactive-light-novel-presentation.md)
 
-อนุญาต commit/push branch `feat/sprint-03-architecture-plan`, เปิด PR และ squash merge สู่ `develop` เฉพาะเอกสาร. **ยังไม่เริ่ม runtime/schema/test/asset implementation; WBS 0/5**. Approval ของแผนไม่ใช่หลักฐานว่า implementation DoR, QA, asset rights หรือ benchmark DoD ผ่านแล้ว; implementation เริ่ม Session ใหม่ตามคำสั่ง PO
+Documentation Session เดิมอนุญาต commit/push/PR/squash merge เฉพาะเอกสาร ผ่าน PR #8 ที่ `559b6d7`. **Session ปัจจุบัน PO สั่งเริ่ม Step 0 และ Task 1 โดยชัดเจน**: branch `feat/sprint-03-interactive-light-novel` จาก clean/up-to-date develop. Task 1 implementation/automated verification ครบ (**WBS 1/5 implemented; owner PR review pending**); Tasks 2–5, media rights, UI benchmark และ deployment ยังไม่เสร็จ. ดู [Task 1 record](../changelog/2026-09/2026-09-07-0119-sprint-03-task-01-presentation-contracts.md)
 
-ฐาน runtime ที่รวมผ่าน PR #7 คือ `70bac18`; HEAD ปัจจุบัน `b07523c` เพิ่ม Sprint 2 closeout record เท่านั้น. Git identity ตรวจแล้วเป็น `T3thr <t.theerapat33@gmail.com>`; fetch/pull แบบ fast-forward ยืนยัน develop up to date ก่อนสร้าง local documentation branch. [Sprint 2 SSOT](sprint-02-ssot.md) และ [closeout record](../changelog/2026-09/2026-09-05-0128-sprint-02-merge-closeout.md) เป็น integrated baseline. คำสั่งปัจจุบันเปลี่ยน next milestone จาก Act 2 ใน closeout มาเป็น visual/audio benchmark; งาน Act 2 ยกไป planning หลัง benchmark ไม่แก้ประวัติ Sprint 2 ย้อนหลัง
+ประวัติ planning: ฐาน runtime ที่รวมผ่าน PR #7 คือ `70bac18`; HEAD ใน planning Session `b07523c` เพิ่ม Sprint 2 closeout record เท่านั้น. Git identity ตรวจแล้วเป็น `T3thr <t.theerapat33@gmail.com>`; fetch/pull แบบ fast-forward ยืนยัน develop up to date ก่อนสร้าง local documentation branch. [Sprint 2 SSOT](sprint-02-ssot.md) และ [closeout record](../changelog/2026-09/2026-09-05-0128-sprint-02-merge-closeout.md) เป็น integrated baseline. คำสั่งปัจจุบันเปลี่ยน next milestone จาก Act 2 ใน closeout มาเป็น visual/audio benchmark; งาน Act 2 ยกไป planning หลัง benchmark ไม่แก้ประวัติ Sprint 2 ย้อนหลัง
 
 ชื่อ Phase ในเอกสารเดิมบางแห่งเรียก Sprint 2 ว่า Phase 2A และ AGENTS ยังนำทาง Sprint 1; สำหรับงานนี้ยึด `SPRINT-03` และ scope ตามคำสั่ง PO นี้ ไม่ตีความเป็นการเปิด scope เต็ม Phase 2 หรือผ่าน Release G2
 
@@ -141,7 +141,7 @@ Yes: final media for Scenes 1–2, approved first Decision handoff, and full Act
 
 Paths below are **planned artifacts**, not claims that files or commands exist. One active writer per file. Every Task includes meaningful tests of its own behavior and a trace/change record; T5 integrates evidence rather than waiting until then to test. Suggested PR scope is one coherent Task; all future feature PRs target `develop`, never direct commits to protected branches
 
-- [ ] **Task 1 — Versioned presentation contracts and save compatibility**
+- [x] **Task 1 — Versioned presentation contracts and save compatibility** — implemented/verified; Tech Lead/QA PR review pending
 
   **Owner:** Data Maintainer / Architect. **Review:** Tech Lead, QA. **Dependency:** CR-0003 D1/D3/D5/D7/D8 accepted; fixture/Port agreement before consumer coding.
 
@@ -149,7 +149,7 @@ Paths below are **planned artifacts**, not claims that files or commands exist. 
 
   **Acceptance:** precise RFC delta/parity and wrong-type/unknown/version tests; old schemas remain byte-identical; no UI/Data imports in Core. Immutable projection includes visual mode, localized scene/speaker, resolved asset references/readiness intents, authored actions and desired audio; no domain rules move to UI. Migration preserves exact payload/cursor/settings with explicit version mapping and protected raw recovery; unchanged gameplay/graph projection is machine-compared. Legacy contracts stay exercised. Document input/error/ownership contracts used by T2–T4; bootstrap wiring is T4, not T1.
 
-  **Evidence:** `TC-S3-CONTRACT-001`, `TC-S3-ARCH-001`, `TC-S3-SAVE-001`; future PR link pending.
+  **Evidence:** `TC-S3-CONTRACT-001`, `TC-S3-ARCH-001`, `TC-S3-SAVE-001`; [Task 1 execution record](../changelog/2026-09/2026-09-07-0119-sprint-03-task-01-presentation-contracts.md), [consumer API handoff](../../specs/README.md#sprint-3-task-1-consumer-handoff). 550/550 unit tests, 11 reference metaschemas/36 structural cases, 12/12 existing Chromium routes. Production content remains 2.0.0; DOM chip/asset/audio/migration-write integration remains T2–T5.
 
 - [ ] **Task 2 — Benchmark art/audio assets and bounded asset loading**
 
@@ -206,15 +206,15 @@ Dependency order: **T1 → T2/T3/T4 adapter work → T4 integration → T5**. `c
 
 ### 5.2 Implementation DoR — all relevant items required per Task
 
-ตาม [JKB-P0-AI-001 §6](../phase-0/06-ai-agent-engineering-guide.md#6-definition-of-ready) ยัง **ไม่พร้อม implementation** จนรายการที่ Task พึ่งพาครบ:
+ตาม [JKB-P0-AI-001 §6](../phase-0/06-ai-agent-engineering-guide.md#6-definition-of-ready) ต้องตรวจรายการที่แต่ละ Task พึ่งพา; Task 1 ผ่าน readiness ตาม execution record ส่วน Tasks 2–5 ยังต้องตรวจ dependencies ของตน:
 
 - [x] D1/D2 schema/Port/desired-state and D3 mapping/rollback design approved by PO/Tech Lead; implementation QA proof remains required.
 - [x] D5–D8 decided by PO/Tech Lead joint directive; no separate completed QA/Accessibility/asset review is inferred from that authority.
-- [ ] Observable success/failure AC, input/output/error types, actual source/fixture versions, one PR scope and exclusive files agreed.
-- [ ] State, narrative, localization, accessibility, security, performance, stable IDs, settings and save effects reviewed; no new approved requirement invented.
+- [x] Task 1 observable success/failure AC, input/output/error types, actual source/fixture versions, one PR scope and exclusive files agreed; consumer contract recorded in specs/README.
+- [x] Task 1 state, narrative, localization, accessibility, security, performance, stable IDs, settings and save effects reviewed; no new approved requirement invented.
 - [ ] Art/audio/font briefs and production provenance/rights available before the dependent asset work; target mood and original mascot design reviewed.
 - [ ] Representative device/browser/profile, proposed budget refinements and human reviewer time agreed; tooling planned below is actually available before claiming its gate.
-- [ ] Explicit start authorization exists for requested implementation Task; this planning request alone is not that authorization.
+- [x] Explicit new-session PO start authorization exists for Step 0 and Task 1; design approval alone was not used as implementation authorization.
 
 ### 5.3 Sprint implementation DoD
 
@@ -290,8 +290,11 @@ Media readiness must not delay the ≤100ms feedback shell. Inspect long tasks/p
 
 ## 7. Sprint Audit Trail, Risks and Approval Register
 
+**Task 1 current evidence:** schema/catalog/reference, pure media/locked-Bond contract and compatibility tests passed; [retained browser regression](../../tests/e2e/evidence/sprint-03/task-01/act1-evidence.json) covers the existing renderer, not the new stage. Full audio/UI/asset/write-race/representative-device/manual-accessibility gates remain with T2–T5. The §6.4 table above is historical planning evidence, not the current implementation result.
+
 | Record ID | Timestamp | Milestone / evidence | Status |
 |---|---|---|---|
+| `CR-20260907-0119` | 2026-09-07T01:19:37+07:00 | [Task 1 contracts, migration proof and verification](../changelog/2026-09/2026-09-07-0119-sprint-03-task-01-presentation-contracts.md) | WBS 1/5 implemented/verified; PR review pending |
 | `CR-20260907-0042` | 2026-09-07T00:42:45+07:00 | [Joint architectural approval and documentation integration](../changelog/2026-09/2026-09-07-0042-sprint-03-architecture-approval.md) | APPROVED documentation; WBS 0/5 |
 | `CR-20260906-2003` | 2026-09-06T20:03:27+07:00 | [Architectural review, CR-0003 and Sprint 3 draft](../changelog/2026-09/2026-09-06-2003-sprint-03-architecture-plan.md) | Draft delivered; approvals pending; WBS 0/5 |
 
@@ -300,12 +303,12 @@ Media readiness must not delay the ≤100ms feedback shell. Inspect long tasks/p
 | CR D1–D4: schema/audio/migration/performance | PO/Tech Lead joint approval 2026-09-07; QA/device evidence remains to be produced | APPROVED design |
 | CR D5: Scene 3 three-choice interaction handoff | PO/Tech Lead joint directive 2026-09-07 | APPROVED |
 | CR D6: blue-marked/scarf tadpole, adult blue-shirt Title mascot | PO/Tech Lead joint directive 2026-09-07; final art/provenance review still required | APPROVED art direction |
-| CR D7: Bond Locked Chip and replacement UI assertions | PO/Tech Lead joint directive 2026-09-07; numeric secrecy/domain invariants retained | APPROVED presentation change; not implemented |
+| CR D7: Bond Locked Chip and replacement UI assertions | PO/Tech Lead joint directive 2026-09-07; numeric secrecy/domain invariants retained | VM/Port implemented; DOM/AX chip acceptance pending T3/T5 |
 | CR D8: reading/decision pacing; deferred Full Log/Animated Typewriter | PO/Tech Lead joint directive 2026-09-07; UI/PO own post-benchmark backlog | APPROVED |
 | Thai font/crop/art/audio provenance and mix | Art/Audio + Narrative + rights/Accessibility reviewers | Needed for media DoR; mockups are not release-ready evidence |
 | Additional payload/device decoding pressure | Performance QA applies caps and real device measurements before visual sign-off | Unmeasured; no FPS claim |
-| 2.1 saves versus original 2.0 runtime | Data/QA prove migration and retain rollback write guard; no automatic downgrade | Approved mapping design, unimplemented |
-| Documentation integration | PO/Tech Lead authorize commit/push/PR/squash merge to develop | AUTHORIZED this Session |
-| Implementation handoff | New Session and task DoR required by joint directive §3.4 | Deferred; no runtime work this Session |
+| 2.1 saves versus original 2.0 runtime | Data/QA prove migration and retain rollback write guard; no automatic downgrade | Pure mapping/protected raw preparation verified in T1; production guard wiring/races pending T4 |
+| Documentation integration | Historical PO/Tech Lead documentation authorization | Integrated through PR #8 at 559b6d7 |
+| Implementation handoff | PO new-session start instruction and per-Task DoR | T1 implemented/verified; T2–T5 pending; no merge/deploy implied |
 
-**Planning rollback:** revert only this draft's documentation changes; runtime/save/assets unchanged, so no migration executes now. Existing proposal/raw files and previous sprint history remain intact. Implementation rollback follows CR D3. Completion of this planning artifact does not mark any implementation Task `[x]`, update historical Sprint 1/2 WBS or close G2. Documentation push/merge is explicitly authorized by the joint directive; runtime work and deployment are not
+**Historical planning rollback:** revert only this draft's documentation changes; runtime/save/assets unchanged, so no migration executes now. Existing proposal/raw files and previous sprint history remain intact. Implementation rollback follows CR D3. Completion of this planning artifact does not mark any implementation Task `[x]`, update historical Sprint 1/2 WBS or close G2. Documentation push/merge is explicitly authorized by the joint directive; runtime work and deployment are not
