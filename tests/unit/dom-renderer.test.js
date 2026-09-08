@@ -439,3 +439,75 @@ class FakeClassList {
     this.element._attributes.set("class", [...this.values].join(" "));
   }
 }
+
+test("CR-0003 D4/D5/D7 four stage layers retain three canonical cards and numerical-free Bond locked presence", () => {
+  const { root, renderer } = createHarness();
+  const view = {
+    presentation: { mode: "decision", background: null, character: null },
+    scene: { title: "บ้านในหนองน้ำ", dialogue: "เจ้ากบจะอยู่ใกล้ใครในเช้านี้" },
+    meters: { hp: 80, sanity: 70, bond: { state: "locked", label: "Bond: Locked", accessibleLabel: "ความผูกพัน: ยังไม่เริ่มต้น", icons: ["lotus", "lock"] } },
+    choices: [{ id: "mother", label: "ว่ายตามแม่กบ" }, { id: "roots", label: "อยู่ฟังรากบัว" }, { id: "siblings", label: "ว่ายเล่นกับพี่น้อง" }, { id: "application.settings", label: "การตั้งค่า" }],
+    meterChanges: [{ meter: "bond", delta: 5 }],
+  };
+  assert.equal(renderer.render(deepFreeze(view)).ok, true);
+  for (const id of ["stage-bg", "stage-char", "stage-dialogue", "stage-hud"]) assert.equal(findAll(root, hasAttribute("id", id)).length, 1);
+  const chip = findOne(root, hasAttribute("data-bond-state", "locked"));
+  assert.match(chip.textContent, /Bond: Locked/); assert.match(chip.textContent, /🪷 🔒/); assert.doesNotMatch(chip.textContent, /\d/);
+  visit(chip, (element) => {
+    for (const [key, value] of element._attributes) { assert.doesNotMatch(key, /aria-value|data-value/); assert.doesNotMatch(value, /\d/); }
+  });
+  assert.doesNotMatch(root.textContent, /ความผูกพัน เพิ่มขึ้น/);
+  const cards = findOne(root, hasDataRole("choices"));
+  assert.deepEqual(findAll(cards, hasDataRole("choice")).map((button) => button.textContent), ["ว่ายตามแม่กบ", "อยู่ฟังรากบัว", "ว่ายเล่นกับพี่น้อง"]);
+  assert.equal(findAll(cards, hasDataAction("advance")).length, 0);
+});
+
+test("FR-ACC-001 settings overlay keeps story inert, restores field on rerender and trigger on close", () => {
+  const { document, root, renderer } = createHarness();
+  const base = { ...viewModelWithChoices(), presentation: { mode: "reading" }, settings: { fontScale: 1 }, choices: [{ id: "application.advance", label: "อ่านต่อ" }, { id: "application.settings", label: "การตั้งค่า" }] };
+  renderer.render(base);
+  findOne(root, hasAttribute("data-choice-id", "application.settings")).focus();
+  const settings = { ...base, presentation: { mode: "settings" }, viewRevision: 3 };
+  assert.equal(renderer.render(settings).ok, true);
+  assert.equal(findOne(root, hasDataRole("game-shell")).hasAttribute("inert"), true);
+  const font = findOne(root, hasAttribute("data-jk-setting", "fontScale"));
+  assert.equal(document.activeElement, font);
+  const music = findOne(root, hasAttribute("data-jk-setting", "musicVolume")); music.focus();
+  renderer.setBusy(true);
+  document.activeElement = null; // Native disabled controls lose focus before async persistence returns.
+  renderer.render({ ...settings, settings: { fontScale: 1.5, musicVolume: .5 } });
+  renderer.setBusy(false);
+  assert.equal(document.activeElement, findOne(root, hasAttribute("data-jk-setting", "musicVolume")));
+  renderer.applyFocusDirective({ target: "dialogue" });
+  assert.equal(document.activeElement.getAttribute("data-jk-setting"), "musicVolume");
+  renderer.render(base); renderer.applyFocusDirective({ target: "dialogue" });
+  assert.equal(document.activeElement.getAttribute("data-choice-id"), "application.settings");
+  assert.equal(findAll(root, hasDataRole("settings-dialog")).length, 0);
+});
+
+test("CR-0003 D2 renderer hands trusted activation to composition before semantic story intent", () => {
+  const document = new FakeDocument(), root = document.createElement("div"), calls = [];
+  const renderer = createDomRenderer({ document, root, onTrustedActivation: () => calls.push("unlock"), onIntent: () => calls.push("intent") });
+  renderer.render(viewModelWithChoices());
+  root.dispatchEvent({ type: "pointerdown", isTrusted: false });
+  assert.deepEqual(calls, []);
+  root.dispatchEvent({ type: "pointerdown", isTrusted: true });
+  findOne(root, hasDataRole("choice")).dispatchEvent({ type: "click" });
+  assert.deepEqual(calls, ["unlock", "intent"]);
+  root.dispatchEvent({ type: "keydown", isTrusted: true, repeat: true });
+  assert.deepEqual(calls, ["unlock", "intent"]);
+});
+
+test("FR-ACC-002 asynchronous media refresh retains current reading/button focus without announcing again", () => {
+  const { root, document, renderer } = createHarness();
+  const base = { ...viewModelWithChoices(), revision: 4, viewRevision: 7, presentation: { mode: "decision", nodeId: "node.act1.home-focus" } };
+  renderer.render(base); renderer.announce({ text: "บันทึกแล้ว" });
+  const live = findOne(root, hasDataRole("live-region"));
+  findOne(root, hasDataRole("choice")).focus();
+  renderer.render({ ...base, viewRevision: 8, audioStatusText: "เสียงพร้อมใช้งาน" });
+  assert.equal(document.activeElement.getAttribute("data-choice-id"), "continue");
+  assert.equal(live, findOne(root, hasDataRole("live-region"))); assert.equal(live.textContent, "บันทึกแล้ว");
+  renderer.applyFocusDirective({ target: "dialogue" });
+  renderer.render({ ...base, viewRevision: 9 });
+  assert.equal(document.activeElement.getAttribute("data-jk-role"), "dialogue");
+});

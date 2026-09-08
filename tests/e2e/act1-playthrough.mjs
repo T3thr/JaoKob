@@ -10,9 +10,9 @@ import { content, ROUTES, walk, envelope } from "../helpers/act1-session.js";
 
 const playwright = await import(process.env.JKB_PLAYWRIGHT_PATH ? pathToFileURL(process.env.JKB_PLAYWRIGHT_PATH).href : "playwright");
 const repo = resolve(fileURLToPath(new URL("../..", import.meta.url)));
-const output = resolve(repo, "output/playwright");
+const output = resolve(repo, "tests/e2e/evidence/sprint-03/benchmark");
 await mkdir(output, { recursive: true });
-const mime = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".json": "application/json" };
+const mime = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".json": "application/json", ".webp": "image/webp", ".mp3": "audio/mpeg", ".woff2": "font/woff2" };
 const transfers = [];
 const server = createServer(async (request, response) => {
   try {
@@ -49,22 +49,34 @@ async function context(viewport = { width: 1280, height: 900 }) {
   const page = await ctx.newPage();
   page.on("pageerror", (error) => evidence.errors.push(error.message));
   page.on("console", (message) => { if (message.type() === "error") evidence.errors.push(message.text()); });
-  page.on("request", (request) => { if (!request.url().startsWith(origin) && !request.url().startsWith("data:")) evidence.errors.push(`External request: ${request.url()}`); });
+  page.on("request", (request) => { if (!request.url().startsWith(origin) && !request.url().startsWith("data:") && !request.url().startsWith("blob:")) evidence.errors.push(`External request: ${request.url()}`); });
   return { ctx, page };
 }
 async function open(page, subpath = "") { await page.goto(`${origin}${subpath}/index.html`); await choice(page, "application.new-game").waitFor(); await idle(page); }
-async function noBond(page) {
-  assert.equal(await page.locator('[data-jk-meter="bond"]').count(), 0);
+async function lockedBond(page) {
+  const chip = page.locator('[data-jk-meter="bond"][data-bond-state="locked"]');
+  assert.equal(await chip.count(), 1);
+  assert.doesNotMatch(await chip.textContent(), /[\p{N}%]/u);
+  // Native definition-list semantics use dt/dd for the visible/accessibility labels.
+  assert.match(await chip.locator("dt").textContent(), /Locked/);
+  assert.match(await chip.locator("dd").textContent(), /ยังไม่เริ่มต้น/);
+  assert.doesNotMatch(await chip.locator("dd").textContent(), /[\p{N}%]/u);
+  for (const name of ["aria-valuenow", "aria-valuemin", "aria-valuemax", "data-value"]) assert.equal(await chip.getAttribute(name), null);
   const session = await page.context().newCDPSession(page);
   const tree = await session.send("Accessibility.getFullAXTree"); await session.detach();
-  assert.equal(tree.nodes.filter((node) => !node.ignored).some((node) => /ความผูกพัน|Bond/.test(node.name?.value ?? "")), false);
+  const bond = tree.nodes.filter((node) => !node.ignored && /ความผูกพัน|Bond/.test(node.name?.value ?? ""));
+  assert.ok(bond.some((node) => /Locked|ยังไม่เริ่มต้น/.test(node.name.value)));
+  for (const node of bond) {
+    assert.doesNotMatch(node.name.value, /[\p{N}%]/u);
+    assert.equal(node.value, undefined);
+  }
 }
 async function verifyRoute(page, route, hotspots, { keyboard = false, captures = false } = {}) {
   await click(page, "application.new-game", keyboard ? "Enter" : undefined);
   let capturedStorm = false, capturedConfirmation = false, maxBytes = 0;
   for (let steps = 0; await choice(page, "application.finish").count() === 0; steps += 1) {
     assert.ok(steps < 200);
-    await noBond(page);
+    await lockedBond(page);
     assert.equal(await page.locator('[data-jk-role="dialogue"]').evaluate((el) => el === document.activeElement), true);
     const stored = await save(page), nodeId = stored.payload.currentNodeId;
     maxBytes = Math.max(maxBytes, Buffer.byteLength(JSON.stringify(stored)));
@@ -117,8 +129,10 @@ try {
       evidence.performance.initialRawBytes = transfers.slice(beforeTransfer).reduce((sum, item) => sum + item.rawBytes, 0);
       evidence.performance.domContentLoadedMs = await page.evaluate(() => performance.getEntriesByType("navigation")[0].domContentLoadedEventEnd);
       assert.equal(await choice(page, "application.new-game").evaluate((el) => el === document.activeElement), true);
-      await page.keyboard.press("Tab"); assert.equal(await choice(page, "application.settings").evaluate((el) => el === document.activeElement), true);
-      await page.keyboard.press("Shift+Tab");
+      // Header Settings precedes reading controls in the semantic DOM.
+      await page.keyboard.press("Shift+Tab"); assert.equal(await choice(page, "application.settings").evaluate((el) => el === document.activeElement), true);
+      assert.equal(await choice(page, "application.settings").evaluate((el) => el.closest("#stage-hud") !== null), true);
+      await page.keyboard.press("Tab");
       const focus = await choice(page, "application.new-game").evaluate((el) => ({ width: parseFloat(getComputedStyle(el).outlineWidth), style: getComputedStyle(el).outlineStyle }));
       assert.ok(focus.width > 0 && focus.style !== "none");
       await screenshot(page, "act1-title-keyboard.png");
@@ -127,7 +141,7 @@ try {
     await ctx.close();
     console.log(`PASS route ${index + 1}/12 ${Object.values(route).join(" / ")}`);
   }
-  evidence.checks.push("12 Canon paths; keyboard Enter/Space/Tab; visible focus; no Bond in DOM or AX tree; saved rest reload; root/subpath");
+  evidence.checks.push("12 Canon paths; keyboard Enter/Space/Tab; visible focus; Bond locked presence in DOM/AX with zero numeric disclosure; saved rest reload; root/subpath");
 
   // Exact page Resume at a post-storm node, followed by stale/double click.
   {
@@ -158,10 +172,10 @@ try {
     assert.ok(dimensions.scroll <= dimensions.width, "320 CSS px / 200% text must reflow");
     const targets = await page.locator('button').evaluateAll((buttons) => buttons.map((button) => ({ width: button.getBoundingClientRect().width, height: button.getBoundingClientRect().height })));
     assert.ok(targets.every((target) => target.width >= 44 && target.height >= 44));
-    assert.equal(await page.locator('.jk-scene-enter').evaluate((el) => getComputedStyle(el).animationName), "none");
+    assert.equal(await page.locator('.jk-character-image').evaluate((el) => getComputedStyle(el).animationName), "none");
     const colors = await page.evaluate(() => {
       const style = (selector) => getComputedStyle(document.querySelector(selector));
-      return [[style('.jk-scene-title').color, style('.jk-hud').backgroundColor], [style('button').color, style('button').backgroundColor], [style('.jk-first-run-notice p').color, style('.jk-first-run-notice').backgroundColor]];
+      return [[style('.jk-dialogue').color, style('.jk-narrative').backgroundColor], [style('.jk-choice-button').color, style('.jk-choice-button').backgroundColor], [style('.jk-settings-button').color, style('.jk-hud').backgroundColor], [style('.jk-save-notice p').color, style('.jk-save-notice').backgroundColor]];
     });
     const lum = (color) => color.match(/[\d.]+/g).slice(0, 3).map(Number).map((x) => x / 255).map((x) => x <= .04045 ? x / 12.92 : ((x + .055) / 1.055) ** 2.4).reduce((sum, x, i) => sum + x * [.2126, .7152, .0722][i], 0);
     const ratios = colors.map(([fg, bg]) => (Math.max(lum(fg), lum(bg)) + .05) / (Math.min(lum(fg), lum(bg)) + .05));
@@ -170,7 +184,7 @@ try {
     await screenshot(page, "act1-mobile-320-text200.png");
     await page.emulateMedia({ reducedMotion: "no-preference" });
     await click(page, "application.settings"); await click(page, "application.toggle-motion"); await click(page, "application.close-settings");
-    assert.equal(await page.locator('.jk-scene-enter').evaluate((el) => getComputedStyle(el).animationName), "none");
+    assert.equal(await page.locator('.jk-character-image').evaluate((el) => getComputedStyle(el).animationName), "none");
     evidence.checks.push("320 CSS px + 200% text; 44 px targets; contrast samples >=4.5; OS and application reduced-motion"); await ctx.close();
   }
 
@@ -183,7 +197,7 @@ try {
     await open(page); await click(page, "application.new-game"); await click(page, "application.cancel-replace");
     assert.equal(await page.evaluate((key) => localStorage.getItem(key), saveKey), raw);
     await click(page, "application.new-game"); await click(page, "application.confirm-replace");
-    assert.equal((await save(page)).contentVersion, "2.0.0");
+    assert.equal((await save(page)).contentVersion, "2.1.0");
     evidence.checks.push(`${kind} save: byte preservation on cancel, explicit replace consent`); await ctx.close();
   }
 

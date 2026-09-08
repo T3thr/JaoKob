@@ -1,0 +1,27 @@
+{
+  "browser": "151.0.7922.34",
+  "viewport": {
+    "width": 320,
+    "height": 568
+  },
+  "textScale": 2,
+  "errors": [],
+  "modalSizes": {
+    "client": 248,
+    "scroll": 248
+  },
+  "checks": [
+    "200% modal no horizontal scroll",
+    "native ArrowRight saves volume and retains active input",
+    "Tab/ShiftTab trapped in modal",
+    "Escape closes and restores settings trigger",
+    "Bond accessible labels present without numbers"
+  ],
+  "bond": [
+    "Bond: Locked",
+    "Bond: Locked",
+    "ความผูกพัน: ยังไม่เริ่มต้น",
+    "Bond: Locked",
+    "ความผูกพัน: ยังไม่เริ่มต้น"
+  ]
+}

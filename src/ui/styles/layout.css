@@ -1,86 +1,77 @@
-/* Mobile-first responsive structure: HUD, story, then action tray. */
-
-.jk-app-content {
-  min-block-size: 100%;
-}
-
+/* CR-0003 D4: visual media, character, dialogue and HUD remain separate DOM layers.
+ * Normal document flow keeps every story action reachable at 200% text zoom. */
+html, body { margin: 0; min-block-size: 100%; background: #102c2c; }
+.jk-app-content { min-block-size: 100svh; }
 .jk-app-shell {
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
-  min-block-size: 100dvb;
-  max-inline-size: var(--jk-content-max);
-  margin-inline: auto;
-  background:
-    linear-gradient(160deg, rgb(169 202 214 / 32%), transparent 34rem),
-    var(--jk-color-cloud);
+  isolation: isolate;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-block-size: 100svh;
+  min-block-size: 100dvh;
+  padding: max(.75rem, env(safe-area-inset-top)) max(.75rem, env(safe-area-inset-right)) max(1.25rem, env(safe-area-inset-bottom)) max(.75rem, env(safe-area-inset-left));
+  background: radial-gradient(ellipse at 52% 28%, #9ba88a 0%, #567d70 34%, #1e4846 76%, #153438 100%);
 }
-
+.jk-stage-bg { position: absolute; z-index: -2; inset: 0; overflow: hidden; pointer-events: none; }
+.jk-background-image { inline-size: 100%; block-size: 100%; object-fit: cover; object-position: center 48%; }
+.jk-stage-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgb(13 39 35 / 24%), transparent 35%, rgb(15 42 38 / 28%) 85%); }
 .jk-hud {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .65em;
+  inline-size: min(100%, 43rem);
+  margin-inline: auto;
+  padding: .7em .8em;
+  color: #faf6e8;
+  background: #203d35;
+  border: 1px solid #a9b58d;
+  border-radius: 1.25rem;
+  box-shadow: 0 .35rem 1.1rem rgb(9 31 30 / 22%);
+}
+.jk-stage-char {
   display: grid;
-  gap: var(--jk-space-3);
-  padding: var(--jk-space-4);
-  color: var(--jk-color-cloud);
-  background: var(--jk-color-moss-950);
-  border-block-end: 0.25rem solid var(--jk-color-gold-600);
+  place-items: end center;
+  margin: 0;
+  flex: 1 0 auto;
+  min-block-size: 14rem;
+  min-block-size: clamp(11rem, 31svh, 24rem);
+  padding-block-start: 1.5rem;
+  pointer-events: none;
 }
-
-.jk-eyebrow {
-  color: var(--jk-color-gold-300);
-  font-size: var(--jk-text-xs);
-  font-weight: 700;
-  letter-spacing: 0.06em;
-}
-
-.jk-scene-title {
-  max-inline-size: var(--jk-reading-max);
-  font-family: var(--jk-font-serif);
-  font-size: var(--jk-text-xl);
-  line-height: 1.25;
-}
-
-.jk-story {
-  display: grid;
-  align-content: center;
-  padding: var(--jk-space-5) var(--jk-space-4);
-}
-
+.jk-character-image { display: block; inline-size: clamp(10rem, 29svh, 20rem); max-inline-size: 80%; block-size: auto; object-fit: contain; filter: drop-shadow(0 .6rem 1.1rem rgb(7 32 39 / 32%)); }
+.jk-story { position: relative; inline-size: min(100%, var(--jk-reading-max)); margin-inline: auto; padding-block-start: 1rem; }
 .jk-narrative {
-  inline-size: min(100%, var(--jk-reading-max));
-  margin-inline: auto;
+  position: relative;
+  padding: 1.5em 1.25em 1.4em;
+  color: #283a31;
+  background-color: #fcf3de;
+  background-image: radial-gradient(ellipse at 4% 94%, rgb(159 164 107 / 15%), transparent 30%), repeating-linear-gradient(117deg, transparent 0 4px, rgb(149 125 69 / 3%) 4px 5px);
+  border: 1px solid #fdf9ed;
+  border-radius: 1.3rem;
+  box-shadow: 0 .5rem 1.7rem rgb(13 33 32 / 24%), inset 0 0 0 4px rgb(190 174 128 / 13%);
 }
-
-.jk-choice-area {
-  padding: var(--jk-space-4);
-  background: var(--jk-color-mist);
-  border-block-start: 1px solid var(--jk-color-slate-300);
-}
-
-.jk-choice-list {
-  display: grid;
-  gap: var(--jk-space-3);
-  max-inline-size: var(--jk-reading-max);
-  margin-inline: auto;
-  list-style: none;
-}
-
+.jk-scene-title { font-size: clamp(1.65em, 5vw, 2.4em); line-height: 1.5; }
+.jk-eyebrow { font-size: .85em; letter-spacing: .1em; color: #ecddb2; }
+.jk-choice-area { padding-block-start: .75em; }
+.jk-choice-list { display: grid; gap: .7em; list-style: none; }
+.jk-choice-heading { margin-block-end: .5em; padding-inline: .5em; color: #fffbed; font-size: 1em; font-weight: 600; text-shadow: 0 1px 4px #16382f; }
+.jk-app-shell[data-stage-mode="title"] .jk-hud { flex-wrap: wrap; padding: 1.25em; }
+.jk-title-heading { flex-basis: 100%; text-align: center; }
+.jk-app-shell[data-stage-mode="title"] .jk-stage-char { min-block-size: clamp(4rem, 14svh, 14rem); }
+.jk-app-shell[data-stage-mode="title"] .jk-story { margin-block-start: auto; }
 @media (min-width: 48rem) {
-  .jk-hud {
-    grid-template-columns: minmax(12rem, 1fr) minmax(24rem, 2fr);
-    align-items: end;
-    padding: var(--jk-space-5) var(--jk-space-6);
-  }
-
-  .jk-story {
-    padding: var(--jk-space-8) var(--jk-space-6);
-  }
-
-  .jk-choice-area {
-    padding: var(--jk-space-5) var(--jk-space-6);
-  }
+  .jk-app-shell { padding-block-start: max(1.5rem, env(safe-area-inset-top)); padding-block-end: max(2.2rem, env(safe-area-inset-bottom)); }
+  .jk-stage-char { min-block-size: clamp(13rem, 34svh, 30rem); }
+  .jk-story { padding-block-start: 1.3rem; }
+  .jk-narrative { padding-inline: 2em; }
+  .jk-choice-area[data-choice-mode="exploration"] .jk-choice-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-
 @media (min-width: 90rem) {
-  .jk-app-shell {
-    box-shadow: var(--jk-shadow-soft);
-  }
+  .jk-stage-char { min-block-size: 35svh; }
+}
+@media (max-width: 47.99rem) {
+  .jk-narrative { padding: 1.5rem 1.25rem 1.4rem; }
 }

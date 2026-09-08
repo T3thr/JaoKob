@@ -37,7 +37,13 @@ for (const [index, route] of ROUTES.entries()) test(`FR-ENG/FR-SAV production DO
   const hotspots = index % 3 === 0 ? [] : index % 3 === 1 ? ["roots"] : ["lily", "roots", "shadows", "mother", "mother"];
   for (let step = 0; !h.application.getViewModel().choices.some((choice) => choice.id === "application.finish"); step += 1) {
     assert.ok(step < 200);
-    assert.equal(findAllByAttribute(h.root, "data-jk-meter", "bond").length, 0);
+    // CR-0003 D7: presence is required; the domain value remains undisclosed.
+    const chips = findAllByAttribute(h.root, "data-jk-meter", "bond");
+    assert.equal(chips.length, 1);
+    assert.equal(chips[0].getAttribute("data-bond-state"), "locked");
+    assert.doesNotMatch(chips[0].textContent, /[\p{N}%]/u);
+    assert.doesNotMatch(chips[0].getAttribute("aria-label") ?? "", /[\p{N}%]/u);
+    for (const attribute of ["aria-valuenow", "aria-valuemin", "aria-valuemax", "data-value"]) assert.equal(chips[0].getAttribute(attribute), null);
     const view = h.application.getViewModel(), before = h.application.getSnapshot();
     assert.equal(Object.isFrozen(view.scene), true);
     assert.equal(h.document.activeElement.getAttribute("data-jk-role"), "dialogue");
@@ -84,7 +90,7 @@ test("FR-SAV-006 Mock 1.0.0 remains byte-identical until explicit replacement co
   assert.equal(writes(memory).length, 0); assert.equal(memory.raw(KEYS.canonical), raw);
   await click(h, "application.new-game"); await click(h, "application.confirm-replace");
   assert.equal(h.application.getSnapshot().currentNodeId, "node.act1.opening");
-  assert.equal(JSON.parse(memory.raw(KEYS.canonical)).contentVersion, "2.0.0");
+  assert.equal(JSON.parse(memory.raw(KEYS.canonical)).contentVersion, "2.1.0");
   assert.ok(JSON.parse(memory.raw(KEYS.canonical)).revision > JSON.parse(raw).revision);
   assert.equal(memory.raw(KEYS.settings), "retained settings"); assert.equal(memory.raw("unrelated.key"), "retained");
 });
@@ -214,7 +220,7 @@ test("FR-SAV-007 blocked reads allow a new in-memory session with a visible warn
 
 for (const phase of ["stage", "commit"]) test(`FR-SAV-006 adapter ${phase} rechecks compatibility after application preflight`, async () => {
   const memory = new MemoryStorage();
-  const adapter = createLocalStorageAdapter({ storage: memory, canReplaceExistingEnvelope: (candidate) => candidate.contentVersion === "2.0.0" });
+  const adapter = createLocalStorageAdapter({ storage: memory, canReplaceExistingEnvelope: (candidate) => candidate.contentVersion === content.contentVersion });
   const candidate = envelope(walk()[2]);
   if (phase === "commit") assert.equal(adapter.stage(candidate).ok, true);
   const original = await mockRaw(); memory.entries.set(KEYS.canonical, original);
@@ -244,7 +250,7 @@ test("FR-SAV-001 production default adapter resolves browser storage with the co
   try {
     const h = harness({ storage: undefined }); await h.application.boot(); await click(h, "application.new-game");
     assert.equal(h.application.getStatus().persistenceDegraded, false);
-    assert.equal(JSON.parse(memory.raw(KEYS.canonical)).contentVersion, "2.0.0");
+    assert.equal(JSON.parse(memory.raw(KEYS.canonical)).contentVersion, "2.1.0");
     const original = await mockRaw(); memory.entries.set(KEYS.backup, original);
     await click(h, "application.advance");
     assert.equal(h.application.getStatus().persistenceDegraded, true); assert.equal(memory.raw(KEYS.backup), original);

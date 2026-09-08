@@ -1,5 +1,7 @@
 import { RENDERER_ERROR_CODES } from "../../../core/ports/renderer-port.js";
 import { TH_SYSTEM_MESSAGES } from "../../localization/th-system-messages.js";
+import { createStageView } from "../../components/stage-view.js";
+import { createSettingsDialog } from "../../components/settings-dialog.js";
 
 /**
  * Semantic DOM implementation of RendererPort.
@@ -46,6 +48,10 @@ const FATAL_STORAGE_CODES = new Set([
  * Receives semantic UI intent only; application code owns command handling.
  * @property {Readonly<Record<string, string>>} [messages]
  * Optional localized chrome overrides. Missing keys fall back to Thai.
+ * @property {(event: Event) => void} [onTrustedActivation]
+ * Synchronous composition callback before any story intent; never enters Core.
+ * @property {(reference: object) => Promise<object|null>} [loadImage]
+ * Verified decoded image lease: {ok:true,value:{url,release}} or silent failure.
  */
 
 /**
@@ -55,7 +61,7 @@ const FATAL_STORAGE_CODES = new Set([
  * operation rather than throwing across the renderer boundary.
  *
  * @param {DomRendererOptions | Element} optionsOrRoot
- * @returns {Readonly<import("../../../core/ports/renderer-port.js").RendererPort>}
+ * @returns {Readonly<import("../../../core/ports/renderer-port.js").RendererPort & {dispose(): void}>}
  */
 export function createDomRenderer(optionsOrRoot) {
   const options = normalizeOptions(optionsOrRoot);
@@ -67,12 +73,38 @@ export function createDomRenderer(optionsOrRoot) {
   let busy = false;
   let scaffold = null;
   let references = emptyReferences();
+  let stage = null;
+  let lastReadingView = null;
+  let modal = null;
+  let disposed = false;
+  let restoreSettingsFocus = false;
+  let busyModalFocus = null;
+  const trustedActivation = (event) => {
+    if (event.isTrusted === true && (event.type !== "keydown" || !event.repeat)) options.onTrustedActivation?.(event);
+  };
 
   function render(viewModel) {
     return perform("render", () => {
       assertRecord(viewModel, "View model must be an object.");
       const activeScaffold = ensureScaffold();
-      const built = buildGameShell(activeScaffold.document, viewModel, messages, emitIntent);
+      if (disposed) throw new TypeError("Renderer is disposed.");
+      const wasSettings = modal !== null;
+      const focusSetting = activeScaffold.document.activeElement?.getAttribute?.("data-jk-setting") ?? busyModalFocus?.setting;
+      const focusChoice = activeScaffold.document.activeElement?.getAttribute?.("data-choice-id") ?? busyModalFocus?.choice;
+      busyModalFocus = null;
+      const focusRole = activeScaffold.document.activeElement?.getAttribute?.("data-jk-role");
+      const sameStory = lastReadingView && lastReadingView.revision === viewModel.revision
+        && lastReadingView.presentation?.mode === viewModel.presentation?.mode
+        && lastReadingView.presentation?.nodeId === viewModel.presentation?.nodeId
+        && lastReadingView.scene?.dialogue === viewModel.scene?.dialogue;
+      modal?.close(); modal = null;
+      const isSettings = viewModel.presentation?.mode === "settings";
+      const stageModel = isSettings && lastReadingView ? { ...lastReadingView, settings: viewModel.settings } : viewModel;
+      if (!isSettings) lastReadingView = viewModel;
+      stage ??= createStageView({ document: activeScaffold.document, loadImage: options.loadImage });
+      stage.update(stageModel.presentation);
+      const built = buildGameShell(activeScaffold.document, stageModel, messages, emitIntent, stage);
+      root.setAttribute("data-high-contrast", viewModel.settings?.highContrast === true ? "true" : "false");
       root.setAttribute("data-reduced-motion", viewModel.settings?.reducedMotion === true ? "true" : "false");
       const scale = viewModel.settings?.fontScale;
       root.style.fontSize = `${typeof scale === "number" && scale >= 1 && scale <= 2 ? scale * 100 : 100}%`;
@@ -80,6 +112,15 @@ export function createDomRenderer(optionsOrRoot) {
       activeScaffold.content.replaceChildren(built.element);
       references = built.references;
       applyBusyState(activeScaffold, references, busy);
+      if (isSettings) {
+        built.element.setAttribute("inert", "");
+        modal = createSettingsDialog({ document: activeScaffold.document, viewModel, message: (key) => message(messages, key), onIntent: emitIntent });
+        activeScaffold.content.append(modal.element);
+        modal.open(wasSettings ? focusSetting : null, wasSettings ? focusChoice : null);
+      } else if (wasSettings) { references.settingsButton?.focus(); restoreSettingsFocus = true; }
+      else if (sameStory && (focusChoice || focusRole === "dialogue")) {
+        (references.choiceButtons.find(({ element }) => element.getAttribute("data-choice-id") === focusChoice)?.element ?? references.dialogue)?.focus();
+      }
     });
   }
 
@@ -90,7 +131,12 @@ export function createDomRenderer(optionsOrRoot) {
       }
       busy = nextBusy;
       const activeScaffold = ensureScaffold();
+      if (busy && modal !== null) busyModalFocus = {
+        setting: activeScaffold.document.activeElement?.getAttribute?.("data-jk-setting"),
+        choice: activeScaffold.document.activeElement?.getAttribute?.("data-choice-id"),
+      };
       applyBusyState(activeScaffold, references, busy);
+      for (const control of modal?.controls ?? []) control.disabled = busy;
     });
   }
 
@@ -105,6 +151,8 @@ export function createDomRenderer(optionsOrRoot) {
     return perform("applyFocusDirective", () => {
       assertRecord(directive, "Focus directive must be an object.");
       ensureScaffold();
+      if (modal !== null) return;
+      if (restoreSettingsFocus) { restoreSettingsFocus = false; references.settingsButton?.focus(); return; }
       const target = resolveFocusTarget(directive, references);
       if (target === null) {
         throw new RendererFocusError("FOCUS_TARGET_NOT_FOUND");
@@ -120,6 +168,7 @@ export function createDomRenderer(optionsOrRoot) {
     return perform("showFatalShell", () => {
       assertRecord(failure, "Fatal failure must be an object.");
       busy = false;
+      modal?.close(); modal = null; stage?.dispose(); stage = null;
       const activeScaffold = ensureScaffold();
       const built = buildFatalShell(activeScaffold.document, failure, messages, emitIntent);
       activeScaffold.content.replaceChildren(built.element);
@@ -133,6 +182,7 @@ export function createDomRenderer(optionsOrRoot) {
   }
 
   function emitIntent(intent) {
+    if (intent.choiceId === "application.retry-media") stage?.retry();
     onIntent(Object.freeze({ ...intent }));
   }
 
@@ -153,6 +203,8 @@ export function createDomRenderer(optionsOrRoot) {
     }
 
     addClasses(root, "jk-app");
+    root.addEventListener?.("pointerdown", trustedActivation, true);
+    root.addEventListener?.("keydown", trustedActivation, true);
     root.setAttribute("aria-busy", busy ? "true" : "false");
 
     const content = createElement(document, "div", {
@@ -179,14 +231,20 @@ export function createDomRenderer(optionsOrRoot) {
     announce,
     applyFocusDirective,
     showFatalShell,
+    dispose() {
+      disposed = true; stage?.dispose(); modal?.close(); modal = null;
+      root?.removeEventListener?.("pointerdown", trustedActivation, true);
+      root?.removeEventListener?.("keydown", trustedActivation, true);
+    },
   });
 }
 
-function buildGameShell(document, viewModel, messages, emitIntent) {
+function buildGameShell(document, viewModel, messages, emitIntent, stage) {
   const shell = createElement(document, "div", {
-    classNames: ["jk-app-shell", "jk-scene-enter"],
+    classNames: ["jk-app-shell"],
     attributes: {
       "data-jk-role": "game-shell",
+      "data-stage-mode": viewModel.presentation?.mode ?? "reading",
       lang: readLocale(viewModel),
     },
   });
@@ -196,6 +254,7 @@ function buildGameShell(document, viewModel, messages, emitIntent) {
   const hud = createElement(document, "header", {
     classNames: ["jk-hud"],
     attributes: {
+      id: "stage-hud",
       "data-jk-role": "hud",
       "aria-label": message(messages, "hud.label"),
     },
@@ -208,12 +267,31 @@ function buildGameShell(document, viewModel, messages, emitIntent) {
     classNames: ["jk-scene-title"],
     text: scene.title || message(messages, "app.name"),
   });
-  hud.append(sceneLabel, sceneTitle, buildMeterList(document, viewModel, messages));
-  shell.append(hud);
+  const title = viewModel.presentation?.mode === "title";
+  if (!title) { addClasses(sceneLabel, "jk-visually-hidden"); addClasses(sceneTitle, "jk-visually-hidden"); }
+  const heading = createElement(document, "div", { classNames: [title ? "jk-title-heading" : "jk-visually-hidden"] });
+  heading.append(sceneLabel, sceneTitle);
+  hud.append(heading, buildMeterList(document, viewModel, messages));
+  const settingsChoice = viewModel.choices?.find((choice) => choice.id === "application.settings");
+  if (settingsChoice) {
+    const settingsButton = createElement(document, "button", {
+      classNames: ["jk-settings-button"], attributes: { type: "button", "data-choice-id": settingsChoice.id,
+        "data-jk-role": "choice", "aria-label": settingsChoice.label || message(messages, "settings.title"), "aria-haspopup": "dialog" },
+    });
+    settingsButton.append(createElement(document, "span", { attributes: { "aria-hidden": "true" }, text: "⚙" }), createElement(document, "span", { classNames: ["jk-settings-button-label"], text: message(messages, "settings.short") }));
+    settingsButton.addEventListener("click", () => {
+      if (!settingsButton.disabled) emitIntent({ type: "SELECT_CHOICE", choiceId: settingsChoice.id,
+        ...(viewModel.viewRevision === undefined ? {} : { viewRevision: viewModel.viewRevision, expectedRevision: viewModel.revision }) });
+    });
+    references.settingsButton = settingsButton;
+    hud.append(settingsButton);
+  }
+  shell.append(stage.background, hud, stage.character);
 
   const story = createElement(document, "main", {
     classNames: ["jk-story"],
     attributes: {
+      id: "stage-dialogue",
       "data-jk-role": "dialogue",
       tabindex: "-1",
       "aria-label": message(messages, "story.label"),
@@ -247,7 +325,7 @@ function buildGameShell(document, viewModel, messages, emitIntent) {
       text: `${message(messages, "speaker.label")}: `,
     });
     const speakerName = createElement(document, "strong", { text: scene.speaker });
-    speaker.append(speakerLabel, speakerName);
+    speaker.append(stage.speakerPortrait, speakerLabel, speakerName);
     narrative.append(speaker);
   }
 
@@ -259,7 +337,13 @@ function buildGameShell(document, viewModel, messages, emitIntent) {
   narrative.append(dialogue);
 
   const firstRunNotice = buildFirstRunNotice(document, viewModel, messages);
-  if (firstRunNotice !== null) narrative.append(firstRunNotice);
+  if (firstRunNotice !== null) {
+    if (viewModel.notice && !viewModel.firstRunNotice) {
+      addClasses(firstRunNotice, "jk-save-notice");
+      if (firstRunNotice.children[0]) addClasses(firstRunNotice.children[0], "jk-visually-hidden");
+    }
+    narrative.append(firstRunNotice);
+  }
 
   const cutscene = buildCutsceneControls(document, viewModel, messages, emitIntent);
   if (cutscene !== null) narrative.append(cutscene);
@@ -273,9 +357,10 @@ function buildGameShell(document, viewModel, messages, emitIntent) {
 
   const choices = buildChoices(document, viewModel, messages, emitIntent);
   if (choices !== null) {
-    shell.append(choices.element);
+    story.append(choices.element);
     references.choiceList = choices.list;
-    references.choiceButtons = choices.buttons;
+    references.choiceButtons = references.settingsButton
+      ? Object.freeze([...choices.buttons, { element: references.settingsButton, disabled: false }]) : choices.buttons;
   }
 
   return Object.freeze({ element: shell, references: Object.freeze(references) });
@@ -291,6 +376,14 @@ function buildMeterList(document, viewModel, messages) {
   });
 
   for (const definition of METER_DEFINITIONS) {
+    const raw = viewModel.meters?.[definition.name];
+    if (definition.name === "bond" && raw?.state === "locked") {
+      const chip = createElement(document, "div", { classNames: ["jk-bond-locked"], attributes: { "data-jk-meter": "bond", "data-bond-state": "locked" } });
+      const icons = createElement(document, "span", { classNames: ["jk-bond-icons"], attributes: { "aria-hidden": "true" }, text: "🪷 🔒" });
+      const label = createElement(document, "dt", { text: raw.label });
+      const description = createElement(document, "dd", { classNames: ["jk-visually-hidden"], text: raw.accessibleLabel });
+      chip.append(icons, label, description); list.append(chip); continue;
+    }
     const meter = readMeter(viewModel, definition.name);
     if (meter === null || meter.visible === false) continue;
 
@@ -368,6 +461,7 @@ function buildFeedback(document, viewModel, messages) {
   if (changes.length > 0) {
     const list = createElement(document, "ul", { classNames: ["jk-meter-changes"] });
     for (const change of changes) {
+      if (change.meter === "bond" && viewModel.meters?.bond?.state === "locked") continue;
       const rendered = buildMeterChange(document, change, messages);
       if (rendered !== null) list.append(rendered);
     }
@@ -579,8 +673,14 @@ function buildChoices(document, viewModel, messages, emitIntent) {
     attributes: { "data-jk-role": "choice-list", tabindex: "-1" },
   });
   const buttons = [];
+  const mode = viewModel.presentation?.mode;
+  section.setAttribute("data-choice-mode", mode ?? "legacy");
+  if (mode === "decision" || mode === "exploration") {
+    section.append(createElement(document, "h2", { classNames: ["jk-choice-heading"], text: message(messages, mode === "decision" ? "choices.decision" : "choices.exploration") }));
+  }
 
   for (const choice of viewModel.choices) {
+    if (choice?.id === "application.settings") continue;
     if (!isRecord(choice)) continue;
     const label = readString(choice.label) || readString(choice.text) || message(messages, "choice.unavailable");
     const disabled = choice.disabled === true || choice.available === false;
@@ -595,6 +695,8 @@ function buildChoices(document, viewModel, messages, emitIntent) {
     });
     const choiceId = readString(choice.id);
     if (choiceId) button.setAttribute("data-choice-id", choiceId);
+    if (choiceId === "application.advance") { button.setAttribute("data-jk-action", "advance"); addClasses(button, "jk-advance-button"); }
+    if (mode === "decision") addClasses(button, "jk-decision-card");
     if (viewModel.confirmationRequired === true) button.setAttribute("aria-describedby", "jk-current-dialogue");
     button.disabled = disabled;
     button.setAttribute("aria-disabled", disabled ? "true" : "false");
@@ -831,6 +933,7 @@ function emptyReferences() {
     choiceList: null,
     choiceButtons: Object.freeze([]),
     fatal: null,
+    settingsButton: null,
   };
 }
 

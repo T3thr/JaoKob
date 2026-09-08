@@ -1,0 +1,8 @@
+CR-20260907-1248 / CR-0003 / ADR-P0-015
+Node.js v22.23.2
+Unit suite: 691/691 pass; 0 fail/cancel/skip/todo. See unit-tests.tap.
+Ajv8.20.0 reference metaschemas:11/11; structural cases36/36 pass.
+Chromium151.0.7922.34 canonical production routes:12/12 pass; zero console/page errors.
+Published root/v1.1/v1.2 schema files unchanged from9e4f8b0; unit hash/contract assertions retained.
+Runtime49file SHA256 inventory verified against on-disk candidate.
+Supplementary benchmark and staged secret scan recorded in execution record.

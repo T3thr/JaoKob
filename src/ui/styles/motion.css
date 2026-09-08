@@ -1,5 +1,12 @@
 /* Gentle scene feedback; all non-essential motion honours the OS preference. */
 
+@keyframes jk-tadpole-float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-.4rem); }
+}
+
+.jk-character-image { animation: jk-tadpole-float 6s ease-in-out infinite alternate; }
+
 @keyframes jk-scene-fade-in {
   from {
     opacity: 0;
@@ -43,6 +50,7 @@
 }
 
 .jk-app[data-reduced-motion="true"] .jk-scene-enter,
+.jk-app[data-reduced-motion="true"] .jk-character-image,
 .jk-app[data-reduced-motion="true"] .jk-feedback {
   animation: none;
 }
@@ -55,6 +63,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .jk-app .jk-scene-enter,
+  .jk-app .jk-character-image,
   .jk-app .jk-feedback {
     animation: none;
   }

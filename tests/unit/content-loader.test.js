@@ -18,14 +18,14 @@ test("tc.act1.schema FR-CNT-001/002: canonical Act 1 loads from JSON and object 
     readFile(new URL("../../src/data/content/packages/act-01.json", import.meta.url), "utf8"),
     readFile(new URL("../../src/data/content/packages/act-01-test-catalog.json", import.meta.url), "utf8"),
   ]);
-  const actOptions = { testReferenceIds: JSON.parse(catalogText), expectedContentVersion: "2.0.0" };
+  const actOptions = { testReferenceIds: JSON.parse(catalogText), expectedContentVersion: "2.1.0" };
   const input = JSON.parse(source);
   const before = structuredClone(input);
   const fromJson = loadContentPackageFromJson(source, actOptions);
   const fromObject = await loadContentPackage(input, actOptions);
   for (const result of [fromJson, fromObject]) {
     assert.equal(result.valid, true, JSON.stringify(result.errors));
-    assert.equal(result.packageData.schemaVersion, "1.1.0");
+    assert.equal(result.packageData.schemaVersion, "1.2.0");
     assert.equal(result.entry.tree.treeId, "tree.act1");
     assert.equal(result.entry.node.id, "node.act1.opening");
     assert.equal(Object.keys(result.indexes.nodes).length, 14);

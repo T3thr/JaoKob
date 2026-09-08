@@ -56,8 +56,12 @@ function playRoute(home, coping, keepsake, hotspots, selectedModel = model) {
 }
 
 test("tc.act1.structure NAR-BRN-004: 7 scenes, 14/14 nodes, 21/21 edges with feasible witnesses", (t) => {
-  assert.equal(content.contentVersion, expected.contentVersion);
-  assert.equal(content.schemaVersion, expected.schemaVersion);
+  // CR-0003 D1/D3 upgrades media only; the independently authored 2.0 graph
+  // witness remains unchanged and must still match every node/edge/outcome.
+  assert.equal(expected.contentVersion, "2.0.0");
+  assert.equal(expected.schemaVersion, "1.1.0");
+  assert.equal(content.contentVersion, "2.1.0");
+  assert.equal(content.schemaVersion, "1.2.0");
   assert.equal(Object.keys(expected.scenes).length, 7);
   const sceneNodes = Object.values(expected.scenes).flat();
   assert.equal(new Set(sceneNodes).size, sceneNodes.length);
@@ -278,7 +282,8 @@ test("tc.act1.boundary Bond=0, notice precedes storm, and storm/rest effects add
   assert.deepEqual(node(content, "rest").onEnterEffects, [{ type: "set-flag", flagId: "story.act1_complete", value: true }]);
   assert.deepEqual(node(content, "storm").contentWarningIds, ["warning.act1.storm-separation"]);
   assert.ok(content.contentWarnings[0].detail.th.includes("หยุดพัก"));
-  assert.equal(content.assets.length, 0);
+  assert.equal(content.assets.length, 7); // CR-0003 prototype images/audio/fonts.
+  assert.ok(content.assets.every((asset) => asset.path.startsWith("assets/") && asset.rights));
 });
 
 for (const [fixture, code, path] of [["invalid-orphan", "GRAPH_ORPHAN", "node.fixture.orphan"], ["invalid-cycle", "GRAPH_CLOSED_COMPONENT", "node.fixture.loop"]]) test(`GRAPH-GATE negative JSON fixture: ${fixture}`, async () => {

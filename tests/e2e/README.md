@@ -16,10 +16,19 @@ The script serves the real `index.html` and production modules, including JSON, 
 Coverage:
 
 - All twelve home-focus × coping × keepsake routes, distributed across no/partial/full hotspot exploration, including a repeated hotspot. Canon terminal metrics and flags, checkpoint, return to Title and reload/Resume are asserted.
-- Keyboard Tab/Shift+Tab order and visible focus, Enter/Space actions, focus after rendering, Bond absence from both DOM and Chromium accessibility tree on every story step.
+- Keyboard Tab/Shift+Tab order and visible focus, Enter/Space actions, focus after rendering, Bond Locked Chip presence and zero numeric disclosure in both DOM and Chromium accessibility tree on every story step (CR-0003 D7).
 - Post-storm cursor reload and duplicate click, explicit old-version/corrupt-save consent and cancellation, invalid JSON/schema recovery buttons, unavailable/quota storage.
 - 320 CSS px with 200% text scaling, 44 px targets, sampled contrast, OS/application reduced motion, same-origin requests, console/page errors and payload budgets.
 
-Latest outputs go to ignored `output/playwright/`. The reviewed Sprint 2 run is retained in [evidence/sprint-02](evidence/sprint-02/act1-evidence.json), with screenshots and SHA-256 hashes of every static file served during that run. These are verification artifacts, not production assets.
+Latest Sprint 3 route outputs go to `tests/e2e/evidence/sprint-03/benchmark/`. The reviewed Sprint 2 run is retained in [evidence/sprint-02](evidence/sprint-02/act1-evidence.json), with screenshots and SHA-256 hashes of every static file served during that run. These are verification artifacts, not production assets.
 
 This is an automated accessibility smoke with Chromium's accessibility tree. VoiceOver/NVDA listening, human Thai editorial/sensitivity review, full WCAG certification, representative-device percentile performance, and release browser/deployment matrices remain external review gates. `maxDriverActionMs` includes the browser driver and is not a Core or UI latency percentile. Initial transfer and DOMContentLoaded are one local observation, not a statistical performance claim.
+
+
+Sprint 3 adds `visual-novel-benchmark.mjs` for the actual asset/audio/semantic-stage integration. It builds an isolated test host around production modules; diagnostics remain in test HTML, never Core or the production UI. Run with the same `JKB_PLAYWRIGHT_PATH` environment variable:
+
+```sh
+JKB_PLAYWRIGHT_PATH=/absolute/path/to/playwright/index.mjs node tests/e2e/visual-novel-benchmark.mjs
+```
+
+Evidence under `evidence/sprint-03/visual-novel/` records actual checks, raw percentile samples, network shaping, media failures, browser details and limits. Browser-emulated timing, decoded resource accounting and accessibility-tree checks do not establish physical-device, listening, screen-reader or PO aesthetic acceptance. The Sprint 3 execution record distinguishes these gates.

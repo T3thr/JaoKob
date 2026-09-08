@@ -26,8 +26,8 @@
   --jk-color-danger: #9c3e36;
   --jk-color-focus: #8a5718;
 
-  --jk-font-sans: "Noto Sans Thai", "Leelawadee UI", Tahoma, Arial, sans-serif;
-  --jk-font-serif: "Noto Serif Thai", "Th Sarabun New", Georgia, serif;
+  --jk-font-sans: "Sarabun", "Noto Sans Thai", "Leelawadee UI", Tahoma, Arial, sans-serif;
+  --jk-font-serif: "Sarabun", "Noto Serif Thai", "Th Sarabun New", Georgia, serif;
   --jk-text-xs: 0.8125rem;
   --jk-text-sm: 0.9375rem;
   --jk-text-base: 1rem;
@@ -42,7 +42,7 @@
   --jk-space-6: 2rem;
   --jk-space-8: 3rem;
   --jk-content-max: 72rem;
-  --jk-reading-max: 46rem;
+  --jk-reading-max: 42rem;
   --jk-radius-sm: 0.5rem;
   --jk-radius-md: 0.875rem;
   --jk-radius-lg: 1.25rem;

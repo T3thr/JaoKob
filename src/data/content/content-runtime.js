@@ -17,7 +17,10 @@ export async function loadGameContent(options = {}) {
     } catch { return contentFailure("$catalog", "CONTENT_LOAD", "Test catalog could not be loaded."); }
   }
   const loaded = await loadContentPackage(source, { baseUrl, fetch: options.fetch, testReferenceIds, expectedContentVersion: options.expectedContentVersion });
-  return loaded.valid ? prepareRuntimeContent(loaded) : loaded;
+  if (!loaded.valid) return loaded;
+  const prepared = prepareRuntimeContent(loaded);
+  // Retain the independently supplied verification catalog for migration proof.
+  return prepared.valid ? deepFreeze({ ...prepared, testReferenceIds: [...testReferenceIds] }) : prepared;
 }
 
 /** Reject unsupported behavior before creating a usable application session. */

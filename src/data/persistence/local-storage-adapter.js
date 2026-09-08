@@ -2,6 +2,7 @@ import { STORAGE_ERROR_CODES } from "../../core/ports/storage-port.js";
 import {
   CURRENT_SAVE_FORMAT_VERSION,
   validateSaveEnvelope,
+  validateGameSettings,
 } from "../validation/save-envelope-validator.js";
 
 /**
@@ -164,6 +165,11 @@ export function createLocalStorageAdapter(storageOrOptions) {
       return success(candidateRecord("staging", serialized.value.envelope));
     }
 
+    if (canReplaceExisting) {
+      const stable = verifyUnchangedRecords(storageResolution.storage, replacementGuard.value.rawRecords, "stage");
+      if (!stable.ok) return stable;
+    }
+
     const written = writeStorage(
       storageResolution.storage,
       "staging",
@@ -237,6 +243,8 @@ export function createLocalStorageAdapter(storageOrOptions) {
 
     const canonicalRead = readStorage(storageResolution.storage, "canonical", "commit");
     if (!canonicalRead.ok) return canonicalRead;
+    const expectedRecords = { ...replacementGuard.value.rawRecords };
+    if (canReplaceExisting && canonicalRead.value !== expectedRecords.canonical) return replacementRace("commit", "canonical");
 
     if (canonicalRead.value !== null) {
       const canonical = parseAndValidate(
@@ -247,11 +255,19 @@ export function createLocalStorageAdapter(storageOrOptions) {
       );
       if (canonical.ok) {
         if (canonicalRead.value === stagedRead.value) {
+          if (canReplaceExisting) {
+            const stable = verifyUnchangedRecords(storageResolution.storage, expectedRecords, "commit");
+            if (!stable.ok) return stable;
+          }
           const cleaned = removeStorage(storageResolution.storage, "staging", "commit");
           if (!cleaned.ok) return cleaned;
           return success(candidateRecord("canonical", canonical.value));
         }
 
+        if (canReplaceExisting) {
+          const stable = verifyUnchangedRecords(storageResolution.storage, expectedRecords, "commit");
+          if (!stable.ok) return stable;
+        }
         const backedUp = writeStorage(
           storageResolution.storage,
           "backup",
@@ -259,9 +275,15 @@ export function createLocalStorageAdapter(storageOrOptions) {
           "commit",
         );
         if (!backedUp.ok) return backedUp;
+        expectedRecords.backup = canonicalRead.value;
       } else if (canonical.error.code === STORAGE_ERROR_CODES.SAVE_MIGRATION) {
         return canonical;
       }
+    }
+
+    if (canReplaceExisting) {
+      const stable = verifyUnchangedRecords(storageResolution.storage, expectedRecords, "commit");
+      if (!stable.ok) return stable;
     }
 
     const promoted = writeStorage(
@@ -281,6 +303,12 @@ export function createLocalStorageAdapter(storageOrOptions) {
       additionalValidator,
     );
     if (!verified.ok) return verified;
+
+    if (canReplaceExisting) {
+      expectedRecords.canonical = stagedRead.value;
+      const stable = verifyUnchangedRecords(storageResolution.storage, expectedRecords, "commit");
+      if (!stable.ok) return stable;
+    }
 
     const cleaned = removeStorage(storageResolution.storage, "staging", "commit");
     if (!cleaned.ok) return cleaned;
@@ -561,10 +589,12 @@ function guardCandidateReplacement(
   canReplaceExisting,
 ) {
   let stagingMatches = false;
+  const rawRecords = {};
 
   for (const source of CANDIDATE_SOURCES) {
     const read = readStorage(storage, source, operation);
     if (!read.ok) return read;
+    rawRecords[source] = read.value;
     if (read.value === null) continue;
 
     const current = parseAndValidate(read.value, source, request, validator);
@@ -602,7 +632,55 @@ function guardCandidateReplacement(
     if (source === "staging" && candidateRaw === read.value) stagingMatches = true;
   }
 
-  return success(Object.freeze({ stagingMatches }));
+  return success(Object.freeze({ stagingMatches, rawRecords: Object.freeze(rawRecords) }));
+}
+
+/** Recheck observed raw records before each guarded mutation; never guess a
+ * replacement after another tab changes a record. LocalStorage has no CAS, so
+ * this detects observed races rather than claiming cross-tab atomicity. */
+function verifyUnchangedRecords(storage, expected, operation) {
+  for (const source of CANDIDATE_SOURCES) {
+    const current = readStorage(storage, source, operation);
+    if (!current.ok) return current;
+    if (current.value !== expected[source]) return replacementRace(operation, source);
+  }
+  return success();
+}
+
+function replacementRace(operation, source) {
+  return failure(STORAGE_ERROR_CODES.SAVE_MIGRATION, { operation, source, reason: "CONTENT_REPLACEMENT_RACE" });
+}
+
+/** Separate settings repository; SaveRepository never clears this key. Invalid
+ * or future records stay untouched; preference changes may continue in memory.
+ * Trace: FR-SET-003/004, FR-SAV-007, CR-0003 D2/D3. */
+export function createLocalSettingsAdapter(options = {}) {
+  const resolution = resolveStorage(options);
+  function read() {
+    if (!resolution.ok) return failure(STORAGE_ERROR_CODES.STORAGE_UNAVAILABLE);
+    try {
+      const raw = resolution.storage.getItem(LOCAL_STORAGE_KEYS.settings);
+      if (raw === null) return success(null);
+      if (utf8ByteLength(raw) > 10000) return failure(STORAGE_ERROR_CODES.SAVE_SCHEMA);
+      const value = JSON.parse(raw);
+      if (!validateGameSettings(value).valid) return failure(STORAGE_ERROR_CODES.SAVE_SCHEMA);
+      return success(Object.freeze({ settings: Object.freeze(value), raw }));
+    } catch (error) { return storageFailure(error, "load-settings", "settings"); }
+  }
+  return Object.freeze({
+    load() { const result = read(); return result.ok ? success(result.value?.settings ?? null) : result; },
+    save(settings) {
+      if (!validateGameSettings(settings).valid) return failure(STORAGE_ERROR_CODES.SAVE_SCHEMA);
+      const existing = read(); if (!existing.ok) return existing;
+      try {
+        const raw = JSON.stringify(settings);
+        if (resolution.storage.getItem(LOCAL_STORAGE_KEYS.settings) !== (existing.value?.raw ?? null)) return replacementRace("save-settings", "settings");
+        resolution.storage.setItem(LOCAL_STORAGE_KEYS.settings, raw);
+        if (resolution.storage.getItem(LOCAL_STORAGE_KEYS.settings) !== raw) return failure(STORAGE_ERROR_CODES.STORAGE_UNAVAILABLE);
+        return success();
+      } catch (error) { return storageFailure(error, "save-settings", "settings"); }
+    },
+  });
 }
 
 function compareCandidates(left, right) {
