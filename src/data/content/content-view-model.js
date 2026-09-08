@@ -3,14 +3,16 @@ import { TH_APPLICATION as messages } from "../localization/th-application.js";
 import { projectContentPresentation } from "./content-presentation.js";
 
 /** Localize pure presentation facts into a renderer-only immutable view. */
-export function projectContentView({ loaded, snapshot, facts, settings, notice, feedbackActionId, meterChanges = [], mode, hasResume, memoryResume, confirmation, viewRevision }) {
+export function projectContentView({ loaded, snapshot, facts, settings, notice, feedbackActionId, meterChanges = [], mode, hasResume, memoryResume, confirmation, viewRevision, audioStatus, mediaStatus }) {
   const locale = settings.locale ?? "th";
   const text = (localized) => localized?.[locale] ?? localized?.th ?? "";
   const indexes = loaded.indexes;
   const choices = [];
   const view = { locale, state: snapshot?.state ?? "Title", viewRevision, revision: snapshot?.revision ?? 0,
     confirmationRequired: mode === "replace-confirmation" || mode === "choice-confirmation",
-    settings: { fontScale: settings.fontScale, reducedMotion: settings.reducedMotion, highContrast: settings.highContrast },
+    settings: { ...settings },
+    ...(audioStatus ? { audioStatus, audioStatusText: messages[{ ready: "soundReady", blocked: "soundBlocked", unavailable: "soundUnavailable" }[audioStatus]] } : {}),
+    ...(mediaStatus ? { mediaStatus, mediaStatusText: mediaStatus === "unavailable" ? messages.mediaUnavailable : "" } : {}),
     presentation: projectContentPresentation({ loaded, snapshot, facts, settings, mode }).visual,
     scene: { title: messages.title, dialogue: messages.introduction },
     meters: { hp: snapshot?.metrics.hp ?? loaded.catalog.defaults.metrics.hp, sanity: snapshot?.metrics.sanity ?? loaded.catalog.defaults.metrics.sanity,
@@ -59,5 +61,7 @@ export function projectContentView({ loaded, snapshot, facts, settings, notice, 
     if (action) view.feedback = text(action.immediateFeedback);
     add("application.settings", messages.settings);
   }
+  if (mode === "settings" || audioStatus === "blocked" || audioStatus === "unavailable") add("application.enable-sound", messages.soundEnable);
+  if (mediaStatus === "unavailable") add("application.retry-media", messages.mediaRetry);
   return deepFreeze(view);
 }

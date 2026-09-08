@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "1.1.0",
-  "contentVersion": "2.0.0",
+  "schemaVersion": "1.2.0",
+  "contentVersion": "2.1.0",
   "defaultLocale": "th",
   "supportedLocales": [
     "th"
@@ -150,7 +150,100 @@
       "intensity": "moderate"
     }
   ],
-  "assets": [],
+  "assets": [
+    {
+      "id": "asset.image.act1-morning-pond",
+      "type": "image",
+      "path": "assets/images/backgrounds/act1-morning-pond.webp",
+      "rights": {
+        "origin": "original",
+        "licenseId": "JaoKob-Original-Prototype",
+        "attribution": {
+          "th": "สื่อต้นแบบสร้างขึ้นสำหรับเจ้ากบตามคำสั่งเจ้าของโครงการ"
+        }
+      },
+      "alt": {
+        "th": "สระบัวยามเช้า แสงอุ่นสะท้อนผิวน้ำและใบบัว"
+      }
+    },
+    {
+      "id": "asset.image.jaokob-tadpole-neutral",
+      "type": "image",
+      "path": "assets/images/characters/jaokob/tadpole-neutral.webp",
+      "rights": {
+        "origin": "original",
+        "licenseId": "JaoKob-Original-Prototype",
+        "attribution": {
+          "th": "สื่อต้นแบบสร้างขึ้นสำหรับเจ้ากบตามคำสั่งเจ้าของโครงการ"
+        }
+      },
+      "alt": {
+        "th": "เจ้ากบในวัยลูกอ๊อดตัวน้อย มีลวดลายและผ้าผูกคอสีน้ำเงิน"
+      }
+    },
+    {
+      "id": "asset.audio.act1-peaceful-stream",
+      "type": "audio",
+      "path": "assets/audio/bgm/act1-peaceful-stream.mp3",
+      "rights": {
+        "origin": "original",
+        "licenseId": "JaoKob-Original-Prototype",
+        "attribution": {
+          "th": "สื่อต้นแบบสร้างขึ้นสำหรับเจ้ากบตามคำสั่งเจ้าของโครงการ"
+        }
+      }
+    },
+    {
+      "id": "asset.audio.morning-dew-drops",
+      "type": "audio",
+      "path": "assets/audio/ambience/morning-dew-drops.mp3",
+      "rights": {
+        "origin": "original",
+        "licenseId": "JaoKob-Original-Prototype",
+        "attribution": {
+          "th": "สื่อต้นแบบสร้างขึ้นสำหรับเจ้ากบตามคำสั่งเจ้าของโครงการ"
+        }
+      }
+    },
+    {
+      "id": "asset.audio.decision-soft-click",
+      "type": "audio",
+      "path": "assets/audio/sfx/decision-soft-click.mp3",
+      "rights": {
+        "origin": "original",
+        "licenseId": "JaoKob-Original-Prototype",
+        "attribution": {
+          "th": "สื่อต้นแบบสร้างขึ้นสำหรับเจ้ากบตามคำสั่งเจ้าของโครงการ"
+        }
+      }
+    },
+    {
+      "id": "asset.font.sarabun-thai",
+      "type": "font",
+      "path": "assets/fonts/sarabun-thai.woff2",
+      "rights": {
+        "origin": "licensed",
+        "licenseId": "OFL-1.1",
+        "sourceUrl": "https://github.com/google/fonts/tree/main/ofl/sarabun",
+        "attribution": {
+          "th": "ลิขสิทธิ์ 2018 ผู้สร้างโครงการ Sarabun ใช้ภายใต้ SIL Open Font License 1.1"
+        }
+      }
+    },
+    {
+      "id": "asset.font.sarabun-latin",
+      "type": "font",
+      "path": "assets/fonts/sarabun-latin.woff2",
+      "rights": {
+        "origin": "licensed",
+        "licenseId": "OFL-1.1",
+        "sourceUrl": "https://github.com/google/fonts/tree/main/ofl/sarabun",
+        "attribution": {
+          "th": "ลิขสิทธิ์ 2018 ผู้สร้างโครงการ Sarabun ใช้ภายใต้ SIL Open Font License 1.1"
+        }
+      }
+    }
+  ],
   "characters": {
     "schemaVersion": "1.0.0",
     "characters": [
@@ -205,7 +298,8 @@
           "lifeStage": "tadpole",
           "appearance": {
             "th": "ลูกอ๊อดร่างเล็ก ใช้หางว่ายน้ำ ยังไม่เติบโตเป็นกบเต็มวัย"
-          }
+          },
+          "defaultPortraitAssetId": "asset.image.jaokob-tadpole-neutral"
         }
       },
       {
@@ -1428,7 +1522,7 @@
   },
   "narrativeTrees": [
     {
-      "schemaVersion": "1.1.0",
+      "schemaVersion": "1.2.0",
       "treeId": "tree.act1",
       "title": {
         "th": "บ้านในหนองน้ำ"
@@ -1465,7 +1559,12 @@
             "dialogue.act1.first-invitation"
           ],
           "nextNodeId": "node.act1.nursery",
-          "checkpointId": "checkpoint.act1.opening"
+          "checkpointId": "checkpoint.act1.opening",
+          "environment": {
+            "backgroundAssetId": "asset.image.act1-morning-pond",
+            "bgmAssetId": "asset.audio.act1-peaceful-stream",
+            "ambientAssetId": "asset.audio.morning-dew-drops"
+          }
         },
         {
           "id": "node.act1.nursery",
@@ -1584,7 +1683,12 @@
               },
               "nextNodeId": "node.act1.home-focus"
             }
-          ]
+          ],
+          "environment": {
+            "backgroundAssetId": "asset.image.act1-morning-pond",
+            "bgmAssetId": "asset.audio.act1-peaceful-stream",
+            "ambientAssetId": "asset.audio.morning-dew-drops"
+          }
         },
         {
           "id": "node.act1.observe-lily",
@@ -1609,7 +1713,12 @@
             "dialogue.act1.observe-lily-shelter",
             "dialogue.act1.observe-lily-return"
           ],
-          "nextNodeId": "node.act1.nursery"
+          "nextNodeId": "node.act1.nursery",
+          "environment": {
+            "backgroundAssetId": "asset.image.act1-morning-pond",
+            "bgmAssetId": "asset.audio.act1-peaceful-stream",
+            "ambientAssetId": "asset.audio.morning-dew-drops"
+          }
         },
         {
           "id": "node.act1.observe-roots",
@@ -1634,7 +1743,12 @@
             "dialogue.act1.observe-roots-listen",
             "dialogue.act1.observe-roots-return"
           ],
-          "nextNodeId": "node.act1.nursery"
+          "nextNodeId": "node.act1.nursery",
+          "environment": {
+            "backgroundAssetId": "asset.image.act1-morning-pond",
+            "bgmAssetId": "asset.audio.act1-peaceful-stream",
+            "ambientAssetId": "asset.audio.morning-dew-drops"
+          }
         },
         {
           "id": "node.act1.observe-shadows",
@@ -1659,7 +1773,12 @@
             "dialogue.act1.observe-shadows-pause",
             "dialogue.act1.observe-shadows-return"
           ],
-          "nextNodeId": "node.act1.nursery"
+          "nextNodeId": "node.act1.nursery",
+          "environment": {
+            "backgroundAssetId": "asset.image.act1-morning-pond",
+            "bgmAssetId": "asset.audio.act1-peaceful-stream",
+            "ambientAssetId": "asset.audio.morning-dew-drops"
+          }
         },
         {
           "id": "node.act1.observe-mother",
@@ -1684,7 +1803,12 @@
             "dialogue.act1.observe-mother-voice",
             "dialogue.act1.observe-mother-return"
           ],
-          "nextNodeId": "node.act1.nursery"
+          "nextNodeId": "node.act1.nursery",
+          "environment": {
+            "backgroundAssetId": "asset.image.act1-morning-pond",
+            "bgmAssetId": "asset.audio.act1-peaceful-stream",
+            "ambientAssetId": "asset.audio.morning-dew-drops"
+          }
         },
         {
           "id": "node.act1.home-focus",
@@ -1792,7 +1916,12 @@
                 "event.act1.home-siblings"
               ]
             }
-          ]
+          ],
+          "environment": {
+            "backgroundAssetId": "asset.image.act1-morning-pond",
+            "bgmAssetId": "asset.audio.act1-peaceful-stream",
+            "ambientAssetId": "asset.audio.morning-dew-drops"
+          }
         },
         {
           "id": "node.act1.home-reflection",
@@ -1816,7 +1945,12 @@
             "dialogue.act1.home-together",
             "dialogue.act1.home-before-weather"
           ],
-          "nextNodeId": "node.act1.storm"
+          "nextNodeId": "node.act1.storm",
+          "environment": {
+            "backgroundAssetId": "asset.image.act1-morning-pond",
+            "bgmAssetId": "asset.audio.act1-peaceful-stream",
+            "ambientAssetId": "asset.audio.morning-dew-drops"
+          }
         },
         {
           "id": "node.act1.storm",

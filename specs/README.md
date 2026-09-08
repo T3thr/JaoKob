@@ -50,7 +50,7 @@ Schema 1.0/1.1 เดิมไม่เปลี่ยนและมี SHA-256
 
 ## Sprint 3 Task 1 consumer handoff
 
-Implemented contract: [CR-0003 D1/D3/D7](../docs/rfc/CR-0003-interactive-light-novel-presentation.md), [ADR-P0-015](../docs/adr/ADR-P0-015-interactive-light-novel-presentation.md), [Task 1 evidence](../docs/changelog/2026-09/2026-09-07-0119-sprint-03-task-01-presentation-contracts.md). Production content stays schema 1.1/content 2.0.0 until Task 2; only contract fixtures use schema 1.2/content 2.1.0 now. Save format remains 1.
+Implemented contract: [CR-0003 D1/D3/D7](../docs/rfc/CR-0003-interactive-light-novel-presentation.md), [ADR-P0-015](../docs/adr/ADR-P0-015-interactive-light-novel-presentation.md), [Task 1 evidence](../docs/changelog/2026-09/2026-09-07-0119-sprint-03-task-01-presentation-contracts.md). Task 1 was approved and merged through PR #9 (`9e4f8b0`). The integrated benchmark now uses schema 1.2/content 2.1.0 in production; the original 2.0.0 package is retained under `src/data/content/compatibility/` for explicit migration proof. Save format remains 1. See the [Tasks 2–5 execution record](../docs/changelog/2026-09/2026-09-07-1248-sprint-03-benchmark-slice.md).
 
 ### Validation and media references
 

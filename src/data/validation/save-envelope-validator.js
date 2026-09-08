@@ -58,6 +58,13 @@ export function validateSaveEnvelope(value) {
     : Object.freeze({ valid: false, issue: Object.freeze(issue) });
 }
 
+/** Validate a standalone settings record using the exact envelope contract. */
+export function validateGameSettings(value) {
+  const issue = validateSettings(value, "$", new Set());
+  return issue === null ? Object.freeze({ valid: true })
+    : Object.freeze({ valid: false, issue: Object.freeze(issue) });
+}
+
 function validateEnvelope(value, path, ancestors) {
   const recordIssue = validateRecord(
     value,

@@ -3,20 +3,20 @@
 | Document control | Value |
 |---|---|
 | Sprint / document | `SPRINT-03` / `JKB-SPRINT-03-SSOT` |
-| Version / date | `1.1.0` / Task 1 implementation evidence 2026-09-07; design approved 2026-09-07 (Asia/Bangkok) |
-| Status | **APPROVED architecture — Task 1 implemented and verified; PR owner review pending** |
+| Version / date | `1.2.0` / integrated benchmark evidence 2026-09-08; design approved 2026-09-07 (Asia/Bangkok) |
+| Status | **APPROVED architecture — Tasks 1–5 implementation/automated verification complete; benchmark owner/manual acceptance remains open** |
 | Phase | Phase 2: Interactive Light Novel RPG Transformation, benchmark slice |
 | Plan author | GPT-6 Astra — Senior Software Engineer / Principal Systems Architect |
 | Collaborators / reviewers | CEO / Product Owner; Gemini 3.8 Flash — Tech Lead; Narrative, Game Design, Accessibility, QA, Art/Audio owners |
 | Planning branch | `feat/sprint-03-architecture-plan`, from verified `develop@b07523c` |
 | Documentation PR | [#8](https://github.com/T3thr/JaoKob/pull/8) → develop; implementation PRs remain separate |
-| Task 1 implementation PR | [#9](https://github.com/T3thr/JaoKob/pull/9) → develop; implementation `1e9f1b2`, owner review pending |
+| Task 1 implementation PR | [#9](https://github.com/T3thr/JaoKob/pull/9) approved by PO/Tech Lead; squash merged at `9e4f8b0` |
 | Standards | Repository Spec-Driven AI Loop, ISO/IEC/IEEE 12207:2017, ISO/IEC/IEEE 29148:2018, WCAG 2.2 AA |
 | Change proposal | [CR-0003 — presentation, audio and compatibility contracts](../rfc/CR-0003-interactive-light-novel-presentation.md) |
 
 PO และ Tech Lead อนุมัติแผนและ CR-0003 ตาม **PO & TECH LEAD JOINT DIRECTIVE: SPRINT 3 ARCHITECTURAL APPROVAL**, 2026-09-07. มติ D5–D8 ในแผนฉบับนี้เป็นข้อยุติ: three-choice Scene 3 handoff, ลูกอ๊อดลวดลาย/ผ้าผูกคอสีน้ำเงิน, Bond Locked Chip และ deferred Full Log/Animated Typewriter. ดู [approval record](../changelog/2026-09/2026-09-07-0042-sprint-03-architecture-approval.md) และ [ADR-P0-015](../adr/ADR-P0-015-interactive-light-novel-presentation.md)
 
-Documentation Session เดิมอนุญาต commit/push/PR/squash merge เฉพาะเอกสาร ผ่าน PR #8 ที่ `559b6d7`. **Session ปัจจุบัน PO สั่งเริ่ม Step 0 และ Task 1 โดยชัดเจน**: branch `feat/sprint-03-interactive-light-novel` จาก clean/up-to-date develop. Task 1 implementation/automated verification ครบ (**WBS 1/5 implemented; owner PR review pending**); Tasks 2–5, media rights, UI benchmark และ deployment ยังไม่เสร็จ. ดู [Task 1 record](../changelog/2026-09/2026-09-07-0119-sprint-03-task-01-presentation-contracts.md)
+Session ปัจจุบัน PO/Tech Lead อนุมัติ Task 1 และสั่ง squash merge PR #9 แล้ว พร้อมอนุญาต implementation Tasks 2–5, prototype assets, commit/push และ PR ไป develop บน `feat/sprint-03-benchmark-slice`. **WBS 5/5 implementation และ automated verification complete ตามคำสั่งปิดรอบ**; การรับรองศิลป์/การฟัง/อุปกรณ์จริง/assistive technology และ Sprint DoD แบบเต็มยังเปิดอยู่ ไม่ใช่ release หรือ merge approval สำหรับ PR ใหม่. ดู [integrated execution record](../changelog/2026-09/2026-09-07-1248-sprint-03-benchmark-slice.md).
 
 ประวัติ planning: ฐาน runtime ที่รวมผ่าน PR #7 คือ `70bac18`; HEAD ใน planning Session `b07523c` เพิ่ม Sprint 2 closeout record เท่านั้น. Git identity ตรวจแล้วเป็น `T3thr <t.theerapat33@gmail.com>`; fetch/pull แบบ fast-forward ยืนยัน develop up to date ก่อนสร้าง local documentation branch. [Sprint 2 SSOT](sprint-02-ssot.md) และ [closeout record](../changelog/2026-09/2026-09-05-0128-sprint-02-merge-closeout.md) เป็น integrated baseline. คำสั่งปัจจุบันเปลี่ยน next milestone จาก Act 2 ใน closeout มาเป็น visual/audio benchmark; งาน Act 2 ยกไป planning หลัง benchmark ไม่แก้ประวัติ Sprint 2 ย้อนหลัง
 
@@ -140,9 +140,9 @@ Yes: final media for Scenes 1–2, approved first Decision handoff, and full Act
 
 ## 4. Five-Task Work Breakdown Structure
 
-Paths below are **planned artifacts**, not claims that files or commands exist. One active writer per file. Every Task includes meaningful tests of its own behavior and a trace/change record; T5 integrates evidence rather than waiting until then to test. Suggested PR scope is one coherent Task; all future feature PRs target `develop`, never direct commits to protected branches
+Paths below now map to implemented artifacts; optional originally planned helpers need not exist when composition owns the behavior. One active writer per file. Every Task includes meaningful tests of its own behavior and a trace/change record; T5 integrates evidence rather than waiting until then to test. Suggested PR scope is one coherent Task; all future feature PRs target `develop`, never direct commits to protected branches
 
-- [x] **Task 1 — Versioned presentation contracts and save compatibility** — implemented/verified; Tech Lead/QA PR review pending
+- [x] **Task 1 — Versioned presentation contracts and save compatibility** — implemented/verified; PO/Tech Lead approved and merged in PR #9
 
   **Owner:** Data Maintainer / Architect. **Review:** Tech Lead, QA. **Dependency:** CR-0003 D1/D3/D5/D7/D8 accepted; fixture/Port agreement before consumer coding.
 
@@ -150,9 +150,9 @@ Paths below are **planned artifacts**, not claims that files or commands exist. 
 
   **Acceptance:** precise RFC delta/parity and wrong-type/unknown/version tests; old schemas remain byte-identical; no UI/Data imports in Core. Immutable projection includes visual mode, localized scene/speaker, resolved asset references/readiness intents, authored actions and desired audio; no domain rules move to UI. Migration preserves exact payload/cursor/settings with explicit version mapping and protected raw recovery; unchanged gameplay/graph projection is machine-compared. Legacy contracts stay exercised. Document input/error/ownership contracts used by T2–T4; bootstrap wiring is T4, not T1.
 
-  **Evidence:** `TC-S3-CONTRACT-001`, `TC-S3-ARCH-001`, `TC-S3-SAVE-001`; [Task 1 execution record](../changelog/2026-09/2026-09-07-0119-sprint-03-task-01-presentation-contracts.md), [consumer API handoff](../../specs/README.md#sprint-3-task-1-consumer-handoff). 550/550 unit tests, 11 reference metaschemas/36 structural cases, 12/12 existing Chromium routes. Production content remains 2.0.0; DOM chip/asset/audio/migration-write integration remains T2–T5.
+  **Evidence:** `TC-S3-CONTRACT-001`, `TC-S3-ARCH-001`, `TC-S3-SAVE-001`; [Task 1 execution record](../changelog/2026-09/2026-09-07-0119-sprint-03-task-01-presentation-contracts.md), [consumer API handoff](../../specs/README.md#sprint-3-task-1-consumer-handoff). 550/550 unit tests, 11 reference metaschemas/36 structural cases, 12/12 existing Chromium routes. Historical Task 1 evidence above covered content 2.0.0. Tasks 2–5 below now integrate production 2.1.0 and retain the original package as migration proof.
 
-- [ ] **Task 2 — Benchmark art/audio assets and bounded asset loading**
+- [x] **Task 2 — Benchmark art/audio assets and bounded asset loading**
 
   **Owner:** Asset/Data Maintainer with Art & Audio owners. **Review:** PO, Narrative, rights, Performance QA. **Dependency:** T1 media contract accepted; D6 life-stage decision and asset provenance ready.
 
@@ -160,9 +160,9 @@ Paths below are **planned artifacts**, not claims that files or commands exist. 
 
   **Acceptance:** six benchmark nodes bind reviewed environment; handoff uses reviewed shared media; no new media for remaining scenes. Character/portrait policy respects actual speaker/life stage. Every shipped asset has creator/source/license/hash/Thai alt where required; reference mockups stay documentation. Async current/one-hop queue with bounds, dedupe, cancellation, no stale swap and neutral/silent failure. Root/subpath and same-origin safety verified. Media and fonts fit §3.3/§6 budgets; validate package and unchanged 14-node/21-edge/12-outcome graph. No art named final until PO reviews it.
 
-  **Evidence:** `TC-S3-ASSET-001`, `TC-S3-PERF-001`, `TC-S3-UX-001`; future PR link pending.
+  **Evidence:** `TC-S3-ASSET-001`, `TC-S3-PERF-001`; 64 asset tests, seven hash/MIME/provenance records and root/subpath validation. `TC-S3-UX-001` human acceptance remains open. [Integrated evidence](../changelog/2026-09/2026-09-07-1248-sprint-03-benchmark-slice.md).
 
-- [ ] **Task 3 — Semantic reading stage, exploration and decision cards**
+- [x] **Task 3 — Semantic reading stage, exploration and decision cards**
 
   **Owner:** UI Maintainer. **Review:** Design/PO, Accessibility, Narrative. **Dependency:** T1 VM/settings intent contract; T2 approved sample assets (failure fixtures may be used independently).
 
@@ -170,9 +170,9 @@ Paths below are **planned artifacts**, not claims that files or commands exist. 
 
   **Acceptance:** Title/Reading/Exploration/Decision/confirmation separation follows real facts, all three first choices render in order, no lost hotspot/Next/save notice. Target composition reviewed at desktop/mobile and reflows 320–2560; safe DOM Thai text and actual numeric HP/พลังใจ; Bond Locked Chip present with no numeric disclosure. Keyboard/focus/modal behavior, contrast, 200% text, reduced-motion/high-contrast and unavailable-media variants pass. Accessible sound/settings controls emit typed intent and allow trusted activation callback handoff; no Audio/Data concrete adapter import. Existing full-text/manual advance preserved; no inactive Log/voice control.
 
-  **Evidence:** `TC-S3-VIS-001`, `TC-S3-A11Y-001`, `TC-S3-STATE-001`; future PR link pending.
+  **Evidence:** `TC-S3-VIS-001`, `TC-S3-A11Y-001` automation, `TC-S3-STATE-001`; 22 UI tests, viewport/text-zoom screenshots and native keyboard/AX evidence. Screen-reader listening remains open. [Integrated evidence](../changelog/2026-09/2026-09-07-1248-sprint-03-benchmark-slice.md).
 
-- [ ] **Task 4 — Audio adapter and application composition**
+- [x] **Task 4 — Audio adapter and application composition**
 
   **Owner:** Application/Audio Maintainer. **Review:** Architect, Audio owner, Data/UI owners, QA. **Dependency:** T1 agreed contracts; T2 resolver/buffers; T3 activation/settings hooks. Audio adapter unit work may run parallel with T3 after contract freeze.
 
@@ -180,9 +180,9 @@ Paths below are **planned artifacts**, not claims that files or commands exist. 
 
   **Acceptance:** trusted gesture unlock before async work; one context/bus graph; volumes/reduced intensity persist without resetting saved zeros; blocked/unavailable sound has accessible retry and silent play. Same loops survive rerenders, stale decode cannot resurrect a track, rapid commands/reload never replay SFX/entry effects. Lifecycle cleanup is bounded. Media readiness is never awaited by domain transaction/save. Resume migration works at every relevant page/state and stage/commit preserve incompatible records under races. No new game state, event flag, save field or Core browser API.
 
-  **Evidence:** `TC-S3-AUDIO-001/002`, `TC-S3-STATE-001`, `TC-S3-SAVE-001`, `TC-S3-ARCH-001`; future PR link pending.
+  **Evidence:** `TC-S3-AUDIO-001/002` automated/browser portions, `TC-S3-STATE-001`, `TC-S3-SAVE-001`, `TC-S3-ARCH-001`; audio/port, visibility, resampling-budget, migration/guard and media-fault tests pass. [Integrated evidence](../changelog/2026-09/2026-09-07-1248-sprint-03-benchmark-slice.md); human listening remains open.
 
-- [ ] **Task 5 — Integrated benchmark, regression and PO review evidence**
+- [x] **Task 5 — Integrated benchmark, regression and PO review evidence**
 
   **Owner:** Quality & DevOps Specialist. **Review:** PO, Tech Lead, Narrative, Accessibility, Art/Audio. **Dependency:** T1–T4 integrated candidate, reviewable media and actual test environment.
 
@@ -190,7 +190,7 @@ Paths below are **planned artifacts**, not claims that files or commands exist. 
 
   **Acceptance:** all retained 444 baseline cases plus additions pass with zero fail/cancel/skip/todo, all 12 canonical routes and 14/21 node/edge witnesses preserved. Existing tests may update approved version/fixture plumbing and D7 Bond presentation expectations with trace and equivalent old/new invariant coverage; never weaken an invariant or change Canon expectation to fit art. Benchmark record shows actual browser/device/commit/hash, chosen routes, media/audio faults, save migration/rollback, accessibility listening, visual comparison and recorded percentile measurements. PO signs working benchmark against approved D5–D8; every unrun gate is explicit. No claim full-game completion/WCAG certification/G2; no deploy implied.
 
-  **Evidence:** full §6 matrix, reviewed trace + exact candidate PR(s); future PR links pending.
+  **Evidence:** §6 matrix automated portions, 691 unit tests, 11 reference metaschemas/36 cases, 12 Chromium routes and supplementary visual/audio/performance benchmark; exact candidate hashes and unrun manual gates in [CR-20260907-1248](../changelog/2026-09/2026-09-07-1248-sprint-03-benchmark-slice.md). WBS completion records delivery of implementation and evidence, not PO aesthetic/listening sign-off.
 
 Dependency order: **T1 → T2/T3/T4 adapter work → T4 integration → T5**. `content-view-model.js` belongs to T1, package to T2, renderer/localization to T3, bootstrap/audio/persistence guard to T4. Any shared-contract adjustment goes back to its owner, with consumers waiting for the reviewed revision. Recheck Git identity and branch from current develop before each implementation PR under repository governance
 
@@ -207,26 +207,26 @@ Dependency order: **T1 → T2/T3/T4 adapter work → T4 integration → T5**. `c
 
 ### 5.2 Implementation DoR — all relevant items required per Task
 
-ตาม [JKB-P0-AI-001 §6](../phase-0/06-ai-agent-engineering-guide.md#6-definition-of-ready) ต้องตรวจรายการที่แต่ละ Task พึ่งพา; Task 1 ผ่าน readiness ตาม execution record ส่วน Tasks 2–5 ยังต้องตรวจ dependencies ของตน:
+ตาม [JKB-P0-AI-001 §6](../phase-0/06-ai-agent-engineering-guide.md#6-definition-of-ready) ต้องตรวจรายการที่แต่ละ Task พึ่งพา; Tasks 1–5 ผ่าน implementation readiness ตาม approved contracts และคำสั่ง prototype/full-cycle ปัจจุบัน; physical/manual acceptance profile remains open:
 
 - [x] D1/D2 schema/Port/desired-state and D3 mapping/rollback design approved by PO/Tech Lead; implementation QA proof remains required.
 - [x] D5–D8 decided by PO/Tech Lead joint directive; no separate completed QA/Accessibility/asset review is inferred from that authority.
 - [x] Task 1 observable success/failure AC, input/output/error types, actual source/fixture versions, one PR scope and exclusive files agreed; consumer contract recorded in specs/README.
 - [x] Task 1 state, narrative, localization, accessibility, security, performance, stable IDs, settings and save effects reviewed; no new approved requirement invented.
-- [ ] Art/audio/font briefs and production provenance/rights available before the dependent asset work; target mood and original mascot design reviewed.
+- [x] PO-authorized prototype art/audio briefs, generated asset records/hashes and licensed self-hosted Sarabun available; final aesthetic/listening review remains distinct.
 - [ ] Representative device/browser/profile, proposed budget refinements and human reviewer time agreed; tooling planned below is actually available before claiming its gate.
-- [x] Explicit new-session PO start authorization exists for Step 0 and Task 1; design approval alone was not used as implementation authorization.
+- [x] Explicit PO authorization covers Step 0, Task 1 merge, integrated Tasks 2–5 and feature PR; no new PR merge/deployment inferred.
 
 ### 5.3 Sprint implementation DoD
 
 - [ ] WBS 5/5 complete only after each Task's AC and evidence pass; scenes/handoff scope approved and playable end to end with actual reviewed assets.
-- [ ] Baseline domain/state/save invariants and all 12 routes preserved; new schema/media/audio/migration negatives pass; no reference/capability/schema-catalog drift.
+- [x] Baseline domain/state/save invariants and all 12 routes preserved; new schema/media/audio/migration negatives pass; no reference/capability/schema-catalog drift.
 - [ ] Actual desktop/mobile comparison, Thai editorial, keyboard/screen-reader/zoom/high-contrast/reduced-motion and listening review pass for changed journeys.
 - [ ] Recorded §6 performance, payload/cache and asset/network gates pass; no runtime package/CDN/service introduced.
-- [ ] Migration/rollback and corrupted/future/concurrent save preservation demonstrated; no audio playhead or presentation state leaks into domain save.
+- [x] Migration/rollback and corrupted/future/concurrent save preservation demonstrated; no audio playhead or presentation state leaks into domain save.
 - [ ] PO signs benchmark aesthetics and sound, Tech Lead signs architecture, domain reviewers sign relevant deviations; no unresolved blocking finding.
 - [ ] Trace → artifact → named test/evidence → actual PR links, change records and Section 7 complete; approved decisions recorded in a new ADR.
-- [ ] All not-run/deferred requirements identified with owner/milestone; final report distinguishes benchmark from full release. Merge and deployment follow separately authorized governance.
+- [x] All not-run/deferred requirements identified with owner/milestone; final report distinguishes benchmark from full release. Merge and deployment follow separately authorized governance.
 
 ## 6. Test & Verification Matrix
 
@@ -246,7 +246,7 @@ Existing browser command per [E2E README](../../tests/e2e/README.md), **not reru
 JKB_PLAYWRIGHT_PATH=/absolute/path/to/playwright/index.mjs JKB_HEADED=1 node tests/e2e/act1-playthrough.mjs
 ```
 
-Path is an environment parameter to resolve at execution, not an installed path assertion. Last retained [Sprint 2 evidence](../../tests/e2e/evidence/sprint-02/act1-evidence.json) reports 12/12 Chromium routes; current draft does not renew its browser/audio/accessibility/performance coverage. New test files below are **Not materialized / Not run** until their Task creates them and records actual commands
+Path is an environment parameter to resolve at execution, not an installed path assertion. Last retained [Sprint 2 evidence](../../tests/e2e/evidence/sprint-02/act1-evidence.json) reports 12/12 Chromium routes; current draft does not renew its browser/audio/accessibility/performance coverage. The automated test files below are materialized; current results and remaining physical/manual gates are recorded in CR-20260907-1248. Historical planning evidence in §6.4 remains unchanged
 
 ### 6.2 Required evidence by test ID
 
@@ -291,11 +291,12 @@ Media readiness must not delay the ≤100ms feedback shell. Inspect long tasks/p
 
 ## 7. Sprint Audit Trail, Risks and Approval Register
 
-**Task 1 current evidence:** schema/catalog/reference, pure media/locked-Bond contract and compatibility tests passed; [retained browser regression](../../tests/e2e/evidence/sprint-03/task-01/act1-evidence.json) covers the existing renderer, not the new stage. Full audio/UI/asset/write-race/representative-device/manual-accessibility gates remain with T2–T5. The §6.4 table above is historical planning evidence, not the current implementation result.
+**Current evidence:** `CR-20260907-1248` records production 2.1.0, seven prototype assets, four semantic stage layers, audio/visibility/preloading integration and explicit save migration. 691 unit tests, 11 metaschemas/36 structural cases and 12/12 Chromium routes pass; separate benchmark records viewport/fault/resource/performance samples. Manual listening, physical-device percentile/refresh validation, real Safari/iOS/Firefox, VoiceOver/NVDA and PO visual/audio acceptance remain open. §6.4 is historical planning evidence.
 
 | Record ID | Timestamp | Milestone / evidence | Status |
 |---|---|---|---|
-| `CR-20260907-0119` | 2026-09-07T01:19:37+07:00 | [Task 1 contracts, migration proof and verification](../changelog/2026-09/2026-09-07-0119-sprint-03-task-01-presentation-contracts.md) | WBS 1/5 implemented/verified; PR review pending |
+| `CR-20260907-1248` | 2026-09-07T12:48:17+07:00; closeout 2026-09-08 | [Integrated Tasks 2–5, verification IDs, hashes and PR](../changelog/2026-09/2026-09-07-1248-sprint-03-benchmark-slice.md) | WBS 5/5 implementation/automated verification; owner/manual acceptance open |
+| `CR-20260907-0119` | 2026-09-07T01:19:37+07:00 | [Task 1 contracts, migration proof and verification](../changelog/2026-09/2026-09-07-0119-sprint-03-task-01-presentation-contracts.md) | Task 1 approved and squash merged via PR #9 at 9e4f8b0 |
 | `CR-20260907-0042` | 2026-09-07T00:42:45+07:00 | [Joint architectural approval and documentation integration](../changelog/2026-09/2026-09-07-0042-sprint-03-architecture-approval.md) | APPROVED documentation; WBS 0/5 |
 | `CR-20260906-2003` | 2026-09-06T20:03:27+07:00 | [Architectural review, CR-0003 and Sprint 3 draft](../changelog/2026-09/2026-09-06-2003-sprint-03-architecture-plan.md) | Draft delivered; approvals pending; WBS 0/5 |
 
@@ -304,12 +305,12 @@ Media readiness must not delay the ≤100ms feedback shell. Inspect long tasks/p
 | CR D1–D4: schema/audio/migration/performance | PO/Tech Lead joint approval 2026-09-07; QA/device evidence remains to be produced | APPROVED design |
 | CR D5: Scene 3 three-choice interaction handoff | PO/Tech Lead joint directive 2026-09-07 | APPROVED |
 | CR D6: blue-marked/scarf tadpole, adult blue-shirt Title mascot | PO/Tech Lead joint directive 2026-09-07; final art/provenance review still required | APPROVED art direction |
-| CR D7: Bond Locked Chip and replacement UI assertions | PO/Tech Lead joint directive 2026-09-07; numeric secrecy/domain invariants retained | VM/Port implemented; DOM/AX chip acceptance pending T3/T5 |
+| CR D7: Bond Locked Chip and replacement UI assertions | PO/Tech Lead joint directive 2026-09-07; numeric secrecy/domain invariants retained | VM/Port and DOM/AX locked presence/no-number assertions pass |
 | CR D8: reading/decision pacing; deferred Full Log/Animated Typewriter | PO/Tech Lead joint directive 2026-09-07; UI/PO own post-benchmark backlog | APPROVED |
-| Thai font/crop/art/audio provenance and mix | Art/Audio + Narrative + rights/Accessibility reviewers | Needed for media DoR; mockups are not release-ready evidence |
-| Additional payload/device decoding pressure | Performance QA applies caps and real device measurements before visual sign-off | Unmeasured; no FPS claim |
-| 2.1 saves versus original 2.0 runtime | Data/QA prove migration and retain rollback write guard; no automatic downgrade | Pure mapping/protected raw preparation verified in T1; production guard wiring/races pending T4 |
+| Thai font/crop/art/audio provenance and mix | Art/Audio + Narrative + rights/Accessibility reviewers | Seven prototype assets with provenance/hashes and OFL font delivered; final aesthetic/listening review open |
+| Additional payload/device decoding pressure | Performance QA applies caps and real device measurements before visual sign-off | Supplementary Chromium percentile/cache measurements recorded; physical-device validation open |
+| 2.1 saves versus original 2.0 runtime | Data/QA prove migration and retain rollback write guard; no automatic downgrade | Explicit migration, exact Resume, stage/commit guards and detected-race tests pass; LocalStorage has no atomic CAS |
 | Documentation integration | Historical PO/Tech Lead documentation authorization | Integrated through PR #8 at 559b6d7 |
-| Implementation handoff | PO new-session start instruction and per-Task DoR | T1 implemented/verified; T2–T5 pending; no merge/deploy implied |
+| Implementation handoff | PO new-session start instruction and per-Task DoR | Tasks 1–5 implemented/automated verification complete; new implementation PR review/merge and deployment separate |
 
 **Historical planning rollback:** revert only this draft's documentation changes; runtime/save/assets unchanged, so no migration executes now. Existing proposal/raw files and previous sprint history remain intact. Implementation rollback follows CR D3. Completion of this planning artifact does not mark any implementation Task `[x]`, update historical Sprint 1/2 WBS or close G2. Documentation push/merge is explicitly authorized by the joint directive; runtime work and deployment are not

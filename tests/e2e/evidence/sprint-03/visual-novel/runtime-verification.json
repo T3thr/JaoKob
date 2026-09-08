@@ -1,0 +1,34 @@
+{
+  "manifest": "../benchmark/runtime-manifest.json",
+  "manifestSha256": "07c51c60e0f14f60d4f79a2dba949c174b5bd6358b3f4d72bc16aa25d0d39226",
+  "beforeManifestSha256": "bf77825d6647590e5073c926d1ec855e974647fcc03c6b4fa8e6f7755dd0645c",
+  "fileCount": 49,
+  "before": {
+    "at": "2026-09-08T01:31:17.692486+00:00",
+    "result": "all byte lengths and SHA-256 hashes match"
+  },
+  "after": {
+    "at": "2026-09-08T01:36:15.615773+00:00",
+    "manifestSha256": "07c51c60e0f14f60d4f79a2dba949c174b5bd6358b3f4d72bc16aa25d0d39226",
+    "fileCount": 49,
+    "result": "all byte lengths and SHA-256 hashes match final manifest",
+    "unchangedFileCount": 48,
+    "changes": [
+      {
+        "path": "assets/fonts/OFL-Sarabun.txt",
+        "before": {
+          "path": "assets/fonts/OFL-Sarabun.txt",
+          "bytes": 4387,
+          "sha256": "b26cae1321380296ba8311b632a397d5eac11b47197f9d0aa0b9310f1531ad60"
+        },
+        "after": {
+          "path": "assets/fonts/OFL-Sarabun.txt",
+          "bytes": 4386,
+          "sha256": "751218ccf5c0bfcd7cbaee3cdcd60a4e8703676bf6c3f56ebf26dc1343b1fe9f"
+        }
+      }
+    ],
+    "normalizationProof": "Restoring exactly one trailing space on OFL line21 recreates the pre-run SHA-256; license wording and every other runtime file unchanged."
+  },
+  "beforeManifest": "runtime-manifest-before.json"
+}

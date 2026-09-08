@@ -1,0 +1,8 @@
+{
+  "browser": "151.0.7922.34",
+  "checks": [
+    "normal transform-only float",
+    "OS reduced-motion disables",
+    "saved reduced-motion disables"
+  ]
+}

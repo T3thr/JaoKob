@@ -39,5 +39,5 @@ export function walk(route = ROUTES[0], hotspots = []) {
 }
 export function envelope(snapshot, settings = content.gameDefaults.settings) {
   const { revision, ...payload } = snapshot;
-  return { saveFormatVersion: 1, contentVersion: "2.0.0", revision, createdAt: AT, savedAt: AT, reason: "checkpoint", payload, settings };
+  return { saveFormatVersion: 1, contentVersion: content.contentVersion, revision, createdAt: AT, savedAt: AT, reason: "checkpoint", payload, settings };
 }

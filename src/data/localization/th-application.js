@@ -36,4 +36,11 @@ export const TH_APPLICATION = Object.freeze({
   closeSettings: "กลับไปอ่านต่อ",
   bondLocked: "Bond: Locked",
   bondLockedDescription: "ความผูกพัน: ยังไม่เริ่มต้น",
+  soundEnable: "เปิดการทำงานของเสียง",
+  soundReady: "เสียงพร้อมใช้งาน คุณปรับระดับเสียงได้ในการตั้งค่า",
+  soundBlocked: "เสียงยังไม่เริ่มทำงาน คุณเปิดเสียงหรืออ่านต่อในความเงียบได้",
+  soundUnavailable: "ยังเล่นเสียงไม่ได้ คุณอ่านเรื่องราวต่อได้ตามปกติ",
+  mediaUnavailable: "ยังโหลดภาพบางส่วนไม่ได้ คุณอ่านต่อหรือลองโหลดภาพอีกครั้งได้",
+  mediaRetry: "ลองโหลดภาพอีกครั้ง",
+  settingsUnavailable: "ยังบันทึกการตั้งค่าลงอุปกรณ์ไม่ได้ การตั้งค่ายังใช้ได้ในหน้านี้",
 });
