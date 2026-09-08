@@ -9,11 +9,11 @@
 
 เอกสารนี้ทำหน้าที่เป็น **Single Source of Truth (SSOT)** และคู่มือนำทางสำหรับนักพัฒนาและ AI Agent ทุกตัวในการทำงานร่วมกันอย่างมีวินัย ตรวจสอบย้อนกลับได้ และไร้ข้อผิดพลาด
 
-**Current integrated baseline:** Sprint 2 ปิด WBS 5/5 และรวมเข้า `develop` ผ่าน PR #7 ที่ `70bac18` แล้ว ดู [Sprint 2 SSOT](sprints/sprint-02-ssot.md) และ [Merge Closeout CR-20260905-0128](changelog/2026-09/2026-09-05-0128-sprint-02-merge-closeout.md).
-**Current implementation:** Sprint 3 Tasks 1–5 implemented/automated verification complete on `feat/sprint-03-benchmark-slice`; Task 1 approved/merged via PR #9 at `9e4f8b0`. Production content 2.1.0, prototype media, semantic stage, audio and migration are integrated; 691 unit tests and 12 browser routes pass. [Integrated execution record](changelog/2026-09/2026-09-07-1248-sprint-03-benchmark-slice.md) records exact evidence/PR and open physical-device, listening and PO benchmark acceptance gates.
+**Current integrated baseline:** Sprint 3 ปิด WBS 5/5 และรวมเข้าสู่ `develop` ผ่าน PR #9 (Task 1 at `9e4f8b0`) และ PR #10 (Tasks 2–5 at `0d6c0ba`) แล้ว ดู [Sprint 3 SSOT](sprints/sprint-03-ssot.md) และ [Merge Closeout CR-20260908-1430](changelog/2026-09/2026-09-08-1430-sprint-03-merge-closeout.md).
+**Current runtime capability:** Living High-Fidelity Prototype ครอบคลุม Act 1 Scene 1–2 และ Decision Handoff ที่ Scene 3 (พร้อม 3 ทางเลือก Canon และบทสะท้อนผล) บน Content 2.1.0, 7 prototype media assets, 4 semantic DOM layers, Web Audio พร้อม Gesture Unlock, และ Pure Save Migration ในหน่วยความจำ; 691 unit tests และ 12 Chromium routes ผ่าน 100%
 **Proposal archive:** ข้อเสนอการยกระดับสู่ Interactive Light Novel RPG และ Asset Customization Pipeline สำหรับ Phase 2 / Sprint 3 ดู [JKB-PROP-P2-001 Proposal](proposals/phase-02-visual-novel-architecture/01-visual-novel-transformation-tech-lead-proposal.md); มติที่ใช้จริงอยู่ใน Sprint 3 SSOT/CR-0003; proposal เป็นข้อมูลประวัติ
 
-**APPROVED Sprint 3 architecture:** [Sprint 3 SSOT](sprints/sprint-03-ssot.md), [CR-0003](rfc/CR-0003-interactive-light-novel-presentation.md) และ [ADR-P0-015](adr/ADR-P0-015-interactive-light-novel-presentation.md) ผ่าน joint approval 2026-09-07: Scene 3 three-choice handoff, ลูกอ๊อดลวดลาย/ผ้าผูกคอสีน้ำเงิน, Bond Locked Chip และ deferred Log/Typewriter. Implementation authorization and current evidence are recorded above; architecture approval remains the governing baseline
+**Governing architecture:** [Sprint 3 SSOT](sprints/sprint-03-ssot.md), [CR-0003](rfc/CR-0003-interactive-light-novel-presentation.md) และ [ADR-P0-015](adr/ADR-P0-015-interactive-light-novel-presentation.md) ผ่าน joint approval 2026-09-07: Scene 3 three-choice handoff, ลูกอ๊อดลวดลาย/ผ้าผูกคอสีน้ำเงิน, Bond Locked Chip และ deferred Log/Typewriter.
 
 ---
 
@@ -41,7 +41,7 @@ JaoKob/
 │   ├── sprints/                   <-- เอกสาร SSOT ประจำรอบการพัฒนา (Sprint Execution)
 │   │   ├── sprint-01-ssot.md      <-- Baseline Sprint 1: Core Vertical Slice
 │   │   ├── sprint-02-ssot.md      <-- Integrated Sprint 2: Content Engine & Canonical Act 1
-│   │   └── sprint-03-ssot.md      <-- Approved Sprint 3: Interactive Light Novel RPG benchmark
+│   │   └── sprint-03-ssot.md      <-- Integrated Sprint 3: Interactive Light Novel RPG benchmark
 │   ├── phase-0/                   <-- เอกสารข้อกำหนดรากฐาน (Baseline Specifications 9 ฉบับ)
 │   │   ├── 00-phase-0-charter.md  <-- ขอบเขต กฎบัตร และมาตรฐานอ้างอิง
 │   │   ├── 01-game-design-document.md <-- GDD ฉบับเต็ม (Core Loop, Meters, Endings)
@@ -92,7 +92,7 @@ flowchart TD
 
 ### Checklist ที่ต้องตรวจสอบก่อนเริ่มเขียนโค้ด (Definition of Ready - DoR):
 1. [ ] **อ่าน [`AGENTS.md`](../AGENTS.md):** ยืนยันข้อห้าม Boundary และขอบเขตความปลอดภัย
-2. [ ] **อ่าน SSOT ประจำ Sprint:** ใช้ [Sprint 3 SSOT](sprints/sprint-03-ssot.md) เป็น approved plan และ [Sprint 2 SSOT](sprints/sprint-02-ssot.md) เป็น integrated runtime baseline เพื่อทราบ Goal, Scope, Requirement IDs และเกณฑ์ส่งมอบ (DoD)
+2. [ ] **อ่าน SSOT ประจำ Sprint:** ใช้ [Sprint 3 SSOT](sprints/sprint-03-ssot.md) เป็น integrated baseline ปัจจุบัน เพื่อทราบ Goal, Scope, Requirement IDs และเกณฑ์ส่งมอบ (DoD)
 3. [ ] **อ่าน Change Record ล่าสุด:** ใน [`docs/changelog/2026-09/`](changelog/2026-09/) เพื่อทราบสถานะว่ารอบที่แล้วทำอะไรเสร็จไปแล้วบ้าง
 4. [ ] **ตรวจสอบ Requirement ID:** ทราบแน่ชัดว่างานที่กำลังจะทำตอบโจทย์ Requirement ID ใด (เช่น `FR-STA-001`, `FR-ENG-001`)
 

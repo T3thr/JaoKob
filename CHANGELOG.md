@@ -9,10 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-09-08
+
+> Sprint 3: Interactive Light Novel RPG Transformation & Benchmark Slice Complete
+
 ### Added
+- Integrated Sprint 3 into `develop` through PR #9 (`9e4f8b0`) and PR #10 (`0d6c0ba`): WBS 5/5, 691/691 merged-branch tests, 11 metaschemas/36 cases, and 12/12 Chromium canonical routes passed. [Sprint 3 merge closeout](docs/changelog/2026-09/2026-09-08-1430-sprint-03-merge-closeout.md)
 - Delivered Sprint 3 Tasks 2–5: prototype pond/tadpole/audio/font assets, semantic reading/decision stage, bounded media and Web Audio, exact 2.0→2.1 Resume and guarded saves; 691 unit tests and 12 Chromium routes pass. Physical-device, listening and PO aesthetic acceptance remain open. [Benchmark execution record](docs/changelog/2026-09/2026-09-07-1248-sprint-03-benchmark-slice.md)
 - Implemented Sprint 3 Task 1: schema 1.2 environments, immutable presentation/locked-Bond contracts, and pure 2.0→2.1 save compatibility proof; 550 unit tests, reference schema checks and 12 existing browser routes passed. Production media/UI/write integration follows in Tasks 2–5. [Execution record](docs/changelog/2026-09/2026-09-07-0119-sprint-03-task-01-presentation-contracts.md)
-- Approved Sprint 3 architecture and CR-0003 through the PO/Tech Lead joint directive: three-choice Scene 3 boundary, blue-marked/scarf tadpole, Bond Locked Chip, and deferred Full Log/Animated Typewriter; recorded ADR-P0-015. Documentation integration only; runtime starts in a new Session. [Approval record](docs/changelog/2026-09/2026-09-07-0042-sprint-03-architecture-approval.md)
+- Approved Sprint 3 architecture and CR-0003 through the PO/Tech Lead joint directive: three-choice Scene 3 boundary, blue-marked/scarf tadpole, Bond Locked Chip, and deferred Full Log/Animated Typewriter; recorded ADR-P0-015. [Approval record](docs/changelog/2026-09/2026-09-07-0042-sprint-03-architecture-approval.md)
 - Drafted Sprint 3 Interactive Light Novel RPG benchmark plan and CR-0003 for versioned scene environments, audio orchestration, and save compatibility; five tasks and visual/audio verification were prepared for review (historical planning record). [Planning audit record](docs/changelog/2026-09/2026-09-06-2003-sprint-03-architecture-plan.md)
 
 ## [0.3.0] - 2026-09-05

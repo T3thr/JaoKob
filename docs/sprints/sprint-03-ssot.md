@@ -3,20 +3,21 @@
 | Document control | Value |
 |---|---|
 | Sprint / document | `SPRINT-03` / `JKB-SPRINT-03-SSOT` |
-| Version / date | `1.2.0` / integrated benchmark evidence 2026-09-08; design approved 2026-09-07 (Asia/Bangkok) |
-| Status | **APPROVED architecture — Tasks 1–5 implementation/automated verification complete; benchmark owner/manual acceptance remains open** |
+| Version / date | `1.3.0` / integrated closeout 2026-09-08; design approved 2026-09-07 (Asia/Bangkok) |
+| Status | **COMPLETED & MERGED — Tasks 1–5 integrated into develop via PR #9 (commit 9e4f8b0) and PR #10 (commit 0d6c0ba); benchmark owner/manual acceptance remains open** |
 | Phase | Phase 2: Interactive Light Novel RPG Transformation, benchmark slice |
 | Plan author | GPT-6 Astra — Senior Software Engineer / Principal Systems Architect |
 | Collaborators / reviewers | CEO / Product Owner; Gemini 3.8 Flash — Tech Lead; Narrative, Game Design, Accessibility, QA, Art/Audio owners |
 | Planning branch | `feat/sprint-03-architecture-plan`, from verified `develop@b07523c` |
 | Documentation PR | [#8](https://github.com/T3thr/JaoKob/pull/8) → develop; implementation PRs remain separate |
 | Task 1 implementation PR | [#9](https://github.com/T3thr/JaoKob/pull/9) approved by PO/Tech Lead; squash merged at `9e4f8b0` |
+| Tasks 2–5 implementation PR | [#10](https://github.com/T3thr/JaoKob/pull/10) approved by PO; squash merged at `0d6c0ba` |
 | Standards | Repository Spec-Driven AI Loop, ISO/IEC/IEEE 12207:2017, ISO/IEC/IEEE 29148:2018, WCAG 2.2 AA |
 | Change proposal | [CR-0003 — presentation, audio and compatibility contracts](../rfc/CR-0003-interactive-light-novel-presentation.md) |
 
 PO และ Tech Lead อนุมัติแผนและ CR-0003 ตาม **PO & TECH LEAD JOINT DIRECTIVE: SPRINT 3 ARCHITECTURAL APPROVAL**, 2026-09-07. มติ D5–D8 ในแผนฉบับนี้เป็นข้อยุติ: three-choice Scene 3 handoff, ลูกอ๊อดลวดลาย/ผ้าผูกคอสีน้ำเงิน, Bond Locked Chip และ deferred Full Log/Animated Typewriter. ดู [approval record](../changelog/2026-09/2026-09-07-0042-sprint-03-architecture-approval.md) และ [ADR-P0-015](../adr/ADR-P0-015-interactive-light-novel-presentation.md)
 
-Session ปัจจุบัน PO/Tech Lead อนุมัติ Task 1 และสั่ง squash merge PR #9 แล้ว พร้อมอนุญาต implementation Tasks 2–5, prototype assets, commit/push และ PR ไป develop บน `feat/sprint-03-benchmark-slice`. **WBS 5/5 implementation และ automated verification complete ตามคำสั่งปิดรอบ**; การรับรองศิลป์/การฟัง/อุปกรณ์จริง/assistive technology และ Sprint DoD แบบเต็มยังเปิดอยู่ ไม่ใช่ release หรือ merge approval สำหรับ PR ใหม่. ดู [integrated execution record](../changelog/2026-09/2026-09-07-1248-sprint-03-benchmark-slice.md).
+Sprint 3 Tasks 1–5 ได้รับการพัฒนา ตรวจสอบ และรวมเข้าสู่ `develop` ครบถ้วนแล้ว: Task 1 ผ่าน PR #9 (commit `9e4f8b0`) และ Tasks 2–5 ผ่าน PR #10 (commit `0d6c0ba`) โดยมี WBS 5/5 (100%) พร้อมชุดทดสอบ 691 รายการ และ 12 Chromium routes ผ่านสมบูรณ์ การรับรองศิลป์/การฟัง/อุปกรณ์จริง/assistive technology และ Sprint DoD แบบเต็มยังคงเปิดอยู่เพื่อตรวจรับร่วมกับ PO ดู [Sprint 3 closeout record](../changelog/2026-09/2026-09-08-1430-sprint-03-merge-closeout.md) และ [integrated execution record](../changelog/2026-09/2026-09-07-1248-sprint-03-benchmark-slice.md).
 
 ประวัติ planning: ฐาน runtime ที่รวมผ่าน PR #7 คือ `70bac18`; HEAD ใน planning Session `b07523c` เพิ่ม Sprint 2 closeout record เท่านั้น. Git identity ตรวจแล้วเป็น `T3thr <t.theerapat33@gmail.com>`; fetch/pull แบบ fast-forward ยืนยัน develop up to date ก่อนสร้าง local documentation branch. [Sprint 2 SSOT](sprint-02-ssot.md) และ [closeout record](../changelog/2026-09/2026-09-05-0128-sprint-02-merge-closeout.md) เป็น integrated baseline. คำสั่งปัจจุบันเปลี่ยน next milestone จาก Act 2 ใน closeout มาเป็น visual/audio benchmark; งาน Act 2 ยกไป planning หลัง benchmark ไม่แก้ประวัติ Sprint 2 ย้อนหลัง
 
@@ -219,13 +220,13 @@ Dependency order: **T1 → T2/T3/T4 adapter work → T4 integration → T5**. `c
 
 ### 5.3 Sprint implementation DoD
 
-- [ ] WBS 5/5 complete only after each Task's AC and evidence pass; scenes/handoff scope approved and playable end to end with actual reviewed assets.
+- [x] WBS 5/5 complete only after each Task's AC and evidence pass; scenes/handoff scope approved and playable end to end with actual reviewed assets.
 - [x] Baseline domain/state/save invariants and all 12 routes preserved; new schema/media/audio/migration negatives pass; no reference/capability/schema-catalog drift.
 - [ ] Actual desktop/mobile comparison, Thai editorial, keyboard/screen-reader/zoom/high-contrast/reduced-motion and listening review pass for changed journeys.
 - [ ] Recorded §6 performance, payload/cache and asset/network gates pass; no runtime package/CDN/service introduced.
 - [x] Migration/rollback and corrupted/future/concurrent save preservation demonstrated; no audio playhead or presentation state leaks into domain save.
 - [ ] PO signs benchmark aesthetics and sound, Tech Lead signs architecture, domain reviewers sign relevant deviations; no unresolved blocking finding.
-- [ ] Trace → artifact → named test/evidence → actual PR links, change records and Section 7 complete; approved decisions recorded in a new ADR.
+- [x] Trace → artifact → named test/evidence → actual PR links, change records and Section 7 complete; approved decisions recorded in a new ADR.
 - [x] All not-run/deferred requirements identified with owner/milestone; final report distinguishes benchmark from full release. Merge and deployment follow separately authorized governance.
 
 ## 6. Test & Verification Matrix
@@ -295,7 +296,8 @@ Media readiness must not delay the ≤100ms feedback shell. Inspect long tasks/p
 
 | Record ID | Timestamp | Milestone / evidence | Status |
 |---|---|---|---|
-| `CR-20260907-1248` | 2026-09-07T12:48:17+07:00; closeout 2026-09-08 | [Integrated Tasks 2–5, verification IDs, hashes and PR](../changelog/2026-09/2026-09-07-1248-sprint-03-benchmark-slice.md) | WBS 5/5 implementation/automated verification; owner/manual acceptance open |
+| `CR-20260908-1430` | 2026-09-08T14:30:00+07:00 | [Sprint 3 Completion, PR #10 and Merge Integration](../changelog/2026-09/2026-09-08-1430-sprint-03-merge-closeout.md) | COMPLETED & MERGED into `develop` at `0d6c0ba`; Release `[0.4.0]` |
+| `CR-20260907-1248` | 2026-09-07T12:48:17+07:00; closeout 2026-09-08 | [Integrated Tasks 2–5, verification IDs, hashes and PR](../changelog/2026-09/2026-09-07-1248-sprint-03-benchmark-slice.md) | Tasks 2–5 integrated via PR #10; 691 tests passed |
 | `CR-20260907-0119` | 2026-09-07T01:19:37+07:00 | [Task 1 contracts, migration proof and verification](../changelog/2026-09/2026-09-07-0119-sprint-03-task-01-presentation-contracts.md) | Task 1 approved and squash merged via PR #9 at 9e4f8b0 |
 | `CR-20260907-0042` | 2026-09-07T00:42:45+07:00 | [Joint architectural approval and documentation integration](../changelog/2026-09/2026-09-07-0042-sprint-03-architecture-approval.md) | APPROVED documentation; WBS 0/5 |
 | `CR-20260906-2003` | 2026-09-06T20:03:27+07:00 | [Architectural review, CR-0003 and Sprint 3 draft](../changelog/2026-09/2026-09-06-2003-sprint-03-architecture-plan.md) | Draft delivered; approvals pending; WBS 0/5 |
@@ -311,6 +313,6 @@ Media readiness must not delay the ≤100ms feedback shell. Inspect long tasks/p
 | Additional payload/device decoding pressure | Performance QA applies caps and real device measurements before visual sign-off | Supplementary Chromium percentile/cache measurements recorded; physical-device validation open |
 | 2.1 saves versus original 2.0 runtime | Data/QA prove migration and retain rollback write guard; no automatic downgrade | Explicit migration, exact Resume, stage/commit guards and detected-race tests pass; LocalStorage has no atomic CAS |
 | Documentation integration | Historical PO/Tech Lead documentation authorization | Integrated through PR #8 at 559b6d7 |
-| Implementation handoff | PO new-session start instruction and per-Task DoR | Tasks 1–5 implemented/automated verification complete; new implementation PR review/merge and deployment separate |
+| Implementation handoff | PO approval and PR squash merge into `develop` | Tasks 1–5 complete, PR #9 and PR #10 merged; WBS 100% closed; Sprint 4 planning next |
 
 **Historical planning rollback:** revert only this draft's documentation changes; runtime/save/assets unchanged, so no migration executes now. Existing proposal/raw files and previous sprint history remain intact. Implementation rollback follows CR D3. Completion of this planning artifact does not mark any implementation Task `[x]`, update historical Sprint 1/2 WBS or close G2. Documentation push/merge is explicitly authorized by the joint directive; runtime work and deployment are not
