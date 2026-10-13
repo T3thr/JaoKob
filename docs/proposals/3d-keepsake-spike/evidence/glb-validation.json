@@ -1,0 +1,55 @@
+{
+  "bytes": 546020,
+  "byteBudget": 2000000,
+  "triangles": 22508,
+  "materials": 2,
+  "primitives": 2,
+  "nodes": 1,
+  "extensionsUsed": [
+    "KHR_materials_sheen"
+  ],
+  "externalUris": [],
+  "cameras": 0,
+  "animations": 0,
+  "validator": {
+    "uri": "jaokob-adult-plush.glb",
+    "mimeType": "model/gltf-binary",
+    "validatorVersion": "2.0.0-dev.3.10",
+    "validatedAt": "2026-10-13T17:58:03.527Z",
+    "issues": {
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "numHints": 0,
+      "messages": [],
+      "truncated": false
+    },
+    "info": {
+      "version": "2.0",
+      "generator": "Khronos glTF Blender I/O v5.2.40",
+      "extensionsUsed": [
+        "KHR_materials_sheen"
+      ],
+      "resources": [
+        {
+          "pointer": "/buffers/0",
+          "mimeType": "application/gltf-buffer",
+          "storage": "glb",
+          "byteLength": 543504
+        }
+      ],
+      "animationCount": 0,
+      "materialCount": 2,
+      "hasMorphTargets": false,
+      "hasSkins": false,
+      "hasTextures": false,
+      "hasDefaultScene": true,
+      "drawCallCount": 2,
+      "totalVertexCount": 11346,
+      "totalTriangleCount": 22508,
+      "maxUVs": 0,
+      "maxInfluences": 0,
+      "maxAttributes": 3
+    }
+  }
+}

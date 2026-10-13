@@ -1,0 +1,60 @@
+{
+  "change": "CR-0004",
+  "files": [
+    {
+      "path": "model/jaokob-adult-plush.glb",
+      "bytes": 546020,
+      "sha256": "cef78836f1498fc5dcf3d2bd8c968511c2eb7c6ee7e83733f0877c7f4756e64c"
+    },
+    {
+      "path": "model/jaokob-adult-plush.blend",
+      "bytes": 319043,
+      "sha256": "fee915318126748088a7daf230a86cc8fe635b82517798718ac97ee36a6e891a"
+    },
+    {
+      "path": "renders/back.png",
+      "bytes": 861133,
+      "sha256": "422e31e0019faaa177f833b3503e90cf71870ffc21441deeae645f2408316e3a"
+    },
+    {
+      "path": "renders/front.png",
+      "bytes": 892983,
+      "sha256": "dd42e873e164d59d028a874b876783fd5dc9bdbcebeb810667b7c9adeb564b38"
+    },
+    {
+      "path": "renders/side.png",
+      "bytes": 867496,
+      "sha256": "e1d9ed4538e816fcdca9329390567eba89496e3f78b12523bd88e930864ae077"
+    },
+    {
+      "path": "renders/three-quarter.png",
+      "bytes": 1078025,
+      "sha256": "0754965a6fb479387e0996439c6be4d1cc46c17ac829c4b645b7d899680b35a9"
+    },
+    {
+      "path": "renders/poster.jpg",
+      "bytes": 45296,
+      "sha256": "a869b95569c043cdd5815476245fa86dfd28632dc91ae284c7c0285d50750d84"
+    },
+    {
+      "path": "scripts/build_model.py",
+      "bytes": 19033,
+      "sha256": "941fd2065b681883c488c0f7d55ed24a35621f6d62ee7f93c231c434e3e9d8a0"
+    },
+    {
+      "path": "preview/viewer.js",
+      "bytes": 4798,
+      "sha256": "1ff8dcfe4fd8e0d66b60b1329bb4eefbc3aeaf9131250709f44c36c4c03168dd"
+    },
+    {
+      "path": "preview/index.html",
+      "bytes": 1919,
+      "sha256": "b826d286850eec61a3c55885eebec2c140c31dbd6e6979ecca72912e868248a1"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 5825,
+      "sha256": "f5f1b324069b452f3abd46ab73b21fc443050665c0cad74f376a741556c0f879"
+    }
+  ]
+}

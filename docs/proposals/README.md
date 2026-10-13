@@ -7,6 +7,7 @@
 | รหัสเอกสาร | ชื่อข้อเสนอ | ผู้จัดทำ | สถานะ | ลิงก์เอกสาร |
 |---|---|---|---|---|
 | **JKB-PROP-P2-001** | Phase 2 Architecture & Design Proposal: Interactive Light Novel RPG Transformation & Customization Asset Pipeline | Tech Lead (Gemini 3.8 Flash) | Archived proposal; [CR-0003 APPROVED](../rfc/CR-0003-interactive-light-novel-presentation.md), 2026-09-07 | [01-visual-novel-transformation-tech-lead-proposal.md](phase-02-visual-novel-architecture/01-visual-novel-transformation-tech-lead-proposal.md) |
+| **CR-0004** | Adult Plush Base Mesh & First GLB Spin | Codex | Owner-authorized Milestone 1; production integration deferred | [Model, local viewer and instructions](3d-keepsake-spike/README.md) |
 
 ## โครงสร้างและการใช้งาน
 - แต่ละหัวข้อใหญ่ให้สร้างเป็นโฟลเดอร์เฉพาะ เช่น `phase-02-visual-novel-architecture/`

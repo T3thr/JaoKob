@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Adult plush base-mesh spike (`CR-0004`): editable Blender source/generator, 546 KB GLB and an isolated lazy-loaded 3D inspection page; childhood heart clarified as optional. [Milestone 1 evidence](docs/changelog/2026-10/2026-10-14-0050-adult-plush-model-spike.md)
+
 ## [0.4.0] - 2026-09-08
 
 > Sprint 3: Interactive Light Novel RPG Transformation & Benchmark Slice Complete
