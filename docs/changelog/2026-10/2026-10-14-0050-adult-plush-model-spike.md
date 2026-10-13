@@ -42,4 +42,4 @@ The delivered object is a **base mesh** with matte colors and visible constructi
 
 ## 6. Git delivery
 
-Feature branch: `feat/spike-adult-plush-model`, based on updated `develop`. Commit identity verified as `T3thr <t.theerapat33@gmail.com>`. Feature PR targets `develop`; no merge/deployment authorized or performed. PR link is recorded during closeout.
+Feature branch: `feat/spike-adult-plush-model`, based on updated `develop`. Implementation commit: `37e8750`. Commit identity verified as `T3thr <t.theerapat33@gmail.com>`. [Draft PR #11](https://github.com/T3thr/JaoKob/pull/11) targets `develop`; no merge/deployment performed. Initial push hit HTTP 408; retry with per-command HTTP/1.1 and a larger request buffer succeeded without force push or history rewrite. All 11 delivery-artifact hashes match the manifest.

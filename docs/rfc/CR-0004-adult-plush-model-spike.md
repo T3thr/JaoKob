@@ -49,6 +49,6 @@ Artifacts live under `docs/proposals/3d-keepsake-spike/`, outside the production
 - [x] Export within byte budget and structural validation.
 - [x] Visual inspection of all four views.
 - [x] Local interactive preview and browser checks.
-- [ ] Change record, artifact manifest, commit and feature PR.
+- [x] Change record, artifact manifest, commit and [feature PR #11](https://github.com/T3thr/JaoKob/pull/11).
 
 Execution record: [CR-20261014-0050](../changelog/2026-10/2026-10-14-0050-adult-plush-model-spike.md). Artifact instructions and evidence: [Milestone 1](../proposals/3d-keepsake-spike/README.md). Architecture decision: [ADR-P0-016](../adr/ADR-P0-016-keepsake-model-viewer-spike.md).
