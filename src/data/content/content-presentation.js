@@ -36,7 +36,11 @@ export function projectContentPresentation({ loaded, snapshot, facts, settings, 
     return { contentVersion: loaded.catalog.version, assetId: id, alt: text(asset.alt) };
   };
   const environment = node?.environment ?? {};
-  const background = image(environment.backgroundAssetId ?? node?.backgroundAssetId);
+  // Title borrows only the entry artwork. It does not enter that story node,
+  // reveal the protagonist, or start its audio loops/effects.
+  const titleNode = snapshot ? null : indexes.nodes[loaded.catalog.entryNodeId];
+  const background = image(environment.backgroundAssetId ?? node?.backgroundAssetId
+    ?? titleNode?.environment?.backgroundAssetId ?? titleNode?.backgroundAssetId);
   const speaker = dialogue ? indexes.characters[dialogue.speakerCharacterId] : null;
   const protagonist = snapshot ? Object.values(indexes.characters).find((character) => character.narrativeRole === "protagonist") : null;
   const protagonistPortrait = protagonist

@@ -3,14 +3,16 @@
 | Document control | Value |
 |---|---|
 | Sprint / document | `SPRINT-04` / `JKB-SPRINT-04-SSOT` |
-| Version / date | **0.2.2** / 2026-10-14, Asia/Bangkok — Slice 1 execution; design baseline v0.2.1 retained |
-| Status | **Slice 1 T1/T2 implementation delivered, 2/12; feature PR and PO visual review; T0/T3–T11 remain open** |
+| Version / date | **0.2.3** / 2026-10-15, Asia/Bangkok — PO sensory refinement; design baseline v0.2.1 retained |
+| Status | **Slice 1 T1/T2 revised after PO review, 2/12;703 unit cases/12 routes; final human visual/AT gates open; T0/T3–T11 remain open** |
 | Authority | PO merged plan v0.2.1 and explicitly authorized source, tests, audit, commit/push and PR for T1/T2 only in the Slice 1 directive; no remaining task/merge/deploy authorization |
 | Integrated baseline | `develop@d31652a` (merged planning PR12); Slice 1 changes remain on feature branch until human review/merge |
 | Review branch / PR | `feat/sprint-04-slice-01-visual` / [PR #13](https://github.com/T3thr/JaoKob/pull/13) → develop; planning PR12 merged |
 | Proposal / RFC | [JKB-PROP-S4-001 v0.2.1](../proposals/sprint-04-overhaul/01-proposal-plan.md) / [CR-0005 v0.2.1](../rfc/CR-0005-sprint-04-overhaul.md) |
 | Models | [PR #11](https://github.com/T3thr/JaoKob/pull/11) MERGED at `e980339`; future **S5 END-HOME Grand Keepsake**, not S4 Pouch dependency |
 | Owners | PO, Technical Lead/Architect, Core/Application/Data/UI, Narrative/Game Design, Art, Accessibility, QA/DevOps |
+
+**PO review update — 2026-10-15:** PR13's first candidate is not aesthetically accepted. Current PO authorizes refinement of T1/T2 on the same branch: one frosted header, transient successful-save text/dot (fade≤1.5s), atmospheric lotus Title, consolidated Decision surface and water-contact anchoring. Failed/protected/memory-only saves keep persistent readable detail. This supersedes the earlier always-visible success rail criterion; it does not authorize T3–T11 or alter Core/save/Canon. [CR-20261015-0013](../changelog/2026-10/2026-10-15-0013-sprint-04-po-sensory-refinement.md) records readiness and Before/After evidence.
 
 ## 1. Goal and phased scope
 
@@ -152,7 +154,7 @@ Estimate: **32–50 engineering + narrative person-days**, plus **3–5 Art days
 
 Shared-file ownership: T3 schema/migration validator; T4 Core state/effects; T7 content/graph; T9 projector/resources/2D art; T2 renderer scaffold; T5/T6 independent modal files; T10 only composition; T11 consolidated evidence/docs. Sequence edits to common schema/VM/localization/styles/orchestration explicitly; no concurrent overwrite or implicit agent delegation.
 
-**Slice 1 delivery:** [PR #13](https://github.com/T3thr/JaoKob/pull/13), implementation commit `f1ae7bb`. T1/T2 checkmarks mean source implementation and scoped automated verification delivered for review, not final human art/accessibility certification. [CR-20261014-2314](../changelog/2026-10/2026-10-14-2314-sprint-04-slice-01-visual.md) links the changed artifacts, 698 unit cases, 12 legacy routes and visual evidence. Only T1/T2 are checked.
+**Slice 1 delivery:** [PR #13](https://github.com/T3thr/JaoKob/pull/13), implementation commit `f1ae7bb`. T1/T2 checkmarks mean source implementation and scoped automated verification delivered for review, not final human art/accessibility certification. [CR-20261014-2314](../changelog/2026-10/2026-10-14-2314-sprint-04-slice-01-visual.md) links the initial artifacts; the PO refinement record links703 unit cases,12 legacy routes and revised/Before visual evidence. Only T1/T2 are checked.
 
 ## 5. DoR and DoD
 
@@ -239,8 +241,8 @@ Budgets unchanged: NFR-PE-001..005 (initial≤2MB compressed; shell+critical JSO
 | Documentation | Three requested artifacts revised; link/anchor/ID/table/consistency/diff checks recorded in new pivot audit |
 | Old visual/browser/media evidence | Sprint3 evidence retained historically; current Slice1 candidate has a separate bundle below |
 | Pouch/schema/migration/new story tests | Not materialized/not run in planning |
-| Slice 1 unit regression | **698/698**, 0 fail/cancel/skip/todo; all 691 existing cases retained plus 7 focused renderer regressions |
-| Slice 1 Chromium | **12/12** legacy routes; **29** screenshots at six viewport profiles; real DOM/status/focus/modal/contrast/motion/image+quota checks; [evidence](../../tests/e2e/evidence/sprint-04/slice-01/README.md) |
+| Slice 1 unit regression | **703/703**, 0 fail/cancel/skip/todo; all698 prior cases retained with the explicit PO Title-image expectation amendment, plus5 focused cases |
+| Slice 1 Chromium | **12/12** legacy routes; **29** revised screenshots at six viewport profiles; one-surface/1500ms fade/native DOM/status/focus/modal/contrast/motion/image+quota checks; [evidence](../../tests/e2e/evidence/sprint-04/slice-01/README.md) |
 | Real device/AT/listening/PO final art/prose | Not performed; required later for changed journeys |
 | Source/release/build/merge/deploy | T1/T2 source delivered on feature branch; no remaining task, release, merge or deploy executed |
 
@@ -248,6 +250,7 @@ Budgets unchanged: NFR-PE-001..005 (initial≤2MB compressed; shell+critical JSO
 
 | Record | Disposition |
 |---|---|
+| `CR-20261015-0013` | [PO sensory refinement](../changelog/2026-10/2026-10-15-0013-sprint-04-po-sensory-refinement.md): one bar/quiet success/lotus Title/consolidated Decision/water anchor;703 tests and12 routes; PR13 review open |
 | `CR-20261014-2314` | [Slice 1 T1/T2 implementation](../changelog/2026-10/2026-10-14-2314-sprint-04-slice-01-visual.md): 2/12, unchanged Core/save/content, scoped Chromium evidence; PO review open |
 | `CR-20261014-2233` | [Final PO approval/impact revision](../changelog/2026-10/2026-10-14-2233-sprint-04-final-po-narrative-impact.md): v0.2.1 ready for documentation review; source0/12 |
 | `CR-20261014-2131` | [PO Directive pivot](../changelog/2026-10/2026-10-14-2131-sprint-04-pouch-directive.md): proposal/RFC/SSOT 0.2.0, implementation 0/12 |

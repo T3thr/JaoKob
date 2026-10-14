@@ -1,77 +1,87 @@
-/* Normal flow lets long Thai, text enlargement and landscape grow safely. */
-html, body { margin: 0; min-block-size: 100%; background: #d7e3cd; }
+/* CR-0005 PO review: one bar, open water and a single reading surface. */
+html, body { margin: 0; min-block-size: 100%; background: #cbd7bf; }
 .jk-app-content { min-block-size: 100svh; }
 .jk-app-shell {
   isolation: isolate; position: relative; display: flex; flex-direction: column;
   min-block-size: 100svh; min-block-size: 100dvh;
   padding-block: max(.75rem, env(safe-area-inset-top)) max(1.25rem, env(safe-area-inset-bottom));
   padding-inline: max(.75rem, env(safe-area-inset-left)) max(.75rem, env(safe-area-inset-right));
-  background: radial-gradient(ellipse at 50% 18%, #e9ecd3, #adc4a8 44%, #648c7b 100%);
+  background: radial-gradient(ellipse at 50% 25%, #e9e8ce, #9db798 65%, #567d69);
 }
 .jk-stage-bg { position: absolute; z-index: -2; inset: 0; overflow: hidden; pointer-events: none; }
-.jk-background-image { inline-size: 100%; block-size: 100%; object-fit: cover; object-position: center 46%; }
-.jk-stage-bg::after {
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgb(26 53 38 / 8%), transparent 42%, rgb(26 53 38 / 12%));
-}
-.jk-stage-header { position: relative; inline-size: min(100%, var(--jk-reading-max)); margin-inline: auto; }
-.jk-hud {
-  padding: .65em .85em; color: var(--jk-ink); background: var(--jk-glass);
-  border: 1px solid rgb(255 255 255 / 65%); border-radius: 1.5rem;
-  box-shadow: 0 .2rem .9rem rgb(27 53 38 / 9%);
+.jk-background-image { inline-size: 100%; block-size: 100%; object-fit: cover; object-position: center 60%; }
+.jk-stage-bg::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 42%, transparent 40%, rgb(25 49 37 / 18%)), linear-gradient(180deg, rgb(18 38 28 / 7%), transparent 30%, rgb(31 51 37 / 8%)); }
+.jk-stage-header { position: relative; inline-size: min(100%, var(--jk-reading-max)); margin-inline: auto; z-index: 2; }
+.jk-header-bar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .5em;
+  padding: .45em .65em; color: var(--jk-ink); background: var(--jk-glass);
+  border: 1px solid rgb(255 255 255 / 48%); border-radius: 2rem;
+  box-shadow: 0 .2rem 1rem rgb(27 53 38 / 8%);
 }
 @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .jk-hud { background: var(--jk-glass-translucent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+  .jk-header-bar { background: var(--jk-glass-translucent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
 }
-.jk-utility-rail {
-  display: flex; flex-wrap: wrap; align-items: center; justify-content: end;
-  gap: .25em .5em; margin-block-start: .4rem;
-  padding: .1rem .5rem .1rem .85rem;
-  color: var(--jk-ink); background: var(--jk-glass-translucent); border-radius: 1rem;
-}
+.jk-hud { flex: 1 1 11em; min-inline-size: 0; }
+.jk-utility-rail { display: flex; flex-wrap: wrap; gap: .15em; align-items: center; margin-inline-start: auto; }
 .jk-stage-char {
-  display: grid; place-items: center; flex: 1 0 auto;
-  min-block-size: clamp(8rem, 27svh, 24rem); padding-block: 1rem; pointer-events: none;
+  --jk-subject-size: clamp(8rem, 19svh, 15rem);
+  position: relative; display: grid; place-items: end center; flex: 1 0 auto;
+  min-block-size: calc(var(--jk-subject-size) + 2.5rem);
+  padding-block: 1.5rem clamp(1.25rem, 4svh, 4rem); pointer-events: none;
 }
-.jk-character-image {
-  display: block; inline-size: clamp(9rem, 25svh, 18rem); max-inline-size: 75%; block-size: auto;
-  object-fit: contain; filter: drop-shadow(0 .5rem .75rem rgb(31 55 38 / 18%));
+.jk-character-image { position: relative; z-index: 1; display: block; inline-size: var(--jk-subject-size); max-inline-size: 70%; block-size: auto; object-fit: contain; filter: saturate(.9) drop-shadow(0 .12rem .2rem rgb(57 73 44 / 12%)); }
+/* The soft ellipse and two broken rings sit at the tail's water-contact plane. */
+.jk-stage-char[data-media-state="ready"]::before {
+  content: ""; position: absolute; inset-inline-start: 50%; inset-block-end: clamp(1.25rem, 4svh, 4rem);
+  inline-size: calc(var(--jk-subject-size) * 1.1); block-size: calc(var(--jk-subject-size) * .18);
+  transform: translate(-50%, 30%); border-radius: 50%;
+  background: radial-gradient(ellipse, rgb(50 70 39 / 25%), rgb(64 86 45 / 9%) 40%, transparent 70%);
+}
+.jk-stage-char[data-media-state="ready"]::after {
+  content: ""; position: absolute; inset-inline-start: 50%; inset-block-end: clamp(1.25rem, 4svh, 4rem);
+  inline-size: calc(var(--jk-subject-size) * 1.18); block-size: calc(var(--jk-subject-size) * .2);
+  transform: translate(-50%, 45%) rotate(-5deg); border-radius: 50%;
+  border-block: 1px solid rgb(255 248 202 / 42%); box-shadow: 0 4px 0 -2px rgb(82 106 57 / 12%);
 }
 .jk-story { position: relative; inline-size: min(100%, var(--jk-reading-max)); margin-inline: auto; border-radius: var(--jk-radius-lg); }
-.jk-app-shell[data-stage-mode="decision"] .jk-stage-char { min-block-size: clamp(6rem, 18svh, 14rem); }
-.jk-app-shell[data-stage-mode="decision"] .jk-character-image { inline-size: clamp(7rem, 18svh, 14rem); }
 .jk-narrative {
-  position: relative; padding: 1.05rem 1.25rem 1rem; color: var(--jk-ink);
-  background: var(--jk-paper); border: 1px solid rgb(255 249 231 / 70%);
-  border-radius: var(--jk-radius-lg); box-shadow: var(--jk-shadow-paper);
+  position: relative; padding: 1.15rem 1.4rem 1rem; color: var(--jk-ink);
+  background: var(--jk-paper); border: 1px solid rgb(255 249 231 / 40%);
+  border-radius: 1.6rem 1.4rem 1.65rem 1.3rem;
+  box-shadow: var(--jk-shadow-paper);
 }
-/* Sparse fibres stay on the outer corners, clear of glyphs. No repeating stripe. */
-.jk-narrative::before {
-  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
-  background-image: url("../../../assets/images/ui/paper-fibres.svg");
-  opacity: .55; mask-image: linear-gradient(90deg, #000, transparent 14%, transparent 86%, #000);
-}
-.jk-reading-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5em 1em; margin-block-start: .8em; }
+.jk-narrative::before { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; background-image: url("../../../assets/images/ui/paper-fibres.svg"); opacity: .6; mask-image: linear-gradient(90deg, #000, transparent 12%, transparent 88%, #000); }
+.jk-reading-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5em 1em; margin-block-start: .85em; }
 .jk-reading-footer .jk-choice-area { margin-inline-start: auto; }
-.jk-choice-area { margin-block-start: .75rem; }
+.jk-choice-area { margin-block-start: 1rem; }
 .jk-reading-footer .jk-choice-area { margin-block-start: 0; }
-.jk-choice-list { display: grid; gap: .7rem; list-style: none; }
+.jk-choice-list { display: grid; gap: .75rem; list-style: none; }
 .jk-choice-item { min-inline-size: 0; }
-.jk-title-heading { font-size: clamp(2em, 6vw, 3.4em); font-weight: 400; line-height: 1.65; text-align: center; text-wrap: balance; }
-.jk-app-shell[data-stage-mode="title"] { padding-block-end: max(2rem, env(safe-area-inset-bottom)); }
-.jk-app-shell[data-stage-mode="title"] .jk-stage-char { flex: 0; min-block-size: clamp(2rem, 8svh, 8rem); }
-.jk-app-shell[data-stage-mode="title"] .jk-story { margin-block: auto; max-inline-size: 34rem; }
-.jk-app-shell[data-stage-mode="title"] .jk-narrative { padding: 1rem .5rem 1.5rem; background: transparent; border: 0; box-shadow: none; text-align: center; }
+.jk-app-shell[data-stage-mode="decision"] .jk-stage-char { --jk-subject-size: clamp(7rem, 17svh, 13rem); }
+.jk-app-shell[data-stage-mode="title"] .jk-stage-header { inline-size: 100%; }
+.jk-app-shell[data-stage-mode="title"] .jk-header-bar { inline-size: fit-content; margin-inline-start: auto; background: rgb(255 248 223 / 45%); box-shadow: none; border-color: rgb(255 248 223 / 35%); }
+.jk-app-shell[data-stage-mode="title"] .jk-stage-bg::after { background: radial-gradient(ellipse at 50% 47%, rgb(255 249 224 / 60%), rgb(255 248 222 / 30%) 37%, transparent 70%), radial-gradient(ellipse at center, transparent 45%, rgb(24 48 34 / 25%)); }
+.jk-app-shell[data-stage-mode="title"] .jk-stage-char { display: none; }
+.jk-app-shell[data-stage-mode="title"] .jk-story { margin-block: auto; max-inline-size: 52rem; padding-block: 2.5rem; }
+.jk-title-heading { font-size: clamp(2em, 4vw, 3.4em); font-weight: 400; line-height: 1.75; text-align: center; text-wrap: balance; text-shadow: 0 2px 18px rgb(255 251 231 / 65%); }
+.jk-app-shell[data-stage-mode="title"] .jk-narrative { max-inline-size: 33rem; margin-inline: auto; padding: .9rem .5rem 1.6rem; background: transparent; border: 0; box-shadow: none; text-align: center; }
 .jk-app-shell[data-stage-mode="title"] .jk-narrative::before { display: none; }
-.jk-app-shell[data-stage-mode="title"] .jk-choice-list { max-inline-size: 24rem; margin-inline: auto; }
-.jk-app-shell[data-stage-mode="title"] .jk-utility-rail { inline-size: fit-content; margin-inline-start: auto; }
+.jk-app-shell[data-stage-mode="title"] .jk-choice-list { max-inline-size: 21rem; margin-inline: auto; }
+.jk-app-shell[data-stage-mode="title"] .jk-first-run-notice { max-inline-size: 34rem; margin: 1.7rem auto 0; padding: 0 .5rem; background: transparent; text-align: center; }
+@media (max-width: 35.99rem) {
+  .jk-background-image { block-size: 130%; transform: translateY(-23%); object-position: 53% center; }
+  .jk-app-shell[data-stage-mode="title"] .jk-background-image { block-size: 100%; transform: none; }
+}
 @media (min-width: 48rem) {
   .jk-app-shell { padding-block-start: max(1.5rem, env(safe-area-inset-top)); padding-block-end: max(2rem, env(safe-area-inset-bottom)); }
-  .jk-narrative { padding: 1.25rem 2rem 1.2rem; }
-  .jk-stage-char { min-block-size: clamp(10rem, 31svh, 30rem); }
+  .jk-narrative { padding: 1.3rem 2rem 1.1rem; }
   .jk-choice-area[data-choice-mode="exploration"] .jk-choice-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+@media (min-width: 64rem) {
+  .jk-app-shell[data-stage-mode="decision"] .jk-story { inline-size: min(100%, 54rem); }
+  .jk-app-shell[data-stage-mode="decision"] .jk-narrative { max-inline-size: 44rem; margin-inline: auto; }
+  .jk-choice-area[data-choice-mode="decision"] .jk-choice-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+}
 @media (max-height: 30rem) and (min-width: 36rem) {
-  .jk-stage-char { flex: 0; min-block-size: 7rem; }
-  .jk-character-image { inline-size: 7rem; }
+  .jk-stage-char, .jk-app-shell[data-stage-mode="decision"] .jk-stage-char { --jk-subject-size: 6rem; flex: 0; min-block-size: 8rem; }
 }

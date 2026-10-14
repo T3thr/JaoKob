@@ -13,7 +13,7 @@ PASS route 12/12 siblings / seek-safety / release-fragment
 {
   "browser": "151.0.7922.34",
   "platform": "darwin",
-  "at": "2026-10-14T16:37:52.008Z",
+  "at": "2026-10-14T17:34:28.477Z",
   "routes": [
     {
       "home": "mother",
@@ -179,10 +179,10 @@ PASS route 12/12 siblings / seek-safety / release-fragment
     "act1-mobile-320-text200.png"
   ],
   "performance": {
-    "initialCompressedBytes": 139875,
-    "initialRawBytes": 552946,
-    "domContentLoadedMs": 181.30000001192093,
-    "maxDriverActionMs": 245.4742500000002,
+    "initialCompressedBytes": 324062,
+    "initialRawBytes": 744572,
+    "domContentLoadedMs": 54.39999997615814,
+    "maxDriverActionMs": 184.25208399999997,
     "maxSaveBytes": 4821,
     "reflow": {
       "scroll": 320,
@@ -192,7 +192,7 @@ PASS route 12/12 siblings / seek-safety / release-fragment
       10.614096195316643,
       9.446140227861006,
       10.973300422357172,
-      10.973300422357172
+      9.765818270779292
     ]
   },
   "errors": [],

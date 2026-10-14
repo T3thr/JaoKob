@@ -175,7 +175,7 @@ try {
     assert.equal(await page.locator('.jk-character-image').evaluate((el) => getComputedStyle(el).animationName), "none");
     const colors = await page.evaluate(() => {
       const style = (selector) => getComputedStyle(document.querySelector(selector));
-      return [[style('.jk-dialogue').color, style('.jk-narrative').backgroundColor], [style('.jk-choice-button').color, style('.jk-narrative').backgroundColor], [style('.jk-settings-button').color, style('.jk-utility-rail').backgroundColor], [style('.jk-save-status').color, style('.jk-utility-rail').backgroundColor]];
+      return [[style('.jk-dialogue').color, style('.jk-narrative').backgroundColor], [style('.jk-choice-button').color, style('.jk-narrative').backgroundColor], [style('.jk-settings-button').color, style('.jk-header-bar').backgroundColor], [style('.jk-save-status').color, style('.jk-header-bar').backgroundColor]];
     });
     const lum = (color) => color.match(/[\d.]+/g).slice(0, 3).map(Number).map((x) => x / 255).map((x) => x <= .04045 ? x / 12.92 : ((x + .055) / 1.055) ** 2.4).reduce((sum, x, i) => sum + x * [.2126, .7152, .0722][i], 0);
     const ratios = colors.map(([fg, bg]) => (Math.max(lum(fg), lum(bg)) + .05) / (Math.min(lum(fg), lum(bg)) + .05));

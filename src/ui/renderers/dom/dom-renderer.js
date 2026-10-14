@@ -53,6 +53,9 @@ const FATAL_STORAGE_CODES = new Set([
  * Synchronous composition callback before any story intent; never enters Core.
  * @property {(reference: object) => Promise<object|null>} [loadImage]
  * Verified decoded image lease: {ok:true,value:{url,release}} or silent failure.
+ * @property {(callback: () => void, delay: number) => unknown} [scheduleStatus]
+ * @property {(timer: unknown) => void} [cancelStatus]
+ * UI-only timer injection for transient successful-save indication.
  */
 
 /**
@@ -85,6 +88,11 @@ export function createDomRenderer(optionsOrRoot) {
   let modalKey = null;
   let currentView = null;
   let lastAnnouncement = null;
+  const scheduleStatus = options.scheduleStatus ?? ((callback, delay) => setTimeout(callback, delay));
+  const cancelStatus = options.cancelStatus ?? ((timer) => clearTimeout(timer));
+  let statusTimer = null;
+  let savedKey = null;
+  let successExpired = false;
   const trustedActivation = (event) => {
     if (event.isTrusted === true && (event.type !== "keydown" || !event.repeat)) options.onTrustedActivation?.(event);
   };
@@ -128,6 +136,7 @@ export function createDomRenderer(optionsOrRoot) {
         references = gameShell.references;
       }
       patchUtilityStatus(gameShell, stageModel, messages);
+      updateStatusLifetime(stageModel);
       references = gameShell.references;
       root.setAttribute("data-high-contrast", viewModel.settings?.highContrast === true ? "true" : "false");
       root.setAttribute("data-reduced-motion", viewModel.settings?.reducedMotion === true ? "true" : "false");
@@ -190,7 +199,12 @@ export function createDomRenderer(optionsOrRoot) {
   function announce(status) {
     return perform("announce", () => {
       const activeScaffold = ensureScaffold();
-      const text = readStatusText(status, messages);
+      // A successful autosave is quiet. Authored feedback and meter changes
+      // still get their own accessible announcement, as do recovery warnings.
+      const quietSave = currentView?.notice?.kind === "saved";
+      const feedback = readFeedbackText(currentView ?? {});
+      if (quietSave && !feedback && !status?.meterChanges?.length) return;
+      const text = readStatusText(quietSave ? { ...status, text: feedback || message(messages, "feedback.label") } : status, messages);
       const identity = JSON.stringify([currentView?.revision, currentView?.presentation?.mode,
         currentView?.scene?.dialogue, text]);
       if (lastAnnouncement !== identity) {
@@ -221,6 +235,7 @@ export function createDomRenderer(optionsOrRoot) {
     return perform("showFatalShell", () => {
       assertRecord(failure, "Fatal failure must be an object.");
       busy = false;
+      clearStatusTimer();
       modal?.close(); modal = null; stage?.dispose(); stage = null;
       gameShell = null; storyKey = null; modalKey = null; lastReadingView = null;
       const activeScaffold = ensureScaffold();
@@ -243,6 +258,42 @@ export function createDomRenderer(optionsOrRoot) {
       viewRevision: currentView.viewRevision,
       ...(intent.type === "SELECT_CHOICE" ? { expectedRevision: currentView.revision } : {}),
     }) }));
+  }
+
+  function clearStatusTimer() {
+    if (statusTimer !== null) cancelStatus(statusTimer);
+    statusTimer = null;
+  }
+
+  function updateStatusLifetime(view) {
+    const kind = view.notice?.kind;
+    const status = gameShell.status;
+    const token = JSON.stringify([view.revision, view.notice?.text]);
+    const attention = status.textContent && (kind !== "saved" || view.mediaStatusText);
+    status.setAttribute("data-status-kind", attention ? "attention" : kind === "saved" ? "saved" : "idle");
+    gameShell.header.setAttribute("data-status-kind", attention ? "attention" : kind === "saved" ? "saved" : "idle");
+    if (attention || !status.textContent) {
+      clearStatusTimer();
+      if (kind === "saved") { savedKey = token; successExpired = true; }
+      status.setAttribute("data-status-phase", attention ? "visible" : "quiet");
+      if (attention) { status.removeAttribute("hidden"); status.removeAttribute("aria-hidden"); }
+      else { status.setAttribute("hidden", ""); status.setAttribute("aria-hidden", "true"); }
+      return;
+    }
+    if (savedKey !== token) {
+      clearStatusTimer(); savedKey = token; successExpired = false;
+      statusTimer = scheduleStatus(() => {
+        statusTimer = null;
+        if (disposed || savedKey !== token || !gameShell || gameShell.status.getAttribute("data-status-kind") !== "saved") return;
+        successExpired = true;
+        gameShell.status.setAttribute("data-status-phase", "quiet");
+        gameShell.status.setAttribute("hidden", "");
+        gameShell.status.setAttribute("aria-hidden", "true");
+      }, 1500);
+    }
+    status.setAttribute("data-status-phase", successExpired ? "quiet" : "visible");
+    if (successExpired) { status.setAttribute("hidden", ""); status.setAttribute("aria-hidden", "true"); }
+    else { status.removeAttribute("hidden"); status.removeAttribute("aria-hidden"); }
   }
 
   function ensureScaffold() {
@@ -291,6 +342,7 @@ export function createDomRenderer(optionsOrRoot) {
     applyFocusDirective,
     showFatalShell,
     dispose() {
+      clearStatusTimer();
       disposed = true; stage?.dispose(); modal?.close(); modal = null;
       root?.removeEventListener?.("pointerdown", trustedActivation, true);
       root?.removeEventListener?.("keydown", trustedActivation, true);
@@ -300,7 +352,7 @@ export function createDomRenderer(optionsOrRoot) {
 
 function buildGameShell(document, viewModel, messages, emitIntent, stage) {
   const mode = viewModel.presentation?.mode ?? "legacy";
-  const title = mode === "title" || viewModel.state === "Title";
+  const title = mode === "title" || (mode === "legacy" && viewModel.state === "Title");
   const shell = createElement(document, "div", {
     classNames: ["jk-app-shell"],
     attributes: { "data-jk-role": "game-shell", "data-stage-mode": title ? "title" : mode, lang: readLocale(viewModel) },
@@ -310,12 +362,14 @@ function buildGameShell(document, viewModel, messages, emitIntent, stage) {
   const header = createElement(document, "header", {
     classNames: ["jk-stage-header"], attributes: { id: "stage-hud", "data-jk-role": "stage-header" },
   });
-  if (!title) {
+  const bar = createElement(document, "div", { classNames: ["jk-header-bar"] });
+  header.append(bar);
+  if (!title && viewModel.state !== "Title") {
     const hud = createElement(document, "div", {
       classNames: ["jk-hud"], attributes: { "data-jk-role": "hud", "aria-label": message(messages, "hud.label") },
     });
     hud.append(buildMeterList(document, viewModel, messages));
-    header.append(hud);
+    bar.append(hud);
   }
   const utility = createElement(document, "div", {
     classNames: ["jk-utility-rail"], attributes: { "data-jk-role": "utility-rail" },
@@ -323,8 +377,8 @@ function buildGameShell(document, viewModel, messages, emitIntent, stage) {
   const status = createElement(document, "p", {
     classNames: ["jk-save-status"], attributes: { "data-jk-role": "save-status" },
   });
-  utility.append(status);
-  header.append(utility);
+  bar.append(utility);
+  header.append(status);
   shell.append(stage.background, header, stage.character);
   const story = createElement(document, "main", {
     classNames: ["jk-story"], attributes: { id: "stage-dialogue", "aria-label": message(messages, "story.label") },
@@ -335,8 +389,9 @@ function buildGameShell(document, viewModel, messages, emitIntent, stage) {
   const contentNotice = buildFirstRunNotice(document, { notice: viewModel.contentNotice }, messages);
   if (contentNotice) { contentNotice.setAttribute("data-jk-role", "content-notice"); story.append(contentNotice); }
   const feedback = buildFeedback(document, viewModel, messages);
-  if (feedback) story.append(feedback);
+  if (feedback && mode !== "decision") story.append(feedback);
   const narrative = createElement(document, "article", { classNames: ["jk-narrative"], attributes: { "data-jk-role": "reading-card" } });
+  if (feedback && mode === "decision") { addClasses(feedback, "jk-context-feedback"); narrative.append(feedback); }
   const readingBody = createElement(document, "section", {
     classNames: ["jk-reading-body"], attributes: { "data-jk-role": "dialogue", tabindex: "-1", "aria-label": message(messages, "story.label") },
   });
@@ -375,7 +430,7 @@ function buildGameShell(document, viewModel, messages, emitIntent, stage) {
   const gameOver = buildGameOverPanel(document, viewModel, messages, emitIntent);
   if (gameOver) narrative.append(gameOver);
   // The prose always precedes the crossroads in reading order.
-  story.replaceChildren(story.children[0], ...(contentNotice ? [contentNotice] : []), ...(feedback ? [feedback] : []), narrative,
+  story.replaceChildren(story.children[0], ...(contentNotice ? [contentNotice] : []), ...(feedback && mode !== "decision" ? [feedback] : []), narrative,
     ...(mode !== "reading" && choices?.buttons.length ? [choices.element] : []));
   const firstRunNotice = buildFirstRunNotice(document, { firstRunNotice: viewModel.firstRunNotice }, messages);
   if (firstRunNotice) story.append(firstRunNotice);
@@ -399,7 +454,7 @@ const UTILITY_CHOICE_IDS = new Set(["application.settings", "application.enable-
 
 function patchUtilityStatus(shell, view, messages) {
   const text = readString(view.notice?.text) || readString(view.notice?.description);
-  const statusText = [text, readString(view.mediaStatusText)].filter(Boolean).join(" ");
+  const statusText = [view.notice?.kind === "saved" && view.mediaStatusText ? "" : text, readString(view.mediaStatusText)].filter(Boolean).join(" ");
   if (shell.status.textContent !== statusText) shell.status.textContent = statusText;
   shell.status.setAttribute("aria-label", readString(view.notice?.title) || message(messages, "save.label"));
   const oldButtons = shell.references.choiceButtons.filter(({ element }) => UTILITY_CHOICE_IDS.has(element.getAttribute("data-choice-id")));
@@ -418,19 +473,22 @@ function patchUtilityStatus(shell, view, messages) {
       button.addEventListener("click", () => {
         if (!button.disabled) shell.emitIntent({ type: "SELECT_CHOICE", choiceId: choice.id });
       });
+      button.setAttribute("aria-label", choice.label || message(messages, "settings.title"));
+      button.setAttribute("title", choice.label || message(messages, "settings.title"));
       if (choice.id === "application.settings") {
         button.setAttribute("aria-haspopup", "dialog");
         button.append(createChromeIcon(shell.document, "settings", "⚙"),
-          createElement(shell.document, "span", { text: message(messages, "settings.short") }));
-      }
+          createElement(shell.document, "span", { classNames: ["jk-utility-label"], text: message(messages, "settings.short") }));
+      } else button.append(createChromeIcon(shell.document, choice.id === "application.retry-media" ? "retry" : "sound"),
+        createElement(shell.document, "span", { classNames: ["jk-utility-label"], text: choice.label }));
     }
     if (choice.id === "application.settings") button.setAttribute("aria-label", choice.label || message(messages, "settings.title"));
-    else if (button.textContent !== choice.label) button.textContent = choice.label;
+    else button.setAttribute("aria-label", choice.label);
     buttons.push({ element: button, disabled: choice.disabled === true || choice.available === false });
   }
   // Avoid detaching a focused Settings button during status-only changes.
   if (oldButtons.length !== buttons.length || oldButtons.some((record, index) => record.element !== buttons[index]?.element)) {
-    const wanted = [shell.status, ...buttons.map(({ element }) => element)];
+    const wanted = buttons.map(({ element }) => element);
     if (typeof shell.utility.insertBefore === "function") {
       for (const [index, node] of wanted.entries()) {
         if (shell.utility.children[index] !== node) shell.utility.insertBefore(node, shell.utility.children[index] ?? null);
@@ -459,7 +517,9 @@ function buildMeterList(document, viewModel, messages) {
       const chip = createElement(document, "div", { classNames: ["jk-bond-locked"], attributes: { "data-jk-meter": "bond", "data-bond-state": "locked" } });
       const icons = createElement(document, "span", { classNames: ["jk-bond-icons"], attributes: { "aria-hidden": "true" } });
       icons.append(createChromeIcon(document, "bond", "🪷 🔒"));
-      const label = createElement(document, "dt", { text: raw.label });
+      const label = createElement(document, "dt");
+      label.append(createElement(document, "span", { classNames: ["jk-bond-label"], text: raw.label }),
+        createElement(document, "span", { classNames: ["jk-bond-short"], text: message(messages, "meter.bondLockedShort") }));
       const description = createElement(document, "dd", { classNames: ["jk-visually-hidden"], text: raw.accessibleLabel });
       chip.append(icons, label, description); list.append(chip); continue;
     }
@@ -755,7 +815,7 @@ function buildChoices(document, viewModel, messages, emitIntent) {
   const mode = viewModel.presentation?.mode;
   section.setAttribute("data-choice-mode", mode ?? "legacy");
   if (mode === "decision" || mode === "exploration") {
-    section.append(createElement(document, "h2", { classNames: ["jk-choice-heading"], text: message(messages, mode === "decision" ? "choices.decision" : "choices.exploration") }));
+    section.append(createElement(document, "h2", { classNames: ["jk-choice-heading", ...(mode === "decision" ? ["jk-visually-hidden"] : [])], text: message(messages, mode === "decision" ? "choices.decision" : "choices.exploration") }));
   }
 
   for (const choice of viewModel.choices) {
@@ -776,6 +836,11 @@ function buildChoices(document, viewModel, messages, emitIntent) {
       const copy = createElement(document, "span", { classNames: ["jk-choice-copy"] });
       copy.append(createElement(document, "span", { classNames: ["jk-choice-label"], text: label }));
       button.textContent = "";
+      if (mode === "decision") {
+        const names = { "choice.act1.focus-mother": "ripple", "choice.act1.focus-roots": "roots", "choice.act1.focus-siblings": "ripples" };
+        const icon = createElement(document, "span", { classNames: ["jk-choice-icon"], attributes: { "aria-hidden": "true" } });
+        icon.append(createChromeIcon(document, names[choice.id] ?? "ripple")); button.append(icon);
+      }
       button.append(copy, createElement(document, "span", { classNames: ["jk-choice-cue"], attributes: { "aria-hidden": "true" } }));
     }
     const choiceId = readString(choice.id);

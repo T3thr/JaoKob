@@ -42,6 +42,7 @@ export const TH_SYSTEM_MESSAGES = Object.freeze({
   "meter.hp": "พลังชีวิต",
   "meter.sanity": "พลังใจ",
   "meter.bond": "ความผูกพัน",
+  "meter.bondLockedShort": "ยังไม่เปิด",
   "meter.value": "{{label}} {{value}} จาก {{max}}",
   "meter.change.positive": "{{label}} เพิ่มขึ้น {{amount}}",
   "meter.change.negative": "{{label}} ลดลง {{amount}}",

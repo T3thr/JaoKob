@@ -99,7 +99,9 @@ test("TC-S3-CONTRACT-001 overlays and reading pages retain desired loops; title 
   }
   const title = projectContentPresentation(input(null));
   assert.equal(title.visual.mode, "title"); assert.equal(title.visual.character, null);
-  assert.deepEqual(title.visual.imageRequests, []);
+  // CR-0005 PO review: Title now borrows the existing verified entry artwork.
+  assert.deepEqual(title.visual.background, initial.visual.background);
+  assert.deepEqual(title.visual.imageRequests, [initial.visual.background]);
   assert.equal(title.audio.sessionId, null); assert.equal(title.audio.bgmAssetId, undefined);
 });
 
@@ -181,4 +183,13 @@ test("TC-S3-ARCH-001 Core remains browser-free and production imports never refe
       assert.doesNotMatch(code, /\b(?:document|window|localStorage|AudioContext|HTMLImageElement|fetch)\b/, url.pathname);
     }
   }
+});
+
+test("CR-0005 PO review projects saved versus attention explicitly without changing story facts", () => {
+  const args = input(); const before = structuredClone(args.snapshot);
+  const saved = projectContentView({ ...args, notice: "บันทึกความคืบหน้าแล้ว" });
+  const failed = projectContentView({ ...args, notice: "ยังบันทึกลงอุปกรณ์ไม่ได้" });
+  assert.equal(saved.notice.kind, "saved"); assert.equal(failed.notice.kind, "attention");
+  assert.deepEqual(args.snapshot, before);
+  frozen(saved); frozen(failed);
 });

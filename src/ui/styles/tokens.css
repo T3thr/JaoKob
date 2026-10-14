@@ -8,7 +8,7 @@
   --jk-moss-dark: #254735;
   --jk-amber: #996319;
   --jk-glass: #f4f3e6;
-  --jk-glass-translucent: rgb(250 249 237 / 90%);
+  --jk-glass-translucent: rgb(250 249 237 / 78%);
   --jk-line: #a7b19b;
   --jk-danger: #8a3b31;
   --jk-font-sans: "Sarabun", "Noto Sans Thai", "Leelawadee UI", Tahoma, Arial, sans-serif;
@@ -17,7 +17,7 @@
   --jk-radius-sm: .75rem;
   --jk-radius-md: 1.25rem;
   --jk-radius-lg: 1.65rem;
-  --jk-shadow-paper: 0 .65rem 2rem rgb(22 48 39 / 18%);
+  --jk-shadow-paper: 0 1.2rem 3.5rem rgb(43 58 35 / 17%), 0 .25rem .7rem rgb(64 73 45 / 7%);
   --jk-motion-fast: 140ms;
   --jk-motion-base: 260ms;
   --jk-space-1: .25rem;

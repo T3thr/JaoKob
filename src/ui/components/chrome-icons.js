@@ -4,6 +4,11 @@ const STROKES = Object.freeze({
   sanity: ["M12 6V3M12 21v-3M6 12H3M21 12h-3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1", "M16 12a4 4 0 1 1-8 0a4 4 0 0 1 8 0Z"],
   bond: ["M12 20C5 19 3 14 3 10C7 10 10 13 12 17C14 13 17 10 21 10C21 14 19 19 12 20ZM12 17C7 12 8 7 12 3C16 7 17 12 12 17Z"],
   settings: ["M4 6h16M4 12h16M4 18h16M8 3v6M16 9v6M10 15v6"],
+  sound: ["M4 9v6h4l5 4V5L8 9H4ZM16 8q6 4 0 8M18 4q11 8 0 16"],
+  retry: ["M20 7V3l-4 1M20 7a9 9 0 1 0 1 8M20 7l-5 1"],
+  ripple: ["M15 8a3 3 0 1 1-6 0a3 3 0 0 1 6 0ZM7 13c-8 3 2 8 10 4M4 17c-6 5 17 8 17 1"],
+  roots: ["M12 3v17M12 9L7 5M12 12l6-5M12 15l-5 5M12 16l5 5M5 21h14"],
+  ripples: ["M8 7a2 2 0 1 1-4 0a2 2 0 0 1 4 0ZM15 5a2 2 0 1 1-4 0a2 2 0 0 1 4 0ZM22 8a2 2 0 1 1-4 0a2 2 0 0 1 4 0ZM3 13q3-3 6 0t6 0t6 0M3 18q3-3 6 0t6 0t6 0"],
 });
 
 export function createChromeIcon(document, name, fallback = "") {

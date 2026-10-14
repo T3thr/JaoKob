@@ -616,3 +616,57 @@ test("TC-S4-STATUS-001 duplicate operational announcements are deduped without s
   renderer.render({ ...base, revision: 2, scene: { dialogue: "ราก" } }); renderer.announce({ text: "บันทึกแล้ว" });
   assert.equal(live.textContent, "บันทึกแล้ว");
 });
+
+test("CR-0005 PO review uses one header surface and merges Decision context without dropping authored text", () => {
+  const { root, renderer } = createHarness();
+  renderer.render({ presentation: { mode: "decision" }, scene: { dialogue: "เจ้ากบจะอยู่กับจังหวะไหน" }, feedback: "เจ้ากบกลับมาหาครอบครัว",
+    meters: { hp: 80, sanity: 70 }, choices: [{ id: "mother", label: "ตามแม่" }, { id: "application.settings", label: "ตั้งค่า" }] });
+  const hud = findOne(root, hasDataRole("hud")), utility = findOne(root, hasDataRole("utility-rail"));
+  assert.equal(hud.parentNode, utility.parentNode);
+  assert.match(hud.parentNode.getAttribute("class"), /jk-header-bar/);
+  assert.equal(findOne(root, hasDataRole("save-status")).parentNode, findOne(root, hasDataRole("stage-header")));
+  const card = findOne(root, hasDataRole("reading-card"));
+  assert.match(findOne(card, hasDataRole("feedback")).textContent, /กลับมาหาครอบครัว/);
+  assert.match(findOne(card, hasDataRole("dialogue-text")).textContent, /จังหวะไหน/);
+});
+
+test("CR-0005 PO review success expires at1500ms without focus, DOM or media-refresh replay", () => {
+  const document = new FakeDocument(), root = document.createElement("div"), timers = [];
+  const renderer = createDomRenderer({ document, root, scheduleStatus: (callback, delay) => { timers.push({ callback, delay }); return timers.length; }, cancelStatus: () => {} });
+  const base = { revision: 4, viewRevision: 2, presentation: { mode: "reading" }, scene: { dialogue: "แสงน้ำ" },
+    notice: { kind: "saved", text: "บันทึกแล้ว" }, choices: [{ id: "application.advance", label: "อ่านต่อ" }] };
+  renderer.render(base); const status = findOne(root, hasDataRole("save-status"));
+  const button = findOne(root, hasDataAction("advance")); button.focus();
+  const card = findOne(root, hasDataRole("reading-card"));
+  assert.equal(status.hasAttribute("hidden"), false); assert.equal(timers[0].delay, 1500);
+  renderer.render({ ...base, viewRevision: 3, audioStatusText: "เสียงพร้อม" }); assert.equal(timers.length, 1);
+  timers[0].callback();
+  assert.equal(status.hasAttribute("hidden"), true); assert.equal(document.activeElement, button);
+  renderer.render({ ...base, viewRevision: 4 });
+  assert.equal(status.hasAttribute("hidden"), true); assert.equal(timers.length, 1);
+  assert.equal(findOne(root, hasDataRole("reading-card")), card);
+  renderer.dispose();
+});
+
+test("CR-0005 PO review stale success timer cannot hide failed or memory-only save detail", () => {
+  const document = new FakeDocument(), root = document.createElement("div"); let callback, canceled = false;
+  const renderer = createDomRenderer({ document, root, scheduleStatus: (task) => { callback = task; return 1; }, cancelStatus: () => { canceled = true; } });
+  const base = { revision: 4, scene: { dialogue: "น้ำ" }, choices: [] };
+  renderer.render({ ...base, notice: { kind: "saved", text: "บันทึกแล้ว" } });
+  renderer.render({ ...base, notice: { kind: "attention", text: "ยังบันทึกไม่ได้ หากปิดหน้านี้ความคืบหน้าอาจหายไป" } });
+  callback(); const status = findOne(root, hasDataRole("save-status"));
+  assert.ok(canceled); assert.equal(status.hasAttribute("hidden"), false); assert.match(status.textContent, /หากปิด/);
+  renderer.dispose();
+});
+
+test("CR-0005 PO review autosave is silent while feedback and recovery remain announced", () => {
+  const { root, renderer } = createHarness();
+  const base = { revision: 4, scene: { dialogue: "น้ำ" }, choices: [], notice: { kind: "saved", text: "บันทึกแล้ว" } };
+  renderer.render(base); renderer.announce({ text: "บันทึกแล้ว", meterChanges: [] });
+  const live = findOne(root, hasDataRole("live-region")); assert.equal(live.textContent, "");
+  renderer.render({ ...base, feedback: "พบเงาให้พัก", meterChanges: [{ meter: "hp", delta: 5 }] });
+  renderer.announce({ text: "พบเงาให้พัก บันทึกแล้ว", meterChanges: [{ meter: "hp", delta: 5 }] });
+  assert.match(live.textContent, /พบเงาให้พัก/); assert.match(live.textContent, /เพิ่มขึ้น 5/); assert.doesNotMatch(live.textContent, /บันทึกแล้ว/);
+  renderer.render({ ...base, notice: { kind: "attention", text: "ยังบันทึกไม่ได้" } }); renderer.announce({ text: "ยังบันทึกไม่ได้" });
+  assert.equal(live.textContent, "ยังบันทึกไม่ได้"); renderer.dispose();
+});

@@ -12,7 +12,7 @@ const output = resolve(repo, "tests/e2e/evidence/sprint-04/slice-01");
 await mkdir(output, { recursive: true });
 const { chromium } = await import(process.env.JKB_PLAYWRIGHT_PATH ? pathToFileURL(process.env.JKB_PLAYWRIGHT_PATH).href : "playwright");
 const host = `import {createGameApplication} from './src/bootstrap/index.js';
-const app=createGameApplication({document,root:document.getElementById('app')});window.slice={app};await app.boot();`;
+const app=createGameApplication({document,root:document.getElementById('slice-root')});window.slice={app};await app.boot();`;
 const mime = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".json": "application/json", ".webp": "image/webp", ".svg": "image/svg+xml", ".mp3": "audio/mpeg", ".woff2": "font/woff2" };
 const evidence = { baseline: execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim(), at: new Date().toISOString(),
   requirements: ["TC-S4-VIS-001", "TC-S4-STATUS-001", "TC-S4-STATE-001", "TC-S4-A11Y-001"],
@@ -28,7 +28,7 @@ const server = createServer(async (request, response) => {
     if (!file.startsWith(`${repo}${sep}`) || !["/index.html", "/src/", "/assets/"].some((prefix) => path.startsWith(prefix))) { response.writeHead(403).end(); return; }
     let body = await readFile(file);
     evidence.sourceHashes[path] = createHash("sha256").update(body).digest("hex");
-    if (path === "/index.html") body = body.toString().replace("./src/bootstrap/index.js", "./slice-host.js");
+    if (path === "/index.html") body = body.toString().replace('id="app"', 'id="slice-root"').replace("./src/bootstrap/index.js", "./slice-host.js");
     response.writeHead(200, { "Content-Type": mime[extname(file)] ?? "application/octet-stream", "Cache-Control": "no-store" }); response.end(body);
   } catch { response.writeHead(404).end(); }
 });
@@ -79,6 +79,7 @@ async function decision(page) {
 try {
   for (const [width, height] of [[320,568],[390,844],[768,1024],[1440,900],[2560,1440],[844,390]]) {
     const { ctx, page } = await context({ width, height });
+    await page.waitForFunction(() => document.querySelector('#stage-bg')?.dataset.mediaState === 'ready');
     assert.equal(await page.locator('[data-jk-meter]').count(), 0);
     await fit(page, `${width}x${height}-title`); await screenshot(page, `${width}x${height}-title.png`);
     await click(page, "application.new-game");
@@ -89,9 +90,16 @@ try {
     assert.equal(await page.locator('.jk-narrative .jk-save-status').count(), 0);
     const type = await page.locator('.jk-dialogue').evaluate((el) => ({ font: getComputedStyle(el).fontFamily, size: parseFloat(getComputedStyle(el).fontSize), line: parseFloat(getComputedStyle(el).lineHeight) }));
     assert.match(type.font, /Sarabun/); assert.ok(type.size >= 18 && type.size <= 20); assert.ok(type.line / type.size >= 1.75 && type.line / type.size <= 1.9);
+    await page.waitForFunction(() => { const status = document.querySelector('.jk-save-status'); return status && status.hasAttribute('hidden') && getComputedStyle(status).display === 'none'; });
+    assert.equal(await page.locator('.jk-header-bar').count(), 1);
+    assert.equal(await page.locator('.jk-utility-rail').evaluate((el) => getComputedStyle(el).backgroundColor), 'rgba(0, 0, 0, 0)');
     await fit(page, `${width}x${height}-reading`); await screenshot(page, `${width}x${height}-reading.png`);
     await decision(page);
     assert.equal(await page.locator('.jk-decision-card').count(), 3); assert.equal(await choice(page, "application.advance").count(), 0);
+    await page.waitForFunction(() => { const status = document.querySelector('.jk-save-status'); return status && status.hasAttribute('hidden') && getComputedStyle(status).display === 'none'; });
+    assert.equal(await page.locator('.jk-narrative [data-jk-role="feedback"]').count(), 1);
+    assert.equal(await page.locator('.jk-choice-heading').evaluate((el) => getComputedStyle(el).clipPath), 'inset(50%)');
+    assert.equal(await page.locator('.jk-choice-icon svg').count(), 3);
     await fit(page, `${width}x${height}-decision`); await screenshot(page, `${width}x${height}-decision.png`);
     await click(page, "choice.act1.focus-mother");
     assert.equal(await page.locator('[data-jk-role="feedback"]').count(), 1);
@@ -110,10 +118,11 @@ try {
   // Native DOM fixture exercises renderer-only patches without altering game state.
   {
     const { ctx, page } = await context({ width: 390, height: 844 });
+    await click(page, "application.new-game");
     const results = await page.evaluate(async () => {
       const before = slice.app.getSnapshot(); slice.app.dispose();
       const { createDomRenderer } = await import('./src/ui/renderers/dom/dom-renderer.js');
-      const root = document.getElementById('app'), intents = [];
+      const root = document.getElementById('slice-root'), intents = [];
       const renderer = createDomRenderer({ root, document, onIntent: (intent) => intents.push(intent) });
       const base = { revision: 4, viewRevision: 7, presentation: { mode: 'reading', nodeId: 'fixture' }, scene: { speaker: 'แม่กบ', dialogue: 'น้ำไหวเบา ๆ ที่ปลายรากบัว' },
         settings: { fontScale: 1 }, meters: { hp: 80, sanity: 70 }, choices: [{ id: 'application.advance', label: 'อ่านต่อ' }, { id: 'application.settings', label: 'ตั้งค่า' }] };
@@ -138,7 +147,7 @@ try {
       window.fixtureRenderer = renderer; window.fixtureView = base;
       return { preserved, modalStable, announcements, intent: intents[0], before, after: slice.app.getSnapshot() };
     });
-    assert.ok(results.preserved); assert.ok(results.modalStable); assert.equal(results.announcements, 1); assert.equal(results.intent.viewRevision, 10); assert.deepEqual(results.after, results.before);
+    assert.ok(results.before); assert.ok(results.preserved); assert.ok(results.modalStable); assert.equal(results.announcements, 1); assert.equal(results.intent.viewRevision, 10); assert.deepEqual(results.after, results.before);
     evidence.nativePatch = results;
     await screenshot(page, "390-high-contrast.png");
     await page.emulateMedia({ forcedColors: "active" }); await screenshot(page, "390-forced-colors.png");
@@ -147,19 +156,41 @@ try {
     const colors = await page.evaluate(() => {
       fixtureRenderer.render({ ...fixtureView, notice: { text: 'บันทึกแล้ว' } });
       const style = (s) => getComputedStyle(document.querySelector(s));
-      const background = style('.jk-utility-rail').backgroundColor;
+      const background = style('.jk-header-bar').backgroundColor;
       return { colors: [[style('.jk-dialogue').color, style('.jk-narrative').backgroundColor], [style('.jk-save-status').color, background]],
         motion: style('.jk-choice-button').transitionDuration, hp: style('[data-jk-meter="hp"] .jk-meter-fill').backgroundColor, sanity: style('[data-jk-meter="sanity"] .jk-meter-fill').backgroundColor };
     });
     const lum = (color) => color.match(/[\d.]+/g).slice(0,3).map(Number).map((v) => v / 255).map((v) => v <= .04045 ? v / 12.92 : ((v+.055)/1.055)**2.4).reduce((sum,v,i) => sum+v*[.2126,.7152,.0722][i],0);
     evidence.contrastRatios = colors.colors.map(([f,b]) => (Math.max(lum(f),lum(b))+.05)/(Math.min(lum(f),lum(b))+.05));
     assert.ok(evidence.contrastRatios.every((ratio) => ratio >= 4.5)); assert.notEqual(colors.hp, colors.sanity); assert.equal(colors.motion, "0s");
-    await page.addStyleTag({ content: '.jk-hud { backdrop-filter:none; -webkit-backdrop-filter:none; background:var(--jk-glass); }' });
+    await page.addStyleTag({ content: '.jk-header-bar { backdrop-filter:none; -webkit-backdrop-filter:none; background:var(--jk-glass); }' });
     await screenshot(page, "390-glass-fallback.png");
+    await page.emulateMedia({ reducedMotion: "no-preference" });
+    const start = await page.evaluate(() => {
+      fixtureRenderer.render({ ...fixtureView, revision: 5, viewRevision: 20, notice: { kind: 'saved', text: 'บันทึกแล้ว' } });
+      window.transientNodes = { status: document.querySelector('.jk-save-status'), card: document.querySelector('.jk-narrative'), button: document.querySelector('[data-jk-action="advance"]') };
+      transientNodes.button.focus(); return { opacity: Number(getComputedStyle(transientNodes.status).opacity), display: getComputedStyle(transientNodes.status).display };
+    });
+    assert.notEqual(start.display, 'none');
+    await page.waitForTimeout(750);
+    const halfway = await page.evaluate(() => Number(getComputedStyle(transientNodes.status).opacity));
+    assert.ok(halfway > 0 && halfway < start.opacity);
+    await page.waitForTimeout(850);
+    const expired = await page.evaluate(() => {
+      fixtureRenderer.render({ ...fixtureView, revision: 5, viewRevision: 21, notice: { kind: 'saved', text: 'บันทึกแล้ว' }, audioStatusText: 'เสียงพร้อมแล้ว' });
+      return { display: getComputedStyle(transientNodes.status).display, focus: document.activeElement === transientNodes.button, sameCard: document.querySelector('.jk-narrative') === transientNodes.card };
+    });
+    assert.equal(expired.display, 'none'); assert.ok(expired.focus && expired.sameCard);
+    evidence.saveFade = { start, halfwayOpacity: halfway, expired, deadlineMs: 1500 };
+    await page.emulateMedia({ reducedMotion: "reduce" });
     await ctx.close();
   }
   for (const fault of ["image", "storage"]) {
     const { ctx, page } = await context({ width: 390, height: 844 }, fault);
+    if (!await choice(page, "application.new-game").count()) {
+      await screenshot(page, `390-${fault}-title-failure.png`);
+      evidence.faultDiagnostic = { fault, status: await page.evaluate(() => slice.app.getStatus()), body: await page.locator('body').innerText() };
+    }
     await click(page, "application.new-game");
     if (fault === "image") await choice(page, "application.retry-media").waitFor();
     else assert.match(await page.locator('.jk-save-status').textContent(), /หากปิด|ไม่ได้/);

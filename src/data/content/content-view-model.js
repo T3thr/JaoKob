@@ -17,7 +17,8 @@ export function projectContentView({ loaded, snapshot, facts, settings, notice, 
     scene: { title: messages.title, dialogue: messages.introduction },
     meters: { hp: snapshot?.metrics.hp ?? loaded.catalog.defaults.metrics.hp, sanity: snapshot?.metrics.sanity ?? loaded.catalog.defaults.metrics.sanity,
       bond: snapshot ? { state: "locked", label: messages.bondLocked, accessibleLabel: messages.bondLockedDescription, icons: ["lotus", "lock"] } : { state: "hidden" } },
-    choices, meterChanges: meterChanges.filter((change) => change.meter !== "bond").map((change) => ({ ...change })), notice: notice ? { title: messages.saveTitle, text: notice } : undefined,
+    choices, meterChanges: meterChanges.filter((change) => change.meter !== "bond").map((change) => ({ ...change })),
+    notice: notice ? { title: messages.saveTitle, text: notice, kind: notice === messages.saved ? "saved" : "attention" } : undefined,
   };
   const add = (id, label) => choices.push({ id, label });
   if (mode === "replace-confirmation") {
