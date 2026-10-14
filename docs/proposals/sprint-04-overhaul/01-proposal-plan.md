@@ -3,8 +3,8 @@
 | Document control | Value |
 |---|---|
 | Document / change | `JKB-PROP-S4-001` / [CR-0005](../../rfc/CR-0005-sprint-04-overhaul.md) |
-| Version / date | **0.2.0** / 2026-10-14, Asia/Bangkok — PO strategic pivot |
-| Status | **REVISED PROPOSAL — PO vision adopted; detailed contracts/WBS await review; production code unstarted** |
+| Version / date | **0.2.1** / 2026-10-14, Asia/Bangkok — Final PO Narrative & Pouch Impact Directive |
+| Status | **PO APPROVED MAIN DIRECTIONS; Final Directive incorporated; documentation ready for review/merge; production code unstarted** |
 | Author | Codex — Senior Technical Lead, Game Director, Principal UI/UX Architect |
 | Review PR / branch | [#12](https://github.com/T3thr/JaoKob/pull/12) → develop; `feat/sprint-04-overhaul-plan` |
 | Execution draft | [Sprint 4 SSOT](../../sprints/sprint-04-ssot.md) |
@@ -27,19 +27,28 @@ Visual Gate เริ่ม Scene 1–2 และ Scene 3 handoff แล้ว�
 
 Non-goals Sprint 4: production Act 2–5/Ending code, 3D viewer/library/runtime model promotion, combat, XP/level/equipment/rarity/crafting/currency/weight optimization หรือสถิติใหม่ที่ซับซ้อน, fourth ending, forced collection/completion, voice/TTS, full animated typewriter/auto-advance, login/backend/telemetry/CDN/deploy. HP/พลังใจ/Bond เดิมคงเป็นสามสัญญาณเล่าเรื่องอ่านง่ายเพื่อรักษา resolver; ไม่เพิ่ม combat stats หรือ item bonuses. การยกเลิกสาม meter/เปลี่ยน ending thresholds เป็นอีก design decision ไม่ได้อนุมานจากคำว่า “ตัดสถิติยุ่งยาก”.
 
-### 1.1 Revision history
+### 1.1 Final PO authority and narrative invariants
+
+PO ได้ตรวจและอนุมัติ **ทิศทางหลักของ v0.2.0** พร้อม Final PO Directive รอบนี้: เพิ่ม emotional depth ใน Act 3–4, เชื่อม HP/พลังใจกับร่างกบที่เปราะบางแต่มี agency, ใช้ของสะสมทั้งห้าชิ้นในยามโดดเดี่ยว, ร้อยภาพวัยเด็กไหมพรมสู่วัยโตเสื้อน้ำเงินหัวใจแดง และคง persona เด็กสาว. บันทึกอำนาจใน [Final PO record](../../changelog/2026-10/2026-10-14-2233-sprint-04-final-po-narrative-impact.md). การรับรองนี้เป็นการรับรองแผน/หลักการจากมนุษย์ ไม่ใช่การประกาศว่า sample prose, schema/asset ใหม่, implementation DoR หรือ merge ผ่านเอง.
+
+คง **5 องก์**, คำสอนแม่กบเรื่อง **รากบัวและกระแสน้ำ**, END-HOME / END-NEARBY / END-DAWN, Bond ที่ยุติธรรม, ไม่มี combat/สถิติซับซ้อน/achievement hunting. ไม่เพิ่มคะแนนความอดทน ความเจ็บ หรือจำนวนของ; การหยุดพัก/รักษาระยะ/ปล่อยวางมีศักดิ์ศรีเท่าการเดินต่อ. ระดับ HP/พลังใจและการเปิด Story Assist ไม่ใช้ตัดสินคุณค่าหรือเพิ่ม/ลดสิทธิ์ถึง Canon นอกกติกาเดิม.
+
+Sprint 4 ทำ Act 1 และ **design handoff ที่ลึกขึ้นสำหรับ Act 3–4/END-HOME**; Sprint 5 ลงเนื้อหา/runtime/Grand Keepsake จริง. Source/GDD/Narrative baseline/GLB ไม่แก้ในรอบเอกสารนี้. รายละเอียด contract/prose/asset เฉพาะงานยังตรวจตาม T0/T3/T7/T8 โดยไม่ให้ PO ต้องอนุมัติทิศทางหลักซ้ำ.
+
+### 1.2 Revision history
 
 | Version | Change |
 |---|---|
 | 0.1.0 | Original benchmark + non-diegetic two-doll viewer proposal; historical evidence retained |
-| **0.2.0** | **Supersedes Act 1 3D-viewer approach** with adventure items/state/limited slots, AI narrative assignment, optional vignettes and S4→S5 roadmap; revises D1–D7 and WBS |
+| 0.2.0 | Supersedes Act 1 3D-viewer approach with adventure items/state/limited slots, AI narrative assignment, optional vignettes and S4→S5 roadmap; revises D1–D7 and WBS |
+| **0.2.1** | Records PO approval of main directions; adds Act 3–4 drama/recovery/item-use pacing, fair Bond/girl persona constraints, sample epilogue and childhood→adult red-heart art handoff; contracts/WBS/source scope retained |
 
 ## 2. Current facts and confidence
 
 | Area | Verified fact | Consequence |
 |---|---|---|
 | Sprint 3 | [SSOT](../../sprints/sprint-03-ssot.md) has WBS 5/5 merged; UI/manual visual/device/AT gates remain open | Keep regression evidence; do not equate tests with artistic acceptance |
-| Planning regression | Prior run 691/691 at draft 0.1.0; current pivot rerun **691/691**, no fail/cancel/skip/todo, 35,118.220 ms | Tests cover unchanged runtime, not proposed Pouch/migration/new story |
+| Planning regression | Prior 0.1/0.2 regression retained; Final Directive rerun **691/691**, no fail/cancel/skip/todo, **26,196.327 ms** at d3e9f4d | Tests cover unchanged runtime, not proposed Pouch/migration/new story |
 | Browser/performance | [Retained evidence](../../../tests/e2e/evidence/sprint-03/visual-novel/README.md): Chromium journeys/screenshots and headless samples | Historical; not rerun for this documentation revision |
 | Existing leaf contract | `keepsake.lily_fragment` is irreversible historical “chose to keep” boolean; no held-item list in Save format 1 | Keep its meaning; new held inventory and memory ledger required for later release |
 | Existing migration | `content-2-0-0-to-2-1-0.js` proves presentation-only equality and rejects gameplay/text changes | New branching/item rewrite needs a new explicit migration design; cannot reuse its allowlist to ignore narrative differences |
@@ -246,7 +255,7 @@ Ending Nuances change authored image/prose/sound details in the **same three end
 
 After the story's consent/safety gates and symbolic transformation in `NAR-SC-A5-007-HOME`, present childhood crochet and adult velour as the **Grand Keepsake**, where the adventure meets the real gift. Reserve a calm epilogue composition and a deliberate reveal; models are not carried in Pouch or exposed to rotate during Act 1–4. The two versions are representations/editions in one Canon ending, not two new endings or an extra Bond tier.
 
-Sprint 4 produces handoff brief only. Sprint 5 decides exact presentation (poster first, optional interactive inspection after END-HOME), timing, localized description, art/rights and browser/memory fallback. `model-viewer` 4.4.0 remains the spike candidate, requiring a future production RFC/ADR and measured same-origin opt-in lifecycle if adopted. Existing `.blend`, GLB and optional `Accessory_RedHeart` stay unchanged. No model/vendor fetch or import is added to Sprint 4 runtime/distributable by this plan. Reflective endings show living frog and coherent item/memory nuances, without premature doll transformation.
+Sprint 4 produces the narrative/model handoff in §7.7 only, including the new red-heart embroidery requirement. Sprint 5 decides exact presentation (poster first, optional interactive inspection after END-HOME), timing, localized description, art/rights and browser/memory fallback. `model-viewer` 4.4.0 remains the spike candidate, requiring a future production RFC/ADR and measured same-origin opt-in lifecycle if adopted. Existing `.blend`, GLB and optional `Accessory_RedHeart` stay unchanged. No model/vendor fetch or import is added to Sprint 4 runtime/distributable by this plan. Reflective endings show living frog and coherent item/memory nuances, without premature doll transformation.
 
 ## 7. Tender & Heartcrafted Narrative assignment
 
@@ -280,14 +289,108 @@ AI is assigned to write fresh narration, dialogue, prompts, immediate feedback a
 | Existing scene | Revision purpose / Pouch placement |
 |---|---|
 | `NAR-SC-A1-001` opening | Sensory-first six-beat rhythm; life-stage correct; no early toy/ending reveal |
-| `NAR-SC-A1-002` nursery | Mother/siblings attachment + optional stone/shell encounters; one soft capacity tutorial; not mandatory full exploration |
+| `NAR-SC-A1-002` nursery | Mother/siblings attachment + optional stone/shell encounters; keep the root/current teaching in a short sensory action that later becomes a recovery callback; soft capacity tutorial, not mandatory full exploration |
 | `NAR-SC-A1-003` home focus | Retain three meaningful mother/roots/siblings directions; refine labels/tags/callbacks; not substitute a bag-management form for this choice |
 | `NAR-SC-A1-004` storm | Clear separation and no-blame line; holding more/fewer items cannot prevent storm or punish the player |
 | `NAR-SC-A1-005` survival | Gentle cue/confirmation for existing high-impact coping choices; no combat or complex numeric planning |
 | `NAR-SC-A1-006` leaf | Keep/let-go remains emotional centerpiece; reconcile legacy leaf history with new physical membership; optional rest offering/full-capacity choice |
-| `NAR-SC-A1-007` rest | Item-or-memory vignette with equal default; explicit act completion/checkpoint; preserve hope and seed Act 2 map |
+| `NAR-SC-A1-007` rest | Vulnerability plus a deliberate breath/rest action, item-or-memory vignette and equal no-item default; explicit completion/checkpoint; preserve hope and seed later city/cloth motifs without revealing a toy or human persona |
 
 Exact approved revision may add nodes/events and alter authored choices under CR-0005; do not label this optional cosmetic editing. Canon/life-stage/ending invariants remain; previous package is archived for legacy regression and migration. Item payload is not a hidden stat, and no vignette is sold as a mechanically optimal route.
+
+### 7.4 Act 3–4 emotional depth, pacing and metric consequence
+
+Act 3 ต้องให้ผู้เล่น **อยู่กับความเจ็บ ความกลัว และการตัดสินใจตั้งหลักของเจ้ากบ** ก่อนเข้าสู่ความเมตตาใน Act 4. ขยาย beat ภายใน/ระหว่าง canonical anchors เดิม; ไม่เพิ่มองก์ใหม่ ไม่รวมภัยหลายอย่างเป็น montage ที่ผ่านไปก่อนผู้อ่านรับรู้ และไม่ยืดด้วยคำบรรยายความเศร้าซ้ำ ๆ. ทุก threat sequence มี cue ที่เข้าใจได้ → choice → accepted consequence → bodily/inner response → agency/rest → small human/world observation. เป้าหมายแต่ละ sequence คือ 2–4 sensory beats และ 2–4 consequence/rest beats ตามความจำเป็น; เป็น authoring guide ไม่ใช่ timer/auto-advance หรือจำนวนบรรทัดบังคับ.
+
+| Canonical anchor / draft beat | Concrete experience and consequence | Vulnerability + agency | Recovery / bridge to Act 4 |
+|---|---|---|---|
+| A3-002/004 / wheels and hurried shoes | Rubber wheel passes close, ground tremor and air pressure; footsteps erase a quiet gap. Forewarn by shadow/vibration/sound with textual equivalent; approved route effects can reduce HP/พลังใจ | Small body flattens, breath briefly breaks; then watches another interval and chooses wait/sheltered passage. Fear is visible; resting is courageous action | Cool edge/shade and root-current memory. No direct collision/open wound; no reward for crossing recklessly |
+| A3-004/005 / hot concrete | Sun-heated paving stings a forefoot; dry heat and distance make progress costly. HP effect must match the authored safe route/cost, not a surprise loss for advancing text | Favoring a foot/shorter movement communicates physical strain; choose shade, pause or a signaled safer surface rather than silently enduring | Observable sheltered water/cool stone surface, accessible no-item rest. No collection-dependent healing |
+| A3-005/007 / discarded corner | Crumpled cup, brittle wrapper and a soft discarded thread dwarf the frog; objects human hands left behind make loneliness concrete | Protagonist examines safely, draws back from a sharp/hot edge and decides what to carry or release. Do not infer a stranger's malicious intent | Yarn/leaf/memory callback plus a small useful shelter; waste is a world detail, not a blanket moral judgment of humans |
+| A3-008/009 / exhaustion and near-collapse | Accepted low-HP/low-พลังใจ state gets readable posture, slowed breath/choice/rest cue, with original crisis/recovery policy | Trembling/hiding shows fragility; moving a little toward shelter or deliberately waiting shows determination. Do not label player/frog “weak” | A Pouch object can be looked at/held close or remembered; mother's root/current lesson becomes a way to attend to steady rhythm, not a ghost or cure |
+| A4-001/003 / inattentive city and quiet human acts | Repeated hurried feet contrast with an observable shared shade/food or someone leaving a small space. Allow attention before interpreting it | Frog still checks the ground/distance; does not become instantly fearless because one human is kind | Each observed gesture gets a reaction/pause beat before A4-004. Keep warm and indifferent human facets concrete; do not invent hidden backstories |
+| A4-004/006 / the girl’s repeated distance | Water placed at the same distance, warm cloth later, an open route back, then a step backward. Bond follows actual approved trust/consent actions | Approach now or wait both retain agency and a compensating safe path. Fear need not disappear for trust to grow | Girl acts, waits and remains discreet. One short situational line at most where needed; no biography, rescue speech or romantic exposition |
+
+**Metrics are facts, prose is their expression.** HP/พลังใจ decline only through reviewed deterministic choice/event effects; narration, opening Pouch, viewing/holding an item or an optional drama beat never writes a meter. Do not add negative deltas to every near-miss merely to make the frog pitiable. Each authored effect has a cause/cue, exact feedback and body/voice variant derived from the accepted snapshot. High-HP/Story Assist/default variants cannot describe a wound that did not occur; low-HP variants show fatigue/pain without graphic injury. `sanity` remains player-facing **พลังใจ**, not a psychiatric diagnosis or morality score.
+
+Keep `GDD-BAL-001..004/007/008`: safe onward path at each checkpoint, recovery within two main Decisions below30 unless a clearly warned crisis, unavoidable loss≤15 per meter between checkpoints, Bond recovery budget and Story Assist access unchanged. `GDD-SAFE-005`/`NAR-TONE-001` decompression follows intense content within five estimated play minutes; optional object scenes never hold all recovery hostage. Near wheels/hot surface/footsteps use existing animal-peril notice/reduced intensity/motion rules. Physical courage includes choosing rest and protecting a small body; it does not require taking more damage.
+
+### 7.5 Pouch use during loneliness — five-item continuity matrix
+
+Objects receive a **visible authored action**: lifting to look, holding close, testing a familiar texture or recalling its sound. No item is merely an icon shown once in a drawer. Variants use validated held/acquired/released/never-acquired state; if it is no longer held, neither prose nor illustration can place it in a hand. The physical object and remembered action can support equally complete emotional beats.
+
+| Object / anchor | Still held: concrete action | Released after acquisition: valued memory | Never acquired / absent default |
+|---|---|---|---|
+| เศษใบบัว (Leaf fragment) / A3-009 and A4-007 | Rest with leaf edge against body, turn toward its green/light; mother's root-current rhythm returns | Watch a ripple pass and remember the chosen moment of setting leaf down; leaving the object creates room while home's rhythm remains | Recall mother's teaching or siblings' swimming, with no leaf prop. Original early-release flag has its own variant, never falsely claims past possession |
+| หินประกายน้ำค้าง (Dew stone) / hot-concrete rest A3-005/008 | Turn cool stone in a forefoot and notice a small point of light; consented rest/shade remains the recovery source | Notice dew/light on a surface and remember the shared childhood observation; no stone drawn in Pouch/hand | Light in a puddle or a cool edge is enough to invite looking/rest. Same safe recovery opportunity; no magical HP restoration |
+| เปลือกเมล็ดบัว (Lotus shell) / A3-009 | Touch hollow shell lightly, observe a quiet pulse/sound that recalls siblings; text/visual equivalent works muted | Count a soft drop/ripple with the remembered rhythm; no shell sound claimed as an actual held prop | The family's swimming rhythm has already been established in Act1 and can be remembered without collecting the shell |
+| กลีบฝน (Rain petal) / A3-007 and A4-007 | Look at the small folded/dried petal, hold it close; rain becomes both difficult memory and a pause that can be chosen | Remember watching the petal move away, then allow the present rain to fall without following it. Release is deliberate care, not forgetting/failure | Rain against a sheltered edge provides a gentle present-tense grounding beat; no invented scent/item ownership |
+| ด้ายไหมพรมแดง (Red yarn) / A3-007/009 and A4-005 | Lay soft red strand against the body/forefoot, observe softness among hard surfaces; later notice cloth offered without a reaching hand | Recall the warmth of the texture while watching cloth remain at a respectful distance; a missed object cannot block learning softness | First human-material encounter may be observed without pickup; water/cloth offer supplies the same trust opportunity. Grand Keepsake heart is not unlocked by carrying yarn |
+
+Holding/looking is authored story presentation or a view-only interaction unless an approved story choice explicitly says otherwise; it adds no automatic HP/พลังใจ/Bond effect. Actual recovery uses the same approved rest/support action and a viable no-item path. Collect/release decisions retain their existing transaction meaning; no quest counter, trophy, “all five collected” screen or emotional quality ranking is added. A slot may be empty while the scene remains emotionally full.
+
+### 7.6 Additional sample prose — drama and quiet care
+
+**Draft for editorial review**, each row is a separate voiced/narrated unit under `NAR-DLG-001/004`; scene anchors are placement briefs, not new canonical IDs or effects. The words show an accepted body/inner state; they never authorize damage or imply an unchosen item.
+
+| Anchor / semantic role | Sample prose | Guard / purpose |
+|---|---|---|
+| A3-004 / narrator, near wheel | “ล้อสีดำเฉียดผ่านเงาที่เจ้ากบเพิ่งหลบเข้าไป พื้นสั่นจนขาเล็ก ๆ แนบต่ำลง แต่เมื่อแรงสั่นคลาย มันยังเงยขึ้นมองหาจังหวะที่จะไปต่อ” | Signaled near-miss, no collision; fragility and continuing agency in one action |
+| A3-004 / inner voice | “เรารอให้พื้นเงียบก่อนก็ได้ ยังไม่ต้องไปในจังหวะนี้” | First-person thought, not speech heard by humans; patience is not cowardice |
+| A3-005 / narrator, accepted physical strain | “ขาหน้าแตะพื้นแล้วหดกลับ ความร้อนยังอยู่ตรงปลายเท้า เจ้ากบค่อย ๆ ย้ายตัวเข้าเงาบางข้างก้อนปูน ก่อนลองวางน้ำหนักใหม่” | Low-HP/physical-strain variant only; rest option visible, no open injury |
+| A3-007 / narrator, discarded material | “ถ้วยกระดาษนอนตะแคงอยู่ตรงที่ไม่มีใครหยุดมอง เส้นสีแดงเส้นหนึ่งติดกับขอบมัน เจ้ากบแตะอย่างระวัง แล้วนิ่งฟังฝีเท้าคู่ถัดไปก่อนขยับ” | Safe material observation; no inference of a stranger's thoughts, no mandatory yarn pickup |
+| A3-009 / narrator, held leaf | “เจ้ากบประคองสีเขียวชิ้นเล็กไว้ใต้คาง ลมหายใจยังสั่นอยู่ แต่ระหว่างเสียงที่ผ่านไป มันเริ่มได้ยินหยดน้ำตกในจังหวะเดิม” | Held leaf required; comfort does not erase accepted strain or replace actual recovery |
+| A3-009 / narrator, released leaf memory | “วงน้ำพาเศษใบไปไกลตั้งแต่วันนั้น เจ้ากบยังจำจังหวะที่ยอมวางมันลงได้ และค่อย ๆ เว้นที่ให้ลมหายใจถัดไป” | Acquired then released, no physical leaf; letting go has equal care |
+| A3-009 / narrator, no-item default | “ไม่มีชิ้นใบบัวอยู่ใต้ตัว แต่คำของแม่ยังกลับมาในเสียงน้ำ เจ้ากบหยุดฟังจังหวะที่ไม่รีบ แล้วค่อยขยับเข้าไปในเงา” | Requires no collectible; keeps root/current teaching and a complete hopeful beat |
+| A4-003 / narrator, observed quiet kindness | “ข้างม้านั่งมีเศษอาหารวางพ้นทางเท้า มือคู่นั้นถอยกลับไปก่อน เจ้ากบมองอยู่พักหนึ่งแล้วจึงขยับ แม้ฝีเท้าที่ผ่านมาอีกคู่ยังทำให้มันสะดุ้ง” | Observe actual act, retain learned caution; no instant trust or invented biography |
+| A4-004 / narrator, girl's persona | “เด็กสาววางน้ำลงในระยะเดิม แล้วขยับถอยจนเงาของเธอพ้นถ้วย เจ้ากบยังเลือกได้ว่าจะออกมาในตอนนี้ หรือรอให้น้ำอยู่อย่างเงียบ ๆ อีกสักพัก” | Existing reveal/trust gate; no forced touch, personal lore or claim of her inner feelings |
+| A5-003/005 / narrator, open door | “ผ้าอุ่นอยู่ใกล้ชายประตู ทางกลับสวนยังเป็นช่องที่เจ้ากบมองเห็น เด็กสาวเว้นที่ไว้แล้วรอ โดยไม่เอื้อมมือเข้ามา” | Warm cloth/open exit and distance; safe-help consent remains a player choice |
+
+### 7.7 Childhood Crochet → Adult Velour → the real Grand Keepsake
+
+Preserve **two narrative layers**. Acts1–4 show the living tadpole→frog; fragile crochet/threads are sensory motifs and later retrospective representations of childhood. The frog is not literally a yarn doll during the adventure. **Only END-HOME after accepted safe help** permits symbolic transformation and the two-model memory-to-present reveal; no taxidermy/death/scientific mechanism or early model gallery. Recovered hurt belongs to remembered experience, not an unhealed graphic wound placed on a plush.
+
+| Stage / setup → payoff | Authored bridge / model direction |
+|---|---|
+| Act1 family/root/current lesson | Shared rhythms, blue identity and small objects establish an emotional childhood the player actually experienced; no doll body shown |
+| Act2–3 growth/alienation/red thread | Learning new limbs, hard surfaces and quiet softness gives meaning to perseverance; yarn may be seen, held or released without becoming a Canon key |
+| Act4–5 water/cloth/open door | Girl's repeated practical acts let softness become safe; she remains unnamed/discreet, without a savior biography or explanatory romance |
+| END-HOME retrospective | Childhood Crochet appears as a soft memory-form of the smallest days, with warm stitch language; optional childhood red-heart accessory stays an artistic motif, not a player's inventory or achievement |
+| END-HOME present Grand Keepsake | Transition to **Adult Velour Plush wearing a blue T-shirt embroidered with a small red heart**; texture/heart seam holds learned care and healed experiences. Mother/home memory remains; new warmth does not erase old home |
+| Real-life gift closure | One discreet epilogue link to the real frog plush held by the recipient; no account/name/photo/location input, no UI explanation that the girl represents the player's partner and no claim the game senses a real hug |
+
+**Asset honesty / S5 Art acceptance:** current [adult front render](../3d-keepsake-spike/renders/front.png) and source shirt mesh show a plain blue shirt; they do **not** yet contain the requested red-heart embroidery. T8 must hand off that concrete refinement (placement/shape/thread/material/scale and original design/provenance), with S5 export/hash/validation/device checks before delivery. This document changes no GLB/Blender source and does not claim the detail is already implemented. The final heart motif must be present for all eligible END-HOME routes, including empty/released Pouch; no “higher Bond” exclusive edition or fourth ending. Reflective endings retain the living frog.
+
+**Draft epilogue units, END-HOME only:**
+
+| Beat / role | Sample prose / presentation |
+|---|---|
+| HOME-1 / narrator after consent | “ฝนยังตกอยู่ แต่ทางกลับสวนยังมองเห็นจากผ้าอุ่น เจ้ากบวางตัวลงในที่ที่เลือกเอง ขณะที่เด็กสาวถอยไปพ้นขอบผ้า” |
+| HOME-2 / childhood memory-form | “แสงเหนือใบบัวค่อย ๆ กลับมาในเส้นไหมถักนุ่ม ๆ ความทรงจำของวันที่ตัวเล็กที่สุดยังมีจังหวะของแม่ว่ายอยู่ข้างกัน” |
+| HOME-3 / hurt and perseverance remembered, only with authored strain history | “รอยเจ็บที่ผ่านพ้นและคืนที่เคยหยุดพักฟังน้ำ ถูกเก็บไว้ในรอยเย็บเล็ก ๆ มันยังมีที่อยู่ แม้ร่างนุ่มนี้ไม่ต้องทนพื้นร้อนอีกแล้ว” |
+| HOME-3 default / no injury implied | “คืนที่เคยหยุดพักฟังน้ำและทางที่ค่อย ๆ เดินต่อ ถูกเก็บไว้ในรอยเย็บเล็ก ๆ ความเหนื่อยที่ผ่านพ้นยังมีที่อยู่ แม้ร่างนุ่มนี้จะได้พักแล้ว” |
+| HOME-4 / adult Grand Keepsake | “กำมะหยี่สีเขียวรับแสงอุ่น เสื้อยืดน้ำเงินโอบร่างไว้ และหัวใจแดงดวงเล็กถูกปักตรงอก ในรอยเย็บนั้นมีทั้งบ้านเก่าและมือที่วางผ้าแล้วถอยให้พื้นที่” |
+| HOME-5 / mother and girl, no added lore | “คำของแม่ยังอยู่กับจังหวะที่รอ ส่วนความเมตตาอีกคู่หนึ่งเว้นที่ให้เจ้ากบพัก โดยไม่ขอให้มันลืมสิ่งใด” |
+| HOME-6 / discreet real gift link | “เมื่อเรื่องเล่าค่อย ๆ เงียบลง ความนุ่มของเจ้ากบยังอยู่ในอ้อมแขนที่มีอยู่จริง รอยหัวใจแดงแนบกับผ้าอุ่น และจังหวะจากรากบัวเก่ายังเดินทางมาถึงตรงนี้” |
+
+The hurt-specific HOME-3 requires a reviewed authored strain/event history; otherwise use its default. Do not add a suffering statistic, infer a wound from an item count or give an undamaged/Story Assist route a worse epilogue. These are narration samples, not new girl's dialogue/backstory or final approved localization. Exact Thai edit, visual transitions and held-vs-memory nuances are reviewed in S5; warmth comes from the lived journey and consent rather than a paragraph explaining a symbolic transformation.
+
+### 7.8 Fair Bond and the girl's persona — review constraints
+
+Bond/resolver retains original thresholds/order/consent/compassion/repair and `GDD-BOND-006`, `GDD-BAL-004/006/007`. Item possession/count/secret completion, suffering amount, speed of choosing, cautious play, accessibility settings or a real person's identity cannot become a hidden moral score. For the same accepted metrics/trust flags, varying held/released/absent item presentation must produce the **same ending ID**; nuances only change the authored detail. Existing share-leaf choice must retain a viable equally respectful non-item expression/path and sufficient repair/recovery budget. Reflection endings are complete hopeful endings, not a judgment.
+
+**Expected ending truth table for review (design evidence, not newly executed Pouch tests):** every row is evaluated with held/empty/released/never-acquired Pouch and matched presentation/accessibility variants; only approved metrics/trust flags determine result.
+
+| Accepted snapshot | Expected resolver / equal item variants | Emotional/visual rule |
+|---|---|---|
+| HP80, พลังใจ70, Bond60, compassion=true, safe-help=true | END-HOME for every item variant | Complete gift/heart motif, no all-items gate |
+| Same trusted snapshot, Bond80 | END-HOME, no fourth/superior ending | Existing authored epilogue nuance may vary, never ranks the earlier HOME as incomplete |
+| HP1, พลังใจ1, Bond60, both trust flags=true | END-HOME under the same baseline HP/พลังใจ>0 rule | No suffering-based love score; appropriate body-history/default prose |
+| HP/พลังใจ>0, Bond60, compassion=true, safe-help=false | Existing repair opportunity first; declining without HOME conditions yields END-NEARBY | Respect hesitation/consent; item absence cannot remove repair |
+| HP/พลังใจ>0, Bond30, HOME conditions absent | END-NEARBY for every item variant | Living frog, safe hopeful closure, no bad-ending label |
+| HP/พลังใจ>0, Bond29, HOME conditions absent | END-DAWN for every item variant | Living frog, independent safety/hope, no shame or completion prompt |
+
+Girl persona remains `NAR-CHR-004/004-A`, `NAR-VOI-004`, `NAR-CON-004/006/007`: no name/bio/family/occupation/relationship exposition, speeches about love/rescuing or writing her thoughts as facts. She places water/cloth, leaves the doorway/path open, steps back and waits; any line is short, situational and describes what she will do. Before A4-004 no clear earlier reveal. The private gift's recipient understands her role without the story explaining it. No combat, complex new stats, trophies, rarity, achievement checklist or “collect all to deserve love”.
 
 ## 8. Phased roadmap and Act 2–5 narrative branching map
 
@@ -334,13 +437,13 @@ flowchart TD
 | Act / canonical anchors | Branch design / secret moment | Carry to next act |
 |---|---|---|
 | Act 2, `NAR-SC-A2-001..007` | Learn new body; observe then choose reeds/drain at A2-005; red-thread material at A2-006 is a proposed optional item, with no human identity disclosure | `route.city_entry`; Pouch/memory; both routes converge by A3-003 under `NAR-CON-003` |
-| Act 3, `NAR-SC-A3-001..010` | Roads/hunger are observation/patience/shelter choices; no fighting. Short shell/ripple vignette at recovery, with no-item rhythm default | Traffic/coping flags; bounded optional moments; decompression before Act 4 |
-| Act 4, `NAR-SC-A4-001..008` | Interpret kindness; clear girl reveal/Bond gate A4-004; accept water or wait, both get evidence of safety; optional leaf/thread reflection | Compassion/consent/trust flags; current physical items distinct from remembered items |
+| Act 3, `NAR-SC-A3-001..010` | Wheels/heat/hurried feet/discarded corner take separate cue→choice→consequence→agency/rest sequences (§7.4), with HP/พลังใจ expression and all-five held/released/absent callbacks (§7.5); no fighting | Traffic/coping flags; safe recovery, mother/root-current memory, bounded optional moments and decompression before Act 4 |
+| Act 4, `NAR-SC-A4-001..008` | Give each observed indifferent/kind human act a reaction/pause before A4-004; girl stays discreet and shows water/cloth/open route/step back; accept or wait with fair trust repair | Compassion/consent/trust flags, exact original Bond gate; held/remembered/default grounding supports learning, never forces gratitude |
 | Act 5, `NAR-SC-A5-001..006` + three A5-007 endpoints | Shared leaf requires held leaf; otherwise voice/distance/default route. Preserve existing repair opportunity; nuance slots draw from held/remembered/released choices | Exactly END-HOME / END-NEARBY / END-DAWN, warm complete variants for empty Pouch |
 
 Ending categories and resolver remain baseline: END-HOME when HP/Sanity>0, Bond≥60, compassion observed and safe help accepted; otherwise eligible Bond≥30 END-NEARBY, and Bond<30 END-DAWN. Existing repair rule (`GDD-END-006`) remains; item collection/completed-vignette count cannot substitute for trust or become an additional ending gate. Any later metric/resolver redesign is a separate explicit decision.
 
-**S4 handoff DoD:** per-act spine/choices/convergence, proposed item/vignette registry, holding-vs-memory guards, default text briefs, notice/checkpoint locations, rough pacing, cross-act save/capability concerns and three-ending nuance matrix reviewed. **S5 work:** turn map into validated content/media/runtime capabilities and test all actual branches/endings, then integrate Grand Keepsake through a separately approved runtime/art/device contract.
+**S4 handoff DoD:** per-act spine/choices/convergence plus Act3–4 threat→metric consequence→body/inner response→agency→decompression matrix, five-item held/released/absent uses, root/current continuity, restrained girl persona, pacing/notice/checkpoint/defaults, fair three-ending nuance truth table and childhood→adult blue-shirt/red-heart model gap brief reviewed. No later-act runtime pass is inferred from this map. **S5 work:** turn map into validated content/media/runtime capabilities and test all actual branches/endings, then integrate Grand Keepsake through a separately approved runtime/art/device contract.
 
 ## 9. Architecture, versions, migration and rollback
 
@@ -403,4 +506,4 @@ Documentation rollback: reviewed revert of this revision only. Future runtime ro
 | D6 | Both 3D editions as END-HOME Grand Keepsake in Act 5/S5; none in adventure Pouch | Placement explicit; presentation/library/rights/device contracts deferred to S5 |
 | D7 | Phased visual/Pouch/narrative/graph/save/manual acceptance with legacy/new suites separated | Evidence/device/review schedule pending; no code/merge/deploy in current round |
 
-Plan revision adopts PO's strategy and removes prior non-diegetic Act 1 toy/3D-viewer scope. Final contracts and source work remain unapproved until the relevant DoR; this is not a request to reconfirm the already-issued vision.
+PO approved v0.2.0 main directions and issued the Final Narrative & Pouch Impact Directive incorporated in v0.2.1. D2/D4/D6/D7 incorporate the emotional/pouch/gift/persona constraints in §§7.4–7.8. Documentation is ready for human review/merge; production contracts, authored assets/prose and source work still meet per-task DoR. No main-direction reconfirmation is requested.

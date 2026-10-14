@@ -6,7 +6,7 @@
 
 | รหัสเอกสาร | ชื่อข้อเสนอ | ผู้จัดทำ | สถานะ | ลิงก์เอกสาร |
 |---|---|---|---|---|
-| **JKB-PROP-S4-001 / CR-0005** | Sprint 4: Visual, Narrative & Interactive Overhaul | Codex / Technical Lead, Game Director, UI/UX Architect | Revised v0.2.0 per PO Directive: Adventure Keepsake Pouch/Act 1; production WBS 0/12 | [Proposal plan](sprint-04-overhaul/01-proposal-plan.md), [draft SSOT](../sprints/sprint-04-ssot.md) |
+| **JKB-PROP-S4-001 / CR-0005** | Sprint 4: Visual, Narrative & Interactive Overhaul | Codex / Technical Lead, Game Director, UI/UX Architect | v0.2.1: PO-endorsed directions/final emotional-impact principles; documentation review/merge pending, source WBS0/12 | [Proposal plan](sprint-04-overhaul/01-proposal-plan.md), [draft SSOT](../sprints/sprint-04-ssot.md) |
 | **JKB-PROP-P2-001** | Phase 2 Architecture & Design Proposal: Interactive Light Novel RPG Transformation & Customization Asset Pipeline | Tech Lead (Gemini 3.8 Flash) | Archived proposal; [CR-0003 APPROVED](../rfc/CR-0003-interactive-light-novel-presentation.md), 2026-09-07 | [01-visual-novel-transformation-tech-lead-proposal.md](phase-02-visual-novel-architecture/01-visual-novel-transformation-tech-lead-proposal.md) |
 | **CR-0004** | Adult Plush & Childhood Crochet Keepsakes | Codex | Milestones 1 and 1B technically verified; owner art review and production integration deferred | [Models, local viewer and instructions](3d-keepsake-spike/README.md) |
 

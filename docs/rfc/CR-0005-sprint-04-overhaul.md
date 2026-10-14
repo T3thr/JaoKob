@@ -2,13 +2,13 @@
 
 | Control | Value |
 |---|---|
-| Version / date | **0.2.0** / 2026-10-14, Asia/Bangkok — PO Directive revision |
-| Status | **PO STRATEGY ADOPTED; detailed design PROPOSED; production implementation unstarted** |
+| Version / date | **0.2.1** / 2026-10-14, Asia/Bangkok — Final PO Narrative & Pouch Impact Directive |
+| Status | **PO APPROVED MAIN DIRECTIONS AND FINAL NARRATIVE PRINCIPLES; documentation review/merge pending; production implementation unstarted** |
 | Author | Codex / Senior Technical Lead, Game Director, Principal UI/UX Architect |
 | Scope | S4 UI/Log/durable Pouch/Act 1 rewrite + Secret Moments/Act 2–5 map; S5 content/three endings/Grand Keepsake |
 | Change class | C2 branch/choice/presentation; C3 inventory/save/checkpoint/content contract compatibility |
-| Sources | [Proposal v0.2.0](../proposals/sprint-04-overhaul/01-proposal-plan.md), [revised SSOT](../sprints/sprint-04-ssot.md), [Sprint 3](../sprints/sprint-03-ssot.md) |
-| Review | [Draft PR #12](https://github.com/T3thr/JaoKob/pull/12), branch `feat/sprint-04-overhaul-plan` |
+| Sources | [Proposal v0.2.1](../proposals/sprint-04-overhaul/01-proposal-plan.md), [revised SSOT](../sprints/sprint-04-ssot.md), [Sprint 3](../sprints/sprint-03-ssot.md) |
+| Review | [PR #12](https://github.com/T3thr/JaoKob/pull/12), branch `feat/sprint-04-overhaul-plan` |
 
 ## 1. Authority, context and revision
 
@@ -17,6 +17,12 @@ Current PO Directive explicitly replaces adventure-time doll inspection with an 
 This supersedes v0.1.0's non-diegetic Act 1 two-doll viewer, presentation-only save plan and optional narrow editorial approach. Those directions are historical, not alternative current S4 requirements. The new vision and writing assignment are already issued by PO; they do not require reconfirmation. Exact schemas/slot value/guards/migration/approved prose and runtime integration still need the appropriate detailed review/DoR.
 
 Baseline inspected: develop `e9803397587bb3ec8f2a61a87966d382277a96fc`, with [PR #11](https://github.com/T3thr/JaoKob/pull/11) merged 2026-10-14; planning branch `9a08d0b` includes it. Spike models remain isolated artifacts; accepted ADR-P0-016/017 do not approve a production viewer. Sprint 3 remains functional baseline with 691 tests and historical Chromium evidence; final visual/manual gates stay open.
+
+### 1.1 Final PO endorsement — v0.2.1
+
+PO explicitly endorses v0.2.0 main directions after reviewing structure/tree/Sprint plan and issues the final narrative refinement before approving documentation merge. Record: [Final PO approval](../changelog/2026-10/2026-10-14-2233-sprint-04-final-po-narrative-impact.md). Endorsement covers five-act philosophy, mother/root/current continuity, fair three-ending Bond system, increased Act3–4 drama, meaningful held/released/absent Pouch use, childhood-crochet→adult-blue-shirt/red-heart Grand Keepsake and the girl's reserved practical kindness.
+
+This is actual human direction/endorsement, not author self-approval. It does not claim sample prose is final Canon, new schemas/GLBs/implementation tests exist or a merge has occurred. Exact task fixtures/contracts/accepted editorial/assets remain implementation gates; the approved strategy is not sent back for reconfirmation.
 
 ## 2. Goals, boundary and protected Canon
 
@@ -30,13 +36,13 @@ S4 non-goals: production Act 2–5/ending code, model viewer/WebGL/vendor/model 
 
 | Decision | PO-issued direction | Recommended detailed design / alternatives | Status and review owner |
 |---|---|---|---|
-| **D1 — Phased scope and capacity** | S4 UI/Log/Pouch/Act 1/Act 2–5 map; S5 Act 2–5; capacity3–4 | Proposed default **3 slots**, no stacks or upgrade; 4 is allowed if fixed before implementation. Twelve WBS tasks, revised effort/gates | Strategic scope/range adopted; exact 3/plan sizing pending PO+Game Design+QA |
-| **D2 — Narrative authorship and simplicity** | AI permitted and assigned warm/tender Act 1 rewrite, understandable branches, no combat/complex added stats, three endings | Concrete sensory actions/quiet kindness, 2–3 choices, short optional moments with convergence; exact prose/IDs/effects/guards reviewed as authored scene diff | Assignment adopted; final Narrative/Game Design/PO editorial acceptance pending |
+| **D1 — Phased scope and capacity** | S4 UI/Log/Pouch/Act 1/Act 2–5 map; S5 Act 2–5; capacity3–4 | Proposed default **3 slots**, no stacks or upgrade; 4 is allowed if fixed before implementation. Twelve WBS tasks, revised effort/gates | Main scope/range endorsed by PO; task-level exact capacity/fixtures/profile ratified in T0 |
+| **D2 — Narrative authorship and simplicity** | AI assigned tender Act1 plus slower Act3–4 threat/consequence/rest, mother/root/current, reserved girl, fair three endings; no combat/complex stats/achievement hunting | Concrete sensory actions/quiet kindness, 2–3 choices, short optional moments with convergence; exact prose/IDs/effects/guards reviewed as authored scene diff | PO endorses assignment and final drama/persona principles; exact scene prose/guards reviewed in T7/T8 |
 | **D3 — Dialogue History** | Build Dialogue History in S4 | Retain session-only ≥50 dialogues+50 committed actions including acquire/release/replace; current-page reload notice. Durable transcript alternative requires separate store/migration/budget | Technical policy proposed, PO+Narrative+Architect review; Pouch persistence is separate |
-| **D4 — Objects, memory and extra scenes** | Adventure objects, capacity choices, Secret Moments and Ending Nuances | `heldItemIds` vs acquired/released memory; authored atomic replace/cancel; optional secret eligibility; held props vs memory-only variants; no item required for Canon | Feature vision adopted; exact object/vignette registry and baseline callback clarification pending Game Design+Narrative+PO |
-| **D5 — Core/save/schema compatibility** | Pouch has gameplay state; content changes in Act 1 | Proposed package/shared/tree schema 2.0, content 3.0, saveFormatVersion 2; pure item/condition/effect/cursor contracts, inventory in checkpoint, explicit legacy migration. Format1 sidecar alternative risks torn state/retry inconsistency | Recommended versioned domain-save approach proposed; Architect+Game Design+QA sign-off required; no S4 runtime library exception |
-| **D6 — END-HOME Grand Keepsake** | Childhood crochet/adult velour presented elegantly in Act 5 END-HOME | S4 brief only; S5 epilogue reveal/edition framing, static fallback and optional post-ending inspection. Future production dependency/rights/device contract separate | Placement adopted; exact S5 visual/API/library approval deferred; no dolls in Pouch |
-| **D7 — Quality and phased execution** | Review revised plan before code; prepare S5 handoff | Separate legacy/new graph suites; capacity/release/secret/no-item/migration/retry/fault tests, manual art/Thai/AT/device review, per-phase gates | Test/profile/reviewer schedule pending QA+Accessibility+PO/Architect; source work unstarted |
+| **D4 — Objects, memory and extra scenes** | Adventure objects actively looked at/held/remembered during loneliness; valued keeping/release, Secret Moments and Ending Nuances | `heldItemIds` vs acquired/released memory; authored atomic replace/cancel; optional secret eligibility; held props vs memory-only variants; no item required for Canon | PO endorses meaningful use/keeping/letting-go; exact held/memory/default/registry/effect consistency reviewed per task |
+| **D5 — Core/save/schema compatibility** | Pouch has gameplay state; content changes in Act 1 | Proposed package/shared/tree schema 2.0, content 3.0, saveFormatVersion 2; pure item/condition/effect/cursor contracts, inventory in checkpoint, explicit legacy migration. Format1 sidecar alternative risks torn state/retry inconsistency | Main versioned Pouch direction endorsed; exact published schema/cursor/migration fixtures require Architect+QA verification; no S4 library exception |
+| **D6 — END-HOME Grand Keepsake** | Childhood crochet→adult velour, blue T-shirt/red-heart embroidery, real-gift resonance in Act5 END-HOME | S4 brief only; S5 epilogue reveal/edition framing, static fallback and optional post-ending inspection. Future production dependency/rights/device contract separate | PO endorses END-HOME placement, childhood→adult bridge and red-heart blue-shirt brief; current adult mesh lacks heart, S5 Art/export/runtime gates remain |
+| **D7 — Quality and phased execution** | Review revised plan before code; prepare S5 handoff | Separate legacy/new graph suites; capacity/release/secret/no-item/migration/retry/fault tests, manual art/Thai/AT/device review, per-phase gates | PO endorses final narrative/fairness acceptance; exact evidence/device/fixture gates remain; documentation review/merge awaits human, source 0/12 |
 
 The table records actual direction without marking the entire RFC or any new FR/ADR Approved. Architectural choices become a new ADR after owner acceptance; no historical ADR rationale is rewritten. T0 handles GDD/SRS/Narrative contract amendments before code, rather than reading proposal strings as new executable authority.
 
@@ -67,6 +73,16 @@ Act 2–5 draft map grounds major branches in Bible scene IDs: reeds/drain conve
 Act 1 candidate objects: leaf fragment, dew stone, lotus shell, rain petal; full capacity/release can be tested at a late safe rest. Red yarn is a proposed Act 2/3 object to preserve A2-006 first-human-material continuity. AI may draft alternatives under assignment; exact scene placement and final IDs are reviewed before content integration.
 
 Models move entirely to Act 5 END-HOME/S5, after symbolic transformation and existing consent gate. Both editions are one Canon ending's Grand Keepsake representations, not extra endings or carried dolls. No viewer port/vendor/GLB request/runtime dependency is part of S4. Future use of pinned spike model-viewer requires new production RFC/ADR, same-origin resources, poster fallback, rights and device checks; placing models in the roadmap does not adopt that library now.
+
+### 4.5 Final emotional/pouch/persona contract
+
+Act3–4 map slows each concrete wheel/heat/hurried-foot/discarded-object encounter into cue→choice→accepted HP/พลังใจ consequence→body/inner response→agency/rest→observation, with high/low/default/Story Assist variants. Drama cannot create a new forced damage tax, combat, hidden courage/suffering score or achievement. Preserve GDD-BAL-001..004/007/008 and decompression under GDD-SAFE-005/NAR-TONE-001. Express vulnerability through a small body, interrupted breath/guarded posture and deliberate safe action; choosing rest is bravery too. Avoid graphic collision/wounds and any assertion that all humans are cruel.
+
+Leaf/dew stone/lotus shell/rain petal/red yarn each have a held action, a remembered released variant and a never-acquired default in [proposal §§7.4–7.8](../proposals/sprint-04-overhaul/01-proposal-plan.md#74-act-34-emotional-depth-pacing-and-metric-consequence). No released prop is shown physically; memory comforts without automatically awarding HP/พลังใจ/Bond, and the same viable recovery/trust path exists without an item.
+
+Bond remains original thresholds/order/consent/repair. For equal accepted metrics/trust flags, item/secret/strain/accessibility presentation variants yield the same ending ID; nuances stay within HOME/NEARBY/DAWN. No collection-based love ranking or penalty for cautious boundaries; preserve compensating trust opportunity/budget. The girl's unchanged persona is water, warm cloth, open return route, step back and waiting; no personal lore/name/romantic exposition/rescue monologue or narrated inner intention. Mother teachings remain memory, never a ghost or confirmed family death.
+
+Grand Keepsake appears only after END-HOME safe-help/symbolic transformation. Living tadpole→frog remains literal in Acts1–4; childhood yarn form is an epilogue memory representation, then adult velour/blue shirt/red-heart stitch and discreet real-gift closing narration. The same full emotional HOME closure/heart motif exists for empty/released Pouch and eligible non-max-Bond/Story Assist paths. Existing adult render has plain blue shirt: record S5 red-heart embroidery art/export/validation work, not completion or a GLB change now. No fourth ending or new girl's biography is created.
 
 ## 5. Impact and versioned contracts
 
@@ -109,12 +125,13 @@ Rollout: T0 accepted detailed contracts → T1 styles → T2 renderer → T3 ver
 
 | Item | Disposition |
 |---|---|
-| PO vision/pouch3–4/AI authorship/S4–S5/Grand Keepsake placement | **Explicit direction received** from current PO Directive, recorded in revised plan |
+| Main v0.2.0 strategy / Final v0.2.1 narrative principles | **Explicit PO endorsement received** in current message; final drama/Pouch/gift/fair Bond/girl constraints recorded and ready for documentation review |
 | Exact default 3, item registry/guards, final narrative graph/prose, version/migration/callback edits | Proposed implementation detail; domain owners review T0/T3/T7 |
 | Session Log reload policy/profile/manual schedule | Pending detailed review, not a blocker to preparing the requested documents |
 | ADR-P0-014/015 baseline | Retained; new inventory/save/cursor ADR required before code; approved deviations documented prospectively |
 | ADR-P0-016/017 spike | Retained historically; production3D consideration deferred to S5 |
 | S4 source DoR/WBS | Unstarted **0/12**, not authorized by document revision/commit |
-| Merge/release/deployment | Not requested or performed |
+| Documentation merge | PR #12 prepared for PO review/merge; **not executed by agent** |
+| Source/release/deployment | Not authorized or performed in this documentation round |
 
-v0.2.0 supersedes v0.1.0 proposed Act 1 viewer and save-no-change design, not accepted baseline history. No new requirement/canon/ADR is self-approved. Final plan is concrete for PO review without asking PO to repeat the strategy already given.
+v0.2.1 supplements the PO-endorsed v0.2.0 plan with final narrative/Pouch impact acceptance; v0.2.0 supersedes v0.1.0 proposed viewer/save-no-change design. Neither rewrites accepted baseline history. No new requirement/canon/ADR is self-approved. Final plan is concrete for PO review without asking PO to repeat the strategy already given.

@@ -3,12 +3,12 @@
 | Document control | Value |
 |---|---|
 | Sprint / document | `SPRINT-04` / `JKB-SPRINT-04-SSOT` |
-| Version / date | **0.2.0** / 2026-10-14, Asia/Bangkok — PO Directive revision |
-| Status | **REVISED PROPOSAL — PO strategy adopted; implementation 0/12; detailed DoR open** |
-| Authority | Current PO Directive authorizes these documents/commit and assigns AI narrative refinement; source code awaits reviewed plan |
+| Version / date | **0.2.1** / 2026-10-14, Asia/Bangkok — Final PO Narrative & Pouch Impact Directive |
+| Status | **PO APPROVED MAIN DIRECTIONS; Final Directive incorporated; implementation 0/12; per-task DoR remains open** |
+| Authority | PO endorsed v0.2.0 main directions and issued Final v0.2.1 Narrative & Pouch Impact Directive; exact commit/push requested; human documentation merge and per-task source DoR remain separate |
 | Integrated baseline | `develop@e9803397587bb3ec8f2a61a87966d382277a96fc`; current branch includes develop via `9a08d0b` |
-| Review branch / PR | `feat/sprint-04-overhaul-plan` / [Draft PR #12](https://github.com/T3thr/JaoKob/pull/12) → develop |
-| Proposal / RFC | [JKB-PROP-S4-001 v0.2.0](../proposals/sprint-04-overhaul/01-proposal-plan.md) / [CR-0005 v0.2.0](../rfc/CR-0005-sprint-04-overhaul.md) |
+| Review branch / PR | `feat/sprint-04-overhaul-plan` / [PR #12](https://github.com/T3thr/JaoKob/pull/12) → develop |
+| Proposal / RFC | [JKB-PROP-S4-001 v0.2.1](../proposals/sprint-04-overhaul/01-proposal-plan.md) / [CR-0005 v0.2.1](../rfc/CR-0005-sprint-04-overhaul.md) |
 | Models | [PR #11](https://github.com/T3thr/JaoKob/pull/11) MERGED at `e980339`; future **S5 END-HOME Grand Keepsake**, not S4 Pouch dependency |
 | Owners | PO, Technical Lead/Architect, Core/Application/Data/UI, Narrative/Game Design, Art, Accessibility, QA/DevOps |
 
@@ -23,13 +23,19 @@
 
 Visual review starts Scene 1–3 then applies style across Act 1; writing/Pouch scope is not limited to that benchmark. Original14 nodes/21 edges/12 outcomes are **legacy content 2.1 witnesses**; new graph counts come from reviewed T7. Three original mother/roots/siblings directions retain their emotional identity; new Pouch choices supplement them.
 
-No combat/XP/level/equipment/rarity/crafting/currency/weight optimization or complex new stat system. HP/พลังใจ/Bond remain three readable narrative signals and existing resolver inputs unless separately redesigned; no item stat bonuses. Retain late Bond/girl reveal, non-blaming storm, player agency, three END-HOME/NEARBY/DAWN categories and transformation only after HOME consent gate. Nuances are not new endings or mandatory collection objectives.
+No combat/XP/level/equipment/rarity/crafting/currency/weight optimization, complex new stat system or achievement hunting. HP/พลังใจ/Bond remain three readable narrative signals and existing resolver inputs unless separately redesigned; no item stat bonuses. Retain late Bond/girl reveal, non-blaming storm, player agency, three END-HOME/NEARBY/DAWN categories and transformation only after HOME consent gate. Nuances are not new endings or mandatory collection objectives.
 
 S4 non-goals: production Act 2–5/ending code, 3D renderer/library/model/vendor promotion, fourth ending, full-seven-scene new media production, persistent exact transcript, animated typewriter/auto-advance/voice/TTS, new locales, Login/backend/telemetry/CDN/deploy. Models/spike source remain untouched.
 
 ### 1.1 Revision authority
 
 v0.2.0 replaces v0.1.0 Act 1 non-diegetic doll viewer, presentation-only save assumptions and limited/optional editorial scope. PO direction and AI writing assignment are explicit; no repeat approval of that direction is requested. Exact capacity, item/vignette registry, guards/contract/version/migration and final prose/assets still require task-level sign-off. Source work remains unstarted.
+
+### 1.2 Final PO endorsement and emotional impact
+
+[Final PO record](../changelog/2026-10/2026-10-14-2233-sprint-04-final-po-narrative-impact.md) confirms approval of v0.2.0 main direction and mandates v0.2.1 refinement. Keep 5 acts/mother/root/current philosophy and the fair Bond-based HOME/NEARBY/DAWN resolver. T7 seeds lived childhood attachment and vulnerability/agency; T8 deepens Act3–4 drama, actual metric consequences and decompression, meaningful five-item held/released/absent comfort and the yarn→velour/blue-shirt/red-heart END-HOME handoff. Girl remains discreet, short-spoken and defined by water/cloth/open route/step back, without invented biography.
+
+Approved plan direction does not assert that proposed prose is final Canon, new inventory/schema/migration are implemented, adult red-heart embroidery exists or a merge has happened. Current adult spike shirt is plain; S5 Art refinement and code/device/export checks remain delivery work. The new Act3–4 content/model work is **S5 runtime**; this S4 revision requires a reviewable map/brief, not later-act implementation. No main-direction reconfirmation is requested.
 
 ## 2. Traceability matrix
 
@@ -41,16 +47,16 @@ v0.2.0 replaces v0.1.0 Act 1 non-diegetic doll viewer, presentation-only save as
 | `GDD-UX-001..005/007`, `FR-UI-002/003/005/007`, `GDD-BOND-005` | Title/Reading/Decision, frosted HUD/paper card, visible save/error/feedback, three home choices, locked no-number Bond | T1/T2/T9/T10 | `TC-S4-VIS-001`, `TC-S4-STATUS-001`, `TC-S4-CHOICE-001` |
 | `FR-ENG-009`, `GDD-UX-006`, log part of `FR-UI-004`, D3 | ≥50 dialogue+50 committed actions; session-only reload notice, read-only modal | T6 history reducer/projector/dialog | `TC-S4-LOG-001/002` |
 | **CR-0005 D1/D4**, `GDD-PROG-001/002`, `GDD-CHO-002/003` | 3–4 slots; held/acquired/released distinction; full/refuse/cancel/atomic replace; no item score/combat/collection gate | T0/T3/T4/T5; proposed new item registry/core/UI | `TC-S4-POUCH-001/002` |
-| **CR-0005 D2/D4**, `GDD-CONT-001..004`, `NAR-DLG-001..005`, `NAR-TONE-001`, `NAR-CON-001/002/003/004/005/006/007/010` | AI assignment for tender Act 1; simple optional branches; held props vs memory/default continuity; scope-safe Act 2–5 map | T7/T8 Narrative/Map | `TC-S4-NARRATIVE-001`, `TC-S4-GRAPH-001`, `TC-S4-MAP-001` |
+| **CR-0005 D2/D4 Final PO**, `GDD-CONT-001..004`, `NAR-DLG-001..005`, `NAR-TONE-001`, `NAR-THM-001/002/003/004/005`, `NAR-CON-001/002/003/004/005/006/007/010` | Tender childhood/root-current setup; Act3–4 threat/HP/พลังใจ/body/agency/rest; five-item held/memory/default uses and simple convergent map | T7/T8 Narrative/Map | `TC-S4-NARRATIVE-001`, `TC-S4-EMOTION-001`, `TC-S4-GRAPH-001`, `TC-S4-MAP-001` |
 | `GDD-DEC-A1-002-A/B`, `GDD-DEC-A5-001-B`, `NAR-MTX-END-001`, **D4/D5** | Preserve legacy flag meaning; explicit held guard for physical leaf/share; released/default alternatives | T0/T3/T7 callback amendments | `TC-S4-CALLBACK-001`, leaf migration/empty-Pouch routes |
-| `GDD-END-004/005/006`, `NAR-CON-007/009`, **D6** | Same3 ending categories/resolver/repair; future Grand Keepsake only END-HOME | T8 S5 map/ending nuance brief | `TC-S4-MAP-001`; no S4 production ending pass claimed |
+| `GDD-END-004/005/006`, `GDD-BOND-006`, `GDD-BAL-004/006/007`, `NAR-CON-007/009`, **D6 Final PO** | Fair same-three-ending resolver/repair; no item/suffering/accessibility bias; childhood→adult red-heart Grand Keepsake only after HOME | T8 S5 map/ending/model-gap brief | `TC-S4-FAIR-001`, `TC-S4-GIFT-001`, `TC-S4-MAP-001`; no S4 ending runtime pass |
 | `FR-CNT-001/002/004/005/006`, `FR-LOC-001/003`, **D5** | Versioned strict item/condition/effect/cursor content and visual catalog, locale/refs/rights | T3/T7/T9 validators/fixtures/provenance | `TC-S4-CONTRACT-001`, `TC-S4-ASSET-001` |
 | `FR-SAV-001/003/004/005/006/007/009`, `GDD-PROG-003`, **D5** | Inventory/memory/secret completion in save+checkpoint; pure exact migration, retry and backup/write guards | T3/T4/T10 persistence/migration | `TC-S4-SAVE-001/002`, `TC-S4-RETRY-001` |
 | `FR-ACC-001..004`, `GDD-ACC-001..005/008/010`, `NFR-US-003/004/005/006`, `NFR-PO-002/004` | Keyboard/touch, focus/inert modal, Thai zoom/reflow, high contrast/reduced motion/root+subpath | T1/T2/T5/T6/T9/T11 | `TC-S4-A11Y-001`, manual device/AT |
 | `NFR-PE-001..005`, `NAR-IP-003/004` | Bounded item/log/asset/save data,2D-only S4 network, licensed original art | T3/T9/T11 | `TC-S4-PERF-001`, `TC-S4-ASSET-001` |
 | `FR-ENG-001/002/003/008`, meter/flag/checkpoint invariants | Legacy691 cases equivalent; new actions correctly mutate only approved domain fields; overlay-only intent preserves state | T4/T10/T11 | Legacy suite + `TC-S4-STATE-001`, `TC-S4-E2E-001` |
 
-Actual implementation PR links are added per task after delivery; no new FR/ADR/Canon is self-approved. Exact baseline amendments for inventory/memory/cursor and GDD progression teaching are T0 design artifacts, not unstated exceptions.
+Actual implementation PR links are added per task after delivery; PO main-direction/final-principle approval is recorded, while no new FR/ADR/sample prose is self-approved as implemented/final Canon. Exact baseline amendments for inventory/memory/cursor and GDD progression teaching are T0 design artifacts, not unstated exceptions.
 
 ## 3. Architecture and contract baseline
 
@@ -98,9 +104,37 @@ Priority: **approved contracts/legacy proof → UI Styles → DOM Renderer → P
 
   Owner AI Narrative author + Lead Narrative; PO/Game Design/Architect/Art/QA review. Files: approved baseline narrative amendments, versioned Act 1 content/package/choice/flag/item/vignette records, localization, graph expectations/candidate catalog and provenance. AC: **new/refined prose across all seven scenes**, fresh meaningful prompts/feedback/choices, original three home directions;4 proposed item opportunities (5 if capacity4 is ratified to exercise a real full-pouch choice) and2–3 optional moments sized/ratified; full capacity choice; no-blame storm/decompression; held/memory/default callbacks and fixed convergence; no combat/stat complexity/fourth ending/collect-all gate. Final human Thai editorial and exact IDs/guards/effects/graph/version/migration map reviewed; new IDs never repurpose old meaning. `TC-S4-NARRATIVE-001`, `TC-S4-GRAPH-001`, `TC-S4-CALLBACK-001`. Legacy2.1 source kept; no “no prose edit to avoid migration” substitute for this deliverable.
 
+  **Final Directive AC — T7 (Act1 source scope):**
+
+  **T7-AC-01:** Mother/root/current teaching stays concise and sensorial; at least one lived family action and each approved Act1 item opportunity provide an identifiable setup for later memory callbacks. Mother is remembered, never a ghost or confirmation of family fate.
+
+  **T7-AC-02:** Storm/coping/rest show a small frightened/tired body **and** a deliberate breath/rest/safe action; no player-blame, forced collection or extra damage just to manufacture pity. Every actual HP/พลังใจ effect has authored cause/cue/feedback; recovery and no-item/default variants remain complete.
+
+  **T7-AC-03:** Act1 held/acquired-released/never-acquired variants have parallel emotional value; no discarded physical prop is depicted. Seed red-thread/cloth bridge as a later-act brief without forcing yarn into Act1 or showing a doll body/model there. No collection/courage/suffering/achievement score.
+
+  **T7-AC-04:** Sample prose/choice/voice review confirms tender natural Thai, family rhythm and agency; girl's identity/backstory/speech is not added to early setup. Exact unit/guard/ID/effect trace and migration witnesses stay required. Evidence: TC-S4-NARRATIVE-001/EMOTION-001/CALLBACK-001 as design and later implemented Act1 checks.
+
 - [ ] **T8 — Act 2–5 map and Sprint5 Grand Keepsake handoff** (P0; 2–3 days, design only)
 
   Owner Narrative/Game Director/Architect; PO/Game Design/Art review. Files: proposal §8 and proposed dedicated Act 2–5 map/registry/default/ending-nuance design artifact under `docs/proposals/sprint-04-overhaul/`; future S5 readiness notes. AC: per-act spine, simple route forks/convergence by A3-003, red-yarn/material continuity, secret eligibility/return/default/checkpoint/notice briefs; late girl/Bond/consent/repair and exact 3-ending resolver; empty bag equivalent outcome path. Both 3D models reserved for HOME Grand Keepsake after transformation, optional future presentation/localized fallback/rights/device/dependency brief. **No Act 2–5 source/runtime/assets/viewer integration in S4.** `TC-S4-MAP-001` design review, not E2E proof of later acts.
+
+  **Final Directive AC — T8 (S4 design, S5 implementation handoff):**
+
+  **T8-AC-01:** Exactly five-act spine, original3-ending thresholds/order/consent/repair and convergence by A3-003 remain mapped; mother/root/current philosophy reappears in new context rather than a replaced theme. New beats fit canonical scene anchors or explicitly reviewed extra nodes.
+
+  **T8-AC-02:** Act3–4 map names wheel near-miss, hot paving, hurried feet and discarded objects plus concrete indifferent/kind human acts. Each has cue→choice→accepted consequence→body/inner reaction→agency/rest/observation, with pause beats before moving to the next threat or A4-004. No rushed pain montage or graphic collision/open wound.
+
+  **T8-AC-03:** Provide HP/พลังใจ high/low/default/Story Assist expression and effect-provenance matrix; narration/view-only item use cannot change meters. Retain safe checkpoint paths, below30 recovery within two main Decisions, unavoidable loss≤15 between checkpoints and timely decompression. Respect all baseline recovery exceptions/conditions; no item-exclusive healing or damage-to-Bond reward.
+
+  **T8-AC-04:** All five objects—leaf/dew stone/lotus shell/rain petal/red yarn—have at least one anchored look/hold/remember action, released-memory and never-acquired variant. Physical state truth is enforced; memory survives release and no-item comfort/trust path is meaningful. No trophy/list-completion/rarity reward or moral label for keeping versus letting go.
+
+  **T8-AC-05:** Same accepted metrics/trust flags with held/released/absent/empty-Pouch variations yield the same ending ID; preserve fair cautious/accept-now/wait paths, compensation/repair budget and Story Assist access. Nuances never create a fourth/higher-quality ending or require pain/all items/all secrets. Provide expected-results truth table, not a claim of unimplemented S5 E2E.
+
+  **T8-AC-06:** Girl review passes no name/bio/relationship exposition/rescue monologue/claimed private thoughts; clear reveal still A4-004. She places water/warm cloth, leaves an open return route, steps back/waits and speaks briefly only where useful; safe help remains consensual.
+
+  **T8-AC-07:** END-HOME brief bridges living childhood→retrospective Childhood Crochet→Adult Velour Plush/blue T-shirt embroidered red heart through remembered/healed experiences and received care. Transformation only after safe-help gate; childhood crochet is not a literal adventure body. Held/released/empty eligible routes get full warmth/heart motif; Reflective endings retain living frog. Real-gift connection is discreet and unnamed, without personal input or explaining the girl's identity.
+
+  **T8-AC-08:** Art-gap manifest explicitly records **current adult blue shirt lacks red-heart embroidery**; S5 must refine original mesh/material/thread design and verify export/hash/provenance/device performance. Existing assets stay unchanged in S4. New samples are draft until editorial review; no claim final likeness/3D/Canonical prose is already delivered. Evidence TC-S4-MAP-001/EMOTION-001/FAIR-001/GIFT-001.
 
 - [ ] **T9 — Intent Tags, item art and Data presentation projection** (P0; 2–3 days)
 
@@ -131,7 +165,7 @@ Shared-file ownership: T3 schema/migration validator; T4 Core state/effects; T7 
 
 ### 5.2 Implementation DoR — detail review remains open
 
-- [x] PO scope pivot, 3–4 range, AI narrative assignment, three endings and S4/S5/Grand Keepsake placement explicitly received.
+- [x] PO approved v0.2.0 main direction and Final v0.2.1 emotion/drama/Pouch/gift/girl/fair Bond principles; no repeat strategy approval needed.
 - [ ] Exact capacity3-or4, opportunity/item/vignette/callback/absence/release rules ratified by PO/Game Design/Narrative.
 - [ ] Baseline GDD/SRS/Narrative amendments resolve physical leaf vs historical flag and early material/progression teaching; no Canon conflict left for implementation.
 - [ ] Architect accepts versioned inventory/checkpoint/cursor/schema/DSL/migration and new prospective ADR; valid/invalid/mapping/recovery fixtures ready.
@@ -148,7 +182,7 @@ Shared-file ownership: T3 schema/migration validator; T4 Core state/effects; T7 
 - [ ] All seven Act 1 scenes receive accepted tender narrative refinement; default paths complete; simple branches converge; no combat/complex added stat/extra ending/item-gated Canon.
 - [ ] Visual rubric/Thai art/crop/focus/zoom/reduced-motion/high contrast and Log/Pouch modal paths accepted.
 - [ ] Real device/AT/manual/performance/static-asset/provenance/security and version/migration/rollback gates pass.
-- [ ] Act 2–5 map/S5 brief accepted; no later-act or3D implementation falsely claimed.
+- [ ] Act2–5 map/S5 brief passes T8-AC-01..08, fair ending/metric/pouch/persona truth tables, root/current continuity and red-heart asset-gap handoff; no later-act or3D implementation falsely claimed.
 - [ ] Trace→design→artifact→evidence→PR/audit complete, every unrun/deferred feature clear; `FR-UI-004` still partial beyond Log.
 
 ## 6. Verification plan and evidence status
@@ -186,6 +220,9 @@ Browser paths resolve from environment; do not invent npm scripts/root dependenc
 | `TC-S4-PERF-001` | Existing NFR load/feedback/input/transfer/save, bounded Pouch/ledger/Log/image/audio caches; full Pouch and new longest scene samples |20 cold+20 warm,≥100 actions/≥5 runs,3×30s frames; recorded device/profile; rAF before paint is not painted-frame evidence |
 | `TC-S4-E2E-001` | Legacy12 canonical outcome witnesses; new Act 1 all reviewed item/secret/full/no-item combinations, Log/Pouch/reload/Retry/fault/root+subpath | Keep old fixture/version trace; new runner proposed, no production debug hook |
 | `TC-S4-NARRATIVE-001` | Tender precise Thai across7 scenes, distinct voice/life stage, non-blaming storm/decompression, release/absence not inferior, no combat/complexstats/spoilers | Actual PO/Narrative/Art walkthrough notes; no AI self-certification |
+| `TC-S4-EMOTION-001` | T7 childhood setup + T8 city cue/metric/body/agency/rest matrix; near-wheels/heat/feet/trash, balanced recovery, five-item held/released/absent/default prose and no invented harm/ghost | S4 narrative/map/trace review; actual later-act runtime variants verified in S5, not claimed now |
+| `TC-S4-FAIR-001` | Expected-results table: fixed metrics/trust flags keep ending ID under item/secret/strain/accessibility presentation changes; safe cautious/wait paths, compensation/repair and no achievement ranking | Design truth table + existing resolver baseline; actual new Pouch/endings E2E in S5 |
+| `TC-S4-GIFT-001` | Late symbolic transformation, crochet-memory→adult velour/blue/red-heart, discreet real-gift prose, unchanged girl persona; plain-shirt asset gap and S5 art/export criteria | S4 brief/current-art inspection; no new GLB/rights/device certification; samples remain editorial drafts |
 | `TC-S4-MAP-001` | Act 2–5 spine/branches/convergence/material/consent/repair/defaults, same 3 endings and item-independent Canon route, S5 Grand Keepsake placement | Human design/trace review+Mermaid source/render when tooling ready; not later-act runtime proof |
 
 Budgets unchanged: NFR-PE-001..005 (initial≤2MB compressed; shell+critical JSON≤500KB; cold≤3s/warm≤1.5s p75; interactions≤100ms p95; save≤250KB), image/audio32/16MiB. Pouch/ledger/completion IDs bounded by registered content; Log50+50 with bounded text/metadata. No S4 WebGL/library/GPU acceptance gate because no 3D runtime is shipped.
@@ -194,7 +231,7 @@ Budgets unchanged: NFR-PE-001..005 (initial≤2MB compressed; shell+critical JSO
 
 | Gate | Disposition |
 |---|---|
-| Baseline unit regression | Fresh **691/691**,0 fail/cancel/skip/todo;35,118.220 ms on unchanged runtime at9a08d0b |
+| Baseline unit regression | Final Directive rerun **691/691**, 0 fail/cancel/skip/todo; **26,196.327 ms** on unchanged runtime at d3e9f4d |
 | Documentation | Three requested artifacts revised; link/anchor/ID/table/consistency/diff checks recorded in new pivot audit |
 | Old visual/browser/media evidence | Retained historical evidence only; no new visual candidate |
 | Pouch/schema/migration/new story tests | Not materialized/not run in planning |
@@ -205,6 +242,7 @@ Budgets unchanged: NFR-PE-001..005 (initial≤2MB compressed; shell+critical JSO
 
 | Record | Disposition |
 |---|---|
+| `CR-20261014-2233` | [Final PO approval/impact revision](../changelog/2026-10/2026-10-14-2233-sprint-04-final-po-narrative-impact.md): v0.2.1 ready for documentation review; source0/12 |
 | `CR-20261014-2131` | [PO Directive pivot](../changelog/2026-10/2026-10-14-2131-sprint-04-pouch-directive.md): proposal/RFC/SSOT 0.2.0, implementation 0/12 |
 | `CR-20261014-1841` | [Original0.1 planning record](../changelog/2026-10/2026-10-14-1841-sprint-04-overhaul-plan.md), historical0/10/viewer recommendations superseded |
 | `CR-20260908-1430` | [Sprint3 integration](../changelog/2026-09/2026-09-08-1430-sprint-03-merge-closeout.md), completed WBS/manual gate status not rewritten |
@@ -221,4 +259,4 @@ Budgets unchanged: NFR-PE-001..005 (initial≤2MB compressed; shell+critical JSO
 | D7 legacy vs new evidence/manual | QA/Accessibility separate approved expectation changes, new graph witness counts and actual human/device gates |
 | Local references | Preserve untracked folder; never stage personal reference photographs |
 
-Documentation rollback reverts current revision only. Future runtime rollout/rollback follows [proposal §9](../proposals/sprint-04-overhaul/01-proposal-plan.md#9-architecture-versions-migration-and-rollback) and accepted new contracts; no migration executes now. Direction acknowledged, detailed DoR open, all implementation boxes remain unchecked.
+Documentation rollback reverts current revision only. Future runtime rollout/rollback follows [proposal §9](../proposals/sprint-04-overhaul/01-proposal-plan.md#9-architecture-versions-migration-and-rollback) and accepted new contracts; no migration executes now. Main v0.2.0 direction/final v0.2.1 principles approved by PO; documentation ready for review/merge, per-task implementation DoR open and all source tasks remain unchecked.

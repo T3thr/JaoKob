@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+- Refined Sprint4 plan to v0.2.1 under Final PO approval: Act3–4 drama/metric/agency/recovery and five-item comfort, fair endings/girl persona, crochet→velour red-heart gift bridge; T7/T8 acceptance expanded, production unchanged. [Final PO record](docs/changelog/2026-10/2026-10-14-2233-sprint-04-final-po-narrative-impact.md)
 - Revised Sprint 4 planning to v0.2.0 per PO Directive: limited Adventure Keepsake Pouch with durable state/Secret Moments, AI-authored Act 1 refinement and Act 2–5 map; 3D Grand Keepsake moves to Sprint 5 END-HOME. Production code unchanged. [Directive record](docs/changelog/2026-10/2026-10-14-2131-sprint-04-pouch-directive.md)
 
 ### Added

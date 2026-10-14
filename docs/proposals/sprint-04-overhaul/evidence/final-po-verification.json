@@ -1,0 +1,34 @@
+{
+  "recordID": "CR-20261014-2233",
+  "documentVersion": "0.2.1",
+  "checkedDocuments": [
+    "docs/proposals/sprint-04-overhaul/01-proposal-plan.md",
+    "docs/sprints/sprint-04-ssot.md",
+    "docs/rfc/CR-0005-sprint-04-overhaul.md",
+    "docs/changelog/2026-10/2026-10-14-2233-sprint-04-final-po-narrative-impact.md"
+  ],
+  "localLinksChecked": 38,
+  "anchorLinksChecked": 5,
+  "baselineIDsChecked": 62,
+  "implementationTasks": 12,
+  "implementationTasksComplete": 0,
+  "T7AcceptanceCriteria": 4,
+  "T8AcceptanceCriteria": 8,
+  "runtimeOrBaselineChangedFiles": [],
+  "unitRegression": {
+    "testedHead": "d3e9f4dbca918d10c8a1a049b5638343bc484973",
+    "total": 691,
+    "pass": 691,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "durationMs": 26196.326667
+  },
+  "approval": "PO endorsed v0.2.0 main directions and Final v0.2.1 narrative principles; human doc review/merge remains separate",
+  "adultHeartAsset": "Current inspected render/generator has plain blue shirt; requested red-heart embroidery is S5 work, models unchanged",
+  "newFeatureBrowserDeviceArt": "not performed / not materialized",
+  "mermaid": "source inspection only; rendering not performed",
+  "errors": [],
+  "ADRReferencesChecked": 4
+}

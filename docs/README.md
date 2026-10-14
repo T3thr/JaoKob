@@ -9,7 +9,7 @@
 
 เอกสารนี้ทำหน้าที่เป็น **Single Source of Truth (SSOT)** และคู่มือนำทางสำหรับนักพัฒนาและ AI Agent ทุกตัวในการทำงานร่วมกันอย่างมีวินัย ตรวจสอบย้อนกลับได้ และไร้ข้อผิดพลาด
 
-**Current planning (not implementation authority):** [Sprint 4 proposal v0.2.0](proposals/sprint-04-overhaul/01-proposal-plan.md), [revised SSOT](sprints/sprint-04-ssot.md) and [CR-0005](rfc/CR-0005-sprint-04-overhaul.md) adopt the PO Directive: Adventure Keepsake Pouch, tender Act 1 refinement and Act 2–5 map; S5 owns later acts/END-HOME Grand Keepsake. Detailed contracts remain proposed, WBS 0/12; integrated story runtime remains Sprint 3.
+**Current planning (not implementation authority):** [Sprint4 proposal v0.2.1](proposals/sprint-04-overhaul/01-proposal-plan.md), [SSOT](sprints/sprint-04-ssot.md) and [CR-0005](rfc/CR-0005-sprint-04-overhaul.md) record PO approval of main directions and Final Narrative/Pouch Impact principles. S4 Pouch/Act1 and deepened Act3–4/S5 map; END-HOME crochet→velour/red-heart gift remains S5. PR12 ready for documentation review; runtime WBS0/12 and per-task DoR remain open.
 
 **Current integrated baseline:** Sprint 3 ปิด WBS 5/5 และรวมเข้าสู่ `develop` ผ่าน PR #9 (Task 1 at `9e4f8b0`) และ PR #10 (Tasks 2–5 at `0d6c0ba`) แล้ว ดู [Sprint 3 SSOT](sprints/sprint-03-ssot.md) และ [Merge Closeout CR-20260908-1430](changelog/2026-09/2026-09-08-1430-sprint-03-merge-closeout.md).
 **Current runtime capability:** Living High-Fidelity Prototype ครอบคลุม Act 1 Scene 1–2 และ Decision Handoff ที่ Scene 3 (พร้อม 3 ทางเลือก Canon และบทสะท้อนผล) บน Content 2.1.0, 7 prototype media assets, 4 semantic DOM layers, Web Audio พร้อม Gesture Unlock, และ Pure Save Migration ในหน่วยความจำ; 691 unit tests และ 12 Chromium routes ผ่าน 100%
