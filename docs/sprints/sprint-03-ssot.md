@@ -292,6 +292,8 @@ Media readiness must not delay the ≤100ms feedback shell. Inspect long tasks/p
 
 ## 7. Sprint Audit Trail, Risks and Approval Register
 
+Next-sprint planning: [Sprint 4 proposal](../proposals/sprint-04-overhaul/01-proposal-plan.md), [draft SSOT](sprint-04-ssot.md) and [CR-0005](../rfc/CR-0005-sprint-04-overhaul.md), recorded by `CR-20261014-1841`. Proposed only; does not reopen completed Sprint 3 WBS or close its outstanding manual/owner gates.
+
 **Current evidence:** `CR-20260907-1248` records production 2.1.0, seven prototype assets, four semantic stage layers, audio/visibility/preloading integration and explicit save migration. 691 unit tests, 11 metaschemas/36 structural cases and 12/12 Chromium routes pass; separate benchmark records viewport/fault/resource/performance samples. Manual listening, physical-device percentile/refresh validation, real Safari/iOS/Firefox, VoiceOver/NVDA and PO visual/audio acceptance remain open. §6.4 is historical planning evidence.
 
 | Record ID | Timestamp | Milestone / evidence | Status |

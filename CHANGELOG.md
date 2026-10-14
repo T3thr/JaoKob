@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Proposed Sprint 4 Visual, Narrative & Interactive Overhaul: target-to-runtime gap audit, acceptance rubric, Dialogue Log/Keepsake specifications and ten-task WBS; CR-0005 awaits PO decisions, production code unchanged. [Planning record](docs/changelog/2026-10/2026-10-14-1841-sprint-04-overhaul-plan.md)
+
 ## [0.4.0] - 2026-09-08
 
 > Sprint 3: Interactive Light Novel RPG Transformation & Benchmark Slice Complete
