@@ -1,0 +1,29 @@
+{
+  "assetId": "spike.jaokob.childhood-crochet.v1",
+  "creator": "Codex; authored Blender Python geometry and procedural stitch textures",
+  "authority": "Product Owner instruction, CR-0004 Milestone 1B, 2026-10-14",
+  "intendedUse": "Private gift asset spike; final owner likeness review pending",
+  "method": "Parametric geometry, vertex colors, two 128px generated repeating texture tiles; no photo textures or AI 3D service",
+  "references": [
+    {
+      "file": "jaokob-childhood-crochet-back.png",
+      "sha256": "4712ec2af9dbcccdf13e87fbc81fb5718d720e0f047c845d306698ce17d66c92"
+    },
+    {
+      "file": "jaokob-childhood-crochet-front.png",
+      "sha256": "71b11c0e96a3af30c082f41db0da72e98b143bbb455daf1128522f10437e57b5"
+    },
+    {
+      "file": "jaokob-childhood-crochet-side.png",
+      "sha256": "23ab5d118dfe8f941cfbd916bd90abf897ce1b0973048b9eb70ea4188bca928e"
+    }
+  ],
+  "referencePhotosEmbedded": false,
+  "rearGeometry": "Guided by supplied back reference; proportions estimated, not scanned",
+  "optionalAccessory": {
+    "blenderObject": "RedHeart_EditableMesh",
+    "glbNode": "Accessory_RedHeart",
+    "defaultVisible": true
+  },
+  "runtimeLibrary": "Existing model-viewer 4.4.0, pinned, same-origin demand loading"
+}

@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "browser": "151.0.7922.34",
+  "checks": [
+    "Keyboard segmented selection changes only poster/text before activation",
+    "No GLB or model-viewer request before activation",
+    "Keyboard activation, focus transfer, rotate/tilt/zoom/reset buttons",
+    "Pointer drag and mousewheel change camera",
+    "Only selected GLB loads; switching replaces viewer, labels and camera while retaining selector focus",
+    "Escape, focus restoration and three reopen cycles without duplicate viewers",
+    "No third-party network requests or browser console/page errors",
+    "390px/320px layout, 44px controls, reduced motion, emulated touch orbit and pinch",
+    "Each failed GLB preserves its own poster and retries successfully",
+    "Switch while GLB pending, late obsolete load/error callbacks and rapid switches keep current selection",
+    "Switch/cancel during deferred module import causes no late model request; reopen recovers"
+  ],
+  "errors": [],
+  "requestedPaths": [
+    "/preview/",
+    "/preview/style.css",
+    "/preview/viewer.js",
+    "/renders/childhood/poster.jpg",
+    "/preview/th.js",
+    "/renders/poster.jpg",
+    "/node_modules/@google/model-viewer/dist/model-viewer.min.js",
+    "/model/jaokob-childhood-crochet.glb",
+    "/model/jaokob-adult-plush.glb"
+  ],
+  "embeddedTextureBlobRequests": 2,
+  "notPerformed": [
+    "Physical iPhone/Android performance",
+    "Safari/VoiceOver",
+    "GPU memory profiling",
+    "Final owner likeness approval",
+    "Production END-HOME integration"
+  ]
+}

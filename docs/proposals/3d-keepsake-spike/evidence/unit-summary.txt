@@ -1,0 +1,11 @@
+Command: node --test tests/unit/*.test.js
+  ...
+1..607
+# tests 691
+# suites 0
+# pass 691
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 21972.879

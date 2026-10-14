@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Proposed Sprint 4 Visual, Narrative & Interactive Overhaul: target-to-runtime gap audit, acceptance rubric, Dialogue Log/Keepsake specifications and ten-task WBS; CR-0005 awaits PO decisions, production code unchanged. [Planning record](docs/changelog/2026-10/2026-10-14-1841-sprint-04-overhaul-plan.md)
+- Childhood crochet keepsake (`CR-0004`, Milestone 1B): editable Blender source, separate heart, 598 KB / 13.4k-triangle GLB, four renders and lazy two-doll preview selection; validator and 691 game tests pass. [Milestone 1B evidence](docs/changelog/2026-10/2026-10-14-1244-childhood-crochet-model-spike.md)
+- Adult plush base-mesh spike (`CR-0004`): editable Blender source/generator, 546 KB GLB and an isolated lazy-loaded 3D inspection page; childhood heart clarified as optional. [Milestone 1 evidence](docs/changelog/2026-10/2026-10-14-0050-adult-plush-model-spike.md)
 
 ## [0.4.0] - 2026-09-08
 

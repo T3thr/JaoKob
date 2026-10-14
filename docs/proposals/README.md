@@ -8,6 +8,7 @@
 |---|---|---|---|---|
 | **JKB-PROP-S4-001 / CR-0005** | Sprint 4: Visual, Narrative & Interactive Overhaul | Codex / Technical Lead, Game Director, UI/UX Architect | Proposed for PO review; production WBS 0/10 | [Proposal plan](sprint-04-overhaul/01-proposal-plan.md), [draft SSOT](../sprints/sprint-04-ssot.md) |
 | **JKB-PROP-P2-001** | Phase 2 Architecture & Design Proposal: Interactive Light Novel RPG Transformation & Customization Asset Pipeline | Tech Lead (Gemini 3.8 Flash) | Archived proposal; [CR-0003 APPROVED](../rfc/CR-0003-interactive-light-novel-presentation.md), 2026-09-07 | [01-visual-novel-transformation-tech-lead-proposal.md](phase-02-visual-novel-architecture/01-visual-novel-transformation-tech-lead-proposal.md) |
+| **CR-0004** | Adult Plush & Childhood Crochet Keepsakes | Codex | Milestones 1 and 1B technically verified; owner art review and production integration deferred | [Models, local viewer and instructions](3d-keepsake-spike/README.md) |
 
 ## โครงสร้างและการใช้งาน
 - แต่ละหัวข้อใหญ่ให้สร้างเป็นโฟลเดอร์เฉพาะ เช่น `phase-02-visual-novel-architecture/`

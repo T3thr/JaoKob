@@ -1,0 +1,14 @@
+{
+  "name": "jaokob-adult-plush-spike",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "preview": "python3 scripts/serve_preview.py",
+    "validate": "node scripts/validate_glb.mjs"
+  },
+  "devDependencies": {
+    "@google/model-viewer": "4.4.0",
+    "gltf-validator": "2.0.0-dev.3.10"
+  }
+}
