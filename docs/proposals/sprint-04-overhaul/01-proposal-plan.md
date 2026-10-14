@@ -6,6 +6,7 @@
 | Version / date | 0.1.0 / 2026-10-14, Asia/Bangkok |
 | Status | **PROPOSED — PO review; no production implementation authorized by this document** |
 | Author | Codex — Senior Technical Lead, Game Director, Principal UI/UX Architect |
+| Review PR | [#12](https://github.com/T3thr/JaoKob/pull/12) → develop, OPEN draft |
 | Execution draft | [Sprint 4 SSOT and WBS](../../sprints/sprint-04-ssot.md) |
 | Integrated runtime | `origin/develop@4c8d600820fcedcc9c14ec4b51df685f07099c7a`; Sprint 3 runtime integrated at `0d6c0ba` |
 | Reference snapshot | 3D spike `d8a569e2472079789a02b9c363ae4378dc9d66ac`, [draft PR #11](https://github.com/T3thr/JaoKob/pull/11), OPEN / not merged when inspected |

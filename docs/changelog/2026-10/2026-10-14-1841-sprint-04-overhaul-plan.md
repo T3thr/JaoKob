@@ -50,4 +50,4 @@ Planning outcome is a concrete reviewable blueprint. Implementation remains unst
 
 ## 6. Git delivery
 
-Documentation branch targets `develop`; draft review PR to be created after local documentation/scope checks. No automatic merge, source implementation or deployment. The original GDD/reference changes are excluded. Delivery commit/PR identity is recorded by Git and the attached review artifact; actual PR URL is added after creation.
+Documentation implementation commit `0f8ffa5c2c637e1b6c5e9429bf44208f397a1fcd` was pushed on `feat/sprint-04-overhaul-plan`. [Draft PR #12](https://github.com/T3thr/JaoKob/pull/12) is OPEN, targets `develop` and is attached to this chat. Git identity was rechecked before commit. This follow-up audit links the actual review artifact. No merge, source implementation or deployment occurred; original GDD/reference changes remain excluded.

@@ -7,6 +7,7 @@
 | Status | **PROPOSED — planning delivered; implementation 0/10 tasks; D1–D7 await owner decisions** |
 | Authority | Current PO request: detailed proposal for approval; no production code in this round |
 | Baseline | `origin/develop@4c8d600820fcedcc9c14ec4b51df685f07099c7a`; [Sprint 3 closeout](../changelog/2026-09/2026-09-08-1430-sprint-03-merge-closeout.md) |
+| Documentation PR | [#12](https://github.com/T3thr/JaoKob/pull/12) → develop, OPEN draft; no implementation approval |
 | Branch | `feat/sprint-04-overhaul-plan`, documentation worktree from fetched origin/develop |
 | Proposal / RFC | [JKB-PROP-S4-001](../proposals/sprint-04-overhaul/01-proposal-plan.md) / [CR-0005](../rfc/CR-0005-sprint-04-overhaul.md) |
 | 3D dependency | [PR #11](https://github.com/T3thr/JaoKob/pull/11), OPEN draft at `d8a569e`; technically delivered, not integrated or accepted as production runtime |
