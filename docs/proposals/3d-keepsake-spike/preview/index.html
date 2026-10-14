@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>เจ้ากบ — ตุ๊กตาคู่ใจ</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./viewer.js"></script>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow" data-text="eyebrow"></p>
+      <h1 data-text="title"></h1>
+      <p class="subtitle" data-text="subtitle"></p>
+    </header>
+    <section class="keepsake" aria-labelledby="doll-title">
+      <div id="doll-selector" class="doll-selector" role="group">
+        <button type="button" data-doll="childhood" data-text="childhoodTab" aria-pressed="true"></button>
+        <button type="button" data-doll="adult" data-text="adultTab" aria-pressed="false"></button>
+      </div>
+      <div class="stage" id="stage">
+        <img id="poster" src="../renders/childhood/poster.jpg" alt="">
+        <div id="mount"></div>
+        <button id="open" class="primary" type="button" data-text="open"></button>
+        <p id="status" role="status" aria-live="polite"></p>
+      </div>
+      <div class="caption">
+        <div><p class="eyebrow" data-text="collection"></p><h2 id="doll-title"></h2></div>
+        <span id="edition" class="edition"></span>
+      </div>
+      <div id="controls" class="controls" hidden>
+        <button type="button" data-action="left" data-text="left"></button>
+        <button type="button" data-action="right" data-text="right"></button>
+        <button type="button" data-action="up" data-text="up"></button>
+        <button type="button" data-action="down" data-text="down"></button>
+        <button type="button" data-action="in" data-text="in"></button>
+        <button type="button" data-action="out" data-text="out"></button>
+        <button type="button" data-action="reset" data-text="reset"></button>
+        <button type="button" data-action="close" data-text="close"></button>
+      </div>
+      <p class="hint" data-text="hint"></p>
+    </section>
+    <footer data-text="footer"></footer>
+  </main>
+</body>
+</html>
