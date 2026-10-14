@@ -1,102 +1,120 @@
-# CR-0005: Sprint 4 Visual, Narrative & Interactive Overhaul
+# CR-0005: Sprint 4 Visual, Narrative & Adventure Keepsake Overhaul
 
 | Control | Value |
 |---|---|
-| Version / date | 0.1.0 / 2026-10-14, Asia/Bangkok |
-| Status | **PROPOSED — analysis and planning authorized; implementation awaiting D1–D7** |
+| Version / date | **0.2.0** / 2026-10-14, Asia/Bangkok — PO Directive revision |
+| Status | **PO STRATEGY ADOPTED; detailed design PROPOSED; production implementation unstarted** |
 | Author | Codex / Senior Technical Lead, Game Director, Principal UI/UX Architect |
-| Scope | Cross-layer presentation/log/collection; narrow runtime dependency exception |
-| Sources | [Proposal](../proposals/sprint-04-overhaul/01-proposal-plan.md), [draft SSOT](../sprints/sprint-04-ssot.md), [approved Sprint 3](../sprints/sprint-03-ssot.md) |
+| Scope | S4 UI/Log/durable Pouch/Act 1 rewrite + Secret Moments/Act 2–5 map; S5 content/three endings/Grand Keepsake |
+| Change class | C2 branch/choice/presentation; C3 inventory/save/checkpoint/content contract compatibility |
+| Sources | [Proposal v0.2.0](../proposals/sprint-04-overhaul/01-proposal-plan.md), [revised SSOT](../sprints/sprint-04-ssot.md), [Sprint 3](../sprints/sprint-03-ssot.md) |
+| Review | [Draft PR #12](https://github.com/T3thr/JaoKob/pull/12), branch `feat/sprint-04-overhaul-plan` |
 
-## 1. Context and problem
+## 1. Authority, context and revision
 
-Sprint 3 has integrated functional benchmark code, 691 unit tests and historical Chromium routes. Actual retained screens still present nested feedback/save/narrative panels, generic text-only choices, heavy HUD and a character cutout with weak environmental placement. PO requests a reviewed plan before production implementation.
+Current PO Directive explicitly replaces adventure-time doll inspection with an **Adventure Keepsake Pouch**, limited to 3–4 physical objects with Secret Moments and Ending Nuances; assigns AI to rewrite/refine tender narrative; retains three endings/simple branches/no combat or complicated added stats; divides S4/S5 scope; and requests document updates plus commit before source work.
 
-The approved image targets establish composition intent; CR-0003 D5–D8 retain tadpole Canon, three Scene 3 choices, locked Bond and deferred full backlog/typewriter. Log is now requested; animated typewriter remains outside this proposal. Completed 3D spike assets are candidate input; their accepted spike ADR does not approve a new game runtime dependency or toy Canon in Act 1.
+This supersedes v0.1.0's non-diegetic Act 1 two-doll viewer, presentation-only save plan and optional narrow editorial approach. Those directions are historical, not alternative current S4 requirements. The new vision and writing assignment are already issued by PO; they do not require reconfirmation. Exact schemas/slot value/guards/migration/approved prose and runtime integration still need the appropriate detailed review/DoR.
 
-## 2. Goals and non-goals
+Baseline inspected: develop `e9803397587bb3ec8f2a61a87966d382277a96fc`, with [PR #11](https://github.com/T3thr/JaoKob/pull/11) merged 2026-10-14; planning branch `9a08d0b` includes it. Spike models remain isolated artifacts; accepted ADR-P0-016/017 do not approve a production viewer. Sprint 3 remains functional baseline with 691 tests and historical Chromium evidence; final visual/manual gates stay open.
 
-Goals: target-informed warm reading/decision composition; true Title/Reading/Decision separation with original Exploration/recovery/notice flow; meaningful choice intent/cues; readable session backlog; opt-in two-doll inspection; clean layer boundaries, equivalent baseline tests/save results and owner/manual evidence.
+## 2. Goals, boundary and protected Canon
 
-Non-goals: new domain states/metrics/choice effects/stable-ID semantics/Canon/endings, all-seven-scene media production, persistent exact transcript, item economy, heart/emotion controls, auto-advance/typewriter/speed/skip delivery, voice/TTS, backend/CDN/telemetry/Login, automatic merge/release/deploy. Exact approved content edits are separately versioned changes, not permission to change every narrative string.
+S4 delivers paper reading card/frosted capsule HUD/Intent Tags, session Dialogue History, Pouch UI+pure durable state, revised Act 1 prose/choices/items/optional vignettes and a reviewed Act 2–5 map for S5. Visual benchmark starts Scene 1–3; writing/item gameplay covers all seven Act 1 scenes. S5 implements Act 2–5 and the existing three ending categories, including Grand Keepsake after END-HOME.
 
-## 3. Decisions requested and alternatives
+No combat engine, XP/levels/equipment/rarity/crafting/currency/item power/weight optimization. HP/พลังใจ/Bond remain the three simple narrative signals and existing resolver inputs; removal/threshold redesign is not inferred from “cut complicated stats”. No fourth or premium ending; no complete-all-items gate for Canon. Tadpole/life stage, storm without player blame, later girl/Bond reveal, agency/consent and symbolic transformation exclusively in END-HOME remain controlling rules.
 
-| Decision | Recommended option | Alternative and consequence | Approver / current status |
+S4 non-goals: production Act 2–5/ending code, model viewer/WebGL/vendor/model promotion, persistent exact dialogue transcript, typewriter/auto-advance/voice/TTS, all-seven-scene art production, Login/backend/telemetry/CDN/deployment. AI narrative drafting is in scope; final reviewed prose cannot be replaced by a decision to keep all old text merely for easier tests.
+
+## 3. Updated D1–D7 decision register
+
+| Decision | PO-issued direction | Recommended detailed design / alternatives | Status and review owner |
 |---|---|---|---|
-| D1: delivery scope | Polished Scene 1–3 benchmark + Act 1-wide presentation/Log/Drawer; proposal rubric | Full Act 1 media production requires additional art schedule/budgets and WBS | PO/Art/QA — pending |
-| D2: authored presentation data | Strict independent versioned presentation/keepsake catalogs joined to exact contentVersion + stable IDs | New v1.3 package/tree adds intent/model/crop types; greater schema/capability/migration surface; frozen old schemas still unchanged | Architect + UI/Data + PO — pending |
-| D3: history | Pure ephemeral session reducer; 50 latest dialogue records plus 50 chosen action/interaction records; honest reload reset | Cross-reload exact transcript requires new versioned store/save field, byte/consent/recovery/migration design; cannot reconstruct from unique viewed IDs | PO/Narrative/Architect — pending |
-| D4: Act 1 meaning | Non-diegetic “ของสะสม”; childhood default; adult early selection only on explicit owner approval; no effects | Title-only adult edition if visual spoiler; diegetic doll inventory would conflict with tadpole/END-HOME Canon and requires separate Canon change | PO + Narrative/Game Design — pending |
-| D5: viewer | Pin same 4.4.0 model-viewer candidate, vendored same-origin and demand-loaded after explicit 3D action; new narrowly scoped production ADR | Poster-only preserves Vanilla baseline but does not fulfill 3D spin; custom WebGL/Three.js expands lifecycle/scope and still needs dependency review | Architect + PO + QA — pending |
-| D6: art/editorial | Approve seven proposed intent labels and benchmark editorial/art brief; preserve effects/IDs/order/life stage; exact copy/assets reviewed per task | Keep existing prose while delivering tags/cues/UI; broad narrative redesign requires separate Canon/mechanics analysis | Narrative + Game Design + PO/Art — pending |
-| D7: quality profile | Agree device/browser/AT reviewers, performance method, 3D memory target and phased acceptance | Automation-only remains prototype evidence; it cannot close manual visual/device/accessibility DoD | QA + Accessibility + PO — pending |
+| **D1 — Phased scope and capacity** | S4 UI/Log/Pouch/Act 1/Act 2–5 map; S5 Act 2–5; capacity3–4 | Proposed default **3 slots**, no stacks or upgrade; 4 is allowed if fixed before implementation. Twelve WBS tasks, revised effort/gates | Strategic scope/range adopted; exact 3/plan sizing pending PO+Game Design+QA |
+| **D2 — Narrative authorship and simplicity** | AI permitted and assigned warm/tender Act 1 rewrite, understandable branches, no combat/complex added stats, three endings | Concrete sensory actions/quiet kindness, 2–3 choices, short optional moments with convergence; exact prose/IDs/effects/guards reviewed as authored scene diff | Assignment adopted; final Narrative/Game Design/PO editorial acceptance pending |
+| **D3 — Dialogue History** | Build Dialogue History in S4 | Retain session-only ≥50 dialogues+50 committed actions including acquire/release/replace; current-page reload notice. Durable transcript alternative requires separate store/migration/budget | Technical policy proposed, PO+Narrative+Architect review; Pouch persistence is separate |
+| **D4 — Objects, memory and extra scenes** | Adventure objects, capacity choices, Secret Moments and Ending Nuances | `heldItemIds` vs acquired/released memory; authored atomic replace/cancel; optional secret eligibility; held props vs memory-only variants; no item required for Canon | Feature vision adopted; exact object/vignette registry and baseline callback clarification pending Game Design+Narrative+PO |
+| **D5 — Core/save/schema compatibility** | Pouch has gameplay state; content changes in Act 1 | Proposed package/shared/tree schema 2.0, content 3.0, saveFormatVersion 2; pure item/condition/effect/cursor contracts, inventory in checkpoint, explicit legacy migration. Format1 sidecar alternative risks torn state/retry inconsistency | Recommended versioned domain-save approach proposed; Architect+Game Design+QA sign-off required; no S4 runtime library exception |
+| **D6 — END-HOME Grand Keepsake** | Childhood crochet/adult velour presented elegantly in Act 5 END-HOME | S4 brief only; S5 epilogue reveal/edition framing, static fallback and optional post-ending inspection. Future production dependency/rights/device contract separate | Placement adopted; exact S5 visual/API/library approval deferred; no dolls in Pouch |
+| **D7 — Quality and phased execution** | Review revised plan before code; prepare S5 handoff | Separate legacy/new graph suites; capacity/release/secret/no-item/migration/retry/fault tests, manual art/Thai/AT/device review, per-phase gates | Test/profile/reviewer schedule pending QA+Accessibility+PO/Architect; source work unstarted |
 
-No option is Accepted by the author. After explicit owner disposition, create approval change record, update SSOT DoR and create a new production ADR for D2/D3/D5 as applicable. ADR-P0-016/017 remain historical spike decisions.
+The table records actual direction without marking the entire RFC or any new FR/ADR Approved. Architectural choices become a new ADR after owner acceptance; no historical ADR rationale is rewritten. T0 handles GDD/SRS/Narrative contract amendments before code, rather than reading proposal strings as new executable authority.
 
-## 4. Proposed design and contracts
+## 4. Proposed design and alternatives
 
-### 4.1 Presentation
+### 4.1 Presentation and History
 
-Renderer remains a semantic DOM adapter. Persistent scaffold has background/character/HUD/reading/actions/utility/overlay regions. Patch by stable region and view identity; media/save updates cannot replace the whole scene or close dialogs. Keep RendererPort operations and old VM defaults; proposed explicit prompt/cue/tag/status/overlay fields are immutable/localized and validated. No CSS selector, DOM node or raw path in pure VM. Story controls preserve revision/busy guards.
+Preserve semantic DOM RendererPort, safe localized immutable VM, Title→Reading→Decision presentation modes, actual three Scene 3 directions, locked no-number Bond and accessible notice/save/feedback/busy behavior. HUD glass must retain contrast fallback; Pouch/Log are one active overlay outside domain states. Viewing closes/restores focus without story commit. History records accepted action then successfully displayed response, never preload/unseen/rejected/confirmation selection.
 
-Save success/failure/saving remain visible text in rail; persistent memory-only/protected/errors have safe actions. Immediate feedback and actual meter deltas remain observable with one announcement. Content warnings remain separate. Native Next button is visible only when facts.canAdvance; no new transition introduced for visual pacing.
+Session transcript keeps original payload.history/viewed-ID meanings, count/byte bounds and New Game/reset/reload policy from proposal §5. It does not persist as a transcript; durable Pouch and checkpoint fields **do** persist. Modal keyboard/inertness/async focus behavior is verified separately from pure reducers.
 
-### 4.2 Backlog
+### 4.2 Pouch and atomic capacity decisions
 
-A browser-free application reducer receives accepted display/action occurrences, with injected sequence/session identity. The Data projector resolves/validates full text + speaker/scene/locale. UI only renders. Capture dialogue only after successful visible presentation; failed render must not append an unseen line. Accepted action records reference the label the player selected; response line follows it only when actually displayed.
+Pure domain inventory has fixed3 (or ratified4) slots, unique held IDs and bounded encountered/acquired/released memories plus acknowledged optional-vignette progress. Core receives validated normalized catalog and injected command identity/time, imports no browser/Data/UI. Data parses/validates/localizes; bootstrap composes and persists; UI sends intents.
 
-`payload.history` and `progress.viewedDialogueIds` retain their old meanings, bounds and Resume role. Log is ephemeral, read-only and separate from domain save. New Game clears only upon acceptance, retry/revisit append new occurrences, settings/render/save/media/rejected actions append nothing. Reload starts current page only and states that earlier transcript belongs to the previous session.
+Acquire/release/replace applies only at authored safe opportunities. Full Pouch gives keep-old/refuse-new, replace-one or cancel. No auto-drop, negative-stat penalty, repeat pickup farming or timer. Replace is one guarded transaction/revision containing release+acquire, or no change. Retry restores Pouch/memory/completion along with checkpoint; settings remain latest. Opening/selecting item details changes only UI state; confirmed item decisions are gameplay changes and are logged.
 
-Native log modal is one active overlay, with inert background, keyboard trap/Escape/restoration, no bulk live announcement and stable scroll under async updates. Existing Settings/confirmation are compatible; overlay intents never become story SELECT_CHOICE transactions.
+Historical leaf flag remains irreversible “chose to keep”. New held membership authorizes physical prop/share; acquired/released memory authorizes remembered imagery. Do not clear `keepsake.lily_fragment` or reuse `coping.let_go_early` for late release. Update GDD-DEC-A5-001-B/NAR-CON-002/callback conditions with reviewed held-state conjunct/default before implementing, so a discarded leaf never appears physically.
 
-### 4.3 Collection and model descriptors
+### 4.3 Optional vignettes and simple branching
 
-Collection is not a story item or reward. UI uses localized poster/descriptions, then explicit 3D action. Only selected model loads, with keyboard orbit/zoom/reset and gesture equivalents; no autoplay/AR/heart toggle. UI adapter gets validated resolved descriptor/loader through bootstrap, not direct Data imports.
+Item/remembered/released/completed-vignette predicates are explicit strict content DSL/data, with fixed entry/convergence and no executable content. 2–3 short Act 1 moments are proposed, typically 2–4 manual beats. Current props/remembered versions/defaults are distinct; secret scene acknowledgement persists only after completion. Refusal/empty-Pouch route remains narratively complete and has future Canon path.
 
-Current content schema permits only image/audio/font assets. Independent catalog must strictly describe GLB/poster/title/alt/hash/bytes/rights/version. Unknown/mismatch rejects feature safely without losing readable story. Production resources live under reviewed `assets/` paths; no runtime import from docs/spike node_modules. Library license/transitives/security/network reviewed before promotion. No Draco/KTX2/external-texture dependency is required by current self-contained GLBs; future compression is separately reviewed.
+Act 2–5 draft map grounds major branches in Bible scene IDs: reeds/drain converge by A3-003; city survival is observation/patience/shelter; trust unfolds at A4-004 through repeated safe acts; A5 preserves consent/repair/resolver. Nuances decorate three existing endings without altering their categories/conditions. S4 map is design, not runtime capability or a claim the later acts exist.
 
-Component import is memoized and uncancellable in practice; generation tokens discard late callbacks. One active viewer/model, explicit timeout/retry/poster, detach on close/hidden/dispose and measure internal caches/GPU lifecycle. Do not invent a supported disposal API or claim DOM removal frees all memory.
+### 4.4 Content placement and future Grand Keepsake
 
-## 5. Impact, compatibility and migration
+Act 1 candidate objects: leaf fragment, dew stone, lotus shell, rain petal; full capacity/release can be tested at a late safe rest. Red yarn is a proposed Act 2/3 object to preserve A2-006 first-human-material continuity. AI may draft alternatives under assignment; exact scene placement and final IDs are reviewed before content integration.
 
-| Boundary | Impact / protected behavior |
+Models move entirely to Act 5 END-HOME/S5, after symbolic transformation and existing consent gate. Both editions are one Canon ending's Grand Keepsake representations, not extra endings or carried dolls. No viewer port/vendor/GLB request/runtime dependency is part of S4. Future use of pinned spike model-viewer requires new production RFC/ADR, same-origin resources, poster fallback, rights and device checks; placing models in the roadmap does not adopt that library now.
+
+## 5. Impact and versioned contracts
+
+| Boundary | Revised impact |
 |---|---|
-| Domain/state/mechanics | None intended: six states, 14 nodes/21 edges/12 outcomes, metrics/flags/RNG/checkpoints unchanged |
-| Application | New ephemeral history/overlay intent policy; accepted-display sequencing; modal-aware focus handling |
-| UI | Significant component/styles/notice/focus changes; new semantic dialogs and browser-only opt-in viewer |
-| Data | New strict catalogs/projection/model descriptors/resolution; no UI import and no parsing in renderer |
-| Save | Format1/current2.1 frozen; no transcript/camera/model/overlay field/key; exact Resume/retry/candidate guards retained |
-| Narrative | UI Intent Tags/collection framing require owner review; optional exact editorial/media edits must be versioned separately |
-| Runtime baseline | model-viewer is a real runtime library on activation; new narrow C3 exception pending, no framework/general engine adoption |
-| Assets/rights | Promote only selected reviewed spike exports + required vendor/license resources; no photos/source project/canon assertion |
-| Tests/release | Existing regression/equivalent assertions retained; new catalog/log/modal/viewer faults; no release permission |
+| Domain/state | New durable held/memory/vignette data and pure transactions; retain six state kinds/core metric invariants; inventory is not a seventh screen-state |
+| Content/narrative | AI rewrite across Act 1, new optional nodes/events/choices and simple later-act map; 14/21/12 retained only for legacy fixture |
+| UI/application | Pouch modal/semantic item commands, pure session Log, status/focus guards and accepted-action sequencing |
+| Data/schema | Versioned item registry/guards/effects/explicit cursor/validator and separate visual catalog; exact references/locale/rights checked |
+| Save/checkpoint | New reviewed format with inventory/memory/completion/checkpoint, deterministic migration and retry; no sidecar bypass or UI-state fields |
+| Ending | Same HOME/NEARBY/DAWN resolver; held vs memory default nuances; Grand Keepsake after HOME only |
+| Runtime dependency | Vanilla baseline retained in S4; spike library remains development-only until future S5 decision |
+| Assets | S4 original 2D item/icon/texture art; models/source photos unchanged and outside S4 distributable |
 
-UI/catalog delivery can leave content 2.1.0/schema1.2/save1 byte-identical. If content edits are approved, use new contentVersion and explicit current→new compatibility map, pure validation/migration, raw candidate backups and rollback write guard. Frozen old published schema is never edited in place. Unknown future saves remain protected and no downgrade is guessed.
+Recommended candidate versions: content **3.0.0**, narrative/package/affected shared schemas **2.0.0**, saveFormat **2**. Exact numbering ratified by Architect at T0/T3. Published1.0/1.1/1.2/root common/save contracts remain byte-identical; add versioned schema/catalog/capability fixtures instead. Unknown fields/versions/capacity/IDs fail safely, not silently emptying inventory.
 
-## 6. Security, privacy, accessibility and budgets
+Alternative format 1 + separate inventory LocalStorage sidecar is not recommended: one story decision could tear across saves, Retry lacks a consistent checkpoint, raw recovery races become ambiguous. Smuggling items into irreversible legacy flags/current history/setting strings is rejected. A versioned envelope integrates all domain facts with existing guarded save port.
 
-Same-origin static resources; path/hash/MIME/size/reference checks; strict JSON and safe DOM. No tracking/player uploads/new personal data/secrets. Keep original namespace/storage consent policy. Model reference photos remain local and excluded from distribution. This RFC requires existing asset rights/provenance review; it does not decide legal clearance.
+## 6. Migration, security and rollback
 
-All labels/alt/loading/error/controls come from localization. Keyboard/focus/inert-modal/text expansion/zoom/reflow/high contrast/reduced motion and poster/text equivalents required. Story never waits for media. Library/GLB cannot be fetched before explicit 3D activation; Drawer poster alone must work. Separate vendor/model transitives from GLB compressed transfer and decoded/GPU usage in evidence.
+Existing 2.0→2.1 migration rejects gameplay/prose differences; do not expand its comparison exclusions to pretend this pivot is presentation-only. Register explicit format 1/content 2.1→format 2/content 3.0 semantic mapping after old validation; legacy2.0 uses its existing first step then the new step, validating each. Map active payload/checkpoint independently from their own flags. True historical leaf→held/acquired leaf under legacy no-discard semantics; false→no held leaf. New items/secrets are never retroactively awarded. Preserve legacy flags, metrics/RNG/revision/settings/history; exact semantic page/variant mapping required for rewritten lines.
 
-NFR-PE-001..005 unchanged: initial ≤2MB compressed, shell+critical JSON ≤500KB compressed, cold≤3s/warm≤1.5s p75, interaction≤100ms p95, save≤250KB. Existing image/audio app caps32/16MiB; proposed 3D steady-state target≤32MiB with one viewer/model needs D7 device/method agreement. History retains 50 dialogues+50 actions within explicit text/metadata bounds; see proposal §5.2. No unbounded transcript, speculative model preload or persistent cache introduced.
+Where no approved cursor mapping exists, protect raw saves and offer implemented/tested compatible continuation or explicitly confirmed new-session recovery. No guessed downgrade/fast-forward/replay/completed secret. Migrations are pure/idempotent; writes happen only through normal staged/backup/promotion guards, with quota/unavailable/integrity/concurrent-candidate protection. Retry restores inventory/memory/vignettes from checkpoint. Save candidate remains≤250KB UTF-8.
 
-## 7. Verification, rollout and rollback
+Same-origin static 2D art, strict JSON/IDs/paths/hashes/rights and safe DOM; no executable expressions, external services/player uploads/telemetry/secret keys. Held item metadata is story data, not personal data. Local reference photos/BLEND/generators/spike node_modules remain excluded from release.
 
-[SSOT §6](../sprints/sprint-04-ssot.md#6-verification-plan-and-evidence-status) maps existing commands, proposed test IDs and manual gates. Baseline unit suite freshly passes 691/691. No production feature/schema/browser/device acceptance was run in planning. Do not equate historical headless Chromium evidence with real-device/AT/PO sign-off.
+Planning rollback reverts this documentation revision only. Later runtime rollback retains format 2-compatible admission/migration/write guard or disables older writes; never lets format 1 code overwrite new candidates. Do not repair an inventory fault by saving an empty bag. Visual/Log rollback cannot undo an accepted item decision; compatible state remains authoritative.
 
-Rollout by scoped feature PRs from current develop: T0 approvals/contracts → T1 styles → T2 renderer → T3 tags → T4/T5 log → T6/T7 collection resources/viewer → T8 integration → T9 full evidence. Require visual Gate A before 3D effort. Keep unimplemented controls absent and no automatic feature introduction before owner-ready contract.
+## 7. Verification, budgets and rollout
 
-Planning rollback reverts documents only. Runtime rollback uses reviewed UI/adapter revert, preserves save/data, and can keep functional poster fallback if 3D regression is discovered; that is amended scope requiring PO disposition, not successful delivery of 3D. If content/save compatibility changes, preserve latest readable candidates/migration/write guards during rollback. No reset of player storage or shared-history rewrite.
+[SSOT §6](../sprints/sprint-04-ssot.md#6-verification-plan-and-evidence-status) defines proposed evidence. Current unchanged-runtime run **691/691**, zero fail/cancel/skip/todo. Legacy fixtures/12 routes stay as historical witnesses; newly reviewed narrative/graph assertions are additional and separately versioned. Approved behavioral expectation changes need trace/legacy coverage, never skipped/weakened assertions.
 
-## 8. Approval register
+Required Pouch cases: empty/partial/full at3 and boundary4 if selected, refusal/cancel/atomic replace, duplicate/stale/unknown ID, single-opportunity revisit, safe-context permission, held-vs-memory callbacks, no-item Canon route, vignette acknowledge/reload/retry, save migration/full checkpoints/quota/race and rollback protection. Remaining manual Thai/visual/keyboard/AT/device reviews stay explicit. New validators/Pouch code/features are not materialized in this revision.
 
-| Item | Status / evidence |
+NFR-PE-001..005 unchanged: initial≤2MB compressed; shell+critical JSON≤500KB compressed; cold≤3s/warm≤1.5s p75; feedback/general interaction≤100ms p95; save≤250KB. Bound item/memory/vignette IDs by registry; Log capacity50 dialogues+50 actions. Existing image/audio caps32/16MiB retained. **No S4 3D budget/decoder/vendor scope**; future Grand Keepsake budgets measured under S5 approval.
+
+Rollout: T0 accepted detailed contracts → T1 styles → T2 renderer → T3 versioned Pouch/save contract → T4 pure state → T5 Pouch UI → T6 Log → T7 Act 1 content → T8 Act 2–5 map → T9 tags/assets projection → T10 composition → T11 integrated/manual acceptance. Narrative design drafts may proceed before source-contract readiness. Gate A visual, Gate B Pouch+save, Gate C narrative/map, Gate D integrated QA; no source/merge/deploy authorized in this round.
+
+## 8. Approval and supersession register
+
+| Item | Disposition |
 |---|---|
-| Planning request and current targets | Authorized by current PO message; document preparation only |
-| D1–D7 | Pending; no owner approval inferred |
-| Required new production ADR | Not created Accepted; follows actual architectural decisions |
-| Implementation DoR | Open; WBS 0/10 |
-| Documentation review | Prepared on feature branch for PO/owner review; no auto-merge |
-| Production release/deployment | Not requested or performed |
+| PO vision/pouch3–4/AI authorship/S4–S5/Grand Keepsake placement | **Explicit direction received** from current PO Directive, recorded in revised plan |
+| Exact default 3, item registry/guards, final narrative graph/prose, version/migration/callback edits | Proposed implementation detail; domain owners review T0/T3/T7 |
+| Session Log reload policy/profile/manual schedule | Pending detailed review, not a blocker to preparing the requested documents |
+| ADR-P0-014/015 baseline | Retained; new inventory/save/cursor ADR required before code; approved deviations documented prospectively |
+| ADR-P0-016/017 spike | Retained historically; production3D consideration deferred to S5 |
+| S4 source DoR/WBS | Unstarted **0/12**, not authorized by document revision/commit |
+| Merge/release/deployment | Not requested or performed |
+
+v0.2.0 supersedes v0.1.0 proposed Act 1 viewer and save-no-change design, not accepted baseline history. No new requirement/canon/ADR is self-approved. Final plan is concrete for PO review without asking PO to repeat the strategy already given.

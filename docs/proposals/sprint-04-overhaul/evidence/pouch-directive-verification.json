@@ -1,0 +1,31 @@
+{
+  "documentVersions": "0.2.0",
+  "recordID": "CR-20261014-2131",
+  "checkedDocuments": [
+    "docs/proposals/sprint-04-overhaul/01-proposal-plan.md",
+    "docs/rfc/CR-0005-sprint-04-overhaul.md",
+    "docs/sprints/sprint-04-ssot.md",
+    "docs/changelog/2026-10/2026-10-14-2131-sprint-04-pouch-directive.md"
+  ],
+  "localLinksChecked": 32,
+  "anchorLinksChecked": 4,
+  "baselineIDsChecked": 49,
+  "tableRowsInspected": 260,
+  "implementationTasks": 12,
+  "implementationTasksComplete": 0,
+  "strategy": "Adventure Keepsake Pouch in S4; AI Act1 refinement; Act2–5 map; S5 END-HOME Grand Keepsake",
+  "directionAuthority": "Current PO Directive received; final technical contracts remain proposed",
+  "runtimeChangedFiles": [],
+  "unitRegression": {
+    "total": 691,
+    "pass": 691,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "durationMs": 35118.219875
+  },
+  "browserNewFeatureSchemaMigration": "not run / not materialized",
+  "mermaid": "source inspected; rendering not performed",
+  "errors": []
+}

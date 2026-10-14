@@ -3,45 +3,48 @@
 | Document control | Value |
 |---|---|
 | Document / change | `JKB-PROP-S4-001` / [CR-0005](../../rfc/CR-0005-sprint-04-overhaul.md) |
-| Version / date | 0.1.0 / 2026-10-14, Asia/Bangkok |
-| Status | **PROPOSED — PO review; no production implementation authorized by this document** |
+| Version / date | **0.2.0** / 2026-10-14, Asia/Bangkok — PO strategic pivot |
+| Status | **REVISED PROPOSAL — PO vision adopted; detailed contracts/WBS await review; production code unstarted** |
 | Author | Codex — Senior Technical Lead, Game Director, Principal UI/UX Architect |
-| Review PR | [#12](https://github.com/T3thr/JaoKob/pull/12) → develop, OPEN draft |
-| Execution draft | [Sprint 4 SSOT and WBS](../../sprints/sprint-04-ssot.md) |
-| Integrated runtime | `origin/develop@4c8d600820fcedcc9c14ec4b51df685f07099c7a`; Sprint 3 runtime integrated at `0d6c0ba` |
-| Reference snapshot | 3D spike `d8a569e2472079789a02b9c363ae4378dc9d66ac`, [draft PR #11](https://github.com/T3thr/JaoKob/pull/11), OPEN / not merged when inspected |
-| Change class | Plan: documentation; proposed runtime: C2 cross-layer presentation, with C3 dependency exception requiring RFC + new ADR |
+| Review PR / branch | [#12](https://github.com/T3thr/JaoKob/pull/12) → develop; `feat/sprint-04-overhaul-plan` |
+| Execution draft | [Sprint 4 SSOT](../../sprints/sprint-04-ssot.md) |
+| Baseline inspected | `develop@e9803397587bb3ec8f2a61a87966d382277a96fc`; planning branch integrated develop at `9a08d0b` |
+| 3D artifact status | [PR #11](https://github.com/T3thr/JaoKob/pull/11) MERGED at `e980339` on 2026-10-14; game integration deferred to Sprint 5 END-HOME |
+| Proposed runtime change class | C2 narrative/branch/interaction; C3 durable Pouch/save/schema compatibility — RFC, versioned contracts, migration/rollback required |
 
-## 1. Recommendation and authority
+## 1. PO Directive and revised scope
 
-ปรับจากหน้าจอที่ประกอบด้วยกล่องหลายหน้าที่เป็นฉากอ่านที่มีลำดับสายตา: **ฉาก → เจ้ากบ → บทอ่าน → การกระทำ**. แยกข้อมูลการบันทึกออกจากภาษาเรื่องเล่า, สร้างการ์ดทางเลือกที่บอกเจตนา, เปิดประวัติการอ่านโดยไม่ย้อน domain state และนำตุ๊กตา 3D มาเป็นพื้นที่พักที่ผู้เล่นเลือกเปิดเอง.
+JaoKob จะเล่าการเดินทางผ่าน **สิ่งเล็ก ๆ ที่เจ้ากบเลือกพก และความทรงจำที่ยังอยู่เมื่อยอมวางบางสิ่งลง**. Inventory เปลี่ยนเป็น **Adventure Keepsake Pouch** สำหรับวัตถุในเรื่อง ไม่ใช่การหมุนตุ๊กตาระหว่างทาง. ช่องพกของจำกัด 3–4 ช่อง; ของแต่ละชิ้นสร้าง Secret Moments และ Ending Nuances โดยไม่เป็นคะแนนคุณธรรมหรือเงื่อนไขเพิ่มของ Canon Ending.
 
-คำสั่ง PO รอบนี้อนุญาต **analysis / proposal / planning เท่านั้น**. ภาพเป้าหมายได้รับการอนุมัติเป็น art/composition reference แล้ว แต่ Log policy, Intent Tags, production 3D dependency และความหมายของตุ๊กตาใน Act 1 ยังต้องผ่านมติ CR-0005. เอกสารนี้ไม่อนุมัติ Canon, mechanics, schema, release หรือ deployment ใหม่.
+PO อนุมัติ **ทิศทางในการปรับแผนและมอบหมาย AI เขียน/ขัดเกลาเนื้อเรื่อง** ผ่านคำสั่งปัจจุบัน. รอบนี้แก้เอกสารและ commit เท่านั้น; ไม่เริ่ม production implementation. ขนาดช่องที่เลือกจริง, registry/effects, content/save versions, migration, exact prose และ final production assets ยังต้องตรวจรับใน CR-0005/WBS. การอนุมัติทิศทางไม่ถูกตีความว่า source, schema หรือ release ผ่าน DoR แล้ว.
 
-ผลส่งมอบที่เสนอสำหรับ Sprint 4:
+| Phase | Deliverable |
+|---|---|
+| **Sprint 4** | Paper dialogue card, frosted HUD capsule, Intent Tags, Dialogue History, **Pouch UI + persistent Core State**, Act 1 rewrite/choices/items/Secret Moments, **draft Act 2–5 branching map** |
+| **Sprint 5** | Implement Act 2–5 from reviewed map; item callbacks/extra vignettes/three existing endings; elegant **Grand Keepsake** presentation using childhood crochet + adult velour models **after END-HOME** |
 
-- Benchmark Scene 1–2 + Scene 3 handoff เทียบ target อย่างมีคุณภาพ; UI/Log/Drawer ใช้ได้ตลอด Act 1 ทั้ง 7 ฉาก.
-- Title, Reading Beat และ Decision Crossroads มีองค์ประกอบเฉพาะหน้าที่; Exploration, confirmation, completion และ failure flow เดิมยังทำงานครบ.
-- Session backlog อย่างน้อย 50 dialogue entries พร้อมตัวเลือกที่ยืนยันแล้ว; safe read-only modal.
-- Keepsake Drawer ใช้ childhood/adult GLB จาก spike ผ่านการเปิด 3D โดยเจตนาและ poster fallback.
-- Baseline 691 tests และ 12 routes คง invariant; เพิ่ม behavioral tests สำหรับ contract ใหม่และ owner visual/manual evidence.
+Visual Gate เริ่ม Scene 1–2 และ Scene 3 handoff แล้วนำ style/interaction ไปใช้ทั้ง Act 1; narrative deliverable ครอบคลุมเจ็ดฉาก ไม่ใช่เพียง benchmark. จำนวน node/edge ใหม่ต้องมาจาก reviewed Act 1 graph; 14/21/12 เป็น legacy witnesses ไม่ใช่เพดานกราฟใหม่.
 
-ไม่รวม media ใหม่ครบ 7 ฉาก, Act 2–5, ending integration, item economy/equipment/XP, emotion variants, ปุ่มถอดหัวใจ, animated typewriter/auto-advance, voice/TTS, login, telemetry, backend หรือ deploy. คุณภาพ “AAA Indie” ในที่นี้หมายถึงความประณีตของ slice ที่ตรวจรับได้ ไม่ใช่คำกล่าวอ้างว่าเกมเต็มผลิตเสร็จแล้ว. หาก PO ต้องการ art ครบ Act 1 ให้เปิด milestone ผลิตสื่อแยกหลัง benchmark ผ่าน.
+Non-goals Sprint 4: production Act 2–5/Ending code, 3D viewer/library/runtime model promotion, combat, XP/level/equipment/rarity/crafting/currency/weight optimization หรือสถิติใหม่ที่ซับซ้อน, fourth ending, forced collection/completion, voice/TTS, full animated typewriter/auto-advance, login/backend/telemetry/CDN/deploy. HP/พลังใจ/Bond เดิมคงเป็นสามสัญญาณเล่าเรื่องอ่านง่ายเพื่อรักษา resolver; ไม่เพิ่ม combat stats หรือ item bonuses. การยกเลิกสาม meter/เปลี่ยน ending thresholds เป็นอีก design decision ไม่ได้อนุมานจากคำว่า “ตัดสถิติยุ่งยาก”.
 
-## 2. Sprint status and evidence confidence
+### 1.1 Revision history
 
-| Area | Observed fact | Implication for Sprint 4 |
+| Version | Change |
+|---|---|
+| 0.1.0 | Original benchmark + non-diegetic two-doll viewer proposal; historical evidence retained |
+| **0.2.0** | **Supersedes Act 1 3D-viewer approach** with adventure items/state/limited slots, AI narrative assignment, optional vignettes and S4→S5 roadmap; revises D1–D7 and WBS |
+
+## 2. Current facts and confidence
+
+| Area | Verified fact | Consequence |
 |---|---|---|
-| Sprint 3 | [SSOT](../../sprints/sprint-03-ssot.md): WBS 5/5 merged via PR #9/#10 | ฐาน functional integration เสร็จ; ห้ามเปิด WBS เดิมย้อนหลัง |
-| Fresh regression | `node --test tests/unit/*.test.js`: **691 pass / 0 fail / 0 cancel / 0 skip / 0 todo**, 20,832.222 ms | รันใหม่ใน session นี้; runtime, schemas, assets และ unit tests ของ spike HEAD เท่ากับ develop ตาม diff |
-| Browser coverage | [existing evidence](../../../tests/e2e/evidence/sprint-03/visual-novel/README.md): 12 canonical routes และ supplementary Chromium screenshots | หลักฐานประวัติ; ไม่ได้รัน browser ใหม่ใน planning นี้ |
-| Visual approval | Sprint 3 SSOT §5.3 ยังเปิด PO aesthetics, listening, physical device, assistive technology | 691 tests ไม่ใช่หลักฐานว่าภาพหรือประสบการณ์ผ่าน PO |
-| Performance | ประวัติ cold p75 2.16s, warm 0.20s, input→rAF p95 8.2ms ใน headless profile | rAF ก่อน paint; ไม่มี CPU throttle; ห้ามอ้างว่าเป็น FPS/latency บนมือถือจริง |
-| 3D | Spike technically delivered; [adult metrics](https://github.com/T3thr/JaoKob/blob/d8a569e2472079789a02b9c363ae4378dc9d66ac/docs/proposals/3d-keepsake-spike/evidence/model-metrics.json): 546,020 B; [childhood metrics](https://github.com/T3thr/JaoKob/blob/d8a569e2472079789a02b9c363ae4378dc9d66ac/docs/proposals/3d-keepsake-spike/evidence/childhood-model-metrics.json): 598,144 B / 13,400 triangles | GLB พร้อมใช้เป็น candidate; final likeness/fabric/device review ยังเปิด; library bytes และ GPU memory ไม่รวมใน GLB |
-| Governance navigation | AGENTS ยังชี้ Sprint 1; docs portal/Sprint 3 มี integrated closeout | ใช้คำสั่ง PO ปัจจุบันและ Sprint 3 เป็น baseline; ไม่แก้ประวัติ Sprint 1 |
-| Workspace | Spike branch มี GDD edit และ local references เดิม | ใช้ worktree เอกสารจาก develop แยก; ไม่รวม reference photos หรือ GDD edit ใน diff นี้ |
-
-หลักฐาน spike อยู่บน PR #11 จึงใช้ลิงก์ commit ที่ตรึงไว้สำหรับ review; branch เอกสารนี้ไม่คัดลอก spike ทั้งชุดมาเป็น production asset. Merge/approval ของ PR #11 หรือการนำ asset commit ที่ตรวจแล้วเข้าฐานเป็น dependency ของ T7.
+| Sprint 3 | [SSOT](../../sprints/sprint-03-ssot.md) has WBS 5/5 merged; UI/manual visual/device/AT gates remain open | Keep regression evidence; do not equate tests with artistic acceptance |
+| Planning regression | Prior run 691/691 at draft 0.1.0; current pivot rerun **691/691**, no fail/cancel/skip/todo, 35,118.220 ms | Tests cover unchanged runtime, not proposed Pouch/migration/new story |
+| Browser/performance | [Retained evidence](../../../tests/e2e/evidence/sprint-03/visual-novel/README.md): Chromium journeys/screenshots and headless samples | Historical; not rerun for this documentation revision |
+| Existing leaf contract | `keepsake.lily_fragment` is irreversible historical “chose to keep” boolean; no held-item list in Save format 1 | Keep its meaning; new held inventory and memory ledger required for later release |
+| Existing migration | `content-2-0-0-to-2-1-0.js` proves presentation-only equality and rejects gameplay/text changes | New branching/item rewrite needs a new explicit migration design; cannot reuse its allowlist to ignore narrative differences |
+| Models | [Adult/childhood spike](../3d-keepsake-spike/README.md) merged into develop, GLBs 546,020 B / 598,144 B | Candidate Grand Keepsake assets for END-HOME; Art/rights/device and future runtime ADR remain separate |
+| Checkout | Requested feature branch already includes latest develop; only local references untracked at intake | Continue branch, preserve references; no new worktree/branch/reset/merge needed |
 
 ## 3. Visual & architectural gap analysis
 
@@ -63,7 +66,7 @@ Target เป็นภาพ mockup ที่รวม device/browser chrome. �
 | G8: responsiveness | visual focus คงอยู่เมื่อ crop; safe area และ controls ถึงได้ | `object-position: center 48%`, sprite size อิง viewport height; three-choice mobile มี scroll | แยก authored portrait/landscape crop, reserve subject zone; 320/zoom ใช้ flow; การเลื่อนเป็นสิ่งยอมรับได้ ไม่ตัด choice ที่สามเพื่อ fit mockup |
 | G9: focus | action/focus มีหลักฐานให้มองเห็นโดยไม่กลายเป็นกล่องตกแต่ง | กรอบขาวรอบ reading region ใน screenshot มาจาก `tabindex=-1` / `:focus-visible` และ bootstrap focus directive | เก็บ focus semantics; ย้าย focus target ให้ใกล้บทอ่านและ style เฉพาะ region; keyboard focus ทุก control ยังเห็นชัด ห้ามลบ outline ทั้งแอป |
 | G10: history | ย้อนอ่านสิ่งที่เห็นและเลือกแล้ว | `buildCutsceneControls()` มี legacy inline log แต่ production VM ไม่ส่ง full backlog; `viewedDialogueIds` เป็น unique recency/cursor | Session transcript แยกจาก saved progress; modal ไม่ dispatch advance/retry; ≥50 dialogues + accepted choices |
-| G11: keepsake meaning | ของที่สัมผัสได้สัมพันธ์กับอารมณ์ | ไม่มี Drawer/production contract; spike viewer อยู่นอก runtime | Non-diegetic collection space ที่ PO/Narrative อนุมัติ; แยกจาก `keepsake.lily_fragment` flag และ ending |
+| G11: keepsake meaning | ของที่สัมผัสได้สัมพันธ์กับอารมณ์ | ไม่มี Drawer/production contract; spike viewer อยู่นอก runtime | Adventure Keepsake Pouch: วัตถุในเรื่อง, capacity 3–4, held-state/ความทรงจำแยกกัน; 3D doll เฉพาะ END-HOME ใน Sprint 5 |
 | G12: semantic projection | ข้อความแต่ละชนิดมี role ของตัวเอง | VM รวม prompt กับ dialogue เป็น string; `outcomePreview` มีใน schema แต่ไม่แสดงใน normal choice cards; renderer rebuild content ทั้งก้อน | เพิ่ม explicit prompt/cue/status/overlay VM, persistent scaffold; patch เฉพาะ region; lifecycle ของ image/audio/modal ไม่ restart ตาม save status |
 
 ### 3.2 “No AI Slop / AAA Handcrafted Feel” acceptance rubric
@@ -78,7 +81,7 @@ Ghibli, Coffee Talk และ A Short Hike ใช้เป็นคำอธิ�
 | Typography | Sarabun ที่มีสิทธิและ self-hosted; body 18–20px เป็น starting design target, line-height 1.75–1.9; Thai stress test ไม่ clip | ใช้ฟอนต์ตกแต่งกับ prose, ตัดสระ/วรรณยุกต์, shrink text เพื่อ fit |
 | Choice honesty | intent อธิบายแรงจูงใจ; outcome cue เฉพาะข้อมูลที่ content อนุมัติ; น้ำหนักเท่ากัน | สีเขียว=ดี/น้ำเงิน=ผิด, “ปลอดภัย” ที่รับประกันสิ่งที่ engine ไม่รับประกัน, numeric/ending spoilers |
 | Writing | หนึ่ง sensory anchor ต่อ beat, voice ตาม Bible, motif เปลี่ยนความหมาย, prompt ไม่อธิบาย theme ซ้ำ | “อบอุ่น/อ่อนโยน/ความหวัง” ซ้ำโดยไม่มี action, moral lecture, กล่อง feedback ทวน prose เดิม |
-| Motion/sound | motion เฉพาะ transition/focal breathing ที่อ่านสบาย; full-text/manual advance เป็น default | blinking Next, perpetual card motion, auto-rotate 3D, action ต้องรอ media |
+| Motion/sound | motion เฉพาะ transition/focal breathing ที่อ่านสบาย; full-text/manual advance เป็น default | blinking Next, perpetual card motion, motion ที่รบกวนบทอ่าน, action ต้องรอ media |
 | Interaction | ทุกปุ่มทำงานจริง; keyboard/touch equivalent; normal save ไม่ดึง focus | ปุ่ม Log/Inventory ที่ไม่มีระบบ, restart scene จากการเปิด modal |
 | Accessibility | visible focus, text/numeric status, 44×44 targets, 320 reflow/200% text/400% zoom; high contrast และ reduced motion | สวยเฉพาะ screenshot หรือใช้ icon/color/motion เป็นข้อมูลช่องทางเดียว |
 
@@ -88,7 +91,7 @@ Ghibli, Coffee Talk และ A Short Hike ใช้เป็นคำอธิ�
 
 ### 4.1 State-to-screen contract
 
-Three screens เป็น **presentation modes** ไม่ใช่การลด domain state หกค่าเหลือสามค่า. `Cutscene`, `Exploration`, `Decision`, `GameOver`, `Ending`, `Title` และ transitions เดิมคงเดิม. อ่าน preface ของ Exploration/Decision เป็น reading ก่อน; เมื่อ facts ready จึงแสดง controls ของ node จริง.
+Three screens เป็น **presentation modes**; Pouch/Log เป็น overlay ส่วน held-item state เป็น Domain Data ไม่ใช่ state เครื่องที่เจ็ด. `Cutscene`, `Exploration`, `Decision`, `GameOver`, `Ending`, `Title` และ transitions เดิมคงเดิม. อ่าน preface ของ Exploration/Decision เป็น reading ก่อน; เมื่อ facts ready จึงแสดง controls ของ node จริง.
 
 | Screen / mode | Visible content | Main action / exit |
 |---|---|---|
@@ -107,7 +110,7 @@ Desktop starting targets: card 40–44rem max, centered near lower stage; ~20–
 
 Decision card: one native button wrapping original icon, action label, short Intent Tag and trailing arrow; outcome cue outside the button where lengthy, associated via description. Whole card is tap target; no nested clickable control. Distinguish selected, disabled, pressed and busy with text/state and contrast, not color alone. Mobile stack with 10–14px gaps; normal card target 76–104px with text allowed to expand. Desktop may use 2–3 columns only where all labels/cues fit, otherwise stack; maintain DOM order. No forced single-screen fit at 320/zoom.
 
-Common utility rail: Settings, “ประวัติ”, “ของสะสม”, textual save status. At narrow width it wraps below HUD or into an accessible menu with actual implemented actions; it never overlays prose/choices. Touch targets ≥44px; desktop controls may look small while preserving hit area. Title has collection entry only if D4 permits early access; empty history action is omitted or opens a meaningful empty state, never an inert button.
+Common utility rail: Settings, “ประวัติ”, “กระเป๋าความทรงจำ”, textual save status. At narrow width it wraps below HUD or into an accessible menu with implemented actions; never overlays prose/choices. Targets ≥44px. Pouch แสดงจำนวนช่องที่ใช้ เช่น 2/3 พร้อมข้อความอธิบาย; ไม่มี doll selector หรือปุ่มหมุน 3D ใน Act 1–4. Title ใช้ Resume/New Game/Settings และคำอธิบาย save scope; empty log/pouch states มีความหมายและไม่เผยของหรือฉากที่ยังไม่พบ.
 
 ### 4.3 Save, feedback and notice separation
 
@@ -122,7 +125,7 @@ Announcement dedupe uses event identity/revision + message kind, not every VM re
 
 ### 4.4 Intent Tags and narrative editing
 
-Draft labels below require Narrative/Game Design review; choice IDs, effects, order, condition, impact and next-node stay unchanged. Tags express action intent, not predicted reward/morality.
+Tags ด้านล่างเป็นจุดตั้งต้นจากเจ็ด choices เดิม; AI ได้รับมอบหมายให้ขัดเกลา label/prompt/feedback และเพิ่มทางเลือกของสะสม/ฉากเสริมตาม directive. Existing IDs ไม่ถูกใช้กับความหมายใหม่; exact effect/condition/edge changes ต้อง trace ใน CR-0005 และ reviewed content version. Tags สื่อเจตนา ไม่ใช่คะแนนคุณธรรมหรือรางวัล.
 
 | Existing choice ID | Proposed intent text | Skin / original motif |
 |---|---|---|
@@ -134,9 +137,9 @@ Draft labels below require Narrative/Game Design review; choice IDs, effects, or
 | `choice.act1.keep-fragment` | เก็บไว้ | Moss / leaf fragment |
 | `choice.act1.release-fragment` | ปล่อยไป | River / open water |
 
-Recommend a **separate validated presentation catalog** bound to exact contentVersion + stable IDs. Do not add `intentTag` to frozen schema 1.2 or infer tags from metric effects/Thai string matching. Project existing `outcomePreview` where present; no invented “safe” promise. Missing optional catalog entry yields normal labeled choice, while missing/invalid required locale/icon/reference fails the presentation feature safely and is reported.
+Recommend a **separate validated presentation catalog** bound to exact contentVersion + stable IDs. Frozen schema 1.2 remains unchanged; new gameplay item/vignette fields belong in the versioned package contract (§9), while visual tag/skin/icon metadata may use the separate validated presentation catalog. Do not infer tags from metric effects/Thai string matching. Project existing `outcomePreview` where present; no invented “safe” promise. Missing optional catalog entry yields normal labeled choice, while missing/invalid required locale/icon/reference fails the presentation feature safely and is reported.
 
-Narrative overhaul in this Sprint starts with an editorial inventory of all Act 1 beats/prompt/feedback, not automatic rewriting. The benchmark may shorten duplicated exposition after Lead Narrative approval. Preserve emotional progression, non-blaming storm, agency, decompression, distinct inner-voice role and motif discipline (`NAR-DLG-001..005`, `NAR-CON-001/010`, `NAR-TONE-001`). Exact text edits are a later reviewed diff. If content bytes change, issue a new content version with proven 2.1→new compatibility and rollback; do not silently repurpose IDs or waive migration because prose “looks cosmetic”.
+PO อนุญาตและมอบหมาย AI ให้เขียน/ขัดเกลาบทบรรยาย บทสนทนา ทางเลือก และฉากเสริม **ตลอด Act 1 ทั้งเจ็ดฉาก** ไม่จำกัดการแก้เพียงคำซ้ำใน benchmark. ไม่ต้องขออนุญาตรายประโยคเพื่อร่างงาน; final Thai editorial และ contract/Canon review เกิดตาม T7 ก่อน merge. เกณฑ์ Tender & Heartcrafted Narrative และตัวอย่างร่างอยู่ใน §7. คง emotional progression, non-blaming storm, agency, decompression, inner-voice semantics และสาม ending categories. Content ที่เปลี่ยนต้องมีรุ่นใหม่/explicit migration; ไม่อ้างว่าเป็น presentation-only update.
 
 ## 5. Dialogue History / Backlog specification
 
@@ -157,113 +160,247 @@ Proposed pure application session reducer (`src/core/use-cases/session-history.j
 | Record field | Purpose / constraint |
 |---|---|
 | `entryId`, `sessionId`, `sequence` | Application occurrence identity; injected monotonic sequence, no randomness/wall-clock dependency |
-| `kind` | `dialogue` or `choice`; `interaction` only if D3 approves the proposed observation entries |
+| `kind` | `dialogue`, `choice`, `interaction` หรือ `keepsake-action` ที่ commit แล้ว; เปิด/ปิด Pouch ไม่เป็น history event |
 | `contentVersion`, `nodeId`, `sceneId` | Resolve to exact accepted package and scene context |
 | `dialogueId` / `actionId` | Validated source identifier appropriate to kind |
 | `speakerId`, `voiceRole`, `locale` | Narration/inner voice/speech distinguished; locale at display |
 | `text`, `sceneLabel`, `speakerLabel` | Frozen resolved text as seen at that occurrence; choices retain accepted label/tag, no unchosen outcomes |
 
-Policy proposed for D3: retain **50 latest dialogue records + 50 latest choice/interaction records**, merge by sequence for UI (≤100 entries). Dialogue capacity remains 50 even after 60 mixed actions; this avoids treating “50 entries total” as meeting 50-dialogue requirement. เก็บข้อความที่เห็นครบตาม schema เดิม: localizedText อนุญาตถึง 12,000 ตัวอักษร และ localizedShortText ถึง 240 ตัวอักษร. เสนอ serialized transcript/state hard budget 8 MiB รวม text/labels/metadata และ target ≤128 KiB สำหรับ Act 1 ปัจจุบัน; ไม่ใช้ byte cap ลบรายการจนเหลือ dialogue ต่ำกว่า 50 และไม่ตัดข้อความ. ตรึงความยาว metadata ตาม schema และพิสูจน์ด้วย fixtures ที่ความยาวสูงสุดว่าบัฟเฟอร์รองรับ 50 dialogues + 50 actions ได้จริง; หากไม่พอให้ปรับ budget/representation ผ่าน review ก่อน implementation. Budget นี้เป็น ephemeral RAM data ไม่ใช่ save และต้องรายงาน heap ที่วัดจริงแยกจาก serialized bytes.
+Policy proposed for D3: retain **50 latest dialogue records + 50 latest choice/interaction/keepsake-action records**, merge by sequence for UI (≤100 entries). Dialogue capacity remains 50 even after 60 mixed actions; this avoids treating “50 entries total” as meeting 50-dialogue requirement. เก็บข้อความที่เห็นครบตาม schema เดิม: localizedText อนุญาตถึง 12,000 ตัวอักษร และ localizedShortText ถึง 240 ตัวอักษร. เสนอ serialized transcript/state hard budget 8 MiB รวม text/labels/metadata และ target ≤128 KiB สำหรับ Act 1 ปัจจุบัน; ไม่ใช้ byte cap ลบรายการจนเหลือ dialogue ต่ำกว่า 50 และไม่ตัดข้อความ. ตรึงความยาว metadata ตาม schema และพิสูจน์ด้วย fixtures ที่ความยาวสูงสุดว่าบัฟเฟอร์รองรับ 50 dialogues + 50 actions ได้จริง; หากไม่พอให้ปรับ budget/representation ผ่าน review ก่อน implementation. Budget นี้เป็น ephemeral RAM data ไม่ใช่ save และต้องรายงาน heap ที่วัดจริงแยกจาก serialized bytes.
 
 ### 5.3 Append and lifecycle rules
 
 1. New Game accepted: clear prior session, record first displayed dialogue once. Cancelled New Game leaves existing session untouched.
 2. Accepted advance: append newly displayed dialogue after successful renderer presentation acknowledgement; failed render cannot append an unseen line. Re-render/settings/audio/save callbacks append nothing. Confirmation selection appends nothing until commit.
-3. Accepted choice/observation: append the action **before** the newly displayed response dialogue (response only after successful presentation); validate selected stable ID from accepted result. Rejected/stale/duplicate/busy inputs append nothing.
+3. Accepted choice/observation/collect/release/replace: append the action **before** the newly displayed response dialogue (response only after successful presentation); validate selected stable ID from accepted result. Rejected/stale/duplicate/busy inputs append nothing.
 4. Revisit/retry that actually displays an old line appends a new occurrence with new sequence; do not dedupe globally by dialogue ID. No speculative preload, graph traversal or unchosen variant may append.
 5. Title→Resume within the same application/session retains log and does not duplicate the current line solely due to redisplay. Retry is labeled as a new passage in history, without changing checkpoint rules.
 6. Hard reload/compatible Resume: initialize a **fresh session transcript from the current visible line**, with localized note that earlier dialogue belongs to the preceding reading session. Saved choice history may be shown separately as “saved choices” after validated projection; do not interleave it as a reconstructed exact transcript. Default recommendation: omit that extra section in Sprint 4.
-7. New package/session disposes old reducer. No player data leaves device; no extra LocalStorage key/write. Cross-reload transcript persistence is a deferred alternative requiring versioned save/storage and recovery design.
+7. New package/session disposes old reducer. No player data leaves device; Log alone adds no LocalStorage key/write (accepted Pouch transactions still use the domain save). Cross-reload transcript persistence is a deferred alternative requiring versioned save/storage and recovery design.
 
 Acceptance: append 60 dialogue occurrences→exact latest 50 in order with speaker/scene/locale; repeated IDs survive as separate visits; cancelled confirmation absent; log shows only chosen path; New Game clears; reload limitation is explained; open/close/log-scroll leaves metrics/flags/RNG/cursor/revision/save bytes unchanged.
 
-## 6. Keepsake / Inventory Drawer specification
+## 6. Adventure Keepsake Pouch: UI, state and emotional choices
 
-### 6.1 Meaning and Act 1 emotional connection
+### 6.1 Purpose and capacity
 
-Recommend D4 **a non-diegetic “ของสะสม” space for the player**, available after first accepted opening beat, never as an item carried by the tadpole. Childhood crochet is the first/default view; adult velour is a selectable companion edition, without ending/transformation description. Both can be accessible early only if PO + Narrative accept the visual foreshadowing. If adult appearance is judged a spoiler, hide adult in gameplay and expose it in Title collection only; do not add a fake locked achievement or future-ending gate.
+Pouch เก็บวัตถุที่เจ้ากบพบในโลกจริงของเรื่อง: ชิ้นส่วนบ้าน แสงที่ตกบนหิน หรือเส้นนุ่มที่ติดรากน้ำ. ภาพกระเป๋าเป็น **visual metaphor ของการประคองของเล็ก ๆ** ไม่ใช่ equipment กระเป๋าผ้าที่ลูกอ๊อดต้องสวม; งานศิลป์ต้องคง life stage และการรับรู้ตาม `NAR-WLD-005`. ไม่ให้เจ้ากบเข้าใจชื่อวัสดุมนุษย์ล่วงหน้าจากข้อความบนการ์ด.
 
-Offer one quiet optional invitation at an approved emotional rest point, preferably `node.act1.rest` after the player advances to its decompression beat; no automatic opening or mandatory interaction. Draft copy “พักดูเจ้ากบสักครู่” is proposed UI text, not new Canon dialogue. Drawer text speaks to the player, never claims the tadpole owns a toy or promises a reunion. Viewing gives no HP/พลังใจ/Bond/reward/flag effect. `keepsake.lily_fragment` remains the story item it already is; its conditional motif may appear in later authored UI only with its existing guard.
+PO กำหนดช่วง **3–4 slots**; แผนเสนอ **3 slots สำหรับ Sprint 4** เพื่อให้ tutorial เบาและเห็นความหมายของการเลือกภายใน Act 1. Exact capacity=3 เป็น design recommendation ที่รอรับรอง; หากเลือก 4 ต้องตรึงใน content/save contract ก่อนเริ่มงาน ไม่เป็น setting ที่ผู้เล่นสลับกลาง session. หนึ่งชิ้นต่อช่อง, ID ไม่ซ้ำ, ไม่มี stacking/rarity/weight/bonuses/ซื้อขาย/crafting หรือ slot expansion.
 
-Model heart is optional in source (`Accessory_RedHeart`), default GLB includes it. Sprint 4 uses that approved default; no heart-toggle, emotional heart meter, ownership flag, transformation or Act 5 delivery is inferred.
+“กระเป๋าเต็ม” เปิดการตัดสินใจที่สงบ: **เก็บของเดิมและปล่อยชิ้นใหม่ / วางของเดิมหนึ่งชิ้นแล้วรับชิ้นใหม่ / กลับไปคิดก่อน**. UI ไม่เลือกทิ้งให้เอง ไม่ชี้ของที่ดีที่สุด และไม่ใช้ timer. การวางของไม่ลบความทรงจำที่ได้เกิดแล้ว; การคงไว้และการสละมีข้อความที่ให้คุณค่าเท่ากัน.
 
-### 6.2 Anatomy and interaction
+### 6.2 State and transaction contract — proposed for D4/D5
 
-Desktop: modal side drawer at inline-end, starting width 26–32rem with dimmed story still visible. Mobile: modal sheet with header/close, two model selectors, viewer/poster region, localized description and orbit/reset controls; use nearly full height at 320/landscape/zoom when necessary, allow internal scrolling. Keep close visible; do not squeeze controls into a tiny viewport to preserve a half-height sheet.
-
-States: `closed → poster → loading → ready`, with `error → poster/retry`; model selection changes poster/details only before activation. **“เปิดดู 3 มิติ” is a second explicit action**: loading the Drawer alone requests only selected poster/catalog, no viewer JS or GLB. After 3D activation, selection loads only chosen model. Drag/touch orbit and pinch/wheel zoom have equivalent localized buttons: left/right/up/down, zoom in/out, reset. No pan, AR, animation autoplay or auto-rotate; reset includes both camera orbit and field of view. Poster and full text alternative remain usable without WebGL.
-
-Opening/closing/selecting/rotating cannot dispatch SELECT_CHOICE, save, change flag, advance cursor or append story history. Asynchronous completion never steals focus if user has moved to a selector/close. Escape closes loading/ready and returns focus. Touch orbit must coexist with vertical sheet scrolling; explicit controls cover devices where gestures conflict.
-
-### 6.3 Asset and runtime integration
-
-`@google/model-viewer` **4.4.0** is pinned in the isolated spike. [ADR-P0-016](https://github.com/T3thr/JaoKob/blob/d8a569e2472079789a02b9c363ae4378dc9d66ac/docs/adr/ADR-P0-016-keepsake-model-viewer-spike.md) approves that spike only. Recommend the same candidate for production after D5, license/supply-chain review and a **new ADR** narrowing the Vanilla baseline exception to this opt-in UI adapter. Do not label it dependency-free or import its spike `node_modules` path from the game.
-
-| Layer | Proposed responsibility |
+| Domain field | Meaning / invariant |
 |---|---|
-| Core | Existing mechanics untouched; optional browser-free `KeepsakeViewerPort` contract if independently injected adapter is approved |
-| Data | New strict presentation/keepsake catalogs; validate rights/hash/path/type/bounds and join IDs; same-origin resolver returns approved descriptor |
-| UI | Drawer, poster, native controls and `model-viewer-adapter.js`; injected descriptor/loader, request generation, DOM/event/resource lifecycle; no Data concrete import |
-| Bootstrap | Compose catalogs/resolver/viewer/overlay controller; handle semantic open/close/select/view intents; preserve audio trusted-activation path |
-| Distribution | Vendor exact reviewed JS/license under `assets/vendor/model-viewer/`; GLBs/posters under `assets/models/keepsakes/` and `assets/images/keepsakes/`; never ship docs/BLEND/generators/photos/spike node_modules |
+| `inventory.capacity` | Fixed 3 (or reviewed 4), validated against exact content contract |
+| `inventory.heldItemIds` | Stable ordered unique item IDs, length ≤capacity; authoritative physical possession |
+| `keepsakeMemory.encounteredItemIds` | Encountered through accepted story events only; bounded unique registry IDs |
+| `keepsakeMemory.acquiredItemIds` | Historical collection, retained after release within current story path |
+| `keepsakeMemory.releasedItemIds` | Accepted release of previously held object; preserves emotional callbacks, not a penalty score |
+| `progress.completedVignetteIds` | Completed optional moments after final beat acknowledged; bounded IDs, not merely eligible/entered scenes |
+| Checkpoint equivalents | Inventory, memory ledger and vignette completion captured/restored with flags/metrics/cursor |
 
-Current asset schema types are only image/audio/font. Recommend **independent versioned presentation catalog** for non-diegetic model descriptors rather than treating GLB as image or editing published v1.2. It includes edition ID, localized title/alt/detail, GLB path/hash/bytes, poster descriptor, rights record and supported format. Data validates against installed new schema; unknown/mismatched catalog fails collection feature safely while story remains usable. Alternative v1.3 content-package model type is in RFC and requires broader compatibility work.
+Held IDs must be a subset of acquired/encountered IDs; under the no-reacquisition default, held and released sets are disjoint. Registry bounds limit every memory/progress list. Pouch actions enter the session Log without smuggling item IDs into legacy Decision-only payload.history; the new format explicitly defines any domain audit extension.
 
-Same-origin static vendor, model and poster only; reject traversal/credentials/external redirect, remote texture URI and unsupported model extensions. Existing self-contained uncompressed GLBs need no Draco/KTX2 decoders. [Official loading docs](https://modelviewer.dev/examples/loading/) describe CDN decoder loading for compressed formats: future compression must vendor its decoder and be reviewed; never assume the absence of a CDN import guarantees no external requests.
+All field names are **draft contract names**, not installed schema or approved new FR IDs. Core owns pure collect/release/replace and eligibility. Data validates content/save/item records and projects localized view; bootstrap dispatches intents and persists accepted snapshots; UI never edits the list or storage.
 
-### 6.4 Lifecycle and budgets
+Transaction order: validate command/view revision → check authored opportunity/item/held state from pre-snapshot → resolve chosen replacement and all effects atomically → validate capacity/IDs/target → commit one revision → save → feedback/log/render. Full capacity returns an explicit pending choice, not a partial acquisition. Confirm replace includes offered item, selected held item and expected revision; cancel/rejected/stale/double input returns original state. Successful replace removes exactly one held item and adds exactly one new one in one commit; no intermediate discarded-but-not-acquired state. Save failure follows existing recoverable memory-only policy with visible notice.
 
-- One active viewer/model at a time; memoized component import per app, not per reopen. Invalidate generation on selection/close/dispose; obsolete success/error cannot change current edition. A JS import cannot reliably be cancelled; discard late results and keep drawer closed.
-- Timeout proposed 15s for interactive model load; error preserves poster/text and explicit retry/close. The domain transaction never awaits module/model/decode. Retry bounded to user action, with consistent hash/path validation.
-- On close/hidden/dispose detach event listeners, invalidate callbacks and remove active viewer/reference; verify renderer/component caches and GPU resources on repeated cycles. **Removing the DOM element does not prove that internal caches or GPU memory were freed**; inspect supported API/configuration and measure. Imported JS remains resident. If stable bounded reuse is the safe lifecycle, document it rather than inventing a nonexistent dispose API.
-- No GLB/vendor fetch before 3D activation; no two-model preload. Transfer for current GLBs is 546,020 / 598,144 B **plus library, poster and dependencies**; record compressed/uncompressed waterfall separately. No “<600 KB total 3D” claim.
-- Preserve `NFR-PE-001..005`: cold ≤3.0s p75, warm ≤1.5s p75, commit feedback/general interaction ≤100ms p95, initial ≤2 MB compressed and shell+critical JSON ≤500 KB compressed, save ≤250 KB. Added code/catalog must still count toward shell budget even when GLBs are deferred.
-- Existing image/audio caches stay 32/16 MiB. Propose separate 3D steady-state decoded/GPU target ≤32 MiB, one live context/model, no retained second model; method/device agreed in T0, reported as target until measurable. If third-party caches cannot meet this, narrow to one reusable viewer, reduce asset/texture cost or retain poster mode; do not infer memory from GLB bytes.
-- Require representative iOS/Safari and Android/Chrome device checks for cold viewer activation, gestures, visibility, context loss and 20 close/open/switch cycles. Browser emulation alone cannot close this gate.
+Acquisition is attached to authored Exploration/Decision opportunities; revisiting an observed hotspot cannot mint duplicate items. Propose single acquisition opportunity per unique story object, with release final for that occurrence; reacquisition would need an authored new event rather than infinite pick/drop farming. Pouch can be opened read-only during reading; **release/replace commits allowed only at an authored safe opportunity/rest context** with `canManageKeepsakes` projection. Reading/confirmation/busy/crisis does not permit background inventory mutation. Empty/full/unknown-item/corrupt/memory-only cases have localized outcomes.
 
-## 7. Architecture blueprint and compatibility
+`keepsake.lily_fragment` continues to mean its historical choice and is never cleared or redefined. Physical leaf depiction/share requires **held leaf membership** as well as relevant story guard; past acquisition/release can yield a memory-only variant. `coping.let_go_early` remains the original early decision, not a flag reused for any later discard. GDD/Narrative callback conditions (`GDD-DEC-A5-001-B`, `NAR-CON-002`, `NAR-MTX-END-001`) need a reviewed clarification distinguishing history from possession in T0/T7; implementation cannot silently keep showing a discarded physical leaf.
+
+### 6.3 Pouch presentation and accessibility
+
+Desktop modal drawer at inline-end (starting 24–30rem); mobile bottom sheet that may occupy near-full height at 320/zoom/landscape. Header, close, used/capacity text, **three tactile slots** and selected-item detail. Slot illustration uses original small 2D art with localized name/alt, material detail and a short “remembered where” line. Empty slot says “ยังมีที่ว่าง”; it is not a locked reward or silhouette of an undiscovered item. No 3D canvas/model selector/orbit controls.
+
+Item selection is a native button; pointer/touch/keyboard share the same semantic selection. Detail displays “ยังพกอยู่” vs historical recollection when relevant. Discard flow explains irreversible physical release through existing confirmation preference and always provides cancel. Full-pouch chooser shows actual held items and offered item with parallel language; no drag-and-drop requirement. Item names/hints/details/accessible labels/save errors come from localization.
+
+Native dialog, one overlay, inert background, visible focus, Tab/Escape/close restoration and stable scroll match Log. Opening/selecting/closing changes only UI state; **confirmed collect/release/replace changes domain/save and enters Log**. No hidden item deletion due to drawer closing, image error or settings. Blank state remains valid when every object is left behind; image failure preserves item name, meaning and commands.
+
+### 6.4 Act 1 candidate objects and Secret Moments
+
+Examples are **authoring candidates under PO's new assignment**, not installed canonical items. Use `draft.item.*` / `draft.vignette.*` identifiers only in proposal/map; final stable IDs/guards/effects/return edges are ratified in T7. Minimum proposed Act 1 scope: four candidate objects and **2–3 short vignettes** with explicit default paths; capacity 3 gives one optional replacement situation. หาก ratify 4 slots ต้องออกแบบ offering ชิ้นที่ห้าใน registry/graph ที่ review แล้วเพื่อให้ full-pouch decision เกิดจริงใน Act 1; fixture ที่สร้างกระเป๋าเต็มอย่างเดียวไม่ใช่หลักฐานว่า story journey สอนการสละของสำเร็จ. ห้ามเติม item ให้เองเพื่อบังคับ tutorial.
+
+| Candidate | Proposed encounter | Emotional choice / extra moment | Later nuance brief |
+|---|---|---|---|
+| เศษใบบัวจากบ้านเก่า (`draft.item.lily-fragment`) | Existing Act 1 Scene 6, `node.act1.keepsake`; connects to existing keep/release choices | Retain a physical piece or let the water carry it; “สีที่ยังจำบ้าน” can use held/memory-only variants | END-HOME leaf seam/nearby leaf-placement only if physically held; released route recalls a ripple instead |
+| หินประกายน้ำค้าง (`draft.item.dew-stone`) | Optional shallow-root observation in Scene 2, before three-way home focus | “ดาวใต้ใบบัว”: mother/siblings notice light on water; possession offers later noticing, never protection bonus | Light on wall/water in any ending, no extra Bond/HP requirement |
+| เปลือกเมล็ดบัวเล็ก (`draft.item.lotus-shell`) | A second optional Scene 2 opportunity, only after reading its cue | “เสียงเล็กในน้ำ”: a soft click becomes a shared childhood rhythm | Repeated gentle rhythm rather than a collectible score |
+| กลีบบัวที่ยังมีกลิ่นฝน (`draft.item.rain-petal`) | Optional Scene 6/7 rest-point offering | Full pouch can require release/refusal; “ที่ว่างข้างความคิดถึง” values space and remembered warmth equally | Retained scent or letting-go imagery; no superior epilogue |
+| ด้ายไหมพรมสีแดง (`draft.item.red-yarn`) | **Act 2/3 map candidate**, not forced into Act 1 | First unfamiliar human material fits `NAR-SC-A2-006`; protagonist perceives softness/color before understanding yarn | Warm thread motif can meet Grand Keepsake at END-HOME; no new ending condition |
+
+Red yarn remains part of the adventure vision; placing it in Act 2 preserves the current “first human material” beat. If PO later places it in Act 1 instead of one candidate, update that continuity brief explicitly before content integration, not via an unnoticed early reveal. No additional request is needed to draft both alternatives for review.
+
+### 6.5 Secret Moments and Ending Nuances
+
+Eligibility distinguishes **currently held**, **ever acquired**, **released** and **vignette completed**. Those predicates must be explicit approved schema/DSL constructs, not inferred from labels/HTML/free-form code. A moment unlocks a contextual opportunity; it never advances itself when a modal opens. Story actor/scene/locale and safe default text stay available when item absent. Fixed entry/convergence edges avoid an unbounded nested quest/return stack.
+
+Optional vignette length target 2–4 full-text beats (~30–90 seconds at player pace), one sensory/action focus, no timer or meter reward. It rejoins the same act spine and does not require another collectible. Pouch-full choice is at most a meaningful rest interaction, not a repeated obstruction at every scene. Test skipping every object/vignette still completes Act 1 and preserves future Canon reachability.
+
+Ending Nuances change authored image/prose/sound details in the **same three endings**. They do not add `END-TRUE`, override `END-HOME` resolver or make collecting all items mandatory. Physical props require held state; memories can survive release. Missing item/vignette has an equally complete warm default. If several nuances match a slot, use reviewed priority + stable-ID order/default, not combinatorial concatenation of every acquired object.
+
+### 6.6 The Grand Keepsake — Sprint 5, END-HOME only
+
+After the story's consent/safety gates and symbolic transformation in `NAR-SC-A5-007-HOME`, present childhood crochet and adult velour as the **Grand Keepsake**, where the adventure meets the real gift. Reserve a calm epilogue composition and a deliberate reveal; models are not carried in Pouch or exposed to rotate during Act 1–4. The two versions are representations/editions in one Canon ending, not two new endings or an extra Bond tier.
+
+Sprint 4 produces handoff brief only. Sprint 5 decides exact presentation (poster first, optional interactive inspection after END-HOME), timing, localized description, art/rights and browser/memory fallback. `model-viewer` 4.4.0 remains the spike candidate, requiring a future production RFC/ADR and measured same-origin opt-in lifecycle if adopted. Existing `.blend`, GLB and optional `Accessory_RedHeart` stay unchanged. No model/vendor fetch or import is added to Sprint 4 runtime/distributable by this plan. Reflective endings show living frog and coherent item/memory nuances, without premature doll transformation.
+
+## 7. Tender & Heartcrafted Narrative assignment
+
+### 7.1 Writing acceptance
+
+AI is assigned to write fresh narration, dialogue, prompts, immediate feedback and extra vignettes across Act 1. Ghibli warmth, Coffee Talk intimacy and A Short Hike discovery translate into **concrete sensory acts, patient silence, small choices and unforced kindness**. Use the game's own world/voice, not copied characters or stock quotations. Final prose receives human Thai/Narrative review as one coherent scene diff.
+
+| Principle | Observable writing criterion |
+|---|---|
+| Earn tenderness | Show warmth through someone slowing down, sharing shade or leaving space; avoid declaring that every object is “meaningful/heartwarming” |
+| One beat, one intention | Usually 1–2 sentences per voiced dialogue unit; narration can breathe without repeating what image/feedback already says |
+| Sensory before abstract | Light through water, cool root, soft red thread, pause in swimming before philosophical explanation |
+| Character voice | Mother concise/water/root rhythm; inner thought first-person and age-appropriate; no human fluent speech from tadpole |
+| Pouch agency | Retaining/releasing/refusing all receive compassionate wording; no guilt, “wrong choice” or max-collection checklist |
+| Gentle branches | 2–3 intelligible choices at a crossroads; optional vignette returns to act spine; readable cause/consequence cues, no combat/stat menus |
+| Emotional safety | Storm/separation is not caused by collecting/choosing wrong; no confirmed family death; decompression beat and a hopeful default |
+| Motif discipline | Water/light/leaf/thread recur with changing meaning; no repetitive “อ่อนโยน/อบอุ่น/ความหวัง” or theme lecture |
+| Canon/review | Keep three endings, late trust/transformation gates and existing character boundaries; new item/line/edge registered/versioned before source |
+
+### 7.2 Sample prose — draft for review, not production Canon
+
+| Context | Draft text / intent |
+|---|---|
+| Scene 2 / mother and shared light | “แสงเม็ดหนึ่งกลิ้งอยู่บนหินใต้รากบัว แม่ว่ายช้าลงจนเงาของเธออยู่ข้างเงาเล็ก ๆ ของเจ้ากบ” — affection through pacing, not a speech about love |
+| Scene 6 / holding leaf | “ขอบใบบัวเย็นอยู่ใต้ตัว สีเขียวชิ้นเล็กไม่ส่งเสียง แต่เจ้ากบจำได้ว่าเคยมีใครว่ายช้าลงตรงนี้เพื่อรอเจ้ากบ” — concrete remembered action; physical leaf variant requires held leaf |
+| Full pouch / release | “เจ้ากบวางเปลือกเมล็ดลงในวงน้ำ มันลอยออกไปทีละน้อย ส่วนจังหวะเบา ๆ ที่เคยฟังด้วยกันยังตามมาในความเงียบ” — release keeps memory, no guilt |
+| Scene 7 / rest | “ฝนเบาลงจนได้ยินน้ำหยดจากราก เจ้ากบหยุดว่ายสักครู่ คืนนี้ยังหาทางกลับไม่พบ แต่ตรงนี้มีที่ให้หายใจ” — decompression without promising reunion |
+
+### 7.3 Act 1 refinement coverage
+
+| Existing scene | Revision purpose / Pouch placement |
+|---|---|
+| `NAR-SC-A1-001` opening | Sensory-first six-beat rhythm; life-stage correct; no early toy/ending reveal |
+| `NAR-SC-A1-002` nursery | Mother/siblings attachment + optional stone/shell encounters; one soft capacity tutorial; not mandatory full exploration |
+| `NAR-SC-A1-003` home focus | Retain three meaningful mother/roots/siblings directions; refine labels/tags/callbacks; not substitute a bag-management form for this choice |
+| `NAR-SC-A1-004` storm | Clear separation and no-blame line; holding more/fewer items cannot prevent storm or punish the player |
+| `NAR-SC-A1-005` survival | Gentle cue/confirmation for existing high-impact coping choices; no combat or complex numeric planning |
+| `NAR-SC-A1-006` leaf | Keep/let-go remains emotional centerpiece; reconcile legacy leaf history with new physical membership; optional rest offering/full-capacity choice |
+| `NAR-SC-A1-007` rest | Item-or-memory vignette with equal default; explicit act completion/checkpoint; preserve hope and seed Act 2 map |
+
+Exact approved revision may add nodes/events and alter authored choices under CR-0005; do not label this optional cosmetic editing. Canon/life-stage/ending invariants remain; previous package is archived for legacy regression and migration. Item payload is not a hidden stat, and no vignette is sold as a mechanically optimal route.
+
+## 8. Phased roadmap and Act 2–5 narrative branching map
+
+The map below is a **Sprint 4 design artifact for Sprint 5 implementation**, grounded in Narrative Bible scene IDs. `draft.vignette.*` are candidate branches; runtime Act 2–5 capability, full prose/media/ending UI are not claimed implemented. Fixed convergence prevents four acts from becoming an exponential set of routes.
+
+```mermaid
+flowchart TD
+    A1[Act 1 rest and Pouch checkpoint] --> A2[Act 2 A2-001 to A2-004 growth and observation]
+    A2 --> Route{A2-005 reeds or drain}
+    Route --> Reeds[Reeds route A2-006 to A2-007]
+    Route --> Drain[Drain route A2-006 to A2-007]
+    Reeds --> A3Entry[A3-001 to A3-003 route convergence]
+    Drain --> A3Entry
+    A3Entry --> Cross{A3-004 crossing choice}
+    Cross --> CrossWait[Wait for a quieter rhythm]
+    Cross --> Culvert[Use sheltered passage]
+    CrossWait --> Hunger[A3-005 hunger and observation]
+    Culvert --> Hunger
+    Hunger --> Food{A3-006 food or patient rest}
+    Food --> Eat[Read the hazard before feeding]
+    Food --> WaitFood[Rest and seek quieter food]
+    Eat --> Rest[A3-007 to A3-010 recovery and dawn]
+    WaitFood --> Rest
+    Rest --> A4[A4-001 to A4-003 observing human acts]
+    A4 --> Trust{A4-004 to A4-006 watch accept or wait}
+    Trust --> Slow[Respect distance and repeated safety]
+    Trust --> Water[Accept offered water at own pace]
+    Slow --> Join[A4-007 to A4-008 reflection and garden]
+    Water --> Join
+    Join --> A5[A5-001 to A5-005 shelter and final choice]
+    A5 --> Resolve[A5-006 existing repair and ending resolver]
+    Resolve --> Home[END-HOME Grand Keepsake after symbolic transformation]
+    Resolve --> Nearby[END-NEARBY living frog nearby]
+    Resolve --> Dawn[END-DAWN living frog at dawn]
+    Reeds -. optional item or memory vignette .-> V2[draft.vignette.a2-soft-thread]
+    Drain -. optional item or memory vignette .-> V2
+    V2 -. rejoin Act 3 entrance .-> A3Entry
+    Rest -. optional item or memory vignette .-> V3[draft.vignette.a3-small-sound]
+    V3 -. rejoin before Act 4 .-> A4
+    Join -. optional item or memory vignette .-> V4[draft.vignette.a4-room-for-one-more]
+    V4 -. rejoin Act 5 entrance .-> A5
+```
+
+| Act / canonical anchors | Branch design / secret moment | Carry to next act |
+|---|---|---|
+| Act 2, `NAR-SC-A2-001..007` | Learn new body; observe then choose reeds/drain at A2-005; red-thread material at A2-006 is a proposed optional item, with no human identity disclosure | `route.city_entry`; Pouch/memory; both routes converge by A3-003 under `NAR-CON-003` |
+| Act 3, `NAR-SC-A3-001..010` | Roads/hunger are observation/patience/shelter choices; no fighting. Short shell/ripple vignette at recovery, with no-item rhythm default | Traffic/coping flags; bounded optional moments; decompression before Act 4 |
+| Act 4, `NAR-SC-A4-001..008` | Interpret kindness; clear girl reveal/Bond gate A4-004; accept water or wait, both get evidence of safety; optional leaf/thread reflection | Compassion/consent/trust flags; current physical items distinct from remembered items |
+| Act 5, `NAR-SC-A5-001..006` + three A5-007 endpoints | Shared leaf requires held leaf; otherwise voice/distance/default route. Preserve existing repair opportunity; nuance slots draw from held/remembered/released choices | Exactly END-HOME / END-NEARBY / END-DAWN, warm complete variants for empty Pouch |
+
+Ending categories and resolver remain baseline: END-HOME when HP/Sanity>0, Bond≥60, compassion observed and safe help accepted; otherwise eligible Bond≥30 END-NEARBY, and Bond<30 END-DAWN. Existing repair rule (`GDD-END-006`) remains; item collection/completed-vignette count cannot substitute for trust or become an additional ending gate. Any later metric/resolver redesign is a separate explicit decision.
+
+**S4 handoff DoD:** per-act spine/choices/convergence, proposed item/vignette registry, holding-vs-memory guards, default text briefs, notice/checkpoint locations, rough pacing, cross-act save/capability concerns and three-ending nuance matrix reviewed. **S5 work:** turn map into validated content/media/runtime capabilities and test all actual branches/endings, then integrate Grand Keepsake through a separately approved runtime/art/device contract.
+
+## 9. Architecture, versions, migration and rollback
 
 ```mermaid
 flowchart LR
-    Story[Pure accepted story snapshot and facts] --> Data[Data projection and catalog validation]
-    Data --> Root[Bootstrap composition]
-    Events[Accepted display and action events] --> History[Pure session history reducer]
-    History --> Data
-    Root --> DOM[RendererPort and persistent DOM regions]
-    Root --> Overlay[Overlay controller]
-    Overlay --> Log[History modal]
-    Overlay --> Drawer[Keepsake drawer]
-    Root --> Viewer[Injected 3D viewer adapter]
-    Viewer --> Drawer
-    DOM --> Intents[Semantic intents]
+    Catalog[Validated item story and vignette catalog] --> Core[Pure story and Pouch transactions]
+    Core --> Snapshot[Immutable snapshot with inventory and checkpoint]
+    Snapshot --> Projection[Data localization and view projection]
+    Snapshot --> Save[Save repository port]
+    Projection --> Root[Bootstrap composition]
+    Root --> UI[Renderer Pouch and Log adapters]
+    UI --> Intents[Semantic view or domain intents]
     Intents --> Root
-    Root --> Story
+    Root --> Core
+    Core --> Events[Accepted action and display events]
+    Events --> History[Pure session history reducer]
+    History --> Projection
 ```
 
-Diagram shows runtime information flow; **import permission differs**: only bootstrap imports concrete UI and Data. Core reducer/ports import no browser/UI/Data. Catalog joins and localization live in Data, not in renderer; UI owns browser rendering. Overlay guards are application interaction policy outside the story state machine. Log/collection events cannot touch story transaction functions.
+Diagram is information flow, not import permission: Core parses no content/DOM/storage; Data imports no UI; UI imports no Data concrete adapter; bootstrap composes them. Viewing overlays stays outside six-state domain machine, while collect/release/replace are genuine pure domain transactions. Log remains ephemeral; **Pouch/its story memory/vignette progress are durable**.
 
-Recommended contract changes: retain RendererPort operations; add optional immutable `prompt`, choice `intent/cue/icon/skin`, structured `saveStatus`, `feedback`, `history`, `overlay` and `keepsakes` VM fields with strict validation at relevant boundary. Migration of old VM fixtures uses defaults and preserves semantic expectations; no browser objects/paths/selectors in pure VM. Dedicated injected browser adapter receives resolved URLs through the composition boundary, not Core VM.
+### 9.1 Contract recommendation — requires D5 review
 
-Persistence recommendation: save format 1, content 2.1.0 and published 1.0/1.1/1.2 schemas remain byte-identical for UI/Log/collection delivery. Session log/overlay/camera/model selection/loading state are not saved. If approved narrative/art binding edits change content, they become a separately versioned release with a reviewed compatibility map, old raw backup retention, validation and rollback write guard, following CR-0003 D3; no automatic downgrade.
+| Contract | Proposed version / change |
+|---|---|
+| Narrative package/shared/tree | New **v2.0.0** contracts for item registry, possession/memory predicates, authored collect/release effects, vignette entry/convergence and deterministic cursor; freeze published 1.0/1.1/1.2 bytes |
+| Act 1 content | New **3.0.0** candidate for rewritten gameplay/branches; stable old IDs retain meaning or have explicit reviewed mapping to new IDs |
+| Save envelope | **saveFormatVersion 2**, inventory/memory/vignette fields in payload and checkpoint; explicit cursor/variant record recommended where new branches exceed unique viewed-ID capability |
+| Presentation catalog | Separate versioned tag/skin/icon/crop catalog bound to content version; no executable expressions/raw untrusted HTML |
+| Runtime deps | Sprint 4 keeps Vanilla ES Modules; **no model-viewer/WebGL/3D package adoption**; Grand Keepsake dependency decision belongs to Sprint 5 |
 
-Rollout: contracts and sample review → styles → renderer/notice separation → intent projection → log → collection assets → 3D adapter → integration evidence. Keep each PR independently testable; no temporary controls exposed before feature is functional. Rollback UI/overlays by reviewed revert to prior renderer, without clearing player storage. If content changes, retain compatible data/migration/write guard while reverting visuals; older executable must not overwrite newer save.
+These versions/field names are proposals, not schema edits in this revision. Existing root common/save schemas are frozen; publish versioned replacements and local runtime schema catalog with valid/invalid/reference/capability fixtures. New predicates/effects must be explicit constrained data. Merely declaring new item fields while executor ignores them is a failure.
 
-## 8. Execution, validation and decisions
+### 9.2 Explicit legacy migration
 
-Detailed owners, exclusive files, dependencies, per-task AC and estimates are in [Sprint 4 WBS](../../sprints/sprint-04-ssot.md#4-execution-wbs). Priority requested by PO is retained: **UI Styles → DOM Renderer → Log Modal → 3D Keepsake**; contract/asset/editorial approval is T0 prerequisite, Intent Tags are the renderer handoff, and QA is a gate after each task.
+1. Validate old format 1/content 2.0 using reviewed archive, then existing pure 2.0→2.1 mapping; validate before the next registered step. From format 1/content 2.1, use a **new explicit format 1→2/content 2.1→3.0 migration step**, not the old presentation equality exception.
+2. Map **payload and each checkpoint separately** from their own validated flags: `keepsake.lily_fragment=true` maps to held/acquired leaf; false maps to no held leaf. Older runtime had no later discard, so this mapping is grounded in that version's contract. Derive encountered leaf only from validated discovery evidence; new stone/shell/petal/yarn are never granted retroactively.
+3. Preserve legacy leaf/coping flags and metrics/RNG/revision/settings/history. Initialize new optional-vignette completion empty. Reviewed node/dialogue/page mapping must identify the same current semantic reading point; no guessing based on shortened string or array index.
+4. If a rewritten/moved line has no agreed mapping, keep raw candidates protected and offer truthful compatible legacy continuation or explicitly confirmed new-session recovery; do not silently fast-forward, replay entry effects or fabricate played secret scenes. Before claiming legacy continuation, its adapter/archive path must be implemented and tested.
+5. Validate strict target schema, item/capacity/held-memory constraints and exact cursor/variant after transformation. Migration is pure/idempotent and read-only until the normal guarded stage/commit write, preserving raw backups, quota/memory-only and cross-tab safeguards. Digest handling must follow reviewed policy, never an unsupported integrity claim.
+6. Retry restores inventory, memory ledger and vignette completion with the checkpoint's story snapshot; user settings stay latest. Ephemeral Log can show prior passage, but does not confer future items/secret completion on the retried path.
 
-Existing 691 cases stay in regression; no reduction/skips/todo or expected-value change to make styling pass. DOM shape/screenshot assertions may change when approved markup changes, but equivalent focus/live-state/choice/guard/save assertions must remain. Unit count alone does not prove equivalence; compare exact route flags/metrics/checkpoints/RNG/current cursor and serialized save fields under all media states. New tests target behavior/races, not CSS values copied from implementation.
+### 9.3 Regression and rollback
 
-Manual artistic review and device/assistive-technology gates are delivery requirements, not optional finishing touches. A scene approved at desktop normal text does not pass mobile, zoom or reduced motion. [W3C Reflow guidance](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html) informs 320 CSS-pixel/zoom review; do not use fixed overlay sizes or clipped narrative to imitate target proportions.
+Keep legacy content 2.1 fixtures/tests including **14 nodes / 21 edges / 12 outcomes**. Pure engine invariants and save safety assertions remain; approved new story can add graph witnesses and change exact authored content expectations. Before updating those expectations, trace the authorized change and retain the legacy fixture witness. Never promise the new graph has exactly 12 routes, remove assertions or reuse baseline numbers as proof of new Pouch coverage.
 
-| Decision | Recommended outcome | Required owner |
+Documentation rollback: reviewed revert of this revision only. Future runtime rollback: retain format 2-compatible validation/migration/write guard or explicitly disable old-runtime writes; preserve latest/new raw candidates and legacy backups. Do not revert to format 1 writer over new saves, clear player keys, infer inventory from text or silently erase released-item memory. Pouch/load failure must recover with notice/compatible data, not an empty list that overwrites possession.
+
+## 10. Execution and updated D1–D7
+
+[Revised SSOT](../../sprints/sprint-04-ssot.md#4-execution-wbs) contains twelve tasks T0–T11. Sequence: **contracts/legacy proof → styles → renderer → Pouch Core/save/UI → Log → Act 1 refinement → Act 2–5 map → presentation wiring/integration → QA**. AI drafting can proceed at the planning/content-design stage; production integration waits for per-task DoR. Each task has owners/files/AC/evidence/rollback.
+
+| Decision | PO direction / proposed detailed design | Status |
 |---|---|---|
-| D1 | Scope: polished Scene 1–3 benchmark + Act 1-wide UI/Log/Drawer; rubric above; carry unfinished Sprint 3 manual gates | PO + Art + QA |
-| D2 | Separate versioned presentation catalog for tags/crop/model descriptors; immutable published contracts | Architect + UI/Data + PO |
-| D3 | Session-only backlog, 50 dialogues + 50 actions, new passage on revisit, truthful reload limitation | PO + Narrative + Architect |
-| D4 | Non-diegetic collection in Act 1; childhood default; adult early availability only with explicit spoiler/art approval | PO + Narrative/Game Design |
-| D5 | Opt-in same-origin pinned model-viewer adapter; new narrow runtime ADR, not production permission inherited from spike | Architect + PO + QA |
-| D6 | Seven draft Intent Tags, contextual cues and benchmark editorial brief; approve exact text/assets in task reviews | Narrative + Game Design + PO/Art |
-| D7 | Real device/browser/manual reviewer profile and 3D budget method; branch/PR staging and acceptance sequence | QA + Accessibility + PO |
+| D1 | S4 UI+Log+Pouch+Act 1+Act 2–5 map; S5 Act 2–5 implementation; 3–4 slots, proposed exact default 3 | Direction explicit; exact capacity/effort/acceptance pending final plan review |
+| D2 | AI assigned Tender & Heartcrafted rewrites, simple branches, no combat/complex added stats, three endings | Assignment explicit; exact prose/graph/assets go through editorial/Canon review |
+| D3 | Session Dialogue Log ≥50 dialogues plus50 committed actions, including Pouch decisions; truthful reload policy | Existing design recommendation retained for PO/Architecture review; Pouch itself must persist |
+| D4 | Limited held objects plus remembered/released objects; contextual Secret Moments and ending nuances; no collection gate for Canon | Vision explicit; exact registry/guards/effects/callback clarification pending |
+| D5 | Pure inventory transactions; versioned gameplay/save/checkpoint/cursor and explicit migration | Technical recommendation pending Architect/Game Design/QA review; no new runtime dependency in S4 |
+| D6 | Both 3D editions as END-HOME Grand Keepsake in Act 5/S5; none in adventure Pouch | Placement explicit; presentation/library/rights/device contracts deferred to S5 |
+| D7 | Phased visual/Pouch/narrative/graph/save/manual acceptance with legacy/new suites separated | Evidence/device/review schedule pending; no code/merge/deploy in current round |
 
-**Implementation DoR is intentionally open.** PO can approve D1–D7 with amendments; record actual authority in a new change record, update SSOT status and accepted ADR before source work. No automatic merge, approval or deployment follows from this proposal.
+Plan revision adopts PO's strategy and removes prior non-diegetic Act 1 toy/3D-viewer scope. Final contracts and source work remain unapproved until the relevant DoR; this is not a request to reconfirm the already-issued vision.
