@@ -1,0 +1,31 @@
+{
+  "documentScope": [
+    "01-proposal-plan.md",
+    "CR-0005-sprint-04-overhaul.md",
+    "sprint-04-ssot.md",
+    "2026-10-14-1841-sprint-04-overhaul-plan.md"
+  ],
+  "newDocuments": 4,
+  "localLinksChecked": 36,
+  "anchorLinksChecked": 3,
+  "baselineIDsChecked": 33,
+  "implementationTasks": 10,
+  "implementationTasksComplete": 0,
+  "brokenLinksOrUnknownIDs": [],
+  "codeFenceCheck": "passed",
+  "whitespaceCheck": "passed",
+  "mermaidSourceReview": "manual source inspection only; diagram rendering not performed",
+  "unitTests": {
+    "total": 691,
+    "passed": 691,
+    "failed": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "durationMs": 20832.221958
+  },
+  "runtimeAndTestFilesByteCompared": 131,
+  "runtimeUnchanged": true,
+  "freshBrowserOrNewFeatureChecks": "not run / not materialized",
+  "ownerDecisionsD1ThroughD7": "pending"
+}

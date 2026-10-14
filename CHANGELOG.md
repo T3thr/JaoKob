@@ -9,7 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Refined Sprint4 plan to v0.2.1 under Final PO approval: Act3–4 drama/metric/agency/recovery and five-item comfort, fair endings/girl persona, crochet→velour red-heart gift bridge; T7/T8 acceptance expanded, production unchanged. [Final PO record](docs/changelog/2026-10/2026-10-14-2233-sprint-04-final-po-narrative-impact.md)
+- Revised Sprint 4 planning to v0.2.0 per PO Directive: limited Adventure Keepsake Pouch with durable state/Secret Moments, AI-authored Act 1 refinement and Act 2–5 map; 3D Grand Keepsake moves to Sprint 5 END-HOME. Production code unchanged. [Directive record](docs/changelog/2026-10/2026-10-14-2131-sprint-04-pouch-directive.md)
+
 ### Added
+- Proposed Sprint 4 Visual, Narrative & Interactive Overhaul: target-to-runtime gap audit, acceptance rubric, Dialogue Log/Keepsake specifications and ten-task WBS; CR-0005 awaits PO decisions, production code unchanged. [Planning record](docs/changelog/2026-10/2026-10-14-1841-sprint-04-overhaul-plan.md)
 - Childhood crochet keepsake (`CR-0004`, Milestone 1B): editable Blender source, separate heart, 598 KB / 13.4k-triangle GLB, four renders and lazy two-doll preview selection; validator and 691 game tests pass. [Milestone 1B evidence](docs/changelog/2026-10/2026-10-14-1244-childhood-crochet-model-spike.md)
 - Adult plush base-mesh spike (`CR-0004`): editable Blender source/generator, 546 KB GLB and an isolated lazy-loaded 3D inspection page; childhood heart clarified as optional. [Milestone 1 evidence](docs/changelog/2026-10/2026-10-14-0050-adult-plush-model-spike.md)
 

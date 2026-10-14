@@ -293,8 +293,9 @@ Media readiness must not delay the ≤100ms feedback shell. Inspect long tasks/p
 ## 7. Sprint Audit Trail, Risks and Approval Register
 
 Post-sprint work: [CR-0004 adult plush model spike](../rfc/CR-0004-adult-plush-model-spike.md) is tracked in its own Milestone 1 WBS, with [CR-20261014-0050 evidence](../changelog/2026-10/2026-10-14-0050-adult-plush-model-spike.md). This does not reopen or extend the completed Sprint 3 WBS.
-
 Continuation: `CR-20261014-1244`, [Milestone 1B childhood crochet evidence](../changelog/2026-10/2026-10-14-1244-childhood-crochet-model-spike.md), is tracked in the separate CR-0004 Milestone 1B WBS; two-doll preview and optional-heart model remain outside `src/`.
+
+Next-sprint planning: [Sprint 4 proposal](../proposals/sprint-04-overhaul/01-proposal-plan.md), [draft SSOT](sprint-04-ssot.md) and [CR-0005](../rfc/CR-0005-sprint-04-overhaul.md), recorded by `CR-20261014-1841`. Proposed only; does not reopen completed Sprint 3 WBS or close its outstanding manual/owner gates.
 
 **Current evidence:** `CR-20260907-1248` records production 2.1.0, seven prototype assets, four semantic stage layers, audio/visibility/preloading integration and explicit save migration. 691 unit tests, 11 metaschemas/36 structural cases and 12/12 Chromium routes pass; separate benchmark records viewport/fault/resource/performance samples. Manual listening, physical-device percentile/refresh validation, real Safari/iOS/Firefox, VoiceOver/NVDA and PO visual/audio acceptance remain open. §6.4 is historical planning evidence.
 
