@@ -1,10 +1,16 @@
 {
+  "model": "jaokob-adult-plush.glb",
   "bytes": 546020,
   "byteBudget": 2000000,
   "triangles": 22508,
+  "triangleBudget": 25000,
   "materials": 2,
   "primitives": 2,
   "nodes": 1,
+  "nodeNames": [
+    "JaoKob adult plush • seated base mesh"
+  ],
+  "images": [],
   "extensionsUsed": [
     "KHR_materials_sheen"
   ],
@@ -15,7 +21,7 @@
     "uri": "jaokob-adult-plush.glb",
     "mimeType": "model/gltf-binary",
     "validatorVersion": "2.0.0-dev.3.10",
-    "validatedAt": "2026-10-13T17:58:03.527Z",
+    "validatedAt": "2026-10-14T06:07:45.849Z",
     "issues": {
       "numErrors": 0,
       "numWarnings": 0,

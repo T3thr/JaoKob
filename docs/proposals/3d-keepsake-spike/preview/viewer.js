@@ -1,103 +1,141 @@
 // CR-0004: isolated preview; no dependency is imported by the game entry point.
 import { th } from './th.js';
 
+const dolls = Object.freeze({
+  childhood: { model: 'jaokob-childhood-crochet.glb', poster: '../renders/childhood/poster.jpg', text: th.childhood },
+  adult: { model: 'jaokob-adult-plush.glb', poster: '../renders/poster.jpg', text: th.adult },
+});
 const open = document.querySelector('#open');
 const status = document.querySelector('#status');
 const controls = document.querySelector('#controls');
 const poster = document.querySelector('#poster');
 const mount = document.querySelector('#mount');
+const selector = document.querySelector('#doll-selector');
 const initialOrbit = '25deg 78deg 105%';
+const failedLoads = { childhood: 0, adult: 0 };
+let selected = 'childhood';
 let viewer;
 let pendingModule;
 let mode = 'poster';
 let timeout;
-let failedLoads = 0;
+let requestId = 0;
 
 for (const element of document.querySelectorAll('[data-text]')) element.textContent = th[element.dataset.text];
-poster.alt = th.alt;
+selector.setAttribute('aria-label', th.selectDoll);
 
-function fail() {
+function describeSelection() {
+  const doll = dolls[selected];
+  poster.src = doll.poster;
+  poster.alt = doll.text.alt;
+  document.querySelector('#doll-title').textContent = doll.text.name;
+  document.querySelector('#edition').textContent = doll.text.edition;
+  for (const button of selector.querySelectorAll('button')) {
+    button.setAttribute('aria-pressed', String(button.dataset.doll === selected));
+  }
+}
+
+function dispose() {
+  requestId += 1; // Invalidate old import/load/error callbacks before removing their element.
   clearTimeout(timeout);
-  failedLoads += 1;
   viewer?.remove();
   viewer = undefined;
-  mode = 'error';
   poster.hidden = false;
   controls.hidden = true;
   open.hidden = false;
   open.disabled = false;
+}
+
+function fail(id, dollId) {
+  if (id !== requestId) return;
+  failedLoads[dollId] += 1;
+  dispose();
+  mode = 'error';
   status.textContent = th.error;
   status.classList.remove('sr-only');
 }
 
-async function show() {
+async function show({ focusControls = true } = {}) {
   if (mode === 'loading' || mode === 'ready') return;
+  const id = ++requestId;
+  const dollId = selected;
+  const doll = dolls[dollId];
   mode = 'loading';
   open.disabled = true;
   status.textContent = th.loading;
   status.classList.remove('sr-only');
-  timeout = setTimeout(fail, 30000);
+  timeout = setTimeout(() => fail(id, dollId), 30000);
   try {
-    // There is deliberately no modulepreload or <script src=model-viewer> in HTML.
-    pendingModule ??= import('../node_modules/@google/model-viewer/dist/model-viewer.min.js');
+    // No modulepreload or component request until the user opens 3D.
+    pendingModule ??= import('../node_modules/@google/model-viewer/dist/model-viewer.min.js').catch(error => {
+      pendingModule = undefined;
+      throw error;
+    });
     await pendingModule;
-    if (mode !== 'loading') return;
-    viewer = document.createElement('model-viewer');
-    viewer.alt = th.alt;
-    viewer.a11y = th.directions;
-    viewer.setAttribute('camera-controls', '');
-    viewer.setAttribute('disable-pan', '');
-    viewer.setAttribute('touch-action', 'pan-y');
-    viewer.setAttribute('camera-orbit', initialOrbit);
-    viewer.setAttribute('min-camera-orbit', 'auto 12deg 45%');
-    viewer.setAttribute('max-camera-orbit', 'auto 165deg 180%');
-    viewer.setAttribute('shadow-intensity', '.65');
-    viewer.setAttribute('shadow-softness', '1');
-    viewer.setAttribute('exposure', '.85');
-    viewer.setAttribute('interaction-prompt', 'none');
-    viewer.setAttribute('loading', 'eager');
-    viewer.setAttribute('interpolation-decay', matchMedia('(prefers-reduced-motion: reduce)').matches ? '0' : '60');
-    viewer.addEventListener('error', fail, { once: true });
-    viewer.addEventListener('load', () => {
+    if (id !== requestId) return;
+    const current = document.createElement('model-viewer');
+    viewer = current;
+    current.alt = doll.text.alt;
+    current.a11y = th.directions;
+    current.setAttribute('camera-controls', '');
+    current.setAttribute('disable-pan', '');
+    current.setAttribute('touch-action', 'pan-y');
+    current.setAttribute('camera-orbit', initialOrbit);
+    current.setAttribute('min-camera-orbit', 'auto 12deg 45%');
+    current.setAttribute('max-camera-orbit', 'auto 165deg 180%');
+    current.setAttribute('shadow-intensity', '.65');
+    current.setAttribute('shadow-softness', '1');
+    current.setAttribute('exposure', '.85');
+    current.setAttribute('interaction-prompt', 'none');
+    current.setAttribute('loading', 'eager');
+    current.setAttribute('interpolation-decay', matchMedia('(prefers-reduced-motion: reduce)').matches ? '0' : '60');
+    current.addEventListener('error', () => fail(id, dollId), { once: true });
+    current.addEventListener('load', () => {
+      if (id !== requestId) return;
+      const focusStayed = document.activeElement === open || document.activeElement === document.body;
       clearTimeout(timeout);
       mode = 'ready';
       poster.hidden = true;
       open.hidden = true;
       controls.hidden = false;
       open.disabled = false;
-      status.textContent = th.ready;
+      status.textContent = doll.text.ready;
       status.classList.add('sr-only');
-      controls.querySelector('button').focus({ preventScroll: true });
+      // A late load must not steal focus from a selection or another control.
+      if (focusControls && focusStayed) controls.querySelector('button').focus({ preventScroll: true });
     }, { once: true });
-    // A failed GLTF promise may be retained by the component's shared cache.
-    // Use a fresh same-origin key only after failure; normal reopens reuse cache.
-    viewer.src = `../model/jaokob-adult-plush.glb${failedLoads ? `?retry=${failedLoads}` : ''}`;
-    mount.append(viewer);
+    // Rejected GLTF promises may remain cached; retries get a fresh same-origin key.
+    current.src = `../model/${doll.model}${failedLoads[dollId] ? `?retry=${failedLoads[dollId]}` : ''}`;
+    mount.append(current);
   } catch {
-    pendingModule = undefined;
-    fail();
+    fail(id, dollId);
   }
+}
+
+function selectDoll(dollId) {
+  if (!Object.hasOwn(dolls, dollId) || dollId === selected) return;
+  const reopen = mode === 'loading' || mode === 'ready';
+  dispose();
+  selected = dollId;
+  mode = 'poster';
+  status.textContent = '';
+  describeSelection();
+  if (reopen) show({ focusControls: false });
+}
+
+function close() {
+  dispose();
+  mode = 'poster';
+  status.textContent = '';
+  open.focus({ preventScroll: true });
 }
 
 function act(action) {
   if (!viewer || mode !== 'ready') return;
-  if (action === 'close') {
-    clearTimeout(timeout);
-    viewer.remove();
-    viewer = undefined;
-    mode = 'poster';
-    poster.hidden = false;
-    controls.hidden = true;
-    open.hidden = false;
-    status.textContent = '';
-    open.focus();
-    return;
-  }
+  if (action === 'close') { close(); return; }
   if (action === 'reset') {
     viewer.cameraOrbit = initialOrbit;
     viewer.fieldOfView = 'auto';
-    // Gestures change the internal camera without changing cameraOrbit's value.
-    // Force the pinned Lit component to reapply an unchanged requested orbit.
+    // Gestures alter the camera without altering these requested properties.
     viewer.requestUpdate('cameraOrbit');
     viewer.requestUpdate('fieldOfView');
     return;
@@ -112,15 +150,20 @@ function act(action) {
   viewer.cameraOrbit = `${orbit.theta}rad ${orbit.phi}rad ${orbit.radius}m`;
 }
 
-open.addEventListener('click', show);
+open.addEventListener('click', () => show());
+selector.addEventListener('click', event => {
+  const button = event.target.closest('button[data-doll]');
+  if (button) selectDoll(button.dataset.doll);
+});
 controls.addEventListener('click', event => {
   const button = event.target.closest('button[data-action]');
   if (button) act(button.dataset.action);
 });
 document.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && mode === 'ready') act('close');
+  if (event.key === 'Escape' && (mode === 'ready' || mode === 'loading')) close();
 });
+describeSelection();
 
 // Inspection hooks only in this excluded spike page, for reproducible browser QA.
-window.render_game_to_text = () => JSON.stringify({ mode, loaded: Boolean(viewer?.loaded), orbit: viewer?.loaded ? viewer.getCameraOrbit() : null });
+window.render_game_to_text = () => JSON.stringify({ mode, selected, loaded: Boolean(viewer?.loaded), orbit: viewer?.loaded ? viewer.getCameraOrbit() : null });
 window.advanceTime = async () => new Promise(resolve => requestAnimationFrame(resolve));

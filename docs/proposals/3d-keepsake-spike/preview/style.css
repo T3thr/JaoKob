@@ -9,6 +9,9 @@ h2 { font-size: 20px; font-weight: 500; margin: 0; }
 .subtitle, .hint, footer { color: #596457; font-size: 14px; line-height: 1.7; }
 .subtitle { margin-block: 10px 0; }
 .keepsake { background: #fffdf8; border: 1px solid #dadfd0; border-radius: 24px; overflow: hidden; box-shadow: 0 14px 48px #37482d0c; }
+.doll-selector { display: flex; justify-content: center; gap: 8px; padding: 16px 12px; flex-wrap: wrap; }
+.doll-selector button { flex: 1 1 120px; max-inline-size: 260px; }
+.doll-selector [aria-pressed="true"] { background: #34512e; color: #fff; border-color: #34512e; text-decoration: underline; text-underline-offset: 5px; }
 .stage { position: relative; block-size: min(60vh, 560px); min-block-size: 340px; background: #e8e6df; }
 #poster, #mount, model-viewer { position: absolute; inline-size: 100%; block-size: 100%; inset: 0; }
 #poster { object-fit: contain; }

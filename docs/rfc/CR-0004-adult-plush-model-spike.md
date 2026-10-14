@@ -52,3 +52,30 @@ Artifacts live under `docs/proposals/3d-keepsake-spike/`, outside the production
 - [x] Change record, artifact manifest, commit and [feature PR #11](https://github.com/T3thr/JaoKob/pull/11).
 
 Execution record: [CR-20261014-0050](../changelog/2026-10/2026-10-14-0050-adult-plush-model-spike.md). Artifact instructions and evidence: [Milestone 1](../proposals/3d-keepsake-spike/README.md). Architecture decision: [ADR-P0-016](../adr/ADR-P0-016-keepsake-model-viewer-spike.md).
+
+## Milestone 1B — Childhood crochet (owner-authorized 2026-10-14)
+
+The owner explicitly requests continuation in this same spike and PR. Continue `feat/spike-adult-plush-model`; fetched `origin/develop` remains `4c8d600`. Preserve the completed adult asset and existing user edits. This instruction replaces the earlier deferral of childhood modeling, while emotion variants remain deferred.
+
+### Acceptance and ready contract
+
+- One continuous, chubby pill-shaped head/torso without a neck, raised round eyes with white crochet borders, large black pupils and exactly two white highlights per eye (large above, small below), orange-red smiling lips, a bright blue torso band with short sleeves, short seated limbs and three-lobed fingers/toes. Use the front, side and back childhood photographs as local references.
+- Default pose hugs a red heart. Preserve a separate Blender accessory collection and named mesh; export a separate `Accessory_RedHeart` node so removal does not require cutting the body mesh. Emotion/heart-toggle UI is not part of this milestone.
+- Deliver `build_childhood_model.py`, `jaokob-childhood-crochet.blend` and `.glb`, four views and a poster under `renders/childhood/`.
+- Self-contained GLB ≤2,000,000 bytes (target 400–600 KB), ≤25,000 triangles, Khronos validator **0 errors and 0 warnings**. A small authored repeating crochet normal texture may supply stitch relief without individual fiber geometry.
+- Add keyboard-accessible segmented doll selection to the existing local page. Before opening 3D, selection changes only poster/text; after activation it loads only the selected model. Switching while loading, error/retry, focus, reset and rapid switches must remain safe; stale load events must not replace the current selection.
+- Existing 691 unit tests all pass, `src/` remains untouched. Record provenance, measured export budgets, render inspection, browser evidence and change record.
+
+Impact: only isolated art/export and preview UI/localization/test tooling; no Core/Data/save/schema/Canon or production dependency change. Use existing pinned model-viewer. [ADR-P0-017](../adr/ADR-P0-017-childhood-accessory-export.md) records the scoped export exception without rewriting ADR-P0-016. Normal maps use the standard image → Normal Map → Principled path ([Khronos exporter documentation](https://github.com/KhronosGroup/glTF-Blender-IO/blob/main/docs/blender_docs/scene_gltf2.rst)). Reference photographs are not embedded, uploaded or staged.
+
+Verification plan: actual Blender build/render and all-angle inspection; validate both GLBs including triangle/warning/node budgets; browser pointer/touch/keyboard, demand loading for both dolls, cancellation and failure recovery; existing game suite and diff/manifest checks. Likeness approval and physical-device performance remain owner/device review. No migration; revert this milestone to restore adult-only preview.
+
+### Milestone 1B task register
+
+- [x] Childhood generator, editable doll and separate heart.
+- [x] GLB budget, texture and named-node validation.
+- [x] Four-view inspection and poster.
+- [x] Accessible two-doll preview and interaction regression evidence.
+- [ ] 691 game tests, README/change record/manifest and existing PR update.
+
+Technical execution and remaining art/device gates: [CR-20261014-1244](../changelog/2026-10/2026-10-14-1244-childhood-crochet-model-spike.md). Review continues in [draft PR #11](https://github.com/T3thr/JaoKob/pull/11).
