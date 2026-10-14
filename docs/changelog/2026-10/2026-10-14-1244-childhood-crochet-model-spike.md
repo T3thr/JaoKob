@@ -53,4 +53,4 @@ This is an editable **base mesh**, with stylized repeating crochet relief and vi
 
 ## 6. Git delivery
 
-Branch `feat/spike-adult-plush-model`; [existing draft PR #11](https://github.com/T3thr/JaoKob/pull/11) targets `develop`. Commit/push and PR scope update are the final delivery step. No merge/deployment authorization is inferred.
+Branch `feat/spike-adult-plush-model`; implementation commit `d356300` was pushed and [existing draft PR #11](https://github.com/T3thr/JaoKob/pull/11), targeting `develop`, was updated to cover both dolls. Git identity was verified as `T3thr <t.theerapat33@gmail.com>`. All 42 manifest entries matched; eight adult authored artifacts retained their previous hashes. The user's unrelated GDD edit and local reference photographs remain unstaged. No merge or deployment was performed.

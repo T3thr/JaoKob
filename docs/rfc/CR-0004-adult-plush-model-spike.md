@@ -76,6 +76,6 @@ Verification plan: actual Blender build/render and all-angle inspection; validat
 - [x] GLB budget, texture and named-node validation.
 - [x] Four-view inspection and poster.
 - [x] Accessible two-doll preview and interaction regression evidence.
-- [ ] 691 game tests, README/change record/manifest and existing PR update.
+- [x] 691 game tests, README/change record/manifest and existing PR update.
 
 Technical execution and remaining art/device gates: [CR-20261014-1244](../changelog/2026-10/2026-10-14-1244-childhood-crochet-model-spike.md). Review continues in [draft PR #11](https://github.com/T3thr/JaoKob/pull/11).
