@@ -7,7 +7,7 @@
 | Status | **Slice 1 T1/T2 implementation delivered, 2/12; feature PR and PO visual review; T0/T3–T11 remain open** |
 | Authority | PO merged plan v0.2.1 and explicitly authorized source, tests, audit, commit/push and PR for T1/T2 only in the Slice 1 directive; no remaining task/merge/deploy authorization |
 | Integrated baseline | `develop@d31652a` (merged planning PR12); Slice 1 changes remain on feature branch until human review/merge |
-| Review branch / PR | `feat/sprint-04-slice-01-visual` → develop; planning [PR #12](https://github.com/T3thr/JaoKob/pull/12) merged |
+| Review branch / PR | `feat/sprint-04-slice-01-visual` / [PR #13](https://github.com/T3thr/JaoKob/pull/13) → develop; planning PR12 merged |
 | Proposal / RFC | [JKB-PROP-S4-001 v0.2.1](../proposals/sprint-04-overhaul/01-proposal-plan.md) / [CR-0005 v0.2.1](../rfc/CR-0005-sprint-04-overhaul.md) |
 | Models | [PR #11](https://github.com/T3thr/JaoKob/pull/11) MERGED at `e980339`; future **S5 END-HOME Grand Keepsake**, not S4 Pouch dependency |
 | Owners | PO, Technical Lead/Architect, Core/Application/Data/UI, Narrative/Game Design, Art, Accessibility, QA/DevOps |
@@ -152,7 +152,7 @@ Estimate: **32–50 engineering + narrative person-days**, plus **3–5 Art days
 
 Shared-file ownership: T3 schema/migration validator; T4 Core state/effects; T7 content/graph; T9 projector/resources/2D art; T2 renderer scaffold; T5/T6 independent modal files; T10 only composition; T11 consolidated evidence/docs. Sequence edits to common schema/VM/localization/styles/orchestration explicitly; no concurrent overwrite or implicit agent delegation.
 
-**Slice 1 delivery:** T1/T2 checkmarks mean source implementation and scoped automated verification delivered for review, not final human art/accessibility certification. [CR-20261014-2314](../changelog/2026-10/2026-10-14-2314-sprint-04-slice-01-visual.md) links the changed artifacts, 698 unit cases, 12 legacy routes and visual evidence. Only T1/T2 are checked.
+**Slice 1 delivery:** [PR #13](https://github.com/T3thr/JaoKob/pull/13), implementation commit `f1ae7bb`. T1/T2 checkmarks mean source implementation and scoped automated verification delivered for review, not final human art/accessibility certification. [CR-20261014-2314](../changelog/2026-10/2026-10-14-2314-sprint-04-slice-01-visual.md) links the changed artifacts, 698 unit cases, 12 legacy routes and visual evidence. Only T1/T2 are checked.
 
 ## 5. DoR and DoD
 

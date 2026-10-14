@@ -4,7 +4,7 @@
 - **Timestamp:** 2026-10-14T23:14:00+07:00
 - **Sprint/Milestone:** Sprint 4 / Slice 1 / T1–T2
 - **Operator:** Codex / Senior Software Engineer, UI Architect, Game Director
-- **Status:** Implementation/automated verification delivered; PR and human PO aesthetic/AT/device review remain separate
+- **Status:** Implemented, verified and delivered as [PR #13](https://github.com/T3thr/JaoKob/pull/13); human PO aesthetic/AT/device/merge review open
 
 ## 1. Objective and authority
 
@@ -54,6 +54,8 @@ No migration: content 2.1.0, schema 1.2.0 and save format 1 stay unchanged. Reve
 
 Commit subject follows PO's exact request: `feat(ui): handcrafted warm parchment and three-screen presentation (Sprint 4 Slice 1)`; footer traces `CR-0005`, `CR-20261014-2314` and UI/accessibility requirements. Push only `feat/sprint-04-slice-01-visual`; PR targets `develop`, with no agent merge.
 
-Run `python3 -m http.server 8000 --bind 127.0.0.1` from the repository root and open `http://127.0.0.1:8000`. There is no npm dev script/package manifest. Start a new game to see the Reading beat, advance through the nursery and choose its join-family action to see the three Scene3 cards. Settings allows200% text, high contrast and reduced motion.
+Run `python3 -m http.server 8001 --bind 127.0.0.1` from the repository root and open `http://127.0.0.1:8001`. There is no npm dev script/package manifest. Start a new game to see the Reading beat, advance through the nursery and choose its join-family action to see the three Scene3 cards. Settings allows200% text, high contrast and reduced motion.
 
 Approvals still required: PO/Art visual walkthrough, Thai/Narrative presentation review, Accessibility real-device/AT/browser matrix, then human PR review/merge. Remaining Sprint4 tasks stay unchecked. No final acceptance, full-game completion, release or deployment is asserted.
+
+Delivery verified: implementation commit `f1ae7bb` pushed to the requested feature branch, [PR13](https://github.com/T3thr/JaoKob/pull/13) created targeting `develop` and attached to this chat. Both author/committer and authenticated GitHub user are `T3thr`. A documentation-only follow-up records this final PR trace; runtime evidence remains valid. Local preview is running on loopback port8001; the existing port8000 process is preserved.
