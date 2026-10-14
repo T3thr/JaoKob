@@ -511,3 +511,108 @@ test("FR-ACC-002 asynchronous media refresh retains current reading/button focus
   renderer.render({ ...base, viewRevision: 9 });
   assert.equal(document.activeElement.getAttribute("data-jk-role"), "dialogue");
 });
+
+test("TC-S4-VIS-001 Title has menu and first-run notice without gameplay meters", () => {
+  const { root, renderer } = createHarness();
+  renderer.render({ state: "Title", presentation: { mode: "title" }, scene: { title: "เจ้ากบ", dialogue: "ค่อย ๆ เดินทาง" },
+    meters: { hp: 80, sanity: 70 }, firstRunNotice: { text: "มีพายุและการพลัดพราก" },
+    choices: [{ id: "application.new-game", label: "เริ่มการเดินทาง" }, { id: "application.resume", label: "เล่นต่อ" }, { id: "application.settings", label: "ตั้งค่า" }] });
+  assert.equal(findAll(root, (el) => el.hasAttribute("data-jk-meter")).length, 0);
+  assert.equal(findAll(root, hasDataRole("hud")).length, 0);
+  assert.equal(findOne(root, hasDataRole("first-run-notice")).textContent.includes("พายุ"), true);
+  assert.equal(findAll(root, hasDataRole("choice")).length, 3);
+});
+
+test("TC-S4-VIS-001 Reading contains only Next in paper footer; Decision contains real choices without Next", () => {
+  const { root, renderer } = createHarness();
+  const choices = [{ id: "application.advance", label: "อ่านต่อ" }, { id: "mother", label: "ตามแม่" }, { id: "roots", label: "ฟังราก" }, { id: "siblings", label: "เล่นกับพี่น้อง" }];
+  const base = { scene: { speaker: "แม่กบ", dialogue: "ค่อย ๆ ฟังน้ำ" }, choices };
+  renderer.render({ ...base, presentation: { mode: "reading" } });
+  const card = findOne(root, hasDataRole("reading-card"));
+  assert.deepEqual(findAll(card, hasDataRole("choice")).map((el) => el.getAttribute("data-choice-id")), ["application.advance"]);
+  assert.equal(findAll(root, hasAttribute("data-choice-id", "mother")).length, 0);
+  renderer.render({ ...base, presentation: { mode: "decision" } });
+  assert.equal(findAll(root, hasDataAction("advance")).length, 0);
+  assert.deepEqual(findAll(root, hasDataRole("choice")).map((el) => el.textContent), ["ตามแม่", "ฟังราก", "เล่นกับพี่น้อง"]);
+});
+
+test("TC-S4-STATUS-001 status-only render retains exact story, action, focus and latest revision guard", () => {
+  const { root, document, renderer, intents } = createHarness();
+  const base = { revision: 4, viewRevision: 7, presentation: { mode: "reading", nodeId: "opening" }, scene: { dialogue: "แสงไหวบนน้ำ" },
+    choices: [{ id: "application.advance", label: "อ่านต่อ" }, { id: "application.settings", label: "ตั้งค่า" }] };
+  renderer.render(base);
+  const card = findOne(root, hasDataRole("reading-card")), story = findOne(root, hasDataRole("dialogue"));
+  const button = findOne(root, hasDataAction("advance")); button.focus();
+  const status = findOne(root, hasDataRole("save-status"));
+  for (const [index, text] of ["กำลังบันทึก", "บันทึกแล้ว", "ยังบันทึกไม่ได้ หากปิดหน้านี้ความคืบหน้าอาจหายไป"].entries()) {
+    renderer.render({ ...base, viewRevision: 8 + index, notice: { title: "บันทึก", text } });
+    assert.equal(findOne(root, hasDataRole("reading-card")), card);
+    assert.equal(findOne(root, hasDataRole("dialogue")), story);
+    assert.equal(document.activeElement, button);
+    assert.equal(findOne(root, hasDataRole("save-status")), status);
+    assert.equal(status.textContent, text);
+    assert.equal(findAll(card, hasDataRole("first-run-notice")).length, 0);
+  }
+  button.dispatchEvent({ type: "click" });
+  assert.deepEqual(intents.at(-1), { type: "SELECT_CHOICE", choiceId: "application.advance", viewRevision: 10, expectedRevision: 4 });
+});
+
+test("TC-S4-STATUS-001 media failure adds functional recovery in rail while preserving reading and Settings", () => {
+  const { root, document, renderer, intents } = createHarness();
+  const base = { revision: 4, presentation: { mode: "reading" }, scene: { dialogue: "อ่านต่อในความเงียบ" },
+    choices: [{ id: "application.advance", label: "อ่านต่อ" }, { id: "application.settings", label: "ตั้งค่า" }] };
+  renderer.render(base);
+  const card = findOne(root, hasDataRole("reading-card")), settings = findOne(root, hasAttribute("data-choice-id", "application.settings"));
+  settings.focus();
+  renderer.render({ ...base, mediaStatusText: "ยังโหลดภาพไม่ได้", choices: [...base.choices, { id: "application.retry-media", label: "ลองอีกครั้ง" }] });
+  assert.equal(findOne(root, hasDataRole("reading-card")), card);
+  assert.equal(findOne(root, hasAttribute("data-choice-id", "application.settings")), settings);
+  assert.equal(document.activeElement, settings);
+  const rail = findOne(root, hasDataRole("utility-rail"));
+  findOne(rail, hasAttribute("data-choice-id", "application.retry-media")).dispatchEvent({ type: "click" });
+  assert.equal(intents.at(-1).choiceId, "application.retry-media");
+  assert.equal(findAll(card, hasAttribute("data-choice-id", "application.retry-media")).length, 0);
+});
+
+test("TC-S4-STATUS-001 settings status patches retain modal identity, scroll, field and busy focus", () => {
+  const { root, document, renderer } = createHarness();
+  const base = { revision: 1, scene: { dialogue: "แสง" }, settings: { fontScale: 1 }, presentation: { mode: "reading" },
+    choices: [{ id: "application.advance", label: "อ่านต่อ" }, { id: "application.settings", label: "ตั้งค่า" }] };
+  renderer.render(base);
+  const overlay = { ...base, presentation: { mode: "settings" } };
+  renderer.render(overlay);
+  const modal = findOne(root, hasDataRole("settings-dialog")), music = findOne(root, hasAttribute("data-jk-setting", "musicVolume"));
+  modal.scrollTop = 215; music.focus(); renderer.setBusy(true); document.activeElement = null;
+  renderer.render({ ...overlay, viewRevision: 3, notice: { text: "ยังบันทึกไม่ได้" }, audioStatusText: "เสียงพร้อมแล้ว" }); renderer.setBusy(false);
+  assert.equal(findOne(root, hasDataRole("settings-dialog")), modal);
+  assert.equal(modal.scrollTop, 215);
+  assert.equal(document.activeElement, music);
+  assert.equal(findOne(modal, hasDataRole("audio-status")).textContent, "เสียงพร้อมแล้ว");
+});
+
+test("TC-S4-STATE-001 story changes patch persistent landmarks and preserve separate feedback and warning", () => {
+  const { root, renderer } = createHarness();
+  renderer.render({ revision: 1, scene: { dialogue: "ก่อนฝน" }, presentation: { mode: "reading" }, choices: [] });
+  const shell = findOne(root, hasDataRole("game-shell")), story = findOne(root, hasDataRole("dialogue")), header = findOne(root, hasDataRole("stage-header"));
+  renderer.render({ revision: 2, scene: { dialogue: "ฝนตก" }, presentation: { mode: "reading" }, choices: [],
+    feedback: "ได้ที่พัก", meterChanges: [{ meter: "hp", delta: 5 }], contentNotice: { text: "พายุและการพลัดพราก" } });
+  assert.equal(findOne(root, hasDataRole("game-shell")), shell);
+  assert.equal(findOne(root, hasDataRole("dialogue")), story);
+  assert.equal(findOne(root, hasDataRole("stage-header")), header);
+  const card = findOne(root, hasDataRole("reading-card"));
+  assert.equal(findAll(card, hasDataRole("feedback")).length, 0);
+  assert.equal(findAll(card, hasDataRole("content-notice")).length, 0);
+  assert.match(findOne(root, hasDataRole("feedback")).textContent, /พลังชีวิต เพิ่มขึ้น 5/);
+});
+
+test("TC-S4-STATUS-001 duplicate operational announcements are deduped without suppressing a new beat", () => {
+  const { root, renderer } = createHarness();
+  const base = { revision: 1, scene: { dialogue: "น้ำ" }, choices: [] };
+  renderer.render(base); renderer.announce({ text: "บันทึกแล้ว" });
+  const live = findOne(root, hasDataRole("live-region"));
+  live._text = "sentinel";
+  renderer.render({ ...base, viewRevision: 9 }); renderer.announce({ text: "บันทึกแล้ว" });
+  assert.equal(live.textContent, "sentinel", "duplicate announcement must not rewrite live-region text");
+  renderer.render({ ...base, revision: 2, scene: { dialogue: "ราก" } }); renderer.announce({ text: "บันทึกแล้ว" });
+  assert.equal(live.textContent, "บันทึกแล้ว");
+});

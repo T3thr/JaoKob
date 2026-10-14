@@ -12,6 +12,7 @@
 export const TH_SYSTEM_MESSAGES = Object.freeze({
   "app.name": "เจ้ากบ",
   "hud.label": "สถานะการเดินทาง",
+  "save.label": "สถานะการบันทึก",
   "scene.label": "ฉาก",
   "speaker.label": "ผู้เล่าเรื่อง",
   "story.label": "เนื้อเรื่อง",

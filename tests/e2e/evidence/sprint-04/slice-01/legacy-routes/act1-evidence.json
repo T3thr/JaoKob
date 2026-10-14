@@ -1,0 +1,466 @@
+{
+  "browser": "151.0.7922.34",
+  "platform": "darwin",
+  "at": "2026-10-14T16:37:52.008Z",
+  "routes": [
+    {
+      "home": "mother",
+      "coping": "call-family",
+      "keepsake": "keep-fragment",
+      "metrics": {
+        "hp": 75,
+        "sanity": 70,
+        "bond": 0
+      },
+      "observations": 0,
+      "restResume": true
+    },
+    {
+      "home": "mother",
+      "coping": "call-family",
+      "keepsake": "release-fragment",
+      "metrics": {
+        "hp": 75,
+        "sanity": 65,
+        "bond": 0
+      },
+      "observations": 1,
+      "restResume": true
+    },
+    {
+      "home": "mother",
+      "coping": "seek-safety",
+      "keepsake": "keep-fragment",
+      "metrics": {
+        "hp": 85,
+        "sanity": 75,
+        "bond": 0
+      },
+      "observations": 4,
+      "restResume": true
+    },
+    {
+      "home": "mother",
+      "coping": "seek-safety",
+      "keepsake": "release-fragment",
+      "metrics": {
+        "hp": 85,
+        "sanity": 70,
+        "bond": 0
+      },
+      "observations": 0,
+      "restResume": true
+    },
+    {
+      "home": "roots",
+      "coping": "call-family",
+      "keepsake": "keep-fragment",
+      "metrics": {
+        "hp": 75,
+        "sanity": 70,
+        "bond": 0
+      },
+      "observations": 1,
+      "restResume": true
+    },
+    {
+      "home": "roots",
+      "coping": "call-family",
+      "keepsake": "release-fragment",
+      "metrics": {
+        "hp": 75,
+        "sanity": 65,
+        "bond": 0
+      },
+      "observations": 4,
+      "restResume": true
+    },
+    {
+      "home": "roots",
+      "coping": "seek-safety",
+      "keepsake": "keep-fragment",
+      "metrics": {
+        "hp": 85,
+        "sanity": 75,
+        "bond": 0
+      },
+      "observations": 0,
+      "restResume": true
+    },
+    {
+      "home": "roots",
+      "coping": "seek-safety",
+      "keepsake": "release-fragment",
+      "metrics": {
+        "hp": 85,
+        "sanity": 70,
+        "bond": 0
+      },
+      "observations": 1,
+      "restResume": true
+    },
+    {
+      "home": "siblings",
+      "coping": "call-family",
+      "keepsake": "keep-fragment",
+      "metrics": {
+        "hp": 75,
+        "sanity": 70,
+        "bond": 0
+      },
+      "observations": 4,
+      "restResume": true
+    },
+    {
+      "home": "siblings",
+      "coping": "call-family",
+      "keepsake": "release-fragment",
+      "metrics": {
+        "hp": 75,
+        "sanity": 65,
+        "bond": 0
+      },
+      "observations": 0,
+      "restResume": true
+    },
+    {
+      "home": "siblings",
+      "coping": "seek-safety",
+      "keepsake": "keep-fragment",
+      "metrics": {
+        "hp": 85,
+        "sanity": 75,
+        "bond": 0
+      },
+      "observations": 1,
+      "restResume": true
+    },
+    {
+      "home": "siblings",
+      "coping": "seek-safety",
+      "keepsake": "release-fragment",
+      "metrics": {
+        "hp": 85,
+        "sanity": 70,
+        "bond": 0
+      },
+      "observations": 4,
+      "restResume": true
+    }
+  ],
+  "checks": [
+    "12 Canon paths; keyboard Enter/Space/Tab; visible focus; Bond locked presence in DOM/AX with zero numeric disclosure; saved rest reload; root/subpath",
+    "post-storm cursor reload/Resume; no on-enter replay; double click commits once",
+    "320 CSS px + 200% text; 44 px targets; contrast samples >=4.5; OS and application reduced-motion",
+    "old save: byte preservation on cancel, explicit replace consent",
+    "corrupt save: byte preservation on cancel, explicit replace consent",
+    "parse negative browser smoke",
+    "schema negative browser smoke",
+    "quota negative browser smoke",
+    "unavailable negative browser smoke"
+  ],
+  "screenshots": [
+    "act1-title-keyboard.png",
+    "act1-storm.png",
+    "act1-choice-confirmation.png",
+    "act1-rest.png",
+    "act1-mobile-320-text200.png"
+  ],
+  "performance": {
+    "initialCompressedBytes": 139875,
+    "initialRawBytes": 552946,
+    "domContentLoadedMs": 181.30000001192093,
+    "maxDriverActionMs": 245.4742500000002,
+    "maxSaveBytes": 4821,
+    "reflow": {
+      "scroll": 320,
+      "width": 320
+    },
+    "contrastRatios": [
+      10.614096195316643,
+      9.446140227861006,
+      10.973300422357172,
+      10.973300422357172
+    ]
+  },
+  "errors": [],
+  "result": "PASS",
+  "runtimeFiles": [
+    {
+      "path": "/assets/fonts/sarabun-latin.woff2",
+      "bytes": 11463,
+      "rawBytes": 11440,
+      "sha256": "5223475551bd30c4be72545051a47896f2d05e84169c5ee8e7ff7d46d2aa4308"
+    },
+    {
+      "path": "/assets/fonts/sarabun-thai.woff2",
+      "bytes": 9903,
+      "rawBytes": 9880,
+      "sha256": "445226dce39d9c8d957ac4e8b0a12fb64c1715e74522fecea0bd6007dc4a6b25"
+    },
+    {
+      "path": "/assets/images/backgrounds/act1-morning-pond.webp",
+      "bytes": 181838,
+      "rawBytes": 181760,
+      "sha256": "f060ea8576f15845e44603fffecb0919f362b1eb838474a51ce02b8e4b9b4aa2"
+    },
+    {
+      "path": "/assets/images/characters/jaokob/tadpole-neutral.webp",
+      "bytes": 49615,
+      "rawBytes": 49608,
+      "sha256": "a645ffaae4b23b9e321c162856a3f9d19faf1d64e0e871cb3759633cb0fc79cb"
+    },
+    {
+      "path": "/assets/images/ui/paper-fibres.svg",
+      "bytes": 348,
+      "rawBytes": 516,
+      "sha256": "ae0716e1eef95bcdefd5a8c4c70a4778dd0581d6c996c59abc4123c307b28434"
+    },
+    {
+      "path": "/assets/provenance/benchmark-assets.json",
+      "bytes": 1320,
+      "rawBytes": 4717,
+      "sha256": "b7992756877a07d2b03d429491d1c8d9f706e4b638cd47f3a5cb1dd79641bae1"
+    },
+    {
+      "path": "/index.html",
+      "bytes": 542,
+      "rawBytes": 823,
+      "sha256": "0962d6996073a914cb90f4bade4a415ff931a111075385d003d2ce4cefa044b4"
+    },
+    {
+      "path": "/src/bootstrap/index.js",
+      "bytes": 5616,
+      "rawBytes": 19069,
+      "sha256": "dfb5f76d617f839c6264c9362f882c850d867966ed3265362c40d8ab3db3db13"
+    },
+    {
+      "path": "/src/bootstrap/media-composition.js",
+      "bytes": 2649,
+      "rawBytes": 7502,
+      "sha256": "6f78e2b14389a729ceca7c2623c230016fb4abccd49047ef644d3a951f4f7fb2"
+    },
+    {
+      "path": "/src/core/domain/meters.js",
+      "bytes": 2526,
+      "rawBytes": 8287,
+      "sha256": "a9e2d181b6cffc875bfc62975fe0f0830ef1eb84addf080a8e907ec804b30823"
+    },
+    {
+      "path": "/src/core/ports/audio-port.js",
+      "bytes": 1465,
+      "rawBytes": 3374,
+      "sha256": "d3590d2be44fa8d3c73b08f1e3bc386f6b0bdc9724be848a8ef14c62b08b7ba9"
+    },
+    {
+      "path": "/src/core/ports/renderer-port.js",
+      "bytes": 2698,
+      "rawBytes": 7847,
+      "sha256": "d0dfa31b6a8d4016c24b32a144deb44f592b332ede79d4b74ec9f762a2420e42"
+    },
+    {
+      "path": "/src/core/ports/storage-port.js",
+      "bytes": 1324,
+      "rawBytes": 3709,
+      "sha256": "c3bb38cac8dc000ebebd654a94b7fb962d92206dd0490e44e32b309d6969c2f2"
+    },
+    {
+      "path": "/src/core/state-machine/game-state.js",
+      "bytes": 2555,
+      "rawBytes": 9690,
+      "sha256": "fa147ea8c16538faf2ba4c402bffead56bf29c23ee2c2813597bad2c0f478579"
+    },
+    {
+      "path": "/src/core/use-cases/choice-transaction.js",
+      "bytes": 8419,
+      "rawBytes": 34580,
+      "sha256": "ff0da0ec6e475abb914b7c9a439bae66f57e8f421248cd02dd043bf510b27a63"
+    },
+    {
+      "path": "/src/core/use-cases/content-orchestration.js",
+      "bytes": 5317,
+      "rawBytes": 19605,
+      "sha256": "32384efa0e624674d3fb59fa59d9f75318899e391af8564b399370902b9cd321"
+    },
+    {
+      "path": "/src/data/assets/asset-preloader.js",
+      "bytes": 1784,
+      "rawBytes": 4794,
+      "sha256": "196befa434648ff818da05e15bfc3d3c2d8484e719f689087be500da2bb047c2"
+    },
+    {
+      "path": "/src/data/assets/asset-resolver.js",
+      "bytes": 2555,
+      "rawBytes": 6744,
+      "sha256": "f359234e529ecf02344f1136653bf929f2151e768895c64a32586a9014c5a822"
+    },
+    {
+      "path": "/src/data/content/content-loader.js",
+      "bytes": 1390,
+      "rawBytes": 3500,
+      "sha256": "4367d08b0ff93da33656d227fa529cf09e68e06e4106b7193cb2f454eb3c30e1"
+    },
+    {
+      "path": "/src/data/content/content-presentation.js",
+      "bytes": 1859,
+      "rawBytes": 4568,
+      "sha256": "fc6941abe2f2b40ff830709e7b70b279514da32954d3e81bf6c04701ca8f6161"
+    },
+    {
+      "path": "/src/data/content/content-runtime.js",
+      "bytes": 2206,
+      "rawBytes": 6432,
+      "sha256": "8097d62db9c7edff71a4a1c6eeb8a153090883a27373abc3b09045ca243263c2"
+    },
+    {
+      "path": "/src/data/content/content-view-model.js",
+      "bytes": 1799,
+      "rawBytes": 5449,
+      "sha256": "716fdf5dd1a1595ce03667458afa8710457ef80b175ad157055068d29bd06f26"
+    },
+    {
+      "path": "/src/data/content/packages/act-01-test-catalog.json",
+      "bytes": 100,
+      "rawBytes": 163,
+      "sha256": "4bf61b4c256c770a58bc46b89fe59517b36ac94a7a490c56d14ee6dc9cecd8b2"
+    },
+    {
+      "path": "/src/data/content/packages/act-01.json",
+      "bytes": 10791,
+      "rawBytes": 89170,
+      "sha256": "498dbdcee737a5256e32dc8391d276a83744c4e91fe910c7cdf26a84eb1fb64f"
+    },
+    {
+      "path": "/src/data/localization/th-application.js",
+      "bytes": 1622,
+      "rawBytes": 5879,
+      "sha256": "60b524f69711824887a35844d3a6cb807a4eaa33c072801c3d062dfb58ae6dc4"
+    },
+    {
+      "path": "/src/data/migrations/content-2-0-0-to-2-1-0.js",
+      "bytes": 2621,
+      "rawBytes": 7355,
+      "sha256": "6055bdfd05a8b61a73ded8be785bab041a7f87be8034ee210c16cfbdaf9e31d1"
+    },
+    {
+      "path": "/src/data/persistence/local-storage-adapter.js",
+      "bytes": 5978,
+      "rawBytes": 26038,
+      "sha256": "359e3e7f97f899e2dfad099fc7ee8a5d254196539f2460ab1c69794c12053e69"
+    },
+    {
+      "path": "/src/data/validation/content-schema-catalog.js",
+      "bytes": 6453,
+      "rawBytes": 97073,
+      "sha256": "6a748b8e8782d56fdfd01f5b85b885fdd589bad10a488efd2c72195ae2c20717"
+    },
+    {
+      "path": "/src/data/validation/content-schema-validator.js",
+      "bytes": 3266,
+      "rawBytes": 9755,
+      "sha256": "86b6ee9ea4352cabe964088809513c9227db8bed56704c65bfda35e92e241b04"
+    },
+    {
+      "path": "/src/data/validation/content-validator.js",
+      "bytes": 5116,
+      "rawBytes": 16391,
+      "sha256": "7fedb06f8ba242d727bd9d5e71dd7b052e4ac1d25e9fd141b852199249b9d2ee"
+    },
+    {
+      "path": "/src/data/validation/content-values.js",
+      "bytes": 1290,
+      "rawBytes": 3139,
+      "sha256": "a0e8470ad04b55aa6324d46a75b7a17d91910b19d61701f1aa8793ed08c87f63"
+    },
+    {
+      "path": "/src/data/validation/save-envelope-validator.js",
+      "bytes": 3837,
+      "rawBytes": 15921,
+      "sha256": "5b476bae5a6e103ae99ff4357e7bdf22a17a7cdd6bd8d3a3722f4eb38a275a73"
+    },
+    {
+      "path": "/src/ui/assets/image-cache.js",
+      "bytes": 1643,
+      "rawBytes": 4620,
+      "sha256": "b967497fc97c10b68a968585f6337bacab00cd41695d88cbe10537806aa97ab1"
+    },
+    {
+      "path": "/src/ui/audio/silent-audio-adapter.js",
+      "bytes": 395,
+      "rawBytes": 667,
+      "sha256": "197e4ac52dcd00eb2386ed87031cb5b664c7d1ef183cfd6697722398e0df28df"
+    },
+    {
+      "path": "/src/ui/audio/web-audio-adapter.js",
+      "bytes": 6227,
+      "rawBytes": 22204,
+      "sha256": "c1b3ca43893067bf171dc99f2c444632b5edb8c66cab3af17dba41200d3b7540"
+    },
+    {
+      "path": "/src/ui/components/chrome-icons.js",
+      "bytes": 751,
+      "rawBytes": 1392,
+      "sha256": "bf3c86409c1480e254a2a1a63101610213c1576c013b23a6a96975b5098fc4d1"
+    },
+    {
+      "path": "/src/ui/components/settings-dialog.js",
+      "bytes": 2042,
+      "rawBytes": 6527,
+      "sha256": "7098ee937605d66fd545015db0dcd4770f85d3d73f30fa18af74a9a6ae6050d8"
+    },
+    {
+      "path": "/src/ui/components/stage-view.js",
+      "bytes": 1327,
+      "rawBytes": 4104,
+      "sha256": "13323dcc8fd6449077c4a0b9827d86587c4633fb430b975981b9bc94cb1cd9e6"
+    },
+    {
+      "path": "/src/ui/localization/th-system-messages.js",
+      "bytes": 2040,
+      "rawBytes": 6279,
+      "sha256": "075a061ee6668788accc9434ac801aab4d15eb3222bfac68ac6677c520b2c461"
+    },
+    {
+      "path": "/src/ui/renderers/dom/dom-renderer.js",
+      "bytes": 11089,
+      "rawBytes": 45643,
+      "sha256": "8fba7b17536cd0f03aeffb9dd91896dfb52e9a8adb4b7e902b0cfdab50447c6f"
+    },
+    {
+      "path": "/src/ui/styles/base.css",
+      "bytes": 828,
+      "rawBytes": 1700,
+      "sha256": "105ce05141be27e452dd0617c4f0d21a576b37793e1a855fecc6b9bcb454d306"
+    },
+    {
+      "path": "/src/ui/styles/components.css",
+      "bytes": 2489,
+      "rawBytes": 9867,
+      "sha256": "54cb304d011c0f5efc80f0f01998f28a14c92a3980326cfd73fb734d99797a4c"
+    },
+    {
+      "path": "/src/ui/styles/index.css",
+      "bytes": 139,
+      "rawBytes": 228,
+      "sha256": "82bf52d54fbb619fdd762a37ba1b802803b7873dac0c3c7513b9bb6b94f48b2c"
+    },
+    {
+      "path": "/src/ui/styles/layout.css",
+      "bytes": 1611,
+      "rawBytes": 4987,
+      "sha256": "a6e5a39b8d433252aa18514ea0f42021bf2abaf0b32dd809b0ae94973200d5cd"
+    },
+    {
+      "path": "/src/ui/styles/motion.css",
+      "bytes": 327,
+      "rawBytes": 743,
+      "sha256": "e8df6af6c7862bc3b3bc05fca87d3c6d90067f33898f992910e3821db7985b86"
+    },
+    {
+      "path": "/src/ui/styles/tokens.css",
+      "bytes": 503,
+      "rawBytes": 1091,
+      "sha256": "e33c8c656bb4f84b068bf5130b7e1b78c6ac62cdcc4ca550d4fcedc09e4ac217"
+    }
+  ]
+}

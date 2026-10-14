@@ -26,7 +26,8 @@ export function createSettingsDialog({ document, viewModel, message, onIntent })
   audio.append(element("p", { class: "jk-settings-hint" }, message("settings.audioHint")));
   for (const setting of ["masterVolume", "musicVolume", "ambienceVolume", "effectsVolume"]) addRange(audio, setting, `settings.${setting}`, 0, 1, .05, setting === "masterVolume" ? 1 : 0);
   addToggle(audio, "reducedIntensityAudio", "settings.reducedIntensity");
-  if (typeof viewModel.audioStatusText === "string") audio.append(element("p", { "data-jk-role": "audio-status" }, viewModel.audioStatusText));
+  const audioStatus = element("p", { "data-jk-role": "audio-status" }, viewModel.audioStatusText ?? "");
+  audio.append(audioStatus);
   const enableSound = element("button", { type: "button", class: "jk-secondary-button", "data-jk-action": "enable-sound" }, message("settings.enableSound"));
   enableSound.addEventListener("click", () => selectChoice("application.enable-sound")); controls.push(enableSound); audio.append(enableSound);
   dialog.append(audio);
@@ -73,6 +74,10 @@ export function createSettingsDialog({ document, viewModel, message, onIntent })
     row.append(control, element("span", {}, message(labelKey))); parent.append(row); controls.push(control); bySetting.set(setting, control);
   }
   return Object.freeze({ element: dialog, controls: Object.freeze(controls), first: controls[0],
+    updateStatus(view) {
+      const text = typeof view.audioStatusText === "string" ? view.audioStatusText : "";
+      if (audioStatus.textContent !== text) audioStatus.textContent = text;
+    },
     open(focusSetting, focusChoice) {
       if (typeof dialog.showModal === "function") dialog.showModal();
       else { dialog.setAttribute("open", ""); dialog.setAttribute("role", "dialog"); dialog.setAttribute("aria-modal", "true"); }

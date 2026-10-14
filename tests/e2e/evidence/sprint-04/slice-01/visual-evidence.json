@@ -1,0 +1,1369 @@
+{
+  "baseline": "d31652a3f948d41b556aeb72ba2402c67009c3e9",
+  "at": "2026-10-14T16:37:50.048Z",
+  "requirements": [
+    "TC-S4-VIS-001",
+    "TC-S4-STATUS-001",
+    "TC-S4-STATE-001",
+    "TC-S4-A11Y-001"
+  ],
+  "viewports": [
+    {
+      "name": "320x568-title",
+      "width": 320,
+      "height": 568,
+      "scrollWidth": 320,
+      "buttons": [
+        {
+          "id": "application.enable-sound",
+          "width": 151.390625,
+          "height": 44
+        },
+        {
+          "id": "application.settings",
+          "width": 71.96875,
+          "height": 44
+        },
+        {
+          "id": "application.new-game",
+          "width": 296,
+          "height": 54.796875
+        }
+      ],
+      "regions": [
+        {
+          "class": "jk-utility-rail",
+          "x": 47.046875,
+          "y": 18.390625,
+          "right": 308,
+          "bottom": 65.578125
+        },
+        {
+          "class": "jk-narrative",
+          "x": 12,
+          "y": 216.609375,
+          "right": 308,
+          "bottom": 356.5
+        },
+        {
+          "class": "jk-choice-area",
+          "x": 12,
+          "y": 368.5,
+          "right": 308,
+          "bottom": 423.296875
+        }
+      ]
+    },
+    {
+      "name": "320x568-reading",
+      "width": 320,
+      "height": 568,
+      "scrollWidth": 320,
+      "buttons": [
+        {
+          "id": "application.settings",
+          "width": 71.96875,
+          "height": 44
+        },
+        {
+          "id": "application.advance",
+          "width": 91.796875,
+          "height": 44
+        }
+      ],
+      "regions": [
+        {
+          "class": "jk-hud",
+          "x": 12,
+          "y": 12,
+          "right": 308,
+          "bottom": 116.734375
+        },
+        {
+          "class": "jk-utility-rail",
+          "x": 12,
+          "y": 123.125,
+          "right": 308,
+          "bottom": 170.3125
+        },
+        {
+          "class": "jk-narrative",
+          "x": 12,
+          "y": 346.3125,
+          "right": 308,
+          "bottom": 569.28125
+        },
+        {
+          "class": "jk-choice-area",
+          "x": 195.203125,
+          "y": 508.28125,
+          "right": 287,
+          "bottom": 552.28125
+        }
+      ]
+    },
+    {
+      "name": "320x568-decision",
+      "width": 320,
+      "height": 568,
+      "scrollWidth": 320,
+      "buttons": [
+        {
+          "id": "application.settings",
+          "width": 71.96875,
+          "height": 44
+        },
+        {
+          "id": "choice.act1.focus-mother",
+          "width": 296,
+          "height": 76
+        },
+        {
+          "id": "choice.act1.focus-roots",
+          "width": 296,
+          "height": 76
+        },
+        {
+          "id": "choice.act1.focus-siblings",
+          "width": 296,
+          "height": 76
+        }
+      ],
+      "regions": [
+        {
+          "class": "jk-hud",
+          "x": 12,
+          "y": -272,
+          "right": 308,
+          "bottom": -167.265625
+        },
+        {
+          "class": "jk-utility-rail",
+          "x": 12,
+          "y": -160.875,
+          "right": 308,
+          "bottom": -113.6875
+        },
+        {
+          "class": "jk-narrative",
+          "x": 12,
+          "y": 116.5,
+          "right": 308,
+          "bottom": 251.1875
+        },
+        {
+          "class": "jk-choice-area",
+          "x": 12,
+          "y": 263.1875,
+          "right": 308,
+          "bottom": 548.0625
+        }
+      ]
+    },
+    {
+      "name": "320x568-text200",
+      "width": 320,
+      "height": 568,
+      "scrollWidth": 320,
+      "buttons": [
+        {
+          "id": "application.settings",
+          "width": 141.9375,
+          "height": 63.59375
+        },
+        {
+          "id": "application.advance",
+          "width": 181.59375,
+          "height": 74
+        }
+      ],
+      "regions": [
+        {
+          "class": "jk-hud",
+          "x": 24,
+          "y": -117,
+          "right": 296,
+          "bottom": 207.734375
+        },
+        {
+          "class": "jk-utility-rail",
+          "x": 24,
+          "y": 220.53125,
+          "right": 296,
+          "bottom": 389.5
+        },
+        {
+          "class": "jk-narrative",
+          "x": 24,
+          "y": 937.890625,
+          "right": 296,
+          "bottom": 2029.984375
+        },
+        {
+          "class": "jk-choice-area",
+          "x": 73.40625,
+          "y": 1922.984375,
+          "right": 255,
+          "bottom": 1996.984375
+        }
+      ]
+    },
+    {
+      "name": "320x568-settings-text200",
+      "width": 320,
+      "height": 568,
+      "scrollWidth": 320,
+      "buttons": [
+        {
+          "id": "application.settings",
+          "width": 141.9375,
+          "height": 63.59375
+        },
+        {
+          "id": "application.advance",
+          "width": 181.59375,
+          "height": 74
+        },
+        {
+          "id": "application.toggle-font",
+          "width": 147.578125,
+          "height": 222.78125
+        },
+        {
+          "id": "application.toggle-motion",
+          "width": 147.578125,
+          "height": 165.1875
+        },
+        {
+          "width": 141.03125,
+          "height": 337.96875
+        },
+        {
+          "id": "application.close-settings",
+          "width": 184,
+          "height": 165.1875
+        }
+      ],
+      "regions": [
+        {
+          "class": "jk-hud",
+          "x": 24,
+          "y": -117,
+          "right": 296,
+          "bottom": 207.734375
+        },
+        {
+          "class": "jk-utility-rail",
+          "x": 24,
+          "y": 220.53125,
+          "right": 296,
+          "bottom": 389.5
+        },
+        {
+          "class": "jk-narrative",
+          "x": 24,
+          "y": 937.890625,
+          "right": 296,
+          "bottom": 2029.984375
+        },
+        {
+          "class": "jk-choice-area",
+          "x": 73.40625,
+          "y": 1922.984375,
+          "right": 255,
+          "bottom": 1996.984375
+        }
+      ]
+    },
+    {
+      "name": "390x844-title",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "buttons": [
+        {
+          "id": "application.enable-sound",
+          "width": 151.390625,
+          "height": 44
+        },
+        {
+          "id": "application.settings",
+          "width": 71.96875,
+          "height": 44
+        },
+        {
+          "id": "application.new-game",
+          "width": 366,
+          "height": 54.796875
+        }
+      ],
+      "regions": [
+        {
+          "class": "jk-utility-rail",
+          "x": 117.046875,
+          "y": 18.390625,
+          "right": 378,
+          "bottom": 65.578125
+        },
+        {
+          "class": "jk-narrative",
+          "x": 12,
+          "y": 344.390625,
+          "right": 378,
+          "bottom": 450.984375
+        },
+        {
+          "class": "jk-choice-area",
+          "x": 12,
+          "y": 462.984375,
+          "right": 378,
+          "bottom": 517.78125
+        }
+      ]
+    },
+    {
+      "name": "390x844-reading",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "buttons": [
+        {
+          "id": "application.settings",
+          "width": 71.96875,
+          "height": 44
+        },
+        {
+          "id": "application.advance",
+          "width": 91.796875,
+          "height": 44
+        }
+      ],
+      "regions": [
+        {
+          "class": "jk-hud",
+          "x": 12,
+          "y": 12,
+          "right": 378,
+          "bottom": 83.75
+        },
+        {
+          "class": "jk-utility-rail",
+          "x": 12,
+          "y": 90.140625,
+          "right": 378,
+          "bottom": 137.328125
+        },
+        {
+          "class": "jk-narrative",
+          "x": 12,
+          "y": 634.328125,
+          "right": 378,
+          "bottom": 824
+        },
+        {
+          "class": "jk-choice-area",
+          "x": 265.203125,
+          "y": 763,
+          "right": 357,
+          "bottom": 807
+        }
+      ]
+    },
+    {
+      "name": "390x844-decision",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "buttons": [
+        {
+          "id": "application.settings",
+          "width": 71.96875,
+          "height": 44
+        },
+        {
+          "id": "choice.act1.focus-mother",
+          "width": 366,
+          "height": 76
+        },
+        {
+          "id": "choice.act1.focus-roots",
+          "width": 366,
+          "height": 76
+        },
+        {
+          "id": "choice.act1.focus-siblings",
+          "width": 366,
+          "height": 76
+        }
+      ],
+      "regions": [
+        {
+          "class": "jk-hud",
+          "x": 12,
+          "y": 12,
+          "right": 378,
+          "bottom": 83.75
+        },
+        {
+          "class": "jk-utility-rail",
+          "x": 12,
+          "y": 90.140625,
+          "right": 378,
+          "bottom": 137.328125
+        },
+        {
+          "class": "jk-narrative",
+          "x": 12,
+          "y": 392.4375,
+          "right": 378,
+          "bottom": 527.125
+        },
+        {
+          "class": "jk-choice-area",
+          "x": 12,
+          "y": 539.125,
+          "right": 378,
+          "bottom": 824
+        }
+      ]
+    },
+    {
+      "name": "768x1024-title",
+      "width": 768,
+      "height": 1024,
+      "scrollWidth": 768,
+      "buttons": [
+        {
+          "id": "application.enable-sound",
+          "width": 151.390625,
+          "height": 44
+        },
+        {
+          "id": "application.settings",
+          "width": 71.96875,
+          "height": 44
+        },
+        {
+          "id": "application.new-game",
+          "width": 384,
+          "height": 54.796875
+        }
+      ],
+      "regions": [
+        {
+          "class": "jk-utility-rail",
+          "x": 475.046875,
+          "y": 30.390625,
+          "right": 736,
+          "bottom": 77.578125
+        },
+        {
+          "class": "jk-narrative",
+          "x": 112,
+          "y": 455.5,
+          "right": 656,
+          "bottom": 569.5
+        },
+        {
+          "class": "jk-choice-area",
+          "x": 112,
+          "y": 581.5,
+          "right": 656,
+          "bottom": 636.296875
+        }
+      ]
+    },
+    {
+      "name": "768x1024-reading",
+      "width": 768,
+      "height": 1024,
+      "scrollWidth": 768,
+      "buttons": [
+        {
+          "id": "application.settings",
+          "width": 71.96875,
+          "height": 44
+        },
+        {
+          "id": "application.advance",
+          "width": 91.796875,
+          "height": 44
+        }
+      ],
+      "regions": [
+        {
+          "class": "jk-hud",
+          "x": 32,
+          "y": 24,
+          "right": 736,
+          "bottom": 95.75
+        },
+        {
+          "class": "jk-utility-rail",
+          "x": 32,
+          "y": 102.140625,
+          "right": 736,
+          "bottom": 149.328125
+        },
+        {
+          "class": "jk-narrative",
+          "x": 32,
+          "y": 788.53125,
+          "right": 736,
+          "bottom": 992
+        },
+        {
+          "class": "jk-choice-area",
+          "x": 611.203125,
+          "y": 927.8125,
+          "right": 703,
+          "bottom": 971.8125
+        }
+      ]
+    },
+    {
+      "name": "768x1024-decision",
+      "width": 768,
+      "height": 1024,
+      "scrollWidth": 768,
+      "buttons": [
+        {
+          "id": "application.settings",
+          "width": 71.96875,
+          "height": 44
+        },
+        {
+          "id": "choice.act1.focus-mother",
+          "width": 704,
+          "height": 76
+        },
+        {
+          "id": "choice.act1.focus-roots",
+          "width": 704,
+          "height": 76
+        },
+        {
+          "id": "choice.act1.focus-siblings",
+          "width": 704,
+          "height": 76
+        }
+      ],
+      "regions": [
+        {
+          "class": "jk-hud",
+          "x": 32,
+          "y": 24,
+          "right": 736,
+          "bottom": 95.75
+        },
+        {
+          "class": "jk-utility-rail",
+          "x": 32,
+          "y": 102.140625,
+          "right": 736,
+          "bottom": 149.328125
+        },
+        {
+          "class": "jk-narrative",
+          "x": 32,
+          "y": 579.9375,
+          "right": 736,
+          "bottom": 695.125
+        },
+        {
+          "class": "jk-choice-area",
+          "x": 32,
+          "y": 707.125,
+          "right": 736,
+          "bottom": 992
+        }
+      ]
+    },
+    {
+      "name": "1440x900-title",
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1440,
+      "buttons": [
+        {
+          "id": "application.enable-sound",
+          "width": 151.390625,
+          "height": 44
+        },
+        {
+          "id": "application.settings",
+          "width": 71.96875,
+          "height": 44
+        },
+        {
+          "id": "application.new-game",
+          "width": 384,
+          "height": 54.796875
+        }
+      ],
+      "regions": [
+        {
+          "class": "jk-utility-rail",
+          "x": 811.046875,
+          "y": 30.390625,
+          "right": 1072,
+          "bottom": 77.578125
+        },
+        {
+          "class": "jk-narrative",
+          "x": 448,
+          "y": 440.296875,
+          "right": 992,
+          "bottom": 554.296875
+        },
+        {
+          "class": "jk-choice-area",
+          "x": 448,
+          "y": 566.296875,
+          "right": 992,
+          "bottom": 621.09375
+        }
+      ]
+    },
+    {
+      "name": "1440x900-reading",
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1440,
+      "buttons": [
+        {
+          "id": "application.settings",
+          "width": 71.96875,
+          "height": 44
+        },
+        {
+          "id": "application.advance",
+          "width": 91.796875,
+          "height": 44
+        }
+      ],
+      "regions": [
+        {
+          "class": "jk-hud",
+          "x": 368,
+          "y": 24,
+          "right": 1072,
+          "bottom": 95.75
+        },
+        {
+          "class": "jk-utility-rail",
+          "x": 368,
+          "y": 102.140625,
+          "right": 1072,
+          "bottom": 149.328125
+        },
+        {
+          "class": "jk-narrative",
+          "x": 368,
+          "y": 664.53125,
+          "right": 1072,
+          "bottom": 868
+        },
+        {
+          "class": "jk-choice-area",
+          "x": 947.203125,
+          "y": 803.8125,
+          "right": 1039,
+          "bottom": 847.8125
+        }
+      ]
+    },
+    {
+      "name": "1440x900-decision",
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1440,
+      "buttons": [
+        {
+          "id": "application.settings",
+          "width": 71.96875,
+          "height": 44
+        },
+        {
+          "id": "choice.act1.focus-mother",
+          "width": 704,
+          "height": 76
+        },
+        {
+          "id": "choice.act1.focus-roots",
+          "width": 704,
+          "height": 76
+        },
+        {
+          "id": "choice.act1.focus-siblings",
+          "width": 704,
+          "height": 76
+        }
+      ],
+      "regions": [
+        {
+          "class": "jk-hud",
+          "x": 368,
+          "y": 24,
+          "right": 1072,
+          "bottom": 95.75
+        },
+        {
+          "class": "jk-utility-rail",
+          "x": 368,
+          "y": 102.140625,
+          "right": 1072,
+          "bottom": 149.328125
+        },
+        {
+          "class": "jk-narrative",
+          "x": 368,
+          "y": 455.9375,
+          "right": 1072,
+          "bottom": 571.125
+        },
+        {
+          "class": "jk-choice-area",
+          "x": 368,
+          "y": 583.125,
+          "right": 1072,
+          "bottom": 868
+        }
+      ]
+    },
+    {
+      "name": "1440x900-text200",
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1440,
+      "buttons": [
+        {
+          "id": "application.settings",
+          "width": 141.9375,
+          "height": 63.59375
+        },
+        {
+          "id": "application.advance",
+          "width": 181.59375,
+          "height": 74
+        }
+      ],
+      "regions": [
+        {
+          "class": "jk-hud",
+          "x": 24,
+          "y": 48,
+          "right": 1416,
+          "bottom": 189.578125
+        },
+        {
+          "class": "jk-utility-rail",
+          "x": 24,
+          "y": 202.375,
+          "right": 1416,
+          "bottom": 272.34375
+        },
+        {
+          "class": "jk-narrative",
+          "x": 24,
+          "y": 742.734375,
+          "right": 1416,
+          "bottom": 1133.703125
+        },
+        {
+          "class": "jk-choice-area",
+          "x": 1169.40625,
+          "y": 1020.3125,
+          "right": 1351,
+          "bottom": 1094.3125
+        }
+      ]
+    },
+    {
+      "name": "1440x900-settings-text200",
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1440,
+      "buttons": [
+        {
+          "id": "application.settings",
+          "width": 141.9375,
+          "height": 63.59375
+        },
+        {
+          "id": "application.advance",
+          "width": 181.59375,
+          "height": 74
+        },
+        {
+          "id": "application.toggle-font",
+          "width": 1100,
+          "height": 107.59375
+        },
+        {
+          "id": "application.toggle-motion",
+          "width": 1100,
+          "height": 107.59375
+        },
+        {
+          "width": 1100,
+          "height": 107.59375
+        },
+        {
+          "id": "application.close-settings",
+          "width": 1150,
+          "height": 107.59375
+        }
+      ],
+      "regions": [
+        {
+          "class": "jk-hud",
+          "x": 24,
+          "y": 48,
+          "right": 1416,
+          "bottom": 189.578125
+        },
+        {
+          "class": "jk-utility-rail",
+          "x": 24,
+          "y": 202.375,
+          "right": 1416,
+          "bottom": 272.34375
+        },
+        {
+          "class": "jk-narrative",
+          "x": 24,
+          "y": 742.734375,
+          "right": 1416,
+          "bottom": 1133.703125
+        },
+        {
+          "class": "jk-choice-area",
+          "x": 1169.40625,
+          "y": 1020.3125,
+          "right": 1351,
+          "bottom": 1094.3125
+        }
+      ]
+    },
+    {
+      "name": "2560x1440-title",
+      "width": 2560,
+      "height": 1440,
+      "scrollWidth": 2560,
+      "buttons": [
+        {
+          "id": "application.enable-sound",
+          "width": 151.390625,
+          "height": 44
+        },
+        {
+          "id": "application.settings",
+          "width": 71.96875,
+          "height": 44
+        },
+        {
+          "id": "application.new-game",
+          "width": 384,
+          "height": 54.796875
+        }
+      ],
+      "regions": [
+        {
+          "class": "jk-utility-rail",
+          "x": 1371.046875,
+          "y": 30.390625,
+          "right": 1632,
+          "bottom": 77.578125
+        },
+        {
+          "class": "jk-narrative",
+          "x": 1008,
+          "y": 731.890625,
+          "right": 1552,
+          "bottom": 845.890625
+        },
+        {
+          "class": "jk-choice-area",
+          "x": 1008,
+          "y": 857.890625,
+          "right": 1552,
+          "bottom": 912.6875
+        }
+      ]
+    },
+    {
+      "name": "2560x1440-reading",
+      "width": 2560,
+      "height": 1440,
+      "scrollWidth": 2560,
+      "buttons": [
+        {
+          "id": "application.settings",
+          "width": 71.96875,
+          "height": 44
+        },
+        {
+          "id": "application.advance",
+          "width": 91.796875,
+          "height": 44
+        }
+      ],
+      "regions": [
+        {
+          "class": "jk-hud",
+          "x": 928,
+          "y": 24,
+          "right": 1632,
+          "bottom": 95.75
+        },
+        {
+          "class": "jk-utility-rail",
+          "x": 928,
+          "y": 102.140625,
+          "right": 1632,
+          "bottom": 149.328125
+        },
+        {
+          "class": "jk-narrative",
+          "x": 928,
+          "y": 1204.53125,
+          "right": 1632,
+          "bottom": 1408
+        },
+        {
+          "class": "jk-choice-area",
+          "x": 1507.203125,
+          "y": 1343.8125,
+          "right": 1599,
+          "bottom": 1387.8125
+        }
+      ]
+    },
+    {
+      "name": "2560x1440-decision",
+      "width": 2560,
+      "height": 1440,
+      "scrollWidth": 2560,
+      "buttons": [
+        {
+          "id": "application.settings",
+          "width": 71.96875,
+          "height": 44
+        },
+        {
+          "id": "choice.act1.focus-mother",
+          "width": 704,
+          "height": 76
+        },
+        {
+          "id": "choice.act1.focus-roots",
+          "width": 704,
+          "height": 76
+        },
+        {
+          "id": "choice.act1.focus-siblings",
+          "width": 704,
+          "height": 76
+        }
+      ],
+      "regions": [
+        {
+          "class": "jk-hud",
+          "x": 928,
+          "y": 24,
+          "right": 1632,
+          "bottom": 95.75
+        },
+        {
+          "class": "jk-utility-rail",
+          "x": 928,
+          "y": 102.140625,
+          "right": 1632,
+          "bottom": 149.328125
+        },
+        {
+          "class": "jk-narrative",
+          "x": 928,
+          "y": 995.9375,
+          "right": 1632,
+          "bottom": 1111.125
+        },
+        {
+          "class": "jk-choice-area",
+          "x": 928,
+          "y": 1123.125,
+          "right": 1632,
+          "bottom": 1408
+        }
+      ]
+    },
+    {
+      "name": "844x390-title",
+      "width": 844,
+      "height": 390,
+      "scrollWidth": 844,
+      "buttons": [
+        {
+          "id": "application.enable-sound",
+          "width": 151.390625,
+          "height": 44
+        },
+        {
+          "id": "application.settings",
+          "width": 71.96875,
+          "height": 44
+        },
+        {
+          "id": "application.new-game",
+          "width": 384,
+          "height": 54.796875
+        }
+      ],
+      "regions": [
+        {
+          "class": "jk-utility-rail",
+          "x": 513.046875,
+          "y": 30.390625,
+          "right": 774,
+          "bottom": 77.578125
+        },
+        {
+          "class": "jk-narrative",
+          "x": 150,
+          "y": 193.125,
+          "right": 694,
+          "bottom": 307.125
+        },
+        {
+          "class": "jk-choice-area",
+          "x": 150,
+          "y": 319.125,
+          "right": 694,
+          "bottom": 373.921875
+        }
+      ]
+    },
+    {
+      "name": "844x390-reading",
+      "width": 844,
+      "height": 390,
+      "scrollWidth": 844,
+      "buttons": [
+        {
+          "id": "application.settings",
+          "width": 71.96875,
+          "height": 44
+        },
+        {
+          "id": "application.advance",
+          "width": 91.796875,
+          "height": 44
+        }
+      ],
+      "regions": [
+        {
+          "class": "jk-hud",
+          "x": 70,
+          "y": 10,
+          "right": 774,
+          "bottom": 81.75
+        },
+        {
+          "class": "jk-utility-rail",
+          "x": 70,
+          "y": 88.140625,
+          "right": 774,
+          "bottom": 135.328125
+        },
+        {
+          "class": "jk-narrative",
+          "x": 70,
+          "y": 279.328125,
+          "right": 774,
+          "bottom": 482.796875
+        },
+        {
+          "class": "jk-choice-area",
+          "x": 649.203125,
+          "y": 418.609375,
+          "right": 741,
+          "bottom": 462.609375
+        }
+      ]
+    },
+    {
+      "name": "844x390-decision",
+      "width": 844,
+      "height": 390,
+      "scrollWidth": 844,
+      "buttons": [
+        {
+          "id": "application.settings",
+          "width": 71.96875,
+          "height": 44
+        },
+        {
+          "id": "choice.act1.focus-mother",
+          "width": 704,
+          "height": 76
+        },
+        {
+          "id": "choice.act1.focus-roots",
+          "width": 704,
+          "height": 76
+        },
+        {
+          "id": "choice.act1.focus-siblings",
+          "width": 704,
+          "height": 76
+        }
+      ],
+      "regions": [
+        {
+          "class": "jk-hud",
+          "x": 70,
+          "y": -297,
+          "right": 774,
+          "bottom": -225.25
+        },
+        {
+          "class": "jk-utility-rail",
+          "x": 70,
+          "y": -218.859375,
+          "right": 774,
+          "bottom": -171.671875
+        },
+        {
+          "class": "jk-narrative",
+          "x": 70,
+          "y": 31.515625,
+          "right": 774,
+          "bottom": 146.703125
+        },
+        {
+          "class": "jk-choice-area",
+          "x": 70,
+          "y": 158.703125,
+          "right": 774,
+          "bottom": 443.578125
+        }
+      ]
+    },
+    {
+      "name": "image-failure",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "buttons": [
+        {
+          "id": "application.retry-media",
+          "width": 136.859375,
+          "height": 44
+        },
+        {
+          "id": "application.settings",
+          "width": 71.96875,
+          "height": 44
+        },
+        {
+          "id": "application.advance",
+          "width": 91.796875,
+          "height": 44
+        }
+      ],
+      "regions": [
+        {
+          "class": "jk-hud",
+          "x": 12,
+          "y": 12,
+          "right": 378,
+          "bottom": 83.75
+        },
+        {
+          "class": "jk-utility-rail",
+          "x": 12,
+          "y": 90.140625,
+          "right": 378,
+          "bottom": 209.578125
+        },
+        {
+          "class": "jk-narrative",
+          "x": 12,
+          "y": 634.328125,
+          "right": 378,
+          "bottom": 824
+        },
+        {
+          "class": "jk-choice-area",
+          "x": 265.203125,
+          "y": 763,
+          "right": 357,
+          "bottom": 807
+        }
+      ]
+    },
+    {
+      "name": "storage-failure",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "buttons": [
+        {
+          "id": "application.settings",
+          "width": 71.96875,
+          "height": 44
+        },
+        {
+          "id": "application.advance",
+          "width": 91.796875,
+          "height": 44
+        }
+      ],
+      "regions": [
+        {
+          "class": "jk-hud",
+          "x": 12,
+          "y": 12,
+          "right": 378,
+          "bottom": 83.75
+        },
+        {
+          "class": "jk-utility-rail",
+          "x": 12,
+          "y": 90.140625,
+          "right": 378,
+          "bottom": 161.578125
+        },
+        {
+          "class": "jk-narrative",
+          "x": 12,
+          "y": 634.328125,
+          "right": 378,
+          "bottom": 824
+        },
+        {
+          "class": "jk-choice-area",
+          "x": 265.203125,
+          "y": 763,
+          "right": 357,
+          "bottom": 807
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "Six viewports: Title no HUD, Reading Next within paper footer, true three-choice Decision no Next, Thai 18–20px/1.85, targets44, root/subpath, normal fit and reflow",
+    "Native status patch: exact nodes/focus/revision retained, no story mutation, one live announcement, modal/scroll retained; high contrast, forced colors, reduced motion, opaque glass fallback; image/quota recovery visible"
+  ],
+  "screenshots": [
+    "320x568-title.png",
+    "320x568-reading.png",
+    "320x568-decision.png",
+    "320x568-text200.png",
+    "320x568-settings-text200.png",
+    "390x844-title.png",
+    "390x844-reading.png",
+    "390x844-decision.png",
+    "390x844-response.png",
+    "768x1024-title.png",
+    "768x1024-reading.png",
+    "768x1024-decision.png",
+    "1440x900-title.png",
+    "1440x900-reading.png",
+    "1440x900-decision.png",
+    "1440x900-response.png",
+    "1440x900-text200.png",
+    "1440x900-settings-text200.png",
+    "2560x1440-title.png",
+    "2560x1440-reading.png",
+    "2560x1440-decision.png",
+    "844x390-title.png",
+    "844x390-reading.png",
+    "844x390-decision.png",
+    "390-high-contrast.png",
+    "390-forced-colors.png",
+    "390-glass-fallback.png",
+    "390-image-failure.png",
+    "390-storage-failure.png"
+  ],
+  "errors": [],
+  "expectedFaults": [
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED"
+  ],
+  "sourceHashes": {
+    "/index.html": "0962d6996073a914cb90f4bade4a415ff931a111075385d003d2ce4cefa044b4",
+    "/src/ui/styles/index.css": "82bf52d54fbb619fdd762a37ba1b802803b7873dac0c3c7513b9bb6b94f48b2c",
+    "/src/bootstrap/index.js": "dfb5f76d617f839c6264c9362f882c850d867966ed3265362c40d8ab3db3db13",
+    "/src/ui/styles/tokens.css": "e33c8c656bb4f84b068bf5130b7e1b78c6ac62cdcc4ca550d4fcedc09e4ac217",
+    "/src/ui/styles/base.css": "105ce05141be27e452dd0617c4f0d21a576b37793e1a855fecc6b9bcb454d306",
+    "/src/ui/styles/layout.css": "a6e5a39b8d433252aa18514ea0f42021bf2abaf0b32dd809b0ae94973200d5cd",
+    "/src/ui/styles/components.css": "54cb304d011c0f5efc80f0f01998f28a14c92a3980326cfd73fb734d99797a4c",
+    "/src/ui/styles/motion.css": "e8df6af6c7862bc3b3bc05fca87d3c6d90067f33898f992910e3821db7985b86",
+    "/src/core/use-cases/content-orchestration.js": "32384efa0e624674d3fb59fa59d9f75318899e391af8564b399370902b9cd321",
+    "/src/core/state-machine/game-state.js": "fa147ea8c16538faf2ba4c402bffead56bf29c23ee2c2813597bad2c0f478579",
+    "/src/core/ports/renderer-port.js": "d0dfa31b6a8d4016c24b32a144deb44f592b332ede79d4b74ec9f762a2420e42",
+    "/src/data/content/content-runtime.js": "8097d62db9c7edff71a4a1c6eeb8a153090883a27373abc3b09045ca243263c2",
+    "/src/core/ports/storage-port.js": "c3bb38cac8dc000ebebd654a94b7fb962d92206dd0490e44e32b309d6969c2f2",
+    "/src/data/content/content-view-model.js": "716fdf5dd1a1595ce03667458afa8710457ef80b175ad157055068d29bd06f26",
+    "/src/data/content/content-presentation.js": "fc6941abe2f2b40ff830709e7b70b279514da32954d3e81bf6c04701ca8f6161",
+    "/src/data/migrations/content-2-0-0-to-2-1-0.js": "6055bdfd05a8b61a73ded8be785bab041a7f87be8034ee210c16cfbdaf9e31d1",
+    "/src/data/localization/th-application.js": "60b524f69711824887a35844d3a6cb807a4eaa33c072801c3d062dfb58ae6dc4",
+    "/src/data/validation/save-envelope-validator.js": "5b476bae5a6e103ae99ff4357e7bdf22a17a7cdd6bd8d3a3722f4eb38a275a73",
+    "/src/data/validation/content-values.js": "a0e8470ad04b55aa6324d46a75b7a17d91910b19d61701f1aa8793ed08c87f63",
+    "/src/data/persistence/local-storage-adapter.js": "359e3e7f97f899e2dfad099fc7ee8a5d254196539f2460ab1c69794c12053e69",
+    "/src/ui/renderers/dom/dom-renderer.js": "8fba7b17536cd0f03aeffb9dd91896dfb52e9a8adb4b7e902b0cfdab50447c6f",
+    "/src/bootstrap/media-composition.js": "6f78e2b14389a729ceca7c2623c230016fb4abccd49047ef644d3a951f4f7fb2",
+    "/src/core/domain/meters.js": "a9e2d181b6cffc875bfc62975fe0f0830ef1eb84addf080a8e907ec804b30823",
+    "/src/core/use-cases/choice-transaction.js": "ff0da0ec6e475abb914b7c9a439bae66f57e8f421248cd02dd043bf510b27a63",
+    "/src/data/content/content-loader.js": "4367d08b0ff93da33656d227fa529cf09e68e06e4106b7193cb2f454eb3c30e1",
+    "/src/core/ports/audio-port.js": "d3590d2be44fa8d3c73b08f1e3bc386f6b0bdc9724be848a8ef14c62b08b7ba9",
+    "/src/data/assets/asset-resolver.js": "f359234e529ecf02344f1136653bf929f2151e768895c64a32586a9014c5a822",
+    "/src/data/assets/asset-preloader.js": "196befa434648ff818da05e15bfc3d3c2d8484e719f689087be500da2bb047c2",
+    "/src/ui/assets/image-cache.js": "b967497fc97c10b68a968585f6337bacab00cd41695d88cbe10537806aa97ab1",
+    "/src/ui/audio/silent-audio-adapter.js": "197e4ac52dcd00eb2386ed87031cb5b664c7d1ef183cfd6697722398e0df28df",
+    "/src/ui/components/settings-dialog.js": "7098ee937605d66fd545015db0dcd4770f85d3d73f30fa18af74a9a6ae6050d8",
+    "/src/ui/components/stage-view.js": "13323dcc8fd6449077c4a0b9827d86587c4633fb430b975981b9bc94cb1cd9e6",
+    "/src/ui/localization/th-system-messages.js": "075a061ee6668788accc9434ac801aab4d15eb3222bfac68ac6677c520b2c461",
+    "/src/ui/audio/web-audio-adapter.js": "c1b3ca43893067bf171dc99f2c444632b5edb8c66cab3af17dba41200d3b7540",
+    "/src/ui/components/chrome-icons.js": "bf3c86409c1480e254a2a1a63101610213c1576c013b23a6a96975b5098fc4d1",
+    "/src/data/validation/content-validator.js": "7fedb06f8ba242d727bd9d5e71dd7b052e4ac1d25e9fd141b852199249b9d2ee",
+    "/src/data/validation/content-schema-catalog.js": "6a748b8e8782d56fdfd01f5b85b885fdd589bad10a488efd2c72195ae2c20717",
+    "/src/data/validation/content-schema-validator.js": "86b6ee9ea4352cabe964088809513c9227db8bed56704c65bfda35e92e241b04",
+    "/src/data/content/packages/act-01-test-catalog.json": "4bf61b4c256c770a58bc46b89fe59517b36ac94a7a490c56d14ee6dc9cecd8b2",
+    "/src/data/content/packages/act-01.json": "498dbdcee737a5256e32dc8391d276a83744c4e91fe910c7cdf26a84eb1fb64f",
+    "/assets/provenance/benchmark-assets.json": "b7992756877a07d2b03d429491d1c8d9f706e4b638cd47f3a5cb1dd79641bae1",
+    "/assets/fonts/sarabun-thai.woff2": "445226dce39d9c8d957ac4e8b0a12fb64c1715e74522fecea0bd6007dc4a6b25",
+    "/assets/fonts/sarabun-latin.woff2": "5223475551bd30c4be72545051a47896f2d05e84169c5ee8e7ff7d46d2aa4308",
+    "/assets/images/characters/jaokob/tadpole-neutral.webp": "a645ffaae4b23b9e321c162856a3f9d19faf1d64e0e871cb3759633cb0fc79cb",
+    "/assets/images/ui/paper-fibres.svg": "ae0716e1eef95bcdefd5a8c4c70a4778dd0581d6c996c59abc4123c307b28434",
+    "/assets/images/backgrounds/act1-morning-pond.webp": "f060ea8576f15845e44603fffecb0919f362b1eb838474a51ce02b8e4b9b4aa2"
+  },
+  "notRun": [
+    "PO aesthetic and human Thai editorial acceptance",
+    "Physical touch devices",
+    "VoiceOver/NVDA",
+    "Safari/iOS/Firefox",
+    "Native 400% browser zoom",
+    "Representative device percentile performance"
+  ],
+  "browser": "151.0.7922.34",
+  "nativePatch": {
+    "preserved": true,
+    "modalStable": true,
+    "announcements": 1,
+    "intent": {
+      "type": "SELECT_CHOICE",
+      "choiceId": "application.advance",
+      "viewRevision": 10,
+      "expectedRevision": 4
+    },
+    "before": null,
+    "after": null
+  },
+  "contrastRatios": [
+    10.614096195316643,
+    10.973300422357172
+  ]
+}

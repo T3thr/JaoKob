@@ -10,9 +10,9 @@ import { content, ROUTES, walk, envelope } from "../helpers/act1-session.js";
 
 const playwright = await import(process.env.JKB_PLAYWRIGHT_PATH ? pathToFileURL(process.env.JKB_PLAYWRIGHT_PATH).href : "playwright");
 const repo = resolve(fileURLToPath(new URL("../..", import.meta.url)));
-const output = resolve(repo, "tests/e2e/evidence/sprint-03/benchmark");
+const output = resolve(repo, process.env.JKB_EVIDENCE_DIR ?? "tests/e2e/evidence/sprint-03/benchmark");
 await mkdir(output, { recursive: true });
-const mime = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".json": "application/json", ".webp": "image/webp", ".mp3": "audio/mpeg", ".woff2": "font/woff2" };
+const mime = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".json": "application/json", ".webp": "image/webp", ".svg": "image/svg+xml", ".mp3": "audio/mpeg", ".woff2": "font/woff2" };
 const transfers = [];
 const server = createServer(async (request, response) => {
   try {
@@ -175,7 +175,7 @@ try {
     assert.equal(await page.locator('.jk-character-image').evaluate((el) => getComputedStyle(el).animationName), "none");
     const colors = await page.evaluate(() => {
       const style = (selector) => getComputedStyle(document.querySelector(selector));
-      return [[style('.jk-dialogue').color, style('.jk-narrative').backgroundColor], [style('.jk-choice-button').color, style('.jk-choice-button').backgroundColor], [style('.jk-settings-button').color, style('.jk-hud').backgroundColor], [style('.jk-save-notice p').color, style('.jk-save-notice').backgroundColor]];
+      return [[style('.jk-dialogue').color, style('.jk-narrative').backgroundColor], [style('.jk-choice-button').color, style('.jk-narrative').backgroundColor], [style('.jk-settings-button').color, style('.jk-utility-rail').backgroundColor], [style('.jk-save-status').color, style('.jk-utility-rail').backgroundColor]];
     });
     const lum = (color) => color.match(/[\d.]+/g).slice(0, 3).map(Number).map((x) => x / 255).map((x) => x <= .04045 ? x / 12.92 : ((x + .055) / 1.055) ** 2.4).reduce((sum, x, i) => sum + x * [.2126, .7152, .0722][i], 0);
     const ratios = colors.map(([fg, bg]) => (Math.max(lum(fg), lum(bg)) + .05) / (Math.min(lum(fg), lum(bg)) + .05));

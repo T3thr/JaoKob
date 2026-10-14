@@ -1,13 +1,13 @@
-# Sprint 4 SSOT Draft: Visual, Narrative & Adventure Keepsake Overhaul
+# Sprint 4 Execution SSOT: Visual, Narrative & Adventure Keepsake Overhaul
 
 | Document control | Value |
 |---|---|
 | Sprint / document | `SPRINT-04` / `JKB-SPRINT-04-SSOT` |
-| Version / date | **0.2.1** / 2026-10-14, Asia/Bangkok — Final PO Narrative & Pouch Impact Directive |
-| Status | **PO APPROVED MAIN DIRECTIONS; Final Directive incorporated; implementation 0/12; per-task DoR remains open** |
-| Authority | PO endorsed v0.2.0 main directions and issued Final v0.2.1 Narrative & Pouch Impact Directive; exact commit/push requested; human documentation merge and per-task source DoR remain separate |
-| Integrated baseline | `develop@e9803397587bb3ec8f2a61a87966d382277a96fc`; current branch includes develop via `9a08d0b` |
-| Review branch / PR | `feat/sprint-04-overhaul-plan` / [PR #12](https://github.com/T3thr/JaoKob/pull/12) → develop |
+| Version / date | **0.2.2** / 2026-10-14, Asia/Bangkok — Slice 1 execution; design baseline v0.2.1 retained |
+| Status | **Slice 1 T1/T2 implementation delivered, 2/12; feature PR and PO visual review; T0/T3–T11 remain open** |
+| Authority | PO merged plan v0.2.1 and explicitly authorized source, tests, audit, commit/push and PR for T1/T2 only in the Slice 1 directive; no remaining task/merge/deploy authorization |
+| Integrated baseline | `develop@d31652a` (merged planning PR12); Slice 1 changes remain on feature branch until human review/merge |
+| Review branch / PR | `feat/sprint-04-slice-01-visual` → develop; planning [PR #12](https://github.com/T3thr/JaoKob/pull/12) merged |
 | Proposal / RFC | [JKB-PROP-S4-001 v0.2.1](../proposals/sprint-04-overhaul/01-proposal-plan.md) / [CR-0005 v0.2.1](../rfc/CR-0005-sprint-04-overhaul.md) |
 | Models | [PR #11](https://github.com/T3thr/JaoKob/pull/11) MERGED at `e980339`; future **S5 END-HOME Grand Keepsake**, not S4 Pouch dependency |
 | Owners | PO, Technical Lead/Architect, Core/Application/Data/UI, Narrative/Game Design, Art, Accessibility, QA/DevOps |
@@ -29,7 +29,7 @@ S4 non-goals: production Act 2–5/ending code, 3D renderer/library/model/vendor
 
 ### 1.1 Revision authority
 
-v0.2.0 replaces v0.1.0 Act 1 non-diegetic doll viewer, presentation-only save assumptions and limited/optional editorial scope. PO direction and AI writing assignment are explicit; no repeat approval of that direction is requested. Exact capacity, item/vignette registry, guards/contract/version/migration and final prose/assets still require task-level sign-off. Source work remains unstarted.
+v0.2.0 replaces v0.1.0 Act 1 non-diegetic doll viewer, presentation-only save assumptions and limited/optional editorial scope. PO direction and AI writing assignment are explicit; no repeat approval of that direction is requested. Exact capacity, item/vignette registry, guards/contract/version/migration and final prose/assets still require task-level sign-off. The current PO directive authorizes T1/T2 only; [Slice 1 audit](../changelog/2026-10/2026-10-14-2314-sprint-04-slice-01-visual.md) records its relevant DoR and evidence. T0/T3–T11 remain unstarted.
 
 ### 1.2 Final PO endorsement and emotional impact
 
@@ -39,7 +39,7 @@ Approved plan direction does not assert that proposed prose is final Canon, new 
 
 ## 2. Traceability matrix
 
-`TC-S4-*` and draft item/vignette IDs are proposed evidence/design identifiers, not installed tests or newly Approved requirements. Existing requirements do not fully govern new inventory mechanics; **CR-0005 D1/D4/D5** is the change path to amend GDD/SRS/Narrative/schema at T0/T3 before implementation.
+`TC-S4-*` are evidence/design identifiers, not newly Approved requirements. Slice 1 materializes VIS/STATUS/STATE/A11Y checks below; remaining inventory/narrative evidence and draft item/vignette IDs remain proposed. Existing requirements do not fully govern new inventory mechanics; **CR-0005 D1/D4/D5** is the change path to amend GDD/SRS/Narrative/schema at T0/T3 before implementation.
 
 | Requirement / PO decision | Observable design outcome | Owner artifact / task | Proposed evidence |
 |---|---|---|---|
@@ -76,11 +76,11 @@ Priority: **approved contracts/legacy proof → UI Styles → DOM Renderer → P
 
   Owner Technical Lead/Architect; PO/Narrative/Game Design/QA/Accessibility review. Files: this SSOT, CR-0005, GDD/SRS/Narrative amendment drafts, new prospective ADR, trace/fixture plan. AC: record direction already given; ratify exact 3-or4, item/memory/default/secret/non-stat rules, callback/progression/cursor/save design; devices/reviewers/owners agreed; freeze source baseline/legacy 691/14–21–12 witnesses. Evidence `TC-S4-ARCH-001` design review. No source change until relevant readiness; no per-line permission request for AI drafting.
 
-- [ ] **T1 — Handcrafted styles, frosted HUD and paper card** (P0; 2–3 days)
+- [x] **T1 — Handcrafted styles, frosted HUD and paper card** (P0; 2–3 days)
 
   Owner UI/Art; PO/Narrative/Accessibility review. Files: existing `src/ui/styles/{tokens,base,layout,components,motion,index}.css`; original 2D icon/texture/provenance as approved. AC: unified low-specificity tokens/materials; bounded frosted backdrop with contrast/unsupported fallback; paper grain away from text; correct tadpole crop/light/scale; Thai typography/320–2560/reduced motion/forced colors; no generic nested slabs or erased focus. Interim old DOM is not full visual acceptance. `TC-S4-VIS-001`, `TC-S4-A11Y-001`; rollback styles/art only.
 
-- [ ] **T2 — Persistent DOM regions and three-screen separation** (P0; 3–4 days)
+- [x] **T2 — Persistent DOM regions and three-screen separation** (P0; 3–4 days)
 
   Owner UI; Application/Data/Accessibility/PO review. Files: `dom-renderer.js`, `stage-view.js`, `settings-dialog.js`, proposed Title/Reading/Decision/utility/response/overlay components; agreed VM/localization and focused renderer tests. AC: Title no gameplay HUD; Reading one prose card/functional Next; Decision when ready has true authored choices/no Next; Exploration/notices/confirmation/completion/failure preserved. Save/status patches retain focus/scene/modal; safe DOM/textual save/feedback/deltas/revision+busy guards. Pouch/Log controls exposed only when functional. Evidence `TC-S4-STATUS-001`, `TC-S4-STATE-001`; composition owner coordinates T10 patches.
 
@@ -152,6 +152,8 @@ Estimate: **32–50 engineering + narrative person-days**, plus **3–5 Art days
 
 Shared-file ownership: T3 schema/migration validator; T4 Core state/effects; T7 content/graph; T9 projector/resources/2D art; T2 renderer scaffold; T5/T6 independent modal files; T10 only composition; T11 consolidated evidence/docs. Sequence edits to common schema/VM/localization/styles/orchestration explicitly; no concurrent overwrite or implicit agent delegation.
 
+**Slice 1 delivery:** T1/T2 checkmarks mean source implementation and scoped automated verification delivered for review, not final human art/accessibility certification. [CR-20261014-2314](../changelog/2026-10/2026-10-14-2314-sprint-04-slice-01-visual.md) links the changed artifacts, 698 unit cases, 12 legacy routes and visual evidence. Only T1/T2 are checked.
+
 ## 5. DoR and DoD
 
 ### 5.1 Current planning deliverable
@@ -163,7 +165,9 @@ Shared-file ownership: T3 schema/migration validator; T4 Core state/effects; T7 
 - [x] Fresh unchanged-runtime unit regression:691/691, no fail/cancel/skip/todo; no new Pouch feature pass claimed.
 - [x] Documentation/trace/audit/commit prepared on requested branch for PO review.
 
-### 5.2 Implementation DoR — detail review remains open
+### 5.2 Implementation DoR — T1/T2 ready; remaining detail review open
+
+T1/T2 use unchanged immutable VM/domain/save/schema contracts and licensed existing Sarabun/media. PO explicitly authorized this slice; exact observable screen/status/focus/material criteria and fixtures are recorded in its audit. This readiness does not ratify Pouch capacity, schemas, narrative, new ADR or T0 as a whole.
 
 - [x] PO approved v0.2.0 main direction and Final v0.2.1 emotion/drama/Pouch/gift/girl/fair Bond principles; no repeat strategy approval needed.
 - [ ] Exact capacity3-or4, opportunity/item/vignette/callback/absence/release rules ratified by PO/Game Design/Narrative.
@@ -174,7 +178,7 @@ Shared-file ownership: T3 schema/migration validator; T4 Core state/effects; T7 
 - [ ] Art/rights clear 2D items/icons/texture; reviewers/devices/browser/AT/performance profile/time agreed.
 - [ ] Each source task meets observable success/failure AC, one coherent PR scope and exclusive file handoff.
 
-### 5.3 Implementation DoD — 0/12 complete
+### 5.3 Implementation DoD — 2/12 source tasks delivered; human gates open
 
 - [ ] T0–T11 AC/evidence/owner acceptance complete, no inert UI controls.
 - [ ] Pouch ≤approved capacity; atomically acquired/released/replaced; distinct held/memory semantics and correct save/Retry/Resume.
@@ -195,7 +199,7 @@ JKB_PLAYWRIGHT_PATH=/absolute/path/to/playwright/index.mjs node tests/e2e/act1-p
 JKB_PLAYWRIGHT_PATH=/absolute/path/to/playwright/index.mjs node tests/e2e/visual-novel-benchmark.mjs
 ```
 
-Browser paths resolve from environment; do not invent npm scripts/root dependencies. Both retained browser runners exist but were not rerun for this documentation change. New schema reference/Pouch/new-story/visual runner automation below is **proposed, not materialized**. New evidence writes to S4 directory; no overwrite of Sprint3 screenshots/raw reports. Prior 0.1 evidence remains historical.
+Browser paths resolve from environment; do not invent npm scripts/root dependencies. The existing canonical runner was rerun for Slice 1 with a separate output directory; the Sprint 3 performance benchmark remains historical. `tests/e2e/sprint-04-visual-slice.mjs` now materializes scoped visual/status checks. New schema reference/Pouch/new-story automation below is **proposed, not materialized**. New evidence writes to S4 directory; no overwrite of Sprint3 screenshots/raw reports. Prior 0.1 evidence remains historical.
 
 ### 6.2 Proposed evidence matrix
 
@@ -233,15 +237,18 @@ Budgets unchanged: NFR-PE-001..005 (initial≤2MB compressed; shell+critical JSO
 |---|---|
 | Baseline unit regression | Final Directive rerun **691/691**, 0 fail/cancel/skip/todo; **26,196.327 ms** on unchanged runtime at d3e9f4d |
 | Documentation | Three requested artifacts revised; link/anchor/ID/table/consistency/diff checks recorded in new pivot audit |
-| Old visual/browser/media evidence | Retained historical evidence only; no new visual candidate |
+| Old visual/browser/media evidence | Sprint3 evidence retained historically; current Slice1 candidate has a separate bundle below |
 | Pouch/schema/migration/new story tests | Not materialized/not run in planning |
+| Slice 1 unit regression | **698/698**, 0 fail/cancel/skip/todo; all 691 existing cases retained plus 7 focused renderer regressions |
+| Slice 1 Chromium | **12/12** legacy routes; **29** screenshots at six viewport profiles; real DOM/status/focus/modal/contrast/motion/image+quota checks; [evidence](../../tests/e2e/evidence/sprint-04/slice-01/README.md) |
 | Real device/AT/listening/PO final art/prose | Not performed; required later for changed journeys |
-| Source/release/build/merge/deploy | Not performed in this revision |
+| Source/release/build/merge/deploy | T1/T2 source delivered on feature branch; no remaining task, release, merge or deploy executed |
 
 ## 7. Audit trail, risk and approval register
 
 | Record | Disposition |
 |---|---|
+| `CR-20261014-2314` | [Slice 1 T1/T2 implementation](../changelog/2026-10/2026-10-14-2314-sprint-04-slice-01-visual.md): 2/12, unchanged Core/save/content, scoped Chromium evidence; PO review open |
 | `CR-20261014-2233` | [Final PO approval/impact revision](../changelog/2026-10/2026-10-14-2233-sprint-04-final-po-narrative-impact.md): v0.2.1 ready for documentation review; source0/12 |
 | `CR-20261014-2131` | [PO Directive pivot](../changelog/2026-10/2026-10-14-2131-sprint-04-pouch-directive.md): proposal/RFC/SSOT 0.2.0, implementation 0/12 |
 | `CR-20261014-1841` | [Original0.1 planning record](../changelog/2026-10/2026-10-14-1841-sprint-04-overhaul-plan.md), historical0/10/viewer recommendations superseded |
@@ -259,4 +266,4 @@ Budgets unchanged: NFR-PE-001..005 (initial≤2MB compressed; shell+critical JSO
 | D7 legacy vs new evidence/manual | QA/Accessibility separate approved expectation changes, new graph witness counts and actual human/device gates |
 | Local references | Preserve untracked folder; never stage personal reference photographs |
 
-Documentation rollback reverts current revision only. Future runtime rollout/rollback follows [proposal §9](../proposals/sprint-04-overhaul/01-proposal-plan.md#9-architecture-versions-migration-and-rollback) and accepted new contracts; no migration executes now. Main v0.2.0 direction/final v0.2.1 principles approved by PO; documentation ready for review/merge, per-task implementation DoR open and all source tasks remain unchecked.
+Documentation rollback reverts current revision only. Future runtime rollout/rollback follows [proposal §9](../proposals/sprint-04-overhaul/01-proposal-plan.md#9-architecture-versions-migration-and-rollback) and accepted new contracts; no migration executes now. Main v0.2.0 direction/final v0.2.1 principles approved and planning PR12 merged by PO. Current directive authorizes T1/T2 implementation and PR; relevant readiness/evidence are recorded above. Remaining ten tasks and human/device/final art gates stay open. Slice 1 has no save/content migration; UI rollback is a reviewed revert retaining the current compatible runtime.

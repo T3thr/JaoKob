@@ -1,0 +1,200 @@
+PASS route 1/12 mother / call-family / keep-fragment
+PASS route 2/12 mother / call-family / release-fragment
+PASS route 3/12 mother / seek-safety / keep-fragment
+PASS route 4/12 mother / seek-safety / release-fragment
+PASS route 5/12 roots / call-family / keep-fragment
+PASS route 6/12 roots / call-family / release-fragment
+PASS route 7/12 roots / seek-safety / keep-fragment
+PASS route 8/12 roots / seek-safety / release-fragment
+PASS route 9/12 siblings / call-family / keep-fragment
+PASS route 10/12 siblings / call-family / release-fragment
+PASS route 11/12 siblings / seek-safety / keep-fragment
+PASS route 12/12 siblings / seek-safety / release-fragment
+{
+  "browser": "151.0.7922.34",
+  "platform": "darwin",
+  "at": "2026-10-14T16:37:52.008Z",
+  "routes": [
+    {
+      "home": "mother",
+      "coping": "call-family",
+      "keepsake": "keep-fragment",
+      "metrics": {
+        "hp": 75,
+        "sanity": 70,
+        "bond": 0
+      },
+      "observations": 0,
+      "restResume": true
+    },
+    {
+      "home": "mother",
+      "coping": "call-family",
+      "keepsake": "release-fragment",
+      "metrics": {
+        "hp": 75,
+        "sanity": 65,
+        "bond": 0
+      },
+      "observations": 1,
+      "restResume": true
+    },
+    {
+      "home": "mother",
+      "coping": "seek-safety",
+      "keepsake": "keep-fragment",
+      "metrics": {
+        "hp": 85,
+        "sanity": 75,
+        "bond": 0
+      },
+      "observations": 4,
+      "restResume": true
+    },
+    {
+      "home": "mother",
+      "coping": "seek-safety",
+      "keepsake": "release-fragment",
+      "metrics": {
+        "hp": 85,
+        "sanity": 70,
+        "bond": 0
+      },
+      "observations": 0,
+      "restResume": true
+    },
+    {
+      "home": "roots",
+      "coping": "call-family",
+      "keepsake": "keep-fragment",
+      "metrics": {
+        "hp": 75,
+        "sanity": 70,
+        "bond": 0
+      },
+      "observations": 1,
+      "restResume": true
+    },
+    {
+      "home": "roots",
+      "coping": "call-family",
+      "keepsake": "release-fragment",
+      "metrics": {
+        "hp": 75,
+        "sanity": 65,
+        "bond": 0
+      },
+      "observations": 4,
+      "restResume": true
+    },
+    {
+      "home": "roots",
+      "coping": "seek-safety",
+      "keepsake": "keep-fragment",
+      "metrics": {
+        "hp": 85,
+        "sanity": 75,
+        "bond": 0
+      },
+      "observations": 0,
+      "restResume": true
+    },
+    {
+      "home": "roots",
+      "coping": "seek-safety",
+      "keepsake": "release-fragment",
+      "metrics": {
+        "hp": 85,
+        "sanity": 70,
+        "bond": 0
+      },
+      "observations": 1,
+      "restResume": true
+    },
+    {
+      "home": "siblings",
+      "coping": "call-family",
+      "keepsake": "keep-fragment",
+      "metrics": {
+        "hp": 75,
+        "sanity": 70,
+        "bond": 0
+      },
+      "observations": 4,
+      "restResume": true
+    },
+    {
+      "home": "siblings",
+      "coping": "call-family",
+      "keepsake": "release-fragment",
+      "metrics": {
+        "hp": 75,
+        "sanity": 65,
+        "bond": 0
+      },
+      "observations": 0,
+      "restResume": true
+    },
+    {
+      "home": "siblings",
+      "coping": "seek-safety",
+      "keepsake": "keep-fragment",
+      "metrics": {
+        "hp": 85,
+        "sanity": 75,
+        "bond": 0
+      },
+      "observations": 1,
+      "restResume": true
+    },
+    {
+      "home": "siblings",
+      "coping": "seek-safety",
+      "keepsake": "release-fragment",
+      "metrics": {
+        "hp": 85,
+        "sanity": 70,
+        "bond": 0
+      },
+      "observations": 4,
+      "restResume": true
+    }
+  ],
+  "checks": [
+    "12 Canon paths; keyboard Enter/Space/Tab; visible focus; Bond locked presence in DOM/AX with zero numeric disclosure; saved rest reload; root/subpath",
+    "post-storm cursor reload/Resume; no on-enter replay; double click commits once",
+    "320 CSS px + 200% text; 44 px targets; contrast samples >=4.5; OS and application reduced-motion",
+    "old save: byte preservation on cancel, explicit replace consent",
+    "corrupt save: byte preservation on cancel, explicit replace consent",
+    "parse negative browser smoke",
+    "schema negative browser smoke",
+    "quota negative browser smoke",
+    "unavailable negative browser smoke"
+  ],
+  "screenshots": [
+    "act1-title-keyboard.png",
+    "act1-storm.png",
+    "act1-choice-confirmation.png",
+    "act1-rest.png",
+    "act1-mobile-320-text200.png"
+  ],
+  "performance": {
+    "initialCompressedBytes": 139875,
+    "initialRawBytes": 552946,
+    "domContentLoadedMs": 181.30000001192093,
+    "maxDriverActionMs": 245.4742500000002,
+    "maxSaveBytes": 4821,
+    "reflow": {
+      "scroll": 320,
+      "width": 320
+    },
+    "contrastRatios": [
+      10.614096195316643,
+      9.446140227861006,
+      10.973300422357172,
+      10.973300422357172
+    ]
+  },
+  "errors": [],
+  "result": "PASS"
+}
