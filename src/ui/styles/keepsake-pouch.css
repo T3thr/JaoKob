@@ -1,0 +1,35 @@
+/* ADR-P0-020: equal tactile slots, 8pt spacing and an independent scroll body. */
+.jk-pouch-dialog { inline-size: min(52rem, calc(100vw - 32px)); max-inline-size: calc(100vw - 32px); }
+.jk-pouch-content { display: grid; gap: var(--jk-space-4); min-inline-size: 0; }
+.jk-pouch-count { margin: 0; color: var(--jk-ink); }
+.jk-pouch-empty { margin: 0; color: var(--jk-ink-soft); }
+.jk-pouch-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: var(--jk-space-3); align-items: stretch; }
+.jk-pouch-slot {
+  min-inline-size: 0; min-block-size: var(--jk-pouch-slot-min); padding: var(--jk-space-3);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--jk-space-2);
+  border: 1px solid var(--jk-pouch-stitch); border-radius: var(--jk-space-2); font: inherit; text-align: center;
+  overflow-wrap: anywhere; color: var(--jk-ink); background: var(--jk-paper-raised, #fff9ef);
+}
+.jk-pouch-slot-held { cursor: pointer; box-shadow: inset 0 0 0 4px var(--jk-pouch-slot-paper), 0 4px 8px rgb(41 61 50 / 8%); }
+.jk-pouch-slot-held:hover, .jk-pouch-slot-held[aria-pressed="true"] { border-color: var(--jk-moss); outline: 2px solid var(--jk-moss); outline-offset: 2px; }
+.jk-pouch-slot-empty { border-style: dashed; background: var(--jk-pouch-slot-paper); color: var(--jk-ink-soft); }
+.jk-pouch-art { margin: 0; inline-size: 100%; text-align: center; }
+.jk-pouch-art img { display: block; inline-size: min(100%, 160px); block-size: 128px; object-fit: contain; margin-inline: auto; }
+.jk-pouch-art img[hidden], .jk-pouch-art figcaption[hidden] { display: none; }
+.jk-pouch-image-fallback { padding: var(--jk-space-3); font-size: .875em; }
+.jk-pouch-detail, .jk-pouch-offer, .jk-pouch-memories { min-inline-size: 0; padding-block-start: var(--jk-space-4); border-block-start: 1px solid var(--jk-pouch-stitch); }
+.jk-pouch-detail { display: grid; gap: var(--jk-space-3); }
+.jk-pouch-detail > *, .jk-pouch-offer > h3, .jk-pouch-memories > h3 { margin: 0; }
+.jk-pouch-detail h3 { font-size: 1.125em; line-height: 1.8; }
+.jk-pouch-item-status { color: var(--jk-ink-soft); font-size: .875em; }
+.jk-pouch-memory { padding: var(--jk-space-3); border-inline-start: 3px solid var(--jk-moss); background: var(--jk-pouch-slot-paper); line-height: 1.85; }
+.jk-pouch-memories, .jk-pouch-offer { display: grid; gap: var(--jk-space-3); }
+.jk-pouch-confirmation { display: grid; gap: var(--jk-space-3); padding: var(--jk-space-3); border: 2px solid var(--jk-moss); border-radius: var(--jk-space-2); }
+.jk-pouch-confirmation h3 { margin: 0; font-size: 1em; }
+.jk-pouch-content button { min-block-size: 44px; white-space: normal; overflow-wrap: anywhere; }
+@media (min-width: 48rem) { .jk-pouch-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+[data-high-contrast="true"] .jk-pouch-content { --jk-pouch-slot-paper: #fffdf5; --jk-pouch-stitch: #102018; }
+@media (forced-colors: active) {
+  .jk-pouch-slot, .jk-pouch-memory { color: CanvasText; background: Canvas; border-color: CanvasText; box-shadow: none; }
+  .jk-pouch-slot-held[aria-pressed="true"] { outline-color: Highlight; }
+}

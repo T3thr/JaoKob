@@ -1,0 +1,389 @@
+{
+  "result": "PASS",
+  "baselineCommit": "9e7a0a2851aa3edeb58aeeef57af9a5da2196539",
+  "scope": "Observed production runtime resources and current source static review; not a release build or deployment",
+  "at": "2026-10-15T18:07:03.246Z",
+  "runtimeFileCount": 61,
+  "criticalCompressedBytes": 344771,
+  "maxSaveBytes": 5054,
+  "externalRequests": 0,
+  "unexpectedBrowserErrors": 0,
+  "newRuntimeDependencies": 0,
+  "threeDRequests": 0,
+  "reviewedTextFiles": 59,
+  "secretCheck": "Bounded known-token pattern scan and diff inspection; Gitleaks unavailable, no full scanner certification",
+  "sourceFingerprint": "132be189c96a4dcf692e66e0922ebe520bc3d6e5d0ff8747773bf0202a1c2fcf",
+  "runtimeFiles": [
+    {
+      "path": "/assets/fonts/sarabun-latin.woff2",
+      "byteLength": 11440,
+      "gzipBytes": 11463,
+      "sha256": "5223475551bd30c4be72545051a47896f2d05e84169c5ee8e7ff7d46d2aa4308"
+    },
+    {
+      "path": "/assets/fonts/sarabun-thai.woff2",
+      "byteLength": 9880,
+      "gzipBytes": 9903,
+      "sha256": "445226dce39d9c8d957ac4e8b0a12fb64c1715e74522fecea0bd6007dc4a6b25"
+    },
+    {
+      "path": "/assets/images/backgrounds/act1-morning-pond.webp",
+      "byteLength": 181760,
+      "gzipBytes": 181838,
+      "sha256": "f060ea8576f15845e44603fffecb0919f362b1eb838474a51ce02b8e4b9b4aa2"
+    },
+    {
+      "path": "/assets/images/characters/jaokob/tadpole-neutral.webp",
+      "byteLength": 49608,
+      "gzipBytes": 49615,
+      "sha256": "a645ffaae4b23b9e321c162856a3f9d19faf1d64e0e871cb3759633cb0fc79cb"
+    },
+    {
+      "path": "/assets/images/keepsakes/leaf.svg",
+      "byteLength": 607,
+      "gzipBytes": 360,
+      "sha256": "505d1b3214ebad5bd1a8961a50740d6b738aad026621ee33a7255214e9b83c2d"
+    },
+    {
+      "path": "/assets/images/ui/paper-fibres.svg",
+      "byteLength": 516,
+      "gzipBytes": 348,
+      "sha256": "ae0716e1eef95bcdefd5a8c4c70a4778dd0581d6c996c59abc4123c307b28434"
+    },
+    {
+      "path": "/assets/provenance/benchmark-assets.json",
+      "byteLength": 4717,
+      "gzipBytes": 1320,
+      "sha256": "b7992756877a07d2b03d429491d1c8d9f706e4b638cd47f3a5cb1dd79641bae1"
+    },
+    {
+      "path": "/index.html",
+      "byteLength": 704,
+      "gzipBytes": 443,
+      "sha256": "094c27fb2c507c4f2faaade3697914dd2870dc61b4946f6a3b9fb095b75b9304"
+    },
+    {
+      "path": "/src/bootstrap/index.js",
+      "byteLength": 22488,
+      "gzipBytes": 6308,
+      "sha256": "a519d18e4e32f75a06b10f204e46d13bf94f619b8da1710142fc1f0d99f5b40a"
+    },
+    {
+      "path": "/src/bootstrap/media-composition.js",
+      "byteLength": 7502,
+      "gzipBytes": 2649,
+      "sha256": "6f78e2b14389a729ceca7c2623c230016fb4abccd49047ef644d3a951f4f7fb2"
+    },
+    {
+      "path": "/src/core/domain/keepsake-pouch.js",
+      "byteLength": 5745,
+      "gzipBytes": 2040,
+      "sha256": "db93a7bf7447d4f699bb6f19b4995d84d0be7d7b9afa632837e463b1efe278eb"
+    },
+    {
+      "path": "/src/core/domain/meters.js",
+      "byteLength": 8287,
+      "gzipBytes": 2526,
+      "sha256": "a9e2d181b6cffc875bfc62975fe0f0830ef1eb84addf080a8e907ec804b30823"
+    },
+    {
+      "path": "/src/core/ports/audio-port.js",
+      "byteLength": 3374,
+      "gzipBytes": 1465,
+      "sha256": "d3590d2be44fa8d3c73b08f1e3bc386f6b0bdc9724be848a8ef14c62b08b7ba9"
+    },
+    {
+      "path": "/src/core/ports/renderer-port.js",
+      "byteLength": 7847,
+      "gzipBytes": 2698,
+      "sha256": "d0dfa31b6a8d4016c24b32a144deb44f592b332ede79d4b74ec9f762a2420e42"
+    },
+    {
+      "path": "/src/core/ports/storage-port.js",
+      "byteLength": 3709,
+      "gzipBytes": 1324,
+      "sha256": "c3bb38cac8dc000ebebd654a94b7fb962d92206dd0490e44e32b309d6969c2f2"
+    },
+    {
+      "path": "/src/core/state-machine/game-state.js",
+      "byteLength": 9690,
+      "gzipBytes": 2555,
+      "sha256": "fa147ea8c16538faf2ba4c402bffead56bf29c23ee2c2813597bad2c0f478579"
+    },
+    {
+      "path": "/src/core/use-cases/choice-transaction.js",
+      "byteLength": 34580,
+      "gzipBytes": 8419,
+      "sha256": "ff0da0ec6e475abb914b7c9a439bae66f57e8f421248cd02dd043bf510b27a63"
+    },
+    {
+      "path": "/src/core/use-cases/content-orchestration.js",
+      "byteLength": 21944,
+      "gzipBytes": 5874,
+      "sha256": "514c46052cc98e92489821ca4c21bde958f534021f0d03d03e2352e3eaed8e7d"
+    },
+    {
+      "path": "/src/core/use-cases/pouch-transaction.js",
+      "byteLength": 1991,
+      "gzipBytes": 821,
+      "sha256": "3e97a3563e28899b062d833da4b26a4788eaaa82eab37cfc08bd95ec97026ba7"
+    },
+    {
+      "path": "/src/data/assets/asset-preloader.js",
+      "byteLength": 4794,
+      "gzipBytes": 1784,
+      "sha256": "196befa434648ff818da05e15bfc3d3c2d8484e719f689087be500da2bb047c2"
+    },
+    {
+      "path": "/src/data/assets/asset-resolver.js",
+      "byteLength": 6744,
+      "gzipBytes": 2555,
+      "sha256": "f359234e529ecf02344f1136653bf929f2151e768895c64a32586a9014c5a822"
+    },
+    {
+      "path": "/src/data/content/act1-pouch-policy.js",
+      "byteLength": 1303,
+      "gzipBytes": 587,
+      "sha256": "3c07031b44312f8af7bb5e82738b22ef4763fe8f2b9aba56e171b161efc0ffe5"
+    },
+    {
+      "path": "/src/data/content/content-loader.js",
+      "byteLength": 3500,
+      "gzipBytes": 1390,
+      "sha256": "4367d08b0ff93da33656d227fa529cf09e68e06e4106b7193cb2f454eb3c30e1"
+    },
+    {
+      "path": "/src/data/content/content-presentation.js",
+      "byteLength": 4871,
+      "gzipBytes": 1967,
+      "sha256": "97d8f8027c4dad8d8bfd3c6d859b807d7a2b18551a9f6d34cc6e5ba2fff1eea3"
+    },
+    {
+      "path": "/src/data/content/content-runtime.js",
+      "byteLength": 6541,
+      "gzipBytes": 2240,
+      "sha256": "22672effbb9e208d74aa5396dbe0b5b05b5e822b204177a922920872bc4e9ac7"
+    },
+    {
+      "path": "/src/data/content/content-view-model.js",
+      "byteLength": 7203,
+      "gzipBytes": 2243,
+      "sha256": "20a70777d22378373cf5623ab80fb6db03bffd7e791b98a9ae9e63424929871d"
+    },
+    {
+      "path": "/src/data/content/keepsake-view-model.js",
+      "byteLength": 1430,
+      "gzipBytes": 745,
+      "sha256": "37bcc1ca975c6c74ed532277224582158527e402adbe36475d88e2b7989331ad"
+    },
+    {
+      "path": "/src/data/content/packages/act-01-test-catalog.json",
+      "byteLength": 163,
+      "gzipBytes": 100,
+      "sha256": "4bf61b4c256c770a58bc46b89fe59517b36ac94a7a490c56d14ee6dc9cecd8b2"
+    },
+    {
+      "path": "/src/data/content/packages/act-01.json",
+      "byteLength": 89170,
+      "gzipBytes": 10791,
+      "sha256": "498dbdcee737a5256e32dc8391d276a83744c4e91fe910c7cdf26a84eb1fb64f"
+    },
+    {
+      "path": "/src/data/localization/th-application.js",
+      "byteLength": 6928,
+      "gzipBytes": 1829,
+      "sha256": "46ad8aca29be9c3721cdebcc356e3560eb4b10d95f3c89dcfcdbad051fc52da4"
+    },
+    {
+      "path": "/src/data/localization/th-keepsakes.js",
+      "byteLength": 908,
+      "gzipBytes": 523,
+      "sha256": "55e05391993986299cec00cd79e09ee4ce34e2190925e5ee06561cfd26d7bc59"
+    },
+    {
+      "path": "/src/data/migrations/content-2-0-0-to-2-1-0.js",
+      "byteLength": 7417,
+      "gzipBytes": 2653,
+      "sha256": "d478efb2cd2fbf240f6dfc8a9adbc33e4e46e1380da309ea882e13bbaa78115e"
+    },
+    {
+      "path": "/src/data/persistence/local-storage-adapter.js",
+      "byteLength": 26276,
+      "gzipBytes": 6020,
+      "sha256": "8f198896dc735bb06b98294d68341c79f9feb43e58debda932d708c6750bc7ad"
+    },
+    {
+      "path": "/src/data/persistence/local-ui-preferences-adapter.js",
+      "byteLength": 2600,
+      "gzipBytes": 987,
+      "sha256": "beb1b0cb4c0d7931ac632036720d436708b52f71b2eeac53609ef7ca425a1812"
+    },
+    {
+      "path": "/src/data/persistence/save-1-to-2.js",
+      "byteLength": 2352,
+      "gzipBytes": 1099,
+      "sha256": "3fde924479c39c73a71749ab46e321915d9036721fd50d61d81f94b67940641f"
+    },
+    {
+      "path": "/src/data/validation/content-schema-catalog.js",
+      "byteLength": 97073,
+      "gzipBytes": 6453,
+      "sha256": "6a748b8e8782d56fdfd01f5b85b885fdd589bad10a488efd2c72195ae2c20717"
+    },
+    {
+      "path": "/src/data/validation/content-schema-validator.js",
+      "byteLength": 9755,
+      "gzipBytes": 3266,
+      "sha256": "86b6ee9ea4352cabe964088809513c9227db8bed56704c65bfda35e92e241b04"
+    },
+    {
+      "path": "/src/data/validation/content-validator.js",
+      "byteLength": 16391,
+      "gzipBytes": 5116,
+      "sha256": "7fedb06f8ba242d727bd9d5e71dd7b052e4ac1d25e9fd141b852199249b9d2ee"
+    },
+    {
+      "path": "/src/data/validation/content-values.js",
+      "byteLength": 3139,
+      "gzipBytes": 1290,
+      "sha256": "a0e8470ad04b55aa6324d46a75b7a17d91910b19d61701f1aa8793ed08c87f63"
+    },
+    {
+      "path": "/src/data/validation/save-envelope-validator.js",
+      "byteLength": 16498,
+      "gzipBytes": 4004,
+      "sha256": "a648c3dc2d86ef5d4800b3f396039ee6efa9f82baf1343aad15a6a4c031435b1"
+    },
+    {
+      "path": "/src/ui/assets/image-cache.js",
+      "byteLength": 4620,
+      "gzipBytes": 1643,
+      "sha256": "b967497fc97c10b68a968585f6337bacab00cd41695d88cbe10537806aa97ab1"
+    },
+    {
+      "path": "/src/ui/audio/silent-audio-adapter.js",
+      "byteLength": 667,
+      "gzipBytes": 395,
+      "sha256": "197e4ac52dcd00eb2386ed87031cb5b664c7d1ef183cfd6697722398e0df28df"
+    },
+    {
+      "path": "/src/ui/audio/web-audio-adapter.js",
+      "byteLength": 22204,
+      "gzipBytes": 6227,
+      "sha256": "c1b3ca43893067bf171dc99f2c444632b5edb8c66cab3af17dba41200d3b7540"
+    },
+    {
+      "path": "/src/ui/components/chrome-icons.js",
+      "byteLength": 2023,
+      "gzipBytes": 1058,
+      "sha256": "d3561358a164b8207126285d3cc63e920c220b0768686a0988355fd93e749942"
+    },
+    {
+      "path": "/src/ui/components/confirmation-dialog.js",
+      "byteLength": 1388,
+      "gzipBytes": 665,
+      "sha256": "8501046152d27b6c14eb047b32371f7d96f64233d400e62932f74cc82cbd6ad6"
+    },
+    {
+      "path": "/src/ui/components/content-advisory-dialog.js",
+      "byteLength": 2140,
+      "gzipBytes": 864,
+      "sha256": "b74bd1de8870ab71b6d673f081bfd422e17c4164b5bad1464311e37dcb60731e"
+    },
+    {
+      "path": "/src/ui/components/keepsake-pouch-dialog.js",
+      "byteLength": 8583,
+      "gzipBytes": 2570,
+      "sha256": "a0182944be6dba0b7d6b3ca9eaed5e0efad7eacd5e1064e7b819b1a130993162"
+    },
+    {
+      "path": "/src/ui/components/modal-frame.js",
+      "byteLength": 2791,
+      "gzipBytes": 1071,
+      "sha256": "c898f5b0325d5cf5f08e62df56c55a70c6c57c6d12ec058e1e039ee00489f743"
+    },
+    {
+      "path": "/src/ui/components/reading-pages.js",
+      "byteLength": 6508,
+      "gzipBytes": 2251,
+      "sha256": "ea6d8f0e2f98bbb91219cab77d5c44db670a9fddb3587c08f9206f4478100f92"
+    },
+    {
+      "path": "/src/ui/components/settings-dialog.js",
+      "byteLength": 5435,
+      "gzipBytes": 1820,
+      "sha256": "91a8f19d724e9dcad5f48d8393d87058b6b897d8f8db86398e8a13261df275a8"
+    },
+    {
+      "path": "/src/ui/components/stage-view.js",
+      "byteLength": 4104,
+      "gzipBytes": 1327,
+      "sha256": "13323dcc8fd6449077c4a0b9827d86587c4633fb430b975981b9bc94cb1cd9e6"
+    },
+    {
+      "path": "/src/ui/components/toggle-switch.js",
+      "byteLength": 1386,
+      "gzipBytes": 603,
+      "sha256": "454f54acbd0587b2696b41f1ef039cdd0dd371cc538685f3ff2d4d5f515eb8ad"
+    },
+    {
+      "path": "/src/ui/localization/th-system-messages.js",
+      "byteLength": 10875,
+      "gzipBytes": 3018,
+      "sha256": "fa192599b868c0a23f8cd8c2237df2870603c8a3a10ac3939de222e6f743e0ca"
+    },
+    {
+      "path": "/src/ui/renderers/dom/dom-renderer.js",
+      "byteLength": 54185,
+      "gzipBytes": 13082,
+      "sha256": "fcf9298673c73a1507a09c86fd3a3f702c223833f758c981ff150290417e11a6"
+    },
+    {
+      "path": "/src/ui/styles/base.css",
+      "byteLength": 1700,
+      "gzipBytes": 828,
+      "sha256": "105ce05141be27e452dd0617c4f0d21a576b37793e1a855fecc6b9bcb454d306"
+    },
+    {
+      "path": "/src/ui/styles/components.css",
+      "byteLength": 15123,
+      "gzipBytes": 3502,
+      "sha256": "526f560274537334d175dfb8d7d83c098e3ce786f0174fe3ef0177aad35ac3f2"
+    },
+    {
+      "path": "/src/ui/styles/index.css",
+      "byteLength": 265,
+      "gzipBytes": 152,
+      "sha256": "c15d43830d17c284937ecd052315ea670a377446d7a6208e8e729eeaa291a68e"
+    },
+    {
+      "path": "/src/ui/styles/keepsake-pouch.css",
+      "byteLength": 3148,
+      "gzipBytes": 1034,
+      "sha256": "f20907f3db42651d76e6c043920cabd086ae8f51c53854689cbb383a7e253899"
+    },
+    {
+      "path": "/src/ui/styles/layout.css",
+      "byteLength": 7415,
+      "gzipBytes": 2126,
+      "sha256": "d576f80b262c9f1db01ef3fc8ed570f68f6d74fb784a75031c44c2510aa6769b"
+    },
+    {
+      "path": "/src/ui/styles/motion.css",
+      "byteLength": 1732,
+      "gzipBytes": 593,
+      "sha256": "fa29bd5b482b07332a640492fa94b20d4c0264223102a0d2471f2da7b4b344e1"
+    },
+    {
+      "path": "/src/ui/styles/tokens.css",
+      "byteLength": 1435,
+      "gzipBytes": 646,
+      "sha256": "18c3684f4205f5c039edf577519bd3840083f56437e06c351451269297afb140"
+    }
+  ],
+  "notRun": [
+    "Production artifact build/deployment",
+    "Physical-device performance percentile/release browser matrix",
+    "Human PO/Thai/art/AT acceptance"
+  ]
+}

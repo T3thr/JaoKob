@@ -1,0 +1,238 @@
+{
+  "saveFormatVersion": 1,
+  "contentVersion": "2.1.0",
+  "revision": 26,
+  "createdAt": "2026-09-04T04:00:00.000Z",
+  "savedAt": "2026-09-04T04:00:00.000Z",
+  "reason": "checkpoint",
+  "payload": {
+    "checkpoint": {
+      "capturedAt": "2026-09-04T04:00:00.000Z",
+      "eventOccurrences": [
+        {
+          "count": 1,
+          "eventId": "event.act1.home-mother"
+        },
+        {
+          "count": 1,
+          "eventId": "event.act1.survival-thought"
+        },
+        {
+          "count": 1,
+          "eventId": "event.act1.coping-call"
+        },
+        {
+          "count": 1,
+          "eventId": "event.act1.discovered-fragment"
+        }
+      ],
+      "flags": [
+        {
+          "id": "coping.called_for_family",
+          "value": true
+        },
+        {
+          "id": "coping.let_go_early",
+          "value": false
+        },
+        {
+          "id": "coping.sought_safety",
+          "value": false
+        },
+        {
+          "id": "exploration.safe_observations",
+          "value": 0
+        },
+        {
+          "id": "keepsake.lily_fragment",
+          "value": false
+        },
+        {
+          "id": "memory.home_focus",
+          "value": "mother"
+        },
+        {
+          "id": "story.act1_complete",
+          "value": false
+        },
+        {
+          "id": "story.storm_survived",
+          "value": true
+        }
+      ],
+      "id": "checkpoint.act1.keepsake",
+      "metrics": {
+        "bond": 0,
+        "hp": 75,
+        "sanity": 60
+      },
+      "nodeId": "node.act1.keepsake",
+      "rng": {
+        "algorithm": "xorshift32-v1",
+        "seed": 1,
+        "state": 1
+      },
+      "state": "Decision",
+      "treeId": "tree.act1"
+    },
+    "currentNodeId": "node.act1.rest",
+    "currentTreeId": "tree.act1",
+    "eventOccurrences": [
+      {
+        "count": 1,
+        "eventId": "event.act1.home-mother"
+      },
+      {
+        "count": 1,
+        "eventId": "event.act1.survival-thought"
+      },
+      {
+        "count": 1,
+        "eventId": "event.act1.coping-call"
+      },
+      {
+        "count": 1,
+        "eventId": "event.act1.discovered-fragment"
+      }
+    ],
+    "flags": [
+      {
+        "id": "coping.called_for_family",
+        "value": true
+      },
+      {
+        "id": "coping.let_go_early",
+        "value": false
+      },
+      {
+        "id": "coping.sought_safety",
+        "value": false
+      },
+      {
+        "id": "exploration.safe_observations",
+        "value": 0
+      },
+      {
+        "id": "keepsake.lily_fragment",
+        "value": true
+      },
+      {
+        "id": "memory.home_focus",
+        "value": "mother"
+      },
+      {
+        "id": "story.act1_complete",
+        "value": true
+      },
+      {
+        "id": "story.storm_survived",
+        "value": true
+      }
+    ],
+    "history": [
+      {
+        "actionId": "choice.act1.focus-mother",
+        "committedAt": "2026-09-04T04:00:00.000Z",
+        "metricsAfter": {
+          "bond": 0,
+          "hp": 80,
+          "sanity": 70
+        },
+        "nodeId": "node.act1.home-focus",
+        "sequence": 1
+      },
+      {
+        "actionId": "choice.act1.call-family",
+        "committedAt": "2026-09-04T04:00:00.000Z",
+        "metricsAfter": {
+          "bond": 0,
+          "hp": 75,
+          "sanity": 60
+        },
+        "nodeId": "node.act1.survival",
+        "sequence": 2
+      },
+      {
+        "actionId": "choice.act1.keep-fragment",
+        "committedAt": "2026-09-04T04:00:00.000Z",
+        "metricsAfter": {
+          "bond": 0,
+          "hp": 75,
+          "sanity": 70
+        },
+        "nodeId": "node.act1.keepsake",
+        "sequence": 3
+      }
+    ],
+    "metrics": {
+      "hp": 75,
+      "sanity": 70,
+      "bond": 0
+    },
+    "playTimeMs": 0,
+    "progress": {
+      "completedNodeIds": [
+        "node.act1.opening",
+        "node.act1.nursery",
+        "node.act1.home-focus",
+        "node.act1.home-reflection",
+        "node.act1.storm",
+        "node.act1.survival",
+        "node.act1.lily-fragment",
+        "node.act1.leaf-discovery",
+        "node.act1.keepsake"
+      ],
+      "unlockedEndingIds": [],
+      "viewedDialogueIds": [
+        "dialogue.act1.first-light",
+        "dialogue.act1.water-roof",
+        "dialogue.act1.family-rhythm",
+        "dialogue.act1.small-tail",
+        "dialogue.act1.warm-shallows",
+        "dialogue.act1.first-invitation",
+        "dialogue.act1.home-mother",
+        "dialogue.act1.home-together",
+        "dialogue.act1.home-before-weather",
+        "dialogue.act1.storm-wind",
+        "dialogue.act1.storm-rain",
+        "dialogue.act1.storm-separation",
+        "dialogue.act1.storm-no-fault",
+        "dialogue.act1.storm-drifting",
+        "dialogue.act1.storm-first-breath",
+        "dialogue.act1.voice-of-home",
+        "dialogue.act1.coping-call",
+        "dialogue.act1.coping-call-pause",
+        "dialogue.act1.leaf-colour",
+        "dialogue.act1.leaf-memory",
+        "dialogue.act1.leaf-uncertainty",
+        "dialogue.act1.leaf-space",
+        "dialogue.act1.rest-rain"
+      ]
+    },
+    "rng": {
+      "algorithm": "xorshift32-v1",
+      "seed": 1,
+      "state": 1
+    },
+    "sessionId": "123e4567-e89b-42d3-a456-426614174000",
+    "startedAt": "2026-09-04T04:00:00.000Z",
+    "state": "Cutscene"
+  },
+  "settings": {
+    "locale": "th",
+    "textSpeed": "normal",
+    "fontScale": 1,
+    "reducedMotion": false,
+    "highContrast": false,
+    "storyAssist": false,
+    "immersiveUi": true,
+    "confirmHighImpactChoices": true,
+    "typewriterEffect": true,
+    "autoAdvance": false,
+    "masterVolume": 1,
+    "musicVolume": 0,
+    "ambienceVolume": 0,
+    "effectsVolume": 0,
+    "reducedIntensityAudio": false
+  }
+}

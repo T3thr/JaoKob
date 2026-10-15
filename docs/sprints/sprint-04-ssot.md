@@ -3,8 +3,8 @@
 | Document control | Value |
 |---|---|
 | Sprint / document | `SPRINT-04` / `JKB-SPRINT-04-SSOT` |
-| Version / date | **0.3.0** / 2026-10-16, Asia/Bangkok: ADR-P0-020 ratification (4-slot Keepsake Pouch & Save 2 lifecycle); Slice 1 merged (#13); Slice 2 in progress |
-| Status | **Slice 1 merged on PR #13 (commit `01cee6f`); Slice 2 (T0, T3, T4, T5 / PR #14) in progress under ADR-P0-020; 2/12 complete; T6–T11 open** |
+| Version / date | **0.3.1** / 2026-10-16, Asia/Bangkok: Slice 2 Pouch/Save 2 delivery under ADR-P0-020; owner review open |
+| Status | **Slice 1 merged (#13 at `01cee6f`); Slice 2 T0/T3/T4/T5 implemented for PR #14 under ADR-P0-020; 6/12 source tasks delivered; T6–T11 and Slice 2 human acceptance open** |
 | Authority | PO ratified ADR-P0-020 establishing 4-slot Keepsake Pouch architecture and authorized Slice 2 implementation on `feat/sprint-04-slice-02-pouch` |
 | Integrated baseline | `develop@01cee6f` (merged PR13); Slice 2 changes remain on feature branch until human review/merge |
 | Review branch / PR | `feat/sprint-04-slice-02-pouch` / [PR #14](https://github.com/T3thr/JaoKob/pull/14) → develop; Slice 1 PR13 merged |
@@ -12,7 +12,7 @@
 | Models | [PR #11](https://github.com/T3thr/JaoKob/pull/11) MERGED at `e980339`; future **S5 END-HOME Grand Keepsake**, not S4 Pouch dependency |
 | Owners | PO, Technical Lead/Architect, Core/Application/Data/UI, Narrative/Game Design, Art, Accessibility, QA/DevOps |
 
-**Slice 1 merge & ADR-P0-020 ratification: 2026-10-16.** Slice 1 (T1/T2) was verified, accepted, and merged into `develop` via [PR #13](https://github.com/T3thr/JaoKob/pull/13) (commit `01cee6f`) fulfilling [ADR-P0-019](../adr/ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md). PO and Lead Architecture officially ratified [ADR-P0-020](../adr/ADR-P0-020-adventure-keepsake-pouch-and-item-system.md), locking the Adventure Keepsake Pouch capacity at **4 slots** to align with the 5-Act narrative arc (Acts 1–4 item opportunities, Act 5 ending resolution). Slice 2 begins on `feat/sprint-04-slice-02-pouch` covering T0, T3, T4, and T5.
+**Slice 1 merge & ADR-P0-020 ratification: 2026-10-16.** Slice 1 (T1/T2) was verified, accepted, and merged into `develop` via [PR #13](https://github.com/T3thr/JaoKob/pull/13) (commit `01cee6f`) fulfilling [ADR-P0-019](../adr/ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md). PO and Lead Architecture officially ratified [ADR-P0-020](../adr/ADR-P0-020-adventure-keepsake-pouch-and-item-system.md), locking the Adventure Keepsake Pouch capacity at **4 slots** to align with the 5-Act narrative arc (Acts 1–4 item opportunities, Act 5 ending resolution). Slice2 T0/T3/T4/T5 implementation is delivered on `feat/sprint-04-slice-02-pouch` for owner review; see the CR-20261016-0031 audit and scoped evidence below.
 
 ## 1. Goal and phased scope
 
@@ -31,7 +31,7 @@ S4 non-goals: production Act 2–5/ending code, 3D renderer/library/model/vendor
 
 ### 1.1 Revision authority
 
-v0.2.0 replaces v0.1.0 Act 1 non-diegetic doll viewer, presentation-only save assumptions and limited/optional editorial scope. PO direction and AI writing assignment are explicit; no repeat approval of that direction is requested. Exact capacity, item/vignette registry, guards/contract/version/migration and final prose/assets still require task-level sign-off. The current PO directive authorizes T1/T2 only; [Slice 1 audit](../changelog/2026-10/2026-10-14-2314-sprint-04-slice-01-visual.md) records its relevant DoR and evidence. T0/T3–T11 remain unstarted.
+v0.2.0 replaces v0.1.0 Act 1 non-diegetic doll viewer, presentation-only save assumptions and limited/optional editorial scope. PO direction and AI writing assignment are explicit; no repeat approval of that direction is requested. The 2026-10-16 PO directive and ADR-P0-020 ratify four slots and authorize Slice 2 T0/T3/T4/T5. The [Slice 2 contract](../design-system/keepsake-pouch-contract.md) fixes its readiness, exact save/checkpoint semantics and failure/rollback policy before source. Future narrative/item opportunities/vignettes and content 3.0 mapping remain T7/T9/T10 review gates.
 
 ### 1.2 Final PO endorsement and emotional impact
 
@@ -41,7 +41,7 @@ Approved plan direction does not assert that proposed prose is final Canon, new 
 
 ## 2. Traceability matrix
 
-`TC-S4-*` are evidence/design identifiers, not newly Approved requirements. Slice 1 materializes VIS/STATUS/STATE/A11Y checks below; remaining inventory/narrative evidence and draft item/vignette IDs remain proposed. Existing requirements do not fully govern new inventory mechanics; **CR-0005 D1/D4/D5** is the change path to amend GDD/SRS/Narrative/schema at T0/T3 before implementation.
+`TC-S4-*` are evidence/design identifiers, not newly Approved requirements. Slice 1 materializes VIS/STATUS/STATE/A11Y checks; [Slice 2 evidence](../../tests/e2e/evidence/sprint-04/slice-02/README.md) materializes scoped Pouch/schema/save/checkpoint checks. New narrative/secret IDs remain proposed. Existing requirements do not fully govern new inventory mechanics; **CR-0005 D1/D4/D5** is the change path to amend GDD/SRS/Narrative/schema at T0/T3 before implementation.
 
 | Requirement / PO decision | Observable design outcome | Owner artifact / task | Proposed evidence |
 |---|---|---|---|
@@ -64,9 +64,9 @@ Actual implementation PR links are added per task after delivery; PO main-direct
 
 Full feature contract: [proposal §§5–9](../proposals/sprint-04-overhaul/01-proposal-plan.md#6-adventure-keepsake-pouch-ui-state-and-emotional-choices) and [ADR-P0-020](../adr/ADR-P0-020-adventure-keepsake-pouch-and-item-system.md). Pouch lists/state are pure Core domain facts; `session-history.js` is an ephemeral pure application reducer. UI can hold selection/modal scroll only and sends intents; Data handles strict parse/validation/localization; only bootstrap imports concrete adapters. Six domain states remain; Pouch modal is not a seventh state.
 
-Proposed versions: gameplay package/affected shared/tree **schema 2.0.0**, Act 1 content **3.0.0**, **saveFormatVersion 2**. New inventory/memory/vignette completion/checkpoint and deterministic cursor/variant contracts reviewed at T0/T3. Keep all published old schemas frozen; add versioned replacements and runtime reference/capability fixtures. Separate visual tag/icon/skin/crop catalog remains presentation-only; gameplay predicates/effects cannot be hidden inside it.
+Slice 2 publishes **pouch/save schemas 2.0.0** in `specs/schemas/v2.0.0/` and writes **saveFormatVersion 2**, with immutable published older schemas. It keeps the reviewed **Act 1 content 2.1.0** and exact semantic read position. Package/tree/shared schema 2.0, rewritten content 3.0 and explicit vignette/variant cursors remain later-task contracts; they are not silently represented by this delivery.
 
-Migration is a new semantic map after existing 2.0→2.1 step. Legacy true leaf flag→held/acquired leaf based on old no-discard semantics, separately for payload and checkpoint; no new items/secret scenes awarded; explicit semantic page mapping/recovery where rewrite cannot map. Current presentation-only migrator cannot admit rewritten text/branches. Retry restores all Pouch story facts with checkpoint, preserving latest settings. Session log stays ephemeral; durable bag is not recreated from transcript.
+Migration is **1/2.0 → 1/2.1 → 2/2.1**: the existing strict presentation migration runs first where needed, then a pure semantic Save 1→2 maps the historical leaf separately for payload/checkpoint. True `keepsake.lily_fragment` (the directive's conceptual `hasLeaf`) becomes held/acquired/remembered `item_leaf`; false produces no held leaf. No other items/refusals/secrets are retroactively awarded. Unsupported content 3.0/current-page rewrites and unverified source digests remain protected with raw records intact. Recovery/Resume performs no writes or on-enter replay; subsequent accepted actions use existing staging/backup/raw-race guards plus downgrade protection. Retry restores pouch from checkpoint with latest settings. Session Log remains T6.
 
 No model-viewer port/vendor/GLB runtime in S4; ADR-P0-016/017 remain spike history. S5 separately approves production Grand Keepsake presentation/dependency/device/rights. Merged PR #11 is no longer a blocking asset integration dependency for S4.
 
@@ -74,9 +74,9 @@ No model-viewer port/vendor/GLB runtime in S4; ADR-P0-016/017 remain spike histo
 
 Priority: **approved contracts/legacy proof → UI Styles → DOM Renderer → Pouch Core/save/UI → Dialogue Log → Act 1 Narrative + Act 2–5 Map → Intent/media projection → integration/QA**. AI can draft prose/maps as planning/content-design work; production integrations obey per-task DoR. Below are responsibility assignments, not permission to spawn agents. Every implementation PR remains scoped/testable; split oversized tasks into sub-PRs with the same acceptance contract.
 
-- [ ] **T0 — PO pivot, baseline amendments and per-task DoR (ADR-P0-020)** (P0; 1–2 person-days)
+- [x] **T0 — Four-slot ratification and Slice 2 contract/readiness (ADR-P0-020)**
 
-  Owner Technical Lead/Architect; PO/Narrative/Game Design/QA/Accessibility review. Files: this SSOT, CR-0005, ADR-P0-020, GDD/SRS/Narrative amendment drafts, trace/fixture plan. AC: record direction already given; ratify exact 4 slots (ADR-P0-020), item/memory/default/secret/non-stat rules, callback/progression/cursor/save design; devices/reviewers/owners agreed; freeze source baseline/legacy 691/14–21–12 witnesses. Evidence `TC-S4-ARCH-001` design review. No source change until relevant readiness; no per-line permission request for AI drafting.
+  PO directive + Lead Architecture authority; [implementation contract](../design-system/keepsake-pouch-contract.md) precedes source; [baseline amendment handoff](../proposals/sprint-04-overhaul/04-pouch-baseline-amendments.md) records the owner-gated narrative follow-up. Scope: exact four slots, distinct historical/physical memory, no item stat reward, Save 2/checkpoint/legacy leaf mapping, failure/rollback, original 2D art, six viewport profiles and owner gates. Baseline720 and legacy14/21/12 witnesses retained. Detailed future narrative/vignette/cursor approval remains with T7/T9/T10; no new Canon is self-approved. `TC-S4-ARCH-001`.
 
 - [x] **T1 — Handcrafted styles, frosted HUD, design system and paper card (ADR-P0-019)** (P0; 2–3 days)
 
@@ -86,17 +86,17 @@ Priority: **approved contracts/legacy proof → UI Styles → DOM Renderer → P
 
   Owner UI; Application/Data/Accessibility/PO review. Files: `dom-renderer.js`, `stage-view.js`, `settings-dialog.js`, proposed Title/Reading/Decision/utility/response/overlay components; agreed VM/localization and focused renderer tests. AC: Title atmospheric backdrop with discreet floating content advisory icon (no blunt banner, no modal collision with new game button); Reading card on fixed bottom baseline (zero CLS/vertical jumping between Reading and Decision); Stat deltas as transient HUD micro-toasts (never inside dialogue card); Decision Crossroads with symmetric tactile cards without inner scrollbars; Settings modal features fixed top-right close button (✕) without forced scrolling, styled switch toggles with clear On/Off feedback, direct audio mute toggle from utility rail; desktop progression ergonomics (stage click / Spacebar / Enter); no emoji icons. Evidence `TC-S4-STATUS-001`, `TC-S4-STATE-001`.
 
-- [ ] **T3 — Versioned item/content/save/checkpoint contracts and migration (ADR-P0-020)** (P0; 4–6 days)
+- [x] **T3 — Pouch/save 2.0 contracts and semantic Save 1→2 migration (ADR-P0-020)**
 
-  Owner Architect/Data; Core/Narrative/Game Design/QA review. Proposed files: versioned schema 2.0/save2 documents, runtime schema catalog/validator/capability gate; item/condition/effect/explicit-cursor definitions and valid/invalid fixtures; new semantic migration module; reviewed content 2.1 archive and schema compatibility matrix. AC: strict item IDs/types/unique 4 slots (ADR-P0-020)/bounded memory/secret progress; held vs remembered predicates; all payload/checkpoint fields validated; pure format 1→2/content 2.1→3.0 mapping after old2.0→2.1; no retroactive extra item/vignette; exact semantic cursor or documented tested recovery; quota/raw-backup/future/race/integrity policy; old schemas immutable. Evidence `TC-S4-CONTRACT-001`, `TC-S4-SAVE-001/002`. No future3D asset type/library addition.
+  `specs/schemas/v2.0.0/{pouch,save-state}.schema.json`, strict runtime validators, pure `src/data/persistence/save-1-to-2.js`, versioned fixtures and independent reference runner. Four unique held slots, bounded acquired/released/remembered/refusal lists and every payload/checkpoint field validate; unknown/corrupt/future/unregistered/integrity-bearing legacy inputs remain protected. All legacy saved pages retain exact cursor/metrics/flags/RNG/history/settings/revision; quota/backup/race/downgrade cases pass. Content stays2.1; future content3/vignette contracts are T7/T9/T10, not claimed complete. `TC-S4-CONTRACT-001`, `TC-S4-SAVE-001/002`.
 
-- [ ] **T4 — Pure Pouch transactions and vignette eligibility (ADR-P0-020)** (P0; 3–5 days)
+- [x] **T4 — Pure Pouch transactions and checkpoint integration (ADR-P0-020)**
 
-  Owner Core/Application; Architect/Game Design/QA/Narrative review. Proposed files: `src/core/domain/keepsake-pouch.js`, pure item transaction use-case, approved orchestration/condition/effect integration, unit tests. AC: empty/partial/full (4 slots), collect/refuse/release/atomic replace/cancel/use, unique IDs/no stacks/single opportunity; pre-snapshot revision/guard; safe-context control; no partial/full auto-drop/stat bonus; no global mutable state/browser. Held/acquired/released separate, irreversible legacy flag untouched, skip-all remains viable. Vignette complete only last-beat acknowledgement; checkpoint/retry restores ledger. Evidence `TC-S4-POUCH-001`, `TC-S4-CALLBACK-001`, `TC-S4-RETRY-001` and preserved Core invariants.
+  `keepsake-pouch.js`, `pouch-transaction.js`, normalized Data-owned legacy bridge and generic orchestration. Collect/refuse/release/atomic replace/use, four-slot/no-stack/single-encounter/revision/context invariants, immutable rejected state, no stat reward; domain coverage100% lines/branches/functions. Existing leaf actions collect/refuse atomically, keeping legacy flags/effects intact. The only current release opportunity is after the final rest acknowledgement; future authored utility/vignette opportunities remain later content work. Retry restores held/released/remembered checkpoint facts; optional-scene completion is not invented. `TC-S4-POUCH-001`, `TC-S4-STATE-001`, `TC-S4-RETRY-001`.
 
-- [ ] **T5 — Adventure Keepsake Pouch UI (ADR-P0-020)** (P0; 2–3 days)
+- [x] **T5 — Adventure Keepsake Pouch modal and inspection (ADR-P0-020)**
 
-  Owner UI; Accessibility/PO/Narrative/Core review. Proposed files: `src/ui/components/keepsake-pouch-dialog.js`, item detail/full-pouch decision components, styles/resources, DOM tests. AC: tactile 4 slots (ADR-P0-020), readable used/capacity/empty state, 2D art/text fallback, item selection/remembered location, parallel retain/refuse/replace/cancel wording; native modal using modal-frame.js (pinned ✕, Tab/Escape trap); release/use availability from VM, no UI-state mutation of held IDs. Confirmed domain command only at safe opportunity; view/close never saves/drops. No 3D selector/orbit/drag-only requirement. `TC-S4-POUCH-002`, `TC-S4-A11Y-001`.
+  Native `keepsake-pouch-dialog.js` through `modal-frame.js`, four tactile equal slots, count/empty/detail/remembered states, original leaf art and localized safe DOM text. Fixed SVG close, native inertness, focus trap/Escape/opener and confirmation cancel focus, touch targets, responsive 8pt spacing,200% text/high/forced contrast and image fallback verified. Full-pouch collect/refuse/replace/cancel UI and utility intents are fixture-tested; only reviewed leaf appears in production. Opening/inspection/close/cancel never saves. Confirmed safe release saves once and survives reload; no 3D requests. `TC-S4-POUCH-002`, `TC-S4-A11Y-001`.
 
 - [ ] **T6 — Session Dialogue History data and modal** (P0; 3–5 days)
 
@@ -148,7 +148,7 @@ Priority: **approved contracts/legacy proof → UI Styles → DOM Renderer → P
 
 - [ ] **T11 — Legacy/new regression, narrative/visual/manual acceptance** (P0; 3–5 days)
 
-  Owner QA/DevOps; PO/Art/Narrative/Game Design/Accessibility/Architect review. Files: existing legacy E2E runners/fixtures retained or equivalent version-aware adaptation; proposed S4 Pouch/story runner/new evidence, trace matrix, audit/SSOT/root changelog. AC: baseline 691 cases with equivalent or explicitly authorized/version-traced expectations pass, zero fail/cancel/skip/todo; legacy14/21/12 witnesses retained; new graph count/witnesses/optional/release/default/slot3-or4 variants separately recorded; migration/retry/save faults and UI/root+subpath; real Thai/art/keyboard/AT/device/performance review; S5 map ready. No inferred full-game/3D/G2/deploy completion.
+  Owner QA/DevOps; PO/Art/Narrative/Game Design/Accessibility/Architect review. Files: existing legacy E2E runners/fixtures retained or equivalent version-aware adaptation; proposed S4 Pouch/story runner/new evidence, trace matrix, audit/SSOT/root changelog. AC: baseline 691 cases with equivalent or explicitly authorized/version-traced expectations pass, zero fail/cancel/skip/todo; legacy14/21/12 witnesses retained; new graph count/witnesses/optional/release/default/fixed4-slot variants separately recorded; migration/retry/save faults and UI/root+subpath; real Thai/art/keyboard/AT/device/performance review; S5 map ready. No inferred full-game/3D/G2/deploy completion.
 
 Estimate: **32–50 engineering + narrative person-days**, plus **3–5 Art days** and human/manual review scheduling. This replaces old19–29 estimate because persistent domain/save/branch work was added. No duration commitment; PO may split S4 into contract+UI, Pouch+Log and narrative+handoff sub-milestones while preserving the full directive. Gate A after T1/T2 visual; Gate B T3–T6 Pouch/save/Log; Gate C T7/T8 narrative/map; Gate D T9–T11 integrated acceptance.
 
@@ -167,25 +167,22 @@ Shared-file ownership: T3 schema/migration validator; T4 Core state/effects; T7 
 - [x] Fresh unchanged-runtime unit regression:691/691, no fail/cancel/skip/todo; no new Pouch feature pass claimed.
 - [x] Documentation/trace/audit/commit prepared on requested branch for PO review.
 
-**ADR-P0-019 corrective delivery:** Design specification authored before source; native Title/choice confirmations, pure measured reading pages, centred intrinsic choices, HUD-only2500ms consequences, scene advisory, direct master toggle and guarded desktop input are implemented. [CR-20261015-1757](../changelog/2026-10/2026-10-15-1757-sprint-04-adr-019-runtime-ergonomics.md) records720 unit cases,12 legacy routes,36 visual captures plus14 production runtime captures at six profiles. Only implementation is checked complete; PO final playtest/art/Thai and device/AT acceptance remain open. PR13 is not merged.
+**ADR-P0-019 corrective delivery:** Design specification authored before source; native Title/choice confirmations, pure measured reading pages, centred intrinsic choices, HUD-only2500ms consequences, scene advisory, direct master toggle and guarded desktop input are implemented. [CR-20261015-1757](../changelog/2026-10/2026-10-15-1757-sprint-04-adr-019-runtime-ergonomics.md) records720 unit cases,12 legacy routes,36 visual captures plus14 production runtime captures at six profiles. This is the historical Slice1 verification record; PR13 was subsequently reviewed and merged at01cee6f as confirmed by the current PO directive. Slice2 owner/manual gates are tracked separately.
 
-### 5.2 Implementation DoR — T1/T2 ready; remaining detail review open
+### 5.2 Implementation DoR — Slice 2 satisfied; later content gates remain open
 
-T1/T2 use unchanged immutable VM/domain/save/schema contracts and licensed existing Sarabun/media. PO explicitly authorized this slice; exact observable screen/status/focus/material criteria and fixtures are recorded in its audit. This readiness does not ratify Pouch capacity, schemas, narrative, new ADR or T0 as a whole.
+- [x] PO/Lead Architecture ratified four slots, dual memory/utility role, pure domain and Save2/UI in ADR-P0-020 and current directive.
+- [x] Exact observable success/failure AC, impact, artifact ownership, compatibility, fixtures and rollback fixed before source in the Slice2 contract/audit.
+- [x] Legacy source and unchanged2.1 cursor mapping, independent checkpoint leaf mapping, strict schema/runtime parity and write/recovery guards verified.
+- [x] Original leaf/chrome provenance, Thai resources, existing native modal and six viewport evidence available.
+- [x] No runtime dependency, new Canon, unreviewed opportunity or production3D introduced; human owner acceptance explicitly open.
+- [ ] T7/T9/T10: final new narrative/item/secret registry, baseline callback amendments, content3 semantic cursor migration and approved assets/DSL.
+- [ ] T6/T8/T11: Log policy, later-act map and real-device/AT/PO final acceptance.
 
-- [x] PO approved v0.2.0 main direction and Final v0.2.1 emotion/drama/Pouch/gift/girl/fair Bond principles; no repeat strategy approval needed.
-- [ ] Exact capacity3-or4, opportunity/item/vignette/callback/absence/release rules ratified by PO/Game Design/Narrative.
-- [ ] Baseline GDD/SRS/Narrative amendments resolve physical leaf vs historical flag and early material/progression teaching; no Canon conflict left for implementation.
-- [ ] Architect accepts versioned inventory/checkpoint/cursor/schema/DSL/migration and new prospective ADR; valid/invalid/mapping/recovery fixtures ready.
-- [ ] Current-page migration/retry/unknown/integrity/backup/rollback policy demonstrably implementable for every supported old save point.
-- [ ] Exact AI-authored scenes/graph/IDs/tags/media approved through task reviews, not by blanket approval of any generated text.
-- [ ] Art/rights clear 2D items/icons/texture; reviewers/devices/browser/AT/performance profile/time agreed.
-- [ ] Each source task meets observable success/failure AC, one coherent PR scope and exclusive file handoff.
-
-### 5.3 Implementation DoD — 2/12 source tasks delivered; human gates open
+### 5.3 Implementation DoD — 6/12 source tasks delivered; human gates open
 
 - [ ] T0–T11 AC/evidence/owner acceptance complete, no inert UI controls.
-- [ ] Pouch ≤approved capacity; atomically acquired/released/replaced; distinct held/memory semantics and correct save/Retry/Resume.
+- [x] Slice2 Pouch ≤4; atomic collect/refuse/release/replace/use; distinct held/memory semantics and correct Save2/Retry/Resume with unchanged2.1 content.
 - [ ] Legacy691/equivalent assertions and historical graph witnesses retained; new graph/secret/release/absence branches fully witnessed with no weakened test.
 - [ ] All seven Act 1 scenes receive accepted tender narrative refinement; default paths complete; simple branches converge; no combat/complex added stat/extra ending/item-gated Canon.
 - [ ] Visual rubric/Thai art/crop/focus/zoom/reduced-motion/high contrast and Log/Pouch modal paths accepted.
@@ -201,9 +198,11 @@ T1/T2 use unchanged immutable VM/domain/save/schema contracts and licensed exist
 node --test tests/unit/*.test.js
 JKB_PLAYWRIGHT_PATH=/absolute/path/to/playwright/index.mjs node tests/e2e/act1-playthrough.mjs
 JKB_PLAYWRIGHT_PATH=/absolute/path/to/playwright/index.mjs node tests/e2e/visual-novel-benchmark.mjs
+JKB_PLAYWRIGHT_PATH=/absolute/path/to/playwright/index.mjs node tests/e2e/keepsake-pouch.mjs
+JKB_AJV_PATH=/absolute/path/to/ajv/dist/2020.js node tests/schema/pouch-reference.mjs
 ```
 
-Browser paths resolve from environment; do not invent npm scripts/root dependencies. The existing canonical runner was rerun for Slice 1 with a separate output directory; the Sprint 3 performance benchmark remains historical. `tests/e2e/sprint-04-visual-slice.mjs` now materializes scoped visual/status checks. New schema reference/Pouch/new-story automation below is **proposed, not materialized**. New evidence writes to S4 directory; no overwrite of Sprint3 screenshots/raw reports. Prior 0.1 evidence remains historical.
+Browser paths resolve from environment; do not invent npm scripts/root dependencies. The existing canonical runner was rerun for Slice 1 with a separate output directory; the Sprint 3 performance benchmark remains historical. `tests/e2e/sprint-04-visual-slice.mjs` now materializes scoped visual/status checks. Slice2 Pouch/schema/migration/browser automation is materialized; new-story/secret automation remains proposed. New evidence writes to S4 directory; no overwrite of Sprint3 screenshots/raw reports. Prior 0.1 evidence remains historical.
 
 ### 6.2 Proposed evidence matrix
 
@@ -214,12 +213,12 @@ Browser paths resolve from environment; do not invent npm scripts/root dependenc
 | `TC-S4-STATUS-001` | Saving/saved/failure/memory-only visible text, feedback/deltas/one announcement, focus stable under async patches | Real DOM and media/save faults; no copied CSS assertion |
 | `TC-S4-CHOICE-001` | Three home directions/seven legacy+new approved tags/cues/order, full-pouch refuse/replace/cancel, high-impact confirmation/disabled reason | Catalog/projection/DOM and Narrative/Game Design review |
 | `TC-S4-CONTRACT-001` | Old schemas locked; new item/condition/effect/cursor/save formats/meta-schema refs, unknown/null/duplicate/out-of-capacity/mismatch/reference/locale negatives | Data/Architect fixtures+independent reference validation; absent in current round |
-| `TC-S4-POUCH-001` | Capacity3 and reviewed4 boundary, collect/release/replace/cancel atomicity; safe opportunity/revision/double input/unknown IDs; no stat reward/repeat farming | Pure deterministic Core snapshots; every rejected command returns original state |
+| `TC-S4-POUCH-001` | Fixed capacity4 boundary, collect/release/replace/cancel atomicity; safe opportunity/revision/double input/unknown IDs; no stat reward/repeat farming | Pure deterministic Core snapshots; every rejected command returns original state |
 | `TC-S4-POUCH-002` | Empty/partial/full 2D slots/names/details/absence/image-fail; keyboard/touch/close/cancel; open does not mutate, accepted commands mutate once | UI/Application browser and manual use; no 3D network allowed |
 | `TC-S4-LOG-001/002` | 60→50 latest dialogue,50 actions independently, repeated visits/Pouch commits, no unseen/rejected append; reset/reload; modal inert/focus/scroll/async status | Reducer/projection+native dialog browser; manual AT required |
 | `TC-S4-CALLBACK-001` | Held/acquired/released/never-found leaf/item variants; discarded physical object never shown; old leaf flag not cleared; no-item defaults/equally valid emotional result | Narrative/content/model truth table, includes later-act **map** guards not unimplemented E2E |
 | `TC-S4-GRAPH-001` | New Act 1 fixed convergence/reachability/no softlock/unknown IDs; all optional nodes+edges and no-item/refuse/release/full-capacity paths; completion acknowledged once | New catalog/witness count from reviewed T7; legacy14/21/12 stays separately archived |
-| `TC-S4-SAVE-001` | Explicit1/2.0→1/2.1→2/3.0 steps, payload+checkpoint separate leaf maps, no retroactive new items/secrets, semantic cursor map or protected recovery, idempotent pure transforms | All supported saved pages/modes/checkpoints; digest policy and graph causal constraints verified |
+| `TC-S4-SAVE-001` | Explicit1/2.0→1/2.1→2/2.1 steps; future3.0 map deferred, payload+checkpoint separate leaf maps, no retroactive new items/secrets, semantic cursor map or protected recovery, idempotent pure transforms | All supported saved pages/modes/checkpoints; digest policy and graph causal constraints verified |
 | `TC-S4-SAVE-002` | Round-trip new inventory/memory/vignette cursor; stage/read-back/backup/guard/quota/unavailable/corrupt/future/concurrent raw changes; no guessed downgrade | Existing save-port fault suites plus new strict candidates;≤250KB UTF-8 |
 | `TC-S4-RETRY-001` | Restore held/remembered/released/vignette progress and story facts to checkpoint; settings latest; Log does not unlock future item/scene | Pure and browser checkpoint cases before/after acquire/replace/secret completion |
 | `TC-S4-STATE-001` | Overlay/settings/media rendering preserves story; item commands intentionally mutate approved fields once; legacy metric/state/flag/history invariants intact | Compare accepted snapshots/serialized save; do not demand identical graph after authorized rewrite |
@@ -242,16 +241,18 @@ Budgets unchanged: NFR-PE-001..005 (initial≤2MB compressed; shell+critical JSO
 | Baseline unit regression | Final Directive rerun **691/691**, 0 fail/cancel/skip/todo; **26,196.327 ms** on unchanged runtime at d3e9f4d |
 | Documentation | Three requested artifacts revised; link/anchor/ID/table/consistency/diff checks recorded in new pivot audit |
 | Old visual/browser/media evidence | Sprint3 evidence retained historically; current Slice1 candidate has a separate bundle below |
-| Pouch/schema/migration/new story tests | Not materialized/not run in planning |
+| Slice2 Pouch/schema/migration | **874/874** total unit cases,0 fail/cancel/skip/todo (720 prior +154 new); domain100% lines/branches/functions;13 metaschemas/47 new structural+semantic cases and legacy11/36 reference cases pass. See [evidence](../../tests/e2e/evidence/sprint-04/slice-02/README.md). New story/secret tests remain unmaterialized. |
+| Slice2 Chromium | **12/12** retained Act1 routes;**18** empty/partial/full layouts at six profiles;**34** Pouch captures plus2 action-client captures; root/subpath, actual emulated touch taps, modal/confirm/focus,200% text/high/forced contrast/image fallback, exact Save1 backup and released-memory reload pass;0 unexpected console/page/external-network errors. |
 | Slice 1 unit regression | **720/720**, 0 fail/cancel/skip/todo; all712 prior cases retained with explicit ADR-P0-019 presentation amendments, plus8 focused cases |
 | Slice 1 Chromium | **12/12** legacy routes; **36** visual captures plus **14** production-runtime captures at six profiles; identical paper geometry/bottom24, complete Thai pagination/200%, symmetric choices without internal scrollbars, native confirmations/close, direct audio, HUD micro-toast, storm advisory/preferences, stage/Space/Enter guards; contrast10.61:1/high16.61:1, motion/fault checks; [evidence](../../tests/e2e/evidence/sprint-04/slice-01/README.md) |
 | Real device/AT/listening/PO final art/prose | Not performed; required later for changed journeys |
-| Source/release/build/merge/deploy | T1/T2 source delivered on feature branch; no remaining task, release, merge or deploy executed |
+| Source/release/build/merge/deploy | T0–T5 source slices delivered for review (T1/T2 mergedPR13; T0/T3/T4/T5 on featurePR14). T6–T11, release/deploy and Slice2 merge are not executed. |
 
 ## 7. Audit trail, risk and approval register
 
 | Record | Disposition |
 |---|---|
+| `CR-20261016-0031` | [Slice2 Pouch/Save2 delivery](../changelog/2026-10/2026-10-16-0031-sprint-04-slice-02-pouch.md): T0/T3/T4/T5 implemented;874 unit cases, independent schemas,12 routes and scoped modal/browser evidence; PR14 owner review open |
 | `CR-20261016-0025` | [ADR-P0-020 ratification](../adr/ADR-P0-020-adventure-keepsake-pouch-and-item-system.md): 4-slot Keepsake Pouch architecture, dual keepsake/utility role, Save 2 schema; Slice 2 kickoff on `feat/sprint-04-slice-02-pouch` |
 | `CR-20261015-1757` | [ADR-P0-019 corrective delivery](../changelog/2026-10/2026-10-15-1757-sprint-04-adr-019-runtime-ergonomics.md): design specification first; T1/T2 implementation complete2/12;720 unit cases/12 routes/50 captures; merged in PR13 |
 | `CR-20261015-1710` | [ADR-P0-019 mandate & Slice 1 extension](../adr/ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md): playtest rejection of commit `a634409`; T1/T2 reopened for Design System specification and 6 ergonomic pillars; PR13 extended |
@@ -270,9 +271,9 @@ Budgets unchanged: NFR-PE-001..005 (initial≤2MB compressed; shell+critical JSO
 | D2 exact narrative/branch prose | AI authors within assignment; Narrative/Game Design/PO validate final scenes, no repeated permission before drafting |
 | D3 history reload boundary | Agree ephemeral Log policy separately from required persistent Pouch |
 | D4 discarded leaf/current prop continuity and red yarn Act 1 vs A2 material | Narrative/Game Design clarify guards/baseline text; default scenarios prevent missing/incorrect item depiction |
-| D5 schema/save/cursor/migration/retry compatibility | Architect/QA own explicit mapping, unknown/raw protection and versioned ADR; source waits relevant contract readiness |
+| D5 schema/save/cursor/migration/retry compatibility | Slice2 Save2/unchanged2.1 mapping and raw/downgrade guards implemented/tested; future content3/vignette map waits T7/T9/T10 review |
 | D6 Grand Keepsake | S5 owns actual 3D/runtime/rights/art/device delivery; models not carried or exposed in S4 |
 | D7 legacy vs new evidence/manual | QA/Accessibility separate approved expectation changes, new graph witness counts and actual human/device gates |
 | Local references | Preserve untracked folder; never stage personal reference photographs |
 
-Documentation rollback reverts current revision only. Future runtime rollout/rollback follows [proposal §9](../proposals/sprint-04-overhaul/01-proposal-plan.md#9-architecture-versions-migration-and-rollback) and accepted new contracts; no migration executes now. Main v0.2.0 direction/final v0.2.1 principles approved and planning PR12 merged by PO. Current directive authorizes T1/T2 implementation and PR; relevant readiness/evidence are recorded above. Remaining ten tasks and human/device/final art gates stay open. Slice 1 has no game-save/content migration. ADR-P0-018 D4 adds separately versioned `jaokob:preferences` (one `hideContentAdvisory` boolean, absent=false, bounded strict parsing and future/corrupt preservation); UI rollback ignores that key and retains the current compatible progress/settings runtime.
+Slice2 rollback retains dual-format admission and downgrade/write guards or disables writes; preserve raw Save1 backup, never downgrade Save2 or repair to an empty bag. The current PO directive authorizes T0/T3/T4/T5 source/commit/push/PR only. Six source tasks are delivered; T6–T11 and owner PO/Thai/art/device/AT acceptance remain open. No Slice2 merge, release or deployment is authorized. Separately versioned `jaokob:preferences` remains unchanged by Slice2.

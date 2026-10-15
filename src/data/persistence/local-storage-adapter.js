@@ -1,6 +1,7 @@
 import { STORAGE_ERROR_CODES } from "../../core/ports/storage-port.js";
 import {
   CURRENT_SAVE_FORMAT_VERSION,
+  SUPPORTED_SAVE_FORMAT_VERSIONS,
   validateSaveEnvelope,
   validateGameSettings,
 } from "../validation/save-envelope-validator.js";
@@ -509,7 +510,7 @@ function parseAndValidate(raw, source, request, validator) {
     isRecord(parsed)
     && Object.hasOwn(parsed, "saveFormatVersion")
     && Number.isInteger(parsed.saveFormatVersion)
-    && parsed.saveFormatVersion !== CURRENT_SAVE_FORMAT_VERSION
+    && !SUPPORTED_SAVE_FORMAT_VERSIONS.includes(parsed.saveFormatVersion)
   ) {
     return failure(STORAGE_ERROR_CODES.SAVE_MIGRATION, {
       operation: "validate",
@@ -614,6 +615,9 @@ function guardCandidateReplacement(
       if (!compatible) return failure(STORAGE_ERROR_CODES.SAVE_MIGRATION, {
         operation, source, reason: "CONTENT_REPLACEMENT_BLOCKED",
       });
+    }
+    if (candidate.saveFormatVersion < current.value.saveFormatVersion) {
+      return failure(STORAGE_ERROR_CODES.SAVE_MIGRATION, { operation, source, reason: "SAVE_DOWNGRADE_BLOCKED" });
     }
     if (candidate.revision < current.value.revision) {
       return failure(STORAGE_ERROR_CODES.SAVE_SCHEMA, {

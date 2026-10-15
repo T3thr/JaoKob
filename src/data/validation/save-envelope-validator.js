@@ -11,7 +11,10 @@
  * Trace: FR-SAV-001, FR-SAV-003, FR-SAV-004, NFR-SE-002.
  */
 
-export const CURRENT_SAVE_FORMAT_VERSION = 1;
+import { validatePouch } from "../../core/domain/keepsake-pouch.js";
+
+export const CURRENT_SAVE_FORMAT_VERSION = 2;
+export const SUPPORTED_SAVE_FORMAT_VERSIONS = Object.freeze([1, 2]);
 
 const MAX_SAFE_REVISION = Number.MAX_SAFE_INTEGER;
 const IDENTIFIER_PATTERN = /^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$/;
@@ -84,7 +87,7 @@ function validateEnvelope(value, path, ancestors) {
   );
   if (recordIssue !== null) return recordIssue;
 
-  if (value.saveFormatVersion !== CURRENT_SAVE_FORMAT_VERSION) {
+  if (!SUPPORTED_SAVE_FORMAT_VERSIONS.includes(value.saveFormatVersion)) {
     return invalid(`${path}.saveFormatVersion`, "UNSUPPORTED_SAVE_FORMAT");
   }
   if (!isSemanticVersion(value.contentVersion)) {
@@ -103,7 +106,7 @@ function validateEnvelope(value, path, ancestors) {
     return invalid(`${path}.reason`, "UNKNOWN_SAVE_REASON");
   }
 
-  const payloadIssue = validatePayload(value.payload, `${path}.payload`, ancestors);
+  const payloadIssue = validatePayload(value.payload, `${path}.payload`, ancestors, value.saveFormatVersion);
   if (payloadIssue !== null) return payloadIssue;
 
   const settingsIssue = validateSettings(value.settings, `${path}.settings`, ancestors);
@@ -115,7 +118,7 @@ function validateEnvelope(value, path, ancestors) {
   return null;
 }
 
-function validatePayload(value, path, ancestors) {
+function validatePayload(value, path, ancestors, format) {
   const recordIssue = validateRecord(
     value,
     path,
@@ -133,6 +136,7 @@ function validatePayload(value, path, ancestors) {
       "progress",
       "history",
       "rng",
+      ...(format === 2 ? ["pouch"] : []),
     ],
     [],
     ancestors,
@@ -159,7 +163,8 @@ function validatePayload(value, path, ancestors) {
   }
 
   const validators = [
-    () => validateCheckpoint(value.checkpoint, `${path}.checkpoint`, ancestors),
+    () => validateCheckpoint(value.checkpoint, `${path}.checkpoint`, ancestors, format),
+    () => format === 2 ? pouchIssue(value.pouch, `${path}.pouch`) : null,
     () => validateMetrics(value.metrics, `${path}.metrics`, ancestors),
     () => validateArray(value.flags, `${path}.flags`, 5000, validateFlag, ancestors),
     () => validateArray(
@@ -176,7 +181,7 @@ function validatePayload(value, path, ancestors) {
   return firstIssue(validators);
 }
 
-function validateCheckpoint(value, path, ancestors) {
+function validateCheckpoint(value, path, ancestors, format) {
   const recordIssue = validateRecord(
     value,
     path,
@@ -190,6 +195,7 @@ function validateCheckpoint(value, path, ancestors) {
       "flags",
       "eventOccurrences",
       "rng",
+      ...(format === 2 ? ["pouch"] : []),
     ],
     [],
     ancestors,
@@ -207,6 +213,7 @@ function validateCheckpoint(value, path, ancestors) {
   }
 
   return firstIssue([
+    () => format === 2 ? pouchIssue(value.pouch, `${path}.pouch`) : null,
     () => validateMetrics(value.metrics, `${path}.metrics`, ancestors),
     () => validateArray(value.flags, `${path}.flags`, 5000, validateFlag, ancestors),
     () => validateArray(
@@ -218,6 +225,11 @@ function validateCheckpoint(value, path, ancestors) {
     ),
     () => validateRng(value.rng, `${path}.rng`, ancestors),
   ]);
+}
+
+function pouchIssue(value, path) {
+  const checked = validatePouch(value);
+  return checked.valid ? null : invalid(path, checked.issue.reason);
 }
 
 function validateMetrics(value, path, ancestors) {

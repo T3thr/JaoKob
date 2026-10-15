@@ -1,0 +1,573 @@
+TAP version 13
+# Subtest: TC-S4-POUCH-001 exactly four slots, clone and deeply frozen restore
+ok 1 - TC-S4-POUCH-001 exactly four slots, clone and deeply frozen restore
+  ---
+  duration_ms: 7.981416
+  type: 'test'
+  ...
+# Subtest: TC-S4-POUCH-001 collect 0→4 in order, fifth never drops or records
+ok 2 - TC-S4-POUCH-001 collect 0→4 in order, fifth never drops or records
+  ---
+  duration_ms: 1.185834
+  type: 'test'
+  ...
+# Subtest: TC-S4-POUCH-001 refusal records remembered but neither acquired nor released
+ok 3 - TC-S4-POUCH-001 refusal records remembered but neither acquired nor released
+  ---
+  duration_ms: 1.007375
+  type: 'test'
+  ...
+# Subtest: TC-S4-POUCH-001 release preserves acquisition and memory, no recollection
+ok 4 - TC-S4-POUCH-001 release preserves acquisition and memory, no recollection
+  ---
+  duration_ms: 0.655875
+  type: 'test'
+  ...
+# Subtest: TC-S4-POUCH-001 use preserves acquisition and memory, no recollection
+ok 5 - TC-S4-POUCH-001 use preserves acquisition and memory, no recollection
+  ---
+  duration_ms: 0.382
+  type: 'test'
+  ...
+# Subtest: TC-S4-POUCH-001 replacement is atomic and retains the exact selected slot
+ok 6 - TC-S4-POUCH-001 replacement is atomic and retains the exact selected slot
+  ---
+  duration_ms: 0.560917
+  type: 'test'
+  ...
+# Subtest: TC-S4-POUCH-001 rejects malformed ID null
+ok 7 - TC-S4-POUCH-001 rejects malformed ID null
+  ---
+  duration_ms: 0.149042
+  type: 'test'
+  ...
+# Subtest: TC-S4-POUCH-001 rejects malformed ID undefined
+ok 8 - TC-S4-POUCH-001 rejects malformed ID undefined
+  ---
+  duration_ms: 0.257833
+  type: 'test'
+  ...
+# Subtest: TC-S4-POUCH-001 rejects malformed ID {}
+ok 9 - TC-S4-POUCH-001 rejects malformed ID {}
+  ---
+  duration_ms: 0.3555
+  type: 'test'
+  ...
+# Subtest: TC-S4-POUCH-001 rejects malformed ID {"id":"item__bad"}
+ok 10 - TC-S4-POUCH-001 rejects malformed ID {"id":"item__bad"}
+  ---
+  duration_ms: 0.220584
+  type: 'test'
+  ...
+# Subtest: TC-S4-POUCH-001 rejects malformed ID "Item_leaf"
+ok 11 - TC-S4-POUCH-001 rejects malformed ID "Item_leaf"
+  ---
+  duration_ms: 0.138667
+  type: 'test'
+  ...
+# Subtest: TC-S4-POUCH-001 rejects malformed ID "item_../leaf"
+ok 12 - TC-S4-POUCH-001 rejects malformed ID "item_../leaf"
+  ---
+  duration_ms: 0.291375
+  type: 'test'
+  ...
+# Subtest: TC-S4-POUCH-001 rejects malformed ID "item_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+ok 13 - TC-S4-POUCH-001 rejects malformed ID "item_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  ---
+  duration_ms: 0.860834
+  type: 'test'
+  ...
+# Subtest: TC-S4-POUCH-001 rejects malformed ID 3
+ok 14 - TC-S4-POUCH-001 rejects malformed ID 3
+  ---
+  duration_ms: 0.196125
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 rejects capacity three
+ok 15 - TC-S4-CONTRACT-001 rejects capacity three
+  ---
+  duration_ms: 0.283916
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 rejects capacity five
+ok 16 - TC-S4-CONTRACT-001 rejects capacity five
+  ---
+  duration_ms: 0.066708
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 rejects unknown field
+ok 17 - TC-S4-CONTRACT-001 rejects unknown field
+  ---
+  duration_ms: 0.044042
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 rejects missing field
+ok 18 - TC-S4-CONTRACT-001 rejects missing field
+  ---
+  duration_ms: 0.041375
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 rejects null list
+ok 19 - TC-S4-CONTRACT-001 rejects null list
+  ---
+  duration_ms: 0.042292
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 rejects sparse list
+ok 20 - TC-S4-CONTRACT-001 rejects sparse list
+  ---
+  duration_ms: 0.044625
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 rejects duplicate
+ok 21 - TC-S4-CONTRACT-001 rejects duplicate
+  ---
+  duration_ms: 0.052584
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 rejects overcapacity
+ok 22 - TC-S4-CONTRACT-001 rejects overcapacity
+  ---
+  duration_ms: 0.0395
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 rejects held unacquired
+ok 23 - TC-S4-CONTRACT-001 rejects held unacquired
+  ---
+  duration_ms: 0.111417
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 rejects acquired without ownership
+ok 24 - TC-S4-CONTRACT-001 rejects acquired without ownership
+  ---
+  duration_ms: 0.054458
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 rejects released unacquired
+ok 25 - TC-S4-CONTRACT-001 rejects released unacquired
+  ---
+  duration_ms: 0.042916
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 rejects unexplained memory
+ok 26 - TC-S4-CONTRACT-001 rejects unexplained memory
+  ---
+  duration_ms: 0.045
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 rejects unknown refusal token
+ok 27 - TC-S4-CONTRACT-001 rejects unknown refusal token
+  ---
+  duration_ms: 0.042291
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 rejects refusal not remembered
+ok 28 - TC-S4-CONTRACT-001 rejects refusal not remembered
+  ---
+  duration_ms: 0.045875
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 rejects invalid refusal
+ok 29 - TC-S4-CONTRACT-001 rejects invalid refusal
+  ---
+  duration_ms: 0.044916
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 rejects pouch shape null
+ok 30 - TC-S4-CONTRACT-001 rejects pouch shape null
+  ---
+  duration_ms: 0.024875
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 rejects pouch shape []
+ok 31 - TC-S4-CONTRACT-001 rejects pouch shape []
+  ---
+  duration_ms: 0.0195
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 rejects pouch shape 4
+ok 32 - TC-S4-CONTRACT-001 rejects pouch shape 4
+  ---
+  duration_ms: 0.017625
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 rejects pouch shape "pouch"
+ok 33 - TC-S4-CONTRACT-001 rejects pouch shape "pouch"
+  ---
+  duration_ms: 0.017875
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 acquired is remembered, refusal and ownership never overlap
+ok 34 - TC-S4-CONTRACT-001 acquired is remembered, refusal and ownership never overlap
+  ---
+  duration_ms: 0.124
+  type: 'test'
+  ...
+# Subtest: TC-S4-POUCH-001 bounded memory permits 128 encounters and rejects the next unchanged
+ok 35 - TC-S4-POUCH-001 bounded memory permits 128 encounters and rejects the next unchanged
+  ---
+  duration_ms: 22.942917
+  type: 'test'
+  ...
+# Subtest: TC-S4-POUCH-001 deterministic replay of mixed operations preserves invariants
+ok 36 - TC-S4-POUCH-001 deterministic replay of mixed operations preserves invariants
+  ---
+  duration_ms: 0.959792
+  type: 'test'
+  ...
+# Subtest: TC-S4-STATE-001 application rejects stale without snapshot changes
+ok 37 - TC-S4-STATE-001 application rejects stale without snapshot changes
+  ---
+  duration_ms: 0.916958
+  type: 'test'
+  ...
+# Subtest: TC-S4-STATE-001 application rejects unsafe without snapshot changes
+ok 38 - TC-S4-STATE-001 application rejects unsafe without snapshot changes
+  ---
+  duration_ms: 0.390208
+  type: 'test'
+  ...
+# Subtest: TC-S4-STATE-001 application rejects other node without snapshot changes
+ok 39 - TC-S4-STATE-001 application rejects other node without snapshot changes
+  ---
+  duration_ms: 0.2895
+  type: 'test'
+  ...
+# Subtest: TC-S4-STATE-001 application rejects reading without snapshot changes
+ok 40 - TC-S4-STATE-001 application rejects reading without snapshot changes
+  ---
+  duration_ms: 0.105625
+  type: 'test'
+  ...
+# Subtest: TC-S4-STATE-001 application rejects unknown offer without snapshot changes
+ok 41 - TC-S4-STATE-001 application rejects unknown offer without snapshot changes
+  ---
+  duration_ms: 0.078458
+  type: 'test'
+  ...
+# Subtest: TC-S4-STATE-001 application rejects unknown item without snapshot changes
+ok 42 - TC-S4-STATE-001 application rejects unknown item without snapshot changes
+  ---
+  duration_ms: 0.072583
+  type: 'test'
+  ...
+# Subtest: TC-S4-STATE-001 application rejects unknown old item without snapshot changes
+ok 43 - TC-S4-STATE-001 application rejects unknown old item without snapshot changes
+  ---
+  duration_ms: 0.070791
+  type: 'test'
+  ...
+# Subtest: TC-S4-STATE-001 application rejects wrong offer item without snapshot changes
+ok 44 - TC-S4-STATE-001 application rejects wrong offer item without snapshot changes
+  ---
+  duration_ms: 0.196
+  type: 'test'
+  ...
+# Subtest: TC-S4-STATE-001 application rejects forbidden action without snapshot changes
+ok 45 - TC-S4-STATE-001 application rejects forbidden action without snapshot changes
+  ---
+  duration_ms: 0.074625
+  type: 'test'
+  ...
+# Subtest: TC-S4-STATE-001 application rejects no offer without snapshot changes
+ok 46 - TC-S4-STATE-001 application rejects no offer without snapshot changes
+  ---
+  duration_ms: 0.068
+  type: 'test'
+  ...
+# Subtest: TC-S4-STATE-001 atomic guarded replacement, double input and no stat reward
+ok 47 - TC-S4-STATE-001 atomic guarded replacement, double input and no stat reward
+  ---
+  duration_ms: 0.514958
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 exact/idempotent migration every legacy page mother/call-family/keep-fragment
+ok 48 - TC-S4-SAVE-001 exact/idempotent migration every legacy page mother/call-family/keep-fragment
+  ---
+  duration_ms: 229.006416
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 exact/idempotent migration every legacy page mother/call-family/release-fragment
+ok 49 - TC-S4-SAVE-001 exact/idempotent migration every legacy page mother/call-family/release-fragment
+  ---
+  duration_ms: 95.599167
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 exact/idempotent migration every legacy page mother/seek-safety/keep-fragment
+ok 50 - TC-S4-SAVE-001 exact/idempotent migration every legacy page mother/seek-safety/keep-fragment
+  ---
+  duration_ms: 72.406667
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 exact/idempotent migration every legacy page mother/seek-safety/release-fragment
+ok 51 - TC-S4-SAVE-001 exact/idempotent migration every legacy page mother/seek-safety/release-fragment
+  ---
+  duration_ms: 74.488375
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 exact/idempotent migration every legacy page roots/call-family/keep-fragment
+ok 52 - TC-S4-SAVE-001 exact/idempotent migration every legacy page roots/call-family/keep-fragment
+  ---
+  duration_ms: 68.993125
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 exact/idempotent migration every legacy page roots/call-family/release-fragment
+ok 53 - TC-S4-SAVE-001 exact/idempotent migration every legacy page roots/call-family/release-fragment
+  ---
+  duration_ms: 54.328667
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 exact/idempotent migration every legacy page roots/seek-safety/keep-fragment
+ok 54 - TC-S4-SAVE-001 exact/idempotent migration every legacy page roots/seek-safety/keep-fragment
+  ---
+  duration_ms: 72.883625
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 exact/idempotent migration every legacy page roots/seek-safety/release-fragment
+ok 55 - TC-S4-SAVE-001 exact/idempotent migration every legacy page roots/seek-safety/release-fragment
+  ---
+  duration_ms: 91.965
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 exact/idempotent migration every legacy page siblings/call-family/keep-fragment
+ok 56 - TC-S4-SAVE-001 exact/idempotent migration every legacy page siblings/call-family/keep-fragment
+  ---
+  duration_ms: 59.849208
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 exact/idempotent migration every legacy page siblings/call-family/release-fragment
+ok 57 - TC-S4-SAVE-001 exact/idempotent migration every legacy page siblings/call-family/release-fragment
+  ---
+  duration_ms: 72.531833
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 exact/idempotent migration every legacy page siblings/seek-safety/keep-fragment
+ok 58 - TC-S4-SAVE-001 exact/idempotent migration every legacy page siblings/seek-safety/keep-fragment
+  ---
+  duration_ms: 50.969708
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 exact/idempotent migration every legacy page siblings/seek-safety/release-fragment
+ok 59 - TC-S4-SAVE-001 exact/idempotent migration every legacy page siblings/seek-safety/release-fragment
+  ---
+  duration_ms: 45.594292
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 active held leaf and older empty checkpoint map independently
+ok 60 - TC-S4-SAVE-001 active held leaf and older empty checkpoint map independently
+  ---
+  duration_ms: 2.485917
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 literal hasLeaf alias is unambiguous; production catalog still rejects unknown flags
+ok 61 - TC-S4-SAVE-001 literal hasLeaf alias is unambiguous; production catalog still rejects unknown flags
+  ---
+  duration_ms: 2.145583
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 protects future format
+ok 62 - TC-S4-SAVE-001 protects future format
+  ---
+  duration_ms: 1.625708
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 protects unknown content
+ok 63 - TC-S4-SAVE-001 protects unknown content
+  ---
+  duration_ms: 2.580708
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 protects prior content requires first step
+ok 64 - TC-S4-SAVE-001 protects prior content requires first step
+  ---
+  duration_ms: 1.917
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 protects source digest
+ok 65 - TC-S4-SAVE-001 protects source digest
+  ---
+  duration_ms: 1.943917
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 protects unknown payload field
+ok 66 - TC-S4-SAVE-001 protects unknown payload field
+  ---
+  duration_ms: 4.077125
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 protects missing checkpoint
+ok 67 - TC-S4-SAVE-001 protects missing checkpoint
+  ---
+  duration_ms: 2.420292
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 protects missing active leaf
+ok 68 - TC-S4-SAVE-001 protects missing active leaf
+  ---
+  duration_ms: 2.411375
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 protects bad checkpoint leaf
+ok 69 - TC-S4-SAVE-001 protects bad checkpoint leaf
+  ---
+  duration_ms: 5.047833
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 protects literal alias not in published save ID grammar
+ok 70 - TC-S4-SAVE-001 protects literal alias not in published save ID grammar
+  ---
+  duration_ms: 2.192458
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 protects non JSON number
+ok 71 - TC-S4-SAVE-001 protects non JSON number
+  ---
+  duration_ms: 3.119792
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 protects cycle
+ok 72 - TC-S4-SAVE-001 protects cycle
+  ---
+  duration_ms: 2.483041
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-001 protects accessor
+ok 73 - TC-S4-SAVE-001 protects accessor
+  ---
+  duration_ms: 3.250875
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 Save 2 rejects missing active pouch, never repairs to empty
+ok 74 - TC-S4-CONTRACT-001 Save 2 rejects missing active pouch, never repairs to empty
+  ---
+  duration_ms: 4.689875
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 Save 2 rejects missing checkpoint pouch, never repairs to empty
+ok 75 - TC-S4-CONTRACT-001 Save 2 rejects missing checkpoint pouch, never repairs to empty
+  ---
+  duration_ms: 3.808875
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 Save 2 rejects null pouch, never repairs to empty
+ok 76 - TC-S4-CONTRACT-001 Save 2 rejects null pouch, never repairs to empty
+  ---
+  duration_ms: 4.226208
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 Save 2 rejects bad capacity, never repairs to empty
+ok 77 - TC-S4-CONTRACT-001 Save 2 rejects bad capacity, never repairs to empty
+  ---
+  duration_ms: 2.158459
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 Save 2 rejects duplicate slots, never repairs to empty
+ok 78 - TC-S4-CONTRACT-001 Save 2 rejects duplicate slots, never repairs to empty
+  ---
+  duration_ms: 1.801584
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 Save 2 rejects extra field, never repairs to empty
+ok 79 - TC-S4-CONTRACT-001 Save 2 rejects extra field, never repairs to empty
+  ---
+  duration_ms: 2.946208
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-002 round trip retains released memory and independent checkpoint
+ok 80 - TC-S4-SAVE-002 round trip retains released memory and independent checkpoint
+  ---
+  duration_ms: 7.466417
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-002 migration/recovery is read-only; accepted writes back up exact legacy bytes
+ok 81 - TC-S4-SAVE-002 migration/recovery is read-only; accepted writes back up exact legacy bytes
+  ---
+  duration_ms: 7.578708
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-002 quota at staging preserves legacy canonical and recoverable candidate
+ok 82 - TC-S4-SAVE-002 quota at staging preserves legacy canonical and recoverable candidate
+  ---
+  duration_ms: 3.595708
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-002 quota at backup preserves legacy canonical and recoverable candidate
+ok 83 - TC-S4-SAVE-002 quota at backup preserves legacy canonical and recoverable candidate
+  ---
+  duration_ms: 4.090167
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-002 quota at canonical preserves legacy canonical and recoverable candidate
+ok 84 - TC-S4-SAVE-002 quota at canonical preserves legacy canonical and recoverable candidate
+  ---
+  duration_ms: 4.729083
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-002 mixed protected record prevents any Save 2 write {corrupt
+ok 85 - TC-S4-SAVE-002 mixed protected record prevents any Save 2 write {corrupt
+  ---
+  duration_ms: 1.962709
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-002 mixed protected record prevents any Save 2 write {"saveFormatVersion":3,"co
+ok 86 - TC-S4-SAVE-002 mixed protected record prevents any Save 2 write {"saveFormatVersion":3,"co
+  ---
+  duration_ms: 1.728083
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-002 mixed protected record prevents any Save 2 write {"saveFormatVersion":2,"co
+ok 87 - TC-S4-SAVE-002 mixed protected record prevents any Save 2 write {"saveFormatVersion":2,"co
+  ---
+  duration_ms: 4.542375
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-002 late future record blocks commit after staging
+ok 88 - TC-S4-SAVE-002 late future record blocks commit after staging
+  ---
+  duration_ms: 4.304208
+  type: 'test'
+  ...
+# Subtest: TC-S4-SAVE-002 Save 2 can never be downgraded by a higher-revision Save 1 writer
+ok 89 - TC-S4-SAVE-002 Save 2 can never be downgraded by a higher-revision Save 1 writer
+  ---
+  duration_ms: 6.754
+  type: 'test'
+  ...
+# Subtest: TC-S4-CONTRACT-001 unknown item and historical leaf mismatch fail semantic admission
+ok 90 - TC-S4-CONTRACT-001 unknown item and historical leaf mismatch fail semantic admission
+  ---
+  duration_ms: 2.212708
+  type: 'test'
+  ...
+# Subtest: TC-S4-RETRY-001 checkpoint restores held/memory independently without changing settings
+ok 91 - TC-S4-RETRY-001 checkpoint restores held/memory independently without changing settings
+  ---
+  duration_ms: 3.868542
+  type: 'test'
+  ...
+1..91
+# tests 91
+# suites 0
+# pass 91
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1289.767834
+# start of coverage report
+# ------------------------------------------------------------------------
+# file                    | line % | branch % | funcs % | uncovered lines
+# ------------------------------------------------------------------------
+# src                     |        |          |         |
+#  core                   |        |          |         |
+#   domain                |        |          |         |
+#    keepsake-pouch.js    | 100.00 |   100.00 |  100.00 |
+#   use-cases             |        |          |         |
+#    pouch-transaction.js | 100.00 |    96.55 |  100.00 |
+#  data                   |        |          |         |
+#   persistence           |        |          |         |
+#    save-1-to-2.js       | 100.00 |    96.30 |  100.00 |
+# ------------------------------------------------------------------------
+# all files               | 100.00 |    98.57 |  100.00 |
+# ------------------------------------------------------------------------
+# end of coverage report

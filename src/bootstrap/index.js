@@ -6,10 +6,11 @@ import { loadGameContent } from "../data/content/content-runtime.js";
 import { projectContentView } from "../data/content/content-view-model.js";
 import { projectContentPresentation } from "../data/content/content-presentation.js";
 import { createContentVersionMigration } from "../data/migrations/content-2-0-0-to-2-1-0.js";
+import { migrateSave1To2 } from "../data/persistence/save-1-to-2.js";
 import { TH_APPLICATION as messages } from "../data/localization/th-application.js";
 import { createLocalStorageAdapter, createLocalSettingsAdapter } from "../data/persistence/local-storage-adapter.js";
 import { createLocalUiPreferencesAdapter, DEFAULT_UI_PREFERENCES } from "../data/persistence/local-ui-preferences-adapter.js";
-import { validateSaveEnvelope, validateGameSettings, CURRENT_SAVE_FORMAT_VERSION } from "../data/validation/save-envelope-validator.js";
+import { validateGameSettings, CURRENT_SAVE_FORMAT_VERSION } from "../data/validation/save-envelope-validator.js";
 import { deepFreeze } from "../data/validation/content-values.js";
 import { createDomRenderer } from "../ui/renderers/dom/dom-renderer.js";
 import { createMediaComposition } from "./media-composition.js";
@@ -37,7 +38,7 @@ export function createGameApplication(options = {}) {
   let memoryOnly = false, fatal = false, booted = false, busy = false, lastViewModel = null;
   let viewRevision = 0, revisionFloor = 0, lastAt = null, operation = Promise.resolve();
   let migration = null, migrationAttempted = false, mediaRefreshPending = false, disposed = false;
-  let preferences = DEFAULT_UI_PREFERENCES, advisoryOpen = false, preferenceStatusText = "";
+  let preferences = DEFAULT_UI_PREFERENCES, advisoryOpen = false, pouchOpen = false, preferenceStatusText = "";
   let requestedSettingsFocus = null;
   let requestedChoiceFocus = null, audibleMaster = 1, feedbackEventId = null;
 
@@ -95,18 +96,27 @@ export function createGameApplication(options = {}) {
     if (projectMedia) media.accept({ ...projectContentPresentation({ loaded, snapshot, facts, settings, mode }), facts });
     lastViewModel = projectContentView({ loaded, snapshot, facts,
       settings, notice, feedbackActionId, feedbackEventId, meterChanges, mode, hasResume: Boolean(resumeEnvelope), memoryResume: memoryOnly,
-      confirmation, preferences, advisoryOpen, preferenceStatusText, focusSetting: requestedSettingsFocus, viewRevision: ++viewRevision, ...media.status() });
+      confirmation, preferences, advisoryOpen, pouchOpen, pouchOpportunity: snapshot ? orchestrator.pouchOpportunity(snapshot) : null,
+      preferenceStatusText, focusSetting: requestedSettingsFocus, viewRevision: ++viewRevision, ...media.status() });
     requestedSettingsFocus = null;
     const result = await invoke(renderer, "render", lastViewModel);
     if (!result.ok) return presentFatal("RENDER_FAILURE");
     await invoke(renderer, "announce", { text: [lastViewModel.feedback, notice].filter(Boolean).join(" "), meterChanges: lastViewModel.meterChanges });
     return success();
   }
-  function compatible(envelope) {
-    if (migration && envelope.contentVersion !== loaded.catalog.version) return migration.canReplaceExisting(envelope);
-    return validateSaveEnvelope(envelope).valid && envelope.contentVersion === loaded.catalog.version
-      && orchestrator.validateSnapshot({ ...envelope.payload, revision: envelope.revision }).ok;
+  function prepareEnvelope(envelope) {
+    if (envelope.contentVersion !== loaded.catalog.version) {
+      if (!migration || envelope.saveFormatVersion !== 1) return failure("SAVE_MIGRATION");
+      const prior = migration.migrate(envelope);
+      if (!prior.ok) return prior;
+      envelope = prior.value.envelope;
+    }
+    const result = migrateSave1To2(envelope);
+    if (!result.ok) return result;
+    const target = result.value.envelope;
+    return orchestrator.validateSnapshot({ ...target.payload, revision: target.revision }).ok ? result : failure("SAVE_MIGRATION");
   }
+  function compatible(envelope) { return prepareEnvelope(envelope).ok; }
   async function prepareMigration(candidates) {
     if (migrationAttempted || loaded.catalog.version !== "2.1.0" || !candidates.some((item) => item.envelope.contentVersion === "2.0.0")) return;
     migrationAttempted = true;
@@ -134,7 +144,7 @@ export function createGameApplication(options = {}) {
     // or newer incompatible record without a separate player decision.
     if (protectedRecords) { memoryOnly = true; notice = candidate ? messages.recoveredMemory : messages.protected; }
     if (candidate && !resumeEnvelope) {
-      resumeEnvelope = candidate.envelope.contentVersion === loaded.catalog.version ? candidate.envelope : migration.migrate(candidate.envelope).value.envelope;
+      resumeEnvelope = prepareEnvelope(candidate.envelope).value.envelope;
       settings = { ...resumeEnvelope.settings };
       if (!protectedRecords) notice = messages.recovered;
     }
@@ -191,7 +201,8 @@ export function createGameApplication(options = {}) {
     if (booted) return failure("ALREADY_BOOTED");
     loaded = await loadGameContent(options);
     if (!loaded.valid) return presentFatal(loaded.errors[0].code);
-    orchestrator = createContentOrchestrator(loaded.catalog);
+    if (!loaded.catalog.pouchPolicy) return presentFatal("CONTENT_CAPABILITY");
+    orchestrator = createContentOrchestrator(loaded.catalog, { pouchEnabled: true });
     settings = { ...loaded.catalog.defaults.settings };
     void media.initialize(loaded);
     const admission = planGameStateTransition({ snapshot: null, event: "BOOT_COMPLETED", context: { contentValid: true, applicationComposed: true } });
@@ -248,9 +259,19 @@ export function createGameApplication(options = {}) {
       return booted && loaded?.valid ? render() : bootInternal();
     }
     if (!booted || fatal) return failure("APPLICATION_UNAVAILABLE");
-    if (!["SELECT_CHOICE", "SETTINGS_CHANGED", "PREFERENCE_CHANGED"].includes(intent?.type)) return failure("INVALID_INTENT");
+    if (!["SELECT_CHOICE", "SETTINGS_CHANGED", "PREFERENCE_CHANGED", "POUCH_ACTION"].includes(intent?.type)) return failure("INVALID_INTENT");
     if ((intent.viewRevision !== undefined && intent.viewRevision !== viewRevision)
       || (intent.expectedRevision !== undefined && intent.expectedRevision !== (snapshot?.revision ?? 0))) return failure("REVISION_MISMATCH");
+    if (intent.type === "POUCH_ACTION") {
+      if (!pouchOpen || intent.confirmed !== true || !snapshot) return failure("INVALID_INTENT");
+      if (intent.expectedRevision !== snapshot.revision || intent.viewRevision !== viewRevision) return failure("REVISION_MISMATCH");
+      const next = { ...command(), action: intent.action, itemId: intent.itemId, oldItemId: intent.oldItemId, opportunityId: intent.opportunityId };
+      const result = orchestrator.pouchAction(snapshot, next);
+      if (!result.ok) return result;
+      pouchOpen = false;
+      return accept(result, next.at);
+    }
+    if (pouchOpen && !(intent.type === "SELECT_CHOICE" && intent.choiceId === "application.close-pouch")) return failure("INVALID_INTENT");
     if (intent.type === "PREFERENCE_CHANGED") {
       if (!advisoryOpen || intent.preference !== "hideContentAdvisory" || typeof intent.value !== "boolean") return failure("INVALID_INTENT");
       preferences = { hideContentAdvisory: intent.value };
@@ -301,6 +322,8 @@ export function createGameApplication(options = {}) {
         if (!orchestrator.facts(snapshot).complete) return failure("CONTENT_ACTION_UNAVAILABLE");
         snapshot = null; mode = "title"; feedbackActionId = null; meterChanges = []; return render();
       case "application.settings": mode = "settings"; return render();
+      case "application.pouch": pouchOpen = true; return render(false);
+      case "application.close-pouch": pouchOpen = false; return render(false);
       case "application.advisory": advisoryOpen = true; return render();
       case "application.close-advisory": advisoryOpen = false; return render();
       case "application.enable-sound": {

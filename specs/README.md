@@ -17,10 +17,25 @@
 | `schemas/v1.1.0/narrative-tree.schema.json` | opt-in tree 1.1 ที่มี Act 1 resting Cutscene completion แทน outgoing target ตาม CR-0002 D1 |
 | `schemas/v1.2.0/content-package.schema.json` | opt-in package 1.2 ใช้ sibling tree 1.2; nested catalogs ยังคง 1.0 ตาม CR-0003 D1 |
 | `schemas/v1.2.0/narrative-tree.schema.json` | optional environment สำหรับ cutscene/exploration/decision; ห้ามใช้พร้อม legacy exploration background |
+| `schemas/v2.0.0/pouch.schema.json` | ADR-P0-020: four held slots, bounded acquired/released/remembered/refusal memory; cross-set invariants validated by pure Core |
+| `schemas/v2.0.0/save-state.schema.json` | SaveFormatVersion2 with required independent pouch in payload/checkpoint; published root Save1 remains frozen |
 
 ชื่อจริงของไฟล์ให้ยึดตามไฟล์ใน `schemas/` หากต่างจาก catalog นี้ และต้องอัปเดต catalog ใน change เดียวกัน
 
 Canonical `$id` ใช้ namespace `https://t3thr.github.io/JaoKob/specs/schemas/` เพื่อเป็น stable identifier ของ schema การ validate ในเครื่องต้องใช้ local catalog mapping และไม่ควรต้อง fetch schema ผ่าน network
+
+## Slice 2 save compatibility (ADR-P0-020 / PR #14)
+
+| Read/write contract | Disposition |
+|---|---|
+| Format1/content2.0 | Reviewed exact content2.0→2.1 migration first, then format1→2 |
+| Format1/content2.1 | Pure `save-1-to-2.js`; active/checkpoint historical leaf mapped independently; exact cursor retained |
+| Format2/content2.1 | Current writer; strict new schema plus domain/catalog checks; identity/idempotent restore |
+| Content3/future format/unverified legacy digest/corrupt | Preserve raw records; read-only recovery/memory session or explicit new-game consent; no guessed migration/downgrade |
+
+Current package/tree remain schema1.2/content2.1. New package/tree2.0/content3 narrative/secret contracts are future T7/T9/T10 work. `validateSaveEnvelope` mirrors both published save versions without a runtime dependency; it does not silently repair a bag. Structural JSON Schema checks are supplemented by pure cross-set/causal invariants and registry validation. Save2 cannot be overwritten by a higher-revision Save1 candidate. See [Slice2 contract](../docs/design-system/keepsake-pouch-contract.md) and [evidence](../tests/e2e/evidence/sprint-04/slice-02/README.md).
+
+Independent development check: `JKB_AJV_PATH=/absolute/path/to/ajv/dist/2020.js node tests/schema/pouch-reference.mjs`. It checks13 metaschemas, local references and47 new structural/semantic fixtures; the existing presentation reference runner retains11/36 checks. Format/date, migration, untrusted JSON and content references remain unit-test gates.
 
 Task 1 มี [Content Validator](../src/data/validation/content-validator.js) และ [Loader](../src/data/content/content-loader.js) พร้อม [ADR-P0-013](../docs/adr/ADR-P0-013-content-validation-contract.md) เป็น execution contract: local `$ref` resolve จาก [runtime catalog](../src/data/validation/content-schema-catalog.js) ซึ่งทดสอบ deep equality กับไฟล์ต้นฉบับทุกฉบับ ไม่ fetch `specs/` ในตัวเกม และไม่ใช้ npm validator
 

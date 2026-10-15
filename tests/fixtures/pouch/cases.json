@@ -1,0 +1,1107 @@
+[
+  {
+    "name": "empty",
+    "value": {
+      "capacity": 4,
+      "held": [],
+      "acquired": [],
+      "released": [],
+      "remembered": [],
+      "memory": []
+    },
+    "schemaValid": true,
+    "domainValid": true
+  },
+  {
+    "name": "held",
+    "value": {
+      "capacity": 4,
+      "held": [
+        "item_leaf"
+      ],
+      "acquired": [
+        "item_leaf"
+      ],
+      "released": [],
+      "remembered": [
+        "item_leaf"
+      ],
+      "memory": []
+    },
+    "schemaValid": true,
+    "domainValid": true
+  },
+  {
+    "name": "released",
+    "value": {
+      "capacity": 4,
+      "held": [],
+      "acquired": [
+        "item_leaf"
+      ],
+      "released": [
+        "item_leaf"
+      ],
+      "remembered": [
+        "item_leaf"
+      ],
+      "memory": []
+    },
+    "schemaValid": true,
+    "domainValid": true
+  },
+  {
+    "name": "refused",
+    "value": {
+      "capacity": 4,
+      "held": [],
+      "acquired": [],
+      "released": [],
+      "remembered": [
+        "item_lotus_shell"
+      ],
+      "memory": [
+        "refused_lotus_shell"
+      ]
+    },
+    "schemaValid": true,
+    "domainValid": true
+  },
+  {
+    "name": "four slots",
+    "value": {
+      "capacity": 4,
+      "held": [
+        "item_leaf",
+        "item_dew_stone",
+        "item_lotus_shell",
+        "item_rain_petal"
+      ],
+      "acquired": [
+        "item_leaf",
+        "item_dew_stone",
+        "item_lotus_shell",
+        "item_rain_petal"
+      ],
+      "released": [],
+      "remembered": [
+        "item_leaf",
+        "item_dew_stone",
+        "item_lotus_shell",
+        "item_rain_petal"
+      ],
+      "memory": []
+    },
+    "schemaValid": true,
+    "domainValid": true
+  },
+  {
+    "name": "capacity 3",
+    "value": {
+      "capacity": 3,
+      "held": [],
+      "acquired": [],
+      "released": [],
+      "remembered": [],
+      "memory": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "capacity 5",
+    "value": {
+      "capacity": 5,
+      "held": [],
+      "acquired": [],
+      "released": [],
+      "remembered": [],
+      "memory": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "capacity null",
+    "value": {
+      "capacity": null,
+      "held": [],
+      "acquired": [],
+      "released": [],
+      "remembered": [],
+      "memory": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "capacity 4",
+    "value": {
+      "capacity": "4",
+      "held": [],
+      "acquired": [],
+      "released": [],
+      "remembered": [],
+      "memory": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "unknown property",
+    "value": {
+      "capacity": 4,
+      "held": [],
+      "acquired": [],
+      "released": [],
+      "remembered": [],
+      "memory": [],
+      "weight": 0
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "missing held",
+    "value": {
+      "capacity": 4,
+      "acquired": [],
+      "released": [],
+      "remembered": [],
+      "memory": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "null held",
+    "value": {
+      "capacity": 4,
+      "held": null,
+      "acquired": [],
+      "released": [],
+      "remembered": [],
+      "memory": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "duplicate held",
+    "value": {
+      "capacity": 4,
+      "held": [
+        "item_leaf",
+        "item_leaf"
+      ],
+      "acquired": [],
+      "released": [],
+      "remembered": [],
+      "memory": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "bounded held",
+    "value": {
+      "capacity": 4,
+      "held": [
+        "item_fixture_0",
+        "item_fixture_1",
+        "item_fixture_2",
+        "item_fixture_3",
+        "item_fixture_4"
+      ],
+      "acquired": [],
+      "released": [],
+      "remembered": [],
+      "memory": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "missing acquired",
+    "value": {
+      "capacity": 4,
+      "held": [],
+      "released": [],
+      "remembered": [],
+      "memory": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "null acquired",
+    "value": {
+      "capacity": 4,
+      "held": [],
+      "acquired": null,
+      "released": [],
+      "remembered": [],
+      "memory": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "duplicate acquired",
+    "value": {
+      "capacity": 4,
+      "held": [],
+      "acquired": [
+        "item_leaf",
+        "item_leaf"
+      ],
+      "released": [],
+      "remembered": [],
+      "memory": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "bounded acquired",
+    "value": {
+      "capacity": 4,
+      "held": [],
+      "acquired": [
+        "item_fixture_0",
+        "item_fixture_1",
+        "item_fixture_2",
+        "item_fixture_3",
+        "item_fixture_4",
+        "item_fixture_5",
+        "item_fixture_6",
+        "item_fixture_7",
+        "item_fixture_8",
+        "item_fixture_9",
+        "item_fixture_10",
+        "item_fixture_11",
+        "item_fixture_12",
+        "item_fixture_13",
+        "item_fixture_14",
+        "item_fixture_15",
+        "item_fixture_16",
+        "item_fixture_17",
+        "item_fixture_18",
+        "item_fixture_19",
+        "item_fixture_20",
+        "item_fixture_21",
+        "item_fixture_22",
+        "item_fixture_23",
+        "item_fixture_24",
+        "item_fixture_25",
+        "item_fixture_26",
+        "item_fixture_27",
+        "item_fixture_28",
+        "item_fixture_29",
+        "item_fixture_30",
+        "item_fixture_31",
+        "item_fixture_32",
+        "item_fixture_33",
+        "item_fixture_34",
+        "item_fixture_35",
+        "item_fixture_36",
+        "item_fixture_37",
+        "item_fixture_38",
+        "item_fixture_39",
+        "item_fixture_40",
+        "item_fixture_41",
+        "item_fixture_42",
+        "item_fixture_43",
+        "item_fixture_44",
+        "item_fixture_45",
+        "item_fixture_46",
+        "item_fixture_47",
+        "item_fixture_48",
+        "item_fixture_49",
+        "item_fixture_50",
+        "item_fixture_51",
+        "item_fixture_52",
+        "item_fixture_53",
+        "item_fixture_54",
+        "item_fixture_55",
+        "item_fixture_56",
+        "item_fixture_57",
+        "item_fixture_58",
+        "item_fixture_59",
+        "item_fixture_60",
+        "item_fixture_61",
+        "item_fixture_62",
+        "item_fixture_63",
+        "item_fixture_64",
+        "item_fixture_65",
+        "item_fixture_66",
+        "item_fixture_67",
+        "item_fixture_68",
+        "item_fixture_69",
+        "item_fixture_70",
+        "item_fixture_71",
+        "item_fixture_72",
+        "item_fixture_73",
+        "item_fixture_74",
+        "item_fixture_75",
+        "item_fixture_76",
+        "item_fixture_77",
+        "item_fixture_78",
+        "item_fixture_79",
+        "item_fixture_80",
+        "item_fixture_81",
+        "item_fixture_82",
+        "item_fixture_83",
+        "item_fixture_84",
+        "item_fixture_85",
+        "item_fixture_86",
+        "item_fixture_87",
+        "item_fixture_88",
+        "item_fixture_89",
+        "item_fixture_90",
+        "item_fixture_91",
+        "item_fixture_92",
+        "item_fixture_93",
+        "item_fixture_94",
+        "item_fixture_95",
+        "item_fixture_96",
+        "item_fixture_97",
+        "item_fixture_98",
+        "item_fixture_99",
+        "item_fixture_100",
+        "item_fixture_101",
+        "item_fixture_102",
+        "item_fixture_103",
+        "item_fixture_104",
+        "item_fixture_105",
+        "item_fixture_106",
+        "item_fixture_107",
+        "item_fixture_108",
+        "item_fixture_109",
+        "item_fixture_110",
+        "item_fixture_111",
+        "item_fixture_112",
+        "item_fixture_113",
+        "item_fixture_114",
+        "item_fixture_115",
+        "item_fixture_116",
+        "item_fixture_117",
+        "item_fixture_118",
+        "item_fixture_119",
+        "item_fixture_120",
+        "item_fixture_121",
+        "item_fixture_122",
+        "item_fixture_123",
+        "item_fixture_124",
+        "item_fixture_125",
+        "item_fixture_126",
+        "item_fixture_127",
+        "item_fixture_128"
+      ],
+      "released": [],
+      "remembered": [],
+      "memory": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "missing released",
+    "value": {
+      "capacity": 4,
+      "held": [],
+      "acquired": [],
+      "remembered": [],
+      "memory": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "null released",
+    "value": {
+      "capacity": 4,
+      "held": [],
+      "acquired": [],
+      "released": null,
+      "remembered": [],
+      "memory": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "duplicate released",
+    "value": {
+      "capacity": 4,
+      "held": [],
+      "acquired": [],
+      "released": [
+        "item_leaf",
+        "item_leaf"
+      ],
+      "remembered": [],
+      "memory": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "bounded released",
+    "value": {
+      "capacity": 4,
+      "held": [],
+      "acquired": [],
+      "released": [
+        "item_fixture_0",
+        "item_fixture_1",
+        "item_fixture_2",
+        "item_fixture_3",
+        "item_fixture_4",
+        "item_fixture_5",
+        "item_fixture_6",
+        "item_fixture_7",
+        "item_fixture_8",
+        "item_fixture_9",
+        "item_fixture_10",
+        "item_fixture_11",
+        "item_fixture_12",
+        "item_fixture_13",
+        "item_fixture_14",
+        "item_fixture_15",
+        "item_fixture_16",
+        "item_fixture_17",
+        "item_fixture_18",
+        "item_fixture_19",
+        "item_fixture_20",
+        "item_fixture_21",
+        "item_fixture_22",
+        "item_fixture_23",
+        "item_fixture_24",
+        "item_fixture_25",
+        "item_fixture_26",
+        "item_fixture_27",
+        "item_fixture_28",
+        "item_fixture_29",
+        "item_fixture_30",
+        "item_fixture_31",
+        "item_fixture_32",
+        "item_fixture_33",
+        "item_fixture_34",
+        "item_fixture_35",
+        "item_fixture_36",
+        "item_fixture_37",
+        "item_fixture_38",
+        "item_fixture_39",
+        "item_fixture_40",
+        "item_fixture_41",
+        "item_fixture_42",
+        "item_fixture_43",
+        "item_fixture_44",
+        "item_fixture_45",
+        "item_fixture_46",
+        "item_fixture_47",
+        "item_fixture_48",
+        "item_fixture_49",
+        "item_fixture_50",
+        "item_fixture_51",
+        "item_fixture_52",
+        "item_fixture_53",
+        "item_fixture_54",
+        "item_fixture_55",
+        "item_fixture_56",
+        "item_fixture_57",
+        "item_fixture_58",
+        "item_fixture_59",
+        "item_fixture_60",
+        "item_fixture_61",
+        "item_fixture_62",
+        "item_fixture_63",
+        "item_fixture_64",
+        "item_fixture_65",
+        "item_fixture_66",
+        "item_fixture_67",
+        "item_fixture_68",
+        "item_fixture_69",
+        "item_fixture_70",
+        "item_fixture_71",
+        "item_fixture_72",
+        "item_fixture_73",
+        "item_fixture_74",
+        "item_fixture_75",
+        "item_fixture_76",
+        "item_fixture_77",
+        "item_fixture_78",
+        "item_fixture_79",
+        "item_fixture_80",
+        "item_fixture_81",
+        "item_fixture_82",
+        "item_fixture_83",
+        "item_fixture_84",
+        "item_fixture_85",
+        "item_fixture_86",
+        "item_fixture_87",
+        "item_fixture_88",
+        "item_fixture_89",
+        "item_fixture_90",
+        "item_fixture_91",
+        "item_fixture_92",
+        "item_fixture_93",
+        "item_fixture_94",
+        "item_fixture_95",
+        "item_fixture_96",
+        "item_fixture_97",
+        "item_fixture_98",
+        "item_fixture_99",
+        "item_fixture_100",
+        "item_fixture_101",
+        "item_fixture_102",
+        "item_fixture_103",
+        "item_fixture_104",
+        "item_fixture_105",
+        "item_fixture_106",
+        "item_fixture_107",
+        "item_fixture_108",
+        "item_fixture_109",
+        "item_fixture_110",
+        "item_fixture_111",
+        "item_fixture_112",
+        "item_fixture_113",
+        "item_fixture_114",
+        "item_fixture_115",
+        "item_fixture_116",
+        "item_fixture_117",
+        "item_fixture_118",
+        "item_fixture_119",
+        "item_fixture_120",
+        "item_fixture_121",
+        "item_fixture_122",
+        "item_fixture_123",
+        "item_fixture_124",
+        "item_fixture_125",
+        "item_fixture_126",
+        "item_fixture_127",
+        "item_fixture_128"
+      ],
+      "remembered": [],
+      "memory": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "missing remembered",
+    "value": {
+      "capacity": 4,
+      "held": [],
+      "acquired": [],
+      "released": [],
+      "memory": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "null remembered",
+    "value": {
+      "capacity": 4,
+      "held": [],
+      "acquired": [],
+      "released": [],
+      "remembered": null,
+      "memory": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "duplicate remembered",
+    "value": {
+      "capacity": 4,
+      "held": [],
+      "acquired": [],
+      "released": [],
+      "remembered": [
+        "item_leaf",
+        "item_leaf"
+      ],
+      "memory": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "bounded remembered",
+    "value": {
+      "capacity": 4,
+      "held": [],
+      "acquired": [],
+      "released": [],
+      "remembered": [
+        "item_fixture_0",
+        "item_fixture_1",
+        "item_fixture_2",
+        "item_fixture_3",
+        "item_fixture_4",
+        "item_fixture_5",
+        "item_fixture_6",
+        "item_fixture_7",
+        "item_fixture_8",
+        "item_fixture_9",
+        "item_fixture_10",
+        "item_fixture_11",
+        "item_fixture_12",
+        "item_fixture_13",
+        "item_fixture_14",
+        "item_fixture_15",
+        "item_fixture_16",
+        "item_fixture_17",
+        "item_fixture_18",
+        "item_fixture_19",
+        "item_fixture_20",
+        "item_fixture_21",
+        "item_fixture_22",
+        "item_fixture_23",
+        "item_fixture_24",
+        "item_fixture_25",
+        "item_fixture_26",
+        "item_fixture_27",
+        "item_fixture_28",
+        "item_fixture_29",
+        "item_fixture_30",
+        "item_fixture_31",
+        "item_fixture_32",
+        "item_fixture_33",
+        "item_fixture_34",
+        "item_fixture_35",
+        "item_fixture_36",
+        "item_fixture_37",
+        "item_fixture_38",
+        "item_fixture_39",
+        "item_fixture_40",
+        "item_fixture_41",
+        "item_fixture_42",
+        "item_fixture_43",
+        "item_fixture_44",
+        "item_fixture_45",
+        "item_fixture_46",
+        "item_fixture_47",
+        "item_fixture_48",
+        "item_fixture_49",
+        "item_fixture_50",
+        "item_fixture_51",
+        "item_fixture_52",
+        "item_fixture_53",
+        "item_fixture_54",
+        "item_fixture_55",
+        "item_fixture_56",
+        "item_fixture_57",
+        "item_fixture_58",
+        "item_fixture_59",
+        "item_fixture_60",
+        "item_fixture_61",
+        "item_fixture_62",
+        "item_fixture_63",
+        "item_fixture_64",
+        "item_fixture_65",
+        "item_fixture_66",
+        "item_fixture_67",
+        "item_fixture_68",
+        "item_fixture_69",
+        "item_fixture_70",
+        "item_fixture_71",
+        "item_fixture_72",
+        "item_fixture_73",
+        "item_fixture_74",
+        "item_fixture_75",
+        "item_fixture_76",
+        "item_fixture_77",
+        "item_fixture_78",
+        "item_fixture_79",
+        "item_fixture_80",
+        "item_fixture_81",
+        "item_fixture_82",
+        "item_fixture_83",
+        "item_fixture_84",
+        "item_fixture_85",
+        "item_fixture_86",
+        "item_fixture_87",
+        "item_fixture_88",
+        "item_fixture_89",
+        "item_fixture_90",
+        "item_fixture_91",
+        "item_fixture_92",
+        "item_fixture_93",
+        "item_fixture_94",
+        "item_fixture_95",
+        "item_fixture_96",
+        "item_fixture_97",
+        "item_fixture_98",
+        "item_fixture_99",
+        "item_fixture_100",
+        "item_fixture_101",
+        "item_fixture_102",
+        "item_fixture_103",
+        "item_fixture_104",
+        "item_fixture_105",
+        "item_fixture_106",
+        "item_fixture_107",
+        "item_fixture_108",
+        "item_fixture_109",
+        "item_fixture_110",
+        "item_fixture_111",
+        "item_fixture_112",
+        "item_fixture_113",
+        "item_fixture_114",
+        "item_fixture_115",
+        "item_fixture_116",
+        "item_fixture_117",
+        "item_fixture_118",
+        "item_fixture_119",
+        "item_fixture_120",
+        "item_fixture_121",
+        "item_fixture_122",
+        "item_fixture_123",
+        "item_fixture_124",
+        "item_fixture_125",
+        "item_fixture_126",
+        "item_fixture_127",
+        "item_fixture_128"
+      ],
+      "memory": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "missing memory",
+    "value": {
+      "capacity": 4,
+      "held": [],
+      "acquired": [],
+      "released": [],
+      "remembered": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "null memory",
+    "value": {
+      "capacity": 4,
+      "held": [],
+      "acquired": [],
+      "released": [],
+      "remembered": [],
+      "memory": null
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "duplicate memory",
+    "value": {
+      "capacity": 4,
+      "held": [],
+      "acquired": [],
+      "released": [],
+      "remembered": [],
+      "memory": [
+        "refused_leaf",
+        "refused_leaf"
+      ]
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "bounded memory",
+    "value": {
+      "capacity": 4,
+      "held": [],
+      "acquired": [],
+      "released": [],
+      "remembered": [],
+      "memory": [
+        "refused_fixture_0",
+        "refused_fixture_1",
+        "refused_fixture_2",
+        "refused_fixture_3",
+        "refused_fixture_4",
+        "refused_fixture_5",
+        "refused_fixture_6",
+        "refused_fixture_7",
+        "refused_fixture_8",
+        "refused_fixture_9",
+        "refused_fixture_10",
+        "refused_fixture_11",
+        "refused_fixture_12",
+        "refused_fixture_13",
+        "refused_fixture_14",
+        "refused_fixture_15",
+        "refused_fixture_16",
+        "refused_fixture_17",
+        "refused_fixture_18",
+        "refused_fixture_19",
+        "refused_fixture_20",
+        "refused_fixture_21",
+        "refused_fixture_22",
+        "refused_fixture_23",
+        "refused_fixture_24",
+        "refused_fixture_25",
+        "refused_fixture_26",
+        "refused_fixture_27",
+        "refused_fixture_28",
+        "refused_fixture_29",
+        "refused_fixture_30",
+        "refused_fixture_31",
+        "refused_fixture_32",
+        "refused_fixture_33",
+        "refused_fixture_34",
+        "refused_fixture_35",
+        "refused_fixture_36",
+        "refused_fixture_37",
+        "refused_fixture_38",
+        "refused_fixture_39",
+        "refused_fixture_40",
+        "refused_fixture_41",
+        "refused_fixture_42",
+        "refused_fixture_43",
+        "refused_fixture_44",
+        "refused_fixture_45",
+        "refused_fixture_46",
+        "refused_fixture_47",
+        "refused_fixture_48",
+        "refused_fixture_49",
+        "refused_fixture_50",
+        "refused_fixture_51",
+        "refused_fixture_52",
+        "refused_fixture_53",
+        "refused_fixture_54",
+        "refused_fixture_55",
+        "refused_fixture_56",
+        "refused_fixture_57",
+        "refused_fixture_58",
+        "refused_fixture_59",
+        "refused_fixture_60",
+        "refused_fixture_61",
+        "refused_fixture_62",
+        "refused_fixture_63",
+        "refused_fixture_64",
+        "refused_fixture_65",
+        "refused_fixture_66",
+        "refused_fixture_67",
+        "refused_fixture_68",
+        "refused_fixture_69",
+        "refused_fixture_70",
+        "refused_fixture_71",
+        "refused_fixture_72",
+        "refused_fixture_73",
+        "refused_fixture_74",
+        "refused_fixture_75",
+        "refused_fixture_76",
+        "refused_fixture_77",
+        "refused_fixture_78",
+        "refused_fixture_79",
+        "refused_fixture_80",
+        "refused_fixture_81",
+        "refused_fixture_82",
+        "refused_fixture_83",
+        "refused_fixture_84",
+        "refused_fixture_85",
+        "refused_fixture_86",
+        "refused_fixture_87",
+        "refused_fixture_88",
+        "refused_fixture_89",
+        "refused_fixture_90",
+        "refused_fixture_91",
+        "refused_fixture_92",
+        "refused_fixture_93",
+        "refused_fixture_94",
+        "refused_fixture_95",
+        "refused_fixture_96",
+        "refused_fixture_97",
+        "refused_fixture_98",
+        "refused_fixture_99",
+        "refused_fixture_100",
+        "refused_fixture_101",
+        "refused_fixture_102",
+        "refused_fixture_103",
+        "refused_fixture_104",
+        "refused_fixture_105",
+        "refused_fixture_106",
+        "refused_fixture_107",
+        "refused_fixture_108",
+        "refused_fixture_109",
+        "refused_fixture_110",
+        "refused_fixture_111",
+        "refused_fixture_112",
+        "refused_fixture_113",
+        "refused_fixture_114",
+        "refused_fixture_115",
+        "refused_fixture_116",
+        "refused_fixture_117",
+        "refused_fixture_118",
+        "refused_fixture_119",
+        "refused_fixture_120",
+        "refused_fixture_121",
+        "refused_fixture_122",
+        "refused_fixture_123",
+        "refused_fixture_124",
+        "refused_fixture_125",
+        "refused_fixture_126",
+        "refused_fixture_127",
+        "refused_fixture_128"
+      ]
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "bad item item__bad",
+    "value": {
+      "capacity": 4,
+      "held": [
+        "item__bad"
+      ],
+      "acquired": [],
+      "released": [],
+      "remembered": [],
+      "memory": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "bad item Item_leaf",
+    "value": {
+      "capacity": 4,
+      "held": [
+        "Item_leaf"
+      ],
+      "acquired": [],
+      "released": [],
+      "remembered": [],
+      "memory": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "bad item item_../leaf",
+    "value": {
+      "capacity": 4,
+      "held": [
+        "item_../leaf"
+      ],
+      "acquired": [],
+      "released": [],
+      "remembered": [],
+      "memory": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "bad item null",
+    "value": {
+      "capacity": 4,
+      "held": [
+        null
+      ],
+      "acquired": [],
+      "released": [],
+      "remembered": [],
+      "memory": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "bad item item_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "value": {
+      "capacity": 4,
+      "held": [
+        "item_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      ],
+      "acquired": [],
+      "released": [],
+      "remembered": [],
+      "memory": []
+    },
+    "schemaValid": false,
+    "domainValid": false
+  },
+  {
+    "name": "held without acquisition",
+    "value": {
+      "capacity": 4,
+      "held": [
+        "item_leaf"
+      ],
+      "acquired": [],
+      "released": [],
+      "remembered": [],
+      "memory": []
+    },
+    "schemaValid": true,
+    "domainValid": false
+  },
+  {
+    "name": "released and held",
+    "value": {
+      "capacity": 4,
+      "held": [
+        "item_leaf"
+      ],
+      "acquired": [
+        "item_leaf"
+      ],
+      "released": [
+        "item_leaf"
+      ],
+      "remembered": [
+        "item_leaf"
+      ],
+      "memory": []
+    },
+    "schemaValid": true,
+    "domainValid": false
+  },
+  {
+    "name": "refused and acquired",
+    "value": {
+      "capacity": 4,
+      "held": [
+        "item_leaf"
+      ],
+      "acquired": [
+        "item_leaf"
+      ],
+      "released": [],
+      "remembered": [
+        "item_leaf"
+      ],
+      "memory": [
+        "refused_leaf"
+      ]
+    },
+    "schemaValid": true,
+    "domainValid": false
+  },
+  {
+    "name": "unexplained remembered",
+    "value": {
+      "capacity": 4,
+      "held": [],
+      "acquired": [],
+      "released": [],
+      "remembered": [
+        "item_leaf"
+      ],
+      "memory": []
+    },
+    "schemaValid": true,
+    "domainValid": false
+  }
+]

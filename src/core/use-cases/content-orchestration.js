@@ -1,6 +1,8 @@
 import { applyMetricEffects } from "../domain/meters.js";
 import { evaluateCondition, resolveChoiceTransaction } from "./choice-transaction.js";
 import { planGameStateTransition } from "../state-machine/game-state.js";
+import { createPouch, collectItem, refuseItem, validatePouch } from "../domain/keepsake-pouch.js";
+import { resolvePouchTransaction } from "./pouch-transaction.js";
 
 /** Pure content progression. Trace: CR-0002 D3, ADR-P0-014, FR-ENG-002/008. */
 const STATES = Object.freeze({ cutscene: "Cutscene", exploration: "Exploration", decision: "Decision" });
@@ -37,8 +39,10 @@ function attempt(snapshot, operation) {
  * Each operation is deterministic; time, session ID and revision come from
  * its caller. No mutable session is held in this closure.
  */
-export function createContentOrchestrator(catalog) {
+export function createContentOrchestrator(catalog, { pouchEnabled = false } = {}) {
   const { nodes, events, flags: definitions } = catalog;
+  const pouchPolicy = pouchEnabled ? catalog.pouchPolicy : null;
+  requireFact(!pouchEnabled || pouchPolicy, "POUCH_POLICY");
   const policies = Object.fromEntries(definitions.map((def) => [def.id, def.policy]));
   const nodeFor = (snapshot) => nodes[snapshot.currentNodeId];
 
@@ -108,7 +112,8 @@ export function createContentOrchestrator(catalog) {
   function capture(snapshot, node, at) {
     return { id: node.checkpointId, capturedAt: at, treeId: snapshot.currentTreeId, nodeId: node.id,
       state: STATES[node.type], metrics: copy(snapshot.metrics), flags: copy(snapshot.flags),
-      eventOccurrences: copy(snapshot.eventOccurrences), rng: copy(snapshot.rng) };
+      eventOccurrences: copy(snapshot.eventOccurrences), rng: copy(snapshot.rng),
+      ...(pouchEnabled ? { pouch: copy(snapshot.pouch) } : {}) };
   }
 
   function enter(snapshot, at) {
@@ -165,7 +170,8 @@ export function createContentOrchestrator(catalog) {
       const snapshot = { sessionId, startedAt: at, playTimeMs: 0, revision, state: admission.value.target,
         currentTreeId: catalog.entryTreeId, currentNodeId: catalog.entryNodeId, metrics: copy(catalog.defaults.metrics),
         flags: definitions.map((def) => ({ id: def.id, value: def.defaultValue })).sort((a, b) => a.id < b.id ? -1 : 1),
-        eventOccurrences: [], progress: { completedNodeIds: [], viewedDialogueIds: [], unlockedEndingIds: [] }, history: [], rng: copy(rng) };
+        eventOccurrences: [], progress: { completedNodeIds: [], viewedDialogueIds: [], unlockedEndingIds: [] }, history: [], rng: copy(rng),
+        ...(pouchEnabled ? { pouch: createPouch() } : {}) };
       requireFact(nodes[snapshot.currentNodeId].checkpointPolicy === "before-node", "CONTENT_CHECKPOINT");
       return { snapshot: freeze(enter(snapshot, at)), transition: admission.value };
     });
@@ -220,6 +226,12 @@ export function createContentOrchestrator(catalog) {
         next = { ...projected, revision: nextBase.revision, playTimeMs: nextBase.playTimeMs, state: transition.target, currentNodeId: target.id };
       }
       if (!next.progress.completedNodeIds.includes(node.id)) next.progress.completedNodeIds.push(node.id);
+      const pouchEffect = pouchPolicy && Object.hasOwn(pouchPolicy.actionEffects, action.id) ? pouchPolicy.actionEffects[action.id] : null;
+      if (pouchEffect) {
+        const result = pouchEffect.action === "collect" ? collectItem(snapshot.pouch, pouchEffect.itemId) : refuseItem(snapshot.pouch, pouchEffect.itemId);
+        requireFact(result.ok, result.error?.code);
+        next.pouch = result.value;
+      }
       next.currentTreeId = catalog.treeByNode[target.id];
       next = enter(next, command.at);
       return { snapshot: freeze(next), transition, feedbackActionId: action.id, reason: "choice-committed" };
@@ -262,6 +274,14 @@ export function createContentOrchestrator(catalog) {
   }
 
   function validateFacts(snapshot) {
+    if (pouchEnabled) {
+      requireFact(validatePouch(snapshot.pouch).valid, "POUCH_SNAPSHOT");
+      requireFact(snapshot.pouch.remembered.every((id) => pouchPolicy.itemIds.includes(id)), "POUCH_ITEM_REFERENCE");
+      for (const binding of pouchPolicy.historyBindings) {
+        requireFact(snapshot.pouch.acquired.includes(binding.itemId) === (flagValue(snapshot, binding.acquiredFlagId) === true), "POUCH_LEAF_HISTORY");
+        requireFact(!snapshot.pouch.memory.includes(binding.refusalToken) || flagValue(snapshot, binding.refusedFlagId) === true, "POUCH_LEAF_HISTORY");
+      }
+    }
     requireFact(snapshot.metrics.hp > 0 && snapshot.metrics.sanity > 0 && snapshot.metrics.bond === 0, "CONTENT_SAVE_METRICS");
     requireFact(snapshot.flags.length === definitions.length && new Set(snapshot.flags.map((flag) => flag.id)).size === definitions.length, "CONTENT_FLAG_POLICY");
     for (const def of definitions) requireFact(validFlag(def, flagValue(snapshot, def.id)), "CONTENT_FLAG_POLICY");
@@ -294,6 +314,7 @@ export function createContentOrchestrator(catalog) {
       const admission = planGameStateTransition({ snapshot, event: "RETRY_CHECKPOINT", context: { checkpointValid: true, contentReferencesCompatible: true } });
       requireFact(admission.ok, "CONTENT_TRANSITION");
       Object.assign(next, { currentNodeId: target.id, currentTreeId: checkpoint.treeId, state: STATES[target.type], metrics: copy(checkpoint.metrics), flags: copy(checkpoint.flags), eventOccurrences: copy(checkpoint.eventOccurrences), rng: copy(checkpoint.rng) });
+      if (pouchEnabled) next.pouch = copy(checkpoint.pouch);
       if (target.checkpointPolicy === "before-node") {
         // Read-history remains historical; completion after this checkpoint
         // must be acknowledged again, including the final rest boundary.
@@ -315,7 +336,24 @@ export function createContentOrchestrator(catalog) {
     return attempt(snapshot, () => ({ snapshot: freeze(commandSnapshot(snapshot, command)) }));
   }
 
-  return Object.freeze({ start, advance, act, resume, retry, facts, validateSnapshot, touch });
+  function pouchOpportunity(snapshot) {
+    if (!pouchPolicy) return null;
+    const opportunity = pouchPolicy.opportunities.find(item => item.nodeId === snapshot.currentNodeId && item.states.includes(snapshot.state)
+      && (!item.requireComplete || facts(snapshot).complete));
+    return opportunity ? freeze(copy(opportunity)) : null;
+  }
+
+  function pouchAction(snapshot, command) {
+    return attempt(snapshot, () => {
+      const result = resolvePouchTransaction({ snapshot, command, opportunity: pouchOpportunity(snapshot), itemIds: pouchPolicy?.itemIds });
+      requireFact(result.ok, result.error?.code);
+      const next = commandSnapshot(snapshot, command);
+      next.pouch = result.value.pouch;
+      return { snapshot: freeze(next), reason: "choice-committed" };
+    });
+  }
+
+  return Object.freeze({ start, advance, act, resume, retry, facts, validateSnapshot, touch, pouchOpportunity, pouchAction });
 }
 
 function validFlag(def, value) {

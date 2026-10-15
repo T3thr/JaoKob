@@ -1,0 +1,7 @@
+{
+  "result": "PASS",
+  "markdownFiles": 11,
+  "relativeFileLinks": 135,
+  "brokenFileLinks": 0,
+  "scope": "Changed/staged documentation, excluding personal references; link existence plus manual heading/term/requirement review"
+}

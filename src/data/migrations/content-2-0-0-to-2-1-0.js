@@ -47,7 +47,7 @@ export function createContentVersionMigration({ sourcePackage, targetPackage, te
     if (!copied.valid) return failure("SAVE_INVALID_JSON");
     const envelope = copied.value;
     const schema = validateSaveEnvelope(envelope);
-    if (!schema.valid) return failure("SAVE_SCHEMA_INVALID", schema.issue.path);
+    if (!schema.valid || envelope.saveFormatVersion !== 1) return failure("SAVE_SCHEMA_INVALID", schema.issue?.path ?? "$.saveFormatVersion");
     if (![SOURCE_VERSION, TARGET_VERSION].includes(envelope.contentVersion)) return failure("CONTENT_VERSION_UNSUPPORTED", "$.contentVersion");
     const migrated = envelope.contentVersion === SOURCE_VERSION;
     if (migrated && Object.hasOwn(envelope, "integrity")) return failure("SOURCE_INTEGRITY_UNSUPPORTED", "$.integrity");

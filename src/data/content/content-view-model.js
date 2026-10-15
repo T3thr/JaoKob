@@ -1,10 +1,11 @@
 import { deepFreeze } from "../validation/content-values.js";
 import { TH_APPLICATION as messages } from "../localization/th-application.js";
 import { projectContentPresentation } from "./content-presentation.js";
+import { projectKeepsakePouch } from "./keepsake-view-model.js";
 
 /** Localize pure presentation facts into a renderer-only immutable view. */
 export function projectContentView({ loaded, snapshot, facts, settings, notice, feedbackActionId, feedbackEventId = null, meterChanges = [], mode, hasResume, memoryResume, confirmation, viewRevision, audioStatus, mediaStatus,
-  preferences = { hideContentAdvisory: false }, advisoryOpen = false, preferenceStatusText = "", focusSetting = null }) {
+  preferences = { hideContentAdvisory: false }, advisoryOpen = false, pouchOpen = false, pouchOpportunity = null, preferenceStatusText = "", focusSetting = null }) {
   const locale = settings.locale ?? "th";
   const text = (localized) => localized?.[locale] ?? localized?.th ?? "";
   const indexes = loaded.indexes;
@@ -12,7 +13,8 @@ export function projectContentView({ loaded, snapshot, facts, settings, notice, 
   const soundState = audioStatus === "unavailable" ? "unavailable" : settings.masterVolume === 0 ? "off" : audioStatus === "ready" ? "ready" : "blocked";
   const soundControlLabel = settings.masterVolume === 0 ? messages.soundOff : messages.soundOn;
   const view = { locale, state: snapshot?.state ?? "Title", viewRevision, revision: snapshot?.revision ?? 0,
-    preferences: { ...preferences }, overlay: advisoryOpen ? "advisory" : undefined, preferenceStatusText, focusSetting,
+    preferences: { ...preferences }, overlay: advisoryOpen ? "advisory" : pouchOpen ? "pouch" : undefined, preferenceStatusText, focusSetting,
+    pouch: projectKeepsakePouch({ pouch: snapshot?.pouch, opportunity: pouchOpportunity, locale }),
     contentAdvisory: { title: messages.noticeTitle, text: messages.notice },
     audioEnabled: settings.masterVolume > 0, soundState, soundControlLabel, soundStateLabel: messages[{ off: "soundOffShort", ready: "soundReadyShort", blocked: "soundBlockedShort", unavailable: "soundUnavailableShort" }[soundState]],
     confirmationRequired: mode === "replace-confirmation" || mode === "choice-confirmation",
@@ -70,9 +72,11 @@ export function projectContentView({ loaded, snapshot, facts, settings, notice, 
     const action = indexes.choices[feedbackActionId] ?? indexes.interactions[feedbackActionId];
     if (action) view.feedback = text(action.immediateFeedback);
     add("application.settings", messages.settings);
+    if (snapshot.pouch) add("application.pouch", messages.pouch);
   }
-  if (advisoryOpen) choices.length = 0;
+  if (advisoryOpen || pouchOpen) choices.length = 0;
   if (advisoryOpen) add("application.close-advisory", messages.advisoryClose);
+  else if (pouchOpen) add("application.close-pouch", messages.closePouch);
   else if (!["replace-confirmation", "choice-confirmation"].includes(mode)) add("application.enable-sound", soundControlLabel);
   if (mediaStatus === "unavailable") add("application.retry-media", messages.mediaRetry);
   return deepFreeze(view);
