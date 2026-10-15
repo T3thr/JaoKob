@@ -3,16 +3,16 @@
 | Document control | Value |
 |---|---|
 | Sprint / document | `SPRINT-04` / `JKB-SPRINT-04-SSOT` |
-| Version / date | **0.2.6** / 2026-10-15, Asia/Bangkok: ADR-P0-019 implementation and runtime evidence delivered; design baseline v0.2.1 retained |
-| Status | **T1/T2 implementation complete under ADR-P0-019; 2/12; PO runtime/art/Thai acceptance and PR13 merge remain open; T0/T3–T11 open** |
-| Authority | PO merged plan v0.2.1 and explicitly authorized source, tests, audit, commit/push and PR for T1/T2 only in the Slice 1 directive; no remaining task/merge/deploy authorization |
-| Integrated baseline | `develop@d31652a` (merged planning PR12); Slice 1 changes remain on feature branch until human review/merge |
-| Review branch / PR | `feat/sprint-04-slice-01-visual` / [PR #13](https://github.com/T3thr/JaoKob/pull/13) → develop; planning PR12 merged |
+| Version / date | **0.3.0** / 2026-10-16, Asia/Bangkok: ADR-P0-020 ratification (4-slot Keepsake Pouch & Save 2 lifecycle); Slice 1 merged (#13); Slice 2 in progress |
+| Status | **Slice 1 merged on PR #13 (commit `01cee6f`); Slice 2 (T0, T3, T4, T5 / PR #14) in progress under ADR-P0-020; 2/12 complete; T6–T11 open** |
+| Authority | PO ratified ADR-P0-020 establishing 4-slot Keepsake Pouch architecture and authorized Slice 2 implementation on `feat/sprint-04-slice-02-pouch` |
+| Integrated baseline | `develop@01cee6f` (merged PR13); Slice 2 changes remain on feature branch until human review/merge |
+| Review branch / PR | `feat/sprint-04-slice-02-pouch` / [PR #14](https://github.com/T3thr/JaoKob/pull/14) → develop; Slice 1 PR13 merged |
 | Proposal / RFC | [JKB-PROP-S4-001 v0.2.1](../proposals/sprint-04-overhaul/01-proposal-plan.md) / [CR-0005 v0.2.1](../rfc/CR-0005-sprint-04-overhaul.md) |
 | Models | [PR #11](https://github.com/T3thr/JaoKob/pull/11) MERGED at `e980339`; future **S5 END-HOME Grand Keepsake**, not S4 Pouch dependency |
 | Owners | PO, Technical Lead/Architect, Core/Application/Data/UI, Narrative/Game Design, Art, Accessibility, QA/DevOps |
 
-**PO playtest revision: 2026-10-15 (ADR-P0-019 Extension).** Runtime playtest review of PR #13 (commit `a634409`) revealed 5 critical UX/UI failures: Title screen confirmation modal collision, pollution of sacred reading card with content warnings and stat deltas, floating/asymmetric choices with internal scrollbars, confusing audio toggle opening settings, and desktop clicking fatigue. [ADR-P0-019](../adr/ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md) supersedes ADR-P0-018 and mandates authoring a formal `docs/design-system/visual-novel-specification.md` before CSS rework. Slice 1 is officially extended; PR #13 cannot be merged until all 6 ergonomic pillars of ADR-P0-019 are validated.
+**Slice 1 merge & ADR-P0-020 ratification: 2026-10-16.** Slice 1 (T1/T2) was verified, accepted, and merged into `develop` via [PR #13](https://github.com/T3thr/JaoKob/pull/13) (commit `01cee6f`) fulfilling [ADR-P0-019](../adr/ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md). PO and Lead Architecture officially ratified [ADR-P0-020](../adr/ADR-P0-020-adventure-keepsake-pouch-and-item-system.md), locking the Adventure Keepsake Pouch capacity at **4 slots** to align with the 5-Act narrative arc (Acts 1–4 item opportunities, Act 5 ending resolution). Slice 2 begins on `feat/sprint-04-slice-02-pouch` covering T0, T3, T4, and T5.
 
 ## 1. Goal and phased scope
 
@@ -20,7 +20,7 @@
 
 | Milestone | Scope / exit artifact |
 |---|---|
-| **Sprint 4** | Paper card/frosted HUD/Intent Tags; Dialogue History; **Pouch UI/Core State/save/checkpoint**, 3–4 slots (proposed default 3); AI-authored **Act 1 all seven scenes** with keepsake choices/2–3 proposed Secret Moments; **Act 2–5 branching map draft** |
+| **Sprint 4** | Paper card/frosted HUD/Intent Tags; Dialogue History; **Pouch UI/Core State/save/checkpoint**, 4 slots (ratified in ADR-P0-020); AI-authored **Act 1 all seven scenes** with keepsake choices/2–3 proposed Secret Moments; **Act 2–5 branching map draft** |
 | **Sprint 5** | Production Act 2–5 story/media/runtime capabilities from accepted map; held/remembered callbacks and three existing endings; **Grand Keepsake childhood/adult models after END-HOME** |
 
 Visual review starts Scene 1–3 then applies style across Act 1; writing/Pouch scope is not limited to that benchmark. Original14 nodes/21 edges/12 outcomes are **legacy content 2.1 witnesses**; new graph counts come from reviewed T7. Three original mother/roots/siblings directions retain their emotional identity; new Pouch choices supplement them.
@@ -48,7 +48,7 @@ Approved plan direction does not assert that proposed prose is final Canon, new 
 | `FR-UI-001`, `NFR-MA-001/002`, `ADR-P0-001/004/005/012/014/015`, `ADR-P0-019` | Pure Core; immutable localized VM; overlay vs domain command separated; stable dialogue anchor | T2/T4/T6/T10, renderer/session reducers/composition | `TC-S4-ARCH-001`, `TC-S4-STATE-001` |
 | `GDD-UX-001..005/007`, `FR-UI-002/003/005/007`, `GDD-BOND-005`, `ADR-P0-019` | Title/Reading/Decision, frosted HUD/paper card, stable bottom anchor, ergonomic settings, no AI slop, locked no-number Bond | T1/T2/T9/T10 | `TC-S4-VIS-001`, `TC-S4-STATUS-001`, `TC-S4-CHOICE-001` |
 | `FR-ENG-009`, `GDD-UX-006`, log part of `FR-UI-004`, D3 | ≥50 dialogue+50 committed actions; session-only reload notice, read-only modal | T6 history reducer/projector/dialog | `TC-S4-LOG-001/002` |
-| **CR-0005 D1/D4**, `GDD-PROG-001/002`, `GDD-CHO-002/003` | 3–4 slots; held/acquired/released distinction; full/refuse/cancel/atomic replace; no item score/combat/collection gate | T0/T3/T4/T5; proposed new item registry/core/UI | `TC-S4-POUCH-001/002` |
+| **CR-0005 D1/D4**, `ADR-P0-020`, `GDD-PROG-001/002`, `GDD-CHO-002/003` | 4 slots (ratified in ADR-P0-020); held/acquired/released distinction; full/refuse/cancel/atomic replace; no item score/combat/collection gate | T0/T3/T4/T5; proposed new item registry/core/UI | `TC-S4-POUCH-001/002` |
 | **CR-0005 D2/D4 Final PO**, `GDD-CONT-001..004`, `NAR-DLG-001..005`, `NAR-TONE-001`, `NAR-THM-001/002/003/004/005`, `NAR-CON-001/002/003/004/005/006/007/010` | Tender childhood/root-current setup; Act3–4 threat/HP/พลังใจ/body/agency/rest; five-item held/memory/default uses and simple convergent map | T7/T8 Narrative/Map | `TC-S4-NARRATIVE-001`, `TC-S4-EMOTION-001`, `TC-S4-GRAPH-001`, `TC-S4-MAP-001` |
 | `GDD-DEC-A1-002-A/B`, `GDD-DEC-A5-001-B`, `NAR-MTX-END-001`, **D4/D5** | Preserve legacy flag meaning; explicit held guard for physical leaf/share; released/default alternatives | T0/T3/T7 callback amendments | `TC-S4-CALLBACK-001`, leaf migration/empty-Pouch routes |
 | `GDD-END-004/005/006`, `GDD-BOND-006`, `GDD-BAL-004/006/007`, `NAR-CON-007/009`, **D6 Final PO** | Fair same-three-ending resolver/repair; no item/suffering/accessibility bias; childhood→adult red-heart Grand Keepsake only after HOME | T8 S5 map/ending/model-gap brief | `TC-S4-FAIR-001`, `TC-S4-GIFT-001`, `TC-S4-MAP-001`; no S4 ending runtime pass |
@@ -62,7 +62,7 @@ Actual implementation PR links are added per task after delivery; PO main-direct
 
 ## 3. Architecture and contract baseline
 
-Full feature contract: [proposal §§5–9](../proposals/sprint-04-overhaul/01-proposal-plan.md#6-adventure-keepsake-pouch-ui-state-and-emotional-choices). Pouch lists/state are pure Core domain facts; `session-history.js` is an ephemeral pure application reducer. UI can hold selection/modal scroll only and sends intents; Data handles strict parse/validation/localization; only bootstrap imports concrete adapters. Six domain states remain; Pouch modal is not a seventh state.
+Full feature contract: [proposal §§5–9](../proposals/sprint-04-overhaul/01-proposal-plan.md#6-adventure-keepsake-pouch-ui-state-and-emotional-choices) and [ADR-P0-020](../adr/ADR-P0-020-adventure-keepsake-pouch-and-item-system.md). Pouch lists/state are pure Core domain facts; `session-history.js` is an ephemeral pure application reducer. UI can hold selection/modal scroll only and sends intents; Data handles strict parse/validation/localization; only bootstrap imports concrete adapters. Six domain states remain; Pouch modal is not a seventh state.
 
 Proposed versions: gameplay package/affected shared/tree **schema 2.0.0**, Act 1 content **3.0.0**, **saveFormatVersion 2**. New inventory/memory/vignette completion/checkpoint and deterministic cursor/variant contracts reviewed at T0/T3. Keep all published old schemas frozen; add versioned replacements and runtime reference/capability fixtures. Separate visual tag/icon/skin/crop catalog remains presentation-only; gameplay predicates/effects cannot be hidden inside it.
 
@@ -74,9 +74,9 @@ No model-viewer port/vendor/GLB runtime in S4; ADR-P0-016/017 remain spike histo
 
 Priority: **approved contracts/legacy proof → UI Styles → DOM Renderer → Pouch Core/save/UI → Dialogue Log → Act 1 Narrative + Act 2–5 Map → Intent/media projection → integration/QA**. AI can draft prose/maps as planning/content-design work; production integrations obey per-task DoR. Below are responsibility assignments, not permission to spawn agents. Every implementation PR remains scoped/testable; split oversized tasks into sub-PRs with the same acceptance contract.
 
-- [ ] **T0 — PO pivot, baseline amendments and per-task DoR** (P0; 1–2 person-days)
+- [ ] **T0 — PO pivot, baseline amendments and per-task DoR (ADR-P0-020)** (P0; 1–2 person-days)
 
-  Owner Technical Lead/Architect; PO/Narrative/Game Design/QA/Accessibility review. Files: this SSOT, CR-0005, GDD/SRS/Narrative amendment drafts, new prospective ADR, trace/fixture plan. AC: record direction already given; ratify exact 3-or4, item/memory/default/secret/non-stat rules, callback/progression/cursor/save design; devices/reviewers/owners agreed; freeze source baseline/legacy 691/14–21–12 witnesses. Evidence `TC-S4-ARCH-001` design review. No source change until relevant readiness; no per-line permission request for AI drafting.
+  Owner Technical Lead/Architect; PO/Narrative/Game Design/QA/Accessibility review. Files: this SSOT, CR-0005, ADR-P0-020, GDD/SRS/Narrative amendment drafts, trace/fixture plan. AC: record direction already given; ratify exact 4 slots (ADR-P0-020), item/memory/default/secret/non-stat rules, callback/progression/cursor/save design; devices/reviewers/owners agreed; freeze source baseline/legacy 691/14–21–12 witnesses. Evidence `TC-S4-ARCH-001` design review. No source change until relevant readiness; no per-line permission request for AI drafting.
 
 - [x] **T1 — Handcrafted styles, frosted HUD, design system and paper card (ADR-P0-019)** (P0; 2–3 days)
 
@@ -86,17 +86,17 @@ Priority: **approved contracts/legacy proof → UI Styles → DOM Renderer → P
 
   Owner UI; Application/Data/Accessibility/PO review. Files: `dom-renderer.js`, `stage-view.js`, `settings-dialog.js`, proposed Title/Reading/Decision/utility/response/overlay components; agreed VM/localization and focused renderer tests. AC: Title atmospheric backdrop with discreet floating content advisory icon (no blunt banner, no modal collision with new game button); Reading card on fixed bottom baseline (zero CLS/vertical jumping between Reading and Decision); Stat deltas as transient HUD micro-toasts (never inside dialogue card); Decision Crossroads with symmetric tactile cards without inner scrollbars; Settings modal features fixed top-right close button (✕) without forced scrolling, styled switch toggles with clear On/Off feedback, direct audio mute toggle from utility rail; desktop progression ergonomics (stage click / Spacebar / Enter); no emoji icons. Evidence `TC-S4-STATUS-001`, `TC-S4-STATE-001`.
 
-- [ ] **T3 — Versioned item/content/save/checkpoint contracts and migration** (P0; 4–6 days)
+- [ ] **T3 — Versioned item/content/save/checkpoint contracts and migration (ADR-P0-020)** (P0; 4–6 days)
 
-  Owner Architect/Data; Core/Narrative/Game Design/QA review. Proposed files: versioned schema 2.0/save2 documents, runtime schema catalog/validator/capability gate; item/condition/effect/explicit-cursor definitions and valid/invalid fixtures; new semantic migration module; reviewed content 2.1 archive and schema compatibility matrix. AC: strict item IDs/types/unique slots/bounded memory/secret progress; held vs remembered predicates; all payload/checkpoint fields validated; pure format 1→2/content 2.1→3.0 mapping after old2.0→2.1; no retroactive extra item/vignette; exact semantic cursor or documented tested recovery; quota/raw-backup/future/race/integrity policy; old schemas immutable. Evidence `TC-S4-CONTRACT-001`, `TC-S4-SAVE-001/002`. No future3D asset type/library addition.
+  Owner Architect/Data; Core/Narrative/Game Design/QA review. Proposed files: versioned schema 2.0/save2 documents, runtime schema catalog/validator/capability gate; item/condition/effect/explicit-cursor definitions and valid/invalid fixtures; new semantic migration module; reviewed content 2.1 archive and schema compatibility matrix. AC: strict item IDs/types/unique 4 slots (ADR-P0-020)/bounded memory/secret progress; held vs remembered predicates; all payload/checkpoint fields validated; pure format 1→2/content 2.1→3.0 mapping after old2.0→2.1; no retroactive extra item/vignette; exact semantic cursor or documented tested recovery; quota/raw-backup/future/race/integrity policy; old schemas immutable. Evidence `TC-S4-CONTRACT-001`, `TC-S4-SAVE-001/002`. No future3D asset type/library addition.
 
-- [ ] **T4 — Pure Pouch transactions and vignette eligibility** (P0; 3–5 days)
+- [ ] **T4 — Pure Pouch transactions and vignette eligibility (ADR-P0-020)** (P0; 3–5 days)
 
-  Owner Core/Application; Architect/Game Design/QA/Narrative review. Proposed files: `src/core/domain/keepsake-pouch.js`, pure item transaction use-case, approved orchestration/condition/effect integration, unit tests. AC: empty/partial/full, collect/refuse/release/atomic replace/cancel, unique IDs/no stacks/single opportunity; pre-snapshot revision/guard; safe-context control; no partial/full auto-drop/stat bonus; no global mutable state/browser. Held/acquired/released separate, irreversible legacy flag untouched, skip-all remains viable. Vignette complete only last-beat acknowledgement; checkpoint/retry restores ledger. Evidence `TC-S4-POUCH-001`, `TC-S4-CALLBACK-001`, `TC-S4-RETRY-001` and preserved Core invariants.
+  Owner Core/Application; Architect/Game Design/QA/Narrative review. Proposed files: `src/core/domain/keepsake-pouch.js`, pure item transaction use-case, approved orchestration/condition/effect integration, unit tests. AC: empty/partial/full (4 slots), collect/refuse/release/atomic replace/cancel/use, unique IDs/no stacks/single opportunity; pre-snapshot revision/guard; safe-context control; no partial/full auto-drop/stat bonus; no global mutable state/browser. Held/acquired/released separate, irreversible legacy flag untouched, skip-all remains viable. Vignette complete only last-beat acknowledgement; checkpoint/retry restores ledger. Evidence `TC-S4-POUCH-001`, `TC-S4-CALLBACK-001`, `TC-S4-RETRY-001` and preserved Core invariants.
 
-- [ ] **T5 — Adventure Keepsake Pouch UI** (P0; 2–3 days)
+- [ ] **T5 — Adventure Keepsake Pouch UI (ADR-P0-020)** (P0; 2–3 days)
 
-  Owner UI; Accessibility/PO/Narrative/Core review. Proposed files: `src/ui/components/keepsake-pouch.js`, item detail/full-pouch decision components, styles/resources, DOM tests. AC: tactile3(or4) slots, readable used/capacity/empty state,2D art/text fallback, item selection/remembered location, parallel retain/refuse/replace/cancel wording; native buttons/one modal/inert background/Tab/Escape/restoration; release availability from VM, no UI-state mutation of held IDs. Confirmed domain command only at safe opportunity; view/close never saves/drops. No 3D selector/orbit/drag-only requirement. `TC-S4-POUCH-002`, `TC-S4-A11Y-001`.
+  Owner UI; Accessibility/PO/Narrative/Core review. Proposed files: `src/ui/components/keepsake-pouch-dialog.js`, item detail/full-pouch decision components, styles/resources, DOM tests. AC: tactile 4 slots (ADR-P0-020), readable used/capacity/empty state, 2D art/text fallback, item selection/remembered location, parallel retain/refuse/replace/cancel wording; native modal using modal-frame.js (pinned ✕, Tab/Escape trap); release/use availability from VM, no UI-state mutation of held IDs. Confirmed domain command only at safe opportunity; view/close never saves/drops. No 3D selector/orbit/drag-only requirement. `TC-S4-POUCH-002`, `TC-S4-A11Y-001`.
 
 - [ ] **T6 — Session Dialogue History data and modal** (P0; 3–5 days)
 
@@ -252,7 +252,8 @@ Budgets unchanged: NFR-PE-001..005 (initial≤2MB compressed; shell+critical JSO
 
 | Record | Disposition |
 |---|---|
-| `CR-20261015-1757` | [ADR-P0-019 corrective delivery](../changelog/2026-10/2026-10-15-1757-sprint-04-adr-019-runtime-ergonomics.md): design specification first; T1/T2 implementation complete2/12;720 unit cases/12 routes/50 captures; PO playtest/device/AT review and merge open |
+| `CR-20261016-0025` | [ADR-P0-020 ratification](../adr/ADR-P0-020-adventure-keepsake-pouch-and-item-system.md): 4-slot Keepsake Pouch architecture, dual keepsake/utility role, Save 2 schema; Slice 2 kickoff on `feat/sprint-04-slice-02-pouch` |
+| `CR-20261015-1757` | [ADR-P0-019 corrective delivery](../changelog/2026-10/2026-10-15-1757-sprint-04-adr-019-runtime-ergonomics.md): design specification first; T1/T2 implementation complete2/12;720 unit cases/12 routes/50 captures; merged in PR13 |
 | `CR-20261015-1710` | [ADR-P0-019 mandate & Slice 1 extension](../adr/ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md): playtest rejection of commit `a634409`; T1/T2 reopened for Design System specification and 6 ergonomic pillars; PR13 extended |
 | `CR-20261015-1544` | [ADR-P0-018 implementation](../changelog/2026-10/2026-10-15-1544-sprint-04-adr-018-vn-ergonomics.md): superseded by ADR-P0-019 following playtest failure |
 | `CR-20261015-0013` | [PO sensory refinement](../changelog/2026-10/2026-10-15-0013-sprint-04-po-sensory-refinement.md): one bar/quiet success/lotus Title/consolidated Decision/water anchor;703 tests and12 routes; PR13 review open |
@@ -265,7 +266,7 @@ Budgets unchanged: NFR-PE-001..005 (initial≤2MB compressed; shell+critical JSO
 
 | Risk / decision | Owner and action |
 |---|---|
-| D1 exact 3/4 and expanded32–50 effort | PO/Game Design fix value and milestone sizing; initial range/scope already directed |
+| D1 ratified: 4 slots (ADR-P0-020) | Ratified by PO/Lead Architecture; exactly 4 unique slots matching the 5-act narrative arc |
 | D2 exact narrative/branch prose | AI authors within assignment; Narrative/Game Design/PO validate final scenes, no repeated permission before drafting |
 | D3 history reload boundary | Agree ephemeral Log policy separately from required persistent Pouch |
 | D4 discarded leaf/current prop continuity and red yarn Act 1 vs A2 material | Narrative/Game Design clarify guards/baseline text; default scenarios prevent missing/incorrect item depiction |
