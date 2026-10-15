@@ -74,7 +74,23 @@ No model-viewer port/vendor/GLB runtime in S4; ADR-P0-016/017 remain spike histo
 
 ## 4. Execution WBS
 
-Priority: **approved contracts/legacy proof → UI Styles → DOM Renderer → Pouch Core/save/UI → Dialogue Log → Act 1 Narrative + Act 2–5 Map → Intent/media projection → integration/QA**. AI can draft prose/maps as planning/content-design work; production integrations obey per-task DoR. Below are responsibility assignments, not permission to spawn agents. Every implementation PR remains scoped/testable; split oversized tasks into sub-PRs with the same acceptance contract.
+Priority: **approved contracts/legacy proof → UI Styles → DOM Renderer → Pouch Core/save/UI → Dialogue Log → Act 1 Narrative + Act 2–5 Map → Intent/media projection → integration/QA**. AI can draft prose/maps as planning/content-design work; production integrations obey per-task DoR.
+
+### 4.1 Master Delivery Matrix: PR & Slice Mapping (Fixed Contract)
+
+Sprint 4 delivers all 12 tasks (T0–T11) through exactly **5 scoped Pull Requests (5 Slices)**. No additional slices or unreviewed tasks may be introduced.
+
+| Slice | Delivery Target | Scope Tasks | PR Reference | Status |
+|---|---|---|---|---|
+| **Slice 1** | Visual Novel Presentation & Ergonomics (Gate A) | T1, T2 | [PR #13](https://github.com/T3thr/JaoKob/pull/13) (`01cee6f`) | **MERGED** |
+| **Slice 2** | 4-Slot Keepsake Pouch & Save 2 Migration (Gate B.1) | T0, T3, T4, T5 | [PR #14](https://github.com/T3thr/JaoKob/pull/14) (`6692c1b`) | **MERGED** |
+| **Slice 3** | Session Dialogue History Backlog & Modal (Gate B.2) | T6 | [PR #15](https://github.com/T3thr/JaoKob/pull/15) (`f8ee156`) | **MERGED** |
+| **Slice 4** | Tender Act 1 Rewrite & Act 2–5 Map (Gate C) | T7, T8 | PR #16 (`feat/sprint-04-slice-04-narrative`) | **NEXT (Active)** |
+| **Slice 5** | Intent Tags, Integration & Final Acceptance (Gate D) | T9, T10, T11 | PR #17 (`feat/sprint-04-slice-05-closeout`) | **FINAL (Sprint Closeout)** |
+
+Current Progress: **3 of 5 PRs merged (60%)**. Remaining: **2 PRs (40%)**. Sprint 4 completes in full upon merging PR #17.
+
+### 4.2 Task Details and Specifications
 
 - [x] **T0 — Four-slot ratification and Slice 2 contract/readiness (ADR-P0-020)**
 
