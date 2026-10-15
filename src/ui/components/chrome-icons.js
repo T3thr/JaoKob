@@ -9,6 +9,7 @@ const STROKES = Object.freeze({
   info: ["M22 12a10 10 0 1 1-20 0a10 10 0 0 1 20 0ZM12 11v6M12 7v.1"],
   close: ["M6 6l12 12M18 6L6 18"],
   pouch: ["M8 3h8l-2 5c6 2 7 6 6 10s-15 4-16 0 0-8 6-10L8 3ZM7 8h10M10 8l-1 5M14 8l1 5"],
+  history: ["M12 5C9 3 5 3 3 4v15c3-1 6-1 9 1 3-2 6-2 9-1V4c-2-1-6-1-9 1ZM12 5v15M6 8h3M6 12h3M15 8h3M15 12h3"],
   chevron: ["M9 5l7 7-7 7"],
   retry: ["M20 7V3l-4 1M20 7a9 9 0 1 0 1 8M20 7l-5 1"],
   ripple: ["M15 8a3 3 0 1 1-6 0a3 3 0 0 1 6 0ZM7 13c-8 3 2 8 10 4M4 17c-6 5 17 8 17 1"],

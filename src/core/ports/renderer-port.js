@@ -35,8 +35,16 @@ export const RENDERER_ERROR_CODES = Object.freeze({
  */
 
 /**
+ * @typedef {Readonly<{presentationId:number, parts:ReadonlyArray<Readonly<{id:"feedback"|"scene", end:number}>>}>} ReadingReceipt
+ * `end` is an exclusive UTF-16 prefix boundary in the accepted localized part.
+ * Only the adapter's final displayed page supplies it; measuring/preloading do not.
+ */
+
+/**
  * @typedef {object} RendererPort
- * @property {(viewModel: Readonly<Record<string, unknown>>) => PortOperationOutcome<undefined>} render
+ * @property {(viewModel: Readonly<Record<string, unknown>>) => PortOperationOutcome<undefined|Readonly<{presented:ReadingReceipt|null}>>} render
+ * Optional receipt identifies successfully displayed passage prefixes. A host
+ * without receipts remains compatible and contributes no speculative transcript.
  * @property {(busy: boolean) => PortOperationOutcome<undefined>} setBusy
  * @property {(status: Readonly<Record<string, unknown>>) => PortOperationOutcome<undefined>} announce
  * @property {(directive: Readonly<Record<string, unknown>>) => PortOperationOutcome<undefined>} applyFocusDirective

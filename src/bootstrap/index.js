@@ -1,10 +1,12 @@
 import { createContentOrchestrator } from "../core/use-cases/content-orchestration.js";
+import { createSessionHistory, reduceSessionHistory } from "../core/use-cases/session-history.js";
 import { planGameStateTransition } from "../core/state-machine/game-state.js";
 import { assertRendererPort } from "../core/ports/renderer-port.js";
 import { assertStoragePort } from "../core/ports/storage-port.js";
 import { loadGameContent } from "../data/content/content-runtime.js";
 import { projectContentView } from "../data/content/content-view-model.js";
 import { projectContentPresentation } from "../data/content/content-presentation.js";
+import { projectHistoryAction } from "../data/content/history-projection.js";
 import { createContentVersionMigration } from "../data/migrations/content-2-0-0-to-2-1-0.js";
 import { migrateSave1To2 } from "../data/persistence/save-1-to-2.js";
 import { TH_APPLICATION as messages } from "../data/localization/th-application.js";
@@ -25,7 +27,8 @@ export function createGameApplication(options = {}) {
   const root = options.root ?? configuredDocument?.getElementById("app");
   const media = createMediaComposition({ ...options, document: configuredDocument }, refreshMedia);
   const renderer = options.renderer ?? createDomRenderer({ root, document: configuredDocument,
-    loadImage: media.loadImage, onTrustedActivation: () => media.activate(), onIntent: (intent) => { void dispatch(intent); } });
+    loadImage: media.loadImage, onTrustedActivation: () => media.activate(), onReadingPresented: acknowledgeReading,
+    onIntent: (intent) => { void dispatch(intent); } });
   const rawStorageOption = options.rawStorage === undefined ? {} : { storage: options.rawStorage };
   const storage = options.storage ?? createLocalStorageAdapter({ ...rawStorageOption, canReplaceExistingEnvelope: compatible });
   const settingsStorage = options.settingsStorage ?? createLocalSettingsAdapter(rawStorageOption);
@@ -41,6 +44,24 @@ export function createGameApplication(options = {}) {
   let preferences = DEFAULT_UI_PREFERENCES, advisoryOpen = false, pouchOpen = false, preferenceStatusText = "";
   let requestedSettingsFocus = null;
   let requestedChoiceFocus = null, audibleMaster = 1, feedbackEventId = null;
+  let sessionHistory = null, historyOpen = false, historyPresentationId = 0, acknowledgedPresentation = null, feedbackNodeId = null;
+
+  function beginHistoryPresentation(returning = false) {
+    sessionHistory = reduceSessionHistory(sessionHistory, { type: "PRESENTATION_STARTED", presentationId: ++historyPresentationId, returning });
+    acknowledgedPresentation = null;
+  }
+  function acknowledgeReading(receipt) {
+    const reading = lastViewModel?.reading;
+    if (disposed || fatal || !snapshot || mode !== "game" || historyOpen || pouchOpen || advisoryOpen
+      || !receipt || receipt.presentationId !== acknowledgedPresentation || receipt.presentationId !== reading?.id || !Array.isArray(receipt.parts)) return;
+    // Receipt text is never trusted. Resolve exact prefixes from the accepted VM.
+    for (const part of reading.parts) {
+      const end = receipt.parts.find(value => value.id === part.id)?.end;
+      if (!Number.isSafeInteger(end) || end <= 0 || end > part.text.length) continue;
+      sessionHistory = reduceSessionHistory(sessionHistory, { type: "DIALOGUE_PRESENTED", presentationId: reading.id, part: part.id,
+        record: { ...part, text: part.text.slice(0, end) } });
+    }
+  }
 
   function refreshMedia(kind) {
     // A pointerdown unlock may settle before click. Do not replace its target;
@@ -97,10 +118,15 @@ export function createGameApplication(options = {}) {
     lastViewModel = projectContentView({ loaded, snapshot, facts,
       settings, notice, feedbackActionId, feedbackEventId, meterChanges, mode, hasResume: Boolean(resumeEnvelope), memoryResume: memoryOnly,
       confirmation, preferences, advisoryOpen, pouchOpen, pouchOpportunity: snapshot ? orchestrator.pouchOpportunity(snapshot) : null,
+      sessionHistory, historyOpen, historyPresentationId, feedbackNodeId,
       preferenceStatusText, focusSetting: requestedSettingsFocus, viewRevision: ++viewRevision, ...media.status() });
     requestedSettingsFocus = null;
     const result = await invoke(renderer, "render", lastViewModel);
     if (!result.ok) return presentFatal("RENDER_FAILURE");
+    if (lastViewModel.reading && !historyOpen && !pouchOpen && !advisoryOpen && mode === "game") {
+      acknowledgedPresentation = lastViewModel.reading.id;
+      acknowledgeReading(result.value?.presented);
+    }
     await invoke(renderer, "announce", { text: [lastViewModel.feedback, notice].filter(Boolean).join(" "), meterChanges: lastViewModel.meterChanges });
     return success();
   }
@@ -194,6 +220,8 @@ export function createGameApplication(options = {}) {
     const started = orchestrator.start({ sessionId: sessionIdFactory(), at, revision: revisionFloor + 1 });
     if (!started.ok) return started;
     snapshot = started.value.snapshot; lastAt = at; mode = "game"; confirmation = null; feedbackActionId = null; meterChanges = [];
+    sessionHistory = createSessionHistory({ sessionId: snapshot.sessionId, contentVersion: loaded.catalog.version });
+    historyPresentationId = 0; feedbackNodeId = null; beginHistoryPresentation();
     const saved = await persist("new-game", at);
     return saved.ok ? render() : saved;
   }
@@ -216,7 +244,7 @@ export function createGameApplication(options = {}) {
     booted = true;
     return render();
   }
-  async function accept(result, at) {
+  async function accept(result, at, committedAction = null, presentPassage = true) {
     if (!result.ok) {
       notice = messages.rejected;
       await render();
@@ -224,6 +252,11 @@ export function createGameApplication(options = {}) {
     }
     const previous = snapshot;
     snapshot = result.value.snapshot; lastAt = at; mode = "game"; confirmation = null;
+    const action = committedAction ?? (result.value.feedbackActionId ? projectHistoryAction({ loaded, snapshot: previous, settings, actionId: result.value.feedbackActionId }) : null);
+    if (action) sessionHistory = reduceSessionHistory(sessionHistory, { type: "ACTION_COMMITTED", ...action, revision: snapshot.revision });
+    if (presentPassage) beginHistoryPresentation((previous.currentNodeId !== snapshot.currentNodeId || Boolean(result.value.feedbackActionId))
+      && previous.progress.completedNodeIds.includes(snapshot.currentNodeId));
+    feedbackNodeId = previous.currentNodeId;
     feedbackActionId = result.value.feedbackActionId ?? null;
     feedbackEventId = `${snapshot.sessionId}:${snapshot.revision}`;
     meterChanges = ["hp", "sanity"].filter((meter) => previous.metrics[meter] !== snapshot.metrics[meter])
@@ -262,14 +295,16 @@ export function createGameApplication(options = {}) {
     if (!["SELECT_CHOICE", "SETTINGS_CHANGED", "PREFERENCE_CHANGED", "POUCH_ACTION"].includes(intent?.type)) return failure("INVALID_INTENT");
     if ((intent.viewRevision !== undefined && intent.viewRevision !== viewRevision)
       || (intent.expectedRevision !== undefined && intent.expectedRevision !== (snapshot?.revision ?? 0))) return failure("REVISION_MISMATCH");
+    if (historyOpen && !(intent.type === "SELECT_CHOICE" && intent.choiceId === "application.close-history")) return failure("INVALID_INTENT");
     if (intent.type === "POUCH_ACTION") {
       if (!pouchOpen || intent.confirmed !== true || !snapshot) return failure("INVALID_INTENT");
       if (intent.expectedRevision !== snapshot.revision || intent.viewRevision !== viewRevision) return failure("REVISION_MISMATCH");
       const next = { ...command(), action: intent.action, itemId: intent.itemId, oldItemId: intent.oldItemId, opportunityId: intent.opportunityId };
       const result = orchestrator.pouchAction(snapshot, next);
       if (!result.ok) return result;
+      const action = projectHistoryAction({ loaded, snapshot, settings, pouchCommand: next });
       pouchOpen = false;
-      return accept(result, next.at);
+      return accept(result, next.at, action, false);
     }
     if (pouchOpen && !(intent.type === "SELECT_CHOICE" && intent.choiceId === "application.close-pouch")) return failure("INVALID_INTENT");
     if (intent.type === "PREFERENCE_CHANGED") {
@@ -313,6 +348,10 @@ export function createGameApplication(options = {}) {
         if (!resumed.ok) return resumed;
         snapshot = resumed.value.snapshot; lastAt = time(); mode = "game";
         feedbackActionId = null; meterChanges = [];
+        if (!sessionHistory || sessionHistory.sessionId !== snapshot.sessionId) {
+          sessionHistory = createSessionHistory({ sessionId: snapshot.sessionId, contentVersion: loaded.catalog.version, continued: true });
+          historyPresentationId = 0; feedbackNodeId = null; beginHistoryPresentation();
+        }
         return render(); // No save write and no enter-node execution on Resume.
       }
       case "application.advance": {
@@ -322,6 +361,8 @@ export function createGameApplication(options = {}) {
         if (!orchestrator.facts(snapshot).complete) return failure("CONTENT_ACTION_UNAVAILABLE");
         snapshot = null; mode = "title"; feedbackActionId = null; meterChanges = []; return render();
       case "application.settings": mode = "settings"; return render();
+      case "application.history": historyOpen = true; return render(false);
+      case "application.close-history": historyOpen = false; return render(false);
       case "application.pouch": pouchOpen = true; return render(false);
       case "application.close-pouch": pouchOpen = false; return render(false);
       case "application.advisory": advisoryOpen = true; return render();
@@ -359,8 +400,9 @@ export function createGameApplication(options = {}) {
   function dispatch(intent) { return disposed ? Promise.resolve(failure("APPLICATION_UNAVAILABLE")) : run(() => dispatchInternal(intent)); }
   return Object.freeze({ boot: () => run(bootInternal), dispatch, whenIdle: () => operation,
     getSnapshot: () => snapshot, getViewModel: () => lastViewModel,
+    getSessionHistory: () => sessionHistory,
     inspectMedia: media.inspect, whenMediaReady: media.whenReady,
-    dispose() { disposed = true; media.dispose(); renderer.dispose?.(); },
+    dispose() { disposed = true; sessionHistory = null; media.dispose(); renderer.dispose?.(); },
     getStatus: () => Object.freeze({ booted, busy, fatal, persistenceDegraded: memoryOnly, hasResumeCandidate: Boolean(resumeEnvelope), mode }) });
 }
 

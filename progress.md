@@ -23,3 +23,14 @@ Progress is tracked in docs/changelog/2026-09/2026-09-07-1248-sprint-03-benchmar
 - Delivered: implementation commit `3a672a5` pushed to feature branch, opened as [PR #14](https://github.com/T3thr/JaoKob/pull/14).
 - PO Acceptance: PR #14 reviewed and merged into `develop` at commit `6692c1b`. Unit test suite passes 874/874.
 - Next: Sprint 4 Slice 3 (Task T6: Session Dialogue History data and modal dialog) ready for execution.
+
+## Sprint 4 Slice 3 (2026-10-16)
+
+- Current directive: T6 session-only 50 dialogue +50 committed action archive, exact displayed text, accessible modal/HUD, browser evidence, audit and PR to develop.
+- Fresh develop@730d8fb; branch `feat/sprint-04-slice-03-log`; T3thr identity verified. Baseline874/874 passed before source. Private references preserved.
+- Contract authored before source in `docs/design-system/session-history-contract.md`. Pure reducer, Thai projection, native archive sheet and explicit presentation receipts are implemented; validation is underway.
+- Generic web-game diagnostics remain test-only. Semantic DOM architecture takes precedence over the skill's canvas guidance. Save2/content2.1 and all raw save bytes remain untouched by archive viewing.
+- Final verification:935/935 unit cases (874 retained +61 new),0 fail/cancel/skip/todo; pure reducer100% lines/functions/98.59% branches, projection100% lines/functions.12 legacy routes and23 History captures/15 layouts plus2 installed action-client captures pass. Actual320px pagination excludes unread text; accepted action precedes response; Pouch cancel/release, reload/reset, focus/scroll/async and view-only audio/save checks pass.
+- Memory: schema-maximum50+50 escaping7,864,310B within8MiB, current Act1 paths below128KiB. Five100-action100-entry open/close CPU/layout runs meet100ms p95 with observed layout shift0; whole-page heap reported separately, not physical-device/paint certification.
+- Contract/audit/SSOT0.3.2/RFC0.2.3/portal/root CHANGELOG and evidence updated. Ready for conventional commit/push and PR to develop. Remaining: actual PR/SHA trace, human PO/Thai/AT/device review; T7–T11 remain open. No auto-merge/deployment.
+- Delivered source `3dfe56d242813df2372fa6c59bc34cf7180551e8`, pushed to `origin/feat/sprint-04-slice-03-log`; [PR #15](https://github.com/T3thr/JaoKob/pull/15) open against develop and attached to the chat. Final trace follow-up is documentation only. Temporary browser server stopped; private references remain untracked. Await PO/Thai/device/AT review; no auto-merge/deploy.

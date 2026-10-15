@@ -16,9 +16,10 @@
     },
     {
       "path": "src/ui/components/chrome-icons.js",
-      "byteLength": 2023,
-      "sha256": "d3561358a164b8207126285d3cc63e920c220b0768686a0988355fd93e749942",
-      "role": "Decorative; no user-visible strings or game logic"
+      "byteLength": 2136,
+      "sha256": "c223fa266f1068c51dea56518ea87104eb3c42d04119dab49054999314da6dbb",
+      "role": "Decorative; no user-visible strings or game logic",
+      "currentRevision": "CR-0005 T6: original history book strokes added; prior strokes retained"
     },
     {
       "path": "assets/images/ui/lotus-mark.svg",

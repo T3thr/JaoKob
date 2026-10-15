@@ -10,6 +10,8 @@
  */
 
 export const TH_SYSTEM_MESSAGES = Object.freeze({
+  "history.short": "ประวัติ",
+  "history.close": "ปิดประวัติเรื่องราว",
   "pouch.short": "กระเป๋า",
   "pouch.title": "กระเป๋าของสะสม",
   "pouch.description": "สิ่งเล็ก ๆ ที่เดินทางมาด้วยกัน และความทรงจำที่ยังอยู่เมื่อส่งต่อ",

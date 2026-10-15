@@ -1,0 +1,21 @@
+/* CR-0005 D3: an archive sheet with a fixed close corner and one scroll body. */
+.jk-history-dialog { inline-size: min(46rem, calc(100vw - 32px)); max-inline-size: calc(100vw - 32px); }
+.jk-history-dialog .jk-modal-body { gap: var(--jk-space-4); overflow-wrap: anywhere; }
+.jk-history-note { margin: 0; color: var(--jk-ink-soft); font-size: .875em; line-height: 1.85; }
+.jk-history-empty { padding-block: var(--jk-space-5); }
+.jk-history-empty h3 { margin: 0 0 var(--jk-space-3); font-size: 1.125em; line-height: 1.85; }
+.jk-history-empty p { margin: 0; line-height: 1.85; }
+.jk-history-list { display: grid; gap: var(--jk-space-4); margin: 0; padding: 0; list-style: none; }
+.jk-history-entry { min-inline-size: 0; }
+.jk-history-scene { margin: var(--jk-space-3) 0 var(--jk-space-4); padding-block-start: var(--jk-space-4); border-block-start: 1px solid var(--jk-ink-soft); font-size: 1em; line-height: 1.85; }
+.jk-history-entry:first-child .jk-history-scene { margin-block-start: 0; }
+.jk-history-speaker { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--jk-space-2); margin: 0 0 var(--jk-space-2); font-size: .875em; line-height: 1.85; }
+.jk-history-voice, .jk-history-return { color: var(--jk-ink-soft); font-size: .875em; }
+.jk-history-return { margin: 0 0 var(--jk-space-3); }
+.jk-history-text { margin: 0; font-size: 1.125em; line-height: 1.85; white-space: pre-wrap; }
+.jk-history-action > .jk-history-text { padding-inline-start: var(--jk-space-3); border-inline-start: 2px solid var(--jk-moss); }
+@media (min-width: 48rem) { .jk-history-text { font-size: 1.25em; } }
+@media (forced-colors: active) {
+  .jk-history-note, .jk-history-voice, .jk-history-return { color: CanvasText; }
+  .jk-history-scene, .jk-history-action > .jk-history-text { border-color: CanvasText; }
+}

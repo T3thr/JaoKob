@@ -2,13 +2,13 @@
 
 | Control | Value |
 |---|---|
-| Version / date | **0.2.2** / 2026-10-16, Asia/Bangkok: ADR-P0-020 and Slice2 delivery |
-| Status | **PO main directions/final principles and ADR-P0-020 ratified; planningPR12/Slice1PR13 merged; Slice2 source delivered for PR14 owner review; T6–T11 open** |
+| Version / date | **0.2.3** / 2026-10-16, Asia/Bangkok: Slice3 T6 and PO D3 ratification |
+| Status | **PlanningPR12/Slice1PR13/Slice2PR14 merged; T6 source/evidence delivered for PO review;7/12 tasks delivered;T7–T11 and final human gates open** |
 | Author | Codex / Senior Technical Lead, Game Director, Principal UI/UX Architect |
 | Scope | S4 UI/Log/durable Pouch/Act 1 rewrite + Secret Moments/Act 2–5 map; S5 content/three endings/Grand Keepsake |
 | Change class | C2 branch/choice/presentation; C3 inventory/save/checkpoint/content contract compatibility |
 | Sources | [Proposal v0.2.1](../proposals/sprint-04-overhaul/01-proposal-plan.md), [revised SSOT](../sprints/sprint-04-ssot.md), [Sprint 3](../sprints/sprint-03-ssot.md) |
-| Review | Planning[PR #12](https://github.com/T3thr/JaoKob/pull/12) merged; Slice2[PR #14](https://github.com/T3thr/JaoKob/pull/14), `feat/sprint-04-slice-02-pouch` → develop |
+| Review | PR12/13/14 merged; current `feat/sprint-04-slice-03-log` → develop; actual PR linked in [Slice3 audit](../changelog/2026-10/2026-10-16-0142-sprint-04-slice-03-history.md) after creation |
 
 ## 1. Authority, context and revision
 
@@ -38,11 +38,11 @@ S4 non-goals: production Act 2–5/ending code, model viewer/WebGL/vendor/model 
 |---|---|---|---|
 | **D1 — Phased scope and capacity** | S4 UI/Log/Pouch/Act 1/Act 2–5 map; S5 Act 2–5; fixed capacity4 | **Four fixed unique slots** ratified by PO/Lead Architecture in ADR-P0-020; no stacks or upgrade. Twelve WBS tasks, revised effort/gates | Four slots ratified; T0/T3/T4/T5 implemented under current directive, owner review open |
 | **D2 — Narrative authorship and simplicity** | AI assigned tender Act1 plus slower Act3–4 threat/consequence/rest, mother/root/current, reserved girl, fair three endings; no combat/complex stats/achievement hunting | Concrete sensory actions/quiet kindness, 2–3 choices, short optional moments with convergence; exact prose/IDs/effects/guards reviewed as authored scene diff | PO endorses assignment and final drama/persona principles; exact scene prose/guards reviewed in T7/T8 |
-| **D3 — Dialogue History** | Build Dialogue History in S4 | Retain session-only ≥50 dialogues+50 committed actions including acquire/release/replace; current-page reload notice. Durable transcript alternative requires separate store/migration/budget | Technical policy proposed, PO+Narrative+Architect review; Pouch persistence is separate |
+| **D3 — Dialogue History** | Build Dialogue History in S4; current PO directive ratifies session-only memory and reload note | Retain50 latest dialogue occurrences+50 committed actions independently; action before displayed response; exact visible prefixes, repeated visits, New Game reset and current-page reload note; Save2 unchanged | T6 implemented under [contract](../design-system/session-history-contract.md); source/evidence ready for PO/Thai/AT review. Cross-reload transcript remains a separate versioned design |
 | **D4 — Objects, memory and extra scenes** | Adventure objects actively looked at/held/remembered during loneliness; valued keeping/release, Secret Moments and Ending Nuances | `heldItemIds` vs acquired/released memory; authored atomic replace/cancel; optional secret eligibility; held props vs memory-only variants; no item required for Canon | PO endorses meaningful use/keeping/letting-go; exact held/memory/default/registry/effect consistency reviewed per task |
 | **D5 — Core/save/schema compatibility** | Pouch has gameplay state; content changes in Act 1 | Proposed package/shared/tree schema 2.0, content 3.0, saveFormatVersion 2; pure item/condition/effect/cursor contracts, inventory in checkpoint, explicit legacy migration. Format1 sidecar alternative risks torn state/retry inconsistency | Main versioned Pouch direction endorsed; exact published schema/cursor/migration fixtures require Architect+QA verification; no S4 library exception |
 | **D6 — END-HOME Grand Keepsake** | Childhood crochet→adult velour, blue T-shirt/red-heart embroidery, real-gift resonance in Act5 END-HOME | S4 brief only; S5 epilogue reveal/edition framing, static fallback and optional post-ending inspection. Future production dependency/rights/device contract separate | PO endorses END-HOME placement, childhood→adult bridge and red-heart blue-shirt brief; current adult mesh lacks heart, S5 Art/export/runtime gates remain |
-| **D7 — Quality and phased execution** | Review revised plan before code; prepare S5 handoff | Separate legacy/new graph suites; capacity/release/secret/no-item/migration/retry/fault tests, manual art/Thai/AT/device review, per-phase gates | PO endorses final narrative/fairness acceptance; exact evidence/device/fixture gates remain; Slice2 source6/12 delivered for owner review; remaining source/manual gates open |
+| **D7 — Quality and phased execution** | Review revised plan before code; prepare S5 handoff | Separate legacy/new graph suites; capacity/release/secret/no-item/migration/retry/fault tests, manual art/Thai/AT/device review, per-phase gates | PO endorses final narrative/fairness acceptance; exact evidence/device/fixture gates remain; Slice1/2 merged and T6 delivered (7/12); remaining source/manual gates open |
 
 The table records actual direction without marking the entire RFC or any new FR/ADR Approved. Architectural choices become a new ADR after owner acceptance; no historical ADR rationale is rewritten. T0 handles GDD/SRS/Narrative contract amendments before code, rather than reading proposal strings as new executable authority.
 
@@ -128,13 +128,15 @@ Rollout: T0 accepted detailed contracts → T1 styles → T2 renderer → T3 ver
 | Main v0.2.0 strategy / Final v0.2.1 narrative principles | **Explicit PO endorsement received** in current message; final drama/Pouch/gift/fair Bond/girl constraints recorded and ready for documentation review |
 | Four slots and Slice2 state/save/UI | Ratified ADR-P0-020; implemented T0/T3/T4/T5 for PR14; unchanged2.1 content/cursor and reviewed leaf only |
 | Expanded item/secret registry, final prose/graph/content3 mapping and future callbacks | T7/T9/T10 owner review; [baseline handoff](../proposals/sprint-04-overhaul/04-pouch-baseline-amendments.md) |
-| Session Log reload policy/profile/manual schedule | Pending detailed review, not a blocker to preparing the requested documents |
+| Session Log reload policy/profile/manual schedule | D3 ratified by current PO directive; T6 session-only/displayed-prefix/native-modal evidence delivered. Real-device/AT/manual schedule remains open |
 | ADR-P0-014/015 baseline | Retained; accepted ADR-P0-020 ratifies Slice2 Pouch/Save2 prospectively; future rewritten cursor contracts remain reviewed separately |
 | ADR-P0-016/017 spike | Retained historically; production3D consideration deferred to S5 |
-| S4 source DoR/WBS | **6/12 source tasks delivered**; T1/T2 mergedPR13, T0/T3/T4/T5 featurePR14; human acceptance/T6–T11 open |
+| S4 source DoR/WBS | **7/12 source tasks delivered**; T1/T2 mergedPR13, T0/T3/T4/T5 mergedPR14, T6 feature review; T7–T11/final human acceptance open |
 | Documentation merge | PlanningPR12 merged by PO; history retained |
 | Source/release/deployment | Slice2 source/commit/push/PR explicitly authorized; no Slice2 merge/release/deploy |
 
 v0.2.1 supplements the PO-endorsed v0.2.0 plan with final narrative/Pouch impact acceptance; v0.2.0 supersedes v0.1.0 proposed viewer/save-no-change design. Neither rewrites accepted baseline history. No new requirement/canon/ADR is self-approved. Final plan is concrete for PO review without asking PO to repeat the strategy already given.
 
 Slice2 amendment v0.2.2 is governed by the 2026-10-16 PO directive and ADR-P0-020. It publishes pouch/save schema2.0 and format2 while retaining content2.1; package/tree2.0/content3 remain future contracts. The previous planning rollback paragraph is historical: current runtime rollback must retain Save2 admission/downgrade protection or disable writes, preserving raw legacy backup. No new Canon is self-approved.
+
+Slice3 amendment v0.2.3 records current PO authorization of T6 and D3. The [contract](../design-system/session-history-contract.md) precedes source; [audit](../changelog/2026-10/2026-10-16-0142-sprint-04-slice-03-history.md) and [evidence](../../tests/e2e/evidence/sprint-04/slice-03/README.md) trace pure50+50 history, displayed-prefix receipts, accepted ordering, Thai projection, native modal, lifecycle and zero view-only storage/audio changes.935 unit cases and12 original routes pass. T6 rollback reverts ephemeral UI/history with no migration; preserve the existing Save2 baseline. This amendment does not approve merge/deployment, final human aesthetics or broader FR-UI-004 features.
