@@ -155,7 +155,7 @@ test("FR-UI-004 and FR-UI-006 expose keyboard-native cutscene and crisis recover
   assert.equal(outcome.ok, true);
   assert.equal(findOne(root, hasDataRole("cutscene-controls")).textContent.includes("เม็ดฝนค่อย ๆ เบาลง"), true);
   assert.equal(findOne(root, hasDataRole("cutscene-speed")).tagName, "SELECT");
-  assert.equal(findOne(root, hasDataRole("typewriter-toggle")).tagName, "INPUT");
+  assert.equal(findOne(root, hasDataRole("typewriter-toggle")).getAttribute("role"), "switch");
   const skip = findOne(root, hasDataAction("skip-cutscene"));
   skip.dispatchEvent({ type: "click" });
   assert.deepEqual(intents, [{ type: "SKIP_CUTSCENE" }]);
@@ -452,9 +452,16 @@ test("CR-0003 D4/D5/D7 four stage layers retain three canonical cards and numeri
   assert.equal(renderer.render(deepFreeze(view)).ok, true);
   for (const id of ["stage-bg", "stage-char", "stage-dialogue", "stage-hud"]) assert.equal(findAll(root, hasAttribute("id", id)).length, 1);
   const chip = findOne(root, hasAttribute("data-bond-state", "locked"));
-  assert.match(chip.textContent, /Bond: Locked/); assert.match(chip.textContent, /🪷 🔒/); assert.doesNotMatch(chip.textContent, /\d/);
+  assert.match(chip.textContent, /Bond: Locked/); assert.doesNotMatch(chip.textContent, /\d|🪷|🔒/);
+  const vector = findOne(chip, (element) => element.tagName === "SVG");
+  assert.equal(vector.getAttribute("aria-hidden"), "true"); assert.equal(vector.textContent, "");
+  assert.ok(vector.children.every((element) => element.tagName === "PATH"));
   visit(chip, (element) => {
-    for (const [key, value] of element._attributes) { assert.doesNotMatch(key, /aria-value|data-value/); assert.doesNotMatch(value, /\d/); }
+    for (const [key, value] of element._attributes) {
+      assert.doesNotMatch(key, /aria-value|data-value/);
+      // Static decorative vector coordinates are geometry, never Bond values.
+      if (!["viewBox", "d", "stroke-width"].includes(key)) assert.doesNotMatch(value, /\d/);
+    }
   });
   assert.doesNotMatch(root.textContent, /ความผูกพัน เพิ่มขึ้น/);
   const cards = findOne(root, hasDataRole("choices"));
@@ -512,15 +519,18 @@ test("FR-ACC-002 asynchronous media refresh retains current reading/button focus
   assert.equal(document.activeElement.getAttribute("data-jk-role"), "dialogue");
 });
 
-test("TC-S4-VIS-001 Title has menu and first-run notice without gameplay meters", () => {
+test("ADR-P0-018 D4 Title has a corner advisory control without a warning banner or gameplay meters", () => {
   const { root, renderer } = createHarness();
   renderer.render({ state: "Title", presentation: { mode: "title" }, scene: { title: "เจ้ากบ", dialogue: "ค่อย ๆ เดินทาง" },
     meters: { hp: 80, sanity: 70 }, firstRunNotice: { text: "มีพายุและการพลัดพราก" },
-    choices: [{ id: "application.new-game", label: "เริ่มการเดินทาง" }, { id: "application.resume", label: "เล่นต่อ" }, { id: "application.settings", label: "ตั้งค่า" }] });
+    choices: [{ id: "application.new-game", label: "เริ่มการเดินทาง" }, { id: "application.resume", label: "เล่นต่อ" }, { id: "application.advisory", label: "อ่านคำแนะนำเกี่ยวกับเนื้อหา" }, { id: "application.settings", label: "ตั้งค่า" }] });
   assert.equal(findAll(root, (el) => el.hasAttribute("data-jk-meter")).length, 0);
   assert.equal(findAll(root, hasDataRole("hud")).length, 0);
-  assert.equal(findOne(root, hasDataRole("first-run-notice")).textContent.includes("พายุ"), true);
-  assert.equal(findAll(root, hasDataRole("choice")).length, 3);
+  assert.equal(findAll(root, hasDataRole("first-run-notice")).length, 0);
+  const advisory = findOne(root, hasAttribute("data-choice-id", "application.advisory"));
+  assert.equal(advisory.parentNode, findOne(root, hasDataRole("utility-rail")));
+  assert.equal(advisory.getAttribute("aria-haspopup"), "dialog");
+  assert.equal(findAll(root, hasDataRole("choice")).length, 4);
 });
 
 test("TC-S4-VIS-001 Reading contains only Next in paper footer; Decision contains real choices without Next", () => {
@@ -590,7 +600,7 @@ test("TC-S4-STATUS-001 settings status patches retain modal identity, scroll, fi
   assert.equal(findOne(modal, hasDataRole("audio-status")).textContent, "เสียงพร้อมแล้ว");
 });
 
-test("TC-S4-STATE-001 story changes patch persistent landmarks and preserve separate feedback and warning", () => {
+test("ADR-P0-018 D1 story patches preserve landmarks and place feedback and warning in the fixed paper", () => {
   const { root, renderer } = createHarness();
   renderer.render({ revision: 1, scene: { dialogue: "ก่อนฝน" }, presentation: { mode: "reading" }, choices: [] });
   const shell = findOne(root, hasDataRole("game-shell")), story = findOne(root, hasDataRole("dialogue")), header = findOne(root, hasDataRole("stage-header"));
@@ -600,8 +610,8 @@ test("TC-S4-STATE-001 story changes patch persistent landmarks and preserve sepa
   assert.equal(findOne(root, hasDataRole("dialogue")), story);
   assert.equal(findOne(root, hasDataRole("stage-header")), header);
   const card = findOne(root, hasDataRole("reading-card"));
-  assert.equal(findAll(card, hasDataRole("feedback")).length, 0);
-  assert.equal(findAll(card, hasDataRole("content-notice")).length, 0);
+  assert.equal(findAll(card, hasDataRole("feedback")).length, 1);
+  assert.equal(findAll(card, hasDataRole("content-notice")).length, 1);
   assert.match(findOne(root, hasDataRole("feedback")).textContent, /พลังชีวิต เพิ่มขึ้น 5/);
 });
 

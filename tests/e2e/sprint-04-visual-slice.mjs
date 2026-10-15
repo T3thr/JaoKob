@@ -16,7 +16,7 @@ const app=createGameApplication({document,root:document.getElementById('slice-ro
 const mime = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".json": "application/json", ".webp": "image/webp", ".svg": "image/svg+xml", ".mp3": "audio/mpeg", ".woff2": "font/woff2" };
 const evidence = { baseline: execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim(), at: new Date().toISOString(),
   requirements: ["TC-S4-VIS-001", "TC-S4-STATUS-001", "TC-S4-STATE-001", "TC-S4-A11Y-001"],
-  viewports: [], checks: [], screenshots: [], errors: [], expectedFaults: [], sourceHashes: {},
+  viewports: [], anchors: [], modalCorners: [], checks: [], screenshots: [], errors: [], expectedFaults: [], sourceHashes: {},
   notRun: ["PO aesthetic and human Thai editorial acceptance", "Physical touch devices", "VoiceOver/NVDA", "Safari/iOS/Firefox", "Native 400% browser zoom", "Representative device percentile performance"] };
 const server = createServer(async (request, response) => {
   try {
@@ -36,7 +36,7 @@ await new Promise((done) => server.listen(0, "127.0.0.1", done));
 const origin = `http://127.0.0.1:${server.address().port}`;
 const browser = await chromium.launch({ headless: process.env.JKB_HEADED !== "1" });
 evidence.browser = browser.version();
-const choice = (page, id) => page.locator(`[data-choice-id="${id}"]`);
+const choice = (page, id) => page.locator(`.jk-app-shell:not([inert]) [data-choice-id="${id}"], dialog[open] [data-choice-id="${id}"]`);
 const idle = (page) => page.waitForFunction(() => window.slice?.app.getStatus().booted && !slice.app.getStatus().busy);
 async function click(page, id) { await choice(page, id).click(); await idle(page); }
 async function context(viewport, fault = "") {
@@ -50,7 +50,36 @@ async function context(viewport, fault = "") {
   await page.goto(`${origin}${viewport.width === 2560 ? "/JaoKob" : ""}/index.html`); await idle(page);
   return { ctx, page };
 }
-async function screenshot(page, name) { await page.screenshot({ path: resolve(output, name), fullPage: true }); evidence.screenshots.push(name); }
+async function screenshot(page, name) { await page.screenshot({ path: resolve(output, name), fullPage: !/settings|advisory|switch|sound/.test(name) }); evidence.screenshots.push(name); }
+async function anchor(page) {
+  return page.evaluate(() => {
+    const rect = (selector) => { const r = document.querySelector(selector).getBoundingClientRect(); return { x: r.x, y: r.y, width: r.width, height: r.height, bottom: r.bottom }; };
+    return { mode: slice.app.getViewModel().presentation.mode, paper: rect('.jk-narrative'), slot: rect('.jk-choice-slot'), scrollY,
+      body: { height: document.querySelector('.jk-reading-body').clientHeight, scrollHeight: document.querySelector('.jk-reading-body').scrollHeight } };
+  });
+}
+function sameAnchor(before, after, name) {
+  for (const region of ['paper', 'slot']) for (const key of ['x','y','width','height','bottom']) {
+    assert.ok(Math.abs(before[region][key] - after[region][key]) < .1, `${name} ${region}.${key}: ${before[region][key]} -> ${after[region][key]}`);
+  }
+}
+async function modalCorners(page, name) {
+  const measure = () => page.locator('dialog[open]').evaluate((dialog) => {
+    const close = dialog.querySelector('.jk-modal-close'), body = dialog.querySelector('.jk-modal-body'), r = close.getBoundingClientRect();
+    const hit = document.elementFromPoint(r.x+r.width/2, r.y+r.height/2);
+    return { x: r.x, y: r.y, width: r.width, height: r.height, visible: r.x >= 0 && r.y >= 0 && r.right <= innerWidth && r.bottom <= innerHeight && close.contains(hit),
+      scrollTop: body.scrollTop, clientHeight: body.clientHeight, scrollHeight: body.scrollHeight,
+      containedButtonLabels: [...body.querySelectorAll('button')].every((node) => node.scrollHeight <= node.clientHeight+1) };
+  });
+  await page.locator('dialog[open] .jk-modal-body').evaluate((body) => { body.scrollTop = 0; });
+  const before = await measure();
+  await page.locator('dialog[open] .jk-modal-body').evaluate((body) => { body.scrollTop = body.scrollHeight; });
+  const after = await measure();
+  assert.ok(before.visible && after.visible && before.width >= 44 && before.height >= 44 && before.clientHeight >= 44, `${name}: ${JSON.stringify({before,after})}`);
+  assert.ok(before.containedButtonLabels && after.containedButtonLabels, `${name} button labels fit their actual controls`);
+  assert.equal(after.y, before.y); assert.equal(after.x, before.x);
+  evidence.modalCorners.push({ name, before, after });
+}
 async function fit(page, name) {
   const facts = await page.evaluate(() => ({ width: innerWidth, height: innerHeight, scrollWidth: document.documentElement.scrollWidth,
     buttons: [...document.querySelectorAll('button')].filter((el) => el.getBoundingClientRect().width).map((el) => ({ id: el.dataset.choiceId, width: el.getBoundingClientRect().width, height: el.getBoundingClientRect().height })),
@@ -67,9 +96,10 @@ async function fit(page, name) {
   }
   evidence.viewports.push({ name, ...facts });
 }
-async function decision(page) {
+async function decision(page, samples = []) {
   const observations = ["lily", "roots", "shadows", "mother"];
   for (let guard = 0; guard < 70; guard++) {
+    samples.push(await anchor(page));
     if (await choice(page, "choice.act1.focus-mother").count()) return;
     if (await choice(page, "application.advance").count()) await click(page, "application.advance");
     else await click(page, observations.length ? `interaction.act1.observe-${observations.shift()}` : "interaction.act1.join-family");
@@ -94,7 +124,12 @@ try {
     assert.equal(await page.locator('.jk-header-bar').count(), 1);
     assert.equal(await page.locator('.jk-utility-rail').evaluate((el) => getComputedStyle(el).backgroundColor), 'rgba(0, 0, 0, 0)');
     await fit(page, `${width}x${height}-reading`); await screenshot(page, `${width}x${height}-reading.png`);
-    await decision(page);
+    const readingAnchor = await anchor(page), samples = [];
+    assert.ok(Math.abs(height - readingAnchor.paper.bottom - 24) < .1, `${width} bottom baseline24`);
+    await page.evaluate(() => { window.sliceShifts = []; window.sliceShiftObserver = new PerformanceObserver((list) => sliceShifts.push(...list.getEntries().map(({value,hadRecentInput}) => ({value,hadRecentInput})))); sliceShiftObserver.observe({type:'layout-shift'}); });
+    await decision(page, samples);
+    const decisionAnchor = await anchor(page);
+    for (const sample of [...samples, decisionAnchor]) sameAnchor(readingAnchor, sample, `${width} ${sample.mode}`);
     assert.equal(await page.locator('.jk-decision-card').count(), 3); assert.equal(await choice(page, "application.advance").count(), 0);
     await page.waitForFunction(() => { const status = document.querySelector('.jk-save-status'); return status && status.hasAttribute('hidden') && getComputedStyle(status).display === 'none'; });
     assert.equal(await page.locator('.jk-narrative [data-jk-role="feedback"]').count(), 1);
@@ -102,19 +137,94 @@ try {
     assert.equal(await page.locator('.jk-choice-icon svg').count(), 3);
     await fit(page, `${width}x${height}-decision`); await screenshot(page, `${width}x${height}-decision.png`);
     await click(page, "choice.act1.focus-mother");
+    sameAnchor(decisionAnchor, await anchor(page), `${width} Decision -> Reading`);
+    const shifts = await page.evaluate(() => { sliceShiftObserver.disconnect(); return sliceShifts; });
+    assert.equal(shifts.reduce((sum, entry) => sum + entry.value, 0), 0, `${width} layout shifts including recent input`);
+    evidence.anchors.push({ width, height, reading: readingAnchor, decision: decisionAnchor, samples, shifts, cls: 0, includingRecentInput: 0 });
     assert.equal(await page.locator('[data-jk-role="feedback"]').count(), 1);
-    assert.equal(await page.locator('.jk-narrative [data-jk-role="feedback"]').count(), 0);
+    assert.equal(await page.locator('.jk-narrative [data-jk-role="feedback"]').count(), 1);
     if (width === 390 || width === 1440) await screenshot(page, `${width}x${height}-response.png`);
     if (width === 320 || width === 1440) {
       await page.evaluate(() => { document.documentElement.style.fontSize = "200%"; });
       await fit(page, `${width}x${height}-text200`); await screenshot(page, `${width}x${height}-text200.png`);
-      await click(page, "application.settings"); await fit(page, `${width}x${height}-settings-text200`); await screenshot(page, `${width}x${height}-settings-text200.png`);
-      await page.keyboard.press("Escape"); await idle(page);
+      await click(page, "application.settings"); await fit(page, `${width}x${height}-settings-text200`);
+      await modalCorners(page, `${width}-settings-text200`); await screenshot(page, `${width}x${height}-settings-text200.png`);
+      await page.locator('dialog[open] .jk-modal-close').click(); await idle(page);
       assert.equal(await choice(page, "application.settings").evaluate((el) => document.activeElement === el), true);
     }
     await ctx.close();
   }
-  evidence.checks.push("Six viewports: Title no HUD, Reading Next within paper footer, true three-choice Decision no Next, Thai 18–20px/1.85, targets44, root/subpath, normal fit and reflow");
+  evidence.checks.push("ADR-P0-018 D1: six viewports, paper and reserved slot match across every Reading/Exploration/Decision beat, bottom24, zero measured layout shifts including recent input; Thai/44px/root/subpath/reflow checks retained");
+  // Real application overlays: native keyboard, fixed corner, true switch state,
+  // sound availability/zero volume and durable UI-only advisory preference.
+  {
+    const { ctx, page } = await context({ width: 390, height: 844 });
+    assert.doesNotMatch(await page.locator('.jk-story').innerText(), /พายุ|พลัดพราก/);
+    const noGame = await page.evaluate(() => slice.app.getSnapshot());
+    await click(page, 'application.advisory');
+    assert.equal(await page.getByRole('dialog', { name: 'คำแนะนำ', exact: true }).count(), 1);
+    assert.match(await page.locator('dialog[open]').innerText(), /พายุและการพลัดพราก/);
+    const close = page.locator('dialog[open] .jk-modal-close');
+    await close.focus(); await page.keyboard.press('Shift+Tab');
+    assert.equal(await page.locator('dialog[open] button').last().evaluate((node) => node === document.activeElement), true);
+    await page.keyboard.press('Tab'); assert.equal(await close.evaluate((node) => node === document.activeElement), true);
+    await modalCorners(page, '390-advisory'); await screenshot(page, '390-advisory.png');
+    await page.keyboard.press('Escape'); await idle(page);
+    assert.equal(await choice(page,'application.advisory').evaluate((node) => node === document.activeElement), true);
+    await click(page, 'application.advisory');
+    const preference = page.locator('[data-jk-preference="hideContentAdvisory"]');
+    await preference.click(); await idle(page); assert.equal(await preference.getAttribute('aria-checked'), 'true');
+    await page.locator('dialog[open] [data-choice-id="application.close-advisory"]').last().click(); await idle(page);
+    assert.equal(await choice(page,'application.advisory').count(), 0);
+    assert.equal(await page.evaluate(() => slice.app.getSnapshot()), noGame);
+    const stored = await page.evaluate(() => ({ preferences: JSON.parse(localStorage.getItem('jaokob:preferences')), save: localStorage.getItem('jaokob:save:canonical'), settings: localStorage.getItem('jaokob:settings') }));
+    assert.deepEqual(stored, { preferences: { version:1, preferences: {hideContentAdvisory:true} }, save:null, settings:null });
+    await page.reload(); await idle(page); assert.equal(await choice(page,'application.advisory').count(), 0);
+    await click(page, 'application.settings'); await modalCorners(page, '390-settings');
+    await screenshot(page, '390-settings-bottom.png');
+    await page.locator('dialog[open] .jk-modal-body').evaluate((node) => {node.scrollTop=0;});
+    await screenshot(page, '390-settings-top.png');
+    assert.equal(await page.getByRole('switch').count(), 4);
+    const contrast = page.getByRole('switch', { name:'เพิ่มความต่างของสี', exact:true });
+    const off = await contrast.locator('.jk-switch-thumb').evaluate((node) => getComputedStyle(node).transform);
+    await contrast.focus(); await page.keyboard.press('Space'); await idle(page);
+    const on = await contrast.locator('.jk-switch-thumb').evaluate((node) => getComputedStyle(node).transform);
+    assert.equal(await contrast.getAttribute('aria-checked'), 'true'); assert.notEqual(off,on);
+    assert.equal(await contrast.evaluate((node) => node === document.activeElement), true);
+    await screenshot(page, '390-switch-on.png');
+    await contrast.click(); await idle(page);
+    const master = page.locator('[data-jk-setting="masterVolume"]');
+    await master.focus(); await page.keyboard.press('Home'); await idle(page);
+    assert.equal(await master.inputValue(), '0'); assert.equal(await page.locator('dialog[open] [data-jk-action="enable-sound"]').getAttribute('data-audio-state'), 'off');
+    await page.locator('dialog[open] [data-jk-action="enable-sound"]').click(); await idle(page);
+    assert.equal(await master.inputValue(), '0', 'unlock must preserve intentional mute');
+    assert.equal(await page.locator('dialog[open] [data-jk-action="enable-sound"]').count(), 1);
+    await screenshot(page, '390-sound-off.png');
+    await master.focus(); await page.keyboard.press('End'); await idle(page);
+    await click(page, 'application.advisory');
+    assert.equal(await preference.getAttribute('aria-checked'), 'true'); await preference.click(); await idle(page);
+    await page.locator('dialog[open] .jk-modal-close').click(); await idle(page);
+    assert.equal(await page.locator('dialog[open] [data-choice-id="application.advisory"]').evaluate((node) => node === document.activeElement), true);
+    await page.locator('dialog[open] .jk-modal-close').click(); await idle(page);
+    assert.equal(await choice(page,'application.advisory').count(), 1);
+    await page.evaluate(() => { window.soundBefore=document.querySelector('[data-choice-id="application.enable-sound"]'); });
+    await click(page, 'application.enable-sound');
+    assert.equal(await page.evaluate(() => document.querySelector('.jk-utility-rail [data-choice-id="application.enable-sound"]') === soundBefore && !!soundBefore.dataset.audioState), true);
+    assert.equal(await page.locator('[data-jk-setting="masterVolume"]').evaluate((node) => node === document.activeElement), true);
+    await page.locator('dialog[open] .jk-modal-close').click(); await idle(page);
+    await page.evaluate(() => { document.documentElement.style.fontSize='200%'; });
+    await click(page, 'application.advisory'); await modalCorners(page, '390-advisory-text200');
+    await screenshot(page, '390-advisory-text200.png'); await ctx.close();
+    evidence.advisoryPreference = stored;
+  }
+  {
+    const { ctx, page } = await context({ width:390, height:844 }, 'storage');
+    await click(page, 'application.advisory'); await page.locator('[data-jk-preference="hideContentAdvisory"]').click(); await idle(page);
+    assert.match(await page.locator('[data-jk-role="preference-status"]').innerText(), /ยังบันทึก|เปิดเกมใหม่/);
+    assert.equal(await page.evaluate(() => localStorage.getItem('jaokob:preferences')), null);
+    await modalCorners(page, '390-advisory-storage-failure'); await screenshot(page, '390-advisory-storage-failure.png'); await ctx.close();
+  }
+  evidence.checks.push('ADR-P0-018 D2/D3/D4: close visible/hit-tested at both scroll extremes and 200%; four keyboard switches with visible state/thumb; sound control persists and unlock preserves zero; advisory ack/Escape/focus, durable hide/reopen/reset and storage-denial explanation; no game/save/settings changes from advisory');
   // Native DOM fixture exercises renderer-only patches without altering game state.
   {
     const { ctx, page } = await context({ width: 390, height: 844 });
@@ -138,17 +248,21 @@ try {
       button.click();
       renderer.announce({ text: 'บันทึกแล้ว' }); await Promise.resolve(); renderer.announce({ text: 'บันทึกแล้ว' }); await Promise.resolve(); observer.disconnect();
       renderer.render({ ...base, presentation: { mode: 'settings' } });
-      const modal = root.querySelector('dialog'), music = root.querySelector('[data-jk-setting="musicVolume"]'); music.focus(); modal.scrollTop = 200; const scroll = modal.scrollTop;
+      const modal = root.querySelector('dialog'), scrollRegion = modal.querySelector('.jk-modal-body'), music = root.querySelector('[data-jk-setting="musicVolume"]'); music.focus(); scrollRegion.scrollTop = 200; const scroll = scrollRegion.scrollTop;
       renderer.setBusy(true);
       renderer.render({ ...base, viewRevision: 11, presentation: { mode: 'settings' }, notice: { text: 'ยังบันทึกไม่ได้' }, audioStatusText: 'เสียงพร้อมแล้ว' });
       renderer.setBusy(false);
-      const modalStable = modal === root.querySelector('dialog') && document.activeElement === music && modal.scrollTop === scroll;
+      const modalStable = modal === root.querySelector('dialog') && document.activeElement === music && scrollRegion.scrollTop === scroll;
       renderer.render({ ...base, viewRevision: 12, settings: { fontScale: 1, highContrast: true } });
       window.fixtureRenderer = renderer; window.fixtureView = base;
       return { preserved, modalStable, announcements, intent: intents[0], before, after: slice.app.getSnapshot() };
     });
     assert.ok(results.before); assert.ok(results.preserved); assert.ok(results.modalStable); assert.equal(results.announcements, 1); assert.equal(results.intent.viewRevision, 10); assert.deepEqual(results.after, results.before);
     evidence.nativePatch = results;
+    const highContrastColors = await page.evaluate(() => {
+      const prose = getComputedStyle(document.querySelector('.jk-dialogue')), paper = getComputedStyle(document.querySelector('.jk-narrative'));
+      return [prose.color, paper.backgroundColor];
+    });
     await screenshot(page, "390-high-contrast.png");
     await page.emulateMedia({ forcedColors: "active" }); await screenshot(page, "390-forced-colors.png");
     await page.emulateMedia({ forcedColors: "none", reducedMotion: "reduce" });
@@ -162,6 +276,8 @@ try {
     });
     const lum = (color) => color.match(/[\d.]+/g).slice(0,3).map(Number).map((v) => v / 255).map((v) => v <= .04045 ? v / 12.92 : ((v+.055)/1.055)**2.4).reduce((sum,v,i) => sum+v*[.2126,.7152,.0722][i],0);
     evidence.contrastRatios = colors.colors.map(([f,b]) => (Math.max(lum(f),lum(b))+.05)/(Math.min(lum(f),lum(b))+.05));
+    evidence.highContrastRatio = (Math.max(...highContrastColors.map(lum))+.05)/(Math.min(...highContrastColors.map(lum))+.05);
+    assert.ok(evidence.highContrastRatio >= 7);
     assert.ok(evidence.contrastRatios.every((ratio) => ratio >= 4.5)); assert.notEqual(colors.hp, colors.sanity); assert.equal(colors.motion, "0s");
     await page.addStyleTag({ content: '.jk-header-bar { backdrop-filter:none; -webkit-backdrop-filter:none; background:var(--jk-glass); }' });
     await screenshot(page, "390-glass-fallback.png");

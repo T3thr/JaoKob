@@ -8,6 +8,7 @@ import { projectContentPresentation } from "../data/content/content-presentation
 import { createContentVersionMigration } from "../data/migrations/content-2-0-0-to-2-1-0.js";
 import { TH_APPLICATION as messages } from "../data/localization/th-application.js";
 import { createLocalStorageAdapter, createLocalSettingsAdapter } from "../data/persistence/local-storage-adapter.js";
+import { createLocalUiPreferencesAdapter, DEFAULT_UI_PREFERENCES } from "../data/persistence/local-ui-preferences-adapter.js";
 import { validateSaveEnvelope, validateGameSettings, CURRENT_SAVE_FORMAT_VERSION } from "../data/validation/save-envelope-validator.js";
 import { deepFreeze } from "../data/validation/content-values.js";
 import { createDomRenderer } from "../ui/renderers/dom/dom-renderer.js";
@@ -27,6 +28,7 @@ export function createGameApplication(options = {}) {
   const rawStorageOption = options.rawStorage === undefined ? {} : { storage: options.rawStorage };
   const storage = options.storage ?? createLocalStorageAdapter({ ...rawStorageOption, canReplaceExistingEnvelope: compatible });
   const settingsStorage = options.settingsStorage ?? createLocalSettingsAdapter(rawStorageOption);
+  const preferencesStorage = options.preferencesStorage ?? createLocalUiPreferencesAdapter(rawStorageOption);
   const clock = options.clock ?? (() => new Date().toISOString());
   const sessionIdFactory = options.sessionIdFactory ?? createSessionId;
   assertRendererPort(renderer); assertStoragePort(storage);
@@ -35,6 +37,8 @@ export function createGameApplication(options = {}) {
   let memoryOnly = false, fatal = false, booted = false, busy = false, lastViewModel = null;
   let viewRevision = 0, revisionFloor = 0, lastAt = null, operation = Promise.resolve();
   let migration = null, migrationAttempted = false, mediaRefreshPending = false, disposed = false;
+  let preferences = DEFAULT_UI_PREFERENCES, advisoryOpen = false, preferenceStatusText = "";
+  let requestedSettingsFocus = null;
 
   function refreshMedia(kind) {
     // A pointerdown unlock may settle before click. Do not replace its target;
@@ -89,7 +93,8 @@ export function createGameApplication(options = {}) {
     if (projectMedia) media.accept({ ...projectContentPresentation({ loaded, snapshot, facts, settings, mode }), facts });
     lastViewModel = projectContentView({ loaded, snapshot, facts,
       settings, notice, feedbackActionId, meterChanges, mode, hasResume: Boolean(resumeEnvelope), memoryResume: memoryOnly,
-      confirmation, viewRevision: ++viewRevision, ...media.status() });
+      confirmation, preferences, advisoryOpen, preferenceStatusText, focusSetting: requestedSettingsFocus, viewRevision: ++viewRevision, ...media.status() });
+    requestedSettingsFocus = null;
     const result = await invoke(renderer, "render", lastViewModel);
     if (!result.ok) return presentFatal("RENDER_FAILURE");
     await invoke(renderer, "announce", { text: [lastViewModel.feedback, notice].filter(Boolean).join(" "), meterChanges: lastViewModel.meterChanges });
@@ -191,8 +196,10 @@ export function createGameApplication(options = {}) {
     if (!admission.ok) return presentFatal("CONTENT_TRANSITION");
     const recovered = await recover();
     if (recovered.fatalCode) return presentFatal(recovered.fatalCode);
-    const preferences = await invoke(settingsStorage, "load");
-    if (preferences.ok && preferences.value) settings = { ...preferences.value };
+    const savedSettings = await invoke(settingsStorage, "load");
+    if (savedSettings.ok && savedSettings.value) settings = { ...savedSettings.value };
+    const savedPreferences = await invoke(preferencesStorage, "load");
+    if (savedPreferences.ok && savedPreferences.value) preferences = { ...savedPreferences.value };
     booted = true;
     return render();
   }
@@ -238,10 +245,17 @@ export function createGameApplication(options = {}) {
       return booted && loaded?.valid ? render() : bootInternal();
     }
     if (!booted || fatal) return failure("APPLICATION_UNAVAILABLE");
-    if (!["SELECT_CHOICE", "SETTINGS_CHANGED"].includes(intent?.type)) return failure("INVALID_INTENT");
+    if (!["SELECT_CHOICE", "SETTINGS_CHANGED", "PREFERENCE_CHANGED"].includes(intent?.type)) return failure("INVALID_INTENT");
     if ((intent.viewRevision !== undefined && intent.viewRevision !== viewRevision)
       || (intent.expectedRevision !== undefined && intent.expectedRevision !== (snapshot?.revision ?? 0))) return failure("REVISION_MISMATCH");
-    if (intent.type === "SETTINGS_CHANGED") return changeSettings(intent.setting, intent.value);
+    if (intent.type === "PREFERENCE_CHANGED") {
+      if (!advisoryOpen || intent.preference !== "hideContentAdvisory" || typeof intent.value !== "boolean") return failure("INVALID_INTENT");
+      preferences = { hideContentAdvisory: intent.value };
+      const saved = await invoke(preferencesStorage, "save", preferences);
+      preferenceStatusText = saved.ok ? "" : messages.preferencesUnavailable;
+      return render(); // Preference never touches domain revision, settings or saves.
+    }
+    if (intent.type === "SETTINGS_CHANGED") return advisoryOpen ? failure("INVALID_INTENT") : changeSettings(intent.setting, intent.value);
     const id = intent.choiceId;
     if (!lastViewModel.choices.some((item) => item.id === id && !item.disabled)) return failure("CONTENT_ACTION_UNAVAILABLE");
     switch (id) {
@@ -284,7 +298,13 @@ export function createGameApplication(options = {}) {
         if (!orchestrator.facts(snapshot).complete) return failure("CONTENT_ACTION_UNAVAILABLE");
         snapshot = null; mode = "title"; feedbackActionId = null; meterChanges = []; return render();
       case "application.settings": mode = "settings"; return render();
-      case "application.enable-sound": return render(); // Unlock already ran synchronously in the trusted event.
+      case "application.advisory": advisoryOpen = true; return render();
+      case "application.close-advisory": advisoryOpen = false; return render();
+      case "application.enable-sound":
+        // Unlock already ran in the trusted event. A ready/muted control opens
+        // its actual volume settings; it never silently unmutes saved zeros.
+        if (mode !== "settings" && ["ready", "off"].includes(lastViewModel.soundState)) { mode = "settings"; requestedSettingsFocus = "masterVolume"; }
+        return render();
       case "application.retry-media": media.retry(); return render();
       case "application.close-settings": mode = snapshot ? "game" : "title"; return render();
       case "application.toggle-font":

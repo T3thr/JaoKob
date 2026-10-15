@@ -1,13 +1,15 @@
 /* Success fades once; Next breathes gently. Subject stays on the water plane. */
 @keyframes jk-save-fade { 0%, 35% { opacity: .9; } 100% { opacity: 0; } }
-@keyframes jk-next-breathe { 0%, 100% { opacity: .6; transform: rotate(135deg) translate(0, 0); } 50% { opacity: 1; transform: rotate(135deg) translate(1px, -1px); } }
+@keyframes jk-next-breathe { 0%, 100% { opacity: .6; transform: rotate(90deg) translate(0, 0); } 50% { opacity: 1; transform: rotate(90deg) translate(2px, 0); } }
 .jk-save-status[data-status-kind="saved"][data-status-phase="visible"] { animation: jk-save-fade 1500ms ease-out both; }
 .jk-advance-button .jk-choice-cue { animation: jk-next-breathe 3.2s ease-in-out infinite; }
 .jk-choice-button, .jk-secondary-button { transition: background-color var(--jk-motion-fast) ease, border-color var(--jk-motion-fast) ease, box-shadow var(--jk-motion-fast) ease; }
+.jk-switch-thumb { transition: transform var(--jk-motion-fast) ease; }
+.jk-switch-track { transition: background-color var(--jk-motion-fast) ease; }
 .jk-choice-button[data-choice-id="application.new-game"]:hover { box-shadow: 0 .4rem 1.3rem rgb(39 62 39 / 20%); }
 .jk-app[data-reduced-motion="true"] :is(.jk-save-status, .jk-choice-cue) { animation: none; }
-.jk-app[data-reduced-motion="true"] :is(.jk-choice-button, .jk-secondary-button) { transition: none; }
+.jk-app[data-reduced-motion="true"] :is(.jk-choice-button, .jk-secondary-button, .jk-switch-thumb, .jk-switch-track) { transition: none; }
 @media (prefers-reduced-motion: reduce) {
   .jk-save-status, .jk-advance-button .jk-choice-cue { animation: none; }
-  .jk-choice-button, .jk-secondary-button { transition: none; }
+  .jk-choice-button, .jk-secondary-button, .jk-switch-thumb, .jk-switch-track { transition: none; }
 }

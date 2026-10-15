@@ -14,6 +14,9 @@
   --jk-font-sans: "Sarabun", "Noto Sans Thai", "Leelawadee UI", Tahoma, Arial, sans-serif;
   --jk-text-base: 1rem;
   --jk-reading-max: 44rem;
+  --jk-reading-height: 16em;
+  --jk-choice-height: 9em;
+  --jk-bottom-baseline: max(1.5rem, env(safe-area-inset-bottom));
   --jk-radius-sm: .75rem;
   --jk-radius-md: 1.25rem;
   --jk-radius-lg: 1.65rem;

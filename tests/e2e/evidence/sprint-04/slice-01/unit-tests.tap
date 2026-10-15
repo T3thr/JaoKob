@@ -2,4236 +2,4290 @@ TAP version 13
 # Subtest: FR-ENG/FR-SAV production DOM playthrough mother/call-family/keep-fragment
 ok 1 - FR-ENG/FR-SAV production DOM playthrough mother/call-family/keep-fragment
   ---
-  duration_ms: 189.856666
+  duration_ms: 335.608041
   type: 'test'
   ...
 # Subtest: FR-ENG/FR-SAV production DOM playthrough mother/call-family/release-fragment
 ok 2 - FR-ENG/FR-SAV production DOM playthrough mother/call-family/release-fragment
   ---
-  duration_ms: 209.235542
+  duration_ms: 188.9345
   type: 'test'
   ...
 # Subtest: FR-ENG/FR-SAV production DOM playthrough mother/seek-safety/keep-fragment
 ok 3 - FR-ENG/FR-SAV production DOM playthrough mother/seek-safety/keep-fragment
   ---
-  duration_ms: 100.099417
+  duration_ms: 243.032583
   type: 'test'
   ...
 # Subtest: FR-ENG/FR-SAV production DOM playthrough mother/seek-safety/release-fragment
 ok 4 - FR-ENG/FR-SAV production DOM playthrough mother/seek-safety/release-fragment
   ---
-  duration_ms: 47.587625
+  duration_ms: 114.524834
   type: 'test'
   ...
 # Subtest: FR-ENG/FR-SAV production DOM playthrough roots/call-family/keep-fragment
 ok 5 - FR-ENG/FR-SAV production DOM playthrough roots/call-family/keep-fragment
   ---
-  duration_ms: 52.497334
+  duration_ms: 203.083959
   type: 'test'
   ...
 # Subtest: FR-ENG/FR-SAV production DOM playthrough roots/call-family/release-fragment
 ok 6 - FR-ENG/FR-SAV production DOM playthrough roots/call-family/release-fragment
   ---
-  duration_ms: 94.708584
+  duration_ms: 108.114417
   type: 'test'
   ...
 # Subtest: FR-ENG/FR-SAV production DOM playthrough roots/seek-safety/keep-fragment
 ok 7 - FR-ENG/FR-SAV production DOM playthrough roots/seek-safety/keep-fragment
   ---
-  duration_ms: 64.144417
+  duration_ms: 55.552792
   type: 'test'
   ...
 # Subtest: FR-ENG/FR-SAV production DOM playthrough roots/seek-safety/release-fragment
 ok 8 - FR-ENG/FR-SAV production DOM playthrough roots/seek-safety/release-fragment
   ---
-  duration_ms: 48.926666
+  duration_ms: 44.535291
   type: 'test'
   ...
 # Subtest: FR-ENG/FR-SAV production DOM playthrough siblings/call-family/keep-fragment
 ok 9 - FR-ENG/FR-SAV production DOM playthrough siblings/call-family/keep-fragment
   ---
-  duration_ms: 62.702292
+  duration_ms: 79.485083
   type: 'test'
   ...
 # Subtest: FR-ENG/FR-SAV production DOM playthrough siblings/call-family/release-fragment
 ok 10 - FR-ENG/FR-SAV production DOM playthrough siblings/call-family/release-fragment
   ---
-  duration_ms: 47.0935
+  duration_ms: 40.567583
   type: 'test'
   ...
 # Subtest: FR-ENG/FR-SAV production DOM playthrough siblings/seek-safety/keep-fragment
 ok 11 - FR-ENG/FR-SAV production DOM playthrough siblings/seek-safety/keep-fragment
   ---
-  duration_ms: 37.333666
+  duration_ms: 56.630042
   type: 'test'
   ...
 # Subtest: FR-ENG/FR-SAV production DOM playthrough siblings/seek-safety/release-fragment
 ok 12 - FR-ENG/FR-SAV production DOM playthrough siblings/seek-safety/release-fragment
   ---
-  duration_ms: 57.417667
+  duration_ms: 56.909583
   type: 'test'
   ...
 # Subtest: FR-SAV-009 real adapter restart restores every cursor/state without save writes or effect replay
 ok 13 - FR-SAV-009 real adapter restart restores every cursor/state without save writes or effect replay
   ---
-  duration_ms: 290.389125
+  duration_ms: 449.266
   type: 'test'
   ...
 # Subtest: FR-SAV-006 Mock 1.0.0 remains byte-identical until explicit replacement consent
 ok 14 - FR-SAV-006 Mock 1.0.0 remains byte-identical until explicit replacement consent
   ---
-  duration_ms: 8.132833
+  duration_ms: 14.194709
   type: 'test'
   ...
 # Subtest: FR-SAV-006 malformed JSON never auto-clears
 ok 15 - FR-SAV-006 malformed JSON never auto-clears
   ---
-  duration_ms: 6.5645
+  duration_ms: 12.632917
   type: 'test'
   ...
 # Subtest: FR-SAV-006 future format never auto-clears
 ok 16 - FR-SAV-006 future format never auto-clears
   ---
-  duration_ms: 6.510708
+  duration_ms: 15.719
   type: 'test'
   ...
 # Subtest: FR-SAV-006 unknown content never auto-clears
 ok 17 - FR-SAV-006 unknown content never auto-clears
   ---
-  duration_ms: 6.330542
+  duration_ms: 13.79325
   type: 'test'
   ...
 # Subtest: FR-SAV-006 valid backup plus corrupt canonical can resume only in memory
 ok 18 - FR-SAV-006 valid backup plus corrupt canonical can resume only in memory
   ---
-  duration_ms: 8.691625
+  duration_ms: 12.373917
   type: 'test'
   ...
 # Subtest: FR-SAV-006 consent receipt rejects records changed by another tab before confirmation
 ok 19 - FR-SAV-006 consent receipt rejects records changed by another tab before confirmation
   ---
-  duration_ms: 7.376958
+  duration_ms: 9.7495
   type: 'test'
   ...
 # Subtest: FR-SAV-006 failed consent clear does not start a writable new game
 ok 20 - FR-SAV-006 failed consent clear does not start a writable new game
   ---
-  duration_ms: 6.798208
+  duration_ms: 12.799125
   type: 'test'
   ...
 # Subtest: FR-SAV-007 quota failures retain play in memory through act-rest
 ok 21 - FR-SAV-007 quota failures retain play in memory through act-rest
   ---
-  duration_ms: 11.495042
+  duration_ms: 16.312125
   type: 'test'
   ...
 # Subtest: FR-ENG-002 stale DOM intents and simultaneous dispatch commit only once
 ok 22 - FR-ENG-002 stale DOM intents and simultaneous dispatch commit only once
   ---
-  duration_ms: 8.62025
+  duration_ms: 10.890917
   type: 'test'
   ...
 # Subtest: FR-STA-004 high-impact cancel and reading settings preserve domain facts
 ok 23 - FR-STA-004 high-impact cancel and reading settings preserve domain facts
   ---
-  duration_ms: 18.5675
+  duration_ms: 23.721375
   type: 'test'
   ...
 # Subtest: FR-CNT-001 invalid content stops before any storage access and offers a Thai fatal shell
 ok 24 - FR-CNT-001 invalid content stops before any storage access and offers a Thai fatal shell
   ---
-  duration_ms: 0.222208
+  duration_ms: 0.969667
   type: 'test'
   ...
 # Subtest: FR-LOC-002 NFR-SE-003 content injection fails closed and renderer remains text-only
 ok 25 - FR-LOC-002 NFR-SE-003 content injection fails closed and renderer remains text-only
   ---
-  duration_ms: 14.39175
+  duration_ms: 22.137375
   type: 'test'
   ...
 # Subtest: FR-UI-001 malformed renderer outcomes fail through the localized recovery shell
 ok 26 - FR-UI-001 malformed renderer outcomes fail through the localized recovery shell
   ---
-  duration_ms: 8.810208
+  duration_ms: 15.29275
   type: 'test'
   ...
 # Subtest: FR-SAV-006 incompatible records arriving during play are preserved before autosave
 ok 27 - FR-SAV-006 incompatible records arriving during play are preserved before autosave
   ---
-  duration_ms: 9.366209
+  duration_ms: 21.294667
   type: 'test'
   ...
 # Subtest: FR-SAV-007 blocked reads allow a new in-memory session with a visible warning
 ok 28 - FR-SAV-007 blocked reads allow a new in-memory session with a visible warning
   ---
-  duration_ms: 8.233083
+  duration_ms: 17.628042
   type: 'test'
   ...
 # Subtest: FR-SAV-006 adapter stage rechecks compatibility after application preflight
 ok 29 - FR-SAV-006 adapter stage rechecks compatibility after application preflight
   ---
-  duration_ms: 2.8895
+  duration_ms: 3.852917
   type: 'test'
   ...
 # Subtest: FR-SAV-006 adapter commit rechecks compatibility after application preflight
 ok 30 - FR-SAV-006 adapter commit rechecks compatibility after application preflight
   ---
-  duration_ms: 2.937083
+  duration_ms: 2.504125
   type: 'test'
   ...
 # Subtest: FR-SAV-006 conservative write guard preserves newly corrupted records
 ok 31 - FR-SAV-006 conservative write guard preserves newly corrupted records
   ---
-  duration_ms: 2.164584
+  duration_ms: 3.79375
   type: 'test'
   ...
 # Subtest: FR-CNT-001 fetch failure renders Thai recovery before reading or writing saves
 ok 32 - FR-CNT-001 fetch failure renders Thai recovery before reading or writing saves
   ---
-  duration_ms: 0.391291
+  duration_ms: 0.340625
   type: 'test'
   ...
 # Subtest: FR-SAV-001 production default adapter resolves browser storage with the compatibility guard
 ok 33 - FR-SAV-001 production default adapter resolves browser storage with the compatibility guard
   ---
-  duration_ms: 13.39475
+  duration_ms: 17.574291
   type: 'test'
   ...
 # Subtest: FR-UI-007 retry from a content-load fatal shell retries loading before returning to Title
 ok 34 - FR-UI-007 retry from a content-load fatal shell retries loading before returning to Title
   ---
-  duration_ms: 13.822416
+  duration_ms: 23.185625
   type: 'test'
   ...
 # Subtest: FR-SAV-006 rollback compatibility: legacy composition with retained write guard preserves 2.0.0 raw data
 ok 35 - FR-SAV-006 rollback compatibility: legacy composition with retained write guard preserves 2.0.0 raw data
   ---
-  duration_ms: 2.859583
+  duration_ms: 5.901708
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: production media package validates and is purely presentation-compatible with archived 2.0.0
 ok 36 - TC-S3-ASSET-001: production media package validates and is purely presentation-compatible with archived 2.0.0
   ---
-  duration_ms: 68.272
+  duration_ms: 146.498333
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: eight approved scene/handoff nodes share explicit environment; later scenes are neutral/silent
 ok 37 - TC-S3-ASSET-001: eight approved scene/handoff nodes share explicit environment; later scenes are neutral/silent
   ---
-  duration_ms: 0.166916
+  duration_ms: 0.768084
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: every shipped asset has matching reviewed registry, hash, localized metadata and safe root/subpath URL
 ok 38 - TC-S3-ASSET-001: every shipped asset has matching reviewed registry, hash, localized metadata and safe root/subpath URL
   ---
-  duration_ms: 104.678
+  duration_ms: 82.480292
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: real WebP RIFF dimensions/alpha, WOFF2 headers and compressed/decoded envelopes agree
 ok 39 - TC-S3-ASSET-001: real WebP RIFF dimensions/alpha, WOFF2 headers and compressed/decoded envelopes agree
   ---
-  duration_ms: 8.895125
+  duration_ms: 20.97275
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: prioritize current, cap concurrency at two and deduplicate updates
 ok 40 - TC-S3-ASSET-001: prioritize current, cap concurrency at two and deduplicate updates
   ---
-  duration_ms: 9.052791
+  duration_ms: 11.38025
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: obsolete generations abort jobs, discard queue and release late leases
 ok 41 - TC-S3-ASSET-001: obsolete generations abort jobs, discard queue and release late leases
   ---
-  duration_ms: 1.724917
+  duration_ms: 3.684292
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: failures do not retry automatically and explicit retry remains bounded
 ok 42 - TC-S3-ASSET-001: failures do not retry automatically and explicit retry remains bounded
   ---
-  duration_ms: 2.650833
+  duration_ms: 5.868333
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: noncooperating timeout cannot exceed physical concurrency
 ok 43 - TC-S3-ASSET-001: noncooperating timeout cannot exceed physical concurrency
   ---
-  duration_ms: 15.084916
+  duration_ms: 16.636375
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: data saving drops speculative requests and queue stays bounded
 ok 44 - TC-S3-ASSET-001: data saving drops speculative requests and queue stays bounded
   ---
-  duration_ms: 9.510167
+  duration_ms: 3.864125
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: one-hop selection only uses accepted eligible actions and never traverses their targets
 ok 45 - TC-S3-ASSET-001: one-hop selection only uses accepted eligible actions and never traverses their targets
   ---
-  duration_ms: 2.773709
+  duration_ms: 1.5165
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: resolver binds version, identity, application root and subpath
 ok 46 - TC-S3-ASSET-001: resolver binds version, identity, application root and subpath
   ---
-  duration_ms: 4.320709
+  duration_ms: 7.316042
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject unsafe path "../secret"
 ok 47 - TC-S3-ASSET-001: reject unsafe path "../secret"
   ---
-  duration_ms: 0.354125
+  duration_ms: 0.281333
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject unsafe path "assets/../secret.webp"
 ok 48 - TC-S3-ASSET-001: reject unsafe path "assets/../secret.webp"
   ---
-  duration_ms: 0.136209
+  duration_ms: 0.094833
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject unsafe path "/assets/image.webp"
 ok 49 - TC-S3-ASSET-001: reject unsafe path "/assets/image.webp"
   ---
-  duration_ms: 0.468
+  duration_ms: 0.254542
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject unsafe path "https://evil.test/p.webp"
 ok 50 - TC-S3-ASSET-001: reject unsafe path "https://evil.test/p.webp"
   ---
-  duration_ms: 0.166083
+  duration_ms: 0.092084
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject unsafe path "//evil.test/p.webp"
 ok 51 - TC-S3-ASSET-001: reject unsafe path "//evil.test/p.webp"
   ---
-  duration_ms: 0.127125
+  duration_ms: 0.064791
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject unsafe path "assets/%2e%2e/x.webp"
 ok 52 - TC-S3-ASSET-001: reject unsafe path "assets/%2e%2e/x.webp"
   ---
-  duration_ms: 0.317334
+  duration_ms: 0.198333
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject unsafe path "assets/%252e%252e/x.webp"
 ok 53 - TC-S3-ASSET-001: reject unsafe path "assets/%252e%252e/x.webp"
   ---
-  duration_ms: 0.226416
+  duration_ms: 0.180084
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject unsafe path "assets/x.webp?x=1"
 ok 54 - TC-S3-ASSET-001: reject unsafe path "assets/x.webp?x=1"
   ---
-  duration_ms: 0.256
+  duration_ms: 0.612
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject unsafe path "assets/x.webp\#fragment"
 ok 55 - TC-S3-ASSET-001: reject unsafe path "assets/x.webp\#fragment"
   ---
-  duration_ms: 0.229833
+  duration_ms: 1.485666
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject unsafe path "assets/./x.webp"
 ok 56 - TC-S3-ASSET-001: reject unsafe path "assets/./x.webp"
   ---
-  duration_ms: 0.077958
+  duration_ms: 0.120417
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject unsafe path "assets//x.webp"
 ok 57 - TC-S3-ASSET-001: reject unsafe path "assets//x.webp"
   ---
-  duration_ms: 0.027167
+  duration_ms: 0.031541
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject unsafe path "assets\\\\x.webp"
 ok 58 - TC-S3-ASSET-001: reject unsafe path "assets\\\\x.webp"
   ---
-  duration_ms: 0.018458
+  duration_ms: 0.021541
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject unsafe path "assets/x.webp\\n"
 ok 59 - TC-S3-ASSET-001: reject unsafe path "assets/x.webp\\n"
   ---
-  duration_ms: 0.0185
+  duration_ms: 0.019792
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject unsafe application base file:///tmp/
 ok 60 - TC-S3-ASSET-001: reject unsafe application base file:///tmp/
   ---
-  duration_ms: 0.035334
+  duration_ms: 0.042584
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject unsafe application base data:text/plain,assets/
 ok 61 - TC-S3-ASSET-001: reject unsafe application base data:text/plain,assets/
   ---
-  duration_ms: 0.017875
+  duration_ms: 0.018291
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject unsafe application base https://user:pass@example.test/
 ok 62 - TC-S3-ASSET-001: reject unsafe application base https://user:pass@example.test/
   ---
-  duration_ms: 0.01875
+  duration_ms: 0.017708
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject unsafe application base https://example.test/JaoKob/index.html
 ok 63 - TC-S3-ASSET-001: reject unsafe application base https://example.test/JaoKob/index.html
   ---
-  duration_ms: 0.02075
+  duration_ms: 0.022959
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject unsafe application base https://example.test/?query
 ok 64 - TC-S3-ASSET-001: reject unsafe application base https://example.test/?query
   ---
-  duration_ms: 0.019083
+  duration_ms: 0.018208
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject unsafe application base https://example.test/\#fragment
 ok 65 - TC-S3-ASSET-001: reject unsafe application base https://example.test/\#fragment
   ---
-  duration_ms: 0.0175
+  duration_ms: 0.018292
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject unsafe application base https://example.test/%2f/
 ok 66 - TC-S3-ASSET-001: reject unsafe application base https://example.test/%2f/
   ---
-  duration_ms: 0.01625
+  duration_ms: 0.018666
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject mismatched metadata {"mimeType":"image/svg+xml"}
 ok 67 - TC-S3-ASSET-001: reject mismatched metadata {"mimeType":"image/svg+xml"}
   ---
-  duration_ms: 0.032834
+  duration_ms: 0.240542
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject mismatched metadata {"mimeType":"text/html"}
 ok 68 - TC-S3-ASSET-001: reject mismatched metadata {"mimeType":"text/html"}
   ---
-  duration_ms: 0.021708
+  duration_ms: 0.074667
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject mismatched metadata {"byteLength":500001}
 ok 69 - TC-S3-ASSET-001: reject mismatched metadata {"byteLength":500001}
   ---
-  duration_ms: 0.022375
+  duration_ms: 0.065292
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject mismatched metadata {"byteLength":0}
 ok 70 - TC-S3-ASSET-001: reject mismatched metadata {"byteLength":0}
   ---
-  duration_ms: 0.017208
+  duration_ms: 0.045167
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject mismatched metadata {"sha256":"00"}
 ok 71 - TC-S3-ASSET-001: reject mismatched metadata {"sha256":"00"}
   ---
-  duration_ms: 0.019083
+  duration_ms: 0.069125
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject mismatched metadata {"decodedBytes":1}
 ok 72 - TC-S3-ASSET-001: reject mismatched metadata {"decodedBytes":1}
   ---
-  duration_ms: 0.018583
+  duration_ms: 0.0485
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject mismatched metadata {"width":1601}
 ok 73 - TC-S3-ASSET-001: reject mismatched metadata {"width":1601}
   ---
-  duration_ms: 0.018709
+  duration_ms: 0.045375
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject mismatched metadata {"height":901}
 ok 74 - TC-S3-ASSET-001: reject mismatched metadata {"height":901}
   ---
-  duration_ms: 0.019167
+  duration_ms: 0.041708
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject mismatched metadata {"path":"assets/other.webp"}
 ok 75 - TC-S3-ASSET-001: reject mismatched metadata {"path":"assets/other.webp"}
   ---
-  duration_ms: 0.018167
+  duration_ms: 0.04125
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: reject mismatched metadata {"type":"audio"}
 ok 76 - TC-S3-ASSET-001: reject mismatched metadata {"type":"audio"}
   ---
-  duration_ms: 4.17325
+  duration_ms: 0.0435
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: registry version and duplicate identifiers fail closed
 ok 77 - TC-S3-ASSET-001: registry version and duplicate identifiers fail closed
   ---
-  duration_ms: 0.297
+  duration_ms: 0.25725
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: exact MIME, length, signature and SHA-256 admit media; omit credentials and reject redirects
 ok 78 - TC-S3-ASSET-001: exact MIME, length, signature and SHA-256 admit media; omit credentials and reject redirects
   ---
-  duration_ms: 38.882583
+  duration_ms: 63.504042
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: HTTP compression length differs from decoded body length
 ok 79 - TC-S3-ASSET-001: HTTP compression length differs from decoded body length
   ---
-  duration_ms: 2.370042
+  duration_ms: 11.989833
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: wrong MIME fails silently
 ok 80 - TC-S3-ASSET-001: wrong MIME fails silently
   ---
-  duration_ms: 0.726833
+  duration_ms: 2.276375
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: declared size mismatch fails silently
 ok 81 - TC-S3-ASSET-001: declared size mismatch fails silently
   ---
-  duration_ms: 0.687375
+  duration_ms: 3.249667
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: unknown length bytes too large fails silently
 ok 82 - TC-S3-ASSET-001: unknown length bytes too large fails silently
   ---
-  duration_ms: 0.40975
+  duration_ms: 0.68775
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: truncated response fails silently
 ok 83 - TC-S3-ASSET-001: truncated response fails silently
   ---
-  duration_ms: 0.313166
+  duration_ms: 1.31025
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: external response URL fails silently
 ok 84 - TC-S3-ASSET-001: external response URL fails silently
   ---
-  duration_ms: 0.235375
+  duration_ms: 2.537291
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: same-origin redirected path fails silently
 ok 85 - TC-S3-ASSET-001: same-origin redirected path fails silently
   ---
-  duration_ms: 0.125167
+  duration_ms: 0.227334
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: redirect response fails silently
 ok 86 - TC-S3-ASSET-001: redirect response fails silently
   ---
-  duration_ms: 2.444708
+  duration_ms: 0.799084
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: HTTP 404 fails silently
 ok 87 - TC-S3-ASSET-001: HTTP 404 fails silently
   ---
-  duration_ms: 2.265459
+  duration_ms: 1.682167
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: digest mismatch fails silently
 ok 88 - TC-S3-ASSET-001: digest mismatch fails silently
   ---
-  duration_ms: 4.8675
+  duration_ms: 6.136083
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: wrong signature fails silently
 ok 89 - TC-S3-ASSET-001: wrong signature fails silently
   ---
-  duration_ms: 0.32875
+  duration_ms: 2.270958
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: timeout and caller cancellation stop fetch without retry
 ok 90 - TC-S3-ASSET-001: timeout and caller cancellation stop fetch without retry
   ---
-  duration_ms: 8.546459
+  duration_ms: 6.010333
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: audio decoded memory metadata is bounded independently of transfer
 ok 91 - TC-S3-ASSET-001: audio decoded memory metadata is bounded independently of transfer
   ---
-  duration_ms: 0.383542
+  duration_ms: 0.167792
   type: 'test'
   ...
 # Subtest: TC-S3-AUDIO-001 unlock creates one four-bus graph and resumes synchronously before awaiting
 ok 92 - TC-S3-AUDIO-001 unlock creates one four-bus graph and resumes synchronously before awaiting
   ---
-  duration_ms: 3.830958
+  duration_ms: 8.787083
   type: 'test'
   ...
 # Subtest: FR-SET-004 saved zero volumes are retained without any media request and later enable loads only its bus
 ok 93 - FR-SET-004 saved zero volumes are retained without any media request and later enable loads only its bus
   ---
-  duration_ms: 1.059292
+  duration_ms: 0.506125
   type: 'test'
   ...
 # Subtest: TC-S3-AUDIO-001 identical desired loops across pages/settings never restart or decode twice
 ok 94 - TC-S3-AUDIO-001 identical desired loops across pages/settings never restart or decode twice
   ---
-  duration_ms: 1.5775
+  duration_ms: 1.535083
   type: 'test'
   ...
 # Subtest: TC-S3-AUDIO-001 replacement crossfades exactly 1.5 seconds with at most two voices per loop bus
 ok 95 - TC-S3-AUDIO-001 replacement crossfades exactly 1.5 seconds with at most two voices per loop bus
   ---
-  duration_ms: 1.664084
+  duration_ms: 1.199792
   type: 'test'
   ...
 # Subtest: TC-S3-AUDIO-001 missing target becomes silence and does not retry until explicit unlock
 ok 96 - TC-S3-AUDIO-001 missing target becomes silence and does not retry until explicit unlock
   ---
-  duration_ms: 0.97725
+  duration_ms: 1.743459
   type: 'test'
   ...
 # Subtest: TC-S3-AUDIO-002 reduced intensity halves chosen loop gains and disables pending/active SFX without changing settings
 ok 97 - TC-S3-AUDIO-002 reduced intensity halves chosen loop gains and disables pending/active SFX without changing settings
   ---
-  duration_ms: 1.183166
+  duration_ms: 0.85975
   type: 'test'
   ...
 # Subtest: TC-S3-AUDIO-002 suspend silences immediately, resume reconciles latest desired and disposal releases all resources
 ok 98 - TC-S3-AUDIO-002 suspend silences immediately, resume reconciles latest desired and disposal releases all resources
   ---
-  duration_ms: 9.329625
+  duration_ms: 2.136875
   type: 'test'
   ...
 # Subtest: TC-S3-AUDIO-001 denied activation is typed nonfatal and retries preserve zero consent levels
 ok 99 - TC-S3-AUDIO-001 denied activation is typed nonfatal and retries preserve zero consent levels
   ---
-  duration_ms: 0.239917
+  duration_ms: 0.2895
   type: 'test'
   ...
 # Subtest: TC-S3-AUDIO-001 unsupported/throwing platforms and silent adapter complete safely
 ok 100 - TC-S3-AUDIO-001 unsupported/throwing platforms and silent adapter complete safely
   ---
-  duration_ms: 0.700167
+  duration_ms: 1.668875
   type: 'test'
   ...
 # Subtest: TC-S3-AUDIO-001 stale decode cannot revive old scene/session or leak retained memory after dispose
 ok 101 - TC-S3-AUDIO-001 stale decode cannot revive old scene/session or leak retained memory after dispose
   ---
-  duration_ms: 1.008334
+  duration_ms: 2.383958
   type: 'test'
   ...
 # Subtest: TC-S3-PERF-001 decoder capacity remains two even when obsolete decodes ignore cancellation
 ok 102 - TC-S3-PERF-001 decoder capacity remains two even when obsolete decodes ignore cancellation
   ---
-  duration_ms: 0.342083
+  duration_ms: 2.083417
   type: 'test'
   ...
 # Subtest: TC-S3-PERF-001 PCM LRU counts channels and frames including active/fading pins and evicts inactive buffers
 ok 103 - TC-S3-PERF-001 PCM LRU counts channels and frames including active/fading pins and evicts inactive buffers
   ---
-  duration_ms: 1.144292
+  duration_ms: 1.255208
   type: 'test'
   ...
 # Subtest: TC-S3-PERF-001 oversize/invalid buffers and estimates fail silently before retaining extra PCM
 ok 104 - TC-S3-PERF-001 oversize/invalid buffers and estimates fail silently before retaining extra PCM
   ---
-  duration_ms: 0.186042
+  duration_ms: 1.313416
   type: 'test'
   ...
 # Subtest: TC-S3-AUDIO-001 effects dedupe per session and never replay missed muted/blocked actions
 ok 105 - TC-S3-AUDIO-001 effects dedupe per session and never replay missed muted/blocked actions
   ---
-  duration_ms: 0.168875
+  duration_ms: 0.474041
   type: 'test'
   ...
 # Subtest: TC-S3-PERF-001 effect dedupe and voice/request sets are bounded during repeated actions
 ok 106 - TC-S3-PERF-001 effect dedupe and voice/request sets are bounded during repeated actions
   ---
-  duration_ms: 1.244292
+  duration_ms: 0.493041
   type: 'test'
   ...
 # Subtest: TC-S3-AUDIO-001 aborted pending effects cannot play on return from hidden or reduced intensity
 ok 107 - TC-S3-AUDIO-001 aborted pending effects cannot play on return from hidden or reduced intensity
   ---
-  duration_ms: 0.860333
+  duration_ms: 0.291625
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001 hung media fetch times out at 10 seconds and never rejects story-facing callers
 ok 108 - TC-S3-ASSET-001 hung media fetch times out at 10 seconds and never rejects story-facing callers
   ---
-  duration_ms: 6.21325
+  duration_ms: 1.131834
   type: 'test'
   ...
 # Subtest: TC-S3-AUDIO-001 malformed desires, decode errors, start errors and notification errors stay nonfatal
 ok 109 - TC-S3-AUDIO-001 malformed desires, decode errors, start errors and notification errors stay nonfatal
   ---
-  duration_ms: 0.370625
+  duration_ms: 0.603375
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001 preload requires existing activation and nonzero consent without creating a context
 ok 110 - TC-S3-ASSET-001 preload requires existing activation and nonzero consent without creating a context
   ---
-  duration_ms: 0.17375
+  duration_ms: 0.3225
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001 preload warms shared PCM once without voices, tokens or status changes
 ok 111 - TC-S3-ASSET-001 preload warms shared PCM once without voices, tokens or status changes
   ---
-  duration_ms: 0.160292
+  duration_ms: 0.345916
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001 cancelling one preload consumer preserves shared current playback and other consumers
 ok 112 - TC-S3-ASSET-001 cancelling one preload consumer preserves shared current playback and other consumers
   ---
-  duration_ms: 0.215083
+  duration_ms: 0.471791
   type: 'test'
   ...
 # Subtest: TC-S3-PERF-001 cancelled decode keeps its slot and reservation while two-slot queue prioritizes playback
 ok 113 - TC-S3-PERF-001 cancelled decode keeps its slot and reservation while two-slot queue prioritizes playback
   ---
-  duration_ms: 1.838791
+  duration_ms: 0.779542
   type: 'test'
   ...
 # Subtest: TC-S3-PERF-001 cancelled queued preload never fetches and duplicate preload consumers stay bounded
 ok 114 - TC-S3-PERF-001 cancelled queued preload never fetches and duplicate preload consumers stay bounded
   ---
-  duration_ms: 0.29125
+  duration_ms: 0.472375
   type: 'test'
   ...
 # Subtest: TC-S3-PERF-001 preload declines pinned PCM overflow and evicts only inactive decoded cache entries
 ok 115 - TC-S3-PERF-001 preload declines pinned PCM overflow and evicts only inactive decoded cache entries
   ---
-  duration_ms: 0.175875
+  duration_ms: 0.355083
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001 cancelled, timed-out and failed preload never changes playback status or leaks resources
 ok 116 - TC-S3-ASSET-001 cancelled, timed-out and failed preload never changes playback status or leaks resources
   ---
-  duration_ms: 0.217125
+  duration_ms: 0.423792
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001 session change and dispose discard speculative late PCM without voices
 ok 117 - TC-S3-ASSET-001 session change and dispose discard speculative late PCM without voices
   ---
-  duration_ms: 0.186291
+  duration_ms: 0.430709
   type: 'test'
   ...
 # Subtest: TC-S3-AUDIO-001 partial graph construction is released and explicit activation can retry
 ok 118 - TC-S3-AUDIO-001 partial graph construction is released and explicit activation can retry
   ---
-  duration_ms: 0.132958
+  duration_ms: 0.140291
   type: 'test'
   ...
 # Subtest: TC-S3-PERF-001 source 44.1kHz PCM reserves host 48kHz size before either concurrent decode
 ok 119 - TC-S3-PERF-001 source 44.1kHz PCM reserves host 48kHz size before either concurrent decode
   ---
-  duration_ms: 0.161
+  duration_ms: 2.102041
   type: 'test'
   ...
 # Subtest: TC-S3-PERF-001 host-rate reservation declines overflow before decode and rounds partial frames up
 ok 120 - TC-S3-PERF-001 host-rate reservation declines overflow before decode and rounds partial frames up
   ---
-  duration_ms: 0.133334
+  duration_ms: 0.188792
   type: 'test'
   ...
 # Subtest: TC-S3-PERF-001 missing PCM rate metadata reserves full capacity and rejects larger-than-reserved outputs
 ok 121 - TC-S3-PERF-001 missing PCM rate metadata reserves full capacity and rejects larger-than-reserved outputs
   ---
-  duration_ms: 0.144083
+  duration_ms: 3.706709
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 bootstrap migration retains every cursor mother/call-family/keep-fragment
 ok 122 - TC-S3-SAVE-001 bootstrap migration retains every cursor mother/call-family/keep-fragment
   ---
-  duration_ms: 1993.044958
+  duration_ms: 3570.6805
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 bootstrap migration retains every cursor mother/call-family/release-fragment
 ok 123 - TC-S3-SAVE-001 bootstrap migration retains every cursor mother/call-family/release-fragment
   ---
-  duration_ms: 1816.979084
+  duration_ms: 2663.204584
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 bootstrap migration retains every cursor mother/seek-safety/keep-fragment
 ok 124 - TC-S3-SAVE-001 bootstrap migration retains every cursor mother/seek-safety/keep-fragment
   ---
-  duration_ms: 1815.289792
+  duration_ms: 2165.399
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 bootstrap migration retains every cursor mother/seek-safety/release-fragment
 ok 125 - TC-S3-SAVE-001 bootstrap migration retains every cursor mother/seek-safety/release-fragment
   ---
-  duration_ms: 1784.194667
+  duration_ms: 2385.628542
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 bootstrap migration retains every cursor roots/call-family/keep-fragment
 ok 126 - TC-S3-SAVE-001 bootstrap migration retains every cursor roots/call-family/keep-fragment
   ---
-  duration_ms: 1842.32625
+  duration_ms: 2483.149
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 bootstrap migration retains every cursor roots/call-family/release-fragment
 ok 127 - TC-S3-SAVE-001 bootstrap migration retains every cursor roots/call-family/release-fragment
   ---
-  duration_ms: 1779.461125
+  duration_ms: 2096.7695
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 bootstrap migration retains every cursor roots/seek-safety/keep-fragment
 ok 128 - TC-S3-SAVE-001 bootstrap migration retains every cursor roots/seek-safety/keep-fragment
   ---
-  duration_ms: 1823.056333
+  duration_ms: 2361.491834
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 bootstrap migration retains every cursor roots/seek-safety/release-fragment
 ok 129 - TC-S3-SAVE-001 bootstrap migration retains every cursor roots/seek-safety/release-fragment
   ---
-  duration_ms: 1843.604958
+  duration_ms: 2696.666959
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 bootstrap migration retains every cursor siblings/call-family/keep-fragment
 ok 130 - TC-S3-SAVE-001 bootstrap migration retains every cursor siblings/call-family/keep-fragment
   ---
-  duration_ms: 1886.613917
+  duration_ms: 3224.606416
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 bootstrap migration retains every cursor siblings/call-family/release-fragment
 ok 131 - TC-S3-SAVE-001 bootstrap migration retains every cursor siblings/call-family/release-fragment
   ---
-  duration_ms: 2389.82375
+  duration_ms: 2760.722666
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 bootstrap migration retains every cursor siblings/seek-safety/keep-fragment
 ok 132 - TC-S3-SAVE-001 bootstrap migration retains every cursor siblings/seek-safety/keep-fragment
   ---
-  duration_ms: 2149.908291
+  duration_ms: 2608.67925
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 bootstrap migration retains every cursor siblings/seek-safety/release-fragment
 ok 133 - TC-S3-SAVE-001 bootstrap migration retains every cursor siblings/seek-safety/release-fragment
   ---
-  duration_ms: 1943.624458
+  duration_ms: 1866.217792
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 migration protects incompatible canonical
 ok 134 - TC-S3-SAVE-001 migration protects incompatible canonical
   ---
-  duration_ms: 47.234292
+  duration_ms: 35.679834
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 migration protects incompatible staging
 ok 135 - TC-S3-SAVE-001 migration protects incompatible staging
   ---
-  duration_ms: 40.253333
+  duration_ms: 33.291916
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 migration protects incompatible backup
 ok 136 - TC-S3-SAVE-001 migration protects incompatible backup
   ---
-  duration_ms: 14.544792
+  duration_ms: 10.275541
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 failed source proof cannot authorize old saves
 ok 137 - TC-S3-SAVE-001 failed source proof cannot authorize old saves
   ---
-  duration_ms: 43.860292
+  duration_ms: 31.577458
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 stage guards recheck late canonical raw changes
 ok 138 - TC-S3-SAVE-001 stage guards recheck late canonical raw changes
   ---
-  duration_ms: 27.21425
+  duration_ms: 19.081542
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 stage guards recheck late staging raw changes
 ok 139 - TC-S3-SAVE-001 stage guards recheck late staging raw changes
   ---
-  duration_ms: 30.360875
+  duration_ms: 19.725791
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 stage guards recheck late backup raw changes
 ok 140 - TC-S3-SAVE-001 stage guards recheck late backup raw changes
   ---
-  duration_ms: 36.35625
+  duration_ms: 21.300459
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 commit guards recheck late canonical raw changes
 ok 141 - TC-S3-SAVE-001 commit guards recheck late canonical raw changes
   ---
-  duration_ms: 42.551291
+  duration_ms: 20.945417
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 commit guards recheck late staging raw changes
 ok 142 - TC-S3-SAVE-001 commit guards recheck late staging raw changes
   ---
-  duration_ms: 57.564583
+  duration_ms: 17.904625
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 commit guards recheck late backup raw changes
 ok 143 - TC-S3-SAVE-001 commit guards recheck late backup raw changes
   ---
-  duration_ms: 33.030291
+  duration_ms: 18.78725
   type: 'test'
   ...
 # Subtest: TC-S3-SETTINGS-001 Title preferences persist separately and survive Resume
 ok 144 - TC-S3-SETTINGS-001 Title preferences persist separately and survive Resume
   ---
-  duration_ms: 143.667375
+  duration_ms: 97.38925
   type: 'test'
   ...
 # Subtest: TC-S3-SETTINGS-001 malformed settings are preserved and never replace save slots
 ok 145 - TC-S3-SETTINGS-001 malformed settings are preserved and never replace save slots
   ---
-  duration_ms: 0.398167
+  duration_ms: 0.185833
   type: 'test'
   ...
 # Subtest: TC-S3-SETTINGS-001 malformed settings are preserved and never replace save slots
 ok 146 - TC-S3-SETTINGS-001 malformed settings are preserved and never replace save slots
   ---
-  duration_ms: 0.072291
+  duration_ms: 0.036291
   type: 'test'
   ...
 # Subtest: TC-S3-SETTINGS-001 malformed settings are preserved and never replace save slots
 ok 147 - TC-S3-SETTINGS-001 malformed settings are preserved and never replace save slots
   ---
-  duration_ms: 0.058083
+  duration_ms: 0.020708
   type: 'test'
   ...
 # Subtest: TC-S3-SETTINGS-001 invalid, stale and out-of-settings intents never write
 ok 148 - TC-S3-SETTINGS-001 invalid, stale and out-of-settings intents never write
   ---
-  duration_ms: 14.715667
+  duration_ms: 8.077375
   type: 'test'
   ...
 # Subtest: TC-S3-AUDIO-001 trusted unlock runs synchronously before asynchronous story dispatch; failure stays playable
 ok 149 - TC-S3-AUDIO-001 trusted unlock runs synchronously before asynchronous story dispatch; failure stays playable
   ---
-  duration_ms: 22.251208
+  duration_ms: 8.9605
   type: 'test'
   ...
 # Subtest: FR-STA-001 FR-ENG-002 FR-SAV-001 boot, DOM intent, transaction, and staged save form one playable slice
 ok 150 - FR-STA-001 FR-ENG-002 FR-SAV-001 boot, DOM intent, transaction, and staged save form one playable slice
   ---
-  duration_ms: 21.688208
+  duration_ms: 22.130834
   type: 'test'
   ...
 # Subtest: FR-STA-001 offers Resume only for a compatible staged slice save and restores its Cutscene
 ok 151 - FR-STA-001 offers Resume only for a compatible staged slice save and restores its Cutscene
   ---
-  duration_ms: 5.624542
+  duration_ms: 10.700084
   type: 'test'
   ...
 # Subtest: FR-UI-006 retries a Core-detected crisis from the immutable checkpoint without erasing the save
 ok 152 - FR-UI-006 retries a Core-detected crisis from the immutable checkpoint without erasing the save
   ---
-  duration_ms: 3.999291
+  duration_ms: 10.194083
   type: 'test'
   ...
 # Subtest: FR-SAV-009 uses a visible memory-only warning for unavailable storage and reserves fatal shell for unrecoverable adapter faults
 ok 153 - FR-SAV-009 uses a visible memory-only warning for unavailable storage and reserves fatal shell for unrecoverable adapter faults
   ---
-  duration_ms: 1.513375
+  duration_ms: 4.015459
   type: 'test'
   ...
 # Subtest: FR-UI-001 projects an immutable View Model without exposing Bond during Act 1
 ok 154 - FR-UI-001 projects an immutable View Model without exposing Bond during Act 1
   ---
-  duration_ms: 0.1745
+  duration_ms: 2.300125
   type: 'test'
   ...
 # Subtest: FR-ENG-002 exports immutable outcome, crisis, and error vocabularies
 ok 155 - FR-ENG-002 exports immutable outcome, crisis, and error vocabularies
   ---
-  duration_ms: 1.213708
+  duration_ms: 1.506875
   type: 'test'
   ...
 # Subtest: FR-ENG-002 evaluates every metric comparison operator at its boundary
 ok 156 - FR-ENG-002 evaluates every metric comparison operator at its boundary
   ---
-  duration_ms: 2.933792
+  duration_ms: 0.993
   type: 'test'
   ...
 # Subtest: FR-ENG-002 evaluates flag, compound all/any/not, and always conditions
 ok 157 - FR-ENG-002 evaluates flag, compound all/any/not, and always conditions
   ---
-  duration_ms: 3.077875
+  duration_ms: 1.21375
   type: 'test'
   ...
 # Subtest: FR-ENG-002 validates every compound branch rather than hiding malformed trailing input
 ok 158 - FR-ENG-002 validates every compound branch rather than hiding malformed trailing input
   ---
-  duration_ms: 0.386417
+  duration_ms: 0.545125
   type: 'test'
   ...
 # Subtest: FR-ENG-002 rejects malformed condition snapshots, operators, arrays, and excessive depth
 ok 159 - FR-ENG-002 rejects malformed condition snapshots, operators, arrays, and excessive depth
   ---
-  duration_ms: 0.508708
+  duration_ms: 0.481167
   type: 'test'
   ...
 # Subtest: FR-ENG-002 commits metric and typed flag effects atomically to a Cutscene
 ok 160 - FR-ENG-002 commits metric and typed flag effects atomically to a Cutscene
   ---
-  duration_ms: 1.875375
+  duration_ms: 3.893167
   type: 'test'
   ...
 # Subtest: TR-013 resolves an eligible choice to Exploration
 ok 161 - TR-013 resolves an eligible choice to Exploration
   ---
-  duration_ms: 0.163083
+  duration_ms: 0.163625
   type: 'test'
   ...
 # Subtest: TR-015 resolves an approved final gate to Ending only after effects
 ok 162 - TR-015 resolves an approved final gate to Ending only after effects
   ---
-  duration_ms: 0.416792
+  duration_ms: 0.182792
   type: 'test'
   ...
 # Subtest: FR-ENG-002 resolves HP before Sanity when both reach zero
 ok 163 - FR-ENG-002 resolves HP before Sanity when both reach zero
   ---
-  duration_ms: 0.958583
+  duration_ms: 0.335958
   type: 'test'
   ...
 # Subtest: FR-ENG-002 distinguishes a Sanity-only crisis
 ok 164 - FR-ENG-002 distinguishes a Sanity-only crisis
   ---
-  duration_ms: 0.817125
+  duration_ms: 0.314416
   type: 'test'
   ...
 # Subtest: FR-ENG-002 Story Assist clamps crisis meters at one and preserves Bond and flags
 ok 165 - FR-ENG-002 Story Assist clamps crisis meters at one and preserves Bond and flags
   ---
-  duration_ms: 0.580875
+  duration_ms: 0.154541
   type: 'test'
   ...
 # Subtest: FR-ENG-002 evaluates guards only from the immutable pre-choice snapshot
 ok 166 - FR-ENG-002 evaluates guards only from the immutable pre-choice snapshot
   ---
-  duration_ms: 0.14525
+  duration_ms: 0.09825
   type: 'test'
   ...
 # Subtest: FR-ENG-003 rejects locked, stale, and mismatched commands atomically
     # Subtest: input locked
     ok 1 - input locked
       ---
-      duration_ms: 0.130875
+      duration_ms: 0.118833
       type: 'test'
       ...
     # Subtest: stale revision
     ok 2 - stale revision
       ---
-      duration_ms: 0.130666
+      duration_ms: 0.11925
       type: 'test'
       ...
     # Subtest: choice ID mismatch
     ok 3 - choice ID mismatch
       ---
-      duration_ms: 0.046667
+      duration_ms: 0.043583
       type: 'test'
       ...
     1..3
 ok 167 - FR-ENG-003 rejects locked, stale, and mismatched commands atomically
   ---
-  duration_ms: 0.471959
+  duration_ms: 0.431625
   type: 'test'
   ...
 # Subtest: FR-ENG-003 replayed duplicate and competing submits cannot commit against the current snapshot
 ok 168 - FR-ENG-003 replayed duplicate and competing submits cannot commit against the current snapshot
   ---
-  duration_ms: 0.144417
+  duration_ms: 0.125417
   type: 'test'
   ...
 # Subtest: FR-ENG-002 rejects metric, flag, and checkpoint effect conflicts with full rollback
     # Subtest: set and adjust same metric
     ok 1 - set and adjust same metric
       ---
-      duration_ms: 0.075166
+      duration_ms: 0.292083
       type: 'test'
       ...
     # Subtest: two operations on one flag
     ok 2 - two operations on one flag
       ---
-      duration_ms: 0.038375
+      duration_ms: 0.127458
       type: 'test'
       ...
     # Subtest: two checkpoint effects
     ok 3 - two checkpoint effects
       ---
-      duration_ms: 5.062209
+      duration_ms: 0.09275
       type: 'test'
       ...
     1..3
 ok 169 - FR-ENG-002 rejects metric, flag, and checkpoint effect conflicts with full rollback
   ---
-  duration_ms: 5.336333
+  duration_ms: 2.340833
   type: 'test'
   ...
 # Subtest: FR-ENG-002 enforces registered flag types and fully materialized defaults
     # Subtest: unknown effect flag
     ok 1 - unknown effect flag
       ---
-      duration_ms: 0.152583
+      duration_ms: 0.126125
       type: 'test'
       ...
     # Subtest: wrong set value type
     ok 2 - wrong set value type
       ---
-      duration_ms: 0.052709
+      duration_ms: 0.052542
       type: 'test'
       ...
     # Subtest: missing materialized default
     ok 3 - missing materialized default
       ---
-      duration_ms: 0.124667
+      duration_ms: 0.037333
       type: 'test'
       ...
     # Subtest: duplicate flag snapshot ID
     ok 4 - duplicate flag snapshot ID
       ---
-      duration_ms: 0.185583
+      duration_ms: 0.283208
       type: 'test'
       ...
     1..4
 ok 170 - FR-ENG-002 enforces registered flag types and fully materialized defaults
   ---
-  duration_ms: 1.037167
+  duration_ms: 2.283458
   type: 'test'
   ...
 # Subtest: FR-ENG-002 requires explicit counter policy and applies saturate or reject deterministically
 ok 171 - FR-ENG-002 requires explicit counter policy and applies saturate or reject deterministically
   ---
-  duration_ms: 0.4755
+  duration_ms: 0.47475
   type: 'test'
   ...
 # Subtest: FR-ENG-002 protects monotonic markers while allowing an explicit reversible policy
 ok 172 - FR-ENG-002 protects monotonic markers while allowing an explicit reversible policy
   ---
-  duration_ms: 0.439625
+  duration_ms: 0.403042
   type: 'test'
   ...
 # Subtest: GDD-FLG-002 rejects a clear that lacks an explicit reversible policy
 ok 173 - GDD-FLG-002 rejects a clear that lacks an explicit reversible policy
   ---
-  duration_ms: 0.117375
+  duration_ms: 0.101584
   type: 'test'
   ...
 # Subtest: FR-ENG-002 validates target identity, type, entry guard, and Ending guard
     # Subtest: target ID mismatch
     ok 1 - target ID mismatch
       ---
-      duration_ms: 0.092209
+      duration_ms: 0.274292
       type: 'test'
       ...
     # Subtest: target type invalid
     ok 2 - target type invalid
       ---
-      duration_ms: 0.049209
+      duration_ms: 0.065583
       type: 'test'
       ...
     # Subtest: entry guard false
     ok 3 - entry guard false
       ---
-      duration_ms: 0.040792
+      duration_ms: 0.18675
       type: 'test'
       ...
     # Subtest: ending gate false
     ok 4 - ending gate false
       ---
-      duration_ms: 0.067625
+      duration_ms: 0.203083
       type: 'test'
       ...
     1..4
 ok 174 - FR-ENG-002 validates target identity, type, entry guard, and Ending guard
   ---
-  duration_ms: 0.398
+  duration_ms: 0.982333
   type: 'test'
   ...
 # Subtest: FR-ENG-002 creates a schema-shaped checkpoint only with complete checkpoint context
 ok 175 - FR-ENG-002 creates a schema-shaped checkpoint only with complete checkpoint context
   ---
-  duration_ms: 0.484459
+  duration_ms: 0.39375
   type: 'test'
   ...
 # Subtest: FR-ENG-002 keeps history bounded and increments sequence and revision exactly once
 ok 176 - FR-ENG-002 keeps history bounded and increments sequence and revision exactly once
   ---
-  duration_ms: 0.4425
+  duration_ms: 0.667
   type: 'test'
   ...
 # Subtest: FR-ENG-002 rejects revision and history sequence overflow without commit
 ok 177 - FR-ENG-002 rejects revision and history sequence overflow without commit
   ---
-  duration_ms: 0.10875
+  duration_ms: 0.171708
   type: 'test'
   ...
 # Subtest: FR-ENG-002 rejects malformed snapshot, command, and untrusted JSON values atomically
     # Subtest: wrong state
     ok 1 - wrong state
       ---
-      duration_ms: 0.046833
+      duration_ms: 0.07425
       type: 'test'
       ...
     # Subtest: invalid snapshot revision
     ok 2 - invalid snapshot revision
       ---
-      duration_ms: 0.021625
+      duration_ms: 1.734625
       type: 'test'
       ...
     # Subtest: invalid metric snapshot
     ok 3 - invalid metric snapshot
       ---
-      duration_ms: 0.036375
+      duration_ms: 0.146458
       type: 'test'
       ...
     # Subtest: invalid committedAt
     ok 4 - invalid committedAt
       ---
-      duration_ms: 0.030833
+      duration_ms: 0.081375
       type: 'test'
       ...
     # Subtest: non JSON domain value
     ok 5 - non JSON domain value
       ---
-      duration_ms: 0.170375
+      duration_ms: 0.172458
       type: 'test'
       ...
     1..5
 ok 178 - FR-ENG-002 rejects malformed snapshot, command, and untrusted JSON values atomically
   ---
-  duration_ms: 0.444667
+  duration_ms: 2.537583
   type: 'test'
   ...
 # Subtest: ADR-P0-004 accepts deeply frozen inputs and returns deterministic deep-frozen output
 ok 179 - ADR-P0-004 accepts deeply frozen inputs and returns deterministic deep-frozen output
   ---
-  duration_ms: 5.154166
+  duration_ms: 12.287792
   type: 'test'
   ...
 # Subtest: tc.act1.structure NAR-BRN-004: 7 scenes, 14/14 nodes, 21/21 edges with feasible witnesses
 ok 180 - tc.act1.structure NAR-BRN-004: 7 scenes, 14/14 nodes, 21/21 edges with feasible witnesses
   ---
-  duration_ms: 50.598834
+  duration_ms: 173.918917
   type: 'test'
   ...
 # GRAPH-GATE: nodes 14/14; edges 21/21; 689 reachable quotient states; 192 terminal states.
 # Subtest: tc.act1.structure every reachable state has a feasible continuation to rest; SCC exploration has an exit
 ok 181 - tc.act1.structure every reachable state has a feasible continuation to rest; SCC exploration has an exit
   ---
-  duration_ms: 6.037125
+  duration_ms: 2.463458
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: mother/call/keep, exploration=none
 ok 182 - tc.act1.routes NAR-SC-A1-001..007: mother/call/keep, exploration=none
   ---
-  duration_ms: 1.729833
+  duration_ms: 0.821834
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: mother/call/keep, exploration=some
 ok 183 - tc.act1.routes NAR-SC-A1-001..007: mother/call/keep, exploration=some
   ---
-  duration_ms: 2.644959
+  duration_ms: 1.395667
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: mother/call/keep, exploration=all
 ok 184 - tc.act1.routes NAR-SC-A1-001..007: mother/call/keep, exploration=all
   ---
-  duration_ms: 1.343292
+  duration_ms: 2.018958
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: mother/call/release, exploration=none
 ok 185 - tc.act1.routes NAR-SC-A1-001..007: mother/call/release, exploration=none
   ---
-  duration_ms: 1.186708
+  duration_ms: 1.758208
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: mother/call/release, exploration=some
 ok 186 - tc.act1.routes NAR-SC-A1-001..007: mother/call/release, exploration=some
   ---
-  duration_ms: 1.493708
+  duration_ms: 1.636833
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: mother/call/release, exploration=all
 ok 187 - tc.act1.routes NAR-SC-A1-001..007: mother/call/release, exploration=all
   ---
-  duration_ms: 28.215542
+  duration_ms: 0.743583
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: mother/safety/keep, exploration=none
 ok 188 - tc.act1.routes NAR-SC-A1-001..007: mother/safety/keep, exploration=none
   ---
-  duration_ms: 1.941334
+  duration_ms: 1.859042
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: mother/safety/keep, exploration=some
 ok 189 - tc.act1.routes NAR-SC-A1-001..007: mother/safety/keep, exploration=some
   ---
-  duration_ms: 1.641875
+  duration_ms: 2.231209
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: mother/safety/keep, exploration=all
 ok 190 - tc.act1.routes NAR-SC-A1-001..007: mother/safety/keep, exploration=all
   ---
-  duration_ms: 2.004125
+  duration_ms: 47.763125
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: mother/safety/release, exploration=none
 ok 191 - tc.act1.routes NAR-SC-A1-001..007: mother/safety/release, exploration=none
   ---
-  duration_ms: 1.995833
+  duration_ms: 0.357292
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: mother/safety/release, exploration=some
 ok 192 - tc.act1.routes NAR-SC-A1-001..007: mother/safety/release, exploration=some
   ---
-  duration_ms: 1.1255
+  duration_ms: 0.384292
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: mother/safety/release, exploration=all
 ok 193 - tc.act1.routes NAR-SC-A1-001..007: mother/safety/release, exploration=all
   ---
-  duration_ms: 1.299583
+  duration_ms: 18.165375
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: roots/call/keep, exploration=none
 ok 194 - tc.act1.routes NAR-SC-A1-001..007: roots/call/keep, exploration=none
   ---
-  duration_ms: 2.500417
+  duration_ms: 0.489875
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: roots/call/keep, exploration=some
 ok 195 - tc.act1.routes NAR-SC-A1-001..007: roots/call/keep, exploration=some
   ---
-  duration_ms: 0.932417
+  duration_ms: 0.567084
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: roots/call/keep, exploration=all
 ok 196 - tc.act1.routes NAR-SC-A1-001..007: roots/call/keep, exploration=all
   ---
-  duration_ms: 1.41725
+  duration_ms: 0.501458
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: roots/call/release, exploration=none
 ok 197 - tc.act1.routes NAR-SC-A1-001..007: roots/call/release, exploration=none
   ---
-  duration_ms: 0.848291
+  duration_ms: 0.338875
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: roots/call/release, exploration=some
 ok 198 - tc.act1.routes NAR-SC-A1-001..007: roots/call/release, exploration=some
   ---
-  duration_ms: 0.821458
+  duration_ms: 0.407459
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: roots/call/release, exploration=all
 ok 199 - tc.act1.routes NAR-SC-A1-001..007: roots/call/release, exploration=all
   ---
-  duration_ms: 0.976334
+  duration_ms: 0.505791
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: roots/safety/keep, exploration=none
 ok 200 - tc.act1.routes NAR-SC-A1-001..007: roots/safety/keep, exploration=none
   ---
-  duration_ms: 2.149541
+  duration_ms: 4.070709
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: roots/safety/keep, exploration=some
 ok 201 - tc.act1.routes NAR-SC-A1-001..007: roots/safety/keep, exploration=some
   ---
-  duration_ms: 3.739958
+  duration_ms: 2.383417
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: roots/safety/keep, exploration=all
 ok 202 - tc.act1.routes NAR-SC-A1-001..007: roots/safety/keep, exploration=all
   ---
-  duration_ms: 1.619042
+  duration_ms: 0.592541
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: roots/safety/release, exploration=none
 ok 203 - tc.act1.routes NAR-SC-A1-001..007: roots/safety/release, exploration=none
   ---
-  duration_ms: 0.850333
+  duration_ms: 0.34525
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: roots/safety/release, exploration=some
 ok 204 - tc.act1.routes NAR-SC-A1-001..007: roots/safety/release, exploration=some
   ---
-  duration_ms: 2.541833
+  duration_ms: 3.721167
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: roots/safety/release, exploration=all
 ok 205 - tc.act1.routes NAR-SC-A1-001..007: roots/safety/release, exploration=all
   ---
-  duration_ms: 2.097084
+  duration_ms: 15.6035
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: siblings/call/keep, exploration=none
 ok 206 - tc.act1.routes NAR-SC-A1-001..007: siblings/call/keep, exploration=none
   ---
-  duration_ms: 1.071417
+  duration_ms: 12.55975
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: siblings/call/keep, exploration=some
 ok 207 - tc.act1.routes NAR-SC-A1-001..007: siblings/call/keep, exploration=some
   ---
-  duration_ms: 1.306042
+  duration_ms: 7.005833
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: siblings/call/keep, exploration=all
 ok 208 - tc.act1.routes NAR-SC-A1-001..007: siblings/call/keep, exploration=all
   ---
-  duration_ms: 1.899833
+  duration_ms: 10.7095
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: siblings/call/release, exploration=none
 ok 209 - tc.act1.routes NAR-SC-A1-001..007: siblings/call/release, exploration=none
   ---
-  duration_ms: 2.538709
+  duration_ms: 8.603667
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: siblings/call/release, exploration=some
 ok 210 - tc.act1.routes NAR-SC-A1-001..007: siblings/call/release, exploration=some
   ---
-  duration_ms: 1.048291
+  duration_ms: 1.310541
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: siblings/call/release, exploration=all
 ok 211 - tc.act1.routes NAR-SC-A1-001..007: siblings/call/release, exploration=all
   ---
-  duration_ms: 2.25275
+  duration_ms: 1.207583
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: siblings/safety/keep, exploration=none
 ok 212 - tc.act1.routes NAR-SC-A1-001..007: siblings/safety/keep, exploration=none
   ---
-  duration_ms: 0.388208
+  duration_ms: 0.744417
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: siblings/safety/keep, exploration=some
 ok 213 - tc.act1.routes NAR-SC-A1-001..007: siblings/safety/keep, exploration=some
   ---
-  duration_ms: 0.468333
+  duration_ms: 1.035291
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: siblings/safety/keep, exploration=all
 ok 214 - tc.act1.routes NAR-SC-A1-001..007: siblings/safety/keep, exploration=all
   ---
-  duration_ms: 2.959375
+  duration_ms: 1.986542
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: siblings/safety/release, exploration=none
 ok 215 - tc.act1.routes NAR-SC-A1-001..007: siblings/safety/release, exploration=none
   ---
-  duration_ms: 6.675708
+  duration_ms: 1.031084
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: siblings/safety/release, exploration=some
 ok 216 - tc.act1.routes NAR-SC-A1-001..007: siblings/safety/release, exploration=some
   ---
-  duration_ms: 1.292333
+  duration_ms: 1.250166
   type: 'test'
   ...
 # Subtest: tc.act1.routes NAR-SC-A1-001..007: siblings/safety/release, exploration=all
 ok 217 - tc.act1.routes NAR-SC-A1-001..007: siblings/safety/release, exploration=all
   ---
-  duration_ms: 2.035209
+  duration_ms: 1.317875
   type: 'test'
   ...
 # Subtest: tc.act1.observations NAR-SC-A1-002: all 24 hotspot orders commute without a completion prerequisite
 ok 218 - tc.act1.observations NAR-SC-A1-002: all 24 hotspot orders commute without a completion prerequisite
   ---
-  duration_ms: 62.006417
+  duration_ms: 43.480333
   type: 'test'
   ...
 # Subtest: tc.act1.observations counter boundary 0, repeat entry and revisit cannot farm
 ok 219 - tc.act1.observations counter boundary 0, repeat entry and revisit cannot farm
   ---
-  duration_ms: 9.095333
+  duration_ms: 7.2075
   type: 'test'
   ...
 # Subtest: tc.act1.observations counter boundary 19, repeat entry and revisit cannot farm
 ok 220 - tc.act1.observations counter boundary 19, repeat entry and revisit cannot farm
   ---
-  duration_ms: 10.269542
+  duration_ms: 39.894084
   type: 'test'
   ...
 # Subtest: tc.act1.observations counter boundary 20, repeat entry and revisit cannot farm
 ok 221 - tc.act1.observations counter boundary 20, repeat entry and revisit cannot farm
   ---
-  duration_ms: 20.709333
+  duration_ms: 18.508916
   type: 'test'
   ...
 # Subtest: tc.act1.observations D2: only declared first-observation events increment the counter
 ok 222 - tc.act1.observations D2: only declared first-observation events increment the counter
   ---
-  duration_ms: 1.02925
+  duration_ms: 0.357333
   type: 'test'
   ...
 # Subtest: tc.act1.variants home-focus unset: one expression including synthetic default
 ok 223 - tc.act1.variants home-focus unset: one expression including synthetic default
   ---
-  duration_ms: 0.341333
+  duration_ms: 0.275083
   type: 'test'
   ...
 # Subtest: tc.act1.variants home-focus mother: one expression including synthetic default
 ok 224 - tc.act1.variants home-focus mother: one expression including synthetic default
   ---
-  duration_ms: 0.078833
+  duration_ms: 0.146541
   type: 'test'
   ...
 # Subtest: tc.act1.variants home-focus roots: one expression including synthetic default
 ok 225 - tc.act1.variants home-focus roots: one expression including synthetic default
   ---
-  duration_ms: 0.078458
+  duration_ms: 0.342625
   type: 'test'
   ...
 # Subtest: tc.act1.variants home-focus siblings: one expression including synthetic default
 ok 226 - tc.act1.variants home-focus siblings: one expression including synthetic default
   ---
-  duration_ms: 0.058208
+  duration_ms: 0.084
   type: 'test'
   ...
 # Subtest: tc.act1.variants coping flags false/false: exclusive predicates and safe default
 ok 227 - tc.act1.variants coping flags false/false: exclusive predicates and safe default
   ---
-  duration_ms: 0.104084
+  duration_ms: 0.118667
   type: 'test'
   ...
 # Subtest: tc.act1.variants coping flags false/true: exclusive predicates and safe default
 ok 228 - tc.act1.variants coping flags false/true: exclusive predicates and safe default
   ---
-  duration_ms: 0.066333
+  duration_ms: 3.111083
   type: 'test'
   ...
 # Subtest: tc.act1.variants coping flags true/false: exclusive predicates and safe default
 ok 229 - tc.act1.variants coping flags true/false: exclusive predicates and safe default
   ---
-  duration_ms: 0.068458
+  duration_ms: 0.103167
   type: 'test'
   ...
 # Subtest: tc.act1.variants coping flags true/true: exclusive predicates and safe default
 ok 230 - tc.act1.variants coping flags true/true: exclusive predicates and safe default
   ---
-  duration_ms: 0.058417
+  duration_ms: 0.0705
   type: 'test'
   ...
 # Subtest: tc.act1.variants all 46 dialogue records and 13 events have Canon or synthetic-default witnesses
 ok 231 - tc.act1.variants all 46 dialogue records and 13 events have Canon or synthetic-default witnesses
   ---
-  duration_ms: 0.165417
+  duration_ms: 0.192
   type: 'test'
   ...
 # Dialogue coverage: Canon 44/46 + synthetic defaults 2/46; events: Canon 11/13 + synthetic defaults 2/13. Future-act callbacks are deferred, not runtime edges.
 # Subtest: tc.act1.preconditions NAR-SC-A1-006: discovery dominates keepsake; no extra progress flags
 ok 232 - tc.act1.preconditions NAR-SC-A1-006: discovery dominates keepsake; no extra progress flags
   ---
-  duration_ms: 0.518459
+  duration_ms: 0.577375
   type: 'test'
   ...
 # Subtest: tc.act1.preconditions FR-ENG-002: action guard uses pre-state and target guard uses post-effect candidate
 ok 233 - tc.act1.preconditions FR-ENG-002: action guard uses pre-state and target guard uses post-effect candidate
   ---
-  duration_ms: 87.077917
+  duration_ms: 69.195583
   type: 'test'
   ...
 # Subtest: tc.act1.boundary D1: explicit checkpoint/rest contract, no Ending or Act 2 placeholder
 ok 234 - tc.act1.boundary D1: explicit checkpoint/rest contract, no Ending or Act 2 placeholder
   ---
-  duration_ms: 33.262667
+  duration_ms: 0.729958
   type: 'test'
   ...
 # Subtest: tc.act1.boundary Bond=0, notice precedes storm, and storm/rest effects add no damage
 ok 235 - tc.act1.boundary Bond=0, notice precedes storm, and storm/rest effects add no damage
   ---
-  duration_ms: 0.276584
+  duration_ms: 2.237667
   type: 'test'
   ...
 # Subtest: GRAPH-GATE negative JSON fixture: invalid-orphan
 ok 236 - GRAPH-GATE negative JSON fixture: invalid-orphan
   ---
-  duration_ms: 38.991083
+  duration_ms: 34.50675
   type: 'test'
   ...
 # Subtest: GRAPH-GATE negative JSON fixture: invalid-cycle
 ok 237 - GRAPH-GATE negative JSON fixture: invalid-cycle
   ---
-  duration_ms: 24.181375
+  duration_ms: 15.747834
   type: 'test'
   ...
 # Subtest: GRAPH-GATE detects a state-closed cycle even when structural SCC has an exit
 ok 238 - GRAPH-GATE detects a state-closed cycle even when structural SCC has an exit
   ---
-  duration_ms: 30.323417
+  duration_ms: 78.276083
   type: 'test'
   ...
 # Subtest: GRAPH-GATE negative mutation: missing node target
 ok 239 - GRAPH-GATE negative mutation: missing node target
   ---
-  duration_ms: 13.880333
+  duration_ms: 25.958
   type: 'test'
   ...
 # Subtest: GRAPH-GATE negative mutation: duplicate ID
 ok 240 - GRAPH-GATE negative mutation: duplicate ID
   ---
-  duration_ms: 16.727208
+  duration_ms: 24.630084
   type: 'test'
   ...
 # Subtest: GRAPH-GATE negative mutation: missing Thai
 ok 241 - GRAPH-GATE negative mutation: missing Thai
   ---
-  duration_ms: 9.326917
+  duration_ms: 15.628833
   type: 'test'
   ...
 # Subtest: GRAPH-GATE negative mutation: invalid checkpoint
 ok 242 - GRAPH-GATE negative mutation: invalid checkpoint
   ---
-  duration_ms: 11.522041
+  duration_ms: 18.43875
   type: 'test'
   ...
 # Subtest: GRAPH-GATE negative mutation: missing callback
 ok 243 - GRAPH-GATE negative mutation: missing callback
   ---
-  duration_ms: 14.243375
+  duration_ms: 16.1515
   type: 'test'
   ...
 # Subtest: GRAPH-GATE negative mutation: impossible action guard
 ok 244 - GRAPH-GATE negative mutation: impossible action guard
   ---
-  duration_ms: 13.710042
+  duration_ms: 12.82925
   type: 'test'
   ...
 # Subtest: GRAPH-GATE negative mutation: impossible target guard
 ok 245 - GRAPH-GATE negative mutation: impossible target guard
   ---
-  duration_ms: 10.691125
+  duration_ms: 11.792292
   type: 'test'
   ...
 # Subtest: GRAPH-GATE negative mutation: unreachable declared action
 ok 246 - GRAPH-GATE negative mutation: unreachable declared action
   ---
-  duration_ms: 46.226
+  duration_ms: 191.918083
   type: 'test'
   ...
 # Subtest: GRAPH-GATE negative mutation: Decision to Decision
 ok 247 - GRAPH-GATE negative mutation: Decision to Decision
   ---
-  duration_ms: 9.919625
+  duration_ms: 22.248084
   type: 'test'
   ...
 # Subtest: GRAPH-GATE negative mutation: observation farming
 ok 248 - GRAPH-GATE negative mutation: observation farming
   ---
-  duration_ms: 9.030625
+  duration_ms: 23.473292
   type: 'test'
   ...
 # Subtest: GRAPH-GATE negative mutation: missing event redirect
 ok 249 - GRAPH-GATE negative mutation: missing event redirect
   ---
-  duration_ms: 9.086459
+  duration_ms: 12.086458
   type: 'test'
   ...
 # Subtest: GRAPH-GATE negative mutation: unmodelled trigger fails closed
 ok 250 - GRAPH-GATE negative mutation: unmodelled trigger fails closed
   ---
-  duration_ms: 8.751458
+  duration_ms: 12.163459
   type: 'test'
   ...
 # Subtest: GRAPH-GATE negative mutation: automatic cutscene loop
 ok 251 - GRAPH-GATE negative mutation: automatic cutscene loop
   ---
-  duration_ms: 10.253541
+  duration_ms: 10.918417
   type: 'test'
   ...
 # Subtest: GRAPH-GATE catches ambiguous priority and missing variant fallback
 ok 252 - GRAPH-GATE catches ambiguous priority and missing variant fallback
   ---
-  duration_ms: 0.586208
+  duration_ms: 0.794791
   type: 'test'
   ...
 # Subtest: GRAPH-GATE adjacency includes event redirects for all triggers and retry edges
 ok 253 - GRAPH-GATE adjacency includes event redirects for all triggers and retry edges
   ---
-  duration_ms: 0.803875
+  duration_ms: 0.591958
   type: 'test'
   ...
 # Subtest: FR-ENG-002 TR-014/016 fault fixture: crisis precedes normal target and retry remains guarded
 ok 254 - FR-ENG-002 TR-014/016 fault fixture: crisis precedes normal target and retry remains guarded
   ---
-  duration_ms: 0.400458
+  duration_ms: 0.551375
   type: 'test'
   ...
 # Subtest: NAR-BRN-002 major choices have immediate feedback and deferred callback ledger trace
 ok 255 - NAR-BRN-002 major choices have immediate feedback and deferred callback ledger trace
   ---
-  duration_ms: 16.179584
+  duration_ms: 21.746417
   type: 'test'
   ...
 # Subtest: tc.act1.schema FR-CNT-001/002: canonical Act 1 loads from JSON and object with immutable indexes
 ok 256 - tc.act1.schema FR-CNT-001/002: canonical Act 1 loads from JSON and object with immutable indexes
   ---
-  duration_ms: 199.630667
+  duration_ms: 359.772166
   type: 'test'
   ...
 # Subtest: tc.act1.schema canonical JSON same-origin load at /
 ok 257 - tc.act1.schema canonical JSON same-origin load at /
   ---
-  duration_ms: 42.963167
+  duration_ms: 19.458917
   type: 'test'
   ...
 # Subtest: tc.act1.schema canonical JSON same-origin load at /JaoKob/
 ok 258 - tc.act1.schema canonical JSON same-origin load at /JaoKob/
   ---
-  duration_ms: 31.966709
+  duration_ms: 16.410291
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 valid object/JSON yield separate deeply immutable records and indexes
 ok 259 - FR-CNT-001/002 valid object/JSON yield separate deeply immutable records and indexes
   ---
-  duration_ms: 12.992083
+  duration_ms: 11.091083
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 fixture invalid-missing-fields fails with code and path
 ok 260 - FR-CNT-001/002 fixture invalid-missing-fields fails with code and path
   ---
-  duration_ms: 3.071709
+  duration_ms: 4.668209
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 fixture invalid-dangling-reference fails with code and path
 ok 261 - FR-CNT-001/002 fixture invalid-dangling-reference fails with code and path
   ---
-  duration_ms: 3.950458
+  duration_ms: 3.158459
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 fixture invalid-duplicate-id fails with code and path
 ok 262 - FR-CNT-001/002 fixture invalid-duplicate-id fails with code and path
   ---
-  duration_ms: 3.386458
+  duration_ms: 1.920916
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 fixture invalid-flag-policy fails with code and path
 ok 263 - FR-CNT-001/002 fixture invalid-flag-policy fails with code and path
   ---
-  duration_ms: 16.217667
+  duration_ms: 4.813833
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects future package version
 ok 264 - FR-CNT-001/002 DR-* rejects future package version
   ---
-  duration_ms: 9.180167
+  duration_ms: 1.222292
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects numeric package version
 ok 265 - FR-CNT-001/002 DR-* rejects numeric package version
   ---
-  duration_ms: 1.941083
+  duration_ms: 0.828333
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects mixed tree schema version
 ok 266 - FR-CNT-001/002 DR-* rejects mixed tree schema version
   ---
-  duration_ms: 2.262333
+  duration_ms: 0.590333
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects future nested catalog version
 ok 267 - FR-CNT-001/002 DR-* rejects future nested catalog version
   ---
-  duration_ms: 0.365917
+  duration_ms: 0.839959
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects invalid content semver
 ok 268 - FR-CNT-001/002 DR-* rejects invalid content semver
   ---
-  duration_ms: 2.239833
+  duration_ms: 5.266834
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects missing schema version
 ok 269 - FR-CNT-001/002 DR-* rejects missing schema version
   ---
-  duration_ms: 1.004667
+  duration_ms: 2.306875
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects missing Thai
 ok 270 - FR-CNT-001/002 DR-* rejects missing Thai
   ---
-  duration_ms: 7.800792
+  duration_ms: 4.516167
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects missing nested settings
 ok 271 - FR-CNT-001/002 DR-* rejects missing nested settings
   ---
-  duration_ms: 7.070041
+  duration_ms: 2.7635
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects numeric string meter
 ok 272 - FR-CNT-001/002 DR-* rejects numeric string meter
   ---
-  duration_ms: 5.849959
+  duration_ms: 1.798333
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects fractional meter
 ok 273 - FR-CNT-001/002 DR-* rejects fractional meter
   ---
-  duration_ms: 12.336209
+  duration_ms: 3.30725
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects meter bounds
 ok 274 - FR-CNT-001/002 DR-* rejects meter bounds
   ---
-  duration_ms: 17.143333
+  duration_ms: 2.501917
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects settings boolean coercion
 ok 275 - FR-CNT-001/002 DR-* rejects settings boolean coercion
   ---
-  duration_ms: 7.090458
+  duration_ms: 2.125375
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects settings numeric bounds
 ok 276 - FR-CNT-001/002 DR-* rejects settings numeric bounds
   ---
-  duration_ms: 7.101583
+  duration_ms: 4.293208
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects unknown root property
 ok 277 - FR-CNT-001/002 DR-* rejects unknown root property
   ---
-  duration_ms: 12.634458
+  duration_ms: 5.1595
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects unknown dialogue variant field
 ok 278 - FR-CNT-001/002 DR-* rejects unknown dialogue variant field
   ---
-  duration_ms: 12.132709
+  duration_ms: 3.113083
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects unknown effect
 ok 279 - FR-CNT-001/002 DR-* rejects unknown effect
   ---
-  duration_ms: 26.526625
+  duration_ms: 3.727167
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects wrong condition type
 ok 280 - FR-CNT-001/002 DR-* rejects wrong condition type
   ---
-  duration_ms: 4.158834
+  duration_ms: 88.441291
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects bad locale key
 ok 281 - FR-CNT-001/002 DR-* rejects bad locale key
   ---
-  duration_ms: 5.742125
+  duration_ms: 12.239292
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects blank Thai
 ok 282 - FR-CNT-001/002 DR-* rejects blank Thai
   ---
-  duration_ms: 5.723
+  duration_ms: 6.369083
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects HTML injection
 ok 283 - FR-CNT-001/002 DR-* rejects HTML injection
   ---
-  duration_ms: 6.539792
+  duration_ms: 4.891625
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects missing Thai supported locale
 ok 284 - FR-CNT-001/002 DR-* rejects missing Thai supported locale
   ---
-  duration_ms: 8.550542
+  duration_ms: 3.986459
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects unsupported default locale
 ok 285 - FR-CNT-001/002 DR-* rejects unsupported default locale
   ---
-  duration_ms: 3.184583
+  duration_ms: 13.051584
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects duplicate locales
 ok 286 - FR-CNT-001/002 DR-* rejects duplicate locales
   ---
-  duration_ms: 2.508666
+  duration_ms: 2.378167
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects wrong catalog object shape
 ok 287 - FR-CNT-001/002 DR-* rejects wrong catalog object shape
   ---
-  duration_ms: 3.694875
+  duration_ms: 8.938833
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects missing character
 ok 288 - FR-CNT-001/002 DR-* rejects missing character
   ---
-  duration_ms: 5.154542
+  duration_ms: 20.900042
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects character enum
 ok 289 - FR-CNT-001/002 DR-* rejects character enum
   ---
-  duration_ms: 2.328417
+  duration_ms: 4.536708
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects unequal localized lists
 ok 290 - FR-CNT-001/002 DR-* rejects unequal localized lists
   ---
-  duration_ms: 7.060375
+  duration_ms: 6.765625
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects missing speaker
 ok 291 - FR-CNT-001/002 DR-* rejects missing speaker
   ---
-  duration_ms: 10.146417
+  duration_ms: 5.368417
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects missing entry tree
 ok 292 - FR-CNT-001/002 DR-* rejects missing entry tree
   ---
-  duration_ms: 6.137458
+  duration_ms: 10.235959
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects missing node
 ok 293 - FR-CNT-001/002 DR-* rejects missing node
   ---
-  duration_ms: 10.407375
+  duration_ms: 21.317125
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects duplicate node
 ok 294 - FR-CNT-001/002 DR-* rejects duplicate node
   ---
-  duration_ms: 5.054625
+  duration_ms: 6.060042
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects duplicate cross-catalog ID
 ok 295 - FR-CNT-001/002 DR-* rejects duplicate cross-catalog ID
   ---
-  duration_ms: 2.360166
+  duration_ms: 4.329583
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects missing warning
 ok 296 - FR-CNT-001/002 DR-* rejects missing warning
   ---
-  duration_ms: 2.031833
+  duration_ms: 1.804292
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects missing portrait
 ok 297 - FR-CNT-001/002 DR-* rejects missing portrait
   ---
-  duration_ms: 8.065
+  duration_ms: 1.359916
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects dialogue delivery enum
 ok 298 - FR-CNT-001/002 DR-* rejects dialogue delivery enum
   ---
-  duration_ms: 4.77375
+  duration_ms: 2.182208
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects missing test reference
 ok 299 - FR-CNT-001/002 DR-* rejects missing test reference
   ---
-  duration_ms: 3.534417
+  duration_ms: 3.417166
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects checkpoint none with ID
 ok 300 - FR-CNT-001/002 DR-* rejects checkpoint none with ID
   ---
-  duration_ms: 11.18725
+  duration_ms: 1.633917
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects rest needs checkpoint
 ok 301 - FR-CNT-001/002 DR-* rejects rest needs checkpoint
   ---
-  duration_ms: 2.428709
+  duration_ms: 3.663334
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects rest cannot also target a node
 ok 302 - FR-CNT-001/002 DR-* rejects rest cannot also target a node
   ---
-  duration_ms: 2.899667
+  duration_ms: 1.963416
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects rest cannot claim Act 2
 ok 303 - FR-CNT-001/002 DR-* rejects rest cannot claim Act 2
   ---
-  duration_ms: 3.516792
+  duration_ms: 1.149625
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects rest needs marker effect
 ok 304 - FR-CNT-001/002 DR-* rejects rest needs marker effect
   ---
-  duration_ms: 1.964417
+  duration_ms: 1.290167
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects rest cannot be fake ending
 ok 305 - FR-CNT-001/002 DR-* rejects rest cannot be fake ending
   ---
-  duration_ms: 2.013708
+  duration_ms: 1.96475
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects flag default type
 ok 306 - FR-CNT-001/002 DR-* rejects flag default type
   ---
-  duration_ms: 2.890666
+  duration_ms: 3.800209
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects marker must start false
 ok 307 - FR-CNT-001/002 DR-* rejects marker must start false
   ---
-  duration_ms: 2.12275
+  duration_ms: 2.281209
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects missing explicit policy
 ok 308 - FR-CNT-001/002 DR-* rejects missing explicit policy
   ---
-  duration_ms: 1.245958
+  duration_ms: 7.889292
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects counter bounds inverted
 ok 309 - FR-CNT-001/002 DR-* rejects counter bounds inverted
   ---
-  duration_ms: 2.472458
+  duration_ms: 2.175417
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects counter must saturate
 ok 310 - FR-CNT-001/002 DR-* rejects counter must saturate
   ---
-  duration_ms: 1.56975
+  duration_ms: 2.453708
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects counter must be monotonic
 ok 311 - FR-CNT-001/002 DR-* rejects counter must be monotonic
   ---
-  duration_ms: 1.57975
+  duration_ms: 2.943708
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects unknown enum default
 ok 312 - FR-CNT-001/002 DR-* rejects unknown enum default
   ---
-  duration_ms: 2.403583
+  duration_ms: 4.455334
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects enum missing unset default
 ok 313 - FR-CNT-001/002 DR-* rejects enum missing unset default
   ---
-  duration_ms: 1.601167
+  duration_ms: 3.311042
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects unknown policy field
 ok 314 - FR-CNT-001/002 DR-* rejects unknown policy field
   ---
-  duration_ms: 1.213166
+  duration_ms: 2.013708
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects flag condition type
 ok 315 - FR-CNT-001/002 DR-* rejects flag condition type
   ---
-  duration_ms: 1.618833
+  duration_ms: 4.750833
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects unknown flag reference
 ok 316 - FR-CNT-001/002 DR-* rejects unknown flag reference
   ---
-  duration_ms: 1.926125
+  duration_ms: 4.363
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects marker reset
 ok 317 - FR-CNT-001/002 DR-* rejects marker reset
   ---
-  duration_ms: 2.7445
+  duration_ms: 2.768083
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects monotonic counter decrease
 ok 318 - FR-CNT-001/002 DR-* rejects monotonic counter decrease
   ---
-  duration_ms: 1.643875
+  duration_ms: 1.514917
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects counter direct assignment
 ok 319 - FR-CNT-001/002 DR-* rejects counter direct assignment
   ---
-  duration_ms: 3.5005
+  duration_ms: 3.691792
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects unknown enum assignment
 ok 320 - FR-CNT-001/002 DR-* rejects unknown enum assignment
   ---
-  duration_ms: 3.045709
+  duration_ms: 2.932916
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects non-reversible clear
 ok 321 - FR-CNT-001/002 DR-* rejects non-reversible clear
   ---
-  duration_ms: 1.880125
+  duration_ms: 3.198834
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects boolean cannot increment
 ok 322 - FR-CNT-001/002 DR-* rejects boolean cannot increment
   ---
-  duration_ms: 4.943833
+  duration_ms: 4.246834
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects Act 1 Bond effect
 ok 323 - FR-CNT-001/002 DR-* rejects Act 1 Bond effect
   ---
-  duration_ms: 5.813292
+  duration_ms: 3.737834
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects conflicting metric effects
 ok 324 - FR-CNT-001/002 DR-* rejects conflicting metric effects
   ---
-  duration_ms: 1.928916
+  duration_ms: 2.742584
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects conflicting flag effects
 ok 325 - FR-CNT-001/002 DR-* rejects conflicting flag effects
   ---
-  duration_ms: 3.365291
+  duration_ms: 3.630042
   type: 'test'
   ...
 # Subtest: FR-CNT-001/002 DR-* rejects missing checkpoint target
 ok 326 - FR-CNT-001/002 DR-* rejects missing checkpoint target
   ---
-  duration_ms: 5.091542
+  duration_ms: 2.208542
   type: 'test'
   ...
 # Subtest: FR-CNT-002 nested dangling next node
 ok 327 - FR-CNT-002 nested dangling next node
   ---
-  duration_ms: 4.810333
+  duration_ms: 6.633875
   type: 'test'
   ...
 # Subtest: FR-CNT-002 nested unguarded cutscene cycle
 ok 328 - FR-CNT-002 nested unguarded cutscene cycle
   ---
-  duration_ms: 3.816916
+  duration_ms: 7.244166
   type: 'test'
   ...
 # Subtest: FR-CNT-002 nested disabled reason
 ok 329 - FR-CNT-002 nested disabled reason
   ---
-  duration_ms: 6.770584
+  duration_ms: 6.810542
   type: 'test'
   ...
 # Subtest: FR-CNT-002 nested duplicate interaction/choice
 ok 330 - FR-CNT-002 nested duplicate interaction/choice
   ---
-  duration_ms: 2.549167
+  duration_ms: 5.24075
   type: 'test'
   ...
 # Subtest: FR-CNT-002 nested missing callback event
 ok 331 - FR-CNT-002 nested missing callback event
   ---
-  duration_ms: 4.37375
+  duration_ms: 7.783875
   type: 'test'
   ...
 # Subtest: FR-CNT-002 nested missing trigger choice
 ok 332 - FR-CNT-002 nested missing trigger choice
   ---
-  duration_ms: 3.271334
+  duration_ms: 14.951541
   type: 'test'
   ...
 # Subtest: FR-CNT-002 nested event unknown condition flag
 ok 333 - FR-CNT-002 nested event unknown condition flag
   ---
-  duration_ms: 3.08475
+  duration_ms: 16.404625
   type: 'test'
   ...
 # Subtest: FR-CNT-002 nested event bounds
 ok 334 - FR-CNT-002 nested event bounds
   ---
-  duration_ms: 4.37775
+  duration_ms: 8.869333
   type: 'test'
   ...
 # Subtest: FR-CNT-002 nested event bad effect
 ok 335 - FR-CNT-002 nested event bad effect
   ---
-  duration_ms: 3.243042
+  duration_ms: 11.19875
   type: 'test'
   ...
 # Subtest: FR-CNT-002 nested node-only field on choice
 ok 336 - FR-CNT-002 nested node-only field on choice
   ---
-  duration_ms: 2.31425
+  duration_ms: 11.616167
   type: 'test'
   ...
 # Subtest: FR-CNT-002 nested duplicate checkpoint
 ok 337 - FR-CNT-002 nested duplicate checkpoint
   ---
-  duration_ms: 3.80375
+  duration_ms: 7.936792
   type: 'test'
   ...
 # Subtest: FR-CNT-002 nested checkpoint policy without ID
 ok 338 - FR-CNT-002 nested checkpoint policy without ID
   ---
-  duration_ms: 3.607708
+  duration_ms: 13.230416
   type: 'test'
   ...
 # Subtest: CR-0002 D2 permits initial unset, known enum choices and positive saturating counter adjustments
 ok 339 - CR-0002 D2 permits initial unset, known enum choices and positive saturating counter adjustments
   ---
-  duration_ms: 6.118708
+  duration_ms: 16.543041
   type: 'test'
   ...
 # Subtest: FR-CNT-004 wrong requested content version cannot silently load
 ok 340 - FR-CNT-004 wrong requested content version cannot silently load
   ---
-  duration_ms: 1.804459
+  duration_ms: 24.783
   type: 'test'
   ...
 # Subtest: DR-001 test-reference catalog is external, required and rejects duplicates
 ok 341 - DR-001 test-reference catalog is external, required and rejects duplicates
   ---
-  duration_ms: 4.991541
+  duration_ms: 16.2065
   type: 'test'
   ...
 # Subtest: NFR-SE-002 non-JSON/root type null is rejected without coercion
 ok 342 - NFR-SE-002 non-JSON/root type null is rejected without coercion
   ---
-  duration_ms: 0.145792
+  duration_ms: 0.095834
   type: 'test'
   ...
 # Subtest: NFR-SE-002 non-JSON/root type  is rejected without coercion
 ok 343 - NFR-SE-002 non-JSON/root type  is rejected without coercion
   ---
-  duration_ms: 0.027667
+  duration_ms: 0.02
   type: 'test'
   ...
 # Subtest: NFR-SE-002 non-JSON/root type 1 is rejected without coercion
 ok 344 - NFR-SE-002 non-JSON/root type 1 is rejected without coercion
   ---
-  duration_ms: 0.017625
+  duration_ms: 0.017
   type: 'test'
   ...
 # Subtest: NFR-SE-002 non-JSON/root type true is rejected without coercion
 ok 345 - NFR-SE-002 non-JSON/root type true is rejected without coercion
   ---
-  duration_ms: 0.015875
+  duration_ms: 0.014459
   type: 'test'
   ...
 # Subtest: NFR-SE-002 non-JSON/root type undefined is rejected without coercion
 ok 346 - NFR-SE-002 non-JSON/root type undefined is rejected without coercion
   ---
-  duration_ms: 0.079917
+  duration_ms: 0.052708
   type: 'test'
   ...
 # Subtest: NFR-SE-002 non-JSON/root type () => true is rejected without coercion
 ok 347 - NFR-SE-002 non-JSON/root type () => true is rejected without coercion
   ---
-  duration_ms: 0.015417
+  duration_ms: 0.014459
   type: 'test'
   ...
 # Subtest: NFR-SE-002 non-JSON/root type NaN is rejected without coercion
 ok 348 - NFR-SE-002 non-JSON/root type NaN is rejected without coercion
   ---
-  duration_ms: 0.012959
+  duration_ms: 0.0125
   type: 'test'
   ...
 # Subtest: NFR-SE-002 non-JSON/root type Infinity is rejected without coercion
 ok 349 - NFR-SE-002 non-JSON/root type Infinity is rejected without coercion
   ---
-  duration_ms: 0.011
+  duration_ms: 0.011875
   type: 'test'
   ...
 # Subtest: NFR-SE-002 non-JSON/root type 1 is rejected without coercion
 ok 350 - NFR-SE-002 non-JSON/root type 1 is rejected without coercion
   ---
-  duration_ms: 0.011209
+  duration_ms: 0.011584
   type: 'test'
   ...
 # Subtest: NFR-SE-002 non-JSON/root type Symbol(value) is rejected without coercion
 ok 351 - NFR-SE-002 non-JSON/root type Symbol(value) is rejected without coercion
   ---
-  duration_ms: 0.010667
+  duration_ms: 0.011083
   type: 'test'
   ...
 # Subtest: NFR-SE-002 getters/toJSON/custom prototypes/sparse arrays/cycles fail without running accessors
 ok 352 - NFR-SE-002 getters/toJSON/custom prototypes/sparse arrays/cycles fail without running accessors
   ---
-  duration_ms: 2.846625
+  duration_ms: 13.556083
   type: 'test'
   ...
 # Subtest: NFR-SE-002 cyclic/deep hostile input is bounded, diagnostics never echo content
 ok 353 - NFR-SE-002 cyclic/deep hostile input is bounded, diagnostics never echo content
   ---
-  duration_ms: 0.860375
+  duration_ms: 1.894875
   type: 'test'
   ...
 # Subtest: NFR-SE-002 __proto__ cannot pollute indexes or records
 ok 354 - NFR-SE-002 __proto__ cannot pollute indexes or records
   ---
-  duration_ms: 0.663792
+  duration_ms: 1.984625
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0002 D4/CR-0003 D1 frozen catalog exactly matches all local content schema sources
 ok 355 - TC-S3-CONTRACT-001 CR-0002 D4/CR-0003 D1 frozen catalog exactly matches all local content schema sources
   ---
-  duration_ms: 4.338291
+  duration_ms: 49.055375
   type: 'test'
   ...
 # Subtest: CR-0002 D1 old 1.0 schema remains supported and never accepts the new rest fields
 ok 356 - CR-0002 D1 old 1.0 schema remains supported and never accepts the new rest fields
   ---
-  duration_ms: 3.873208
+  duration_ms: 6.754292
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 published root/1.1 schemas remain byte-identical
 ok 357 - TC-S3-CONTRACT-001 CR-0003 D1 published root/1.1 schemas remain byte-identical
   ---
-  duration_ms: 2.646875
+  duration_ms: 8.576834
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 schema 1.2 is exactly the approved additive 1.1 delta
 ok 358 - TC-S3-CONTRACT-001 CR-0003 D1 schema 1.2 is exactly the approved additive 1.1 delta
   ---
-  duration_ms: 1.390166
+  duration_ms: 2.37225
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 FR-CNT-001/002 schema 1.2 resolves immutable environment and portrait asset records
 ok 359 - TC-S3-CONTRACT-001 FR-CNT-001/002 schema 1.2 resolves immutable environment and portrait asset records
   ---
-  duration_ms: 9.253416
+  duration_ms: 20.016791
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 cutscene permits absent, empty and individual environment channels
 ok 360 - TC-S3-CONTRACT-001 CR-0003 D1 cutscene permits absent, empty and individual environment channels
   ---
-  duration_ms: 24.160709
+  duration_ms: 52.263625
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 cutscene rejects null
 ok 361 - TC-S3-CONTRACT-001 CR-0003 D1 cutscene rejects null
   ---
-  duration_ms: 3.173
+  duration_ms: 5.460083
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 cutscene rejects unknown weather
 ok 362 - TC-S3-CONTRACT-001 CR-0003 D1 cutscene rejects unknown weather
   ---
-  duration_ms: 2.676375
+  duration_ms: 2.484875
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 cutscene rejects raw URL
 ok 363 - TC-S3-CONTRACT-001 CR-0003 D1 cutscene rejects raw URL
   ---
-  duration_ms: 2.510084
+  duration_ms: 2.356584
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 cutscene rejects null channel
 ok 364 - TC-S3-CONTRACT-001 CR-0003 D1 cutscene rejects null channel
   ---
-  duration_ms: 2.233292
+  duration_ms: 4.74425
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 cutscene rejects arbitrary metadata
 ok 365 - TC-S3-CONTRACT-001 CR-0003 D1 cutscene rejects arbitrary metadata
   ---
-  duration_ms: 1.7465
+  duration_ms: 3.498
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 exploration permits absent, empty and individual environment channels
 ok 366 - TC-S3-CONTRACT-001 CR-0003 D1 exploration permits absent, empty and individual environment channels
   ---
-  duration_ms: 12.128291
+  duration_ms: 18.710333
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 exploration rejects null
 ok 367 - TC-S3-CONTRACT-001 CR-0003 D1 exploration rejects null
   ---
-  duration_ms: 2.031
+  duration_ms: 3.043
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 exploration rejects unknown weather
 ok 368 - TC-S3-CONTRACT-001 CR-0003 D1 exploration rejects unknown weather
   ---
-  duration_ms: 1.808375
+  duration_ms: 2.386041
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 exploration rejects raw URL
 ok 369 - TC-S3-CONTRACT-001 CR-0003 D1 exploration rejects raw URL
   ---
-  duration_ms: 1.792333
+  duration_ms: 3.681584
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 exploration rejects null channel
 ok 370 - TC-S3-CONTRACT-001 CR-0003 D1 exploration rejects null channel
   ---
-  duration_ms: 3.184959
+  duration_ms: 2.337958
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 exploration rejects arbitrary metadata
 ok 371 - TC-S3-CONTRACT-001 CR-0003 D1 exploration rejects arbitrary metadata
   ---
-  duration_ms: 1.992833
+  duration_ms: 2.45925
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 decision permits absent, empty and individual environment channels
 ok 372 - TC-S3-CONTRACT-001 CR-0003 D1 decision permits absent, empty and individual environment channels
   ---
-  duration_ms: 9.485708
+  duration_ms: 13.205375
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 decision rejects null
 ok 373 - TC-S3-CONTRACT-001 CR-0003 D1 decision rejects null
   ---
-  duration_ms: 1.872541
+  duration_ms: 6.177083
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 decision rejects unknown weather
 ok 374 - TC-S3-CONTRACT-001 CR-0003 D1 decision rejects unknown weather
   ---
-  duration_ms: 2.948875
+  duration_ms: 2.304625
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 decision rejects raw URL
 ok 375 - TC-S3-CONTRACT-001 CR-0003 D1 decision rejects raw URL
   ---
-  duration_ms: 1.875208
+  duration_ms: 2.567083
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 decision rejects null channel
 ok 376 - TC-S3-CONTRACT-001 CR-0003 D1 decision rejects null channel
   ---
-  duration_ms: 2.632791
+  duration_ms: 7.357125
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 decision rejects arbitrary metadata
 ok 377 - TC-S3-CONTRACT-001 CR-0003 D1 decision rejects arbitrary metadata
   ---
-  duration_ms: 2.310041
+  duration_ms: 1.957041
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 legacy exploration background is accepted alone and rejected beside any environment
 ok 378 - TC-S3-CONTRACT-001 CR-0003 D1 legacy exploration background is accepted alone and rejected beside any environment
   ---
-  duration_ms: 7.665959
+  duration_ms: 15.331833
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 schema 1.0.0 retains legacy forms and rejects environment
 ok 379 - TC-S3-CONTRACT-001 CR-0003 D1 schema 1.0.0 retains legacy forms and rejects environment
   ---
-  duration_ms: 10.934666
+  duration_ms: 7.029791
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 schema 1.1.0 retains legacy forms and rejects environment
 ok 380 - TC-S3-CONTRACT-001 CR-0003 D1 schema 1.1.0 retains legacy forms and rejects environment
   ---
-  duration_ms: 12.072625
+  duration_ms: 8.486833
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 rejects mixed 1.2.0 package/1.1.0 tree
 ok 381 - TC-S3-CONTRACT-001 CR-0003 D1 rejects mixed 1.2.0 package/1.1.0 tree
   ---
-  duration_ms: 1.135458
+  duration_ms: 0.747458
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 rejects mixed 1.1.0 package/1.2.0 tree
 ok 382 - TC-S3-CONTRACT-001 CR-0003 D1 rejects mixed 1.1.0 package/1.2.0 tree
   ---
-  duration_ms: 0.784459
+  duration_ms: 0.6085
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 rejects mixed 1.2.0 package/1.0.0 tree
 ok 383 - TC-S3-CONTRACT-001 CR-0003 D1 rejects mixed 1.2.0 package/1.0.0 tree
   ---
-  duration_ms: 0.453125
+  duration_ms: 0.49925
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 rejects mixed 1.2.0 package/1.3.0 tree
 ok 384 - TC-S3-CONTRACT-001 CR-0003 D1 rejects mixed 1.2.0 package/1.3.0 tree
   ---
-  duration_ms: 0.646959
+  duration_ms: 0.482083
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 future versions and version 1.2 nested catalogs fail closed
 ok 385 - TC-S3-CONTRACT-001 CR-0003 D1 future versions and version 1.2 nested catalogs fail closed
   ---
-  duration_ms: 4.078959
+  duration_ms: 5.333
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 game-over cannot acquire environment
 ok 386 - TC-S3-CONTRACT-001 CR-0003 D1 game-over cannot acquire environment
   ---
-  duration_ms: 4.151541
+  duration_ms: 5.428791
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 ending cannot acquire environment
 ok 387 - TC-S3-CONTRACT-001 CR-0003 D1 ending cannot acquire environment
   ---
-  duration_ms: 3.825084
+  duration_ms: 6.092
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 FR-CNT-002 node 0 background rejects dangling IDs and every wrong asset type
 ok 388 - TC-S3-CONTRACT-001 FR-CNT-002 node 0 background rejects dangling IDs and every wrong asset type
   ---
-  duration_ms: 7.94775
+  duration_ms: 10.996375
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 FR-CNT-002 node 0 music rejects dangling IDs and every wrong asset type
 ok 389 - TC-S3-CONTRACT-001 FR-CNT-002 node 0 music rejects dangling IDs and every wrong asset type
   ---
-  duration_ms: 7.067959
+  duration_ms: 12.092875
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 FR-CNT-002 node 0 ambience rejects dangling IDs and every wrong asset type
 ok 390 - TC-S3-CONTRACT-001 FR-CNT-002 node 0 ambience rejects dangling IDs and every wrong asset type
   ---
-  duration_ms: 6.296125
+  duration_ms: 11.11875
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 FR-CNT-002 node 1 background rejects dangling IDs and every wrong asset type
 ok 391 - TC-S3-CONTRACT-001 FR-CNT-002 node 1 background rejects dangling IDs and every wrong asset type
   ---
-  duration_ms: 5.974791
+  duration_ms: 10.890834
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 FR-CNT-002 node 1 music rejects dangling IDs and every wrong asset type
 ok 392 - TC-S3-CONTRACT-001 FR-CNT-002 node 1 music rejects dangling IDs and every wrong asset type
   ---
-  duration_ms: 6.296167
+  duration_ms: 12.27675
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 FR-CNT-002 node 1 ambience rejects dangling IDs and every wrong asset type
 ok 393 - TC-S3-CONTRACT-001 FR-CNT-002 node 1 ambience rejects dangling IDs and every wrong asset type
   ---
-  duration_ms: 6.947417
+  duration_ms: 10.070583
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 FR-CNT-002 node 2 background rejects dangling IDs and every wrong asset type
 ok 394 - TC-S3-CONTRACT-001 FR-CNT-002 node 2 background rejects dangling IDs and every wrong asset type
   ---
-  duration_ms: 6.071209
+  duration_ms: 12.1845
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 FR-CNT-002 node 2 music rejects dangling IDs and every wrong asset type
 ok 395 - TC-S3-CONTRACT-001 FR-CNT-002 node 2 music rejects dangling IDs and every wrong asset type
   ---
-  duration_ms: 7.588708
+  duration_ms: 8.362708
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 FR-CNT-002 node 2 ambience rejects dangling IDs and every wrong asset type
 ok 396 - TC-S3-CONTRACT-001 FR-CNT-002 node 2 ambience rejects dangling IDs and every wrong asset type
   ---
-  duration_ms: 5.878041
+  duration_ms: 8.2775
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 FR-CNT-002 legacy exploration background rejects dangling IDs and every wrong asset type
 ok 397 - TC-S3-CONTRACT-001 FR-CNT-002 legacy exploration background rejects dangling IDs and every wrong asset type
   ---
-  duration_ms: 7.5125
+  duration_ms: 8.94125
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 FR-CNT-002 default character portrait rejects dangling IDs and every wrong asset type
 ok 398 - TC-S3-CONTRACT-001 FR-CNT-002 default character portrait rejects dangling IDs and every wrong asset type
   ---
-  duration_ms: 7.577375
+  duration_ms: 10.174292
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 FR-CNT-002 dialogue portrait rejects dangling IDs and every wrong asset type
 ok 399 - TC-S3-CONTRACT-001 FR-CNT-002 dialogue portrait rejects dangling IDs and every wrong asset type
   ---
-  duration_ms: 9.403375
+  duration_ms: 7.315541
   type: 'test'
   ...
 # Subtest: Draft 2020-12 local refs apply sibling assertions, Unicode lengths and conditional required fields
 ok 400 - Draft 2020-12 local refs apply sibling assertions, Unicode lengths and conditional required fields
   ---
-  duration_ms: 0.3955
+  duration_ms: 0.469584
   type: 'test'
   ...
 # Subtest: CR-0002 D4 unknown keywords, unsupported formats and non-local refs fail closed
 ok 401 - CR-0002 D4 unknown keywords, unsupported formats and non-local refs fail closed
   ---
-  duration_ms: 0.283125
+  duration_ms: 0.203375
   type: 'test'
   ...
 # Subtest: Draft 2020-12 oneOf/anyOf/not/arrays enforce exact alternatives and structural uniqueness
 ok 402 - Draft 2020-12 oneOf/anyOf/not/arrays enforce exact alternatives and structural uniqueness
   ---
-  duration_ms: 0.450875
+  duration_ms: 0.673291
   type: 'test'
   ...
 # Subtest: FR-CNT-006 assets require provenance and conditional image alt; relative paths and URI formats are asserted
 ok 403 - FR-CNT-006 assets require provenance and conditional image alt; relative paths and URI formats are asserted
   ---
-  duration_ms: 23.200167
+  duration_ms: 27.718333
   type: 'test'
   ...
 # Subtest: NFR-PO-002 same-origin JSON fetch resolves below https://example.test/
 ok 404 - NFR-PO-002 same-origin JSON fetch resolves below https://example.test/
   ---
-  duration_ms: 2.699208
+  duration_ms: 1.624375
   type: 'test'
   ...
 # Subtest: NFR-PO-002 same-origin JSON fetch resolves below https://example.test/JaoKob/
 ok 405 - NFR-PO-002 same-origin JSON fetch resolves below https://example.test/JaoKob/
   ---
-  duration_ms: 1.978042
+  duration_ms: 1.526375
   type: 'test'
   ...
 # Subtest: NFR-SE-002 rejects URL https://other.test/data.json before reading
 ok 406 - NFR-SE-002 rejects URL https://other.test/data.json before reading
   ---
-  duration_ms: 0.125125
+  duration_ms: 1.390291
   type: 'test'
   ...
 # Subtest: NFR-SE-002 rejects URL //other.test/data.json before reading
 ok 407 - NFR-SE-002 rejects URL //other.test/data.json before reading
   ---
-  duration_ms: 0.019875
+  duration_ms: 0.030041
   type: 'test'
   ...
 # Subtest: NFR-SE-002 rejects URL file:///tmp/package.json before reading
 ok 408 - NFR-SE-002 rejects URL file:///tmp/package.json before reading
   ---
-  duration_ms: 0.015917
+  duration_ms: 0.019459
   type: 'test'
   ...
 # Subtest: NFR-SE-002 rejects URL data:application/json,{} before reading
 ok 409 - NFR-SE-002 rejects URL data:application/json,{} before reading
   ---
-  duration_ms: 0.014417
+  duration_ms: 0.016583
   type: 'test'
   ...
 # Subtest: NFR-SE-002 rejects URL javascript:alert(1) before reading
 ok 410 - NFR-SE-002 rejects URL javascript:alert(1) before reading
   ---
-  duration_ms: 0.014125
+  duration_ms: 0.015541
   type: 'test'
   ...
 # Subtest: NFR-SE-002 rejects URL https://user:pass@example.test/data.json before reading
 ok 411 - NFR-SE-002 rejects URL https://user:pass@example.test/data.json before reading
   ---
-  duration_ms: 0.014375
+  duration_ms: 0.01625
   type: 'test'
   ...
 # Subtest: NFR-SE-002 rejects URL /data.json\#fragment before reading
 ok 412 - NFR-SE-002 rejects URL /data.json\#fragment before reading
   ---
-  duration_ms: 0.014167
+  duration_ms: 0.015208
   type: 'test'
   ...
 # Subtest: FR-CNT-001 load fault HTTP error returns typed failure without partial data
 ok 413 - FR-CNT-001 load fault HTTP error returns typed failure without partial data
   ---
-  duration_ms: 0.105666
+  duration_ms: 0.381792
   type: 'test'
   ...
 # Subtest: FR-CNT-001 load fault redirect returns typed failure without partial data
 ok 414 - FR-CNT-001 load fault redirect returns typed failure without partial data
   ---
-  duration_ms: 0.026083
+  duration_ms: 0.074875
   type: 'test'
   ...
 # Subtest: FR-CNT-001 load fault cross-origin response returns typed failure without partial data
 ok 415 - FR-CNT-001 load fault cross-origin response returns typed failure without partial data
   ---
-  duration_ms: 0.017791
+  duration_ms: 0.04475
   type: 'test'
   ...
 # Subtest: FR-CNT-001 load fault invalid JSON returns typed failure without partial data
 ok 416 - FR-CNT-001 load fault invalid JSON returns typed failure without partial data
   ---
-  duration_ms: 0.030542
+  duration_ms: 0.071291
   type: 'test'
   ...
 # Subtest: FR-CNT-001 load fault read error returns typed failure without partial data
 ok 417 - FR-CNT-001 load fault read error returns typed failure without partial data
   ---
-  duration_ms: 0.041584
+  duration_ms: 0.080167
   type: 'test'
   ...
 # Subtest: FR-CNT-001 rejected fetch is recoverable and JSON reader rejects non-text input
 ok 418 - FR-CNT-001 rejected fetch is recoverable and JSON reader rejects non-text input
   ---
-  duration_ms: 0.053291
+  duration_ms: 0.16075
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 approved source archive is pinned to original 559b6d7 bytes
 ok 419 - TC-S3-SAVE-001 approved source archive is pinned to original 559b6d7 bytes
   ---
-  duration_ms: 1.704459
+  duration_ms: 2.699833
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 2.0→2.1 exact cursor/settings, full route mother/call-family/keep-fragment
 ok 420 - TC-S3-SAVE-001 2.0→2.1 exact cursor/settings, full route mother/call-family/keep-fragment
   ---
-  duration_ms: 341.773166
+  duration_ms: 413.095708
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 2.0→2.1 exact cursor/settings, full route mother/call-family/release-fragment
 ok 421 - TC-S3-SAVE-001 2.0→2.1 exact cursor/settings, full route mother/call-family/release-fragment
   ---
-  duration_ms: 91.045417
+  duration_ms: 182.702875
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 2.0→2.1 exact cursor/settings, full route mother/seek-safety/keep-fragment
 ok 422 - TC-S3-SAVE-001 2.0→2.1 exact cursor/settings, full route mother/seek-safety/keep-fragment
   ---
-  duration_ms: 83.305
+  duration_ms: 247.351125
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 2.0→2.1 exact cursor/settings, full route mother/seek-safety/release-fragment
 ok 423 - TC-S3-SAVE-001 2.0→2.1 exact cursor/settings, full route mother/seek-safety/release-fragment
   ---
-  duration_ms: 81.774458
+  duration_ms: 106.777834
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 2.0→2.1 exact cursor/settings, full route roots/call-family/keep-fragment
 ok 424 - TC-S3-SAVE-001 2.0→2.1 exact cursor/settings, full route roots/call-family/keep-fragment
   ---
-  duration_ms: 82.596375
+  duration_ms: 102.127792
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 2.0→2.1 exact cursor/settings, full route roots/call-family/release-fragment
 ok 425 - TC-S3-SAVE-001 2.0→2.1 exact cursor/settings, full route roots/call-family/release-fragment
   ---
-  duration_ms: 70.945667
+  duration_ms: 80.450833
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 2.0→2.1 exact cursor/settings, full route roots/seek-safety/keep-fragment
 ok 426 - TC-S3-SAVE-001 2.0→2.1 exact cursor/settings, full route roots/seek-safety/keep-fragment
   ---
-  duration_ms: 81.099083
+  duration_ms: 82.22025
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 2.0→2.1 exact cursor/settings, full route roots/seek-safety/release-fragment
 ok 427 - TC-S3-SAVE-001 2.0→2.1 exact cursor/settings, full route roots/seek-safety/release-fragment
   ---
-  duration_ms: 69.995417
+  duration_ms: 75.78775
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 2.0→2.1 exact cursor/settings, full route siblings/call-family/keep-fragment
 ok 428 - TC-S3-SAVE-001 2.0→2.1 exact cursor/settings, full route siblings/call-family/keep-fragment
   ---
-  duration_ms: 69.940583
+  duration_ms: 95.356791
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 2.0→2.1 exact cursor/settings, full route siblings/call-family/release-fragment
 ok 429 - TC-S3-SAVE-001 2.0→2.1 exact cursor/settings, full route siblings/call-family/release-fragment
   ---
-  duration_ms: 65.896084
+  duration_ms: 84.307584
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 2.0→2.1 exact cursor/settings, full route siblings/seek-safety/keep-fragment
 ok 430 - TC-S3-SAVE-001 2.0→2.1 exact cursor/settings, full route siblings/seek-safety/keep-fragment
   ---
-  duration_ms: 66.017708
+  duration_ms: 130.309917
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 2.0→2.1 exact cursor/settings, full route siblings/seek-safety/release-fragment
 ok 431 - TC-S3-SAVE-001 2.0→2.1 exact cursor/settings, full route siblings/seek-safety/release-fragment
   ---
-  duration_ms: 63.437917
+  duration_ms: 115.786583
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 repeated observations retain cursor recency and occurrence counts
 ok 432 - TC-S3-SAVE-001 repeated observations retain cursor recency and occurrence counts
   ---
-  duration_ms: 13.123458
+  duration_ms: 23.413625
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 compatibility proof rejects changed dialogue text
 ok 433 - TC-S3-SAVE-001 compatibility proof rejects changed dialogue text
   ---
-  duration_ms: 25.748125
+  duration_ms: 20.94525
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 compatibility proof rejects changed dialogue speaker
 ok 434 - TC-S3-SAVE-001 compatibility proof rejects changed dialogue speaker
   ---
-  duration_ms: 25.704917
+  duration_ms: 19.540209
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 compatibility proof rejects changed delivery emotion
 ok 435 - TC-S3-SAVE-001 compatibility proof rejects changed delivery emotion
   ---
-  duration_ms: 21.097833
+  duration_ms: 27.510208
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 compatibility proof rejects changed dialogue order
 ok 436 - TC-S3-SAVE-001 compatibility proof rejects changed dialogue order
   ---
-  duration_ms: 15.316042
+  duration_ms: 24.820416
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 compatibility proof rejects changed life stage
 ok 437 - TC-S3-SAVE-001 compatibility proof rejects changed life stage
   ---
-  duration_ms: 14.434833
+  duration_ms: 39.804375
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 compatibility proof rejects changed appearance
 ok 438 - TC-S3-SAVE-001 compatibility proof rejects changed appearance
   ---
-  duration_ms: 14.297
+  duration_ms: 31.294792
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 compatibility proof rejects changed defaults including zero audio
 ok 439 - TC-S3-SAVE-001 compatibility proof rejects changed defaults including zero audio
   ---
-  duration_ms: 18.1945
+  duration_ms: 41.366
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 compatibility proof rejects changed default metrics
 ok 440 - TC-S3-SAVE-001 compatibility proof rejects changed default metrics
   ---
-  duration_ms: 18.146209
+  duration_ms: 53.466042
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 compatibility proof rejects changed checkpoint policy
 ok 441 - TC-S3-SAVE-001 compatibility proof rejects changed checkpoint policy
   ---
-  duration_ms: 15.072708
+  duration_ms: 22.944208
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 compatibility proof rejects changed choice condition
 ok 442 - TC-S3-SAVE-001 compatibility proof rejects changed choice condition
   ---
-  duration_ms: 14.919417
+  duration_ms: 17.213041
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 compatibility proof rejects changed choice effect
 ok 443 - TC-S3-SAVE-001 compatibility proof rejects changed choice effect
   ---
-  duration_ms: 14.665792
+  duration_ms: 25.484459
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 compatibility proof rejects changed choice order
 ok 444 - TC-S3-SAVE-001 compatibility proof rejects changed choice order
   ---
-  duration_ms: 14.252958
+  duration_ms: 21.73525
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 compatibility proof rejects changed interaction feedback
 ok 445 - TC-S3-SAVE-001 compatibility proof rejects changed interaction feedback
   ---
-  duration_ms: 15.02575
+  duration_ms: 24.660792
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 compatibility proof rejects changed event effect
 ok 446 - TC-S3-SAVE-001 compatibility proof rejects changed event effect
   ---
-  duration_ms: 14.858375
+  duration_ms: 19.466916
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 compatibility proof rejects changed flag policy
 ok 447 - TC-S3-SAVE-001 compatibility proof rejects changed flag policy
   ---
-  duration_ms: 15.361708
+  duration_ms: 27.284625
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 proof accepts only approved asset bindings and ignores object key order
 ok 448 - TC-S3-SAVE-001 proof accepts only approved asset bindings and ignores object key order
   ---
-  duration_ms: 15.375375
+  duration_ms: 26.120542
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 compatibility proof denies old schema target
 ok 449 - TC-S3-SAVE-001 compatibility proof denies old schema target
   ---
-  duration_ms: 7.112792
+  duration_ms: 12.250917
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 compatibility proof denies mixed tree schema
 ok 450 - TC-S3-SAVE-001 compatibility proof denies mixed tree schema
   ---
-  duration_ms: 8.288667
+  duration_ms: 13.705125
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 compatibility proof denies future package
 ok 451 - TC-S3-SAVE-001 compatibility proof denies future package
   ---
-  duration_ms: 7.093666
+  duration_ms: 15.843417
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 compatibility proof denies unknown field
 ok 452 - TC-S3-SAVE-001 compatibility proof denies unknown field
   ---
-  duration_ms: 13.654125
+  duration_ms: 28.210583
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 compatibility proof denies unresolved media
 ok 453 - TC-S3-SAVE-001 compatibility proof denies unresolved media
   ---
-  duration_ms: 13.479584
+  duration_ms: 17.619167
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 compatibility proof denies unknown stable node ID
 ok 454 - TC-S3-SAVE-001 compatibility proof denies unknown stable node ID
   ---
-  duration_ms: 13.188834
+  duration_ms: 27.683875
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 factory fails closed without supported reviewed source and does not mutate packages
 ok 455 - TC-S3-SAVE-001 factory fails closed without supported reviewed source and does not mutate packages
   ---
-  duration_ms: 16.172417
+  duration_ms: 70.954375
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 mapping and replacement predicate deny Mock without source changes
 ok 456 - TC-S3-SAVE-001 mapping and replacement predicate deny Mock without source changes
   ---
-  duration_ms: 0.346334
+  duration_ms: 0.816167
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 mapping and replacement predicate deny future content without source changes
 ok 457 - TC-S3-SAVE-001 mapping and replacement predicate deny future content without source changes
   ---
-  duration_ms: 0.196834
+  duration_ms: 0.495583
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 mapping and replacement predicate deny future format without source changes
 ok 458 - TC-S3-SAVE-001 mapping and replacement predicate deny future format without source changes
   ---
-  duration_ms: 0.202125
+  duration_ms: 0.447125
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 mapping and replacement predicate deny source integrity without source changes
 ok 459 - TC-S3-SAVE-001 mapping and replacement predicate deny source integrity without source changes
   ---
-  duration_ms: 0.261292
+  duration_ms: 0.92125
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 mapping and replacement predicate deny invalid settings without source changes
 ok 460 - TC-S3-SAVE-001 mapping and replacement predicate deny invalid settings without source changes
   ---
-  duration_ms: 0.200166
+  duration_ms: 0.708209
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 mapping and replacement predicate deny unknown save field without source changes
 ok 461 - TC-S3-SAVE-001 mapping and replacement predicate deny unknown save field without source changes
   ---
-  duration_ms: 0.235084
+  duration_ms: 0.6645
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 mapping and replacement predicate deny unknown node without source changes
 ok 462 - TC-S3-SAVE-001 mapping and replacement predicate deny unknown node without source changes
   ---
-  duration_ms: 0.271375
+  duration_ms: 0.682625
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 mapping and replacement predicate deny state mismatch without source changes
 ok 463 - TC-S3-SAVE-001 mapping and replacement predicate deny state mismatch without source changes
   ---
-  duration_ms: 0.215042
+  duration_ms: 0.447625
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 mapping and replacement predicate deny invalid cursor without source changes
 ok 464 - TC-S3-SAVE-001 mapping and replacement predicate deny invalid cursor without source changes
   ---
-  duration_ms: 0.222375
+  duration_ms: 0.816709
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 mapping and replacement predicate deny wrong checkpoint without source changes
 ok 465 - TC-S3-SAVE-001 mapping and replacement predicate deny wrong checkpoint without source changes
   ---
-  duration_ms: 0.216083
+  duration_ms: 0.740625
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 mapping and replacement predicate deny nonzero Bond without source changes
 ok 466 - TC-S3-SAVE-001 mapping and replacement predicate deny nonzero Bond without source changes
   ---
-  duration_ms: 0.191667
+  duration_ms: 0.909667
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 target exact validation preserves existing integrity and never guesses downgrade
 ok 467 - TC-S3-SAVE-001 target exact validation preserves existing integrity and never guesses downgrade
   ---
-  duration_ms: 0.8545
+  duration_ms: 2.988166
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 missing causal event and forged completed cursor cannot migrate
 ok 468 - TC-S3-SAVE-001 missing causal event and forged completed cursor cannot migrate
   ---
-  duration_ms: 3.801958
+  duration_ms: 11.157459
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 malformed data, getters and cycles fail without inspection side effects
 ok 469 - TC-S3-SAVE-001 malformed data, getters and cycles fail without inspection side effects
   ---
-  duration_ms: 0.324167
+  duration_ms: 1.252292
   type: 'test'
   ...
 # Subtest: TC-S3-SAVE-001 read-only candidate preparation retains every raw slot, including unsupported records
 ok 470 - TC-S3-SAVE-001 read-only candidate preparation retains every raw slot, including unsupported records
   ---
-  duration_ms: 0.914208
+  duration_ms: 1.175583
   type: 'test'
   ...
 # Subtest: CR-0002 D3 real executor / mother / call-family / keep-fragment: pages, variants, Resume and flags
 ok 471 - CR-0002 D3 real executor / mother / call-family / keep-fragment: pages, variants, Resume and flags
   ---
-  duration_ms: 108.530916
+  duration_ms: 194.339375
   type: 'test'
   ...
 # Subtest: CR-0002 D3 real executor / mother / call-family / release-fragment: pages, variants, Resume and flags
 ok 472 - CR-0002 D3 real executor / mother / call-family / release-fragment: pages, variants, Resume and flags
   ---
-  duration_ms: 42.25275
+  duration_ms: 90.621292
   type: 'test'
   ...
 # Subtest: CR-0002 D3 real executor / mother / seek-safety / keep-fragment: pages, variants, Resume and flags
 ok 473 - CR-0002 D3 real executor / mother / seek-safety / keep-fragment: pages, variants, Resume and flags
   ---
-  duration_ms: 39.211333
+  duration_ms: 31.810125
   type: 'test'
   ...
 # Subtest: CR-0002 D3 real executor / mother / seek-safety / release-fragment: pages, variants, Resume and flags
 ok 474 - CR-0002 D3 real executor / mother / seek-safety / release-fragment: pages, variants, Resume and flags
   ---
-  duration_ms: 152.564917
+  duration_ms: 28.596625
   type: 'test'
   ...
 # Subtest: CR-0002 D3 real executor / roots / call-family / keep-fragment: pages, variants, Resume and flags
 ok 475 - CR-0002 D3 real executor / roots / call-family / keep-fragment: pages, variants, Resume and flags
   ---
-  duration_ms: 30.055833
+  duration_ms: 105.236417
   type: 'test'
   ...
 # Subtest: CR-0002 D3 real executor / roots / call-family / release-fragment: pages, variants, Resume and flags
 ok 476 - CR-0002 D3 real executor / roots / call-family / release-fragment: pages, variants, Resume and flags
   ---
-  duration_ms: 22.203334
+  duration_ms: 114.3545
   type: 'test'
   ...
 # Subtest: CR-0002 D3 real executor / roots / seek-safety / keep-fragment: pages, variants, Resume and flags
 ok 477 - CR-0002 D3 real executor / roots / seek-safety / keep-fragment: pages, variants, Resume and flags
   ---
-  duration_ms: 20.582958
+  duration_ms: 47.307875
   type: 'test'
   ...
 # Subtest: CR-0002 D3 real executor / roots / seek-safety / release-fragment: pages, variants, Resume and flags
 ok 478 - CR-0002 D3 real executor / roots / seek-safety / release-fragment: pages, variants, Resume and flags
   ---
-  duration_ms: 25.449583
+  duration_ms: 58.909375
   type: 'test'
   ...
 # Subtest: CR-0002 D3 real executor / siblings / call-family / keep-fragment: pages, variants, Resume and flags
 ok 479 - CR-0002 D3 real executor / siblings / call-family / keep-fragment: pages, variants, Resume and flags
   ---
-  duration_ms: 19.536792
+  duration_ms: 24.076917
   type: 'test'
   ...
 # Subtest: CR-0002 D3 real executor / siblings / call-family / release-fragment: pages, variants, Resume and flags
 ok 480 - CR-0002 D3 real executor / siblings / call-family / release-fragment: pages, variants, Resume and flags
   ---
-  duration_ms: 18.63775
+  duration_ms: 96.76425
   type: 'test'
   ...
 # Subtest: CR-0002 D3 real executor / siblings / seek-safety / keep-fragment: pages, variants, Resume and flags
 ok 481 - CR-0002 D3 real executor / siblings / seek-safety / keep-fragment: pages, variants, Resume and flags
   ---
-  duration_ms: 17.467208
+  duration_ms: 89.304666
   type: 'test'
   ...
 # Subtest: CR-0002 D3 real executor / siblings / seek-safety / release-fragment: pages, variants, Resume and flags
 ok 482 - CR-0002 D3 real executor / siblings / seek-safety / release-fragment: pages, variants, Resume and flags
   ---
-  duration_ms: 13.718708
+  duration_ms: 36.557375
   type: 'test'
   ...
 # Subtest: FR-ENG-008 repeated hotspots neither farm counters nor lose a saved dialogue cursor
 ok 483 - FR-ENG-008 repeated hotspots neither farm counters nor lose a saved dialogue cursor
   ---
-  duration_ms: 4.5665
+  duration_ms: 21.660125
   type: 'test'
   ...
 # Subtest: FR-SAV-009 on-enter resume is idempotent even with a nonzero entry delta
 ok 484 - FR-SAV-009 on-enter resume is idempotent even with a nonzero entry delta
   ---
-  duration_ms: 1.124667
+  duration_ms: 1.612917
   type: 'test'
   ...
 # Subtest: CR-0002 D1 final rest checkpoint waits for the last-page acknowledgement
 ok 485 - CR-0002 D1 final rest checkpoint waits for the last-page acknowledgement
   ---
-  duration_ms: 1.214584
+  duration_ms: 6.116708
   type: 'test'
   ...
 # Subtest: FR-ENG-002 stale commands and unavailable actions preserve the original frozen snapshot
 ok 486 - FR-ENG-002 stale commands and unavailable actions preserve the original frozen snapshot
   ---
-  duration_ms: 0.127958
+  duration_ms: 1.035375
   type: 'test'
   ...
 # Subtest: FR-ENG-002 target guard evaluates post-choice effects while precondition evaluates pre-state
 ok 487 - FR-ENG-002 target guard evaluates post-choice effects while precondition evaluates pre-state
   ---
-  duration_ms: 1.556709
+  duration_ms: 14.026959
   type: 'test'
   ...
 # Subtest: FR-SAV-006 content semantic recovery rejects unknown node
 ok 488 - FR-SAV-006 content semantic recovery rejects unknown node
   ---
-  duration_ms: 0.097417
+  duration_ms: 0.239917
   type: 'test'
   ...
 # Subtest: FR-SAV-006 content semantic recovery rejects state mismatch
 ok 489 - FR-SAV-006 content semantic recovery rejects state mismatch
   ---
-  duration_ms: 0.062833
+  duration_ms: 0.130333
   type: 'test'
   ...
 # Subtest: FR-SAV-006 content semantic recovery rejects nonzero Bond
 ok 490 - FR-SAV-006 content semantic recovery rejects nonzero Bond
   ---
-  duration_ms: 0.059125
+  duration_ms: 0.093959
   type: 'test'
   ...
 # Subtest: FR-SAV-006 content semantic recovery rejects invalid enum
 ok 491 - FR-SAV-006 content semantic recovery rejects invalid enum
   ---
-  duration_ms: 0.348625
+  duration_ms: 0.136917
   type: 'test'
   ...
 # Subtest: FR-SAV-006 content semantic recovery rejects unknown progress ID
 ok 492 - FR-SAV-006 content semantic recovery rejects unknown progress ID
   ---
-  duration_ms: 0.333834
+  duration_ms: 0.074875
   type: 'test'
   ...
 # Subtest: FR-SAV-006 content semantic recovery rejects foreign cursor
 ok 493 - FR-SAV-006 content semantic recovery rejects foreign cursor
   ---
-  duration_ms: 0.133292
+  duration_ms: 0.071375
   type: 'test'
   ...
 # Subtest: FR-SAV-006 content semantic recovery rejects checkpoint mismatch
 ok 494 - FR-SAV-006 content semantic recovery rejects checkpoint mismatch
   ---
-  duration_ms: 0.092041
+  duration_ms: 0.070834
   type: 'test'
   ...
 # Subtest: FR-SAV-006 content semantic recovery rejects future event
 ok 495 - FR-SAV-006 content semantic recovery rejects future event
   ---
-  duration_ms: 0.07775
+  duration_ms: 0.065583
   type: 'test'
   ...
 # Subtest: FR-SAV-006 missing discovery occurrence and unapplied storm effects cannot resume
 ok 496 - FR-SAV-006 missing discovery occurrence and unapplied storm effects cannot resume
   ---
-  duration_ms: 1.938583
+  duration_ms: 2.73375
   type: 'test'
   ...
 # Subtest: CR-0002 D3 unsupported executor capability fails before session creation
 ok 497 - CR-0002 D3 unsupported executor capability fails before session creation
   ---
-  duration_ms: 14.909208
+  duration_ms: 23.989667
   type: 'test'
   ...
 # Subtest: FR-SAV-009 forged early completion and future checkpoints cannot skip the reading boundary
 ok 498 - FR-SAV-009 forged early completion and future checkpoints cannot skip the reading boundary
   ---
-  duration_ms: 2.446083
+  duration_ms: 4.01625
   type: 'test'
   ...
 # Subtest: FR-SAV-009 retry removes completion after a before-node checkpoint but retains reading history
 ok 499 - FR-SAV-009 retry removes completion after a before-node checkpoint but retains reading history
   ---
-  duration_ms: 5.490625
+  duration_ms: 1.87125
   type: 'test'
   ...
 # Subtest: FR-ENG-002 failed entry effects roll back the entire choice transaction
 ok 500 - FR-ENG-002 failed entry effects roll back the entire choice transaction
   ---
-  duration_ms: 1.644042
+  duration_ms: 3.149583
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 runtime explicitly supports both 1.1 and 1.2 Act 1 packages
 ok 501 - TC-S3-CONTRACT-001 runtime explicitly supports both 1.1 and 1.2 Act 1 packages
   ---
-  duration_ms: 69.78825
+  duration_ms: 24.884666
   type: 'test'
   ...
 # Subtest: TC-S3-ARCH-001 immutable localized projection separates media IDs from paths, settings and domain
 ok 502 - TC-S3-ARCH-001 immutable localized projection separates media IDs from paths, settings and domain
   ---
-  duration_ms: 14.066584
+  duration_ms: 5.225041
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 CR-0003 D1 absent/empty channels are neutral and silent without inheritance
 ok 503 - TC-S3-CONTRACT-001 CR-0003 D1 absent/empty channels are neutral and silent without inheritance
   ---
-  duration_ms: 98.332375
+  duration_ms: 174.686042
   type: 'test'
   ...
 # Subtest: TC-S3-STATE-001 D5/D8 reading, ready exploration and three authored decision actions preserve facts
 ok 504 - TC-S3-STATE-001 D5/D8 reading, ready exploration and three authored decision actions preserve facts
   ---
-  duration_ms: 15.842458
+  duration_ms: 24.079792
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 overlays and reading pages retain desired loops; title is silent
 ok 505 - TC-S3-CONTRACT-001 overlays and reading pages retain desired loops; title is silent
   ---
-  duration_ms: 2.07125
+  duration_ms: 1.3965
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 D6 protagonist override, other-speaker badge and narrator semantics use roles
 ok 506 - TC-S3-CONTRACT-001 D6 protagonist override, other-speaker badge and narrator semantics use roles
   ---
-  duration_ms: 55.928042
+  duration_ms: 112.806333
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 localization falls back to Thai and preserves validated zero settings
 ok 507 - TC-S3-CONTRACT-001 localization falls back to Thai and preserves validated zero settings
   ---
-  duration_ms: 0.476125
+  duration_ms: 0.432917
   type: 'test'
   ...
 # Subtest: TC-S3-ARCH-001 malformed composition inputs fail with a typed error
 ok 508 - TC-S3-ARCH-001 malformed composition inputs fail with a typed error
   ---
-  duration_ms: 1.417125
+  duration_ms: 1.421959
   type: 'test'
   ...
 # Subtest: TC-S3-CONTRACT-001 D7 locked Bond presence has no numeric payload; legacy hidden contract survives
 ok 509 - TC-S3-CONTRACT-001 D7 locked Bond presence has no numeric payload; legacy hidden contract survives
   ---
-  duration_ms: 1.105875
+  duration_ms: 0.881791
   type: 'test'
   ...
 # Subtest: TC-S3-ARCH-001 RendererPort rejects numeric leaks and browser/media objects before invoking adapter
 ok 510 - TC-S3-ARCH-001 RendererPort rejects numeric leaks and browser/media objects before invoking adapter
   ---
-  duration_ms: 1.049583
+  duration_ms: 0.9405
   type: 'test'
   ...
 # Subtest: TC-S3-ARCH-001 Core remains browser-free and production imports never reference tests
 ok 511 - TC-S3-ARCH-001 Core remains browser-free and production imports never reference tests
   ---
-  duration_ms: 3.96425
+  duration_ms: 6.713125
   type: 'test'
   ...
 # Subtest: CR-0005 PO review projects saved versus attention explicitly without changing story facts
 ok 512 - CR-0005 PO review projects saved versus attention explicitly without changing story facts
   ---
-  duration_ms: 0.239417
+  duration_ms: 0.987792
+  type: 'test'
+  ...
+# Subtest: ADR-P0-018 D2 audio control persists for ready, blocked, muted and failed sound without changing volume
+ok 513 - ADR-P0-018 D2 audio control persists for ready, blocked, muted and failed sound without changing volume
+  ---
+  duration_ms: 1.049417
   type: 'test'
   ...
 # Subtest: FR-UI-001 DOM renderer structurally implements RendererPort without mutating an immutable view model
-ok 513 - FR-UI-001 DOM renderer structurally implements RendererPort without mutating an immutable view model
+ok 514 - FR-UI-001 DOM renderer structurally implements RendererPort without mutating an immutable view model
   ---
-  duration_ms: 3.800834
+  duration_ms: 4.451125
   type: 'test'
   ...
 # Subtest: FR-UI-005 hides the Bond HUD whenever the projected view model marks it unavailable
-ok 514 - FR-UI-005 hides the Bond HUD whenever the projected view model marks it unavailable
+ok 515 - FR-UI-005 hides the Bond HUD whenever the projected view model marks it unavailable
   ---
-  duration_ms: 0.838958
+  duration_ms: 0.365708
   type: 'test'
   ...
 # Subtest: FR-UI-002 setBusy locks all choice actions accessibly and restores only eligible choices
-ok 515 - FR-UI-002 setBusy locks all choice actions accessibly and restores only eligible choices
+ok 516 - FR-UI-002 setBusy locks all choice actions accessibly and restores only eligible choices
   ---
-  duration_ms: 0.326
+  duration_ms: 0.32075
   type: 'test'
   ...
 # Subtest: FR-UI-003 renders visible feedback and text-labelled meter changes without relying on color
-ok 516 - FR-UI-003 renders visible feedback and text-labelled meter changes without relying on color
+ok 517 - FR-UI-003 renders visible feedback and text-labelled meter changes without relying on color
   ---
-  duration_ms: 0.259
+  duration_ms: 0.259417
   type: 'test'
   ...
 # Subtest: FR-ACC-002 announce updates a persistent polite live region
-ok 517 - FR-ACC-002 announce updates a persistent polite live region
+ok 518 - FR-ACC-002 announce updates a persistent polite live region
   ---
-  duration_ms: 0.367416
+  duration_ms: 0.599542
   type: 'test'
   ...
 # Subtest: FR-ACC-001 applyFocusDirective moves keyboard focus to an eligible choice or the dialogue landmark
-ok 518 - FR-ACC-001 applyFocusDirective moves keyboard focus to an eligible choice or the dialogue landmark
+ok 519 - FR-ACC-001 applyFocusDirective moves keyboard focus to an eligible choice or the dialogue landmark
   ---
-  duration_ms: 0.183333
+  duration_ms: 0.234958
   type: 'test'
   ...
 # Subtest: FR-UI-004 and FR-UI-006 expose keyboard-native cutscene and crisis recovery controls as semantic intents
-ok 519 - FR-UI-004 and FR-UI-006 expose keyboard-native cutscene and crisis recovery controls as semantic intents
+ok 520 - FR-UI-004 and FR-UI-006 expose keyboard-native cutscene and crisis recovery controls as semantic intents
   ---
-  duration_ms: 0.339875
+  duration_ms: 0.34575
   type: 'test'
   ...
 # Subtest: NFR-US-001 renders a localized first-run notice supplied by the view model
-ok 520 - NFR-US-001 renders a localized first-run notice supplied by the view model
+ok 521 - NFR-US-001 renders a localized first-run notice supplied by the view model
   ---
-  duration_ms: 0.19325
+  duration_ms: 0.186375
   type: 'test'
   ...
 # Subtest: FR-UI-007 showFatalShell presents a Thai recovery-safe fallback and focuses it
-ok 521 - FR-UI-007 showFatalShell presents a Thai recovery-safe fallback and focuses it
+ok 522 - FR-UI-007 showFatalShell presents a Thai recovery-safe fallback and focuses it
   ---
-  duration_ms: 0.522
+  duration_ms: 1.793542
   type: 'test'
   ...
 # Subtest: NFR-SE-003 renders malicious dialogue and choice strings as text, never evaluated markup
-ok 522 - NFR-SE-003 renders malicious dialogue and choice strings as text, never evaluated markup
+ok 523 - NFR-SE-003 renders malicious dialogue and choice strings as text, never evaluated markup
   ---
-  duration_ms: 0.990833
+  duration_ms: 1.144292
   type: 'test'
   ...
 # Subtest: RendererPort operations convert invalid host or directive failures into RENDER_FAILURE results
-ok 523 - RendererPort operations convert invalid host or directive failures into RENDER_FAILURE results
+ok 524 - RendererPort operations convert invalid host or directive failures into RENDER_FAILURE results
   ---
-  duration_ms: 0.377917
+  duration_ms: 0.705125
   type: 'test'
   ...
 # Subtest: CR-0003 D4/D5/D7 four stage layers retain three canonical cards and numerical-free Bond locked presence
-ok 524 - CR-0003 D4/D5/D7 four stage layers retain three canonical cards and numerical-free Bond locked presence
+ok 525 - CR-0003 D4/D5/D7 four stage layers retain three canonical cards and numerical-free Bond locked presence
   ---
-  duration_ms: 0.481166
+  duration_ms: 1.447792
   type: 'test'
   ...
 # Subtest: FR-ACC-001 settings overlay keeps story inert, restores field on rerender and trigger on close
-ok 525 - FR-ACC-001 settings overlay keeps story inert, restores field on rerender and trigger on close
+ok 526 - FR-ACC-001 settings overlay keeps story inert, restores field on rerender and trigger on close
   ---
-  duration_ms: 9.846042
+  duration_ms: 13.523917
   type: 'test'
   ...
 # Subtest: CR-0003 D2 renderer hands trusted activation to composition before semantic story intent
-ok 526 - CR-0003 D2 renderer hands trusted activation to composition before semantic story intent
+ok 527 - CR-0003 D2 renderer hands trusted activation to composition before semantic story intent
   ---
-  duration_ms: 0.301584
+  duration_ms: 0.193125
   type: 'test'
   ...
 # Subtest: FR-ACC-002 asynchronous media refresh retains current reading/button focus without announcing again
-ok 527 - FR-ACC-002 asynchronous media refresh retains current reading/button focus without announcing again
+ok 528 - FR-ACC-002 asynchronous media refresh retains current reading/button focus without announcing again
   ---
-  duration_ms: 0.192208
+  duration_ms: 0.218458
   type: 'test'
   ...
-# Subtest: TC-S4-VIS-001 Title has menu and first-run notice without gameplay meters
-ok 528 - TC-S4-VIS-001 Title has menu and first-run notice without gameplay meters
+# Subtest: ADR-P0-018 D4 Title has a corner advisory control without a warning banner or gameplay meters
+ok 529 - ADR-P0-018 D4 Title has a corner advisory control without a warning banner or gameplay meters
   ---
-  duration_ms: 1.277459
+  duration_ms: 0.326833
   type: 'test'
   ...
 # Subtest: TC-S4-VIS-001 Reading contains only Next in paper footer; Decision contains real choices without Next
-ok 529 - TC-S4-VIS-001 Reading contains only Next in paper footer; Decision contains real choices without Next
+ok 530 - TC-S4-VIS-001 Reading contains only Next in paper footer; Decision contains real choices without Next
   ---
-  duration_ms: 0.426625
+  duration_ms: 0.21125
   type: 'test'
   ...
 # Subtest: TC-S4-STATUS-001 status-only render retains exact story, action, focus and latest revision guard
-ok 530 - TC-S4-STATUS-001 status-only render retains exact story, action, focus and latest revision guard
+ok 531 - TC-S4-STATUS-001 status-only render retains exact story, action, focus and latest revision guard
   ---
-  duration_ms: 8.140958
+  duration_ms: 0.677916
   type: 'test'
   ...
 # Subtest: TC-S4-STATUS-001 media failure adds functional recovery in rail while preserving reading and Settings
-ok 531 - TC-S4-STATUS-001 media failure adds functional recovery in rail while preserving reading and Settings
+ok 532 - TC-S4-STATUS-001 media failure adds functional recovery in rail while preserving reading and Settings
   ---
-  duration_ms: 1.337458
+  duration_ms: 0.41575
   type: 'test'
   ...
 # Subtest: TC-S4-STATUS-001 settings status patches retain modal identity, scroll, field and busy focus
-ok 532 - TC-S4-STATUS-001 settings status patches retain modal identity, scroll, field and busy focus
+ok 533 - TC-S4-STATUS-001 settings status patches retain modal identity, scroll, field and busy focus
   ---
-  duration_ms: 2.658333
+  duration_ms: 1.612417
   type: 'test'
   ...
-# Subtest: TC-S4-STATE-001 story changes patch persistent landmarks and preserve separate feedback and warning
-ok 533 - TC-S4-STATE-001 story changes patch persistent landmarks and preserve separate feedback and warning
+# Subtest: ADR-P0-018 D1 story patches preserve landmarks and place feedback and warning in the fixed paper
+ok 534 - ADR-P0-018 D1 story patches preserve landmarks and place feedback and warning in the fixed paper
   ---
-  duration_ms: 0.581584
+  duration_ms: 0.210375
   type: 'test'
   ...
 # Subtest: TC-S4-STATUS-001 duplicate operational announcements are deduped without suppressing a new beat
-ok 534 - TC-S4-STATUS-001 duplicate operational announcements are deduped without suppressing a new beat
+ok 535 - TC-S4-STATUS-001 duplicate operational announcements are deduped without suppressing a new beat
   ---
-  duration_ms: 0.15475
+  duration_ms: 0.401334
   type: 'test'
   ...
 # Subtest: CR-0005 PO review uses one header surface and merges Decision context without dropping authored text
-ok 535 - CR-0005 PO review uses one header surface and merges Decision context without dropping authored text
+ok 536 - CR-0005 PO review uses one header surface and merges Decision context without dropping authored text
   ---
-  duration_ms: 18.581917
+  duration_ms: 0.503166
   type: 'test'
   ...
 # Subtest: CR-0005 PO review success expires at1500ms without focus, DOM or media-refresh replay
-ok 536 - CR-0005 PO review success expires at1500ms without focus, DOM or media-refresh replay
+ok 537 - CR-0005 PO review success expires at1500ms without focus, DOM or media-refresh replay
   ---
-  duration_ms: 0.253917
+  duration_ms: 0.407291
   type: 'test'
   ...
 # Subtest: CR-0005 PO review stale success timer cannot hide failed or memory-only save detail
-ok 537 - CR-0005 PO review stale success timer cannot hide failed or memory-only save detail
+ok 538 - CR-0005 PO review stale success timer cannot hide failed or memory-only save detail
   ---
-  duration_ms: 0.114292
+  duration_ms: 0.216458
   type: 'test'
   ...
 # Subtest: CR-0005 PO review autosave is silent while feedback and recovery remain announced
-ok 538 - CR-0005 PO review autosave is silent while feedback and recovery remain announced
+ok 539 - CR-0005 PO review autosave is silent while feedback and recovery remain announced
   ---
-  duration_ms: 2.359375
+  duration_ms: 0.707625
   type: 'test'
   ...
 # Subtest: FR-STA-002 publishes only the six schema-compatible states
-ok 539 - FR-STA-002 publishes only the six schema-compatible states
+ok 540 - FR-STA-002 publishes only the six schema-compatible states
   ---
-  duration_ms: 0.61175
+  duration_ms: 0.757416
   type: 'test'
   ...
 # Subtest: FR-STA-003 publishes a unique immutable TR-001..TR-020 table
-ok 540 - FR-STA-003 publishes a unique immutable TR-001..TR-020 table
+ok 541 - FR-STA-003 publishes a unique immutable TR-001..TR-020 table
   ---
-  duration_ms: 0.191834
+  duration_ms: 0.236791
   type: 'test'
   ...
 # Subtest: TR-001..TR-020 each produce exactly one deterministic transition plan
     # Subtest: TR-001
     ok 1 - TR-001
       ---
-      duration_ms: 0.119042
+      duration_ms: 0.152
       type: 'test'
       ...
     # Subtest: TR-002
     ok 2 - TR-002
       ---
-      duration_ms: 0.087542
+      duration_ms: 0.134709
       type: 'test'
       ...
     # Subtest: TR-003
     ok 3 - TR-003
       ---
-      duration_ms: 0.037
+      duration_ms: 0.058708
       type: 'test'
       ...
     # Subtest: TR-004
     ok 4 - TR-004
       ---
-      duration_ms: 0.035
+      duration_ms: 0.045375
       type: 'test'
       ...
     # Subtest: TR-005
     ok 5 - TR-005
       ---
-      duration_ms: 0.033791
+      duration_ms: 0.04075
       type: 'test'
       ...
     # Subtest: TR-006
     ok 6 - TR-006
       ---
-      duration_ms: 0.103666
+      duration_ms: 0.11525
       type: 'test'
       ...
     # Subtest: TR-007
     ok 7 - TR-007
       ---
-      duration_ms: 0.144958
+      duration_ms: 0.154917
       type: 'test'
       ...
     # Subtest: TR-008
     ok 8 - TR-008
       ---
-      duration_ms: 0.129
+      duration_ms: 0.287166
       type: 'test'
       ...
     # Subtest: TR-009
     ok 9 - TR-009
       ---
-      duration_ms: 0.090875
+      duration_ms: 0.404291
       type: 'test'
       ...
     # Subtest: TR-010
     ok 10 - TR-010
       ---
-      duration_ms: 0.037666
+      duration_ms: 0.646542
       type: 'test'
       ...
     # Subtest: TR-011
     ok 11 - TR-011
       ---
-      duration_ms: 0.761625
+      duration_ms: 0.057292
       type: 'test'
       ...
     # Subtest: TR-012
     ok 12 - TR-012
       ---
-      duration_ms: 0.109667
+      duration_ms: 0.040291
       type: 'test'
       ...
     # Subtest: TR-013
     ok 13 - TR-013
       ---
-      duration_ms: 0.041625
+      duration_ms: 0.017667
       type: 'test'
       ...
     # Subtest: TR-014
     ok 14 - TR-014
       ---
-      duration_ms: 0.0495
+      duration_ms: 0.025083
       type: 'test'
       ...
     # Subtest: TR-015
     ok 15 - TR-015
       ---
-      duration_ms: 0.042959
+      duration_ms: 0.020833
       type: 'test'
       ...
     # Subtest: TR-016
     ok 16 - TR-016
       ---
-      duration_ms: 0.042333
+      duration_ms: 0.018833
       type: 'test'
       ...
     # Subtest: TR-017
     ok 17 - TR-017
       ---
-      duration_ms: 0.043083
+      duration_ms: 0.01875
       type: 'test'
       ...
     # Subtest: TR-018
     ok 18 - TR-018
       ---
-      duration_ms: 0.040792
+      duration_ms: 0.017834
       type: 'test'
       ...
     # Subtest: TR-019
     ok 19 - TR-019
       ---
-      duration_ms: 0.040042
+      duration_ms: 0.018042
       type: 'test'
       ...
     # Subtest: TR-020
     ok 20 - TR-020
       ---
-      duration_ms: 0.041083
+      duration_ms: 0.020083
       type: 'test'
       ...
     1..20
-ok 541 - TR-001..TR-020 each produce exactly one deterministic transition plan
+ok 542 - TR-001..TR-020 each produce exactly one deterministic transition plan
   ---
-  duration_ms: 2.96775
+  duration_ms: 3.4405
   type: 'test'
   ...
 # Subtest: FR-STA-003 rejects every declared guard-false scenario without mutation
     # Subtest: TR-001 content invalid
     ok 1 - TR-001 content invalid
       ---
-      duration_ms: 0.169458
+      duration_ms: 0.09
       type: 'test'
       ...
     # Subtest: TR-001 application not composed
     ok 2 - TR-001 application not composed
       ---
-      duration_ms: 0.052375
+      duration_ms: 0.108
       type: 'test'
       ...
     # Subtest: TR-002 confirmation incomplete
     ok 3 - TR-002 confirmation incomplete
       ---
-      duration_ms: 0.065208
+      duration_ms: 0.081208
       type: 'test'
       ...
     # Subtest: TR-002 entry references invalid
     ok 4 - TR-002 entry references invalid
       ---
-      duration_ms: 0.062625
+      duration_ms: 0.069292
       type: 'test'
       ...
     # Subtest: TR-003 no compatible save
     ok 5 - TR-003 no compatible save
       ---
-      duration_ms: 0.056041
+      duration_ms: 0.062958
       type: 'test'
       ...
     # Subtest: TR-004 no remaining beat
     ok 6 - TR-004 no remaining beat
       ---
-      duration_ms: 0.058625
+      duration_ms: 0.053
       type: 'test'
       ...
     # Subtest: TR-004 input locked
     ok 7 - TR-004 input locked
       ---
-      duration_ms: 0.223333
+      duration_ms: 0.219667
       type: 'test'
       ...
     # Subtest: TR-005 wrong target type
     ok 8 - TR-005 wrong target type
       ---
-      duration_ms: 0.067
+      duration_ms: 0.059875
       type: 'test'
       ...
     # Subtest: TR-005 entry condition false
     ok 9 - TR-005 entry condition false
       ---
-      duration_ms: 0.0525
+      duration_ms: 0.051417
       type: 'test'
       ...
     # Subtest: TR-005 target invalid
     ok 10 - TR-005 target invalid
       ---
-      duration_ms: 0.065875
+      duration_ms: 0.059292
       type: 'test'
       ...
     # Subtest: TR-006 wrong target type
     ok 11 - TR-006 wrong target type
       ---
-      duration_ms: 0.062
+      duration_ms: 0.063209
       type: 'test'
       ...
     # Subtest: TR-006 entry condition false
     ok 12 - TR-006 entry condition false
       ---
-      duration_ms: 0.058542
+      duration_ms: 0.056375
       type: 'test'
       ...
     # Subtest: TR-006 fewer than two choices
     ok 13 - TR-006 fewer than two choices
       ---
-      duration_ms: 0.050041
+      duration_ms: 0.055833
       type: 'test'
       ...
     # Subtest: TR-006 invalid choice count
     ok 14 - TR-006 invalid choice count
       ---
-      duration_ms: 0.060167
+      duration_ms: 0.056958
       type: 'test'
       ...
     # Subtest: TR-007 assist enabled
     ok 15 - TR-007 assist enabled
       ---
-      duration_ms: 0.047667
+      duration_ms: 0.046584
       type: 'test'
       ...
     # Subtest: TR-007 no crisis
     ok 16 - TR-007 no crisis
       ---
-      duration_ms: 0.044125
+      duration_ms: 0.045125
       type: 'test'
       ...
     # Subtest: TR-007 invalid metrics
     ok 17 - TR-007 invalid metrics
       ---
-      duration_ms: 0.044792
+      duration_ms: 0.049458
       type: 'test'
       ...
     # Subtest: TR-008 not final
     ok 18 - TR-008 not final
       ---
-      duration_ms: 0.053875
+      duration_ms: 0.551959
       type: 'test'
       ...
     # Subtest: TR-008 no ending
     ok 19 - TR-008 no ending
       ---
-      duration_ms: 0.084167
+      duration_ms: 0.1255
       type: 'test'
       ...
     # Subtest: TR-009 event ineligible
     ok 20 - TR-009 event ineligible
       ---
-      duration_ms: 0.031875
+      duration_ms: 0.096875
       type: 'test'
       ...
     # Subtest: TR-009 occurrence at max
     ok 21 - TR-009 occurrence at max
       ---
-      duration_ms: 0.024542
+      duration_ms: 0.057792
       type: 'test'
       ...
     # Subtest: TR-009 wrong target type
     ok 22 - TR-009 wrong target type
       ---
-      duration_ms: 0.021541
+      duration_ms: 0.054583
       type: 'test'
       ...
     # Subtest: TR-009 target invalid
     ok 23 - TR-009 target invalid
       ---
-      duration_ms: 0.019708
+      duration_ms: 0.0485
       type: 'test'
       ...
     # Subtest: TR-010 exit guard false
     ok 24 - TR-010 exit guard false
       ---
-      duration_ms: 0.024208
+      duration_ms: 0.066
       type: 'test'
       ...
     # Subtest: TR-010 wrong target type
     ok 25 - TR-010 wrong target type
       ---
-      duration_ms: 0.018792
+      duration_ms: 0.049583
       type: 'test'
       ...
     # Subtest: TR-010 target invalid
     ok 26 - TR-010 target invalid
       ---
-      duration_ms: 0.018292
+      duration_ms: 0.045167
       type: 'test'
       ...
     # Subtest: TR-011 wrong target type
     ok 27 - TR-011 wrong target type
       ---
-      duration_ms: 0.019167
+      duration_ms: 0.050792
       type: 'test'
       ...
     # Subtest: TR-011 entry condition false
     ok 28 - TR-011 entry condition false
       ---
-      duration_ms: 0.018
+      duration_ms: 0.049417
       type: 'test'
       ...
     # Subtest: TR-011 target invalid
     ok 29 - TR-011 target invalid
       ---
-      duration_ms: 0.020166
+      duration_ms: 0.064375
       type: 'test'
       ...
     # Subtest: TR-012/013 choice ineligible
     ok 30 - TR-012/013 choice ineligible
       ---
-      duration_ms: 0.032
+      duration_ms: 0.0865
       type: 'test'
       ...
     # Subtest: TR-012/013 stale command
     ok 31 - TR-012/013 stale command
       ---
-      duration_ms: 0.01875
+      duration_ms: 0.049209
       type: 'test'
       ...
     # Subtest: TR-012/013 revision mismatch
     ok 32 - TR-012/013 revision mismatch
       ---
-      duration_ms: 0.05925
+      duration_ms: 0.217541
       type: 'test'
       ...
     # Subtest: TR-012/013 unsupported target
     ok 33 - TR-012/013 unsupported target
       ---
-      duration_ms: 0.018917
+      duration_ms: 0.065958
       type: 'test'
       ...
     # Subtest: TR-012/013 invalid target
     ok 34 - TR-012/013 invalid target
       ---
-      duration_ms: 0.021333
+      duration_ms: 0.049042
       type: 'test'
       ...
     # Subtest: TR-012/013 crisis wins
     ok 35 - TR-012/013 crisis wins
       ---
-      duration_ms: 0.018
+      duration_ms: 0.109375
       type: 'test'
       ...
     # Subtest: TR-012/013 ending wins
     ok 36 - TR-012/013 ending wins
       ---
-      duration_ms: 0.019042
+      duration_ms: 0.054667
       type: 'test'
       ...
     # Subtest: TR-014 assist enabled
     ok 37 - TR-014 assist enabled
       ---
-      duration_ms: 0.018542
+      duration_ms: 0.044584
       type: 'test'
       ...
     # Subtest: TR-014 no crisis
     ok 38 - TR-014 no crisis
       ---
-      duration_ms: 0.018791
+      duration_ms: 0.047
       type: 'test'
       ...
     # Subtest: TR-015 neither gate nor repair
     ok 39 - TR-015 neither gate nor repair
       ---
-      duration_ms: 0.019916
+      duration_ms: 0.0585
       type: 'test'
       ...
     # Subtest: TR-016 checkpoint invalid
     ok 40 - TR-016 checkpoint invalid
       ---
-      duration_ms: 0.022042
+      duration_ms: 0.153542
       type: 'test'
       ...
     # Subtest: TR-016 references incompatible
     ok 41 - TR-016 references incompatible
       ---
-      duration_ms: 0.055458
+      duration_ms: 0.098
       type: 'test'
       ...
     # Subtest: TR-017 no accepted setting
     ok 42 - TR-017 no accepted setting
       ---
-      duration_ms: 0.021125
+      duration_ms: 0.065291
       type: 'test'
       ...
     # Subtest: TR-018 active transaction
     ok 43 - TR-018 active transaction
       ---
-      duration_ms: 0.022833
+      duration_ms: 0.089416
       type: 'test'
       ...
     # Subtest: TR-019 progress not committed
     ok 44 - TR-019 progress not committed
       ---
-      duration_ms: 0.021
+      duration_ms: 0.057375
       type: 'test'
       ...
     # Subtest: TR-020 replay checkpoint absent
     ok 45 - TR-020 replay checkpoint absent
       ---
-      duration_ms: 0.023583
+      duration_ms: 0.144542
       type: 'test'
       ...
     1..45
-ok 542 - FR-STA-003 rejects every declared guard-false scenario without mutation
+ok 543 - FR-STA-003 rejects every declared guard-false scenario without mutation
   ---
-  duration_ms: 3.597208
+  duration_ms: 5.892917
   type: 'test'
   ...
 # Subtest: FR-STA-003 rejects all 84 forbidden active-state/event pairs
-ok 543 - FR-STA-003 rejects all 84 forbidden active-state/event pairs
+ok 544 - FR-STA-003 rejects all 84 forbidden active-state/event pairs
   ---
-  duration_ms: 0.34875
+  duration_ms: 0.370875
   type: 'test'
   ...
 # Subtest: FR-STA-002 rejects invalid states and keeps Initial out of persisted state
-ok 544 - FR-STA-002 rejects invalid states and keeps Initial out of persisted state
+ok 545 - FR-STA-002 rejects invalid states and keeps Initial out of persisted state
   ---
-  duration_ms: 0.202209
+  duration_ms: 1.150625
   type: 'test'
   ...
 # Subtest: FR-STA-003 rejects unknown events, malformed requests, and malformed context
-ok 545 - FR-STA-003 rejects unknown events, malformed requests, and malformed context
+ok 546 - FR-STA-003 rejects unknown events, malformed requests, and malformed context
   ---
-  duration_ms: 0.4185
+  duration_ms: 0.096584
   type: 'test'
   ...
 # Subtest: TR-007 and TR-014 recognize both crisis meters at their zero boundary
-ok 546 - TR-007 and TR-014 recognize both crisis meters at their zero boundary
+ok 547 - TR-007 and TR-014 recognize both crisis meters at their zero boundary
   ---
-  duration_ms: 0.463417
+  duration_ms: 0.388792
   type: 'test'
   ...
 # Subtest: TR-012 and TR-013 are mutually exclusive for one COMMIT_CHOICE request
-ok 547 - TR-012 and TR-013 are mutually exclusive for one COMMIT_CHOICE request
+ok 548 - TR-012 and TR-013 are mutually exclusive for one COMMIT_CHOICE request
   ---
-  duration_ms: 0.306833
+  duration_ms: 0.215458
   type: 'test'
   ...
 # Subtest: ADR-P0-004 leaves frozen input unchanged and plans deterministically
-ok 548 - ADR-P0-004 leaves frozen input unchanged and plans deterministically
+ok 549 - ADR-P0-004 leaves frozen input unchanged and plans deterministically
   ---
-  duration_ms: 0.278708
+  duration_ms: 0.633625
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: lease resolves only after decode; parallel leases deduplicate and retain counts
-ok 549 - TC-S3-ASSET-001: lease resolves only after decode; parallel leases deduplicate and retain counts
+ok 550 - TC-S3-ASSET-001: lease resolves only after decode; parallel leases deduplicate and retain counts
   ---
-  duration_ms: 4.58625
+  duration_ms: 5.442083
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: retained image cannot be evicted and inactive LRU releases its blob
-ok 550 - TC-S3-ASSET-001: retained image cannot be evicted and inactive LRU releases its blob
+ok 551 - TC-S3-ASSET-001: retained image cannot be evicted and inactive LRU releases its blob
   ---
-  duration_ms: 0.526125
+  duration_ms: 1.163375
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: maximum two backgrounds includes pinned and pending images
-ok 551 - TC-S3-ASSET-001: maximum two backgrounds includes pinned and pending images
+ok 552 - TC-S3-ASSET-001: maximum two backgrounds includes pinned and pending images
   ---
-  duration_ms: 0.302292
+  duration_ms: 0.775875
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: same environment reuses decoded image without reload
-ok 552 - TC-S3-ASSET-001: same environment reuses decoded image without reload
+ok 553 - TC-S3-ASSET-001: same environment reuses decoded image without reload
   ---
-  duration_ms: 0.123417
+  duration_ms: 1.040583
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: corruption, wrong dimensions and decode failures never return a broken image
-ok 553 - TC-S3-ASSET-001: corruption, wrong dimensions and decode failures never return a broken image
+ok 554 - TC-S3-ASSET-001: corruption, wrong dimensions and decode failures never return a broken image
   ---
-  duration_ms: 0.313583
+  duration_ms: 1.089709
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: shared caller abort leaves another caller's same-image request intact
-ok 554 - TC-S3-ASSET-001: shared caller abort leaves another caller's same-image request intact
+ok 555 - TC-S3-ASSET-001: shared caller abort leaves another caller's same-image request intact
   ---
-  duration_ms: 0.108875
+  duration_ms: 0.284333
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: cancelling last consumer aborts its pending fetch and disposes without retained leaks
-ok 555 - TC-S3-ASSET-001: cancelling last consumer aborts its pending fetch and disposes without retained leaks
+ok 556 - TC-S3-ASSET-001: cancelling last consumer aborts its pending fetch and disposes without retained leaks
   ---
-  duration_ms: 0.677
+  duration_ms: 1.239542
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001: disposal keeps active lease alive until caller releases
-ok 556 - TC-S3-ASSET-001: disposal keeps active lease alive until caller releases
+ok 557 - TC-S3-ASSET-001: disposal keeps active lease alive until caller releases
   ---
-  duration_ms: 0.087708
+  duration_ms: 0.251792
   type: 'test'
   ...
 # Subtest: TC-S3-AUDIO-001 visibility suspends and forbids hidden activation/reconcile/effects; visible resumes latest desire
-ok 557 - TC-S3-AUDIO-001 visibility suspends and forbids hidden activation/reconcile/effects; visible resumes latest desire
+ok 558 - TC-S3-AUDIO-001 visibility suspends and forbids hidden activation/reconcile/effects; visible resumes latest desire
   ---
-  duration_ms: 10.261541
+  duration_ms: 8.780958
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001 malformed registry fails silently and explicit retry fetches corrected metadata
-ok 558 - TC-S3-ASSET-001 malformed registry fails silently and explicit retry fetches corrected metadata
+ok 559 - TC-S3-ASSET-001 malformed registry fails silently and explicit retry fetches corrected metadata
   ---
-  duration_ms: 20.335583
+  duration_ms: 24.102917
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001 oversized registry stream is cancelled before full consumption
-ok 559 - TC-S3-ASSET-001 oversized registry stream is cancelled before full consumption
+ok 560 - TC-S3-ASSET-001 oversized registry stream is cancelled before full consumption
   ---
-  duration_ms: 1.256833
+  duration_ms: 0.651458
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001 wrong MIME registry is rejected without consuming its body
-ok 560 - TC-S3-ASSET-001 wrong MIME registry is rejected without consuming its body
+ok 561 - TC-S3-ASSET-001 wrong MIME registry is rejected without consuming its body
   ---
-  duration_ms: 0.222584
+  duration_ms: 0.570208
   type: 'test'
   ...
 # Subtest: TC-S3-AUDIO-001 all zero channels suppress speculative audio and user gesture does not alter desires
-ok 561 - TC-S3-AUDIO-001 all zero channels suppress speculative audio and user gesture does not alter desires
+ok 562 - TC-S3-AUDIO-001 all zero channels suppress speculative audio and user gesture does not alter desires
   ---
-  duration_ms: 6.955666
+  duration_ms: 28.884459
   type: 'test'
   ...
 # Subtest: FR-ENG-001 exposes the canonical immutable meter contract
-ok 562 - FR-ENG-001 exposes the canonical immutable meter contract
+ok 563 - FR-ENG-001 exposes the canonical immutable meter contract
   ---
-  duration_ms: 1.007542
+  duration_ms: 1.47325
   type: 'test'
   ...
 # Subtest: FR-ENG-001 clamps every normative acceptance boundary
-ok 563 - FR-ENG-001 clamps every normative acceptance boundary
+ok 564 - FR-ENG-001 clamps every normative acceptance boundary
   ---
-  duration_ms: 0.143958
+  duration_ms: 0.1745
   type: 'test'
   ...
 # Subtest: FR-ENG-001 rejects non-safe-integer meter values without coercion
-ok 564 - FR-ENG-001 rejects non-safe-integer meter values without coercion
+ok 565 - FR-ENG-001 rejects non-safe-integer meter values without coercion
   ---
-  duration_ms: 0.2055
+  duration_ms: 0.207583
   type: 'test'
   ...
 # Subtest: FR-STA-004 creates the immutable 80/70/0 baseline without aliasing input
-ok 565 - FR-STA-004 creates the immutable 80/70/0 baseline without aliasing input
+ok 566 - FR-STA-004 creates the immutable 80/70/0 baseline without aliasing input
   ---
-  duration_ms: 0.089791
+  duration_ms: 0.092875
   type: 'test'
   ...
 # Subtest: FR-ENG-001 rejects incomplete, unknown, mistyped, and out-of-range snapshots
-ok 566 - FR-ENG-001 rejects incomplete, unknown, mistyped, and out-of-range snapshots
+ok 567 - FR-ENG-001 rejects incomplete, unknown, mistyped, and out-of-range snapshots
   ---
-  duration_ms: 0.2865
+  duration_ms: 0.251459
   type: 'test'
   ...
 # Subtest: FR-ENG-001 applies simultaneous deltas and clamps each result
-ok 567 - FR-ENG-001 applies simultaneous deltas and clamps each result
+ok 568 - FR-ENG-001 applies simultaneous deltas and clamps each result
   ---
-  duration_ms: 0.131791
+  duration_ms: 0.3815
   type: 'test'
   ...
 # Subtest: FR-ENG-001 rejects malformed deltas and safe-integer overflow
-ok 568 - FR-ENG-001 rejects malformed deltas and safe-integer overflow
+ok 569 - FR-ENG-001 rejects malformed deltas and safe-integer overflow
   ---
-  duration_ms: 0.115292
+  duration_ms: 0.217583
   type: 'test'
   ...
 # Subtest: FR-ENG-001 aggregates adjustments before clamp and is effect-order invariant
-ok 569 - FR-ENG-001 aggregates adjustments before clamp and is effect-order invariant
+ok 570 - FR-ENG-001 aggregates adjustments before clamp and is effect-order invariant
   ---
-  duration_ms: 0.20175
+  duration_ms: 0.162917
   type: 'test'
   ...
 # Subtest: FR-ENG-001 applies independent set and adjust effects atomically
-ok 570 - FR-ENG-001 applies independent set and adjust effects atomically
+ok 571 - FR-ENG-001 applies independent set and adjust effects atomically
   ---
-  duration_ms: 0.259166
+  duration_ms: 0.231208
   type: 'test'
   ...
 # Subtest: FR-ENG-002 rejects every set/adjust conflict, including a zero adjustment
-ok 571 - FR-ENG-002 rejects every set/adjust conflict, including a zero adjustment
+ok 572 - FR-ENG-002 rejects every set/adjust conflict, including a zero adjustment
   ---
-  duration_ms: 0.26975
+  duration_ms: 0.303416
   type: 'test'
   ...
 # Subtest: FR-ENG-001 rejects malformed metric effects without changing pre-state
-ok 572 - FR-ENG-001 rejects malformed metric effects without changing pre-state
+ok 573 - FR-ENG-001 rejects malformed metric effects without changing pre-state
   ---
-  duration_ms: 0.135833
+  duration_ms: 4.099167
   type: 'test'
   ...
 # Subtest: ADR-P0-004 returns the same immutable metrics for repeated fixed inputs
-ok 573 - ADR-P0-004 returns the same immutable metrics for repeated fixed inputs
+ok 574 - ADR-P0-004 returns the same immutable metrics for repeated fixed inputs
   ---
-  duration_ms: 0.873625
+  duration_ms: 1.626125
   type: 'test'
   ...
 # Subtest: FR-SAV-001 LocalStorage adapter passes assertStoragePort without invoking storage
-ok 574 - FR-SAV-001 LocalStorage adapter passes assertStoragePort without invoking storage
+ok 575 - FR-SAV-001 LocalStorage adapter passes assertStoragePort without invoking storage
   ---
-  duration_ms: 1.599459
+  duration_ms: 0.545208
   type: 'test'
   ...
 # Subtest: FR-SAV-001 FR-SAV-002 FR-SAV-003 round-trips a cloned Save Envelope
-ok 575 - FR-SAV-001 FR-SAV-002 FR-SAV-003 round-trips a cloned Save Envelope
+ok 576 - FR-SAV-001 FR-SAV-002 FR-SAV-003 round-trips a cloned Save Envelope
   ---
-  duration_ms: 4.25325
+  duration_ms: 4.184291
   type: 'test'
   ...
 # Subtest: FR-SAV-003 rotates the exact prior canonical bytes to backup before promotion
-ok 576 - FR-SAV-003 rotates the exact prior canonical bytes to backup before promotion
+ok 577 - FR-SAV-003 rotates the exact prior canonical bytes to backup before promotion
   ---
-  duration_ms: 1.566625
+  duration_ms: 0.720875
   type: 'test'
   ...
 # Subtest: FR-SAV-004 recovers highest valid revision when canonical JSON is corrupt
-ok 577 - FR-SAV-004 recovers highest valid revision when canonical JSON is corrupt
+ok 578 - FR-SAV-004 recovers highest valid revision when canonical JSON is corrupt
   ---
-  duration_ms: 0.461958
+  duration_ms: 0.488167
   type: 'test'
   ...
 # Subtest: FR-SAV-004 recovers backup when canonical and staging are corrupt
-ok 578 - FR-SAV-004 recovers backup when canonical and staging are corrupt
+ok 579 - FR-SAV-004 recovers backup when canonical and staging are corrupt
   ---
-  duration_ms: 0.149083
+  duration_ms: 0.147708
   type: 'test'
   ...
 # Subtest: FR-SAV-004 recovery uses revision then canonical-staging-backup priority, never timestamp
-ok 579 - FR-SAV-004 recovery uses revision then canonical-staging-backup priority, never timestamp
+ok 580 - FR-SAV-004 recovery uses revision then canonical-staging-backup priority, never timestamp
   ---
-  duration_ms: 0.433291
+  duration_ms: 0.424959
   type: 'test'
   ...
 # Subtest: FR-SAV-003 preserves canonical and staging when backup write exceeds quota
-ok 580 - FR-SAV-003 preserves canonical and staging when backup write exceeds quota
+ok 581 - FR-SAV-003 preserves canonical and staging when backup write exceeds quota
   ---
-  duration_ms: 0.9985
+  duration_ms: 1.0175
   type: 'test'
   ...
 # Subtest: FR-SAV-003 and FR-SAV-009 map staging QuotaExceededError without touching canonical
-ok 581 - FR-SAV-003 and FR-SAV-009 map staging QuotaExceededError without touching canonical
+ok 582 - FR-SAV-003 and FR-SAV-009 map staging QuotaExceededError without touching canonical
   ---
-  duration_ms: 0.298291
+  duration_ms: 0.304542
   type: 'test'
   ...
 # Subtest: NFR-PE-005 rejects a Save Envelope above the 250 KB UTF-8 budget before writing
-ok 582 - NFR-PE-005 rejects a Save Envelope above the 250 KB UTF-8 budget before writing
+ok 583 - NFR-PE-005 rejects a Save Envelope above the 250 KB UTF-8 budget before writing
   ---
-  duration_ms: 5.556709
+  duration_ms: 4.6115
   type: 'test'
   ...
 # Subtest: FR-SAV-003 NFR-PE-005 preserve an oversized stored backup until consented clear
-ok 583 - FR-SAV-003 NFR-PE-005 preserve an oversized stored backup until consented clear
+ok 584 - FR-SAV-003 NFR-PE-005 preserve an oversized stored backup until consented clear
   ---
-  duration_ms: 3.506958
+  duration_ms: 2.164375
   type: 'test'
   ...
 # Subtest: FR-SAV-003 preserves recovery candidates when canonical promotion exceeds quota
-ok 584 - FR-SAV-003 preserves recovery candidates when canonical promotion exceeds quota
+ok 585 - FR-SAV-003 preserves recovery candidates when canonical promotion exceeds quota
   ---
-  duration_ms: 1.013459
+  duration_ms: 0.415208
   type: 'test'
   ...
 # Subtest: FR-SAV-003 rejects a candidate older than backup before stage or commit
-ok 585 - FR-SAV-003 rejects a candidate older than backup before stage or commit
+ok 586 - FR-SAV-003 rejects a candidate older than backup before stage or commit
   ---
-  duration_ms: 0.702083
+  duration_ms: 0.434834
   type: 'test'
   ...
 # Subtest: FR-SAV-003 FR-SAV-005 preserve unsupported future backup before any write
-ok 586 - FR-SAV-003 FR-SAV-005 preserve unsupported future backup before any write
+ok 587 - FR-SAV-003 FR-SAV-005 preserve unsupported future backup before any write
   ---
-  duration_ms: 0.279875
+  duration_ms: 0.097917
   type: 'test'
   ...
 # Subtest: FR-SAV-003 commit enforces an explicitly requested staged revision
-ok 587 - FR-SAV-003 commit enforces an explicitly requested staged revision
+ok 588 - FR-SAV-003 commit enforces an explicitly requested staged revision
   ---
-  duration_ms: 0.513667
+  duration_ms: 0.20575
   type: 'test'
   ...
 # Subtest: FR-SAV-003 commit rejects missing staging and invalid revision requests without mutation
-ok 588 - FR-SAV-003 commit rejects missing staging and invalid revision requests without mutation
+ok 589 - FR-SAV-003 commit rejects missing staging and invalid revision requests without mutation
   ---
-  duration_ms: 0.295791
+  duration_ms: 0.119958
   type: 'test'
   ...
 # Subtest: FR-SAV-003 stage and commit are idempotent for identical revision bytes
-ok 589 - FR-SAV-003 stage and commit are idempotent for identical revision bytes
+ok 590 - FR-SAV-003 stage and commit are idempotent for identical revision bytes
   ---
-  duration_ms: 0.725458
+  duration_ms: 0.275709
   type: 'test'
   ...
 # Subtest: FR-SAV-003 preserves valid candidates when staging cleanup is unavailable
-ok 590 - FR-SAV-003 preserves valid candidates when staging cleanup is unavailable
+ok 591 - FR-SAV-003 preserves valid candidates when staging cleanup is unavailable
   ---
-  duration_ms: 1.215917
+  duration_ms: 0.301458
   type: 'test'
   ...
 # Subtest: FR-SAV-003 maps a changed staging readback to STORAGE_UNAVAILABLE
-ok 591 - FR-SAV-003 maps a changed staging readback to STORAGE_UNAVAILABLE
+ok 592 - FR-SAV-003 maps a changed staging readback to STORAGE_UNAVAILABLE
   ---
-  duration_ms: 0.355083
+  duration_ms: 0.109125
   type: 'test'
   ...
 # Subtest: FR-SAV-003 maps a missing staging readback to STORAGE_UNAVAILABLE
-ok 592 - FR-SAV-003 maps a missing staging readback to STORAGE_UNAVAILABLE
+ok 593 - FR-SAV-003 maps a missing staging readback to STORAGE_UNAVAILABLE
   ---
-  duration_ms: 0.202209
+  duration_ms: 0.078416
   type: 'test'
   ...
 # Subtest: FR-SAV-009 maps disabled or denied storage to STORAGE_UNAVAILABLE without throwing
-ok 593 - FR-SAV-009 maps disabled or denied storage to STORAGE_UNAVAILABLE without throwing
+ok 594 - FR-SAV-009 maps disabled or denied storage to STORAGE_UNAVAILABLE without throwing
   ---
-  duration_ms: 0.519375
+  duration_ms: 0.242083
   type: 'test'
   ...
 # Subtest: FR-SAV-001 and FR-SAV-005 reject schema-invalid and unsupported saves without mutation
-ok 594 - FR-SAV-001 and FR-SAV-005 reject schema-invalid and unsupported saves without mutation
+ok 595 - FR-SAV-001 and FR-SAV-005 reject schema-invalid and unsupported saves without mutation
   ---
-  duration_ms: 0.224584
+  duration_ms: 0.094666
   type: 'test'
   ...
 # Subtest: FR-SAV-004 skips a newer invalid candidate for a lower valid backup
-ok 595 - FR-SAV-004 skips a newer invalid candidate for a lower valid backup
+ok 596 - FR-SAV-004 skips a newer invalid candidate for a lower valid backup
   ---
-  duration_ms: 0.63875
+  duration_ms: 0.086958
   type: 'test'
   ...
 # Subtest: FR-SAV-004 skips future format during recovery while preserving its raw bytes
-ok 596 - FR-SAV-004 skips future format during recovery while preserving its raw bytes
+ok 597 - FR-SAV-004 skips future format during recovery while preserving its raw bytes
   ---
-  duration_ms: 0.278
+  duration_ms: 0.073208
   type: 'test'
   ...
 # Subtest: FR-SAV-001 and FR-SAV-004 return null for an empty repository and typed errors for corrupt-only data
-ok 597 - FR-SAV-001 and FR-SAV-004 return null for an empty repository and typed errors for corrupt-only data
+ok 598 - FR-SAV-001 and FR-SAV-004 return null for an empty repository and typed errors for corrupt-only data
   ---
-  duration_ms: 0.141042
+  duration_ms: 0.046833
   type: 'test'
   ...
 # Subtest: FR-SAV-001 enforces monotonic revisions and rejects equal-revision forks
-ok 598 - FR-SAV-001 enforces monotonic revisions and rejects equal-revision forks
+ok 599 - FR-SAV-001 enforces monotonic revisions and rejects equal-revision forks
   ---
-  duration_ms: 0.301208
+  duration_ms: 0.134958
   type: 'test'
   ...
 # Subtest: FR-SAV-001 strict validation rejects unknown fields and invalid date-time values
-ok 599 - FR-SAV-001 strict validation rejects unknown fields and invalid date-time values
+ok 600 - FR-SAV-001 strict validation rejects unknown fields and invalid date-time values
   ---
-  duration_ms: 0.179834
+  duration_ms: 0.075667
   type: 'test'
   ...
 # Subtest: FR-SAV-006 clearWithConsent requires literal true and preserves settings and unrelated keys
-ok 600 - FR-SAV-006 clearWithConsent requires literal true and preserves settings and unrelated keys
+ok 601 - FR-SAV-006 clearWithConsent requires literal true and preserves settings and unrelated keys
   ---
-  duration_ms: 0.434292
+  duration_ms: 0.272875
   type: 'test'
   ...
 # Subtest: FR-UI-001 exposes the immutable RenderPort operation and error contract
-ok 601 - FR-UI-001 exposes the immutable RenderPort operation and error contract
+ok 602 - FR-UI-001 exposes the immutable RenderPort operation and error contract
   ---
-  duration_ms: 0.651333
+  duration_ms: 1.254
   type: 'test'
   ...
 # Subtest: FR-SAV-001 exposes the immutable SaveRepositoryPort operation and error contract
-ok 602 - FR-SAV-001 exposes the immutable SaveRepositoryPort operation and error contract
+ok 603 - FR-SAV-001 exposes the immutable SaveRepositoryPort operation and error contract
   ---
-  duration_ms: 0.104416
+  duration_ms: 0.291
   type: 'test'
   ...
 # Subtest: NFR-MA-001 RenderPort validation accepts a complete structural adapter without invocation
-ok 603 - NFR-MA-001 RenderPort validation accepts a complete structural adapter without invocation
+ok 604 - NFR-MA-001 RenderPort validation accepts a complete structural adapter without invocation
   ---
-  duration_ms: 0.109416
+  duration_ms: 0.270333
   type: 'test'
   ...
 # Subtest: NFR-MA-001 StoragePort validation accepts a complete structural adapter without invocation
-ok 604 - NFR-MA-001 StoragePort validation accepts a complete structural adapter without invocation
+ok 605 - NFR-MA-001 StoragePort validation accepts a complete structural adapter without invocation
   ---
-  duration_ms: 0.063333
+  duration_ms: 0.186834
   type: 'test'
   ...
 # Subtest: NFR-MA-001 RenderPort rejects non-objects, arrays, missing methods, and non-callable methods
-ok 605 - NFR-MA-001 RenderPort rejects non-objects, arrays, missing methods, and non-callable methods
+ok 606 - NFR-MA-001 RenderPort rejects non-objects, arrays, missing methods, and non-callable methods
   ---
-  duration_ms: 0.516375
+  duration_ms: 0.612416
   type: 'test'
   ...
 # Subtest: NFR-MA-001 StoragePort rejects non-objects, arrays, missing methods, and non-callable methods
-ok 606 - NFR-MA-001 StoragePort rejects non-objects, arrays, missing methods, and non-callable methods
+ok 607 - NFR-MA-001 StoragePort rejects non-objects, arrays, missing methods, and non-callable methods
   ---
-  duration_ms: 0.229875
+  duration_ms: 0.240042
   type: 'test'
   ...
 # Subtest: NFR-PO-003 RendererPort facade is frozen, binds adapter context, and forwards exact arguments
-ok 607 - NFR-PO-003 RendererPort facade is frozen, binds adapter context, and forwards exact arguments
+ok 608 - NFR-PO-003 RendererPort facade is frozen, binds adapter context, and forwards exact arguments
   ---
-  duration_ms: 0.273666
+  duration_ms: 0.290708
   type: 'test'
   ...
 # Subtest: NFR-MA-001 StoragePort facade is frozen, binds adapter context, and preserves typed outcomes
-ok 608 - NFR-MA-001 StoragePort facade is frozen, binds adapter context, and preserves typed outcomes
+ok 609 - NFR-MA-001 StoragePort facade is frozen, binds adapter context, and preserves typed outcomes
   ---
-  duration_ms: 0.113916
+  duration_ms: 0.115458
   type: 'test'
   ...
 # Subtest: NFR-MA-001 port facades expose no concrete adapter properties
-ok 609 - NFR-MA-001 port facades expose no concrete adapter properties
+ok 610 - NFR-MA-001 port facades expose no concrete adapter properties
   ---
-  duration_ms: 0.199417
+  duration_ms: 0.202708
   type: 'test'
   ...
 # Subtest: CR-0003 D2 AudioPort validates a pure five-operation structure without invocation
-ok 610 - CR-0003 D2 AudioPort validates a pure five-operation structure without invocation
+ok 611 - CR-0003 D2 AudioPort validates a pure five-operation structure without invocation
   ---
-  duration_ms: 0.622
+  duration_ms: 1.0975
   type: 'test'
   ...
 # Subtest: CR-0003 D2 AudioPort preserves synchronous activation, exact arguments and nonfatal outcomes
-ok 611 - CR-0003 D2 AudioPort preserves synchronous activation, exact arguments and nonfatal outcomes
+ok 612 - CR-0003 D2 AudioPort preserves synchronous activation, exact arguments and nonfatal outcomes
   ---
-  duration_ms: 0.237041
+  duration_ms: 0.745125
   type: 'test'
   ...
 # Subtest: CR-0003 D2 accepted audio desire permits zero settings but rejects platform/unknown/accessor data
-ok 612 - CR-0003 D2 accepted audio desire permits zero settings but rejects platform/unknown/accessor data
+ok 613 - CR-0003 D2 accepted audio desire permits zero settings but rejects platform/unknown/accessor data
   ---
-  duration_ms: 0.15875
+  duration_ms: 0.906583
   type: 'test'
   ...
 # Subtest: FR-SET-004 settings keeps saved zero and dispatches volume values with current view revision
-ok 613 - FR-SET-004 settings keeps saved zero and dispatches volume values with current view revision
+ok 614 - FR-SET-004 settings keeps saved zero and dispatches volume values with current view revision
   ---
-  duration_ms: 14.620916
+  duration_ms: 14.833959
   type: 'test'
   ...
 # Subtest: FR-ACC-003 settings exposes 200% text, high contrast and reduced intensity independently
-ok 614 - FR-ACC-003 settings exposes 200% text, high contrast and reduced intensity independently
+ok 615 - FR-ACC-003 settings exposes 200% text, high contrast and reduced intensity independently
   ---
-  duration_ms: 0.275542
+  duration_ms: 0.842542
+  type: 'test'
+  ...
+# Subtest: ADR-P0-018 D2 close is outside modal scrolling, switches show state and audio never disappears
+ok 616 - ADR-P0-018 D2 close is outside modal scrolling, switches show state and audio never disappears
+  ---
+  duration_ms: 0.260625
   type: 'test'
   ...
 # Subtest: FR-ACC-001 settings modal cycles focus, restores active field and routes Escape to close intent
-ok 615 - FR-ACC-001 settings modal cycles focus, restores active field and routes Escape to close intent
+ok 617 - FR-ACC-001 settings modal cycles focus, restores active field and routes Escape to close intent
   ---
-  duration_ms: 0.286166
+  duration_ms: 0.284916
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001 stage deduplicates unchanged accepted IDs and releases images exactly once on replacement/dispose
-ok 616 - TC-S3-ASSET-001 stage deduplicates unchanged accepted IDs and releases images exactly once on replacement/dispose
+ok 618 - TC-S3-ASSET-001 stage deduplicates unchanged accepted IDs and releases images exactly once on replacement/dispose
   ---
-  duration_ms: 2.209292
+  duration_ms: 2.019875
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001 late stale decoded images cannot resurrect a previous scene
-ok 617 - TC-S3-ASSET-001 late stale decoded images cannot resurrect a previous scene
+ok 619 - TC-S3-ASSET-001 late stale decoded images cannot resurrect a previous scene
   ---
-  duration_ms: 0.211375
+  duration_ms: 0.410792
   type: 'test'
   ...
 # Subtest: TC-S3-ASSET-001 missing/decode failure is neutral and retryable; disposal releases pending success
-ok 618 - TC-S3-ASSET-001 missing/decode failure is neutral and retryable; disposal releases pending success
+ok 620 - TC-S3-ASSET-001 missing/decode failure is neutral and retryable; disposal releases pending success
   ---
-  duration_ms: 0.1785
+  duration_ms: 0.417291
   type: 'test'
   ...
 # Subtest: CR-0003 D6 speaker portrait remains separate from the protagonist body
-ok 619 - CR-0003 D6 speaker portrait remains separate from the protagonist body
+ok 621 - CR-0003 D6 speaker portrait remains separate from the protagonist body
   ---
-  duration_ms: 0.114625
+  duration_ms: 0.341292
   type: 'test'
   ...
-1..619
-# tests 703
+# Subtest: ADR-P0-018 D4 preference round trip writes its own versioned key only
+ok 622 - ADR-P0-018 D4 preference round trip writes its own versioned key only
+  ---
+  duration_ms: 1.492708
+  type: 'test'
+  ...
+# Subtest: ADR-P0-018 D4 malformed, oversized, unknown-version and invalid preference records stay byte-identical
+ok 623 - ADR-P0-018 D4 malformed, oversized, unknown-version and invalid preference records stay byte-identical
+  ---
+  duration_ms: 0.698042
+  type: 'test'
+  ...
+# Subtest: ADR-P0-018 D4 storage denial, silent write failure and observed cross-tab race fail safely
+ok 624 - ADR-P0-018 D4 storage denial, silent write failure and observed cross-tab race fail safely
+  ---
+  duration_ms: 0.2175
+  type: 'test'
+  ...
+# Subtest: ADR-P0-018 D4 advisory ack/close never starts a game; preference survives reboot and is reversible through settings
+ok 625 - ADR-P0-018 D4 advisory ack/close never starts a game; preference survives reboot and is reversible through settings
+  ---
+  duration_ms: 96.323667
+  type: 'test'
+  ...
+# Subtest: ADR-P0-018 D4 overlay rejects background/stale intents and never changes active story/save/settings
+ok 626 - ADR-P0-018 D4 overlay rejects background/stale intents and never changes active story/save/settings
+  ---
+  duration_ms: 50.90225
+  type: 'test'
+  ...
+# Subtest: ADR-P0-018 D4 failed preference write stays usable, explains non-persistence and protects unknown records
+ok 627 - ADR-P0-018 D4 failed preference write stays usable, explains non-persistence and protects unknown records
+  ---
+  duration_ms: 25.48975
+  type: 'test'
+  ...
+# Subtest: ADR-P0-018 D3 localized runtime chrome uses Thai punctuation and SVG-only decorative icons
+ok 628 - ADR-P0-018 D3 localized runtime chrome uses Thai punctuation and SVG-only decorative icons
+  ---
+  duration_ms: 1.491625
+  type: 'test'
+  ...
+1..628
+# tests 712
 # suites 0
-# pass 703
+# pass 712
 # fail 0
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 23796.573416
+# duration_ms 31506.289416

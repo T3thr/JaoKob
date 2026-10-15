@@ -3,8 +3,8 @@
 | Document control | Value |
 |---|---|
 | Sprint / document | `SPRINT-04` / `JKB-SPRINT-04-SSOT` |
-| Version / date | **0.2.3** / 2026-10-15, Asia/Bangkok — PO sensory refinement; design baseline v0.2.1 retained |
-| Status | **Slice 1 T1/T2 revised after PO review, 2/12;703 unit cases/12 routes; final human visual/AT gates open; T0/T3–T11 remain open** |
+| Version / date | **0.2.4** / 2026-10-15, Asia/Bangkok: ADR-P0-018 implementation; design baseline v0.2.1 retained |
+| Status | **Slice 1 T1/T2 implements ADR-P0-018, 2/12;712 unit cases/12 routes/36 captures; final human visual/AT gates open; T0/T3–T11 remain open** |
 | Authority | PO merged plan v0.2.1 and explicitly authorized source, tests, audit, commit/push and PR for T1/T2 only in the Slice 1 directive; no remaining task/merge/deploy authorization |
 | Integrated baseline | `develop@d31652a` (merged planning PR12); Slice 1 changes remain on feature branch until human review/merge |
 | Review branch / PR | `feat/sprint-04-slice-01-visual` / [PR #13](https://github.com/T3thr/JaoKob/pull/13) → develop; planning PR12 merged |
@@ -12,7 +12,7 @@
 | Models | [PR #11](https://github.com/T3thr/JaoKob/pull/11) MERGED at `e980339`; future **S5 END-HOME Grand Keepsake**, not S4 Pouch dependency |
 | Owners | PO, Technical Lead/Architect, Core/Application/Data/UI, Narrative/Game Design, Art, Accessibility, QA/DevOps |
 
-**PO review update — 2026-10-15:** PR13's first candidate is not aesthetically accepted. Current PO authorizes refinement of T1/T2 on the same branch: one frosted header, transient successful-save text/dot (fade≤1.5s), atmospheric lotus Title, consolidated Decision surface and water-contact anchoring. Failed/protected/memory-only saves keep persistent readable detail. This supersedes the earlier always-visible success rail criterion; it does not authorize T3–T11 or alter Core/save/Canon. [CR-20261015-0013](../changelog/2026-10/2026-10-15-0013-sprint-04-po-sensory-refinement.md) records readiness and Before/After evidence.
+**PO playtest revision: 2026-10-15.** Accepted [ADR-P0-018](../adr/ADR-P0-018-visual-novel-design-system-and-anti-slop-standards.md) binds T1/T2. The updated PR13 candidate fixes bottom anchoring/reserved choices, modal close/switch/sound ergonomics, Thai punctuation/vector-only icons and a floating advisory with durable opt-out. [CR-20261015-1544](../changelog/2026-10/2026-10-15-1544-sprint-04-adr-018-vn-ergonomics.md) records readiness, the separate UI preference contract and actual geometry/CLS/Before-After evidence. The rejected `093595d` source candidate and earlier `f91ef05` captures remain archived. Only T1/T2 implementation is complete; final human acceptance and the remaining ten tasks are open. Successful-save dot/fade remains quiet within1.5s; failure/protected/memory-only detail remains readable.
 
 ## 1. Goal and phased scope
 
@@ -78,11 +78,11 @@ Priority: **approved contracts/legacy proof → UI Styles → DOM Renderer → P
 
   Owner Technical Lead/Architect; PO/Narrative/Game Design/QA/Accessibility review. Files: this SSOT, CR-0005, GDD/SRS/Narrative amendment drafts, new prospective ADR, trace/fixture plan. AC: record direction already given; ratify exact 3-or4, item/memory/default/secret/non-stat rules, callback/progression/cursor/save design; devices/reviewers/owners agreed; freeze source baseline/legacy 691/14–21–12 witnesses. Evidence `TC-S4-ARCH-001` design review. No source change until relevant readiness; no per-line permission request for AI drafting.
 
-- [ ] **T1 — Handcrafted styles, frosted HUD and paper card (ADR-P0-018)** (P0; 2–3 days)
+- [x] **T1 — Handcrafted styles, frosted HUD and paper card (ADR-P0-018)** (P0; 2–3 days)
 
   Owner UI/Art; PO/Narrative/Accessibility review. Files: existing `src/ui/styles/{tokens,base,layout,components,motion,index}.css`; original 2D icon/texture/provenance as approved. AC: ADR-P0-018 design tokens & 8pt spatial grid; contrast ratio >= 4.5:1 (7:1 high contrast); stable bottom-anchored dialogue card; remove AI slop patterns (no em-dash in Thai, no unicode emoji icons); unified low-specificity tokens/materials; bounded frosted backdrop; Thai typography/320–2560/reduced motion/forced colors. `TC-S4-VIS-001`, `TC-S4-A11Y-001`.
 
-- [ ] **T2 — Persistent DOM regions, three-screen separation & ergonomic settings (ADR-P0-018)** (P0; 3–4 days)
+- [x] **T2 — Persistent DOM regions, three-screen separation & ergonomic settings (ADR-P0-018)** (P0; 3–4 days)
 
   Owner UI; Application/Data/Accessibility/PO review. Files: `dom-renderer.js`, `stage-view.js`, `settings-dialog.js`, proposed Title/Reading/Decision/utility/response/overlay components; agreed VM/localization and focused renderer tests. AC: Title atmospheric backdrop (no flat green) with discreet floating content advisory icon (no blunt banner); Reading card on fixed bottom baseline (zero CLS/vertical jumping between Reading and Decision); Decision Crossroads with symmetric tactile cards; Settings modal features fixed top-right close button (✕) without forced scrolling, styled switch toggles with clear On/Off feedback, transparent audio controls; no emoji icons. Evidence `TC-S4-STATUS-001`, `TC-S4-STATE-001`.
 
@@ -241,8 +241,8 @@ Budgets unchanged: NFR-PE-001..005 (initial≤2MB compressed; shell+critical JSO
 | Documentation | Three requested artifacts revised; link/anchor/ID/table/consistency/diff checks recorded in new pivot audit |
 | Old visual/browser/media evidence | Sprint3 evidence retained historically; current Slice1 candidate has a separate bundle below |
 | Pouch/schema/migration/new story tests | Not materialized/not run in planning |
-| Slice 1 unit regression | **703/703**, 0 fail/cancel/skip/todo; all698 prior cases retained with the explicit PO Title-image expectation amendment, plus5 focused cases |
-| Slice 1 Chromium | **12/12** legacy routes; **29** revised screenshots at six viewport profiles; one-surface/1500ms fade/native DOM/status/focus/modal/contrast/motion/image+quota checks; [evidence](../../tests/e2e/evidence/sprint-04/slice-01/README.md) |
+| Slice 1 unit regression | **712/712**, 0 fail/cancel/skip/todo; all703 prior cases retained with the explicit ADR-P0-018 presentation expectation amendments, plus9 focused cases |
+| Slice 1 Chromium | **12/12** legacy routes; **36** revised screenshots at six profiles; identical paper/slot geometry and zero measured mode-transition shifts including recent input; close at both scroll extremes/200%, switches/sound/advisory preference, native focus, contrast/motion/fault checks; [evidence](../../tests/e2e/evidence/sprint-04/slice-01/README.md) |
 | Real device/AT/listening/PO final art/prose | Not performed; required later for changed journeys |
 | Source/release/build/merge/deploy | T1/T2 source delivered on feature branch; no remaining task, release, merge or deploy executed |
 
@@ -250,6 +250,7 @@ Budgets unchanged: NFR-PE-001..005 (initial≤2MB compressed; shell+critical JSO
 
 | Record | Disposition |
 |---|---|
+| `CR-20261015-1544` | [ADR-P0-018 implementation](../changelog/2026-10/2026-10-15-1544-sprint-04-adr-018-vn-ergonomics.md): fixed paper/slot, ergonomic modal/switches/sound, vector icons and discreet advisory/preferences;712 tests/12 routes/36 captures; PR13 human review open |
 | `CR-20261015-0013` | [PO sensory refinement](../changelog/2026-10/2026-10-15-0013-sprint-04-po-sensory-refinement.md): one bar/quiet success/lotus Title/consolidated Decision/water anchor;703 tests and12 routes; PR13 review open |
 | `CR-20261014-2314` | [Slice 1 T1/T2 implementation](../changelog/2026-10/2026-10-14-2314-sprint-04-slice-01-visual.md): 2/12, unchanged Core/save/content, scoped Chromium evidence; PO review open |
 | `CR-20261014-2233` | [Final PO approval/impact revision](../changelog/2026-10/2026-10-14-2233-sprint-04-final-po-narrative-impact.md): v0.2.1 ready for documentation review; source0/12 |
@@ -269,4 +270,4 @@ Budgets unchanged: NFR-PE-001..005 (initial≤2MB compressed; shell+critical JSO
 | D7 legacy vs new evidence/manual | QA/Accessibility separate approved expectation changes, new graph witness counts and actual human/device gates |
 | Local references | Preserve untracked folder; never stage personal reference photographs |
 
-Documentation rollback reverts current revision only. Future runtime rollout/rollback follows [proposal §9](../proposals/sprint-04-overhaul/01-proposal-plan.md#9-architecture-versions-migration-and-rollback) and accepted new contracts; no migration executes now. Main v0.2.0 direction/final v0.2.1 principles approved and planning PR12 merged by PO. Current directive authorizes T1/T2 implementation and PR; relevant readiness/evidence are recorded above. Remaining ten tasks and human/device/final art gates stay open. Slice 1 has no save/content migration; UI rollback is a reviewed revert retaining the current compatible runtime.
+Documentation rollback reverts current revision only. Future runtime rollout/rollback follows [proposal §9](../proposals/sprint-04-overhaul/01-proposal-plan.md#9-architecture-versions-migration-and-rollback) and accepted new contracts; no migration executes now. Main v0.2.0 direction/final v0.2.1 principles approved and planning PR12 merged by PO. Current directive authorizes T1/T2 implementation and PR; relevant readiness/evidence are recorded above. Remaining ten tasks and human/device/final art gates stay open. Slice 1 has no game-save/content migration. ADR-P0-018 D4 adds separately versioned `jaokob:preferences` (one `hideContentAdvisory` boolean, absent=false, bounded strict parsing and future/corrupt preservation); UI rollback ignores that key and retains the current compatible progress/settings runtime.

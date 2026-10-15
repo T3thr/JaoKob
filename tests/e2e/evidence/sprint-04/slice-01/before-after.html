@@ -1,1 +1,53 @@
-<!doctype html><html lang="th"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>JaoKob PR13 — Before / After</title><style>body{margin:0;background:#f7f1e5;color:#294434;font:17px/1.8 system-ui,sans-serif;padding:24px}main{max-width:1600px;margin:auto}h1,h2{font-weight:500}h2{font-size:20px;margin-top:36px}.pair{display:grid;gap:20px;grid-template-columns:repeat(2,minmax(0,1fr))}figure{margin:0}figcaption{padding:0 0 8px;color:#5b6450}img{display:block;width:100%;height:auto;border-radius:12px}a{color:inherit}@media(max-width:800px){.pair{grid-template-columns:1fr}body{padding:16px}}</style><main><h1>เจ้ากบ · PR13 Before / After</h1><p>HUD แถวเดียว · Title เต็มบึงบัว · คำถามหนึ่งแผ่น · ลูกอ๊อดยึดกับผิวน้ำ<br>ภาพ actual runtime จากโค้ดและเนื้อหาเดียวกัน คลิกภาพเพื่อดูเต็มขนาด</p><section><h2>หน้าแรก · 1440 × 900</h2><div class="pair"><figure><figcaption>Before · f91ef05</figcaption><a href="before-po-review/1440x900-title.png"><img src="before-po-review/1440x900-title.png" alt="หน้าแรก ก่อนปรับปรุง"></a></figure><figure><figcaption>After · PO sensory refinement</figcaption><a href="1440x900-title.png"><img src="1440x900-title.png" alt="หน้าแรก หลังปรับปรุง"></a></figure></div></section><section><h2>บทอ่าน · 1440 × 900</h2><div class="pair"><figure><figcaption>Before · f91ef05</figcaption><a href="before-po-review/1440x900-reading.png"><img src="before-po-review/1440x900-reading.png" alt="บทอ่าน ก่อนปรับปรุง"></a></figure><figure><figcaption>After · PO sensory refinement</figcaption><a href="1440x900-reading.png"><img src="1440x900-reading.png" alt="บทอ่าน หลังปรับปรุง"></a></figure></div></section><section><h2>จุดตัดสินใจ · 1440 × 900</h2><div class="pair"><figure><figcaption>Before · f91ef05</figcaption><a href="before-po-review/1440x900-decision.png"><img src="before-po-review/1440x900-decision.png" alt="จุดตัดสินใจ ก่อนปรับปรุง"></a></figure><figure><figcaption>After · PO sensory refinement</figcaption><a href="1440x900-decision.png"><img src="1440x900-decision.png" alt="จุดตัดสินใจ หลังปรับปรุง"></a></figure></div></section><p><a href="README.md">หลักฐานและข้อจำกัดการตรวจ</a> · <a href="../../../../../index.html">เปิดเกมพรีวิว</a></p></main></html>
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>เจ้ากบ: Before / After ADR-P0-018</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;padding:24px;background:#f7f1e5;color:#294434;font:17px/1.85 system-ui,sans-serif}main{max-width:1480px;margin:auto}h1,h2{font-weight:500;line-height:1.6}h1{font-size:28px}h2{font-size:22px;margin-top:40px}p{max-width:76ch}a{color:inherit}fieldset{border:0;padding:0;margin:16px 0;display:flex;flex-wrap:wrap;gap:8px}legend{float:left;margin-right:16px}button{min-width:44px;min-height:44px;border:1px solid #83987c;border-radius:24px;background:#fffbf3;color:#294434;padding:8px 16px;font:inherit;cursor:pointer}button[aria-pressed=true]{background:#294c37;color:#fff9e9}a:focus-visible,button:focus-visible{outline:3px solid #996319;outline-offset:4px}.pair{display:grid;gap:24px;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}figure{margin:0;min-width:0}figcaption{padding-bottom:8px}.frame{position:relative}img{display:block;width:100%;height:auto;border-radius:16px}#comparison[data-size=mobile]{max-width:804px;margin:auto}.guide{position:absolute;inset-inline:0;border-top:2px dashed #22513c;pointer-events:none;bottom:2.666667%}.guide span{position:absolute;right:8px;bottom:4px;background:#fff9ef;color:#254735;padding:0 8px;font-size:12px;border-radius:4px}.guide[hidden]{display:none}.modal-pair{max-width:700px}.modal-pair img{max-width:320px}.small{font-size:14px;color:#52614e}.metrics{overflow:auto}table{border-collapse:collapse;white-space:nowrap}th,td{padding:8px 16px;border-bottom:1px solid #c5ccb7;text-align:left}.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:1100px}.gallery img{max-width:390px}@media(max-width:760px){body{padding:16px}.pair,.gallery{grid-template-columns:1fr}legend{float:none}.guide span{font-size:10px}}
+  </style>
+</head>
+<body><main>
+  <h1>เจ้ากบ: ภาพปรับปรุงตาม ADR-P0-018</h1>
+  <p>สลับ “บทอ่าน” กับ “จุดตัดสินใจ” เพื่อดูตำแหน่งกระดาษ ช่องตัวเลือกอยู่เหนือกระดาษที่ยึดขอบล่าง 24px ภาพทั้งหมดมาจากเกมจริง ไม่มีการแต่งภาพหลักฐาน</p>
+  <fieldset id="sizes"><legend>ขนาดจอ</legend><button type="button" data-size="desktop" aria-pressed="true">Desktop 1440 × 900</button><button type="button" data-size="mobile" aria-pressed="false">Mobile 390 × 844</button></fieldset>
+  <fieldset id="modes"><legend>ช่วงการเล่น</legend><button type="button" data-mode="reading" aria-pressed="true">บทอ่าน</button><button type="button" data-mode="decision" aria-pressed="false">จุดตัดสินใจ</button><button type="button" data-mode="title" aria-pressed="false">หน้าแรก</button></fieldset>
+  <section id="comparison" class="pair" data-size="desktop" aria-label="ภาพก่อนและหลังปรับปรุง">
+    <figure><figcaption>Before: PR #13 ที่ 093595d</figcaption><a id="before-link" href="before-adr-018/1440x900-reading.png"><img id="before" src="before-adr-018/1440x900-reading.png" alt="บทอ่าน ก่อนปรับปรุง ที่ 1440 คูณ 900"></a></figure>
+    <figure><figcaption>After: ADR-P0-018</figcaption><div class="frame"><a id="after-link" href="1440x900-reading.png"><img id="after" src="1440x900-reading.png" alt="บทอ่าน หลังปรับปรุง ที่ 1440 คูณ 900"></a><div id="guide" class="guide"><span>ขอบล่าง 24px</span></div></div></figure>
+  </section>
+  <p id="caption" class="small" aria-live="polite">Desktop: Reading และ Decision ใช้กระดาษ y=620px สูง 256px เท่ากัน</p>
+  <h2>ตำแหน่งที่วัดจาก DOM จริง</h2>
+  <div class="metrics"><table><thead><tr><th>Viewport</th><th>Reading y / สูง</th><th>Decision y / สูง</th><th>Layout Shift รวมหลังคลิก</th></tr></thead><tbody><tr><td>320 × 568</td><td>288 / 256px</td><td>288 / 256px</td><td>0</td></tr><tr><td>390 × 844</td><td>564 / 256px</td><td>564 / 256px</td><td>0</td></tr><tr><td>768 × 1024</td><td>744 / 256px</td><td>744 / 256px</td><td>0</td></tr><tr><td>1440 × 900</td><td>620 / 256px</td><td>620 / 256px</td><td>0</td></tr><tr><td>2560 × 1440</td><td>1160 / 256px</td><td>1160 / 256px</td><td>0</td></tr><tr><td>844 × 390</td><td>174 / 192px</td><td>174 / 192px</td><td>0</td></tr></tbody></table></div>
+  <p class="small">อย่างน้อย 26 ตัวอย่างต่อขนาดจอ รวม Reading, Exploration, Decision และการกลับไปอ่าน เก็บทั้ง geometry และ PerformanceObserver รวม hadRecentInput ดู <a href="visual-evidence.json">ค่าที่วัดและ source hashes</a> ตัวอักษร 200% ใช้การเลื่อนแนวตั้งเพื่อให้ข้อความและตัวเลือกเข้าถึงได้</p>
+  <h2>Settings ที่ 320px และข้อความ 200%</h2>
+  <div class="pair modal-pair"><figure><figcaption>Before: ปุ่มปิดอยู่ท้ายฟอร์ม</figcaption><a href="before-adr-018/320x568-settings-text200.png"><img src="before-adr-018/320x568-settings-text200.png" loading="lazy" alt="หน้าต่างตั้งค่าเดิม ขยายข้อความสองเท่า"></a></figure><figure><figcaption>After: เลื่อนสุดแล้ว ปุ่มปิดยังอยู่มุมบน</figcaption><a href="320x568-settings-text200.png"><img src="320x568-settings-text200.png" loading="lazy" alt="ตั้งค่าใหม่เมื่อเลื่อนสุด ปุ่มปิดยังเข้าถึงได้ที่มุมบนขวา"></a></figure></div>
+  <p class="small">Before เก็บภาพเต็มเอกสารตาม runner เดิม ส่วนภาพ modal ใหม่เก็บเฉพาะ viewport ให้เห็นขอบจอและปุ่มปิดจริง</p>
+  <h2>สวิตช์ สถานะเสียง และคำเตือน</h2>
+  <div class="gallery"><figure><figcaption>สวิตช์แสดงเปิด/ปิด พร้อม Track และ Thumb</figcaption><a href="390-switch-on.png"><img src="390-switch-on.png" loading="lazy" alt="สวิตช์เปิดความต่างของสีและปุ่มปิดมุมบน"></a></figure><figure><figcaption>เสียงปิดที่ 0% ปุ่มยังคงอยู่</figcaption><a href="390-sound-off.png"><img src="390-sound-off.png" loading="lazy" alt="แสดงสถานะเสียงปิดและระดับเสียงทั้งหมดศูนย์เปอร์เซ็นต์"></a></figure><figure><figcaption>ไอคอนมุมจอเปิดคำแนะนำและ preference</figcaption><a href="390-advisory.png"><img src="390-advisory.png" loading="lazy" alt="หน้าต่างคำแนะนำพร้อมรับทราบและไม่ต้องแสดงอีก"></a></figure></div>
+  <p>Unit 712/712 · เส้นทางเดิม 12/12 · ภาพใหม่ 36 ภาพ · ยังรอ PO ตรวจภาพ ภาษาไทย อุปกรณ์จริงและโปรแกรมอ่านหน้าจอ</p>
+  <p><a href="README.md">หลักฐานและวิธีทดสอบ</a> · <a href="before-adr-018/manifest.json">Before 093595d และ hashes</a> · <a href="before-po-review/README.md">ภาพรอบแรก f91ef05</a> · <a href="../../../../../index.html">เปิดเกมพรีวิว</a></p>
+</main>
+<script>
+  const profiles={desktop:{prefix:'1440x900',height:900,y:620},mobile:{prefix:'390x844',height:844,y:564}};
+  const names={reading:'บทอ่าน',decision:'จุดตัดสินใจ',title:'หน้าแรก'};
+  let size='desktop',mode='reading';
+  function update(){
+    const p=profiles[size],name=`${p.prefix}-${mode}.png`;
+    document.getElementById('comparison').dataset.size=size;
+    for(const side of ['before','after']){
+      const src=(side==='before'?'before-adr-018/':'')+name;
+      document.getElementById(side).src=src;document.getElementById(side+'-link').href=src;
+      document.getElementById(side).alt=`${names[mode]} ${side==='before'?'ก่อน':'หลัง'}ปรับปรุง ที่ ${p.prefix}`;
+    }
+    const guide=document.getElementById('guide');guide.hidden=mode==='title';guide.style.bottom=`${24/p.height*100}%`;
+    document.getElementById('caption').textContent=mode==='title'?'หน้าแรกเปลี่ยนคำเตือนกลางภาพเป็นไอคอนมุมจอ':`${size==='desktop'?'Desktop':'Mobile'}: Reading และ Decision ใช้กระดาษ y=${p.y}px สูง 256px เท่ากัน`;
+    for(const button of document.querySelectorAll('[data-mode]'))button.setAttribute('aria-pressed',String(button.dataset.mode===mode));
+    for(const button of document.querySelectorAll('button[data-size]'))button.setAttribute('aria-pressed',String(button.dataset.size===size));
+  }
+  document.getElementById('sizes').addEventListener('click',event=>{const key=event.target.closest('button')?.dataset.size;if(profiles[key]){size=key;update();}});
+  document.getElementById('modes').addEventListener('click',event=>{const key=event.target.closest('button')?.dataset.mode;if(names[key]){mode=key;update();}});
+</script>
+</body>
+</html>

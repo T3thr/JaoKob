@@ -193,3 +193,14 @@ test("CR-0005 PO review projects saved versus attention explicitly without chang
   assert.deepEqual(args.snapshot, before);
   frozen(saved); frozen(failed);
 });
+
+test("ADR-P0-018 D2 audio control persists for ready, blocked, muted and failed sound without changing volume", () => {
+  for (const audioStatus of ["ready", "blocked", "unavailable"]) for (const masterVolume of [0, .65]) {
+    const args = input(start(), { audioStatus, settings: { ...settings, masterVolume } });
+    const view = projectContentView(args), sound = view.choices.find((choice) => choice.id === "application.enable-sound");
+    assert.ok(sound); assert.equal(view.settings.masterVolume, masterVolume);
+    assert.ok(view.soundStateLabel); assert.ok(view.audioStatusText); assert.equal(sound.label, view.soundControlLabel);
+    if (audioStatus !== "unavailable" && masterVolume === 0) { assert.equal(view.soundState, "off"); assert.match(view.audioStatusText, /0%/); }
+    frozen(view); assert.equal(args.settings.masterVolume, masterVolume);
+  }
+});

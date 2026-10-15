@@ -2,7 +2,9 @@ import { RENDERER_ERROR_CODES } from "../../../core/ports/renderer-port.js";
 import { TH_SYSTEM_MESSAGES } from "../../localization/th-system-messages.js";
 import { createStageView } from "../../components/stage-view.js";
 import { createSettingsDialog } from "../../components/settings-dialog.js";
+import { createContentAdvisoryDialog } from "../../components/content-advisory-dialog.js";
 import { createChromeIcon } from "../../components/chrome-icons.js";
+import { createToggleSwitch } from "../../components/toggle-switch.js";
 
 /**
  * Semantic DOM implementation of RendererPort.
@@ -18,9 +20,9 @@ import { createChromeIcon } from "../../components/chrome-icons.js";
 
 const METER_MAX = 100;
 const METER_DEFINITIONS = Object.freeze([
-  Object.freeze({ name: "hp", icon: "♥", labelKey: "meter.hp" }),
-  Object.freeze({ name: "sanity", icon: "◌", labelKey: "meter.sanity" }),
-  Object.freeze({ name: "bond", icon: "∞", labelKey: "meter.bond" }),
+  Object.freeze({ name: "hp", labelKey: "meter.hp" }),
+  Object.freeze({ name: "sanity", labelKey: "meter.sanity" }),
+  Object.freeze({ name: "bond", labelKey: "meter.bond" }),
 ]);
 
 const FATAL_CONTENT_CODES = new Set([
@@ -81,11 +83,12 @@ export function createDomRenderer(optionsOrRoot) {
   let lastReadingView = null;
   let modal = null;
   let disposed = false;
-  let restoreSettingsFocus = false;
+  let restoreChoiceFocus = null;
   let busyModalFocus = null;
   let gameShell = null;
   let storyKey = null;
   let modalKey = null;
+  let modalKind = null;
   let currentView = null;
   let lastAnnouncement = null;
   const scheduleStatus = options.scheduleStatus ?? ((callback, delay) => setTimeout(callback, delay));
@@ -103,12 +106,16 @@ export function createDomRenderer(optionsOrRoot) {
       const activeScaffold = ensureScaffold();
       if (disposed) throw new TypeError("Renderer is disposed.");
       const wasSettings = modal !== null;
-      const focusSetting = activeScaffold.document.activeElement?.getAttribute?.("data-jk-setting") ?? busyModalFocus?.setting;
+      const previousModalKind = modalKind;
+      const focusSetting = activeScaffold.document.activeElement?.getAttribute?.("data-jk-setting")
+        ?? activeScaffold.document.activeElement?.getAttribute?.("data-jk-preference") ?? busyModalFocus?.setting;
       const focusChoice = activeScaffold.document.activeElement?.getAttribute?.("data-choice-id") ?? busyModalFocus?.choice;
       const focusRole = activeScaffold.document.activeElement?.getAttribute?.("data-jk-role");
       currentView = viewModel;
-      const isSettings = viewModel.presentation?.mode === "settings";
+      const nextModalKind = viewModel.overlay === "advisory" ? "advisory" : viewModel.presentation?.mode === "settings" ? "settings" : null;
+      const isSettings = nextModalKind !== null;
       const stageModel = isSettings && lastReadingView ? { ...lastReadingView, settings: viewModel.settings,
+        soundState: viewModel.soundState, soundStateLabel: viewModel.soundStateLabel,
         notice: viewModel.notice, audioStatusText: viewModel.audioStatusText, mediaStatusText: viewModel.mediaStatusText } : viewModel;
       const nextStoryKey = readingKey(stageModel);
       const sameStory = gameShell !== null && storyKey === nextStoryKey;
@@ -146,28 +153,31 @@ export function createDomRenderer(optionsOrRoot) {
       applyBusyState(activeScaffold, references, busy);
       if (isSettings) {
         gameShell.element.setAttribute("inert", "");
-        const nextModalKey = JSON.stringify(viewModel.settings);
+        const nextModalKey = JSON.stringify([nextModalKind, viewModel.settings, viewModel.preferences]);
         if (!modal || modalKey !== nextModalKey) {
-          const scroll = modal?.element.scrollTop ?? 0;
+          const scroll = modal?.scrollRegion?.scrollTop ?? 0;
           modal?.close(); modal?.element.remove?.();
-          modal = createSettingsDialog({ document: activeScaffold.document, viewModel, message: (key) => message(messages, key), onIntent: emitIntent });
+          const createDialog = nextModalKind === "advisory" ? createContentAdvisoryDialog : createSettingsDialog;
+          modal = createDialog({ document: activeScaffold.document, viewModel, message: (key) => message(messages, key), onIntent: emitIntent });
           // Replacing this container also works in the injected minimal DOM.
           activeScaffold.content.replaceChildren(gameShell.element, modal.element);
-          modal.open(wasSettings ? focusSetting : null, wasSettings ? focusChoice : null);
+          modal.open(wasSettings && previousModalKind === nextModalKind ? focusSetting : nextModalKind === "settings" ? viewModel.focusSetting : null,
+            previousModalKind === "advisory" && nextModalKind === "settings" ? "application.advisory" : wasSettings ? focusChoice : null);
           if (busy) busyModalFocus = {
-            setting: activeScaffold.document.activeElement?.getAttribute?.("data-jk-setting"),
+            setting: activeScaffold.document.activeElement?.getAttribute?.("data-jk-setting") ?? activeScaffold.document.activeElement?.getAttribute?.("data-jk-preference"),
             choice: activeScaffold.document.activeElement?.getAttribute?.("data-choice-id"),
           };
-          modal.element.scrollTop = scroll;
+          modal.scrollRegion.scrollTop = previousModalKind === nextModalKind ? scroll : 0;
           modalKey = nextModalKey;
+          modalKind = nextModalKind;
         }
         modal.updateStatus(viewModel);
         for (const control of modal.controls) control.disabled = busy;
       } else if (wasSettings) {
-        modal.close(); modal = null; modalKey = null;
+        modal.close(); modal = null; modalKey = null; modalKind = null; busyModalFocus = null;
         gameShell.element.removeAttribute("inert");
         activeScaffold.content.replaceChildren(gameShell.element);
-        references.settingsButton?.focus(); restoreSettingsFocus = true;
+        restoreChoiceFocus = previousModalKind === "advisory" ? "application.advisory" : "application.settings";
       }
       else if (sameStory && (focusChoice || focusRole === "dialogue")) {
         (references.choiceButtons.find(({ element }) => element.getAttribute("data-choice-id") === focusChoice)?.element ?? references.dialogue)?.focus();
@@ -183,13 +193,13 @@ export function createDomRenderer(optionsOrRoot) {
       busy = nextBusy;
       const activeScaffold = ensureScaffold();
       if (busy && modal !== null) busyModalFocus = {
-        setting: activeScaffold.document.activeElement?.getAttribute?.("data-jk-setting"),
+        setting: activeScaffold.document.activeElement?.getAttribute?.("data-jk-setting") ?? activeScaffold.document.activeElement?.getAttribute?.("data-jk-preference"),
         choice: activeScaffold.document.activeElement?.getAttribute?.("data-choice-id"),
       };
       applyBusyState(activeScaffold, references, busy);
       for (const control of modal?.controls ?? []) control.disabled = busy;
       if (!busy && modal && busyModalFocus) {
-        modal.controls.find((control) => control.getAttribute("data-jk-setting") === busyModalFocus.setting
+        modal.controls.find((control) => (busyModalFocus.setting && (control.getAttribute("data-jk-setting") === busyModalFocus.setting || control.getAttribute("data-jk-preference") === busyModalFocus.setting))
           || (busyModalFocus.choice && control.getAttribute("data-choice-id") === busyModalFocus.choice))?.focus();
         busyModalFocus = null;
       }
@@ -219,7 +229,11 @@ export function createDomRenderer(optionsOrRoot) {
       assertRecord(directive, "Focus directive must be an object.");
       ensureScaffold();
       if (modal !== null) return;
-      if (restoreSettingsFocus) { restoreSettingsFocus = false; references.settingsButton?.focus(); return; }
+      if (restoreChoiceFocus) {
+        const target = references.choiceButtons.find(({ element }) => element.getAttribute("data-choice-id") === restoreChoiceFocus)?.element
+          ?? references.choiceButtons[0]?.element;
+        restoreChoiceFocus = null; target?.focus(); return;
+      }
       const target = resolveFocusTarget(directive, references);
       if (target === null) {
         throw new RendererFocusError("FOCUS_TARGET_NOT_FOUND");
@@ -237,7 +251,7 @@ export function createDomRenderer(optionsOrRoot) {
       busy = false;
       clearStatusTimer();
       modal?.close(); modal = null; stage?.dispose(); stage = null;
-      gameShell = null; storyKey = null; modalKey = null; lastReadingView = null;
+      gameShell = null; storyKey = null; modalKey = null; modalKind = null; lastReadingView = null; restoreChoiceFocus = null; busyModalFocus = null;
       const activeScaffold = ensureScaffold();
       const built = buildFatalShell(activeScaffold.document, failure, messages, emitIntent);
       activeScaffold.content.replaceChildren(built.element);
@@ -387,15 +401,15 @@ function buildGameShell(document, viewModel, messages, emitIntent, stage) {
     classNames: [title ? "jk-title-heading" : "jk-visually-hidden"], text: scene.title || message(messages, "app.name"),
   }));
   const contentNotice = buildFirstRunNotice(document, { notice: viewModel.contentNotice }, messages);
-  if (contentNotice) { contentNotice.setAttribute("data-jk-role", "content-notice"); story.append(contentNotice); }
+  if (contentNotice) contentNotice.setAttribute("data-jk-role", "content-notice");
   const feedback = buildFeedback(document, viewModel, messages);
-  if (feedback && mode !== "decision") story.append(feedback);
   const narrative = createElement(document, "article", { classNames: ["jk-narrative"], attributes: { "data-jk-role": "reading-card" } });
-  if (feedback && mode === "decision") { addClasses(feedback, "jk-context-feedback"); narrative.append(feedback); }
   const readingBody = createElement(document, "section", {
     classNames: ["jk-reading-body"], attributes: { "data-jk-role": "dialogue", tabindex: "-1", "aria-label": message(messages, "story.label") },
   });
   narrative.append(readingBody);
+  if (contentNotice) readingBody.append(contentNotice);
+  if (feedback) { addClasses(feedback, "jk-context-feedback"); readingBody.append(feedback); }
   if (scene.context) readingBody.append(createElement(document, "p", { classNames: ["jk-visually-hidden"], text: scene.context }));
   if (scene.speaker && !title) {
     const speaker = createElement(document, "p", { classNames: ["jk-speaker"], attributes: { "data-jk-role": "speaker" } });
@@ -412,28 +426,29 @@ function buildGameShell(document, viewModel, messages, emitIntent, stage) {
     classNames: ["jk-page-label"], attributes: { "data-jk-role": "page-label" }, text: scene.pageLabel,
   }));
   const storyChoices = (viewModel.choices ?? []).filter((choice) => {
-    if (["application.settings", "application.enable-sound", "application.retry-media"].includes(choice?.id)) return false;
+    if (UTILITY_CHOICE_IDS.has(choice?.id)) return false;
     if (mode === "reading") return choice?.id === "application.advance";
     if (mode === "decision") return choice?.id !== "application.advance";
     return true;
   });
   const choices = buildChoices(document, { ...viewModel, choices: storyChoices }, messages, emitIntent);
+  const choiceSlot = createElement(document, "div", { classNames: ["jk-choice-slot"], attributes: { "data-jk-role": "choice-slot" } });
   if (choices && choices.buttons.length > 0) {
     if (mode === "reading") footer.append(choices.element);
-    else story.append(choices.element);
+    else choiceSlot.append(choices.element);
     references.choiceList = choices.list;
     references.choiceButtons = choices.buttons;
   }
-  if (footer.children.length) narrative.append(footer);
+  // This footer and the external choice slot keep the paper's geometry fixed.
+  narrative.append(footer);
   const cutscene = buildCutsceneControls(document, viewModel, messages, emitIntent);
-  if (cutscene) narrative.append(cutscene);
+  if (cutscene) readingBody.append(cutscene);
   const gameOver = buildGameOverPanel(document, viewModel, messages, emitIntent);
-  if (gameOver) narrative.append(gameOver);
-  // The prose always precedes the crossroads in reading order.
-  story.replaceChildren(story.children[0], ...(contentNotice ? [contentNotice] : []), ...(feedback && mode !== "decision" ? [feedback] : []), narrative,
-    ...(mode !== "reading" && choices?.buttons.length ? [choices.element] : []));
+  if (gameOver) readingBody.append(gameOver);
+  // Prose precedes choices in the DOM; the stable slot is visually above paper.
+  story.append(narrative, choiceSlot);
   const firstRunNotice = buildFirstRunNotice(document, { firstRunNotice: viewModel.firstRunNotice }, messages);
-  if (firstRunNotice) story.append(firstRunNotice);
+  if (firstRunNotice && !title) readingBody.append(firstRunNotice);
   shell.append(story);
   references.dialogue = readingBody;
   const built = { element: shell, header, story, card: narrative, status, utility, references, document, emitIntent };
@@ -447,10 +462,10 @@ function readingKey(view) {
   return JSON.stringify([view.locale, view.state, view.revision, view.presentation?.mode, view.presentation?.nodeId,
     view.scene, view.dialogue, view.speaker, view.meters, view.feedback, view.meterChanges,
     view.firstRunNotice, view.contentNotice, view.cutscene, view.gameOver, view.confirmationRequired,
-    view.choices?.filter((choice) => !["application.enable-sound", "application.retry-media"].includes(choice.id))]);
+    view.choices?.filter((choice) => !UTILITY_CHOICE_IDS.has(choice.id))]);
 }
 
-const UTILITY_CHOICE_IDS = new Set(["application.settings", "application.enable-sound", "application.retry-media"]);
+const UTILITY_CHOICE_IDS = new Set(["application.settings", "application.enable-sound", "application.retry-media", "application.advisory"]);
 
 function patchUtilityStatus(shell, view, messages) {
   const text = readString(view.notice?.text) || readString(view.notice?.description);
@@ -473,17 +488,23 @@ function patchUtilityStatus(shell, view, messages) {
       button.addEventListener("click", () => {
         if (!button.disabled) shell.emitIntent({ type: "SELECT_CHOICE", choiceId: choice.id });
       });
-      button.setAttribute("aria-label", choice.label || message(messages, "settings.title"));
-      button.setAttribute("title", choice.label || message(messages, "settings.title"));
       if (choice.id === "application.settings") {
         button.setAttribute("aria-haspopup", "dialog");
-        button.append(createChromeIcon(shell.document, "settings", "⚙"),
+        button.append(createChromeIcon(shell.document, "settings"),
           createElement(shell.document, "span", { classNames: ["jk-utility-label"], text: message(messages, "settings.short") }));
-      } else button.append(createChromeIcon(shell.document, choice.id === "application.retry-media" ? "retry" : "sound"),
+      } else if (choice.id === "application.enable-sound") {
+        button.setAttribute("class", "jk-utility-button jk-sound-button");
+      } else button.append(createChromeIcon(shell.document, choice.id === "application.retry-media" ? "retry" : "info"),
         createElement(shell.document, "span", { classNames: ["jk-utility-label"], text: choice.label }));
     }
-    if (choice.id === "application.settings") button.setAttribute("aria-label", choice.label || message(messages, "settings.title"));
-    else button.setAttribute("aria-label", choice.label);
+    button.setAttribute("aria-label", choice.label || message(messages, "settings.title"));
+    button.setAttribute("title", choice.label || message(messages, "settings.title"));
+    if (choice.id === "application.advisory") button.setAttribute("aria-haspopup", "dialog");
+    if (choice.id === "application.enable-sound" && button.getAttribute("data-audio-state") !== view.soundState) {
+      button.setAttribute("data-audio-state", view.soundState ?? "blocked");
+      button.replaceChildren(createChromeIcon(shell.document, view.soundState === "ready" ? "sound" : "muted"),
+        createElement(shell.document, "span", { classNames: ["jk-sound-state"], text: view.soundStateLabel ?? "" }));
+    }
     buttons.push({ element: button, disabled: choice.disabled === true || choice.available === false });
   }
   // Avoid detaching a focused Settings button during status-only changes.
@@ -516,7 +537,7 @@ function buildMeterList(document, viewModel, messages) {
     if (definition.name === "bond" && raw?.state === "locked") {
       const chip = createElement(document, "div", { classNames: ["jk-bond-locked"], attributes: { "data-jk-meter": "bond", "data-bond-state": "locked" } });
       const icons = createElement(document, "span", { classNames: ["jk-bond-icons"], attributes: { "aria-hidden": "true" } });
-      icons.append(createChromeIcon(document, "bond", "🪷 🔒"));
+      icons.append(createChromeIcon(document, "bond"));
       const label = createElement(document, "dt");
       label.append(createElement(document, "span", { classNames: ["jk-bond-label"], text: raw.label }),
         createElement(document, "span", { classNames: ["jk-bond-short"], text: message(messages, "meter.bondLockedShort") }));
@@ -537,7 +558,7 @@ function buildMeterList(document, viewModel, messages) {
       classNames: ["jk-meter-icon"],
       attributes: { "aria-hidden": "true" },
     });
-    icon.append(createChromeIcon(document, definition.name, definition.icon));
+    icon.append(createChromeIcon(document, definition.name));
     const labelText = createElement(document, "span", { text: label });
     term.append(icon, labelText);
 
@@ -731,20 +752,9 @@ function buildCutsceneControls(document, viewModel, messages, emitIntent) {
   speedField.append(speed);
   controls.append(speedField);
 
-  const typewriterLabel = createElement(document, "label", {
-    classNames: ["jk-cutscene-toggle"],
-  });
-  const typewriter = createElement(document, "input", {
-    attributes: { type: "checkbox", "data-jk-role": "typewriter-toggle" },
-  });
-  typewriter.checked = cutscene.typewriterEnabled !== false;
-  typewriter.addEventListener("change", () => {
-    emitIntent({ type: "SET_TYPEWRITER", enabled: typewriter.checked === true });
-  });
-  typewriterLabel.append(typewriter, createElement(document, "span", {
-    text: message(messages, "cutscene.typewriter"),
-  }));
-  controls.append(typewriterLabel);
+  controls.append(createToggleSwitch({ document, label: message(messages, "cutscene.typewriter"), checked: cutscene.typewriterEnabled !== false,
+    message: (key) => message(messages, key), attributes: { "data-jk-role": "typewriter-toggle" },
+    onChange: (enabled) => emitIntent({ type: "SET_TYPEWRITER", enabled }) }));
 
   if (cutscene.canSkip === true) {
     controls.append(createIntentButton(
@@ -815,7 +825,7 @@ function buildChoices(document, viewModel, messages, emitIntent) {
   const mode = viewModel.presentation?.mode;
   section.setAttribute("data-choice-mode", mode ?? "legacy");
   if (mode === "decision" || mode === "exploration") {
-    section.append(createElement(document, "h2", { classNames: ["jk-choice-heading", ...(mode === "decision" ? ["jk-visually-hidden"] : [])], text: message(messages, mode === "decision" ? "choices.decision" : "choices.exploration") }));
+    section.append(createElement(document, "h2", { classNames: ["jk-choice-heading", "jk-visually-hidden"], text: message(messages, mode === "decision" ? "choices.decision" : "choices.exploration") }));
   }
 
   for (const choice of viewModel.choices) {
@@ -841,7 +851,8 @@ function buildChoices(document, viewModel, messages, emitIntent) {
         const icon = createElement(document, "span", { classNames: ["jk-choice-icon"], attributes: { "aria-hidden": "true" } });
         icon.append(createChromeIcon(document, names[choice.id] ?? "ripple")); button.append(icon);
       }
-      button.append(copy, createElement(document, "span", { classNames: ["jk-choice-cue"], attributes: { "aria-hidden": "true" } }));
+      const cue = createElement(document, "span", { classNames: ["jk-choice-cue"], attributes: { "aria-hidden": "true" } });
+      cue.append(createChromeIcon(document, "chevron")); button.append(copy, cue);
     }
     const choiceId = readString(choice.id);
     if (choiceId) button.setAttribute("data-choice-id", choiceId);

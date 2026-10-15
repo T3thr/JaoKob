@@ -1,49 +1,74 @@
-# Sprint 4 Slice 1 evidence — CR-0005 / T1–T2
+# Sprint 4 Slice 1 evidence: ADR-P0-018 / CR-0005 T1-T2
 
-Baseline: `develop@d31652a`; candidate `feat/sprint-04-slice-01-visual`. PO review revision CR-20261015-0013 supersedes the first candidate. Runtime remains Vanilla ES Modules, content 2.1.0/schema 1.2.0/save format 1. Browser: headless Chromium 151.0.7922.34 on macOS. These are scoped automated/model-assisted checks, not human art/AT/device acceptance or performance certification.
+Current revision: CR-20261015-1544 on `feat/sprint-04-slice-01-visual`, [PR #13](https://github.com/T3thr/JaoKob/pull/13). Accepted ADR-P0-018 supersedes the moving-card/raw-toggle/inline-warning presentation in `093595d`. This is an implementation candidate for human acceptance. Core, content2.1.0/schema1.2.0/save format1 and all previous image/font/audio bytes remain unchanged. New durable UI preference is separate from game settings/save/checkpoint.
 
 ## Reproduce
 
-From the repository root, with an existing development Playwright installation (no repository package dependency):
+From the repository root, using an existing Playwright installation (no runtime/repository package dependency):
 
 ```sh
 node --test tests/unit/*.test.js
 JKB_PLAYWRIGHT_PATH=/absolute/path/to/playwright/index.mjs JKB_EVIDENCE_DIR=tests/e2e/evidence/sprint-04/slice-01/legacy-routes node tests/e2e/act1-playthrough.mjs
 JKB_PLAYWRIGHT_PATH=/absolute/path/to/playwright/index.mjs node tests/e2e/sprint-04-visual-slice.mjs
+python3 -m http.server 8001 --bind 127.0.0.1
 ```
 
-Both browser runners serve disposable loopback hosts and use isolated browser saves. The Slice 1 diagnostic fixture lives only in its test host; it adds no production debug hook. Earlier Sprint 2/3 evidence is preserved. The existing route runner accepts an output override; its route, meter/flag, double-input, save-consent, focus and numerical-free Bond assertions remain intact. Its contrast sample now measures the relocated rail and the paper behind the transparent Next control.
+Preview: `http://127.0.0.1:8001/`. [Comparison viewer](before-after.html) supports desktop/mobile and Reading/Decision/Title switching. Server path: `/tests/e2e/evidence/sprint-04/slice-01/before-after.html`. There is no npm dev script.
 
-## QA inventory and results
+Both runners create disposable loopback hosts and isolated browser storage. The visual test host mounts `slice-root` once, avoiding production auto-mount; its diagnostic renderer fixture is test-only. Legacy outcome/state/save assertions remain intact. Earlier Sprint2/3 evidence is retained.
 
-| Claim / behavior | Functional and visual evidence | Result |
+## Results and trace
+
+| Gate | Evidence | Result |
 |---|---|---|
-| Title without gameplay HUD | Verified full-screen entry lotus art, no meter/character/audio loop; corner tools and New Game/Resume/notice; title captures at all six sizes | Pass |
-| One readable paper beat / Next in footer | Sarabun 18px mobile/20px desktop, line-height1.85; no premature cards; original corner fibres, glyphs clear | Pass |
-| Decision crossroads | One paper surface contains authored context/feedback/question; three original Scene3 labels/actions with original SVG icons/cues, no Next, minimum80px target; desktop3columns/mobilestack; T9 tags remain deferred | Pass |
-| Moss HP / amber พลังใจ, locked Bond | Distinct fills; localized labels/numbers; native DOM/AX has no Bond value; original decorative SVG | Pass |
-| Save/status cleanup | One frosted header surface; no secondary utility pill; successful dot fades and disappears at1500ms without replay; failed/memory-only detail stays readable; exact DOM/focus retained | Pass |
-| Stable modal/media/revisions | Native settings retains node/scroll/music focus across save/audio patches and busy lock; persistent controls emit latest viewRevision; successful save is silent while feedback/recovery still announce | Pass |
-| Feedback and content notices | Decision context/deltas merge into the paper; Reading response remains separate; storm warning, confirmation/cancel, completion and crisis recovery still function | Pass |
-| Keyboard/touch/reflow | Legacy Enter/Space/Tab;44px targets;320px with200% text, settings/Escape/restoration; forced/high contrast and OS/app reduced motion | Pass |
-| Fault exploration | Image-load failure exposes actual Retry in rail; quota/memory-only warning remains visible and Next works | Pass |
-| Compatibility | 12 canonical routes, all terminal meters/flags, checkpoint/reload/Resume, stale/double input and protected raw save tests | Pass |
-| Architecture/security | All 691 existing unit cases plus7 new cases pass; same-origin network; no console/page errors; no Core/content/save/schema change | Pass |
+| Unit regression | [unit-tests.tap](unit-tests.tap): **712/712**, zero fail/cancel/skip/todo; all703 previous cases retained with explicit ADR presentation expectation amendments, plus9 focused cases | Pass |
+| Legacy routes | [act1-evidence.json](legacy-routes/act1-evidence.json): **12/12** canonical outcomes; exact meters/flags/checkpoint/Resume, consent/raw-save protection, duplicate/stale actions, keyboard and locked Bond DOM/AX secrecy | Pass |
+| D1 stable anchor | [visual-evidence.json](visual-evidence.json) `anchors`: every sampled Reading/Exploration/Decision paper and slot rect matches, including Decision-to-Reading; bottom24px at six normal-text profiles | Pass |
+| Layout Shift | PerformanceObserver includes entries with `hadRecentInput`; **zero entries/value**, alongside geometry assertions; measurement begins after initial artwork/fonts settle | Pass |
+| D2 close corner | `modalCorners`: native close44x44 hit-tested at scrollTop=0 and maximum, unchanged x/y;320px/200%,1440px/200%,390px settings/advisory/error; button text remains contained | Pass |
+| D2 switches/audio | Four settings switches with localized On/Off, track/thumb, role/ARIA, Space and focus retention; mute0 survives unlock; sound node remains in rail/settings and opens volume controls when ready/muted | Pass |
+| D3 typography/icons | Thai title uses colon, no runtime Thai em dash/emoji fallback; all renderer icons/chevrons are original SVG, including favicon; Bond remains numerical-free | Pass |
+| D4 discreet advisory | Title story has no warning banner; corner icon opens native details. Ack/Escape/Tab restoration; opt-out persists through reload; Settings reopens/reverses it; snapshot/save/settings remain identical | Pass |
+| Preference failures | Separate bounded/versioned key validates booleans/fields/prototype, protects corrupt/future records, rejects stale/background intents and handles denial/dropped write/observed race with an in-memory choice and localized explanation | Pass |
+| D5 contrast | Prose **10.61:1**, High Contrast **15.72:1**; system forced colors, reduced motion, opaque-glass fallback; 4/8/16/24/32 spacing tokens | Pass |
+| Quiet status and faults | One frosted header, success dot fades/disappears within1500ms without replay/focus/announcement; failures remain readable; exact story/modal/scroll/focus retained; image Retry and quota recovery work | Pass |
+| Responsive/localization | Six viewports, Sarabun18-20px/1.85,44px buttons;320px with200% text and vertical reflow, root/subpath; no unexpected browser/page/external-origin errors | Pass |
 
-[`unit-tests.tap`](unit-tests.tap): **703/703**, zero fail/cancel/skip/todo, final full-suite duration23,796.573ms. [`legacy-routes/act1-evidence.json`](legacy-routes/act1-evidence.json): **12/12**, zero unexpected errors, contrast samples≥9.44:1. [`visual-evidence.json`](visual-evidence.json):29 captures, six sizes (320×568,390×844,768×1024,1440×900,2560×1440,844×390), source SHA-256 values, fit/reflow/touch/native patch/fault results. Normal HUD/body fits now retain the water plane at320px; landscape/200% text layouts intentionally scroll in normal document flow; content is not clipped to force a screenshot fit.
+Requirements/evidence: `ADR-P0-018 D1..D5`, `CR-0005`, `FR-UI-001/002/003/005/007`, `FR-ACC-001..004`, `FR-LOC-001/003`, `FR-SET-003/004`, `TC-S4-VIS-001/STATUS-001/STATE-001/A11Y-001`.
 
-Representative images: [desktop reading](1440x900-reading.png), [mobile decision](390x844-decision.png), [Title](390x844-title.png), [200% settings](320x568-settings-text200.png), [forced colors](390-forced-colors.png), [storage fault](390-storage-failure.png). Model-assisted inspection covered Title/Reading/Decision, text reflow, forced colors and failure captures; human walkthrough remains a separate gate.
+Browser: headless Chromium151.0.7922.34 on macOS. **36 current screenshots** at320x568,390x844,768x1024,1440x900,2560x1440,844x390 plus control/fault variants. Normal snapshots are full-page; new modal captures use only the viewport to demonstrate its close corner. Source hashes in the manifest identify actual served source; `baseline` is the parent Git commit because evidence is captured before committing the candidate.
 
-## Limits and next review
+## Stable geometry and reflow boundaries
 
-PO/Art Thai aesthetic, actual water-plane/crop acceptance, real touch devices, VoiceOver/NVDA, Safari/iOS/Firefox, native400% zoom and representative-device percentile performance remain unperformed. Axe is not installed; native semantics/AX/keyboard/contrast checks are automated smoke, not full WCAG certification. T3–T11, actual Intent Tag catalog, Log/Pouch, new narrative/save/contracts/3D are outside this slice. No release/deploy/merge is performed. UI rollback is a reviewed revert; no save migration is required.
+| Viewport | Paper y in Reading and Decision | Height | Bottom margin |
+|---|---|---|---|
+| 320x568 | 288px | 256px | 24px |
+| 390x844 | 564px | 256px | 24px |
+| 768x1024 | 744px | 256px | 24px |
+| 1440x900 | 620px | 256px | 24px |
+| 2560x1440 | 1160px | 256px | 24px |
+| 844x390 | 174px | 192px | 24px |
 
-## PO review — Before / After
+The fixed slot is empty during Reading, with symmetric three-column Decision cards above the paper at every size. Long Exploration lists scroll in that slot; prose/feedback/content warnings share the scrollable paper without resizing it. Body focus supports native keyboard reading. Short landscape omits the foreground sprite to keep the interface usable; other profiles retain its mode-independent water-contact plane and ambient ellipse/ring.
 
-Open [before-after.html](before-after.html) for paired desktop Title/Reading/Decision screenshots, or compare the preserved [before captures](before-po-review/README.md) with the current root images. The before manifest pins `f91ef05` and six immutable screenshot hashes.
+Large text intentionally grows/reflows the scene vertically rather than clipping controls to fit a screenshot. Font resizing itself is not a zero-layout-change claim. The geometry/CLS table covers the six normal-text runs;200% separately checks horizontal reflow, actual labels/targets, focus and close reachability. These are scoped automated checks, not universal CLS/WCAG/device certification.
 
-Title now fills with verified lotus art instead of the empty gradient. Reading replaces two header capsules with one compact bar and a1500ms success dot; the subject sits lower over the water with a soft ellipse/ring. Decision merges the authored context/feedback/prompt in one paper card and removes the extra generic visible heading; desktop choices align in three columns with original icons, while mobile retains spaced44px+ controls.
+## Preferences and compatibility
 
-Browser fade proof records initial opacity0.9, an intermediate reduced opacity, and `display:none` after expiration; focus and card identity remain intact on a media refresh. The injected timer unit test fixes the deadline at1500ms, stale timers cannot hide an error, and disposal cancels pending work. Under reduced motion, the dot disappears at the deadline without a fade/breathing animation.
+`jaokob:preferences` stores exactly `{"version":1,"preferences":{"hideContentAdvisory":false}}`. No automatic popup/new-game gate is added: the icon is explicitly opened. Opt-out suppresses the floating hint on future Title displays; the Settings entry always remains. An absent key defaults to false without writing. Unknown/corrupt/oversized input stays untouched; failed persistence explains that the hint may return after reload. The UI never reads Storage. Bootstrap composes the Data adapter and projects immutable preference data.
 
-The scoped browser host now mounts into `slice-root`, preventing the bootstrap module's normal auto-mount plus explicit test-instance race. The native renderer fixture begins with a real non-null story snapshot and proves it remains unchanged. No production debug hook or bootstrap mutation was added. The old Title-empty-image expectation was intentionally replaced by an exact verified-background-only assertion under the explicit PO directive; silent/no-character/immutable/Core/save/route assertions are retained.
+Preference changes do not call Core, touch domain revisions or write game settings/save/checkpoint. Existing game-setting changes retain their previous validated persistence behavior. No migration of game saves/content; a reviewed UI revert ignores this separate key without deleting anything.
+
+## Before / After
+
+[before-adr-018/manifest.json](before-adr-018/manifest.json) pins seven unchanged images from source candidate `093595d`: desktop/mobile Title/Reading/Decision and320px/200% Settings. [before-po-review](before-po-review/README.md) still pins six images from the original `f91ef05` candidate. SHA-256 checks preserve both histories.
+
+The [interactive viewer](before-after.html) makes the new baseline visible while switching modes and compares pinned close, switch states, mute and advisory. Representative current captures: [Reading](1440x900-reading.png), [Decision](390x844-decision.png), [Title](390x844-title.png), [Settings top](390-settings-top.png), [Settings bottom](390-settings-bottom.png), [200% close](320x568-settings-text200.png), [advisory](390-advisory.png), [opt-out storage failure](390-advisory-storage-failure.png).
+
+Presentation assertions were amended under the explicit ADR: decorative SVG replaces the old emoji fallback while all Bond numerical secrecy checks remain; Title's banner becomes a modal flow; native switch buttons replace raw checkbox expectations; response/warnings move into the fixed paper. Semantic intents, route metrics/flags and save/recovery assertions were preserved. No skipped or reduced critical gate.
+
+## Not performed and next review
+
+Human Thai/art/crop acceptance, physical touch, Safari/iOS/Firefox, VoiceOver/NVDA, native400% browser zoom and representative-device latency/load/frame percentiles remain unperformed. Axe is not installed; native semantics/AX/keyboard/contrast are smoke checks. Long-content scroll affordances and short landscape still need a human walkthrough. Performance transfer/driver observations are not percentile certification.
+
+Only T1/T2 implementation is complete; final PO acceptance and merge are open. No T0/T3-T11, Log/Pouch/new prose/Intent Tag catalog/new schema/3D/release/deploy/merge work is included. Full requirement/impact/migration/rollback/approval report: [CR-20261015-1544](../../../../../docs/changelog/2026-10/2026-10-15-1544-sprint-04-adr-018-vn-ergonomics.md).

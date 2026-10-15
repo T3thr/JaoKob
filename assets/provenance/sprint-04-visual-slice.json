@@ -6,7 +6,7 @@
   "date": "2026-10-14",
   "origin": "Original manually authored SVG geometry; no external image, stock icon, font icon or reference photo",
   "permittedUse": "JaoKob UI decoration, modification and distribution under repository owner control; no third-party license asserted",
-  "clearance": "Current PO review authorizes original UI choice/sound/retry strokes and the sensory refinement; final aesthetic review remains open",
+  "clearance": "Current PO directive and accepted ADR-P0-018 authorize original vector UI icons/favicon and the visual revision; final aesthetic review remains open",
   "assets": [
     {
       "path": "assets/images/ui/paper-fibres.svg",
@@ -16,11 +16,18 @@
     },
     {
       "path": "src/ui/components/chrome-icons.js",
-      "byteLength": 1832,
-      "sha256": "e0872909da8e725f7b5f267a659cc1c8fcf58ff7052b3b82a185cada1654cfec",
+      "byteLength": 1933,
+      "sha256": "9f4293a974e39468766e4fbd6429aac88cce1e6c0424d1b815891b10fa06370a",
       "role": "Decorative; no user-visible strings or game logic"
+    },
+    {
+      "path": "assets/images/ui/lotus-mark.svg",
+      "role": "Original decorative favicon; no font glyph, user-visible string or game logic",
+      "sha256": "b2aaa530a4c92bff50e7ac65527d7db4cdc7119f515b4640feb3cd53cd599325",
+      "byteLength": 344
     }
   ],
-  "refinementRecord": "CR-20261015-0013",
-  "revisionDate": "2026-10-15"
+  "refinementRecord": "CR-20261015-1544",
+  "revisionDate": "2026-10-15",
+  "previousRefinementRecord": "CR-20261015-0013"
 }
