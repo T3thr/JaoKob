@@ -7,7 +7,7 @@
 | Status | **Slice1/2 merged (#13@01cee6f, #14@6692c1b); T6 implemented and evidenced for PO review; 7/12 source tasks delivered; T7–T11 and final human gates open** |
 | Authority | PO ratified ADR-P0-020 establishing 4-slot Keepsake Pouch architecture and authorized Slice 2 implementation on `feat/sprint-04-slice-02-pouch` |
 | Integrated baseline | `develop@01cee6f` (merged PR13); Slice 2 changes remain on feature branch until human review/merge |
-| Review branch / PR | `feat/sprint-04-slice-03-log` → develop; actual PR linked in the Slice3 audit after creation; PR13/14 merged |
+| Review branch / PR | `feat/sprint-04-slice-03-log` / [PR #15](https://github.com/T3thr/JaoKob/pull/15) → develop; source3dfe56d; PR13/14 merged |
 | Proposal / RFC | [JKB-PROP-S4-001 v0.2.1](../proposals/sprint-04-overhaul/01-proposal-plan.md) / [CR-0005 v0.2.1](../rfc/CR-0005-sprint-04-overhaul.md) |
 | Models | [PR #11](https://github.com/T3thr/JaoKob/pull/11) MERGED at `e980339`; future **S5 END-HOME Grand Keepsake**, not S4 Pouch dependency |
 | Owners | PO, Technical Lead/Architect, Core/Application/Data/UI, Narrative/Game Design, Art, Accessibility, QA/DevOps |
@@ -260,7 +260,7 @@ Budgets unchanged: NFR-PE-001..005 (initial≤2MB compressed; shell+critical JSO
 
 | Record | Disposition |
 |---|---|
-| `CR-20261016-0142` | [Slice3 T6 Session Dialogue History](../changelog/2026-10/2026-10-16-0142-sprint-04-slice-03-history.md): current PO D3 ratification;935 unit cases,12 original routes,23 History/2 action-client captures, pure50+50/displayed-prefix/native modal; feature PR review pending |
+| `CR-20261016-0142` | [Slice3 T6 Session Dialogue History](../changelog/2026-10/2026-10-16-0142-sprint-04-slice-03-history.md): source3dfe56d; current PO D3 ratification;935 unit cases,12 original routes,23 History/2 action-client captures, pure50+50/displayed-prefix/native modal; [PR #15](https://github.com/T3thr/JaoKob/pull/15) open for review |
 | `CR-20261016-0031` | [Slice 2 Pouch/Save 2 delivery](../changelog/2026-10/2026-10-16-0031-sprint-04-slice-02-pouch.md): T0/T3/T4/T5 implemented at 3a672a5; 874 unit cases, independent schemas, 12 routes and scoped modal/browser evidence; PR #14 reviewed and MERGED into develop at 6692c1b |
 | `CR-20261016-0025` | [ADR-P0-020 ratification](../adr/ADR-P0-020-adventure-keepsake-pouch-and-item-system.md): 4-slot Keepsake Pouch architecture, dual keepsake/utility role, Save 2 schema; Slice 2 kickoff on `feat/sprint-04-slice-02-pouch` |
 | `CR-20261015-1757` | [ADR-P0-019 corrective delivery](../changelog/2026-10/2026-10-15-1757-sprint-04-adr-019-runtime-ergonomics.md): design specification first; T1/T2 implementation complete2/12;720 unit cases/12 routes/50 captures; merged in PR13 |

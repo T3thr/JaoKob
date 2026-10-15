@@ -55,4 +55,4 @@ T6 source/evidence is ready for PO review. Remaining Sprint4 tasks T7–T11 cove
 
 ## 6. Delivery
 
-Conventional commit, remote branch and actual PR reference are recorded after successful delivery. This feature does not authorize auto-merge.
+Implementation commit **`3dfe56d242813df2372fa6c59bc34cf7180551e8`** was committed by T3thr with the required repository email and pushed to `origin/feat/sprint-04-slice-03-log`. [PR #15](https://github.com/T3thr/JaoKob/pull/15) is open against **develop**, ready for PO review and attached to this chat. This documentation follow-up records the actual delivery; no runtime code changed after verification. No auto-merge or deployment.
