@@ -252,7 +252,7 @@ Budgets unchanged: NFR-PE-001..005 (initial≤2MB compressed; shell+critical JSO
 
 | Record | Disposition |
 |---|---|
-| `CR-20261016-0031` | [Slice2 Pouch/Save2 delivery](../changelog/2026-10/2026-10-16-0031-sprint-04-slice-02-pouch.md): T0/T3/T4/T5 implemented;874 unit cases, independent schemas,12 routes and scoped modal/browser evidence; PR14 owner review open |
+| `CR-20261016-0031` | [Slice2 Pouch/Save2 delivery](../changelog/2026-10/2026-10-16-0031-sprint-04-slice-02-pouch.md): T0/T3/T4/T5 implemented at3a672a5;874 unit cases, independent schemas,12 routes and scoped modal/browser evidence; PR14 OPEN for owner review |
 | `CR-20261016-0025` | [ADR-P0-020 ratification](../adr/ADR-P0-020-adventure-keepsake-pouch-and-item-system.md): 4-slot Keepsake Pouch architecture, dual keepsake/utility role, Save 2 schema; Slice 2 kickoff on `feat/sprint-04-slice-02-pouch` |
 | `CR-20261015-1757` | [ADR-P0-019 corrective delivery](../changelog/2026-10/2026-10-15-1757-sprint-04-adr-019-runtime-ergonomics.md): design specification first; T1/T2 implementation complete2/12;720 unit cases/12 routes/50 captures; merged in PR13 |
 | `CR-20261015-1710` | [ADR-P0-019 mandate & Slice 1 extension](../adr/ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md): playtest rejection of commit `a634409`; T1/T2 reopened for Design System specification and 6 ergonomic pillars; PR13 extended |
