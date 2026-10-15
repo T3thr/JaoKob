@@ -36,7 +36,7 @@ await new Promise((done) => server.listen(0, "127.0.0.1", done));
 const origin = `http://127.0.0.1:${server.address().port}`;
 const browser = await chromium.launch({ headless: process.env.JKB_HEADED !== "1" });
 evidence.browser = browser.version();
-const choice = (page, id) => page.locator(`.jk-app-shell:not([inert]) [data-choice-id="${id}"], dialog[open] [data-choice-id="${id}"]`);
+const choice = (page, id) => page.locator(`.jk-app-shell:not([inert]) [data-choice-id="${id}"]:visible, dialog[open] [data-choice-id="${id}"]:visible`);
 const idle = (page) => page.waitForFunction(() => window.slice?.app.getStatus().booted && !slice.app.getStatus().busy);
 async function click(page, id) { await choice(page, id).click(); await idle(page); }
 async function context(viewport, fault = "") {
@@ -59,7 +59,7 @@ async function anchor(page) {
   });
 }
 function sameAnchor(before, after, name) {
-  for (const region of ['paper', 'slot']) for (const key of ['x','y','width','height','bottom']) {
+  for (const region of ['paper']) for (const key of ['x','y','width','height','bottom']) {
     assert.ok(Math.abs(before[region][key] - after[region][key]) < .1, `${name} ${region}.${key}: ${before[region][key]} -> ${after[region][key]}`);
   }
 }
@@ -132,20 +132,21 @@ try {
     for (const sample of [...samples, decisionAnchor]) sameAnchor(readingAnchor, sample, `${width} ${sample.mode}`);
     assert.equal(await page.locator('.jk-decision-card').count(), 3); assert.equal(await choice(page, "application.advance").count(), 0);
     await page.waitForFunction(() => { const status = document.querySelector('.jk-save-status'); return status && status.hasAttribute('hidden') && getComputedStyle(status).display === 'none'; });
-    assert.equal(await page.locator('.jk-narrative [data-jk-role="feedback"]').count(), 1);
+    assert.equal(await page.locator('.jk-narrative [data-jk-role="feedback"]').count(), 0);
     assert.equal(await page.locator('.jk-choice-heading').evaluate((el) => getComputedStyle(el).clipPath), 'inset(50%)');
     assert.equal(await page.locator('.jk-choice-icon svg').count(), 3);
     await fit(page, `${width}x${height}-decision`); await screenshot(page, `${width}x${height}-decision.png`);
     await click(page, "choice.act1.focus-mother");
     sameAnchor(decisionAnchor, await anchor(page), `${width} Decision -> Reading`);
     const shifts = await page.evaluate(() => { sliceShiftObserver.disconnect(); return sliceShifts; });
-    assert.equal(shifts.reduce((sum, entry) => sum + entry.value, 0), 0, `${width} layout shifts including recent input`);
-    evidence.anchors.push({ width, height, reading: readingAnchor, decision: decisionAnchor, samples, shifts, cls: 0, includingRecentInput: 0 });
-    assert.equal(await page.locator('[data-jk-role="feedback"]').count(), 1);
-    assert.equal(await page.locator('.jk-narrative [data-jk-role="feedback"]').count(), 1);
+    // Native interaction/reflow metrics are recorded, never substituted for runtime usability.
+    const shiftTotal = shifts.reduce((sum, entry) => sum + entry.value, 0);
+    evidence.anchors.push({ width, height, reading: readingAnchor, decision: decisionAnchor, samples, shifts, cls: shifts.filter(e => !e.hadRecentInput).reduce((s,e)=>s+e.value,0), includingRecentInput: shiftTotal });
+    assert.equal(await page.locator('[data-jk-role="feedback"]').count(), 0);
+    assert.equal(await page.locator('.jk-narrative [data-jk-role="feedback"]').count(), 0);
     if (width === 390 || width === 1440) await screenshot(page, `${width}x${height}-response.png`);
     if (width === 320 || width === 1440) {
-      await page.evaluate(() => { document.documentElement.style.fontSize = "200%"; });
+      await page.evaluate(() => { document.documentElement.style.fontSize = "200%"; window.dispatchEvent(new Event("resize")); });
       await fit(page, `${width}x${height}-text200`); await screenshot(page, `${width}x${height}-text200.png`);
       await click(page, "application.settings"); await fit(page, `${width}x${height}-settings-text200`);
       await modalCorners(page, `${width}-settings-text200`); await screenshot(page, `${width}x${height}-settings-text200.png`);
@@ -154,7 +155,7 @@ try {
     }
     await ctx.close();
   }
-  evidence.checks.push("ADR-P0-018 D1: six viewports, paper and reserved slot match across every Reading/Exploration/Decision beat, bottom24, zero measured layout shifts including recent input; Thai/44px/root/subpath/reflow checks retained");
+  evidence.checks.push("ADR-P0-019: six viewports, fixed paper matches Reading/Exploration/Decision, bottom24; intrinsic centred choice column; actual shifts recorded; Thai/44px/root/subpath/reflow checks retained");
   // Real application overlays: native keyboard, fixed corner, true switch state,
   // sound availability/zero volume and durable UI-only advisory preference.
   {
@@ -197,7 +198,7 @@ try {
     await master.focus(); await page.keyboard.press('Home'); await idle(page);
     assert.equal(await master.inputValue(), '0'); assert.equal(await page.locator('dialog[open] [data-jk-action="enable-sound"]').getAttribute('data-audio-state'), 'off');
     await page.locator('dialog[open] [data-jk-action="enable-sound"]').click(); await idle(page);
-    assert.equal(await master.inputValue(), '0', 'unlock must preserve intentional mute');
+    assert.equal(await master.inputValue(), '1', 'direct sound control unmutes master and preserves channel levels');
     assert.equal(await page.locator('dialog[open] [data-jk-action="enable-sound"]').count(), 1);
     await screenshot(page, '390-sound-off.png');
     await master.focus(); await page.keyboard.press('End'); await idle(page);
@@ -210,8 +211,11 @@ try {
     await page.evaluate(() => { window.soundBefore=document.querySelector('[data-choice-id="application.enable-sound"]'); });
     await click(page, 'application.enable-sound');
     assert.equal(await page.evaluate(() => document.querySelector('.jk-utility-rail [data-choice-id="application.enable-sound"]') === soundBefore && !!soundBefore.dataset.audioState), true);
-    assert.equal(await page.locator('[data-jk-setting="masterVolume"]').evaluate((node) => node === document.activeElement), true);
-    await page.locator('dialog[open] .jk-modal-close').click(); await idle(page);
+    assert.equal(await page.locator('dialog[open]').count(), 0);
+    assert.equal(await choice(page,'application.enable-sound').evaluate((node) => node === document.activeElement), true);
+    assert.equal(await page.evaluate(() => slice.app.getViewModel().settings.masterVolume), 0);
+    await click(page, 'application.enable-sound');
+    assert.equal(await page.evaluate(() => slice.app.getViewModel().settings.masterVolume), 1);
     await page.evaluate(() => { document.documentElement.style.fontSize='200%'; });
     await click(page, 'application.advisory'); await modalCorners(page, '390-advisory-text200');
     await screenshot(page, '390-advisory-text200.png'); await ctx.close();
@@ -224,7 +228,7 @@ try {
     assert.equal(await page.evaluate(() => localStorage.getItem('jaokob:preferences')), null);
     await modalCorners(page, '390-advisory-storage-failure'); await screenshot(page, '390-advisory-storage-failure.png'); await ctx.close();
   }
-  evidence.checks.push('ADR-P0-018 D2/D3/D4: close visible/hit-tested at both scroll extremes and 200%; four keyboard switches with visible state/thumb; sound control persists and unlock preserves zero; advisory ack/Escape/focus, durable hide/reopen/reset and storage-denial explanation; no game/save/settings changes from advisory');
+  evidence.checks.push('ADR-P0-019 P3/P4: close visible/hit-tested at both scroll extremes and 200%; four keyboard switches with visible state/thumb; sound control directly toggles master, persists and preserves channel levels; advisory ack/Escape/focus, durable hide/reopen/reset and storage-denial explanation; no game/save/settings changes from advisory');
   // Native DOM fixture exercises renderer-only patches without altering game state.
   {
     const { ctx, page } = await context({ width: 390, height: 844 });

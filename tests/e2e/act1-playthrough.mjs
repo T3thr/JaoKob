@@ -32,13 +32,13 @@ const browser = await playwright.chromium.launch({ headless: process.env.JKB_HEA
 const evidence = { browser: browser.version(), platform: process.platform, at: new Date().toISOString(), routes: [], checks: [], screenshots: [], performance: {}, errors: [] };
 const saveKey = "jaokob:save:canonical";
 const save = (page) => page.evaluate((key) => JSON.parse(localStorage.getItem(key)), saveKey);
-const choice = (page, id) => page.locator(`[data-choice-id="${id}"]`);
+const choice = (page, id) => page.locator(`.jk-app-shell:not([inert]) [data-choice-id="${id}"]:visible, dialog[open] [data-choice-id="${id}"]:visible`);
 async function idle(page) { await page.waitForFunction(() => document.querySelector("#app")?.getAttribute("aria-busy") === "false"); }
 async function click(page, id, key) {
-  const before = await page.locator("#app").getAttribute("data-view-revision");
+  const before = await page.locator("#app").evaluate((root) => [root.dataset.viewRevision, root.dataset.readingRevision].join(":"));
   if (key) { await choice(page, id).focus(); await page.keyboard.press(key); }
   else await choice(page, id).click();
-  await page.waitForFunction((old) => document.querySelector("#app")?.getAttribute("data-view-revision") !== old, before);
+  await page.waitForFunction((old) => [document.querySelector("#app")?.dataset.viewRevision, document.querySelector("#app")?.dataset.readingRevision].join(":") !== old, before);
   await idle(page);
 }
 async function screenshot(page, name) {
@@ -81,7 +81,8 @@ async function verifyRoute(page, route, hotspots, { keyboard = false, captures =
     const stored = await save(page), nodeId = stored.payload.currentNodeId;
     maxBytes = Math.max(maxBytes, Buffer.byteLength(JSON.stringify(stored)));
     if (captures && nodeId === "node.act1.storm" && !capturedStorm) {
-      assert.equal(await page.locator('[data-jk-role="content-notice"]').count(), 1);
+      assert.equal(await page.locator('.jk-narrative [data-jk-role="content-notice"]').count(), 0);
+      assert.equal(await choice(page, "application.advisory").count(), 1);
       await screenshot(page, "act1-storm.png"); capturedStorm = true;
     }
     let id;

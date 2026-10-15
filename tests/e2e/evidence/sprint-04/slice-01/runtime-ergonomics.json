@@ -1,0 +1,541 @@
+{
+  "authority": "ADR-P0-019",
+  "origin": "http://127.0.0.1:8001",
+  "at": "2026-10-15T12:12:29.563Z",
+  "browser": "151.0.7922.34",
+  "checks": [
+    "Six production viewport profiles: complete original Thai text, no reading/choice scrollbar, equal centred choices, fixed bottom24, visible landscape choices, decision shortcut guards; actual setting 200% pagination does not commit saves",
+    "Production storm/advisory preference reload, native replacement backdrop/cross/Escape/save preservation/opener focus, HP/morale-only 2500ms toast, Space/Enter/stage progression, direct repeatable audio mute/unmute with channel preservation"
+  ],
+  "profiles": [
+    {
+      "width": 320,
+      "height": 568,
+      "reading": {
+        "text": "เช้ายังอุ่นอยู่รอบตัวเจ้ากบ ความคุ้นเคยแต่ละอย่างชวนให้เข้าไปใกล้ ในตอนนี้คุณอยากอยู่กับจังหวะไหน",
+        "count": 1
+      },
+      "geometry": {
+        "slot": {
+          "x": 16,
+          "y": 120,
+          "width": 288,
+          "height": 184,
+          "top": 120,
+          "right": 304,
+          "bottom": 304,
+          "left": 16
+        },
+        "client": 184,
+        "scroll": 184,
+        "overflow": "visible",
+        "buttons": [
+          {
+            "r": {
+              "x": 16,
+              "y": 120,
+              "width": 288,
+              "height": 56,
+              "top": 120,
+              "right": 304,
+              "bottom": 176,
+              "left": 16
+            },
+            "client": 52,
+            "scroll": 52,
+            "overflow": "visible"
+          },
+          {
+            "r": {
+              "x": 16,
+              "y": 184,
+              "width": 288,
+              "height": 56,
+              "top": 184,
+              "right": 304,
+              "bottom": 240,
+              "left": 16
+            },
+            "client": 52,
+            "scroll": 52,
+            "overflow": "visible"
+          },
+          {
+            "r": {
+              "x": 16,
+              "y": 248,
+              "width": 288,
+              "height": 56,
+              "top": 248,
+              "right": 304,
+              "bottom": 304,
+              "left": 16
+            },
+            "client": 52,
+            "scroll": 52,
+            "overflow": "visible"
+          }
+        ],
+        "paper": {
+          "x": 16,
+          "y": 320,
+          "width": 288,
+          "height": 224,
+          "top": 320,
+          "right": 304,
+          "bottom": 544,
+          "left": 16
+        },
+        "viewport": {
+          "width": 320,
+          "height": 568
+        }
+      },
+      "text200": {
+        "text": "เช้ายังอุ่นอยู่รอบตัวเจ้ากบ ความคุ้นเคยแต่ละอย่างชวนให้เข้าไปใกล้ ในตอนนี้คุณอยากอยู่กับจังหวะไหน",
+        "count": 4
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "reading": {
+        "text": "เช้ายังอุ่นอยู่รอบตัวเจ้ากบ ความคุ้นเคยแต่ละอย่างชวนให้เข้าไปใกล้ ในตอนนี้คุณอยากอยู่กับจังหวะไหน",
+        "count": 1
+      },
+      "geometry": {
+        "slot": {
+          "x": 16,
+          "y": 372,
+          "width": 358,
+          "height": 184,
+          "top": 372,
+          "right": 374,
+          "bottom": 556,
+          "left": 16
+        },
+        "client": 184,
+        "scroll": 184,
+        "overflow": "visible",
+        "buttons": [
+          {
+            "r": {
+              "x": 16,
+              "y": 372,
+              "width": 358,
+              "height": 56,
+              "top": 372,
+              "right": 374,
+              "bottom": 428,
+              "left": 16
+            },
+            "client": 52,
+            "scroll": 52,
+            "overflow": "visible"
+          },
+          {
+            "r": {
+              "x": 16,
+              "y": 436,
+              "width": 358,
+              "height": 56,
+              "top": 436,
+              "right": 374,
+              "bottom": 492,
+              "left": 16
+            },
+            "client": 52,
+            "scroll": 52,
+            "overflow": "visible"
+          },
+          {
+            "r": {
+              "x": 16,
+              "y": 500,
+              "width": 358,
+              "height": 56,
+              "top": 500,
+              "right": 374,
+              "bottom": 556,
+              "left": 16
+            },
+            "client": 52,
+            "scroll": 52,
+            "overflow": "visible"
+          }
+        ],
+        "paper": {
+          "x": 16,
+          "y": 572,
+          "width": 358,
+          "height": 248,
+          "top": 572,
+          "right": 374,
+          "bottom": 820,
+          "left": 16
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      }
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "reading": {
+        "text": "เช้ายังอุ่นอยู่รอบตัวเจ้ากบ ความคุ้นเคยแต่ละอย่างชวนให้เข้าไปใกล้ ในตอนนี้คุณอยากอยู่กับจังหวะไหน",
+        "count": 1
+      },
+      "geometry": {
+        "slot": {
+          "x": 64,
+          "y": 528,
+          "width": 640,
+          "height": 184,
+          "top": 528,
+          "right": 704,
+          "bottom": 712,
+          "left": 64
+        },
+        "client": 184,
+        "scroll": 184,
+        "overflow": "visible",
+        "buttons": [
+          {
+            "r": {
+              "x": 64,
+              "y": 528,
+              "width": 640,
+              "height": 56,
+              "top": 528,
+              "right": 704,
+              "bottom": 584,
+              "left": 64
+            },
+            "client": 52,
+            "scroll": 52,
+            "overflow": "visible"
+          },
+          {
+            "r": {
+              "x": 64,
+              "y": 592,
+              "width": 640,
+              "height": 56,
+              "top": 592,
+              "right": 704,
+              "bottom": 648,
+              "left": 64
+            },
+            "client": 52,
+            "scroll": 52,
+            "overflow": "visible"
+          },
+          {
+            "r": {
+              "x": 64,
+              "y": 656,
+              "width": 640,
+              "height": 56,
+              "top": 656,
+              "right": 704,
+              "bottom": 712,
+              "left": 64
+            },
+            "client": 52,
+            "scroll": 52,
+            "overflow": "visible"
+          }
+        ],
+        "paper": {
+          "x": 16,
+          "y": 728,
+          "width": 736,
+          "height": 272,
+          "top": 728,
+          "right": 752,
+          "bottom": 1000,
+          "left": 16
+        },
+        "viewport": {
+          "width": 768,
+          "height": 1024
+        }
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "reading": {
+        "text": "เช้ายังอุ่นอยู่รอบตัวเจ้ากบ ความคุ้นเคยแต่ละอย่างชวนให้เข้าไปใกล้ ในตอนนี้คุณอยากอยู่กับจังหวะไหน",
+        "count": 1
+      },
+      "geometry": {
+        "slot": {
+          "x": 400,
+          "y": 412,
+          "width": 640,
+          "height": 184,
+          "top": 412,
+          "right": 1040,
+          "bottom": 596,
+          "left": 400
+        },
+        "client": 184,
+        "scroll": 184,
+        "overflow": "visible",
+        "buttons": [
+          {
+            "r": {
+              "x": 400,
+              "y": 412,
+              "width": 640,
+              "height": 56,
+              "top": 412,
+              "right": 1040,
+              "bottom": 468,
+              "left": 400
+            },
+            "client": 52,
+            "scroll": 52,
+            "overflow": "visible"
+          },
+          {
+            "r": {
+              "x": 400,
+              "y": 476,
+              "width": 640,
+              "height": 56,
+              "top": 476,
+              "right": 1040,
+              "bottom": 532,
+              "left": 400
+            },
+            "client": 52,
+            "scroll": 52,
+            "overflow": "visible"
+          },
+          {
+            "r": {
+              "x": 400,
+              "y": 540,
+              "width": 640,
+              "height": 56,
+              "top": 540,
+              "right": 1040,
+              "bottom": 596,
+              "left": 400
+            },
+            "client": 52,
+            "scroll": 52,
+            "overflow": "visible"
+          }
+        ],
+        "paper": {
+          "x": 336,
+          "y": 612,
+          "width": 768,
+          "height": 264,
+          "top": 612,
+          "right": 1104,
+          "bottom": 876,
+          "left": 336
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        }
+      },
+      "text200": {
+        "text": "เช้ายังอุ่นอยู่รอบตัวเจ้ากบ ความคุ้นเคยแต่ละอย่างชวนให้เข้าไปใกล้ ในตอนนี้คุณอยากอยู่กับจังหวะไหน",
+        "count": 2
+      }
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "reading": {
+        "text": "เช้ายังอุ่นอยู่รอบตัวเจ้ากบ ความคุ้นเคยแต่ละอย่างชวนให้เข้าไปใกล้ ในตอนนี้คุณอยากอยู่กับจังหวะไหน",
+        "count": 1
+      },
+      "geometry": {
+        "slot": {
+          "x": 960,
+          "y": 944,
+          "width": 640,
+          "height": 184,
+          "top": 944,
+          "right": 1600,
+          "bottom": 1128,
+          "left": 960
+        },
+        "client": 184,
+        "scroll": 184,
+        "overflow": "visible",
+        "buttons": [
+          {
+            "r": {
+              "x": 960,
+              "y": 944,
+              "width": 640,
+              "height": 56,
+              "top": 944,
+              "right": 1600,
+              "bottom": 1000,
+              "left": 960
+            },
+            "client": 52,
+            "scroll": 52,
+            "overflow": "visible"
+          },
+          {
+            "r": {
+              "x": 960,
+              "y": 1008,
+              "width": 640,
+              "height": 56,
+              "top": 1008,
+              "right": 1600,
+              "bottom": 1064,
+              "left": 960
+            },
+            "client": 52,
+            "scroll": 52,
+            "overflow": "visible"
+          },
+          {
+            "r": {
+              "x": 960,
+              "y": 1072,
+              "width": 640,
+              "height": 56,
+              "top": 1072,
+              "right": 1600,
+              "bottom": 1128,
+              "left": 960
+            },
+            "client": 52,
+            "scroll": 52,
+            "overflow": "visible"
+          }
+        ],
+        "paper": {
+          "x": 896,
+          "y": 1144,
+          "width": 768,
+          "height": 272,
+          "top": 1144,
+          "right": 1664,
+          "bottom": 1416,
+          "left": 896
+        },
+        "viewport": {
+          "width": 2560,
+          "height": 1440
+        }
+      }
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "reading": {
+        "text": "เช้ายังอุ่นอยู่รอบตัวเจ้ากบ ความคุ้นเคยแต่ละอย่างชวนให้เข้าไปใกล้ ในตอนนี้คุณอยากอยู่กับจังหวะไหน",
+        "count": 1
+      },
+      "geometry": {
+        "slot": {
+          "x": 38,
+          "y": 126,
+          "width": 768,
+          "height": 56,
+          "top": 126,
+          "right": 806,
+          "bottom": 182,
+          "left": 38
+        },
+        "client": 56,
+        "scroll": 56,
+        "overflow": "visible",
+        "buttons": [
+          {
+            "r": {
+              "x": 38,
+              "y": 126,
+              "width": 250.65625,
+              "height": 56,
+              "top": 126,
+              "right": 288.65625,
+              "bottom": 182,
+              "left": 38
+            },
+            "client": 52,
+            "scroll": 52,
+            "overflow": "visible"
+          },
+          {
+            "r": {
+              "x": 296.65625,
+              "y": 126,
+              "width": 250.671875,
+              "height": 56,
+              "top": 126,
+              "right": 547.328125,
+              "bottom": 182,
+              "left": 296.65625
+            },
+            "client": 52,
+            "scroll": 52,
+            "overflow": "visible"
+          },
+          {
+            "r": {
+              "x": 555.328125,
+              "y": 126,
+              "width": 250.671875,
+              "height": 56,
+              "top": 126,
+              "right": 806,
+              "bottom": 182,
+              "left": 555.328125
+            },
+            "client": 52,
+            "scroll": 52,
+            "overflow": "visible"
+          }
+        ],
+        "paper": {
+          "x": 38,
+          "y": 198,
+          "width": 768,
+          "height": 168,
+          "top": 198,
+          "right": 806,
+          "bottom": 366,
+          "left": 38
+        },
+        "viewport": {
+          "width": 844,
+          "height": 390
+        }
+      }
+    }
+  ],
+  "screenshots": [
+    "320x568-runtime-decision.png",
+    "320x568-runtime-text200.png",
+    "390x844-runtime-decision.png",
+    "768x1024-runtime-decision.png",
+    "1440x900-runtime-decision.png",
+    "1440x900-runtime-text200.png",
+    "2560x1440-runtime-decision.png",
+    "844x390-runtime-decision.png",
+    "390-runtime-storm.png",
+    "390-runtime-storm-advisory.png",
+    "1440-runtime-title-confirmation.png",
+    "1440-runtime-choice-confirmation.png",
+    "1440-runtime-consequence.png",
+    "1440-runtime-sound-toggle.png"
+  ],
+  "errors": []
+}

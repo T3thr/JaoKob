@@ -39,6 +39,7 @@ export function createGameApplication(options = {}) {
   let migration = null, migrationAttempted = false, mediaRefreshPending = false, disposed = false;
   let preferences = DEFAULT_UI_PREFERENCES, advisoryOpen = false, preferenceStatusText = "";
   let requestedSettingsFocus = null;
+  let requestedChoiceFocus = null, audibleMaster = 1, feedbackEventId = null;
 
   function refreshMedia(kind) {
     // A pointerdown unlock may settle before click. Do not replace its target;
@@ -82,7 +83,8 @@ export function createGameApplication(options = {}) {
         if (!fatal && lastViewModel) {
           // Focus only after controls have been unlocked; disabled buttons
           // cannot receive focus in real browsers.
-          await invoke(renderer, "applyFocusDirective", { target: snapshot && mode === "game" ? "dialogue" : "first-choice" });
+          await invoke(renderer, "applyFocusDirective", requestedChoiceFocus ? { target: "choice", choiceId: requestedChoiceFocus } : { target: snapshot && mode === "game" ? "dialogue" : "first-choice" });
+          requestedChoiceFocus = null;
         }
       }
     })();
@@ -92,7 +94,7 @@ export function createGameApplication(options = {}) {
     const facts = snapshot ? orchestrator.facts(snapshot) : null;
     if (projectMedia) media.accept({ ...projectContentPresentation({ loaded, snapshot, facts, settings, mode }), facts });
     lastViewModel = projectContentView({ loaded, snapshot, facts,
-      settings, notice, feedbackActionId, meterChanges, mode, hasResume: Boolean(resumeEnvelope), memoryResume: memoryOnly,
+      settings, notice, feedbackActionId, feedbackEventId, meterChanges, mode, hasResume: Boolean(resumeEnvelope), memoryResume: memoryOnly,
       confirmation, preferences, advisoryOpen, preferenceStatusText, focusSetting: requestedSettingsFocus, viewRevision: ++viewRevision, ...media.status() });
     requestedSettingsFocus = null;
     const result = await invoke(renderer, "render", lastViewModel);
@@ -212,6 +214,7 @@ export function createGameApplication(options = {}) {
     const previous = snapshot;
     snapshot = result.value.snapshot; lastAt = at; mode = "game"; confirmation = null;
     feedbackActionId = result.value.feedbackActionId ?? null;
+    feedbackEventId = `${snapshot.sessionId}:${snapshot.revision}`;
     meterChanges = ["hp", "sanity"].filter((meter) => previous.metrics[meter] !== snapshot.metrics[meter])
       .map((meter) => ({ meter, before: previous.metrics[meter], after: snapshot.metrics[meter], delta: snapshot.metrics[meter] - previous.metrics[meter] }));
     revisionFloor = Math.max(revisionFloor, snapshot.revision);
@@ -222,8 +225,8 @@ export function createGameApplication(options = {}) {
     }
     return saved.ok ? render() : saved;
   }
-  async function changeSettings(key, value) {
-    if (mode !== "settings" || !["masterVolume", "musicVolume", "ambienceVolume", "effectsVolume", "reducedIntensityAudio",
+  async function changeSettings(key, value, utilityAudio = false) {
+    if ((mode !== "settings" && !(utilityAudio && key === "masterVolume")) || !["masterVolume", "musicVolume", "ambienceVolume", "effectsVolume", "reducedIntensityAudio",
       "fontScale", "reducedMotion", "highContrast", "confirmHighImpactChoices"].includes(key)) return failure("INVALID_INTENT");
     const nextSettings = { ...settings, [key]: value };
     if (!validateGameSettings(nextSettings).valid) return failure("INVALID_SETTINGS");
@@ -268,7 +271,7 @@ export function createGameApplication(options = {}) {
         }
         return startSession();
       }
-      case "application.cancel-replace": mode = "title"; confirmation = null; return render();
+      case "application.cancel-replace": mode = "title"; confirmation = null; requestedChoiceFocus = "application.new-game"; return render();
       case "application.confirm-replace": {
         if (revisionFloor >= Number.MAX_SAFE_INTEGER) return failure("REVISION_OVERFLOW");
         if (confirmation.hasRecords) {
@@ -300,11 +303,14 @@ export function createGameApplication(options = {}) {
       case "application.settings": mode = "settings"; return render();
       case "application.advisory": advisoryOpen = true; return render();
       case "application.close-advisory": advisoryOpen = false; return render();
-      case "application.enable-sound":
-        // Unlock already ran in the trusted event. A ready/muted control opens
-        // its actual volume settings; it never silently unmutes saved zeros.
-        if (mode !== "settings" && ["ready", "off"].includes(lastViewModel.soundState)) { mode = "settings"; requestedSettingsFocus = "masterVolume"; }
-        return render();
+      case "application.enable-sound": {
+        requestedChoiceFocus = "application.enable-sound";
+        if (settings.masterVolume > 0) {
+          audibleMaster = settings.masterVolume;
+          return changeSettings("masterVolume", 0, true);
+        }
+        return changeSettings("masterVolume", audibleMaster, true);
+      }
       case "application.retry-media": media.retry(); return render();
       case "application.close-settings": mode = snapshot ? "game" : "title"; return render();
       case "application.toggle-font":
@@ -312,7 +318,7 @@ export function createGameApplication(options = {}) {
         return id === "application.toggle-font" ? changeSettings("fontScale", settings.fontScale > 1 ? 1 : 1.5)
           : changeSettings("reducedMotion", !settings.reducedMotion);
       }
-      case "application.cancel-choice": confirmation = null; mode = "game"; return render();
+      case "application.cancel-choice": requestedChoiceFocus = confirmation.actionId; confirmation = null; mode = "game"; return render();
       case "application.confirm-choice": {
         const next = { ...command(), actionId: confirmation.actionId, expectedRevision: confirmation.expectedRevision };
         return accept(orchestrator.act(snapshot, next), next.at);

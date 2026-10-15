@@ -51,7 +51,7 @@ for (const [index, route] of ROUTES.entries()) test(`FR-ENG/FR-SAV production DO
     await click(h, id);
     if (h.application.getStatus().mode === "choice-confirmation") {
       assert.equal(h.application.getSnapshot(), before);
-      assert.equal(findByAttribute(h.root, "data-choice-id", "application.confirm-choice").getAttribute("aria-describedby"), "jk-current-dialogue");
+      assert.equal(findByAttribute(h.root, "data-choice-id", "application.confirm-choice").getAttribute("aria-describedby"), "jk-confirmation-description");
       await click(h, "application.confirm-choice");
       assert.match(findByAttribute(h.root, "data-jk-role", "live-region").textContent, /พลังใจ (เพิ่มขึ้น|ลดลง)/);
     }

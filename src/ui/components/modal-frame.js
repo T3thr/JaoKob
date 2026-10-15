@@ -1,7 +1,7 @@
 import { createChromeIcon } from "./chrome-icons.js";
 
 /** The close corner never belongs to the scrolling content. Native modality,
- * plus a keyboard trap for injected hosts without showModal. ADR-P0-018 D2. */
+ * plus a keyboard trap for injected hosts without showModal. ADR-P0-019 P4. */
 export function createModalFrame({ document, name, title, description, closeLabel, onClose }) {
   const element = (tag, attributes = {}, text) => {
     const node = document.createElement(tag);

@@ -103,7 +103,7 @@ test("FR-UI-003 renders visible feedback and text-labelled meter changes without
   });
 
   assert.equal(outcome.ok, true);
-  assert.equal(findOne(root, hasDataRole("feedback")).textContent.includes("เจ้ากบพบที่กำบังจากฝน"), true);
+  assert.equal(findOne(root, hasDataRole("dialogue-text")).textContent.includes("เจ้ากบพบที่กำบังจากฝน"), true);
   assert.equal(root.textContent.includes("พลังชีวิต ลดลง 10"), true);
   assert.equal(root.textContent.includes("พลังใจ เพิ่มขึ้น 2"), true);
   assert.equal(findAll(root, (element) => element.getAttribute("data-direction") === "negative").length, 1);
@@ -165,7 +165,7 @@ test("FR-UI-004 and FR-UI-006 expose keyboard-native cutscene and crisis recover
   assert.equal(findAll(gameOver, (element) => element.tagName === "BUTTON").length, 4);
 });
 
-test("NFR-US-001 renders a localized first-run notice supplied by the view model", () => {
+test("ADR-P0-019 keeps legacy first-run warnings outside the sacred paper", () => {
   const { root, renderer } = createHarness();
   renderer.render({
     scene: { title: "หน้าเริ่มต้น", dialogue: "ยินดีต้อนรับ" },
@@ -182,9 +182,9 @@ test("NFR-US-001 renders a localized first-run notice supplied by the view model
     choices: [],
   });
 
-  const notice = findOne(root, hasDataRole("first-run-notice"));
-  assert.equal(notice.textContent.includes("เกมผจญภัยเชิงเรื่องเล่า"), true);
-  assert.equal(findAll(notice, (element) => element.tagName === "LI").length, 4);
+  const card = findOne(root, hasDataRole("reading-card"));
+  assert.equal(findAll(card, hasDataRole("first-run-notice")).length, 0);
+  assert.equal(findOne(card, hasDataRole("dialogue-text")).textContent, "ยินดีต้อนรับ");
 });
 
 test("FR-UI-007 showFatalShell presents a Thai recovery-safe fallback and focuses it", () => {
@@ -600,7 +600,7 @@ test("TC-S4-STATUS-001 settings status patches retain modal identity, scroll, fi
   assert.equal(findOne(modal, hasDataRole("audio-status")).textContent, "เสียงพร้อมแล้ว");
 });
 
-test("ADR-P0-018 D1 story patches preserve landmarks and place feedback and warning in the fixed paper", () => {
+test("ADR-P0-019 story patches preserve landmarks, prose and independent HUD consequences", () => {
   const { root, renderer } = createHarness();
   renderer.render({ revision: 1, scene: { dialogue: "ก่อนฝน" }, presentation: { mode: "reading" }, choices: [] });
   const shell = findOne(root, hasDataRole("game-shell")), story = findOne(root, hasDataRole("dialogue")), header = findOne(root, hasDataRole("stage-header"));
@@ -610,9 +610,11 @@ test("ADR-P0-018 D1 story patches preserve landmarks and place feedback and warn
   assert.equal(findOne(root, hasDataRole("dialogue")), story);
   assert.equal(findOne(root, hasDataRole("stage-header")), header);
   const card = findOne(root, hasDataRole("reading-card"));
-  assert.equal(findAll(card, hasDataRole("feedback")).length, 1);
-  assert.equal(findAll(card, hasDataRole("content-notice")).length, 1);
-  assert.match(findOne(root, hasDataRole("feedback")).textContent, /พลังชีวิต เพิ่มขึ้น 5/);
+  assert.equal(findAll(card, hasDataRole("feedback")).length, 0);
+  assert.equal(findAll(card, hasDataRole("content-notice")).length, 0);
+  assert.match(card.textContent, /ได้ที่พัก/);
+  assert.doesNotMatch(card.textContent, /พายุ|เพิ่มขึ้น|พลังชีวิต/);
+  assert.match(findOne(root, hasDataRole("meter-toast")).textContent, /พลังชีวิต เพิ่มขึ้น 5/);
 });
 
 test("TC-S4-STATUS-001 duplicate operational announcements are deduped without suppressing a new beat", () => {
@@ -636,7 +638,7 @@ test("CR-0005 PO review uses one header surface and merges Decision context with
   assert.match(hud.parentNode.getAttribute("class"), /jk-header-bar/);
   assert.equal(findOne(root, hasDataRole("save-status")).parentNode, findOne(root, hasDataRole("stage-header")));
   const card = findOne(root, hasDataRole("reading-card"));
-  assert.match(findOne(card, hasDataRole("feedback")).textContent, /กลับมาหาครอบครัว/);
+  assert.match(findOne(card, hasDataRole("dialogue-text")).textContent, /กลับมาหาครอบครัว/);
   assert.match(findOne(card, hasDataRole("dialogue-text")).textContent, /จังหวะไหน/);
 });
 

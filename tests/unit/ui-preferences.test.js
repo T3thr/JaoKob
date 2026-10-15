@@ -120,7 +120,7 @@ test("ADR-P0-018 D4 failed preference write stays usable, explains non-persisten
 test("ADR-P0-018 D3 localized runtime chrome uses Thai punctuation and SVG-only decorative icons", () => {
   for (const path of ["src/data/localization/th-application.js", "src/data/content/content-view-model.js", "src/ui/localization/th-system-messages.js", "src/ui/renderers/dom/dom-renderer.js"]) {
     const source = readFileSync(new URL(`../../${path}`, import.meta.url), "utf8");
-    assert.doesNotMatch(source, /—|[⚙🪷🔒♥◌∞]/u, path);
+    assert.doesNotMatch(source, /[—–⚙🪷🔒♥◌∞]/u, path);
   }
   assert.doesNotMatch(readFileSync(new URL("../../index.html", import.meta.url), "utf8"), /%F0%9F|<text/i);
 });

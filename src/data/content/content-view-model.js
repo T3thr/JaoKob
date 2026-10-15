@@ -3,18 +3,18 @@ import { TH_APPLICATION as messages } from "../localization/th-application.js";
 import { projectContentPresentation } from "./content-presentation.js";
 
 /** Localize pure presentation facts into a renderer-only immutable view. */
-export function projectContentView({ loaded, snapshot, facts, settings, notice, feedbackActionId, meterChanges = [], mode, hasResume, memoryResume, confirmation, viewRevision, audioStatus, mediaStatus,
+export function projectContentView({ loaded, snapshot, facts, settings, notice, feedbackActionId, feedbackEventId = null, meterChanges = [], mode, hasResume, memoryResume, confirmation, viewRevision, audioStatus, mediaStatus,
   preferences = { hideContentAdvisory: false }, advisoryOpen = false, preferenceStatusText = "", focusSetting = null }) {
   const locale = settings.locale ?? "th";
   const text = (localized) => localized?.[locale] ?? localized?.th ?? "";
   const indexes = loaded.indexes;
   const choices = [];
   const soundState = audioStatus === "unavailable" ? "unavailable" : settings.masterVolume === 0 ? "off" : audioStatus === "ready" ? "ready" : "blocked";
-  const soundControlLabel = soundState === "off" ? messages.soundOff : soundState === "ready" ? messages.soundOn : messages.soundEnable;
+  const soundControlLabel = settings.masterVolume === 0 ? messages.soundOff : messages.soundOn;
   const view = { locale, state: snapshot?.state ?? "Title", viewRevision, revision: snapshot?.revision ?? 0,
     preferences: { ...preferences }, overlay: advisoryOpen ? "advisory" : undefined, preferenceStatusText, focusSetting,
     contentAdvisory: { title: messages.noticeTitle, text: messages.notice },
-    soundState, soundControlLabel, soundStateLabel: messages[{ off: "soundOffShort", ready: "soundReadyShort", blocked: "soundBlockedShort", unavailable: "soundUnavailableShort" }[soundState]],
+    audioEnabled: settings.masterVolume > 0, soundState, soundControlLabel, soundStateLabel: messages[{ off: "soundOffShort", ready: "soundReadyShort", blocked: "soundBlockedShort", unavailable: "soundUnavailableShort" }[soundState]],
     confirmationRequired: mode === "replace-confirmation" || mode === "choice-confirmation",
     settings: { ...settings },
     ...(audioStatus ? { audioStatus, audioStatusText: soundState === "off" ? messages.soundOffDetail : messages[{ ready: "soundReady", blocked: "soundBlocked", unavailable: "soundUnavailable" }[audioStatus]] } : {}),
@@ -23,8 +23,9 @@ export function projectContentView({ loaded, snapshot, facts, settings, notice, 
     scene: { title: messages.title, dialogue: messages.introduction },
     meters: { hp: snapshot?.metrics.hp ?? loaded.catalog.defaults.metrics.hp, sanity: snapshot?.metrics.sanity ?? loaded.catalog.defaults.metrics.sanity,
       bond: snapshot ? { state: "locked", label: messages.bondLocked, accessibleLabel: messages.bondLockedDescription, icons: ["lotus", "lock"] } : { state: "hidden" } },
+    feedbackEventId, readingBeatId: snapshot ? `${snapshot.sessionId}:${snapshot.currentNodeId}:${facts.cursor}` : null,
     choices, meterChanges: meterChanges.filter((change) => change.meter !== "bond").map((change) => ({ ...change })),
-    notice: notice ? { title: messages.saveTitle, text: notice, kind: notice === messages.saved ? "saved" : "attention" } : undefined,
+    notice: notice ? { title: messages.saveTitle, text: notice, kind: notice === messages.saved ? "saved" : notice === messages.recovered ? "resume" : "attention" } : undefined,
   };
   const add = (id, label) => choices.push({ id, label });
   if (mode === "replace-confirmation") {
@@ -64,14 +65,15 @@ export function projectContentView({ loaded, snapshot, facts, settings, notice, 
       }
     }
     const warnings = node.contentWarningIds.map((id) => indexes.warnings[id]);
-    if (warnings.length) view.contentNotice = { title: warnings.map((warning) => text(warning.title)).join(": "), text: warnings.map((warning) => text(warning.detail)).join("\n") };
+    if (warnings.length) view.contentAdvisory = { title: warnings.map((warning) => text(warning.title)).join(": "), text: warnings.map((warning) => text(warning.detail)).join("\n") };
+    if (warnings.length && !preferences.hideContentAdvisory) add("application.advisory", messages.advisoryOpen);
     const action = indexes.choices[feedbackActionId] ?? indexes.interactions[feedbackActionId];
     if (action) view.feedback = text(action.immediateFeedback);
     add("application.settings", messages.settings);
   }
   if (advisoryOpen) choices.length = 0;
   if (advisoryOpen) add("application.close-advisory", messages.advisoryClose);
-  else add("application.enable-sound", soundControlLabel);
+  else if (!["replace-confirmation", "choice-confirmation"].includes(mode)) add("application.enable-sound", soundControlLabel);
   if (mediaStatus === "unavailable") add("application.retry-media", messages.mediaRetry);
   return deepFreeze(view);
 }

@@ -2,7 +2,7 @@ import { createModalFrame } from "./modal-frame.js";
 import { createToggleSwitch } from "./toggle-switch.js";
 
 /** Read-only advisory; the only writable fact is an application preference.
- * Trace: ADR-P0-018 D4, FR-UI-007, FR-ACC-001/002, FR-LOC-001. */
+ * Trace: ADR-P0-019 P3, FR-UI-007, FR-ACC-001/002, FR-LOC-001. */
 export function createContentAdvisoryDialog({ document, viewModel, message, onIntent }) {
   const frame = createModalFrame({ document, name: "advisory", title: message("advisory.title"),
     description: viewModel.contentAdvisory.text, closeLabel: message("advisory.close"),

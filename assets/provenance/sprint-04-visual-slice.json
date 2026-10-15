@@ -6,7 +6,7 @@
   "date": "2026-10-14",
   "origin": "Original manually authored SVG geometry; no external image, stock icon, font icon or reference photo",
   "permittedUse": "JaoKob UI decoration, modification and distribution under repository owner control; no third-party license asserted",
-  "clearance": "Current PO directive and accepted ADR-P0-018 authorize original vector UI icons/favicon and the visual revision; final aesthetic review remains open",
+  "clearance": "Current PO directive and accepted ADR-P0-019 authorize the visual revision using these original vectors; final aesthetic review remains open",
   "assets": [
     {
       "path": "assets/images/ui/paper-fibres.svg",
@@ -27,7 +27,7 @@
       "byteLength": 344
     }
   ],
-  "refinementRecord": "CR-20261015-1544",
+  "refinementRecord": "CR-20261015-1757",
   "revisionDate": "2026-10-15",
-  "previousRefinementRecord": "CR-20261015-0013"
+  "previousRefinementRecord": "CR-20261015-1544"
 }

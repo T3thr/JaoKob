@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "documentLinks": 100,
+  "servedSourceHashes": 52,
+  "archivedBeforeImages": 9,
+  "currentScreenshots": 50,
+  "preservedCoreContentSchemaMedia": true,
+  "paletteContrast": {
+    "ink": 10.61,
+    "secondary": 6.08,
+    "moss": 6.38,
+    "deepMoss": 9.87,
+    "amber": 4.62,
+    "danger": 6.98,
+    "highContrast": 16.61
+  }
+}

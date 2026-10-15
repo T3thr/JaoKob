@@ -3,8 +3,8 @@
 | Document control | Value |
 |---|---|
 | Sprint / document | `SPRINT-04` / `JKB-SPRINT-04-SSOT` |
-| Version / date | **0.2.5** / 2026-10-15, Asia/Bangkok: ADR-P0-019 mandate; Slice 1 extended due to runtime playtest defects in commit `a634409`; design baseline v0.2.1 retained |
-| Status | **Slice 1 extended under ADR-P0-019 overhaul (playtest rejection of commit `a634409`); T1/T2 reopened for Design System specification and ergonomic rework; 0/12; T0/T3–T11 open** |
+| Version / date | **0.2.6** / 2026-10-15, Asia/Bangkok: ADR-P0-019 implementation and runtime evidence delivered; design baseline v0.2.1 retained |
+| Status | **T1/T2 implementation complete under ADR-P0-019; 2/12; PO runtime/art/Thai acceptance and PR13 merge remain open; T0/T3–T11 open** |
 | Authority | PO merged plan v0.2.1 and explicitly authorized source, tests, audit, commit/push and PR for T1/T2 only in the Slice 1 directive; no remaining task/merge/deploy authorization |
 | Integrated baseline | `develop@d31652a` (merged planning PR12); Slice 1 changes remain on feature branch until human review/merge |
 | Review branch / PR | `feat/sprint-04-slice-01-visual` / [PR #13](https://github.com/T3thr/JaoKob/pull/13) → develop; planning PR12 merged |
@@ -78,11 +78,11 @@ Priority: **approved contracts/legacy proof → UI Styles → DOM Renderer → P
 
   Owner Technical Lead/Architect; PO/Narrative/Game Design/QA/Accessibility review. Files: this SSOT, CR-0005, GDD/SRS/Narrative amendment drafts, new prospective ADR, trace/fixture plan. AC: record direction already given; ratify exact 3-or4, item/memory/default/secret/non-stat rules, callback/progression/cursor/save design; devices/reviewers/owners agreed; freeze source baseline/legacy 691/14–21–12 witnesses. Evidence `TC-S4-ARCH-001` design review. No source change until relevant readiness; no per-line permission request for AI drafting.
 
-- [ ] **T1 — Handcrafted styles, frosted HUD, design system and paper card (ADR-P0-019)** (P0; 2–3 days)
+- [x] **T1 — Handcrafted styles, frosted HUD, design system and paper card (ADR-P0-019)** (P0; 2–3 days)
 
   Owner UI/Art; PO/Narrative/Accessibility review. Files: `docs/design-system/visual-novel-specification.md`, `src/ui/styles/{tokens,base,layout,components,motion,index}.css`; original 2D icon/texture/provenance as approved. AC: ADR-P0-019 formal Design System specification authored first; tokens & 8pt spatial grid; contrast ratio >= 4.5:1 (7:1 high contrast); stable bottom-anchored dialogue card; sacred narrative space (no stat deltas or warnings in reading card); remove AI slop patterns (no em-dash in Thai, no unicode emoji icons); unified low-specificity tokens/materials; bounded frosted backdrop; Thai typography/320–2560/reduced motion/forced colors. `TC-S4-VIS-001`, `TC-S4-A11Y-001`.
 
-- [ ] **T2 — Persistent DOM regions, three-screen separation & ergonomic settings (ADR-P0-019)** (P0; 3–4 days)
+- [x] **T2 — Persistent DOM regions, three-screen separation & ergonomic settings (ADR-P0-019)** (P0; 3–4 days)
 
   Owner UI; Application/Data/Accessibility/PO review. Files: `dom-renderer.js`, `stage-view.js`, `settings-dialog.js`, proposed Title/Reading/Decision/utility/response/overlay components; agreed VM/localization and focused renderer tests. AC: Title atmospheric backdrop with discreet floating content advisory icon (no blunt banner, no modal collision with new game button); Reading card on fixed bottom baseline (zero CLS/vertical jumping between Reading and Decision); Stat deltas as transient HUD micro-toasts (never inside dialogue card); Decision Crossroads with symmetric tactile cards without inner scrollbars; Settings modal features fixed top-right close button (✕) without forced scrolling, styled switch toggles with clear On/Off feedback, direct audio mute toggle from utility rail; desktop progression ergonomics (stage click / Spacebar / Enter); no emoji icons. Evidence `TC-S4-STATUS-001`, `TC-S4-STATE-001`.
 
@@ -154,7 +154,7 @@ Estimate: **32–50 engineering + narrative person-days**, plus **3–5 Art days
 
 Shared-file ownership: T3 schema/migration validator; T4 Core state/effects; T7 content/graph; T9 projector/resources/2D art; T2 renderer scaffold; T5/T6 independent modal files; T10 only composition; T11 consolidated evidence/docs. Sequence edits to common schema/VM/localization/styles/orchestration explicitly; no concurrent overwrite or implicit agent delegation.
 
-**Slice 1 delivery & extension:** [PR #13](https://github.com/T3thr/JaoKob/pull/13). Implementation commit `a634409` was rejected in human/playtest visual review due to critical UX/UI flaws. T1/T2 are reopened under [ADR-P0-019](../adr/ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md) to author the formal Design System specification (`docs/design-system/visual-novel-specification.md`) and complete the 6 ergonomic pillars before merge.
+**Slice 1 delivery & extension (history):** [PR #13](https://github.com/T3thr/JaoKob/pull/13). Implementation commit `a634409` was rejected in human/playtest visual review due to critical UX/UI flaws. T1/T2 are reopened under [ADR-P0-019](../adr/ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md) to author the formal Design System specification (`docs/design-system/visual-novel-specification.md`) and complete the 6 ergonomic pillars before merge.
 
 ## 5. DoR and DoD
 
@@ -166,6 +166,8 @@ Shared-file ownership: T3 schema/migration validator; T4 Core state/effects; T7 
 - [x] Update D1–D7, owners/files/AC/dependencies, version/migration/rollback and proposed verification matrix.
 - [x] Fresh unchanged-runtime unit regression:691/691, no fail/cancel/skip/todo; no new Pouch feature pass claimed.
 - [x] Documentation/trace/audit/commit prepared on requested branch for PO review.
+
+**ADR-P0-019 corrective delivery:** Design specification authored before source; native Title/choice confirmations, pure measured reading pages, centred intrinsic choices, HUD-only2500ms consequences, scene advisory, direct master toggle and guarded desktop input are implemented. [CR-20261015-1757](../changelog/2026-10/2026-10-15-1757-sprint-04-adr-019-runtime-ergonomics.md) records720 unit cases,12 legacy routes,36 visual captures plus14 production runtime captures at six profiles. Only implementation is checked complete; PO final playtest/art/Thai and device/AT acceptance remain open. PR13 is not merged.
 
 ### 5.2 Implementation DoR — T1/T2 ready; remaining detail review open
 
@@ -241,8 +243,8 @@ Budgets unchanged: NFR-PE-001..005 (initial≤2MB compressed; shell+critical JSO
 | Documentation | Three requested artifacts revised; link/anchor/ID/table/consistency/diff checks recorded in new pivot audit |
 | Old visual/browser/media evidence | Sprint3 evidence retained historically; current Slice1 candidate has a separate bundle below |
 | Pouch/schema/migration/new story tests | Not materialized/not run in planning |
-| Slice 1 unit regression | **712/712**, 0 fail/cancel/skip/todo; all703 prior cases retained with the explicit ADR-P0-018 presentation expectation amendments, plus9 focused cases |
-| Slice 1 Chromium | **12/12** legacy routes; **36** revised screenshots at six profiles; identical paper/slot geometry and zero measured mode-transition shifts including recent input; close at both scroll extremes/200%, switches/sound/advisory preference, native focus, contrast/motion/fault checks; [evidence](../../tests/e2e/evidence/sprint-04/slice-01/README.md) |
+| Slice 1 unit regression | **720/720**, 0 fail/cancel/skip/todo; all712 prior cases retained with explicit ADR-P0-019 presentation amendments, plus8 focused cases |
+| Slice 1 Chromium | **12/12** legacy routes; **36** visual captures plus **14** production-runtime captures at six profiles; identical paper geometry/bottom24, complete Thai pagination/200%, symmetric choices without internal scrollbars, native confirmations/close, direct audio, HUD micro-toast, storm advisory/preferences, stage/Space/Enter guards; contrast10.61:1/high16.61:1, motion/fault checks; [evidence](../../tests/e2e/evidence/sprint-04/slice-01/README.md) |
 | Real device/AT/listening/PO final art/prose | Not performed; required later for changed journeys |
 | Source/release/build/merge/deploy | T1/T2 source delivered on feature branch; no remaining task, release, merge or deploy executed |
 
@@ -250,6 +252,7 @@ Budgets unchanged: NFR-PE-001..005 (initial≤2MB compressed; shell+critical JSO
 
 | Record | Disposition |
 |---|---|
+| `CR-20261015-1757` | [ADR-P0-019 corrective delivery](../changelog/2026-10/2026-10-15-1757-sprint-04-adr-019-runtime-ergonomics.md): design specification first; T1/T2 implementation complete2/12;720 unit cases/12 routes/50 captures; PO playtest/device/AT review and merge open |
 | `CR-20261015-1710` | [ADR-P0-019 mandate & Slice 1 extension](../adr/ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md): playtest rejection of commit `a634409`; T1/T2 reopened for Design System specification and 6 ergonomic pillars; PR13 extended |
 | `CR-20261015-1544` | [ADR-P0-018 implementation](../changelog/2026-10/2026-10-15-1544-sprint-04-adr-018-vn-ergonomics.md): superseded by ADR-P0-019 following playtest failure |
 | `CR-20261015-0013` | [PO sensory refinement](../changelog/2026-10/2026-10-15-0013-sprint-04-po-sensory-refinement.md): one bar/quiet success/lotus Title/consolidated Decision/water anchor;703 tests and12 routes; PR13 review open |

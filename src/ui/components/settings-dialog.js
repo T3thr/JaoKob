@@ -2,7 +2,7 @@ import { createModalFrame } from "./modal-frame.js";
 import { createToggleSwitch } from "./toggle-switch.js";
 
 /** Native modal, fixed close corner and scrollable controls. Emits typed intents;
- * bootstrap validates/persists settings. ADR-P0-018 D2, FR-SET-003/004. */
+ * bootstrap validates/persists settings. ADR-P0-019 P4, FR-SET-003/004. */
 export function createSettingsDialog({ document, viewModel, message, onIntent }) {
   const settings = viewModel.settings ?? {};
   const intent = (value) => onIntent(Object.freeze({ ...value, ...(viewModel.viewRevision === undefined ? {} : { viewRevision: viewModel.viewRevision }) }));
@@ -58,6 +58,7 @@ export function createSettingsDialog({ document, viewModel, message, onIntent })
     const label = view.soundControlLabel ?? message("settings.enableSound");
     if (enableSound.textContent !== label) enableSound.textContent = label;
     enableSound.setAttribute("data-audio-state", view.soundState ?? "blocked");
+    enableSound.setAttribute("aria-pressed", String(view.audioEnabled ?? view.soundState === "ready"));
   };
   updateStatus(viewModel);
   return Object.freeze({ element: frame.element, scrollRegion: frame.body, controls: Object.freeze(controls), first: frame.closeControl, updateStatus,

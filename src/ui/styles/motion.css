@@ -13,3 +13,8 @@
   .jk-save-status, .jk-advance-button .jk-choice-cue { animation: none; }
   .jk-choice-button, .jk-secondary-button, .jk-switch-thumb, .jk-switch-track { transition: none; }
 }
+
+@keyframes jk-toast-fade { 0%, 75% { opacity: 1; } 100% { opacity: 0; } }
+.jk-hud-toast:not([hidden]) { animation: jk-toast-fade 2500ms ease-out both; }
+.jk-app[data-reduced-motion="true"] .jk-hud-toast { animation: none; }
+@media (prefers-reduced-motion: reduce) { .jk-hud-toast { animation: none; } }

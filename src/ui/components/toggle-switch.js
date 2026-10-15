@@ -1,5 +1,5 @@
 /** Native button keyboard behavior, explicit switch state and localized labels.
- * Trace: ADR-P0-018 D2/D4, FR-ACC-001/002. No persistence or domain state. */
+ * Trace: ADR-P0-019 P3/P4, FR-ACC-001/002. No persistence or domain state. */
 export function createToggleSwitch({ document, label, checked, message, attributes = {}, onChange }) {
   const control = document.createElement("button");
   for (const [name, value] of Object.entries({ type: "button", class: "jk-settings-toggle", role: "switch", "aria-label": label, ...attributes })) control.setAttribute(name, value);

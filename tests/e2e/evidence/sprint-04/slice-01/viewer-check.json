@@ -1,104 +1,55 @@
 {
-  "url": "http://127.0.0.1:8001/tests/e2e/evidence/sprint-04/slice-01/before-after.html",
-  "browser": "151.0.7922.34",
   "result": "PASS",
-  "combinations": [
+  "pairs": [
     {
       "size": "desktop",
-      "images": [
-        {
-          "src": "before-adr-018/1440x900-reading.png",
-          "width": 1440,
-          "height": 900
-        },
-        {
-          "src": "1440x900-reading.png",
-          "width": 1440,
-          "height": 900
-        }
-      ],
-      "guideHidden": false
+      "mode": "reading",
+      "paths": [
+        "before-adr-019/1440x900-reading.png",
+        "1440x900-reading.png"
+      ]
     },
     {
       "size": "desktop",
-      "images": [
-        {
-          "src": "before-adr-018/1440x900-decision.png",
-          "width": 1440,
-          "height": 900
-        },
-        {
-          "src": "1440x900-decision.png",
-          "width": 1440,
-          "height": 900
-        }
-      ],
-      "guideHidden": false
+      "mode": "decision",
+      "paths": [
+        "before-adr-019/1440x900-decision.png",
+        "1440x900-decision.png"
+      ]
     },
     {
       "size": "desktop",
-      "images": [
-        {
-          "src": "before-adr-018/1440x900-title.png",
-          "width": 1440,
-          "height": 900
-        },
-        {
-          "src": "1440x900-title.png",
-          "width": 1440,
-          "height": 900
-        }
-      ],
-      "guideHidden": true
+      "mode": "title",
+      "paths": [
+        "before-adr-019/1440x900-title.png",
+        "1440x900-title.png"
+      ]
     },
     {
       "size": "mobile",
-      "images": [
-        {
-          "src": "before-adr-018/390x844-reading.png",
-          "width": 390,
-          "height": 844
-        },
-        {
-          "src": "390x844-reading.png",
-          "width": 390,
-          "height": 844
-        }
-      ],
-      "guideHidden": false
+      "mode": "reading",
+      "paths": [
+        "before-adr-019/390x844-reading.png",
+        "390x844-reading.png"
+      ]
     },
     {
       "size": "mobile",
-      "images": [
-        {
-          "src": "before-adr-018/390x844-decision.png",
-          "width": 390,
-          "height": 844
-        },
-        {
-          "src": "390x844-decision.png",
-          "width": 390,
-          "height": 844
-        }
-      ],
-      "guideHidden": false
+      "mode": "decision",
+      "paths": [
+        "before-adr-019/390x844-decision.png",
+        "390x844-decision.png"
+      ]
     },
     {
       "size": "mobile",
-      "images": [
-        {
-          "src": "before-adr-018/390x844-title.png",
-          "width": 390,
-          "height": 844
-        },
-        {
-          "src": "390x844-title.png",
-          "width": 390,
-          "height": 844
-        }
-      ],
-      "guideHidden": true
+      "mode": "title",
+      "paths": [
+        "before-adr-019/390x844-title.png",
+        "390x844-title.png"
+      ]
     }
   ],
+  "allImagesLoaded": true,
   "errors": []
 }
