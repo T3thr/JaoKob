@@ -30,7 +30,8 @@ export function createModalFrame({ document, name, title, description, closeLabe
       return true;
     });
     const first = eligible[0], last = eligible.at(-1);
-    if (event.shiftKey && document.activeElement === first) { event.preventDefault?.(); last?.focus(); }
+    if (!eligible.includes(document.activeElement)) { event.preventDefault?.(); (event.shiftKey ? last : first)?.focus(); }
+    else if (event.shiftKey && document.activeElement === first) { event.preventDefault?.(); last?.focus(); }
     else if (!event.shiftKey && document.activeElement === last) { event.preventDefault?.(); first?.focus(); }
   });
   return { element: dialog, body, controls, closeControl, createElement: element,

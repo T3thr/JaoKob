@@ -8,6 +8,7 @@ import { createConfirmationDialog } from "../../components/confirmation-dialog.j
 import { createReadingPages } from "../../components/reading-pages.js";
 import { createToggleSwitch } from "../../components/toggle-switch.js";
 import { createKeepsakePouchDialog } from "../../components/keepsake-pouch-dialog.js";
+import { createHistoryDialog } from "../../components/history-dialog.js";
 
 /**
  * Semantic DOM implementation of RendererPort.
@@ -58,6 +59,8 @@ const FATAL_STORAGE_CODES = new Set([
  * Synchronous composition callback before any story intent; never enters Core.
  * @property {(reference: object) => Promise<object|null>} [loadImage]
  * Verified decoded image lease: {ok:true,value:{url,release}} or silent failure.
+ * @property {(receipt: object|null) => void} [onReadingPresented]
+ * Successful local pagination/layout acknowledgement; text stays in the VM.
  * @property {(callback: () => void, delay: number) => unknown} [scheduleStatus]
  * @property {(timer: unknown) => void} [cancelStatus]
  * UI-only timer injection for transient successful-save indication.
@@ -97,7 +100,8 @@ export function createDomRenderer(optionsOrRoot) {
   let lastConsequenceAnnouncement = null;
   let modalOpener = null;
   let toastTimer = null, toastKey = null;
-  const reader = createReadingPages({ root, document: configuredDocument ?? root?.ownerDocument, message: (key) => message(messages, key), onAdvance: advanceReading });
+  const reader = createReadingPages({ root, document: configuredDocument ?? root?.ownerDocument, message: (key) => message(messages, key), onAdvance: advanceReading,
+    onPresented: receipt => { if (!disposed && !modal) options.onReadingPresented?.(receipt); } });
   function advanceReading() {
     if (busy || modal || !currentView) return;
     if (reader.next()) return;
@@ -125,6 +129,9 @@ export function createDomRenderer(optionsOrRoot) {
   let successExpired = false;
   const trustedActivation = (event) => {
     if (event.type === "keydown" && event.repeat && [" ", "Enter"].includes(event.key) && event.target?.tagName?.toUpperCase() === "BUTTON") event.preventDefault?.();
+    for (let node = event.target; node && node !== root; node = node.parentElement ?? node.parentNode) {
+      if (["application.history", "application.close-history"].includes(node.getAttribute?.("data-choice-id")) || node.getAttribute?.("data-jk-role") === "history-dialog") return;
+    }
     if (event.isTrusted === true && (event.type !== "keydown" || !event.repeat)) options.onTrustedActivation?.(event);
   };
 
@@ -140,7 +147,7 @@ export function createDomRenderer(optionsOrRoot) {
       const focusChoice = activeScaffold.document.activeElement?.getAttribute?.("data-choice-id") ?? busyModalFocus?.choice;
       const focusRole = activeScaffold.document.activeElement?.getAttribute?.("data-jk-role");
       currentView = viewModel;
-      const nextModalKind = ["advisory", "pouch"].includes(viewModel.overlay) ? viewModel.overlay : ["settings", "replace-confirmation", "choice-confirmation"].includes(viewModel.presentation?.mode) ? viewModel.presentation.mode : null;
+      const nextModalKind = ["advisory", "pouch", "history"].includes(viewModel.overlay) ? viewModel.overlay : ["settings", "replace-confirmation", "choice-confirmation"].includes(viewModel.presentation?.mode) ? viewModel.presentation.mode : null;
       const isModal = nextModalKind !== null;
       const stageModel = isModal && lastReadingView ? { ...lastReadingView, settings: viewModel.settings,
         soundState: viewModel.soundState, soundStateLabel: viewModel.soundStateLabel,
@@ -179,7 +186,7 @@ export function createDomRenderer(optionsOrRoot) {
       const scale = viewModel.settings?.fontScale;
       root.style.fontSize = `${typeof scale === "number" && scale >= 1 && scale <= 2 ? scale * 100 : 100}%`;
       if (viewModel.viewRevision !== undefined) root.setAttribute("data-view-revision", String(viewModel.viewRevision));
-      reader.update(stageModel, gameShell);
+      reader.update(stageModel, gameShell, { suspended: isModal });
       applyBusyState(activeScaffold, references, busy);
       if (isModal) {
         gameShell.element.setAttribute("inert", "");
@@ -187,7 +194,7 @@ export function createDomRenderer(optionsOrRoot) {
         if (!modal || modalKey !== nextModalKey) {
           const scroll = modal?.scrollRegion?.scrollTop ?? 0;
           modal?.close(); modal?.element.remove?.();
-          const createDialog = nextModalKind === "pouch" ? createKeepsakePouchDialog : nextModalKind === "advisory" ? createContentAdvisoryDialog : nextModalKind === "settings" ? createSettingsDialog : createConfirmationDialog;
+          const createDialog = nextModalKind === "history" ? createHistoryDialog : nextModalKind === "pouch" ? createKeepsakePouchDialog : nextModalKind === "advisory" ? createContentAdvisoryDialog : nextModalKind === "settings" ? createSettingsDialog : createConfirmationDialog;
           modal = createDialog({ document: activeScaffold.document, viewModel, message: (key) => message(messages, key), onIntent: emitIntent });
           // Replacing this container also works in the injected minimal DOM.
           activeScaffold.content.replaceChildren(gameShell.element, modal.element);
@@ -197,7 +204,8 @@ export function createDomRenderer(optionsOrRoot) {
             setting: activeScaffold.document.activeElement?.getAttribute?.("data-jk-setting") ?? activeScaffold.document.activeElement?.getAttribute?.("data-jk-preference"),
             choice: activeScaffold.document.activeElement?.getAttribute?.("data-choice-id"),
           };
-          modal.scrollRegion.scrollTop = previousModalKind === nextModalKind ? scroll : 0;
+          if (previousModalKind === nextModalKind) modal.scrollRegion.scrollTop = scroll;
+          else if (nextModalKind !== "history") modal.scrollRegion.scrollTop = 0;
           modalKey = nextModalKey;
           modalKind = nextModalKind;
         }
@@ -214,6 +222,7 @@ export function createDomRenderer(optionsOrRoot) {
       else if (sameStory && (focusChoice || focusRole === "dialogue")) {
         (references.choiceButtons.find(({ element }) => element.getAttribute("data-choice-id") === focusChoice)?.element ?? references.dialogue)?.focus();
       }
+      if (viewModel.reading) return Object.freeze({ presented: isModal ? null : reader.presented() });
     });
   }
 
@@ -533,7 +542,7 @@ function readingKey(view) {
     view.choices?.filter((choice) => !UTILITY_CHOICE_IDS.has(choice.id))]);
 }
 
-const UTILITY_CHOICE_IDS = new Set(["application.settings", "application.enable-sound", "application.retry-media", "application.advisory", "application.pouch"]);
+const UTILITY_CHOICE_IDS = new Set(["application.settings", "application.enable-sound", "application.retry-media", "application.advisory", "application.pouch", "application.history"]);
 
 function patchUtilityStatus(shell, view, messages) {
   const text = readString(view.notice?.text) || readString(view.notice?.description);
@@ -562,13 +571,13 @@ function patchUtilityStatus(shell, view, messages) {
           createElement(shell.document, "span", { classNames: ["jk-utility-label"], text: message(messages, "settings.short") }));
       } else if (choice.id === "application.enable-sound") {
         button.setAttribute("class", "jk-utility-button jk-sound-button");
-      } else button.append(createChromeIcon(shell.document, choice.id === "application.pouch" ? "pouch" : choice.id === "application.retry-media" ? "retry" : "info"),
-        createElement(shell.document, "span", { classNames: ["jk-utility-label"], text: choice.id === "application.pouch" ? message(messages, "pouch.short") : choice.label }));
+      } else button.append(createChromeIcon(shell.document, choice.id === "application.history" ? "history" : choice.id === "application.pouch" ? "pouch" : choice.id === "application.retry-media" ? "retry" : "info"),
+        createElement(shell.document, "span", { classNames: ["jk-utility-label"], text: choice.id === "application.history" ? message(messages, "history.short") : choice.id === "application.pouch" ? message(messages, "pouch.short") : choice.label }));
     }
     button.setAttribute("aria-label", choice.label || message(messages, "settings.title"));
     button.setAttribute("title", choice.label || message(messages, "settings.title"));
     if (choice.id === "application.enable-sound") button.setAttribute("aria-pressed", (view.audioEnabled ?? view.soundState === "ready") ? "true" : "false");
-    if (["application.advisory", "application.pouch"].includes(choice.id)) button.setAttribute("aria-haspopup", "dialog");
+    if (["application.advisory", "application.pouch", "application.history"].includes(choice.id)) button.setAttribute("aria-haspopup", "dialog");
     if (choice.id === "application.enable-sound" && button.getAttribute("data-audio-state") !== view.soundState) {
       button.setAttribute("data-audio-state", view.soundState ?? "blocked");
       button.replaceChildren(createChromeIcon(shell.document, view.soundState === "ready" ? "sound" : "muted"),
@@ -1102,15 +1111,10 @@ function emptyReferences() {
 
 function perform(operation, action) {
   try {
-    action();
-    return success();
+    return Object.freeze({ ok: true, value: action() });
   } catch (error) {
     return failure(operation, error);
   }
-}
-
-function success() {
-  return Object.freeze({ ok: true, value: undefined });
 }
 
 function failure(operation, error) {

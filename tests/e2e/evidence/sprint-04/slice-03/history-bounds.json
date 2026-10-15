@@ -1,0 +1,104 @@
+{
+  "at": "2026-10-15T19:00:14.410Z",
+  "routes": [
+    {
+      "home": "mother",
+      "coping": "call-family",
+      "keepsake": "keep-fragment",
+      "maximumSerializedBytes": 49898,
+      "dialogues": 50,
+      "actions": 10
+    },
+    {
+      "home": "mother",
+      "coping": "call-family",
+      "keepsake": "release-fragment",
+      "maximumSerializedBytes": 49908,
+      "dialogues": 50,
+      "actions": 10
+    },
+    {
+      "home": "mother",
+      "coping": "seek-safety",
+      "keepsake": "keep-fragment",
+      "maximumSerializedBytes": 49885,
+      "dialogues": 50,
+      "actions": 10
+    },
+    {
+      "home": "mother",
+      "coping": "seek-safety",
+      "keepsake": "release-fragment",
+      "maximumSerializedBytes": 49895,
+      "dialogues": 50,
+      "actions": 10
+    },
+    {
+      "home": "roots",
+      "coping": "call-family",
+      "keepsake": "keep-fragment",
+      "maximumSerializedBytes": 49954,
+      "dialogues": 50,
+      "actions": 10
+    },
+    {
+      "home": "roots",
+      "coping": "call-family",
+      "keepsake": "release-fragment",
+      "maximumSerializedBytes": 49964,
+      "dialogues": 50,
+      "actions": 10
+    },
+    {
+      "home": "roots",
+      "coping": "seek-safety",
+      "keepsake": "keep-fragment",
+      "maximumSerializedBytes": 49941,
+      "dialogues": 50,
+      "actions": 10
+    },
+    {
+      "home": "roots",
+      "coping": "seek-safety",
+      "keepsake": "release-fragment",
+      "maximumSerializedBytes": 49951,
+      "dialogues": 50,
+      "actions": 10
+    },
+    {
+      "home": "siblings",
+      "coping": "call-family",
+      "keepsake": "keep-fragment",
+      "maximumSerializedBytes": 49923,
+      "dialogues": 50,
+      "actions": 10
+    },
+    {
+      "home": "siblings",
+      "coping": "call-family",
+      "keepsake": "release-fragment",
+      "maximumSerializedBytes": 49933,
+      "dialogues": 50,
+      "actions": 10
+    },
+    {
+      "home": "siblings",
+      "coping": "seek-safety",
+      "keepsake": "keep-fragment",
+      "maximumSerializedBytes": 49910,
+      "dialogues": 50,
+      "actions": 10
+    },
+    {
+      "home": "siblings",
+      "coping": "seek-safety",
+      "keepsake": "release-fragment",
+      "maximumSerializedBytes": 49920,
+      "dialogues": 50,
+      "actions": 10
+    }
+  ],
+  "worstCaseSerializedBytes": 7864310,
+  "hardBudget": 8388608,
+  "method": "UTF-8 serialized JSON;12 actual application routes with all four observations plus repeated mother visit, full-prose non-layout test host;not heap allocation"
+}

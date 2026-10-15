@@ -1,5 +1,6 @@
 /** Application chrome, separate from Canon and Core. Trace: FR-LOC-001/002. */
 export const TH_APPLICATION = Object.freeze({
+  history: "เปิดประวัติเรื่องราว", closeHistory: "ปิดประวัติเรื่องราว",
   pouch: "เปิดกระเป๋าของสะสม",
   closePouch: "ปิดกระเป๋าของสะสม",
   title: "เจ้ากบ: บ้านในหนองน้ำ",

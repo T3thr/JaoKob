@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "changedFilesExcludingPrivateReferences": 67,
+  "checkedFileLinks": 127,
+  "runtimeResources": 66,
+  "maxAct1SerializedBytes": 49964,
+  "worstCaseBytes": 7864310,
+  "credentialCheck": "bounded pattern/diff inspection; not full secret scanner certification",
+  "errors": []
+}
