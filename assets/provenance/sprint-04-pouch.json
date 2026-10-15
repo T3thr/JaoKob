@@ -1,0 +1,24 @@
+{
+  "recordId": "CR-20261016-0031",
+  "authority": "PO Slice 2 directive; ADR-P0-020 D1/D5",
+  "owner": "T3thr",
+  "date": "2026-10-16",
+  "status": "original-vectors-for-PO-review",
+  "origin": "Manually authored original SVG geometry; no external source, stock image or private reference",
+  "permittedUse": "JaoKob modification and distribution under repository owner control; no third-party license asserted",
+  "clearance": "Authorized original 2D slice assets; final visual/Thai acceptance remains the PO review gate",
+  "assets": [
+    {
+      "path": "assets/images/keepsakes/leaf.svg",
+      "byteLength": 607,
+      "sha256": "505d1b3214ebad5bd1a8961a50740d6b738aad026621ee33a7255214e9b83c2d",
+      "role": "Original 2D existing leaf; Thai alt/description in th-keepsakes.js"
+    },
+    {
+      "path": "src/ui/components/chrome-icons.js",
+      "byteLength": 2023,
+      "sha256": "d3561358a164b8207126285d3cc63e920c220b0768686a0988355fd93e749942",
+      "role": "Original decorative SVG chrome including the pouch icon; accessible names localized by controls"
+    }
+  ]
+}

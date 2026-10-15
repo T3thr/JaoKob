@@ -6,6 +6,7 @@ import { createLocalStorageAdapter, createLocalSettingsAdapter, LOCAL_STORAGE_KE
 import { createContentVersionMigration } from "../../src/data/migrations/content-2-0-0-to-2-1-0.js";
 import { MemoryStorage, FakeDocument } from "../helpers/application-harness.js";
 import { content, testReferenceIds, AT, SESSION_ID, ROUTES, walk, envelope } from "../helpers/act1-session.js";
+import { expectedMigratedSnapshot } from "../helpers/expected-save2.js";
 const source = JSON.parse(readFileSync(new URL("../../src/data/content/compatibility/act-01-2.0.0.json", import.meta.url)));
 const legacy = (snapshot, settings) => ({ ...envelope(snapshot, settings), contentVersion: "2.0.0" });
 const writes = (memory) => memory.calls.filter((call) => call.method !== "getItem");
@@ -23,7 +24,7 @@ for (const route of ROUTES) test(`TC-S3-SAVE-001 bootstrap migration retains eve
     const raw = JSON.stringify(legacy(snapshot, settings)), { app, memory } = harness(new MemoryStorage({ [KEYS.canonical]: raw }));
     assert.equal((await app.boot()).ok, true);
     await select(app, "application.resume");
-    assert.deepEqual(app.getSnapshot(), snapshot);
+    assert.deepEqual(app.getSnapshot(), expectedMigratedSnapshot(snapshot));
     assert.deepEqual(app.getViewModel().settings, settings);
     assert.equal(memory.raw(KEYS.canonical), raw); assert.equal(writes(memory).length, 0);
     if (app.getViewModel().choices.some((c) => c.id === "application.advance")) {
@@ -80,7 +81,7 @@ test("TC-S3-SETTINGS-001 Title preferences persist separately and survive Resume
   const settings = app.getViewModel().settings;
   assert.deepEqual(JSON.parse(memory.raw(KEYS.settings)), settings); assert.equal(memory.raw(KEYS.canonical), raw);
   app.dispose(); ({ app } = harness(memory)); await app.boot(); await select(app, "application.resume");
-  assert.deepEqual(app.getSnapshot(), snapshot); assert.deepEqual(app.getViewModel().settings, settings);
+  assert.deepEqual(app.getSnapshot(), expectedMigratedSnapshot(snapshot)); assert.deepEqual(app.getViewModel().settings, settings);
   await select(app, "application.advance"); assert.deepEqual(JSON.parse(memory.raw(KEYS.canonical)).settings, settings); app.dispose();
 });
 

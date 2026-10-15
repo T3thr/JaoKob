@@ -1,0 +1,22 @@
+# Sprint 4 Slice 2 requirement-to-evidence matrix
+
+Version1.0.0 · CR-20261016-0031 · ADR-P0-020 / CR-0005 · [PR #14](https://github.com/T3thr/JaoKob/pull/14) → develop.
+
+The PO architectural directive is implementation authority. `TC-S4-*` are verification IDs, not new Approved product requirements. [Contract](../design-system/keepsake-pouch-contract.md), [audit](../changelog/2026-10/2026-10-16-0031-sprint-04-slice-02-pouch.md) and [evidence](../../tests/e2e/evidence/sprint-04/slice-02/README.md) record scope and actual dispositions.
+
+| Requirement / decision | Design and artifact | Verification / evidence | Disposition |
+|---|---|---|---|
+| ADR-P0-020 D1/D3, GDD-PROG-001/002, GDD-CHO-002/003 | Four fixed slots, distinct held/acquired/released/remembered/refusal lists; pure `keepsake-pouch.js` | `keepsake-pouch.test.js`, `pouch-schema.test.js`; domain100% lines/branches/functions | Pass |
+| ADR-P0-020 D3, FR-UI-002 | Collect/refuse/release/atomic replace/use; no auto-drop/stack/recollection/stat reward; original reference on rejection | TC-S4-POUCH-001; full/partial/duplicate/memory-boundary/determinism tests | Pass |
+| FR-ENG-002/008, ADR-P0-001/004 | Data-owned legacy action/flag/opportunity policy; generic Core transaction with current revision/context/registry | `pouch-transaction.js`, `pouch-bootstrap.test.js`; unknown/unsafe/stale/double/forged intents and import-graph checks | Pass |
+| FR-CNT-001, ADR-P0-020 D4 | New versioned pouch/save2.0, strict fields/bounds; frozen published old schemas | TC-S4-CONTRACT-001;13 metaschemas/47 new reference cases; legacy11/36 reference cases and schema hash locks | Pass |
+| FR-SAV-001/005, ADR-P0-020 D4 | Pure Save1→2 after existing content2.0→2.1; no new content3 inferred | `pouch-migration.test.js`, preserved `content-migration.test.js`, `benchmark-bootstrap.test.js`; every saved page of12 legacy routes, idempotence and independent payload/checkpoint leaf | Pass |
+| FR-SAV-003/004/006/009 | Raw read-only recovery/Resume, stage/read-back/exact backup/promotion, future/corrupt/integrity/unknown protection and downgrade block | TC-S4-SAVE-002; unit fault/quota/race/mixed-record tests; production root/subpath Save1 backup and Save2 reload | Pass within supported2.1 contract |
+| FR-SAV-007, GDD-PROG-003 | Checkpoint stores/restores Pouch separately; latest settings authority retained | TC-S4-RETRY-001 plus existing settings/retry suites; held/released/remembered restoration | Pass; no new secret completion claimed |
+| FR-UI-001, ADR-P0-020 D5 | Localized immutable VM, view-only selection and one native modal; explicit confirmed domain intent | `keepsake-pouch-dialog.test.js`, `pouch-bootstrap.test.js`; open/inspect/close/cancel do not save/mutate | Pass |
+| FR-ACC-001/002/003/004, NFR-US-005 | Four equal tactile slots; pinned SVG close, inert underlay, Tab/Escape/opener/cancel focus, 44px targets | `tests/e2e/keepsake-pouch.mjs`;18 layouts at320/390/768/1440/2560/844 landscape,200% text/high/forced contrast/image failure, real emulated touch taps;34 captures | Automated/browser pass; human AT/device gate open |
+| FR-LOC-001, NAR-IP-003/004 | Thai name/sensory/memory/alt/action strings, original leaf/chrome SVG with provenance/hash | Localization/safe-text/metadata/provenance tests; screenshots and network manifest | Pass; final PO Thai/art review open |
+| NFR-PE-001..005, NFR-SE-002/003 | Bounded lists/DOM/images, strict JSON and same-origin static resources; no model/runtime package/backend/telemetry | Legacy transfer/save budget smoke, observed runtime manifest/security review; no external/3D requests | Scoped smoke pass; representative-device percentiles/release artifact not run |
+| ADR-P0-020 scope, CR-0005 | Existing content2.1 graph/prose/flags/metrics retained; only leaf acquisition/refusal + safe completed-rest release enabled | Existing720 cases retained, version-aware additive save expectations;12/12 legacy browser outcomes and14/21 graph witnesses | Pass |
+
+Remaining owner approvals: PO runtime/Thai/art acceptance and human PR review; physical devices/VoiceOver/NVDA and release browser/performance matrix. T6 Log, T7 new narrative/vignettes, T8 later-act map, T9 expanded item/media and T10 integration remain open. No merge/deploy or new Canon is certified here. Future non-consuming item utility requires an explicit authored contract; this slice's use transaction consumes/hands on an item while preserving memory.

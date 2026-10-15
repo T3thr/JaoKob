@@ -411,7 +411,7 @@ test("FR-SAV-003 rejects a candidate older than backup before stage or commit", 
 });
 
 test("FR-SAV-003 FR-SAV-005 preserve unsupported future backup before any write", () => {
-  const futureRaw = rawEnvelope(20, { saveFormatVersion: 2 });
+  const futureRaw = rawEnvelope(20, { saveFormatVersion: 3 });
   const storage = new MemoryStorage({
     [LOCAL_STORAGE_KEYS.backup]: futureRaw,
   });
@@ -580,7 +580,7 @@ test("FR-SAV-009 maps disabled or denied storage to STORAGE_UNAVAILABLE without 
 });
 
 test("FR-SAV-001 and FR-SAV-005 reject schema-invalid and unsupported saves without mutation", () => {
-  const future = makeEnvelope(12, { saveFormatVersion: 2 });
+  const future = makeEnvelope(12, { saveFormatVersion: 3 });
   const futureRaw = JSON.stringify(future);
   const storage = new MemoryStorage({
     [LOCAL_STORAGE_KEYS.canonical]: futureRaw,
@@ -621,7 +621,7 @@ test("FR-SAV-004 skips a newer invalid candidate for a lower valid backup", () =
 });
 
 test("FR-SAV-004 skips future format during recovery while preserving its raw bytes", () => {
-  const futureRaw = rawEnvelope(99, { saveFormatVersion: 2 });
+  const futureRaw = rawEnvelope(99, { saveFormatVersion: 3 });
   const currentRaw = rawEnvelope(7);
   const storage = new MemoryStorage({
     [LOCAL_STORAGE_KEYS.canonical]: currentRaw,

@@ -7,7 +7,6 @@ import { resolveChoiceTransaction } from "../../src/core/use-cases/choice-transa
 import { PROLOGUE_SLICE, validatePrologueSlice } from "../fixtures/legacy/prologue-slice.js";
 import { createLocalStorageAdapter } from "../../src/data/persistence/local-storage-adapter.js";
 import {
-  CURRENT_SAVE_FORMAT_VERSION,
   validateSaveEnvelope,
 } from "../../src/data/validation/save-envelope-validator.js";
 import { createDomRenderer } from "../../src/ui/renderers/dom/dom-renderer.js";
@@ -694,7 +693,8 @@ function emptyProgress() {
 
 function createSaveEnvelope(content, snapshot, settings, reason, savedAt) {
   return {
-    saveFormatVersion: CURRENT_SAVE_FORMAT_VERSION,
+    // Frozen historical mock contract; it must remain a Save 1 witness.
+    saveFormatVersion: 1,
     contentVersion: content.version,
     revision: snapshot.revision,
     createdAt: snapshot.startedAt,

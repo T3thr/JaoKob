@@ -2,19 +2,19 @@
 
 | Control | Value |
 |---|---|
-| Version / date | **0.2.1** / 2026-10-14, Asia/Bangkok — Final PO Narrative & Pouch Impact Directive |
-| Status | **PO APPROVED MAIN DIRECTIONS AND FINAL NARRATIVE PRINCIPLES; documentation review/merge pending; production implementation unstarted** |
+| Version / date | **0.2.2** / 2026-10-16, Asia/Bangkok: ADR-P0-020 and Slice2 delivery |
+| Status | **PO main directions/final principles and ADR-P0-020 ratified; planningPR12/Slice1PR13 merged; Slice2 source delivered for PR14 owner review; T6–T11 open** |
 | Author | Codex / Senior Technical Lead, Game Director, Principal UI/UX Architect |
 | Scope | S4 UI/Log/durable Pouch/Act 1 rewrite + Secret Moments/Act 2–5 map; S5 content/three endings/Grand Keepsake |
 | Change class | C2 branch/choice/presentation; C3 inventory/save/checkpoint/content contract compatibility |
 | Sources | [Proposal v0.2.1](../proposals/sprint-04-overhaul/01-proposal-plan.md), [revised SSOT](../sprints/sprint-04-ssot.md), [Sprint 3](../sprints/sprint-03-ssot.md) |
-| Review | [PR #12](https://github.com/T3thr/JaoKob/pull/12), branch `feat/sprint-04-overhaul-plan` |
+| Review | Planning[PR #12](https://github.com/T3thr/JaoKob/pull/12) merged; Slice2[PR #14](https://github.com/T3thr/JaoKob/pull/14), `feat/sprint-04-slice-02-pouch` → develop |
 
 ## 1. Authority, context and revision
 
-Current PO Directive explicitly replaces adventure-time doll inspection with an **Adventure Keepsake Pouch**, limited to 3–4 physical objects with Secret Moments and Ending Nuances; assigns AI to rewrite/refine tender narrative; retains three endings/simple branches/no combat or complicated added stats; divides S4/S5 scope; and requests document updates plus commit before source work.
+Current PO Directive explicitly replaces adventure-time doll inspection with an **Adventure Keepsake Pouch**, limited to **4 physical objects (ratified in ADR-P0-020)** with Secret Moments and Ending Nuances; assigns AI to rewrite/refine tender narrative; retains three endings/simple branches/no combat or complicated added stats; divides S4/S5 scope; and requests document updates plus commit before source work.
 
-This supersedes v0.1.0's non-diegetic Act 1 two-doll viewer, presentation-only save plan and optional narrow editorial approach. Those directions are historical, not alternative current S4 requirements. The new vision and writing assignment are already issued by PO; they do not require reconfirmation. Exact schemas/slot value/guards/migration/approved prose and runtime integration still need the appropriate detailed review/DoR.
+This supersedes v0.1.0's non-diegetic Act 1 two-doll viewer, presentation-only save plan and optional narrow editorial approach. Those directions are historical, not alternative current S4 requirements. The new vision and writing assignment are already issued by PO; they do not require reconfirmation. Four slots and the Slice2 state/save/UI contracts are now ratified by ADR-P0-020 and the current PO directive. Expanded narrative/secret schemas, approved prose and content3 integration still need their owning task review/DoR.
 
 Baseline inspected: develop `e9803397587bb3ec8f2a61a87966d382277a96fc`, with [PR #11](https://github.com/T3thr/JaoKob/pull/11) merged 2026-10-14; planning branch `9a08d0b` includes it. Spike models remain isolated artifacts; accepted ADR-P0-016/017 do not approve a production viewer. Sprint 3 remains functional baseline with 691 tests and historical Chromium evidence; final visual/manual gates stay open.
 
@@ -36,13 +36,13 @@ S4 non-goals: production Act 2–5/ending code, model viewer/WebGL/vendor/model 
 
 | Decision | PO-issued direction | Recommended detailed design / alternatives | Status and review owner |
 |---|---|---|---|
-| **D1 — Phased scope and capacity** | S4 UI/Log/Pouch/Act 1/Act 2–5 map; S5 Act 2–5; capacity3–4 | Proposed default **3 slots**, no stacks or upgrade; 4 is allowed if fixed before implementation. Twelve WBS tasks, revised effort/gates | Main scope/range endorsed by PO; task-level exact capacity/fixtures/profile ratified in T0 |
+| **D1 — Phased scope and capacity** | S4 UI/Log/Pouch/Act 1/Act 2–5 map; S5 Act 2–5; fixed capacity4 | **Four fixed unique slots** ratified by PO/Lead Architecture in ADR-P0-020; no stacks or upgrade. Twelve WBS tasks, revised effort/gates | Four slots ratified; T0/T3/T4/T5 implemented under current directive, owner review open |
 | **D2 — Narrative authorship and simplicity** | AI assigned tender Act1 plus slower Act3–4 threat/consequence/rest, mother/root/current, reserved girl, fair three endings; no combat/complex stats/achievement hunting | Concrete sensory actions/quiet kindness, 2–3 choices, short optional moments with convergence; exact prose/IDs/effects/guards reviewed as authored scene diff | PO endorses assignment and final drama/persona principles; exact scene prose/guards reviewed in T7/T8 |
 | **D3 — Dialogue History** | Build Dialogue History in S4 | Retain session-only ≥50 dialogues+50 committed actions including acquire/release/replace; current-page reload notice. Durable transcript alternative requires separate store/migration/budget | Technical policy proposed, PO+Narrative+Architect review; Pouch persistence is separate |
 | **D4 — Objects, memory and extra scenes** | Adventure objects actively looked at/held/remembered during loneliness; valued keeping/release, Secret Moments and Ending Nuances | `heldItemIds` vs acquired/released memory; authored atomic replace/cancel; optional secret eligibility; held props vs memory-only variants; no item required for Canon | PO endorses meaningful use/keeping/letting-go; exact held/memory/default/registry/effect consistency reviewed per task |
 | **D5 — Core/save/schema compatibility** | Pouch has gameplay state; content changes in Act 1 | Proposed package/shared/tree schema 2.0, content 3.0, saveFormatVersion 2; pure item/condition/effect/cursor contracts, inventory in checkpoint, explicit legacy migration. Format1 sidecar alternative risks torn state/retry inconsistency | Main versioned Pouch direction endorsed; exact published schema/cursor/migration fixtures require Architect+QA verification; no S4 library exception |
 | **D6 — END-HOME Grand Keepsake** | Childhood crochet→adult velour, blue T-shirt/red-heart embroidery, real-gift resonance in Act5 END-HOME | S4 brief only; S5 epilogue reveal/edition framing, static fallback and optional post-ending inspection. Future production dependency/rights/device contract separate | PO endorses END-HOME placement, childhood→adult bridge and red-heart blue-shirt brief; current adult mesh lacks heart, S5 Art/export/runtime gates remain |
-| **D7 — Quality and phased execution** | Review revised plan before code; prepare S5 handoff | Separate legacy/new graph suites; capacity/release/secret/no-item/migration/retry/fault tests, manual art/Thai/AT/device review, per-phase gates | PO endorses final narrative/fairness acceptance; exact evidence/device/fixture gates remain; documentation review/merge awaits human, source 0/12 |
+| **D7 — Quality and phased execution** | Review revised plan before code; prepare S5 handoff | Separate legacy/new graph suites; capacity/release/secret/no-item/migration/retry/fault tests, manual art/Thai/AT/device review, per-phase gates | PO endorses final narrative/fairness acceptance; exact evidence/device/fixture gates remain; Slice2 source6/12 delivered for owner review; remaining source/manual gates open |
 
 The table records actual direction without marking the entire RFC or any new FR/ADR Approved. Architectural choices become a new ADR after owner acceptance; no historical ADR rationale is rewritten. T0 handles GDD/SRS/Narrative contract amendments before code, rather than reading proposal strings as new executable authority.
 
@@ -56,7 +56,7 @@ Session transcript keeps original payload.history/viewed-ID meanings, count/byte
 
 ### 4.2 Pouch and atomic capacity decisions
 
-Pure domain inventory has fixed3 (or ratified4) slots, unique held IDs and bounded encountered/acquired/released memories plus acknowledged optional-vignette progress. Core receives validated normalized catalog and injected command identity/time, imports no browser/Data/UI. Data parses/validates/localizes; bootstrap composes and persists; UI sends intents.
+Pure domain inventory has fixed4 slots, unique held IDs and bounded encountered/acquired/released memories plus acknowledged optional-vignette progress. Core receives validated normalized catalog and injected command identity/time, imports no browser/Data/UI. Data parses/validates/localizes; bootstrap composes and persists; UI sends intents.
 
 Acquire/release/replace applies only at authored safe opportunities. Full Pouch gives keep-old/refuse-new, replace-one or cancel. No auto-drop, negative-stat penalty, repeat pickup farming or timer. Replace is one guarded transaction/revision containing release+acquire, or no change. Retry restores Pouch/memory/completion along with checkpoint; settings remain latest. Opening/selecting item details changes only UI state; confirmed item decisions are gameplay changes and are logged.
 
@@ -97,13 +97,13 @@ Grand Keepsake appears only after END-HOME safe-help/symbolic transformation. Li
 | Runtime dependency | Vanilla baseline retained in S4; spike library remains development-only until future S5 decision |
 | Assets | S4 original 2D item/icon/texture art; models/source photos unchanged and outside S4 distributable |
 
-Recommended candidate versions: content **3.0.0**, narrative/package/affected shared schemas **2.0.0**, saveFormat **2**. Exact numbering ratified by Architect at T0/T3. Published1.0/1.1/1.2/root common/save contracts remain byte-identical; add versioned schema/catalog/capability fixtures instead. Unknown fields/versions/capacity/IDs fail safely, not silently emptying inventory.
+Recommended candidate versions: content **3.0.0**, narrative/package/affected shared schemas **2.0.0**, saveFormat **2**. Slice2 ratifies pouch/save2.0 and SaveFormat2 under ADR-P0-020 while retaining content2.1; the package/tree/content3 rewrite remains a later owner gate. Published1.0/1.1/1.2/root common/save contracts remain byte-identical; add versioned schema/catalog/capability fixtures instead. Unknown fields/versions/capacity/IDs fail safely, not silently emptying inventory.
 
 Alternative format 1 + separate inventory LocalStorage sidecar is not recommended: one story decision could tear across saves, Retry lacks a consistent checkpoint, raw recovery races become ambiguous. Smuggling items into irreversible legacy flags/current history/setting strings is rejected. A versioned envelope integrates all domain facts with existing guarded save port.
 
 ## 6. Migration, security and rollback
 
-Existing 2.0→2.1 migration rejects gameplay/prose differences; do not expand its comparison exclusions to pretend this pivot is presentation-only. Register explicit format 1/content 2.1→format 2/content 3.0 semantic mapping after old validation; legacy2.0 uses its existing first step then the new step, validating each. Map active payload/checkpoint independently from their own flags. True historical leaf→held/acquired leaf under legacy no-discard semantics; false→no held leaf. New items/secrets are never retroactively awarded. Preserve legacy flags, metrics/RNG/revision/settings/history; exact semantic page/variant mapping required for rewritten lines.
+Existing 2.0→2.1 migration rejects gameplay/prose differences; do not expand its comparison exclusions to pretend this pivot is presentation-only. Slice2 registers explicit format1/content2.1→format2/content2.1 mapping after old validation; rewritten content3 semantic mapping remains T7/T9/T10; legacy2.0 uses its existing first step then the new step, validating each. Map active payload/checkpoint independently from their own flags. True historical leaf→held/acquired leaf under legacy no-discard semantics; false→no held leaf. New items/secrets are never retroactively awarded. Preserve legacy flags, metrics/RNG/revision/settings/history; exact semantic page/variant mapping required for rewritten lines.
 
 Where no approved cursor mapping exists, protect raw saves and offer implemented/tested compatible continuation or explicitly confirmed new-session recovery. No guessed downgrade/fast-forward/replay/completed secret. Migrations are pure/idempotent; writes happen only through normal staged/backup/promotion guards, with quota/unavailable/integrity/concurrent-candidate protection. Retry restores inventory/memory/vignettes from checkpoint. Save candidate remains≤250KB UTF-8.
 
@@ -115,23 +115,26 @@ Planning rollback reverts this documentation revision only. Later runtime rollba
 
 [SSOT §6](../sprints/sprint-04-ssot.md#6-verification-plan-and-evidence-status) defines proposed evidence. Current unchanged-runtime run **691/691**, zero fail/cancel/skip/todo. Legacy fixtures/12 routes stay as historical witnesses; newly reviewed narrative/graph assertions are additional and separately versioned. Approved behavioral expectation changes need trace/legacy coverage, never skipped/weakened assertions.
 
-Required Pouch cases: empty/partial/full at3 and boundary4 if selected, refusal/cancel/atomic replace, duplicate/stale/unknown ID, single-opportunity revisit, safe-context permission, held-vs-memory callbacks, no-item Canon route, vignette acknowledge/reload/retry, save migration/full checkpoints/quota/race and rollback protection. Remaining manual Thai/visual/keyboard/AT/device reviews stay explicit. New validators/Pouch code/features are not materialized in this revision.
+Required Pouch cases: empty/partial/full at fixed4, refusal/cancel/atomic replace, duplicate/stale/unknown ID, single-opportunity revisit, safe-context permission, held-vs-memory callbacks, no-item Canon route, vignette acknowledge/reload/retry, save migration/full checkpoints/quota/race and rollback protection. Remaining manual Thai/visual/keyboard/AT/device reviews stay explicit. Slice2 materializes Pouch/save/schema and modal/browser automation; new-story/vignette automation remains later work. See [Slice2 contract](../design-system/keepsake-pouch-contract.md) and [evidence](../../tests/e2e/evidence/sprint-04/slice-02/README.md):874 total unit cases,13 metaschemas/47 new cases,12 legacy routes,34 Pouch captures pass; domain100% lines/branches/functions. Manual PO/device/AT gates remain open.
 
 NFR-PE-001..005 unchanged: initial≤2MB compressed; shell+critical JSON≤500KB compressed; cold≤3s/warm≤1.5s p75; feedback/general interaction≤100ms p95; save≤250KB. Bound item/memory/vignette IDs by registry; Log capacity50 dialogues+50 actions. Existing image/audio caps32/16MiB retained. **No S4 3D budget/decoder/vendor scope**; future Grand Keepsake budgets measured under S5 approval.
 
-Rollout: T0 accepted detailed contracts → T1 styles → T2 renderer → T3 versioned Pouch/save contract → T4 pure state → T5 Pouch UI → T6 Log → T7 Act 1 content → T8 Act 2–5 map → T9 tags/assets projection → T10 composition → T11 integrated/manual acceptance. Narrative design drafts may proceed before source-contract readiness. Gate A visual, Gate B Pouch+save, Gate C narrative/map, Gate D integrated QA; no source/merge/deploy authorized in this round.
+Rollout: T0 accepted detailed contracts → T1 styles → T2 renderer → T3 versioned Pouch/save contract → T4 pure state → T5 Pouch UI → T6 Log → T7 Act 1 content → T8 Act 2–5 map → T9 tags/assets projection → T10 composition → T11 integrated/manual acceptance. Narrative design drafts may proceed before source-contract readiness. Gate A visual, Gate B Pouch+save, Gate C narrative/map, Gate D integrated QA. The current directive authorizes Slice2 source/commit/push/PR; merge/release/deploy remains human-controlled.
 
 ## 8. Approval and supersession register
 
 | Item | Disposition |
 |---|---|
 | Main v0.2.0 strategy / Final v0.2.1 narrative principles | **Explicit PO endorsement received** in current message; final drama/Pouch/gift/fair Bond/girl constraints recorded and ready for documentation review |
-| Exact default 3, item registry/guards, final narrative graph/prose, version/migration/callback edits | Proposed implementation detail; domain owners review T0/T3/T7 |
+| Four slots and Slice2 state/save/UI | Ratified ADR-P0-020; implemented T0/T3/T4/T5 for PR14; unchanged2.1 content/cursor and reviewed leaf only |
+| Expanded item/secret registry, final prose/graph/content3 mapping and future callbacks | T7/T9/T10 owner review; [baseline handoff](../proposals/sprint-04-overhaul/04-pouch-baseline-amendments.md) |
 | Session Log reload policy/profile/manual schedule | Pending detailed review, not a blocker to preparing the requested documents |
-| ADR-P0-014/015 baseline | Retained; new inventory/save/cursor ADR required before code; approved deviations documented prospectively |
+| ADR-P0-014/015 baseline | Retained; accepted ADR-P0-020 ratifies Slice2 Pouch/Save2 prospectively; future rewritten cursor contracts remain reviewed separately |
 | ADR-P0-016/017 spike | Retained historically; production3D consideration deferred to S5 |
-| S4 source DoR/WBS | Unstarted **0/12**, not authorized by document revision/commit |
-| Documentation merge | PR #12 prepared for PO review/merge; **not executed by agent** |
-| Source/release/deployment | Not authorized or performed in this documentation round |
+| S4 source DoR/WBS | **6/12 source tasks delivered**; T1/T2 mergedPR13, T0/T3/T4/T5 featurePR14; human acceptance/T6–T11 open |
+| Documentation merge | PlanningPR12 merged by PO; history retained |
+| Source/release/deployment | Slice2 source/commit/push/PR explicitly authorized; no Slice2 merge/release/deploy |
 
 v0.2.1 supplements the PO-endorsed v0.2.0 plan with final narrative/Pouch impact acceptance; v0.2.0 supersedes v0.1.0 proposed viewer/save-no-change design. Neither rewrites accepted baseline history. No new requirement/canon/ADR is self-approved. Final plan is concrete for PO review without asking PO to repeat the strategy already given.
+
+Slice2 amendment v0.2.2 is governed by the 2026-10-16 PO directive and ADR-P0-020. It publishes pouch/save schema2.0 and format2 while retaining content2.1; package/tree2.0/content3 remain future contracts. The previous planning rollback paragraph is historical: current runtime rollback must retain Save2 admission/downgrade protection or disable writes, preserving raw legacy backup. No new Canon is self-approved.

@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://t3thr.github.io/JaoKob/specs/schemas/v2.0.0/pouch.schema.json",
+  "title": "JaoKob Adventure Keepsake Pouch 2.0.0",
+  "description": "Four unique held items with independent acquisition, release and remembered encounter indexes. Cross-set invariants are enforced by the pure domain validator.",
+  "type": "object",
+  "required": [
+    "capacity",
+    "held",
+    "acquired",
+    "released",
+    "remembered",
+    "memory"
+  ],
+  "properties": {
+    "capacity": {
+      "const": 4
+    },
+    "held": {
+      "type": "array",
+      "maxItems": 4,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/itemId"
+      }
+    },
+    "acquired": {
+      "type": "array",
+      "maxItems": 128,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/itemId"
+      }
+    },
+    "released": {
+      "type": "array",
+      "maxItems": 128,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/itemId"
+      }
+    },
+    "remembered": {
+      "type": "array",
+      "maxItems": 128,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/itemId"
+      }
+    },
+    "memory": {
+      "type": "array",
+      "maxItems": 128,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "maxLength": 99,
+        "pattern": "^refused_[a-z][a-z0-9]*(?:_[a-z0-9]+)*$"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "itemId": {
+      "type": "string",
+      "maxLength": 96,
+      "pattern": "^item_[a-z][a-z0-9]*(?:_[a-z0-9]+)*$"
+    }
+  }
+}

@@ -7,6 +7,7 @@ import { createDomRenderer } from "../../src/ui/renderers/dom/dom-renderer.js";
 import { validateSaveEnvelope } from "../../src/data/validation/save-envelope-validator.js";
 import { MemoryStorage, FakeDocument, findByAttribute, findAllByAttribute } from "../helpers/application-harness.js";
 import { content, testReferenceIds, AT, SESSION_ID, ROUTES, routeAction, walk, envelope, flag } from "../helpers/act1-session.js";
+import { expectedMigratedSnapshot } from "../helpers/expected-save2.js";
 
 function harness(options = {}, memory = new MemoryStorage()) {
   const document = new FakeDocument(), root = document.createElement("div");
@@ -75,7 +76,7 @@ test("FR-SAV-009 real adapter restart restores every cursor/state without save w
   for (const snapshot of walk(ROUTES[0], ["roots", "roots"])) {
     const raw = JSON.stringify(envelope(snapshot)), h = harness({}, new MemoryStorage({ [KEYS.canonical]: raw }));
     await h.application.boot(); await click(h, "application.resume");
-    assert.deepEqual(h.application.getSnapshot(), snapshot);
+    assert.deepEqual(h.application.getSnapshot(), expectedMigratedSnapshot(snapshot));
     assert.equal(h.memory.raw(KEYS.canonical), raw);
     assert.equal(writes(h.memory).length, 0);
   }

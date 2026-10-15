@@ -22,7 +22,13 @@ export function createModalFrame({ document, name, title, description, closeLabe
   dialog.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && typeof dialog.showModal !== "function") { event.preventDefault?.(); onClose(); }
     if (event.key !== "Tab") return;
-    const eligible = controls.filter((control) => !control.disabled);
+    const eligible = controls.filter((control) => {
+      if (control.disabled) return false;
+      for (let node = control; node && node !== dialog; node = node.parentElement ?? node.parentNode) {
+        if (node.hasAttribute?.("hidden")) return false;
+      }
+      return true;
+    });
     const first = eligible[0], last = eligible.at(-1);
     if (event.shiftKey && document.activeElement === first) { event.preventDefault?.(); last?.focus(); }
     else if (!event.shiftKey && document.activeElement === last) { event.preventDefault?.(); first?.focus(); }

@@ -1,0 +1,8 @@
+{
+  "result": "PASS",
+  "metaSchemas": 13,
+  "structuralAndSemanticCases": 47,
+  "networkSchemaFetch": false,
+  "formats": "runtime unit tests",
+  "crossSetInvariants": "pure domain validator; JSON Schema covers shape and bounds"
+}

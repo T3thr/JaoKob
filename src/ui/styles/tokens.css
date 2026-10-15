@@ -33,6 +33,9 @@
   --jk-space-4: 24px;
   --jk-space-5: 32px;
   --jk-space-6: 48px;
+  --jk-pouch-slot-min: 128px;
+  --jk-pouch-slot-paper: #f1ead7;
+  --jk-pouch-stitch: #847755;
   --jk-color-slate-950: var(--jk-ink);
   --jk-color-slate-700: var(--jk-ink-soft);
   --jk-color-slate-300: #d8ddcc;

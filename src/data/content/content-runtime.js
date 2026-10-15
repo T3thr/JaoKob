@@ -1,5 +1,6 @@
 import { loadContentPackage } from "./content-loader.js";
 import { contentFailure, deepFreeze } from "../validation/content-values.js";
+import { act1PouchPolicy } from "./act1-pouch-policy.js";
 
 /** Static loading and capability normalization. Trace: FR-CNT-001, CR-0002 D3/D4. */
 export async function loadGameContent(options = {}) {
@@ -79,6 +80,7 @@ export function prepareRuntimeContent(loaded) {
   const treeByNode = Object.fromEntries(data.narrativeTrees.flatMap((tree) => tree.nodes.map((node) => [node.id, tree.treeId])));
   return deepFreeze({ valid: true, packageData: data, indexes,
     catalog: { version: data.contentVersion, entryNodeId: loaded.entry.node.id, entryTreeId: loaded.entry.tree.treeId,
-      defaults: data.gameDefaults, nodes: indexes.nodes, dialogues: indexes.dialogues, events, flags: data.flagDefinitions, treeByNode, dominators },
+      defaults: data.gameDefaults, nodes: indexes.nodes, dialogues: indexes.dialogues, events, flags: data.flagDefinitions, treeByNode, dominators,
+      pouchPolicy: act1PouchPolicy(data, indexes) },
   });
 }

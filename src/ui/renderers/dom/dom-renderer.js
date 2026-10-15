@@ -7,6 +7,7 @@ import { createChromeIcon } from "../../components/chrome-icons.js";
 import { createConfirmationDialog } from "../../components/confirmation-dialog.js";
 import { createReadingPages } from "../../components/reading-pages.js";
 import { createToggleSwitch } from "../../components/toggle-switch.js";
+import { createKeepsakePouchDialog } from "../../components/keepsake-pouch-dialog.js";
 
 /**
  * Semantic DOM implementation of RendererPort.
@@ -139,7 +140,7 @@ export function createDomRenderer(optionsOrRoot) {
       const focusChoice = activeScaffold.document.activeElement?.getAttribute?.("data-choice-id") ?? busyModalFocus?.choice;
       const focusRole = activeScaffold.document.activeElement?.getAttribute?.("data-jk-role");
       currentView = viewModel;
-      const nextModalKind = viewModel.overlay === "advisory" ? "advisory" : ["settings", "replace-confirmation", "choice-confirmation"].includes(viewModel.presentation?.mode) ? viewModel.presentation.mode : null;
+      const nextModalKind = ["advisory", "pouch"].includes(viewModel.overlay) ? viewModel.overlay : ["settings", "replace-confirmation", "choice-confirmation"].includes(viewModel.presentation?.mode) ? viewModel.presentation.mode : null;
       const isModal = nextModalKind !== null;
       const stageModel = isModal && lastReadingView ? { ...lastReadingView, settings: viewModel.settings,
         soundState: viewModel.soundState, soundStateLabel: viewModel.soundStateLabel,
@@ -182,11 +183,11 @@ export function createDomRenderer(optionsOrRoot) {
       applyBusyState(activeScaffold, references, busy);
       if (isModal) {
         gameShell.element.setAttribute("inert", "");
-        const nextModalKey = JSON.stringify([nextModalKind, viewModel.settings, viewModel.preferences]);
+        const nextModalKey = JSON.stringify([nextModalKind, viewModel.settings, viewModel.preferences, nextModalKind === "pouch" ? viewModel.pouch : null]);
         if (!modal || modalKey !== nextModalKey) {
           const scroll = modal?.scrollRegion?.scrollTop ?? 0;
           modal?.close(); modal?.element.remove?.();
-          const createDialog = nextModalKind === "advisory" ? createContentAdvisoryDialog : nextModalKind === "settings" ? createSettingsDialog : createConfirmationDialog;
+          const createDialog = nextModalKind === "pouch" ? createKeepsakePouchDialog : nextModalKind === "advisory" ? createContentAdvisoryDialog : nextModalKind === "settings" ? createSettingsDialog : createConfirmationDialog;
           modal = createDialog({ document: activeScaffold.document, viewModel, message: (key) => message(messages, key), onIntent: emitIntent });
           // Replacing this container also works in the injected minimal DOM.
           activeScaffold.content.replaceChildren(gameShell.element, modal.element);
@@ -201,7 +202,8 @@ export function createDomRenderer(optionsOrRoot) {
           modalKind = nextModalKind;
         }
         modal.updateStatus(viewModel);
-        for (const control of modal.controls) control.disabled = busy;
+        if (modal.setBusy) modal.setBusy(busy);
+        else for (const control of modal.controls) control.disabled = busy;
       } else if (hadModal) {
         modal.close(); modal = null; modalKey = null; modalKind = null; busyModalFocus = null;
         gameShell.element.removeAttribute("inert");
@@ -227,7 +229,8 @@ export function createDomRenderer(optionsOrRoot) {
         choice: activeScaffold.document.activeElement?.getAttribute?.("data-choice-id"),
       };
       applyBusyState(activeScaffold, references, busy);
-      for (const control of modal?.controls ?? []) control.disabled = busy;
+      if (modal?.setBusy) modal.setBusy(busy);
+      else for (const control of modal?.controls ?? []) control.disabled = busy;
       if (!busy && modal && busyModalFocus) {
         modal.controls.find((control) => (busyModalFocus.setting && (control.getAttribute("data-jk-setting") === busyModalFocus.setting || control.getAttribute("data-jk-preference") === busyModalFocus.setting))
           || (busyModalFocus.choice && control.getAttribute("data-choice-id") === busyModalFocus.choice))?.focus();
@@ -530,7 +533,7 @@ function readingKey(view) {
     view.choices?.filter((choice) => !UTILITY_CHOICE_IDS.has(choice.id))]);
 }
 
-const UTILITY_CHOICE_IDS = new Set(["application.settings", "application.enable-sound", "application.retry-media", "application.advisory"]);
+const UTILITY_CHOICE_IDS = new Set(["application.settings", "application.enable-sound", "application.retry-media", "application.advisory", "application.pouch"]);
 
 function patchUtilityStatus(shell, view, messages) {
   const text = readString(view.notice?.text) || readString(view.notice?.description);
@@ -559,13 +562,13 @@ function patchUtilityStatus(shell, view, messages) {
           createElement(shell.document, "span", { classNames: ["jk-utility-label"], text: message(messages, "settings.short") }));
       } else if (choice.id === "application.enable-sound") {
         button.setAttribute("class", "jk-utility-button jk-sound-button");
-      } else button.append(createChromeIcon(shell.document, choice.id === "application.retry-media" ? "retry" : "info"),
-        createElement(shell.document, "span", { classNames: ["jk-utility-label"], text: choice.label }));
+      } else button.append(createChromeIcon(shell.document, choice.id === "application.pouch" ? "pouch" : choice.id === "application.retry-media" ? "retry" : "info"),
+        createElement(shell.document, "span", { classNames: ["jk-utility-label"], text: choice.id === "application.pouch" ? message(messages, "pouch.short") : choice.label }));
     }
     button.setAttribute("aria-label", choice.label || message(messages, "settings.title"));
     button.setAttribute("title", choice.label || message(messages, "settings.title"));
     if (choice.id === "application.enable-sound") button.setAttribute("aria-pressed", (view.audioEnabled ?? view.soundState === "ready") ? "true" : "false");
-    if (choice.id === "application.advisory") button.setAttribute("aria-haspopup", "dialog");
+    if (["application.advisory", "application.pouch"].includes(choice.id)) button.setAttribute("aria-haspopup", "dialog");
     if (choice.id === "application.enable-sound" && button.getAttribute("data-audio-state") !== view.soundState) {
       button.setAttribute("data-audio-state", view.soundState ?? "blocked");
       button.replaceChildren(createChromeIcon(shell.document, view.soundState === "ready" ? "sound" : "muted"),
