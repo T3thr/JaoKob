@@ -246,13 +246,13 @@ Budgets unchanged: NFR-PE-001..005 (initial≤2MB compressed; shell+critical JSO
 | Slice 1 unit regression | **720/720**, 0 fail/cancel/skip/todo; all712 prior cases retained with explicit ADR-P0-019 presentation amendments, plus8 focused cases |
 | Slice 1 Chromium | **12/12** legacy routes; **36** visual captures plus **14** production-runtime captures at six profiles; identical paper geometry/bottom24, complete Thai pagination/200%, symmetric choices without internal scrollbars, native confirmations/close, direct audio, HUD micro-toast, storm advisory/preferences, stage/Space/Enter guards; contrast10.61:1/high16.61:1, motion/fault checks; [evidence](../../tests/e2e/evidence/sprint-04/slice-01/README.md) |
 | Real device/AT/listening/PO final art/prose | Not performed; required later for changed journeys |
-| Source/release/build/merge/deploy | T0–T5 source slices delivered for review (T1/T2 mergedPR13; T0/T3/T4/T5 on featurePR14). T6–T11, release/deploy and Slice2 merge are not executed. |
+| Source/release/build/merge/deploy | T0–T5 source slices delivered and merged to develop (T1/T2 merged in PR #13 at 01cee6f; T0/T3/T4/T5 merged in PR #14 at 6692c1b). T6–T11, release and deploy remain pending in upcoming slices. |
 
 ## 7. Audit trail, risk and approval register
 
 | Record | Disposition |
 |---|---|
-| `CR-20261016-0031` | [Slice2 Pouch/Save2 delivery](../changelog/2026-10/2026-10-16-0031-sprint-04-slice-02-pouch.md): T0/T3/T4/T5 implemented at3a672a5;874 unit cases, independent schemas,12 routes and scoped modal/browser evidence; PR14 OPEN for owner review |
+| `CR-20261016-0031` | [Slice 2 Pouch/Save 2 delivery](../changelog/2026-10/2026-10-16-0031-sprint-04-slice-02-pouch.md): T0/T3/T4/T5 implemented at 3a672a5; 874 unit cases, independent schemas, 12 routes and scoped modal/browser evidence; PR #14 reviewed and MERGED into develop at 6692c1b |
 | `CR-20261016-0025` | [ADR-P0-020 ratification](../adr/ADR-P0-020-adventure-keepsake-pouch-and-item-system.md): 4-slot Keepsake Pouch architecture, dual keepsake/utility role, Save 2 schema; Slice 2 kickoff on `feat/sprint-04-slice-02-pouch` |
 | `CR-20261015-1757` | [ADR-P0-019 corrective delivery](../changelog/2026-10/2026-10-15-1757-sprint-04-adr-019-runtime-ergonomics.md): design specification first; T1/T2 implementation complete2/12;720 unit cases/12 routes/50 captures; merged in PR13 |
 | `CR-20261015-1710` | [ADR-P0-019 mandate & Slice 1 extension](../adr/ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md): playtest rejection of commit `a634409`; T1/T2 reopened for Design System specification and 6 ergonomic pillars; PR13 extended |
@@ -276,4 +276,4 @@ Budgets unchanged: NFR-PE-001..005 (initial≤2MB compressed; shell+critical JSO
 | D7 legacy vs new evidence/manual | QA/Accessibility separate approved expectation changes, new graph witness counts and actual human/device gates |
 | Local references | Preserve untracked folder; never stage personal reference photographs |
 
-Slice2 rollback retains dual-format admission and downgrade/write guards or disables writes; preserve raw Save1 backup, never downgrade Save2 or repair to an empty bag. The current PO directive authorizes T0/T3/T4/T5 source/commit/push/PR only. Six source tasks are delivered; T6–T11 and owner PO/Thai/art/device/AT acceptance remain open. No Slice2 merge, release or deployment is authorized. Separately versioned `jaokob:preferences` remains unchanged by Slice2.
+Slice 2 rollback retains dual-format admission and downgrade/write guards or disables writes; preserve raw Save 1 backup, never downgrade Save 2 or repair to an empty bag. Slice 2 (PR #14) was reviewed and merged into develop at 6692c1b under PO authorization. Six source tasks (T0–T5) are now fully integrated into develop. Slice 3 kickoff covers Task T6 (Session Dialogue History data and modal). Tasks T6–T11 and owner PO/Thai/art/device/AT acceptance remain open. Separately versioned `jaokob:preferences` remains unchanged by Slice 2.
