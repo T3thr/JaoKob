@@ -1,0 +1,42 @@
+{
+  "sourceCommit": "a63440929cc0db4dd886c2d0f6f4efe066c882b5",
+  "status": "Rejected runtime baseline before ADR-P0-019",
+  "files": [
+    {
+      "path": "1440x900-title.png",
+      "sha256": "4e499055c01682fe0426e8b448177f565df7f70ae9434afd8978aff7439fb5a7"
+    },
+    {
+      "path": "1440x900-reading.png",
+      "sha256": "f52c839a8ebbe5f6ef8e6b7aa97bfc5e540eed5cf946eb7b17e3c7dc128caa9e"
+    },
+    {
+      "path": "1440x900-decision.png",
+      "sha256": "e13961d011304633d91f2f2ca01aef9fdac20e2a01a1467686171b1e43feda29"
+    },
+    {
+      "path": "390x844-title.png",
+      "sha256": "f8ccaff8f03b7aa6ae7783abf6e138e62833f8997a64f777150c0727b9082664"
+    },
+    {
+      "path": "390x844-reading.png",
+      "sha256": "7b0ad0c21e29fd9cd72a4606def0688b08ef3dde6fa7d6112431ffe2ccf27d6a"
+    },
+    {
+      "path": "390x844-decision.png",
+      "sha256": "0c474b7656c2cb6cca4c223b4c2eca398bea02293515c19d92cad3a146923d03"
+    },
+    {
+      "path": "1440x900-settings-text200.png",
+      "sha256": "5588d2e6e7e631a893c4b5e32f02043676609f39e866df44054517816b303d28"
+    },
+    {
+      "path": "act1-storm.png",
+      "sha256": "675f5d5e5728ff7817232a34246f086e0e6d87cec9c5f906f56acfd9b860b584"
+    },
+    {
+      "path": "act1-choice-confirmation.png",
+      "sha256": "d42dd9c933a5010d1898f831d3841be4e0c62ad7e04284c32c2995adf4e442ca"
+    }
+  ]
+}

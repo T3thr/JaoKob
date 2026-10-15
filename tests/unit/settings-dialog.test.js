@@ -22,9 +22,31 @@ test("FR-ACC-003 settings exposes 200% text, high contrast and reduced intensity
   assert.equal(font.getAttribute("max"), "2"); assert.equal(font.value, "2");
   for (const setting of ["highContrast", "reducedIntensityAudio"]) {
     const input = findByAttribute(h.dialog.element, "data-jk-setting", setting);
-    input.checked = true; input.dispatchEvent({ type: "change" });
+    assert.equal(input.getAttribute("role"), "switch");
+    assert.equal(input.getAttribute("aria-checked"), "false");
+    input.dispatchEvent({ type: "click" });
+    assert.equal(input.getAttribute("aria-checked"), "true");
+    assert.match(input.textContent, /เปิด/);
   }
   assert.deepEqual(h.intents.map(({ setting, value }) => [setting, value]), [["highContrast", true], ["reducedIntensityAudio", true]]);
+});
+
+test("ADR-P0-018 D2 close is outside modal scrolling, switches show state and audio never disappears", () => {
+  const h = harness(), close = h.dialog.controls[0];
+  assert.equal(close.getAttribute("data-choice-id"), "application.close-settings");
+  assert.notEqual(close.parentNode, h.dialog.scrollRegion);
+  assert.equal(h.dialog.scrollRegion.getAttribute("data-jk-role"), "modal-scroll");
+  const motion = findByAttribute(h.dialog.element, "data-jk-setting", "reducedMotion");
+  assert.equal(motion.getAttribute("aria-checked"), "true");
+  motion.dispatchEvent({ type: "click" }); assert.equal(motion.getAttribute("aria-checked"), "false");
+  assert.equal(h.intents[0].choiceId, "application.toggle-motion");
+  const sound = findByAttribute(h.dialog.element, "data-jk-action", "enable-sound");
+  for (const [soundState, soundControlLabel] of [["ready", "เสียงพร้อมใช้งาน"], ["off", "เสียงปิดอยู่"]]) {
+    h.dialog.updateStatus({ soundState, soundControlLabel, audioStatusText: soundControlLabel });
+    assert.equal(findByAttribute(h.dialog.element, "data-jk-action", "enable-sound"), sound);
+    assert.equal(sound.textContent, soundControlLabel); assert.equal(sound.getAttribute("data-audio-state"), soundState);
+  }
+  assert.equal(h.viewModel.settings.masterVolume, 0);
 });
 test("FR-ACC-001 settings modal cycles focus, restores active field and routes Escape to close intent", () => {
   const h = harness(); h.dialog.open("musicVolume");

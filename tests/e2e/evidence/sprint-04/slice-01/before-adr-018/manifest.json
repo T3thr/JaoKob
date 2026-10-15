@@ -1,0 +1,40 @@
+{
+  "sourceCommit": "093595d779fd895b1f66b6aebe3275eed450e895",
+  "files": [
+    {
+      "path": "1440x900-title.png",
+      "sha256": "84f9c928be82b89fda2f5bdfc867bffc2090aaf8d11d1fea02cb878a7eec7e89",
+      "byteLength": 1820006
+    },
+    {
+      "path": "1440x900-reading.png",
+      "sha256": "5ae5edfeb4c44a2fb52f9382e24092daf00d53251688412062be71073385f354",
+      "byteLength": 1776689
+    },
+    {
+      "path": "1440x900-decision.png",
+      "sha256": "6c5177eeb9d6fc53d17242d73a6194970ee48644ee2323934644262be5ba497a",
+      "byteLength": 1745613
+    },
+    {
+      "path": "390x844-title.png",
+      "sha256": "7047ac372aa53961fdbb5e03e0bd08f597115a8773e819b5b6da97a821b1bd87",
+      "byteLength": 381409
+    },
+    {
+      "path": "390x844-reading.png",
+      "sha256": "0316970b5a8b0a74a8a7fcaf9ec23f54f2e04ba9a2b35e68463206d1a1006596",
+      "byteLength": 333884
+    },
+    {
+      "path": "390x844-decision.png",
+      "sha256": "91edf8cc401be4a246ccfc188c7315a4e1a6b01a878d46642275baf1be78059e",
+      "byteLength": 265754
+    },
+    {
+      "path": "320x568-settings-text200.png",
+      "sha256": "f7b6fec72962c9e26b46023891ad782dbb6760b3e667b3c7ff3df2f99cf98930",
+      "byteLength": 347617
+    }
+  ]
+}

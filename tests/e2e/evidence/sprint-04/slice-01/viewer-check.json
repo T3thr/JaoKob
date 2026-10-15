@@ -1,0 +1,55 @@
+{
+  "result": "PASS",
+  "pairs": [
+    {
+      "size": "desktop",
+      "mode": "reading",
+      "paths": [
+        "before-adr-019/1440x900-reading.png",
+        "1440x900-reading.png"
+      ]
+    },
+    {
+      "size": "desktop",
+      "mode": "decision",
+      "paths": [
+        "before-adr-019/1440x900-decision.png",
+        "1440x900-decision.png"
+      ]
+    },
+    {
+      "size": "desktop",
+      "mode": "title",
+      "paths": [
+        "before-adr-019/1440x900-title.png",
+        "1440x900-title.png"
+      ]
+    },
+    {
+      "size": "mobile",
+      "mode": "reading",
+      "paths": [
+        "before-adr-019/390x844-reading.png",
+        "390x844-reading.png"
+      ]
+    },
+    {
+      "size": "mobile",
+      "mode": "decision",
+      "paths": [
+        "before-adr-019/390x844-decision.png",
+        "390x844-decision.png"
+      ]
+    },
+    {
+      "size": "mobile",
+      "mode": "title",
+      "paths": [
+        "before-adr-019/390x844-title.png",
+        "390x844-title.png"
+      ]
+    }
+  ],
+  "allImagesLoaded": true,
+  "errors": []
+}

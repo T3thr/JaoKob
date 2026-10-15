@@ -10,9 +10,9 @@ import { content, ROUTES, walk, envelope } from "../helpers/act1-session.js";
 
 const playwright = await import(process.env.JKB_PLAYWRIGHT_PATH ? pathToFileURL(process.env.JKB_PLAYWRIGHT_PATH).href : "playwright");
 const repo = resolve(fileURLToPath(new URL("../..", import.meta.url)));
-const output = resolve(repo, "tests/e2e/evidence/sprint-03/benchmark");
+const output = resolve(repo, process.env.JKB_EVIDENCE_DIR ?? "tests/e2e/evidence/sprint-03/benchmark");
 await mkdir(output, { recursive: true });
-const mime = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".json": "application/json", ".webp": "image/webp", ".mp3": "audio/mpeg", ".woff2": "font/woff2" };
+const mime = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".json": "application/json", ".webp": "image/webp", ".svg": "image/svg+xml", ".mp3": "audio/mpeg", ".woff2": "font/woff2" };
 const transfers = [];
 const server = createServer(async (request, response) => {
   try {
@@ -32,13 +32,13 @@ const browser = await playwright.chromium.launch({ headless: process.env.JKB_HEA
 const evidence = { browser: browser.version(), platform: process.platform, at: new Date().toISOString(), routes: [], checks: [], screenshots: [], performance: {}, errors: [] };
 const saveKey = "jaokob:save:canonical";
 const save = (page) => page.evaluate((key) => JSON.parse(localStorage.getItem(key)), saveKey);
-const choice = (page, id) => page.locator(`[data-choice-id="${id}"]`);
+const choice = (page, id) => page.locator(`.jk-app-shell:not([inert]) [data-choice-id="${id}"]:visible, dialog[open] [data-choice-id="${id}"]:visible`);
 async function idle(page) { await page.waitForFunction(() => document.querySelector("#app")?.getAttribute("aria-busy") === "false"); }
 async function click(page, id, key) {
-  const before = await page.locator("#app").getAttribute("data-view-revision");
+  const before = await page.locator("#app").evaluate((root) => [root.dataset.viewRevision, root.dataset.readingRevision].join(":"));
   if (key) { await choice(page, id).focus(); await page.keyboard.press(key); }
   else await choice(page, id).click();
-  await page.waitForFunction((old) => document.querySelector("#app")?.getAttribute("data-view-revision") !== old, before);
+  await page.waitForFunction((old) => [document.querySelector("#app")?.dataset.viewRevision, document.querySelector("#app")?.dataset.readingRevision].join(":") !== old, before);
   await idle(page);
 }
 async function screenshot(page, name) {
@@ -81,7 +81,8 @@ async function verifyRoute(page, route, hotspots, { keyboard = false, captures =
     const stored = await save(page), nodeId = stored.payload.currentNodeId;
     maxBytes = Math.max(maxBytes, Buffer.byteLength(JSON.stringify(stored)));
     if (captures && nodeId === "node.act1.storm" && !capturedStorm) {
-      assert.equal(await page.locator('[data-jk-role="content-notice"]').count(), 1);
+      assert.equal(await page.locator('.jk-narrative [data-jk-role="content-notice"]').count(), 0);
+      assert.equal(await choice(page, "application.advisory").count(), 1);
       await screenshot(page, "act1-storm.png"); capturedStorm = true;
     }
     let id;
@@ -175,7 +176,7 @@ try {
     assert.equal(await page.locator('.jk-character-image').evaluate((el) => getComputedStyle(el).animationName), "none");
     const colors = await page.evaluate(() => {
       const style = (selector) => getComputedStyle(document.querySelector(selector));
-      return [[style('.jk-dialogue').color, style('.jk-narrative').backgroundColor], [style('.jk-choice-button').color, style('.jk-choice-button').backgroundColor], [style('.jk-settings-button').color, style('.jk-hud').backgroundColor], [style('.jk-save-notice p').color, style('.jk-save-notice').backgroundColor]];
+      return [[style('.jk-dialogue').color, style('.jk-narrative').backgroundColor], [style('.jk-choice-button').color, style('.jk-narrative').backgroundColor], [style('.jk-settings-button').color, style('.jk-header-bar').backgroundColor], [style('.jk-save-status').color, style('.jk-header-bar').backgroundColor]];
     });
     const lum = (color) => color.match(/[\d.]+/g).slice(0, 3).map(Number).map((x) => x / 255).map((x) => x <= .04045 ? x / 12.92 : ((x + .055) / 1.055) ** 2.4).reduce((sum, x, i) => sum + x * [.2126, .7152, .0722][i], 0);
     const ratios = colors.map(([fg, bg]) => (Math.max(lum(fg), lum(bg)) + .05) / (Math.min(lum(fg), lum(bg)) + .05));

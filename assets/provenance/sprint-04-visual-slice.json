@@ -1,0 +1,33 @@
+{
+  "recordId": "CR-20261014-2314",
+  "status": "original-ui-art-for-po-review",
+  "owner": "T3thr",
+  "creator": "Codex under the PO Sprint 4 Slice 1 directive",
+  "date": "2026-10-14",
+  "origin": "Original manually authored SVG geometry; no external image, stock icon, font icon or reference photo",
+  "permittedUse": "JaoKob UI decoration, modification and distribution under repository owner control; no third-party license asserted",
+  "clearance": "Current PO directive and accepted ADR-P0-019 authorize the visual revision using these original vectors; final aesthetic review remains open",
+  "assets": [
+    {
+      "path": "assets/images/ui/paper-fibres.svg",
+      "byteLength": 516,
+      "sha256": "ae0716e1eef95bcdefd5a8c4c70a4778dd0581d6c996c59abc4123c307b28434",
+      "role": "Decorative; no user-visible strings or game logic"
+    },
+    {
+      "path": "src/ui/components/chrome-icons.js",
+      "byteLength": 1933,
+      "sha256": "9f4293a974e39468766e4fbd6429aac88cce1e6c0424d1b815891b10fa06370a",
+      "role": "Decorative; no user-visible strings or game logic"
+    },
+    {
+      "path": "assets/images/ui/lotus-mark.svg",
+      "role": "Original decorative favicon; no font glyph, user-visible string or game logic",
+      "sha256": "b2aaa530a4c92bff50e7ac65527d7db4cdc7119f515b4640feb3cd53cd599325",
+      "byteLength": 344
+    }
+  ],
+  "refinementRecord": "CR-20261015-1757",
+  "revisionDate": "2026-10-15",
+  "previousRefinementRecord": "CR-20261015-1544"
+}
