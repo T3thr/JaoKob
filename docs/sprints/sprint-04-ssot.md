@@ -45,8 +45,8 @@ Approved plan direction does not assert that proposed prose is final Canon, new 
 
 | Requirement / PO decision | Observable design outcome | Owner artifact / task | Proposed evidence |
 |---|---|---|---|
-| `FR-UI-001`, `NFR-MA-001/002`, `ADR-P0-001/004/005/012/014/015` | Pure Core; immutable localized VM; overlay vs domain command separated | T2/T4/T6/T10, renderer/session reducers/composition | `TC-S4-ARCH-001`, `TC-S4-STATE-001` |
-| `GDD-UX-001..005/007`, `FR-UI-002/003/005/007`, `GDD-BOND-005` | Title/Reading/Decision, frosted HUD/paper card, visible save/error/feedback, three home choices, locked no-number Bond | T1/T2/T9/T10 | `TC-S4-VIS-001`, `TC-S4-STATUS-001`, `TC-S4-CHOICE-001` |
+| `FR-UI-001`, `NFR-MA-001/002`, `ADR-P0-001/004/005/012/014/015`, `ADR-P0-018` | Pure Core; immutable localized VM; overlay vs domain command separated; stable dialogue anchor | T2/T4/T6/T10, renderer/session reducers/composition | `TC-S4-ARCH-001`, `TC-S4-STATE-001` |
+| `GDD-UX-001..005/007`, `FR-UI-002/003/005/007`, `GDD-BOND-005`, `ADR-P0-018` | Title/Reading/Decision, frosted HUD/paper card, stable bottom anchor, ergonomic settings, no AI slop, locked no-number Bond | T1/T2/T9/T10 | `TC-S4-VIS-001`, `TC-S4-STATUS-001`, `TC-S4-CHOICE-001` |
 | `FR-ENG-009`, `GDD-UX-006`, log part of `FR-UI-004`, D3 | ≥50 dialogue+50 committed actions; session-only reload notice, read-only modal | T6 history reducer/projector/dialog | `TC-S4-LOG-001/002` |
 | **CR-0005 D1/D4**, `GDD-PROG-001/002`, `GDD-CHO-002/003` | 3–4 slots; held/acquired/released distinction; full/refuse/cancel/atomic replace; no item score/combat/collection gate | T0/T3/T4/T5; proposed new item registry/core/UI | `TC-S4-POUCH-001/002` |
 | **CR-0005 D2/D4 Final PO**, `GDD-CONT-001..004`, `NAR-DLG-001..005`, `NAR-TONE-001`, `NAR-THM-001/002/003/004/005`, `NAR-CON-001/002/003/004/005/006/007/010` | Tender childhood/root-current setup; Act3–4 threat/HP/พลังใจ/body/agency/rest; five-item held/memory/default uses and simple convergent map | T7/T8 Narrative/Map | `TC-S4-NARRATIVE-001`, `TC-S4-EMOTION-001`, `TC-S4-GRAPH-001`, `TC-S4-MAP-001` |
@@ -78,13 +78,13 @@ Priority: **approved contracts/legacy proof → UI Styles → DOM Renderer → P
 
   Owner Technical Lead/Architect; PO/Narrative/Game Design/QA/Accessibility review. Files: this SSOT, CR-0005, GDD/SRS/Narrative amendment drafts, new prospective ADR, trace/fixture plan. AC: record direction already given; ratify exact 3-or4, item/memory/default/secret/non-stat rules, callback/progression/cursor/save design; devices/reviewers/owners agreed; freeze source baseline/legacy 691/14–21–12 witnesses. Evidence `TC-S4-ARCH-001` design review. No source change until relevant readiness; no per-line permission request for AI drafting.
 
-- [x] **T1 — Handcrafted styles, frosted HUD and paper card** (P0; 2–3 days)
+- [ ] **T1 — Handcrafted styles, frosted HUD and paper card (ADR-P0-018)** (P0; 2–3 days)
 
-  Owner UI/Art; PO/Narrative/Accessibility review. Files: existing `src/ui/styles/{tokens,base,layout,components,motion,index}.css`; original 2D icon/texture/provenance as approved. AC: unified low-specificity tokens/materials; bounded frosted backdrop with contrast/unsupported fallback; paper grain away from text; correct tadpole crop/light/scale; Thai typography/320–2560/reduced motion/forced colors; no generic nested slabs or erased focus. Interim old DOM is not full visual acceptance. `TC-S4-VIS-001`, `TC-S4-A11Y-001`; rollback styles/art only.
+  Owner UI/Art; PO/Narrative/Accessibility review. Files: existing `src/ui/styles/{tokens,base,layout,components,motion,index}.css`; original 2D icon/texture/provenance as approved. AC: ADR-P0-018 design tokens & 8pt spatial grid; contrast ratio >= 4.5:1 (7:1 high contrast); stable bottom-anchored dialogue card; remove AI slop patterns (no em-dash in Thai, no unicode emoji icons); unified low-specificity tokens/materials; bounded frosted backdrop; Thai typography/320–2560/reduced motion/forced colors. `TC-S4-VIS-001`, `TC-S4-A11Y-001`.
 
-- [x] **T2 — Persistent DOM regions and three-screen separation** (P0; 3–4 days)
+- [ ] **T2 — Persistent DOM regions, three-screen separation & ergonomic settings (ADR-P0-018)** (P0; 3–4 days)
 
-  Owner UI; Application/Data/Accessibility/PO review. Files: `dom-renderer.js`, `stage-view.js`, `settings-dialog.js`, proposed Title/Reading/Decision/utility/response/overlay components; agreed VM/localization and focused renderer tests. AC: Title no gameplay HUD; Reading one prose card/functional Next; Decision when ready has true authored choices/no Next; Exploration/notices/confirmation/completion/failure preserved. Save/status patches retain focus/scene/modal; safe DOM/textual save/feedback/deltas/revision+busy guards. Pouch/Log controls exposed only when functional. Evidence `TC-S4-STATUS-001`, `TC-S4-STATE-001`; composition owner coordinates T10 patches.
+  Owner UI; Application/Data/Accessibility/PO review. Files: `dom-renderer.js`, `stage-view.js`, `settings-dialog.js`, proposed Title/Reading/Decision/utility/response/overlay components; agreed VM/localization and focused renderer tests. AC: Title atmospheric backdrop (no flat green) with discreet floating content advisory icon (no blunt banner); Reading card on fixed bottom baseline (zero CLS/vertical jumping between Reading and Decision); Decision Crossroads with symmetric tactile cards; Settings modal features fixed top-right close button (✕) without forced scrolling, styled switch toggles with clear On/Off feedback, transparent audio controls; no emoji icons. Evidence `TC-S4-STATUS-001`, `TC-S4-STATE-001`.
 
 - [ ] **T3 — Versioned item/content/save/checkpoint contracts and migration** (P0; 4–6 days)
 
