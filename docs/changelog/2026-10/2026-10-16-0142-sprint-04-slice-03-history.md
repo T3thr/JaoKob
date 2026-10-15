@@ -4,8 +4,8 @@
 - **Timestamp:** 2026-10-16T01:42:10+07:00 (contract established before source)
 - **Sprint:** Sprint 4 Slice 3, T6
 - **Operator:** Codex / Senior Software Architect and Lead Interactive Fiction Engineer
-- **Status:** Implemented and verified; PR delivery and human acceptance tracked below
-- **Authority:** Current PO directive explicitly authorizes T6 implementation, technical decisions, tests, commit/push and PR to develop. Baseline develop@730d8fb includes PR14@6692c1b. Branch `feat/sprint-04-slice-03-log`; author/committer T3thr with the required repository email. Private local references are preserved and excluded.
+- **Status:** PO reviewed and MERGED into develop at commit `f8ee156`
+- **Branch / PR:** `feat/sprint-04-slice-03-log` / [PR #15](https://github.com/T3thr/JaoKob/pull/15) → develop (MERGED)
 
 ## 1. Objective, trace and readiness
 
@@ -55,4 +55,4 @@ T6 source/evidence is ready for PO review. Remaining Sprint4 tasks T7–T11 cove
 
 ## 6. Delivery
 
-Implementation commit **`3dfe56d242813df2372fa6c59bc34cf7180551e8`** was committed by T3thr with the required repository email and pushed to `origin/feat/sprint-04-slice-03-log`. [PR #15](https://github.com/T3thr/JaoKob/pull/15) is open against **develop**, ready for PO review and attached to this chat. This documentation follow-up records the actual delivery; no runtime code changed after verification. No auto-merge or deployment.
+Implementation commit `3dfe56d242813df2372fa6c59bc34cf7180551e8` was committed by T3thr and merged as commit **`f8ee156`** into `develop`; [PR #15](https://github.com/T3thr/JaoKob/pull/15) is MERGED. Sprint 4 proceeds to Slice 4 (Tasks T7 & T8: Tender Act 1 Rewrite & Secret Moments, and Act 2–5 Map).
