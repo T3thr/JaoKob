@@ -1,8 +1,8 @@
 # ADR-P0-018: Visual Novel Design System, Layout Anchoring, and Anti-Slop Presentation Standards
 
-Status: **Accepted — binding design standard for Sprint 4 UI Overhaul and future frontend slices.**
+Status: **Superseded by [ADR-P0-019](./ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md) (Implementation Rejection on Runtime Playtest Feedback)**
 
-Date: 2026-10-15. Authority: **PO & Tech Lead Consensus (Playtest Feedback Review v1.1.0)**. Version: 1.1.0.
+Date: 2026-10-15. Authority: **PO & Tech Lead Consensus (Playtest Feedback Review v1.1.0)**. Version: 1.1.0 (Superseded).
 
 ## Context
 
