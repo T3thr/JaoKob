@@ -36,3 +36,13 @@ Progress is tracked in docs/changelog/2026-09/2026-09-07-1248-sprint-03-benchmar
 - Delivered source `3dfe56d242813df2372fa6c59bc34cf7180551e8`, pushed to `origin/feat/sprint-04-slice-03-log`, opened as [PR #15](https://github.com/T3thr/JaoKob/pull/15).
 - PO Acceptance: PR #15 reviewed and merged into `develop` at commit `f8ee156`. Unit test suite passes 935/935.
 - Next: Sprint 4 Slice 4 (Tasks T7: Tender Act 1 Rewrite & Secret Moments, and T8: Act 2–5 Map & S5 Grand Keepsake handoff).
+
+## Sprint 4 Slice 4 (2026-10-16)
+
+- PO authorizes T7 seven-scene tender Act1 rewrite, five natural items/full four-slot choice, three optional moments, and T8 Act2–5/Grand Keepsake map on feat/sprint-04-slice-04-narrative for PR16.
+- develop@ec12038 contains both required merges; T3thr identity and 935/935 baseline verified. Private references preserved.
+- Contract authored first in docs/design-system/act1-narrative-contract.md. Actual content3/schema2 candidate has28nodes/70dialogues/5items/3moments; archived2.1 bytes preserved. Normal entry stays explicitly2.1 until T9/T10 integration/art/migration in Slice5; candidate uses real application content port for verification.
+- New schema2 predicates and atomic story pouch effects reuse pure Core and Save2. Secrets use acknowledged semantic cursor/completedNodeIds, without additional save fields, timers or rewards.
+- Final source verification:990/990 unit cases (935 retained+55 new),0fail/cancel/skip/todo;974 candidate route witnesses cover28nodes/47edges;17schemas/10new shape cases/59Save2 cursors plus47Pouch and36legacy cases. Candidate browser6profiles/21captures and legacy12routes pass; installed action client two bursts inspected.
+- Screenshot inspection exposed inherited320px/200% HUD overlap and long missing-art slots. Header now wraps; image area reserves128px and slot fallback is concise. Reran browser/unit gates.
+- Final human editorial/PO/art/device/AT/performance approval remains open; T9/T10 normal-entry promotion/Intent art/cursor policy and T11 final acceptance remain in PR17. T8 records current plain adult shirt and S5 red-heart export work. No deploy/merge.

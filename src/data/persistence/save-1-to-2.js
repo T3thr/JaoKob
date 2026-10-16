@@ -28,6 +28,7 @@ export function migrateSave1To2(input) {
   if (!copied.valid) return failure("SAVE_INVALID_JSON");
   const envelope = copied.value;
   if (!validateSaveEnvelope(envelope).valid) return failure("SAVE_SCHEMA_INVALID");
+  if (envelope.saveFormatVersion === 2 && envelope.contentVersion === "3.0.0") return deepFreeze({ ok: true, value: { envelope, migrated: false } });
   if (envelope.contentVersion !== "2.1.0") return failure("CONTENT_VERSION_UNSUPPORTED");
   if (envelope.saveFormatVersion === 2) return deepFreeze({ ok: true, value: { envelope, migrated: false } });
   if (Object.hasOwn(envelope, "integrity")) return failure("SOURCE_INTEGRITY_UNSUPPORTED");

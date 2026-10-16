@@ -27,6 +27,7 @@ export const TH_SYSTEM_MESSAGES = Object.freeze({
   "pouch.memories": "ยังอยู่ในความทรงจำ",
   "pouch.remember": "ระลึกถึง {{name}}",
   "pouch.imageUnavailable": "ภาพยังไม่พร้อม คุณยังอ่านเรื่องราวของสิ่งนี้ได้",
+  "pouch.imageSlotUnavailable": "ไม่มีภาพ",
   "pouch.release": "วางลงและเก็บไว้ในความทรงจำ",
   "pouch.use": "ใช้ในฉากนี้",
   "pouch.unavailable": "ตอนนี้ดูความทรงจำได้ เมื่อถึงจังหวะพักที่เหมาะสมจึงค่อยวางลง",

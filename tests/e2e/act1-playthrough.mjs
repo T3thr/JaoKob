@@ -205,10 +205,10 @@ try {
   for (const fault of ["parse", "schema", "quota", "unavailable"]) {
     const { ctx, page } = await context();
     if (["parse", "schema"].includes(fault)) {
-      await page.route("**/packages/act-01.json", (route) => route.fulfill({ status: 200, contentType: "application/json", body: fault === "parse" ? "{" : '{"invalid":true}' }));
+      await page.route("**/compatibility/act-01-2.1.0.json", (route) => route.fulfill({ status: 200, contentType: "application/json", body: fault === "parse" ? "{" : '{"invalid":true}' }));
       await page.goto(`${origin}/index.html`); await page.locator('[data-jk-role="fatal-shell"]').waitFor();
       assert.equal(await page.evaluate((key) => localStorage.getItem(key), saveKey), null);
-      await page.unroute("**/packages/act-01.json");
+      await page.unroute("**/compatibility/act-01-2.1.0.json");
       await page.locator(`[data-jk-action="${fault === "parse" ? "reload-application" : "retry-render"}"]`).click(); await choice(page, "application.new-game").waitFor();
     } else {
       await ctx.addInitScript((fault) => {

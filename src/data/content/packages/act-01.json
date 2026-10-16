@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "1.2.0",
-  "contentVersion": "2.1.0",
+  "schemaVersion": "2.0.0",
+  "contentVersion": "3.0.0",
   "defaultLocale": "th",
   "supportedLocales": [
     "th"
@@ -365,7 +365,7 @@
         "id": "dialogue.act1.first-light",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "ก่อนโลกจะมีชื่อ โลกคือแสงที่ไหวอยู่เหนือผิวน้ำ และจังหวะคุ้นเคยที่ว่ายอยู่ข้างกัน"
+          "th": "เจ้ากบตื่นเพราะแสงเส้นหนึ่งแตะปลายหาง เหนือน้ำ ใบบัวขยับเปิดช่องเล็ก ๆ ให้เช้าลอดลงมา"
         },
         "delivery": {
           "emotion": "warm",
@@ -382,7 +382,7 @@
         "id": "dialogue.act1.water-roof",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "แสงเช้าลอดช่องระหว่างใบบัวลงมาเป็นริ้วอ่อน ๆ เมื่อเจ้ากบขยับหาง ริ้วเหล่านั้นก็แตกออก แล้วค่อยกลับมาประกบกันใหม่ เหมือนหลังคาที่ขยับให้ชีวิตเล็ก ๆ ผ่านไปได้"
+          "th": "ด้านใต้ใบมีเส้นสีเขียวแตกแขนง เจ้ากบลองว่ายตามเส้นหนึ่ง หางเล็กพาเลี้ยวกว้างไปหน่อยจนชนก้านบัวเบา ๆ"
         },
         "delivery": {
           "emotion": "curious",
@@ -399,7 +399,7 @@
         "id": "dialogue.act1.family-rhythm",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "ข้างหน้า แม่กบหยุดรออยู่ใกล้ก้านบัว ข้างหลัง พี่น้องว่ายตามกันบ้าง แซงกันบ้าง น้ำที่แต่ละตัวพัดผ่านแตะตัวเจ้ากบเบา ๆ จนรู้ได้ว่าใครยังอยู่ใกล้ แม้จะไม่ได้หันไปมอง"
+          "th": "แม่หยุดรอ พี่น้องที่ว่ายนำอยู่ก็วกกลับ ตัวหนึ่งแตะหางเจ้ากบแล้วค่อยว่ายออกไป คราวนี้ช้าพอให้ตามทัน"
         },
         "delivery": {
           "emotion": "warm",
@@ -416,7 +416,7 @@
         "id": "dialogue.act1.small-tail",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "หางเล็กยังพาว่ายเป็นเส้นตรงได้ไม่นานนัก เจ้ากบเลี้ยวช้าเกินไปนิดหนึ่งแล้วแตะกับใบอ่อน พี่น้องหยุดวนรอบ ๆ ไม่มีใครรีบไปไกลเกินกว่าที่จะตามทัน"
+          "th": "ใบอ่อนที่พาดข้างตัวเจ้ากบพับคลายออก แม่ใช้ปลายปากดุนขอบให้เข้าที่ แล้วรอจนเจ้ากบลองเลี้ยวเองได้ ใบพับเล็ก ๆ แนบตัวไปด้วย"
         },
         "delivery": {
           "emotion": "tender",
@@ -433,7 +433,7 @@
         "id": "dialogue.act1.warm-shallows",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "ตรงน้ำตื้นอุ่นกว่าตรงเงาเพียงเล็กน้อย กลิ่นดินชื้นอยู่ต่ำลงไป ส่วนด้านบนมีเสียงหยดน้ำกลิ้งจากขอบใบ สิ่งเล็กน้อยเหล่านี้ยังไม่ต้องมีชื่อ ก็เป็นที่คุ้นเคยได้"
+          "th": "พอพ้นเงาใบ น้ำอุ่นขึ้นนิดหนึ่ง พี่น้องว่ายเข้าเงาแล้วออกมารับแสง สลับกันจนเจ้ากบลองตามบ้าง"
         },
         "delivery": {
           "emotion": "warm",
@@ -450,7 +450,7 @@
         "id": "dialogue.act1.first-invitation",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "แม่กบขยับให้มีช่องว่างข้างราก เจ้ากบจะลองว่ายออกไปดูสิ่งที่อยู่รอบตัว หรืออยู่ฟังจังหวะเดิมอีกสักพักก็ได้ เช้าวันนี้มีที่ว่างให้ความอยากรู้เติบโตช้า ๆ"
+          "th": "แม่ขยับไปอยู่ข้างราก เว้นน้ำใสตรงกลางไว้ให้ลูก ๆ เช้านี้เจ้ากบจะลองดูอะไรใกล้ ๆ ก่อนก็ได้"
         },
         "delivery": {
           "emotion": "hopeful",
@@ -467,7 +467,7 @@
         "id": "dialogue.act1.observe-lily-light",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "ด้านใต้ใบบัวมีเส้นบาง ๆ แยกออกจากกันเหมือนทางน้ำขนาดจิ๋ว หยดหนึ่งกลิ้งอยู่ด้านบน ทำให้เงากลมใต้ใบเดินไปช้า ๆ เจ้ากบว่ายตามเงานั้นจนถึงขอบ"
+          "th": "หยดน้ำกลิ้งอยู่บนใบบัว เงาของมันเลื่อนผ่านเส้นใบลงมาถึงเจ้ากบ ร่างเล็กว่ายตามไปจนเงาหยุดที่ขอบ"
         },
         "delivery": {
           "emotion": "curious",
@@ -484,7 +484,7 @@
         "id": "dialogue.act1.observe-lily-shelter",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "พอพ้นเงา น้ำก็อุ่นขึ้นนิดหนึ่ง พอกลับเข้าไป แสงอ่อนลงอีกครั้ง ใบเดียวกันมีทั้งที่ให้มองออกไปและที่ให้หยุดพัก เจ้ากบลองจำความต่างด้วยผิวของตัวเอง"
+          "th": "เจ้ากบลองโผล่พ้นร่มใบ แสงแตะหลังจนอุ่น พอถอยกลับเข้ามา น้ำก็เย็นลงทันที มันค้างอยู่ตรงรอยต่อนั้นสักครู่"
         },
         "delivery": {
           "emotion": "warm",
@@ -501,7 +501,7 @@
         "id": "dialogue.act1.observe-lily-return",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "เหนือก้านใบมีฟองอากาศเม็ดเล็กค้างอยู่ เจ้ากบมองมันสั่นก่อนถอยกลับไปรวมกับจังหวะของครอบครัว ใบบัวไม่เคลื่อนตาม แต่ร่มของมันยังอยู่ที่เดิม"
+          "th": "พี่น้องตัวหนึ่งว่ายเข้ามาข้าง ๆ แล้วหยุดด้วยกัน ก่อนทั้งคู่จะหันกลับไปหาแม่ ร่มใบยังทอดอยู่บนทางที่เพิ่งผ่านมา"
         },
         "delivery": {
           "emotion": "neutral",
@@ -518,7 +518,7 @@
         "id": "dialogue.act1.observe-roots-touch",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "รากบัวทอดลงไปในสีขุ่นของน้ำ เมื่อเจ้ากบเข้าใกล้ รากเส้นหนึ่งแตะข้างตัวเบาจนแทบไม่รู้สึก ทุกครั้งที่ผิวน้ำไหว ปลายรากจะสั่นตาม แต่โคนยังอยู่ในดิน"
+          "th": "ปลายรากเฉียดข้างตัวเจ้ากบ มันสะดุ้งนิดหนึ่งแล้วหยุดว่าย รากโยกช้ากว่าคลื่นที่ผ่านหลังไป"
         },
         "delivery": {
           "emotion": "curious",
@@ -535,7 +535,7 @@
         "id": "dialogue.act1.observe-roots-listen",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "เจ้ากบหยุดขยับหางสักครู่ ความสั่นจากรากต่างจากคลื่นที่ผ่านตัว คลื่นมาแล้วไป ส่วนรากค่อย ๆ กลับสู่จังหวะเดิม ร่างเล็กลองอยู่ฟังจนแยกสองอย่างนั้นออก"
+          "th": "เจ้ากบปล่อยหางให้นิ่ง ลองรับความไหวทีละระลอก ตรงโคนราก น้ำเบาลงจนได้ยินเสียงหยดจากใบข้างบน"
         },
         "delivery": {
           "emotion": "neutral",
@@ -552,7 +552,7 @@
         "id": "dialogue.act1.observe-roots-return",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "เมื่อว่ายกลับ เจ้ากบไม่ต้องจำรากทุกเส้น เพียงรู้ว่าความนิ่งหน้าตาอย่างไรในน้ำที่ขยับอยู่ ก็มีสิ่งหนึ่งให้กลับมาลองฟังใหม่ได้"
+          "th": "แม่ยังอยู่ใกล้ก้านเดิม เจ้ากบหันกลับไปหา พอลองหยุดว่ายอีกครั้ง มันจำความนิ่งข้างรากได้แล้ว"
         },
         "delivery": {
           "emotion": "hopeful",
@@ -569,7 +569,7 @@
         "id": "dialogue.act1.observe-shadows-shape",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "เงาบนผิวน้ำยาวขึ้นแล้วหดลงตามลม เจ้ากบมองเห็นฟ้าเป็นช่องเล็ก ๆ ระหว่างเงา บางครั้งช่องนั้นปิด บางครั้งก็เปิดกว้างจนแสงแตะพื้นโคลน"
+          "th": "เงายาวพาดผ่านช่องฟ้า เจ้ากบหดตัวเข้าใต้ขอบใบ รอจนเงานั้นแยกเป็นริ้วตามลม"
         },
         "delivery": {
           "emotion": "curious",
@@ -586,7 +586,7 @@
         "id": "dialogue.act1.observe-shadows-pause",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "ร่างเล็กหยุดอยู่ใต้ขอบใบ ปล่อยให้เงาผ่านไปก่อน แล้วจึงขยับตามแสงที่กลับมา ไม่มีอะไรต้องรีบตามให้ทันทั้งหมด การมองเฉย ๆ ก็ทำให้รู้จักน้ำตรงนี้เพิ่มขึ้น"
+          "th": "แสงกลับมาแตะพื้นโคลน เจ้ากบยังรออีกนิด แล้วจึงขยับออกไปดู ไม่ต้องไล่ตามสิ่งที่เพิ่งผ่านให้ทัน"
         },
         "delivery": {
           "emotion": "warm",
@@ -603,7 +603,7 @@
         "id": "dialogue.act1.observe-shadows-return",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "ด้านที่ครอบครัวรออยู่มีแสงแตกเป็นวงสั้น ๆ เจ้ากบหันไปตามจังหวะเหล่านั้น ลมพาเงาไปอีกทาง แต่ไม่จำเป็นต้องว่ายตามลมทุกครั้ง"
+          "th": "ทางที่แม่รออยู่มีวงน้ำเล็ก ๆ ซ้อนกัน เจ้ากบเลี้ยวกลับตามวงเหล่านั้น คราวนี้ปลายหางไม่ชนก้านบัว"
         },
         "delivery": {
           "emotion": "neutral",
@@ -620,7 +620,7 @@
         "id": "dialogue.act1.mother-roots",
         "speakerCharacterId": "character.mother",
         "text": {
-          "th": "ถ้าน้ำไหว ให้ฟังรากบัวนะ รากจำทางกลับได้ดีกว่าคลื่น"
+          "th": "ถ้าน้ำแรง หยุดข้างรากก่อนนะ ตรงนั้นน้ำเบา ค่อยไปต่อก็ได้"
         },
         "delivery": {
           "emotion": "tender",
@@ -637,7 +637,7 @@
         "id": "dialogue.act1.observe-mother-voice",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "คำของแม่กบมาพร้อมน้ำที่ขยับเป็นจังหวะต่ำ ๆ เจ้ากบยังไม่เข้าใจทางทุกสาย แต่จำช่วงเงียบระหว่างคำได้ ช่วงนั้นยาวพอให้หันไปมองรากด้วยตัวเอง"
+          "th": "แม่สื่อจังหวะนั้นแล้วนิ่งรอ เจ้ากบลองทำตาม หางที่เกร็งอยู่คลายลงทีละน้อย"
         },
         "delivery": {
           "emotion": "warm",
@@ -654,7 +654,7 @@
         "id": "dialogue.act1.observe-mother-return",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "แม่กบรอให้เจ้ากบว่ายกลับมาใกล้แล้วจึงขยับต่อ ระยะห่างเล็ก ๆ ไม่ได้หายไปในทันที มันค่อยสั้นลงตามหางที่เริ่มรู้จังหวะของตัวเอง"
+          "th": "พอเจ้ากบว่ายกลับ แม่จึงขยับต่อ เธอหยุดอีกครั้งตรงก้านถัดไป รอจนเงาเล็ก ๆ มาถึงข้างกัน"
         },
         "delivery": {
           "emotion": "tender",
@@ -671,7 +671,7 @@
         "id": "dialogue.act1.home-mother",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "เจ้ากบว่ายตามจังหวะของแม่กบ อยู่ใกล้พอรับความไหวจากขาหลัง แต่มีช่องว่างพอให้เลี้ยวด้วยตัวเอง ความอุ่นของเช้าติดอยู่ในระยะนั้น"
+          "th": "เจ้ากบตามแม่ผ่านช่องระหว่างก้านบัว แม่เอียงตัวหลบใบอ่อนให้ แล้วรออยู่ปลายช่องจนลูกว่ายพ้น"
         },
         "delivery": {
           "emotion": "warm",
@@ -688,7 +688,7 @@
         "id": "dialogue.act1.home-roots",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "เจ้ากบว่ายช้าลงข้างราก ปล่อยให้เสียงของครอบครัวอยู่ด้านหลังสักครู่ รากสั่นน้อยกว่าผิวน้ำ ความคุ้นเคยจึงมีทั้งเสียงที่เรียกและสิ่งที่รอให้เข้าไปฟัง"
+          "th": "เจ้ากบหยุดข้างรากเส้นที่เพิ่งรู้จัก แม่กับพี่น้องอยู่ไม่ไกล มันลองฟังน้ำเบา ๆ ตรงนี้ ก่อนว่ายตามไป"
         },
         "delivery": {
           "emotion": "curious",
@@ -705,7 +705,7 @@
         "id": "dialogue.act1.home-siblings",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "เจ้ากบตามวงน้ำของพี่น้องไปแล้ววกกลับ หางเล็กหลายหางทำให้แสงใต้ใบแตกเป็นประกาย ไม่มีใครชนะรอบว่ายนี้ ทุกตัวเพียงวนกลับมาพบกัน"
+          "th": "พี่น้องดุนฟองอากาศผ่านหน้าเจ้ากบ มันรีบตามจนฟองแตก ทุกตัวหยุดอยู่ในวงแสง แล้วเริ่มว่ายวนใหม่ด้วยกัน"
         },
         "delivery": {
           "emotion": "warm",
@@ -722,7 +722,7 @@
         "id": "dialogue.act1.home-default",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "เจ้ากบอยู่ท่ามกลางราก เงา และจังหวะว่ายที่คุ้นเคย ยังไม่ต้องเลือกสิ่งใดมาอธิบายความอุ่นทั้งหมด น้ำรอบตัวมีที่ว่างให้รับรู้ได้ทีละอย่าง"
+          "th": "เจ้ากบอยู่ใต้ใบใหญ่ แม่รอด้านหนึ่ง พี่น้องวนกลับมาอีกด้าน มีทางเล็ก ๆ ให้ขยับเข้าไปใกล้ได้เสมอ"
         },
         "delivery": {
           "emotion": "warm",
@@ -739,7 +739,7 @@
         "id": "dialogue.act1.home-together",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "เมื่อว่ายมาบรรจบกันใต้ใบใหญ่ เงาของทุกตัวทับกันเพียงครู่เดียวแล้วแยกออก เจ้ากบเริ่มรู้ว่าการอยู่ด้วยกันไม่จำเป็นต้องขยับไปเหมือนกันทุกจังหวะ"
+          "th": "เมื่อทุกตัวมาถึงใต้ก้านเดียวกัน แม่จึงพาว่ายต่อ หางเล็กหลายหางกวนแสงเป็นฝอย เจ้ากบตามอยู่กลางวงนั้น"
         },
         "delivery": {
           "emotion": "warm",
@@ -756,7 +756,7 @@
         "id": "dialogue.act1.home-before-weather",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "แสงยังอยู่บนผิวน้ำ แต่ด้านหนึ่งของใบบัวพลิกขึ้นนานกว่าทุกครั้ง แม่กบหยุดขยับ พี่น้องเข้ามาใกล้ เสียงจากเหนือบึงลดต่ำลงจนรู้สึกได้ตามผิว"
+          "th": "หยดหนึ่งตกแรงจนใบเหนือหัวสั่น แม่หยุด พี่น้องเข้ามาใกล้กัน ใบบัวด้านนอกพลิกขึ้น เผยฟ้าที่มืดลงไปแล้ว"
         },
         "delivery": {
           "emotion": "neutral",
@@ -773,7 +773,7 @@
         "id": "dialogue.act1.storm-wind",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "ลมเปลี่ยนทิศ ใบบัวที่เคยซ้อนเป็นหลังคาแยกออก น้ำใต้ตัวเจ้ากบยกสูงขึ้นแล้วไหลกลับเร็วกว่าเดิม รากที่อยู่ข้างกายเมื่อครู่ห่างออกไปอย่างไม่คุ้นเคย"
+          "th": "ลมพับขอบใบจนหลังคาสีเขียวแยกออก น้ำยกตัวใต้ท้องเจ้ากบ มันรีบขยับหาง แต่ก้านบัวข้างหน้าถอยห่างเร็วกว่าที่ว่ายไปถึง"
         },
         "delivery": {
           "emotion": "afraid",
@@ -790,7 +790,7 @@
         "id": "dialogue.act1.storm-rain",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "ฝนลงมาทีละหยด ก่อนเสียงแต่ละหยดจะต่อกันจนแยกไม่ออก แสงบนผิวน้ำกระจัดกระจาย เจ้ากบพยายามอยู่ใกล้จังหวะที่จำได้ แต่กระแสน้ำหลายสายมาถึงพร้อมกัน"
+          "th": "ฝนลงถี่ เสียงหยดที่เคยนับแยกกันได้กลายเป็นเสียงเดียว เจ้ากบหันหาวงน้ำของแม่ กระแสอีกสายก็พามันเลี้ยวออกไป"
         },
         "delivery": {
           "emotion": "urgent",
@@ -807,7 +807,7 @@
         "id": "dialogue.act1.storm-separation",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "ชั่วขณะหนึ่งยังรู้สึกถึงน้ำที่แม่กบขยับ ถัดมาเหลือเพียงคลื่นอีกลูก พี่น้องอยู่พ้นเงาใบไหนสักแห่ง เจ้ากบมองไม่เห็นไกลไปกว่าน้ำขุ่นที่หมุนอยู่รอบตัว"
+          "th": "เงาพี่น้องหายหลังน้ำขุ่น เจ้ากบว่ายกลับได้เพียงนิดเดียวก่อนต้องหยุดต้านกระแส มันยังไม่รู้ว่าทุกตัวถูกพาไปทางไหน"
         },
         "delivery": {
           "emotion": "afraid",
@@ -824,7 +824,7 @@
         "id": "dialogue.act1.storm-no-fault",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "พายุไม่ได้รอฟังว่าชีวิตเล็ก ๆ อยากไปทางไหน กระแสน้ำพัดผ่านทั้งราก ใบ และช่องว่างระหว่างกัน ไม่มีจังหวะว่ายใดในเช้านั้นเลือกให้ลมมาถึง"
+          "th": "ลมแรงมาถึงทั้งบึง ไม่ว่าเช้านั้นเจ้ากบจะว่ายตามแม่ อยู่ฟังราก หรือเล่นกับพี่น้อง น้ำก็ยกตัวขึ้นเหมือนกัน"
         },
         "delivery": {
           "emotion": "tender",
@@ -841,7 +841,7 @@
         "id": "dialogue.act1.storm-drifting",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "เจ้ากบพยายามวางตัวไปกับน้ำเท่าที่ทำได้ ปลายใบเสียดผ่านแล้วลอยห่าง เสียงคุ้นเคยถูกเสียงฝนกลบ จนไม่รู้ว่าควรหันไปทางไหนก่อน"
+          "th": "หางเล็กเริ่มล้า เจ้ากบเลิกฝืนว่ายตรงเข้าหาน้ำแรง แล้วเอียงตัวตามขอบกระแส รอจนผ่านกิ่งที่หมุนอยู่ข้างหน้า"
         },
         "delivery": {
           "emotion": "lonely",
@@ -858,7 +858,7 @@
         "id": "dialogue.act1.storm-first-breath",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "เมื่อแรงน้ำเบาลง ร่างเล็กมาอยู่ข้างรากที่ไม่คุ้นชื่อ ผิวน้ำตรงช่องแคบยังเปิดอยู่ เจ้ากบค่อย ๆ รับอากาศ เสียงฝนยังมาเป็นระลอก แต่มีช่องเงียบให้ได้ยินลมหายใจของตัวเองแล้ว"
+          "th": "ข้างรากที่ไม่คุ้นตา น้ำเบาลง เจ้ากบหยุดอยู่ในช่องนั้น รับน้ำผ่านตัวช้า ๆ ให้จังหวะหายใจกลับมา ก่อนมองหาที่กำบังต่อ"
         },
         "delivery": {
           "emotion": "relieved",
@@ -875,7 +875,7 @@
         "id": "dialogue.act1.voice-of-home",
         "speakerCharacterId": "character.jaokob",
         "text": {
-          "th": "เสียงของบ้านอยู่ตรงไหน หรือเสียงของเรากำลังไหลไปไกลกว่าเดิม"
+          "th": "แม่อยู่ทางไหนนะ เราหยุดฟังตรงนี้ก่อนได้ไหม"
         },
         "delivery": {
           "emotion": "lonely",
@@ -892,7 +892,7 @@
         "id": "dialogue.act1.coping-call",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "เจ้ากบเรียกจนเสียงบางลง แต่การเรียกนั้นยืนยันว่าบ้านเคยมีอยู่จริง"
+          "th": "เจ้ากบขยับตัวส่งจังหวะคุ้นเคยออกไปอีกครั้ง น้ำเย็นไหวกลับมา แต่ยังไม่มีจังหวะของครอบครัวตอบรับ"
         },
         "delivery": {
           "emotion": "tender",
@@ -909,7 +909,7 @@
         "id": "dialogue.act1.coping-call-pause",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "ไม่มีเสียงคุ้นเคยตอบกลับมาในตอนนี้ เจ้ากบหยุดฟังและค่อย ๆ พักหาง น้ำยังเย็นอยู่ แต่ช่องอากาศตรงหน้าพอให้ตั้งหลักได้ทีละลมหายใจ"
+          "th": "การฝืนหางให้อยู่กับที่ทำให้ตัวล้า เสียงฝนยังกลบสิ่งที่รอฟัง เจ้ากบจึงหยุดเรียกแล้วค่อยเลื่อนเข้าใต้ราก พักอยู่ตรงที่น้ำเบากว่า"
         },
         "delivery": {
           "emotion": "relieved",
@@ -926,7 +926,7 @@
         "id": "dialogue.act1.coping-safety",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "เจ้ากบหาช่องหายใจก่อน แล้วจึงปล่อยให้ความคิดถึงตามมาทัน"
+          "th": "เจ้ากบค่อย ๆ แทรกตัวเข้าในโพรงราก กระแสไม่ดึงหางแรงเท่าข้างนอกแล้ว มันปล่อยตัวพักโดยยังหันมองทางน้ำเดิม"
         },
         "delivery": {
           "emotion": "tender",
@@ -943,7 +943,7 @@
         "id": "dialogue.act1.coping-safety-pause",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "ในโพรงเล็ก แรงน้ำเบากว่าด้านนอก เจ้ากบพักตัวอยู่ครู่หนึ่ง เสียงฝนไกลออกไปพอให้ได้ยินความคิดถึง การหยุดหอบทำให้มีที่ว่างรับฟังมัน"
+          "th": "ร่างกายเริ่มหายเกร็ง แต่พอรอบตัวเงียบลง ความคิดถึงก็ชัดขึ้น เจ้ากบอยู่กับมันครู่หนึ่ง ก่อนขยับไปหาช่องแสง"
         },
         "delivery": {
           "emotion": "relieved",
@@ -960,7 +960,7 @@
         "id": "dialogue.act1.coping-default",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "เจ้ากบพักอยู่ตรงน้ำที่ไหลช้าลง ความเงียบยังไม่มีคำตอบ แต่ร่างเล็กค่อย ๆ พบจังหวะที่จะรับอากาศอีกครั้ง"
+          "th": "เจ้ากบหยุดในน้ำที่ไหลช้า รับรู้แรงรากข้างตัว แล้วลองขยับหางอีกครั้ง ทางข้างหน้ายังมีช่องให้ผ่าน"
         },
         "delivery": {
           "emotion": "tender",
@@ -977,7 +977,7 @@
         "id": "dialogue.act1.leaf-colour",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "สิ่งที่ลอยมาเป็นเศษใบบัว ขอบด้านหนึ่งขาดเป็นริ้ว อีกด้านยังโค้งมน สีเขียวอ่อนพลิกขึ้นรับแสงอยู่ครู่หนึ่ง ก่อนน้ำจะหันมันกลับมา"
+          "th": "สีเขียวชิ้นหนึ่งติดอยู่ตรงปลายราก ขอบขาดเป็นริ้ว พอน้ำไหว ด้านใต้ที่มีเส้นใบบาง ๆ ก็พลิกมาทางเจ้ากบ"
         },
         "delivery": {
           "emotion": "curious",
@@ -994,7 +994,7 @@
         "id": "dialogue.act1.leaf-memory",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "ใบบัวชิ้นเล็กไม่ใช่บ้านทั้งหลัง แต่มันยังจำสีของบ้านได้"
+          "th": "เจ้ากบจำแสงที่เคยลอดเส้นใบได้ จำแม่ที่หยุดรอปลายช่องแคบ และหางพี่น้องที่วกกลับมารับ"
         },
         "delivery": {
           "emotion": "tender",
@@ -1011,7 +1011,7 @@
         "id": "dialogue.act1.leaf-uncertainty",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "เจ้ากบไม่รู้ว่ามันหลุดมาจากใบไหนในบึง เส้นบาง ๆ บนใบทอคล้ายเส้นที่เคยมองใต้หลังคาสีเขียว ความคุ้นเคยเกิดขึ้นได้ แม้จะยังหาทางกลับไม่พบ"
+          "th": "มันไม่รู้ว่าเศษนี้มาจากใบบัวใบไหน จึงยังบอกทางกลับไม่ได้ เจ้ากบแตะขอบใบแล้วปล่อยให้มันลอยอยู่ใกล้ ๆ อีกครู่"
         },
         "delivery": {
           "emotion": "lonely",
@@ -1028,7 +1028,7 @@
         "id": "dialogue.act1.leaf-space",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "น้ำตรงนี้ไม่เร่งให้เลือกทันที เจ้ากบปล่อยให้ใบวนอยู่ใกล้ตัวสักรอบ จะเก็บสีเขียวชิ้นนี้ไว้ หรือมองมันเดินทางต่อก็ได้ สิ่งที่เคยรู้สึกไม่ต้องหายไปพร้อมการตัดสินใจครั้งนี้"
+          "th": "น้ำตรงนี้ช้าพอให้เลือก จะพับสีเขียวไว้ข้างตัว หรือขยับรากเปิดทางให้มันลอยต่อ ภาพแม่ที่รออยู่ไม่ต้องรีบจางตามไป"
         },
         "delivery": {
           "emotion": "tender",
@@ -1045,7 +1045,7 @@
         "id": "dialogue.act1.rest-rain",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "ฝนเหลือเป็นหยดห่าง ๆ ช่องว่างระหว่างหยดกว้างขึ้นจนเสียงของน้ำกลับมาแยกกันได้ เจ้ากบอยู่ข้างราก ไม่ต้องขยับตามทุกเสียงเหมือนเมื่อครู่"
+          "th": "ฝนเหลือเป็นหยดห่าง ๆ เจ้ากบนอนพยุงตัวในน้ำตื้นข้างราก หยดหนึ่งตกลงมา แล้วเงียบไปนานพอให้ได้ยินหยดถัดไป"
         },
         "delivery": {
           "emotion": "relieved",
@@ -1062,7 +1062,7 @@
         "id": "dialogue.act1.rest-breath",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "ร่างเล็กปล่อยแรงที่เกร็งค้างไปทีละน้อย หางวางอยู่ในน้ำเย็น การหายใจหนึ่งครั้งไม่ได้ตอบคำถามทั้งหมด แต่มันทำให้มีที่ว่างสำหรับครั้งต่อไป"
+          "th": "มันลองปล่อยหางที่เกร็งค้างมาตลอด น้ำรับน้ำหนักร่างเล็กไว้ เจ้ากบหยุดพักจนจังหวะหายใจค่อย ๆ สม่ำเสมอ"
         },
         "delivery": {
           "emotion": "tender",
@@ -1079,7 +1079,7 @@
         "id": "dialogue.act1.rest-memory",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "จังหวะว่ายของครอบครัวยังกลับมาในความจำ บางช่วงชัด บางช่วงบางเหมือนแสงใต้ใบ เจ้ากบยังไม่รู้ว่ากระแสน้ำพาแต่ละชีวิตไปถึงไหน คืนนี้จึงยังไม่ต้องหาคำตอบให้ครบ"
+          "th": "ในความจำ แม่ยังรออยู่ปลายก้านบัว พี่น้องยังวกกลับมารับ คืนนี้เจ้ากบยังไม่รู้ว่าทุกตัวอยู่ที่ไหน มันคิดถึงได้โดยไม่ต้องหาคำตอบเดี๋ยวนี้"
         },
         "delivery": {
           "emotion": "lonely",
@@ -1096,7 +1096,7 @@
         "id": "dialogue.act1.rest-body",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "ใต้ผิวของร่างเล็กมีความตึงแผ่ว ๆ ที่ไม่คุ้นเคย เงาซึ่งไหวตามน้ำดูต่างจากตอนเช้าเพียงนิดเดียว เจ้ากบยังใช้หางเดิมพยุงตัว แล้วปล่อยให้ความรู้สึกใหม่นั้นอยู่เงียบ ๆ"
+          "th": "ใต้ผิวมีความตึงเล็กน้อยที่ไม่เคยรู้สึก เงาข้างรากดูต่างจากตอนเช้าเพียงนิด เจ้ากบขยับหางเดิมให้สบาย แล้วปล่อยร่างพักต่อ"
         },
         "delivery": {
           "emotion": "curious",
@@ -1113,7 +1113,7 @@
         "id": "dialogue.act1.rest-shelter",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "รากข้างกายรับแรงน้ำส่วนหนึ่งไว้ ความเงียบตรงนี้จึงไม่ว่างเปล่าทั้งหมด ยังมีอากาศ มีที่ให้วางตัว และมีความอุ่นเล็กน้อยจากแสงที่ลอดกลับมา"
+          "th": "รากรับแรงน้ำไว้ด้านหนึ่ง อีกด้านยังเปิดออกสู่ช่องใส เจ้ากบมองทางนั้นจนแน่ใจ แล้วจึงกลับมานิ่งในที่พักของตัวเอง"
         },
         "delivery": {
           "emotion": "hopeful",
@@ -1130,10 +1130,418 @@
         "id": "dialogue.act1.rest-tomorrow",
         "speakerCharacterId": "character.narrator",
         "text": {
-          "th": "เจ้ากบพักอยู่ตรงนั้นนานเท่าที่ต้องการ ทางข้างหน้ายังมองเห็นไม่ชัด แต่ร่างเล็กไม่จำเป็นต้องว่ายไปถึงมันในลมหายใจเดียว"
+          "th": "ก่อนหลับตา เจ้ากบลองขยับเข้าเงาอีกนิด คืนนี้ไปได้เท่านี้ก็พักตรงนี้ก่อน พรุ่งนี้ค่อยดูว่าช่องแสงจะพาไปทางไหน"
         },
         "delivery": {
           "emotion": "hopeful",
+          "pace": "slow"
+        },
+        "accessibilityDescription": {
+          "th": "เสียงผู้บรรยาย"
+        },
+        "tags": [
+          "role.narration"
+        ]
+      },
+      {
+        "id": "dialogue.act1.secret-dew-1",
+        "speakerCharacterId": "character.narrator",
+        "text": {
+          "th": "แสงเม็ดหนึ่งติดอยู่บนหินเม็ดเล็กข้างโคนราก เจ้ากบเอียงตัวดู แสงก็เลื่อนไปอีกด้าน พี่น้องที่ตามมาหยุดมองด้วย"
+        },
+        "delivery": {
+          "emotion": "warm",
+          "pace": "slow"
+        },
+        "accessibilityDescription": {
+          "th": "เสียงผู้บรรยาย"
+        },
+        "tags": [
+          "role.narration"
+        ]
+      },
+      {
+        "id": "dialogue.act1.secret-dew-2",
+        "speakerCharacterId": "character.narrator",
+        "text": {
+          "th": "แม่ว่ายพ้นใบให้แสงลงมาถึงหิน แล้วอยู่นิ่ง ๆ พอลมขยับใบ ประกายนั้นก็หาย ทุกตัวรออยู่จนมันกลับมา"
+        },
+        "delivery": {
+          "emotion": "warm",
+          "pace": "slow"
+        },
+        "accessibilityDescription": {
+          "th": "เสียงผู้บรรยาย"
+        },
+        "tags": [
+          "role.narration"
+        ]
+      },
+      {
+        "id": "dialogue.act1.secret-dew-3",
+        "speakerCharacterId": "character.narrator",
+        "text": {
+          "th": "เจ้ากบลองดุนหินให้พลิก ด้านที่พ้นแสงเป็นสีหม่นธรรมดา พอหันกลับ ประกายก็อยู่ตรงนั้นอีกครั้ง แม่ยังไม่รีบพาว่ายไปไหน"
+        },
+        "delivery": {
+          "emotion": "warm",
+          "pace": "slow"
+        },
+        "accessibilityDescription": {
+          "th": "เสียงผู้บรรยาย"
+        },
+        "tags": [
+          "role.narration"
+        ]
+      },
+      {
+        "id": "dialogue.act1.dew-return-1",
+        "speakerCharacterId": "character.narrator",
+        "text": {
+          "th": "แม่ขยับรออยู่ข้างก้านเดิม เจ้ากบว่ายกลับเข้าไปในวงน้ำของครอบครัว มีที่ให้แทรกเข้าไปข้าง ๆ พอดี"
+        },
+        "delivery": {
+          "emotion": "warm",
+          "pace": "slow"
+        },
+        "accessibilityDescription": {
+          "th": "เสียงผู้บรรยาย"
+        },
+        "tags": [
+          "role.narration"
+        ]
+      },
+      {
+        "id": "dialogue.act1.secret-lotus-1",
+        "speakerCharacterId": "character.narrator",
+        "text": {
+          "th": "เปลือกเมล็ดบัวเล็กติดอยู่ในง่ามราก พี่น้องตัวหนึ่งใช้ปลายปากดุน มันแตะก้านแห้งเบา ๆ แล้วลอยกลับมาตามน้ำ"
+        },
+        "delivery": {
+          "emotion": "warm",
+          "pace": "slow"
+        },
+        "accessibilityDescription": {
+          "th": "เสียงผู้บรรยาย"
+        },
+        "tags": [
+          "role.narration"
+        ]
+      },
+      {
+        "id": "dialogue.act1.secret-lotus-2",
+        "speakerCharacterId": "character.narrator",
+        "text": {
+          "th": "เจ้ากบเข้าไปลองบ้าง เปลือกหมุนครึ่งรอบก่อนแตะก้านเดิม พี่น้องรอให้วงน้ำจาง แล้วจึงผลัดกันดุนอีกครั้ง"
+        },
+        "delivery": {
+          "emotion": "warm",
+          "pace": "slow"
+        },
+        "accessibilityDescription": {
+          "th": "เสียงผู้บรรยาย"
+        },
+        "tags": [
+          "role.narration"
+        ]
+      },
+      {
+        "id": "dialogue.act1.secret-lotus-3",
+        "speakerCharacterId": "character.narrator",
+        "text": {
+          "th": "แม้ไม่มีเสียงชัด น้ำที่กระเพื่อมก็แตะถึงตัวเจ้ากบเป็นช่วง ๆ มันหยุดรอได้แล้ว โดยไม่รีบแทรกเข้าไปในจังหวะของอีกตัว"
+        },
+        "delivery": {
+          "emotion": "warm",
+          "pace": "slow"
+        },
+        "accessibilityDescription": {
+          "th": "เสียงผู้บรรยาย"
+        },
+        "tags": [
+          "role.narration"
+        ]
+      },
+      {
+        "id": "dialogue.act1.lotus-return-1",
+        "speakerCharacterId": "character.narrator",
+        "text": {
+          "th": "แม่ขยับรออยู่ข้างก้านเดิม เจ้ากบว่ายกลับเข้าไปในวงน้ำของครอบครัว มีที่ให้แทรกเข้าไปข้าง ๆ พอดี"
+        },
+        "delivery": {
+          "emotion": "warm",
+          "pace": "slow"
+        },
+        "accessibilityDescription": {
+          "th": "เสียงผู้บรรยาย"
+        },
+        "tags": [
+          "role.narration"
+        ]
+      },
+      {
+        "id": "dialogue.act1.secret-rain-1",
+        "speakerCharacterId": "character.narrator",
+        "text": {
+          "th": "กลีบบัวสีจางวางค้างอยู่บนราก ฝนหยดหนึ่งตกใกล้ ๆ แต่กลีบเพียงสั่น ไม่ถูกพัดหายไปเหมือนตอนพายุ"
+        },
+        "delivery": {
+          "emotion": "warm",
+          "pace": "slow"
+        },
+        "accessibilityDescription": {
+          "th": "เสียงผู้บรรยาย"
+        },
+        "tags": [
+          "role.narration"
+        ]
+      },
+      {
+        "id": "dialogue.act1.secret-rain-2",
+        "speakerCharacterId": "character.narrator",
+        "text": {
+          "th": "เจ้ากบหยุดรอดูอีกหยด กลิ่นฝนยังอยู่ คราวนี้มีช่องเงียบคั่นนานพอให้มันคลายหางแล้วพัก"
+        },
+        "delivery": {
+          "emotion": "warm",
+          "pace": "slow"
+        },
+        "accessibilityDescription": {
+          "th": "เสียงผู้บรรยาย"
+        },
+        "tags": [
+          "role.narration"
+        ]
+      },
+      {
+        "id": "dialogue.act1.secret-rain-3",
+        "speakerCharacterId": "character.narrator",
+        "text": {
+          "th": "แสงเล็ก ๆ ตกบนปลายกลีบ เจ้ากบขยับเข้าไปแตะด้วยปลายปาก แล้วถอยกลับมานิ่งข้างราก ตรงนี้เลือกหยุดดูได้นานเท่าที่ต้องการ"
+        },
+        "delivery": {
+          "emotion": "warm",
+          "pace": "slow"
+        },
+        "accessibilityDescription": {
+          "th": "เสียงผู้บรรยาย"
+        },
+        "tags": [
+          "role.narration"
+        ]
+      },
+      {
+        "id": "dialogue.act1.rain-return-1",
+        "speakerCharacterId": "character.narrator",
+        "text": {
+          "th": "เจ้ากบขยับกลับสู่น้ำตื้น รากยังรับแรงน้ำไว้ด้านนอก มันพักหางก่อนจะเลือกว่าพอแล้วหรืออยากดูอะไรอีก"
+        },
+        "delivery": {
+          "emotion": "warm",
+          "pace": "slow"
+        },
+        "accessibilityDescription": {
+          "th": "เสียงผู้บรรยาย"
+        },
+        "tags": [
+          "role.narration"
+        ]
+      },
+      {
+        "id": "dialogue.act1.river-discovery-1",
+        "speakerCharacterId": "character.narrator",
+        "text": {
+          "th": "เปลือกหอยว่างอยู่ในน้ำตื้น รอยโค้งบนผิววนเข้าหาจุดเล็ก ๆ เจ้ากบหยุดมองจนหยดฝนกลิ้งพ้นขอบ"
+        },
+        "delivery": {
+          "emotion": "warm",
+          "pace": "slow"
+        },
+        "accessibilityDescription": {
+          "th": "เสียงผู้บรรยาย"
+        },
+        "tags": [
+          "role.narration"
+        ]
+      },
+      {
+        "id": "dialogue.act1.river-discovery-2",
+        "speakerCharacterId": "character.narrator",
+        "text": {
+          "th": "มันลองแตะด้วยปลายปาก เปลือกพลิกแล้วนิ่งอยู่บนโคลน จะเก็บไว้ดูใกล้ ๆ ก็ได้ แต่ใบพับข้างตัวอาจเต็มแล้ว ตรงนี้มีเวลาค่อย ๆ เลือก"
+        },
+        "delivery": {
+          "emotion": "warm",
+          "pace": "slow"
+        },
+        "accessibilityDescription": {
+          "th": "เสียงผู้บรรยาย"
+        },
+        "tags": [
+          "role.narration"
+        ]
+      },
+      {
+        "id": "dialogue.act1.river-return-1",
+        "speakerCharacterId": "character.narrator",
+        "text": {
+          "th": "หยดฝนกลิ้งจากปลายราก เจ้ากบกลับมาสู่น้ำตื้น ไม่มีอะไรเร่งให้เปลี่ยนใจ มันเลือกพักต่อได้เลย"
+        },
+        "delivery": {
+          "emotion": "warm",
+          "pace": "slow"
+        },
+        "accessibilityDescription": {
+          "th": "เสียงผู้บรรยาย"
+        },
+        "tags": [
+          "role.narration"
+        ]
+      },
+      {
+        "id": "dialogue.act1.rest-memory-1",
+        "speakerCharacterId": "character.narrator",
+        "text": {
+          "th": "เจ้ากบอยู่กับภาพนั้นอีกครู่ แล้วเลื่อนตัวเข้าเงาราก น้ำค่อย ๆ รับน้ำหนักหางที่ล้าไว้"
+        },
+        "delivery": {
+          "emotion": "warm",
+          "pace": "slow"
+        },
+        "accessibilityDescription": {
+          "th": "เสียงผู้บรรยาย"
+        },
+        "tags": [
+          "role.narration"
+        ]
+      },
+      {
+        "id": "dialogue.act1.memory-held-1",
+        "speakerCharacterId": "character.narrator",
+        "text": {
+          "th": "เจ้ากบแตะขอบใบสีเขียวในรอยพับ สีที่เคยมองจากใต้ใบบัวอยู่ใกล้แค่นี้ มันนึกถึงแม่ที่รอจนลูกว่ายผ่านช่องแคบได้เอง"
+        },
+        "delivery": {
+          "emotion": "warm",
+          "pace": "slow"
+        },
+        "accessibilityDescription": {
+          "th": "เสียงผู้บรรยาย"
+        },
+        "tags": [
+          "role.narration"
+        ]
+      },
+      {
+        "id": "dialogue.act1.memory-held-2",
+        "speakerCharacterId": "character.narrator",
+        "text": {
+          "th": "เศษใบพากลับไปถึงบึงไม่ได้ แต่เจ้ากบมองมันได้อีกครู่ ก่อนพักหางลงในน้ำ"
+        },
+        "delivery": {
+          "emotion": "warm",
+          "pace": "slow"
+        },
+        "accessibilityDescription": {
+          "th": "เสียงผู้บรรยาย"
+        },
+        "tags": [
+          "role.narration"
+        ]
+      },
+      {
+        "id": "dialogue.act1.memory-released-1",
+        "speakerCharacterId": "character.narrator",
+        "text": {
+          "th": "เจ้ากบมองวงน้ำที่ค่อย ๆ จาง เศษใบที่เคยเก็บไว้อยู่พ้นตัวไปแล้ว แต่ภาพแม่ที่รอปลายก้านยังกลับมาชัด"
+        },
+        "delivery": {
+          "emotion": "warm",
+          "pace": "slow"
+        },
+        "accessibilityDescription": {
+          "th": "เสียงผู้บรรยาย"
+        },
+        "tags": [
+          "role.narration"
+        ]
+      },
+      {
+        "id": "dialogue.act1.memory-released-2",
+        "speakerCharacterId": "character.narrator",
+        "text": {
+          "th": "มันจำตอนที่ค่อย ๆ วางใบลงได้ รอยพับข้างตัวว่างขึ้น และยังมีที่ข้างรากให้พักโดยไม่ต้องตามใบไป"
+        },
+        "delivery": {
+          "emotion": "warm",
+          "pace": "slow"
+        },
+        "accessibilityDescription": {
+          "th": "เสียงผู้บรรยาย"
+        },
+        "tags": [
+          "role.narration"
+        ]
+      },
+      {
+        "id": "dialogue.act1.memory-refused-1",
+        "speakerCharacterId": "character.narrator",
+        "text": {
+          "th": "เจ้ากบนึกถึงสีเขียวที่เลือกให้ลอยต่อ มันไม่ได้เก็บเศษใบไว้ แต่ยังจำใต้ใบบัวใหญ่และพี่น้องที่วกมารับได้"
+        },
+        "delivery": {
+          "emotion": "warm",
+          "pace": "slow"
+        },
+        "accessibilityDescription": {
+          "th": "เสียงผู้บรรยาย"
+        },
+        "tags": [
+          "role.narration"
+        ]
+      },
+      {
+        "id": "dialogue.act1.memory-refused-2",
+        "speakerCharacterId": "character.narrator",
+        "text": {
+          "th": "หางเล็กหยุดนิ่งอยู่ในน้ำ ภาพเช้านั้นอยู่ด้วยได้ ขณะเจ้ากบค่อย ๆ พักในที่ใหม่"
+        },
+        "delivery": {
+          "emotion": "warm",
+          "pace": "slow"
+        },
+        "accessibilityDescription": {
+          "th": "เสียงผู้บรรยาย"
+        },
+        "tags": [
+          "role.narration"
+        ]
+      },
+      {
+        "id": "dialogue.act1.memory-default-1",
+        "speakerCharacterId": "character.narrator",
+        "text": {
+          "th": "เจ้ากบจำแม่ที่หยุดรอได้ จำว่าต้องปล่อยหางให้นิ่งตรงไหนจึงรับรู้ถึงราก ไม่ต้องมีสิ่งใดอยู่ในใบพับ ภาพนั้นก็ยังกลับมา"
+        },
+        "delivery": {
+          "emotion": "warm",
+          "pace": "slow"
+        },
+        "accessibilityDescription": {
+          "th": "เสียงผู้บรรยาย"
+        },
+        "tags": [
+          "role.narration"
+        ]
+      },
+      {
+        "id": "dialogue.act1.memory-default-2",
+        "speakerCharacterId": "character.narrator",
+        "text": {
+          "th": "มันลองหยุดฟังอย่างที่เคยทำกับแม่ น้ำข้างรากเบาลงพอให้วางตัว แล้วหายใจต่อได้"
+        },
+        "delivery": {
+          "emotion": "warm",
           "pace": "slow"
         },
         "accessibilityDescription": {
@@ -1146,7 +1554,7 @@
     ]
   },
   "events": {
-    "schemaVersion": "1.0.0",
+    "schemaVersion": "2.0.0",
     "events": [
       {
         "id": "event.act1.observed-lily",
@@ -1517,18 +1925,129 @@
         "resolution": {
           "effects": []
         }
+      },
+      {
+        "id": "event.act1.memory-held",
+        "category": "story",
+        "title": {
+          "th": "จังหวะที่ยังอยู่"
+        },
+        "priority": 80,
+        "trigger": {
+          "type": "node-entered",
+          "nodeId": "node.act1.rest-memory"
+        },
+        "conditions": {
+          "kind": "pouch",
+          "itemId": "item_leaf",
+          "state": "held"
+        },
+        "maxOccurrences": 1,
+        "resolution": {
+          "effects": [],
+          "dialogueIds": [
+            "dialogue.act1.memory-held-1",
+            "dialogue.act1.memory-held-2"
+          ]
+        }
+      },
+      {
+        "id": "event.act1.memory-released",
+        "category": "story",
+        "title": {
+          "th": "จังหวะที่ยังอยู่"
+        },
+        "priority": 80,
+        "trigger": {
+          "type": "node-entered",
+          "nodeId": "node.act1.rest-memory"
+        },
+        "conditions": {
+          "kind": "pouch",
+          "itemId": "item_leaf",
+          "state": "released"
+        },
+        "maxOccurrences": 1,
+        "resolution": {
+          "effects": [],
+          "dialogueIds": [
+            "dialogue.act1.memory-released-1",
+            "dialogue.act1.memory-released-2"
+          ]
+        }
+      },
+      {
+        "id": "event.act1.memory-refused",
+        "category": "story",
+        "title": {
+          "th": "จังหวะที่ยังอยู่"
+        },
+        "priority": 80,
+        "trigger": {
+          "type": "node-entered",
+          "nodeId": "node.act1.rest-memory"
+        },
+        "conditions": {
+          "all": [
+            {
+              "kind": "pouch",
+              "itemId": "item_leaf",
+              "state": "remembered"
+            },
+            {
+              "not": {
+                "kind": "pouch",
+                "itemId": "item_leaf",
+                "state": "acquired"
+              }
+            }
+          ]
+        },
+        "maxOccurrences": 1,
+        "resolution": {
+          "effects": [],
+          "dialogueIds": [
+            "dialogue.act1.memory-refused-1",
+            "dialogue.act1.memory-refused-2"
+          ]
+        }
+      },
+      {
+        "id": "event.act1.memory-default",
+        "category": "story",
+        "title": {
+          "th": "จังหวะที่ยังอยู่"
+        },
+        "priority": 0,
+        "trigger": {
+          "type": "node-entered",
+          "nodeId": "node.act1.rest-memory"
+        },
+        "conditions": {
+          "kind": "pouch",
+          "itemId": "item_leaf",
+          "state": "unseen"
+        },
+        "maxOccurrences": 1,
+        "resolution": {
+          "effects": [],
+          "dialogueIds": [
+            "dialogue.act1.memory-default-1",
+            "dialogue.act1.memory-default-2"
+          ]
+        }
       }
     ]
   },
   "narrativeTrees": [
     {
-      "schemaVersion": "1.2.0",
+      "schemaVersion": "2.0.0",
       "treeId": "tree.act1",
       "title": {
         "th": "บ้านในหนองน้ำ"
       },
       "description": {
-        "th": "จากเช้าใต้ใบบัว ผ่านพายุที่ทำให้พลัดพราก สู่การตั้งหลักและพักอยู่กับความทรงจำ"
+        "th": "จากใต้ใบบัวที่ทุกตัวรอกัน สู่รากใหม่ที่ให้หยุดพัก เรื่องของลูกอ๊อดที่ยังพาความทรงจำไปต่อได้ ทั้งเมื่อเก็บของและเมื่อวางลง"
       },
       "entryNodeId": "node.act1.opening",
       "nodes": [
@@ -1585,7 +2104,7 @@
           ],
           "onEnterEffects": [],
           "description": {
-            "th": "ใต้ใบบัวใหญ่ น้ำอุ่นสลับเย็นตามแสงที่ลอดลงมา คุณเลือกสำรวจสิ่งที่สนใจได้ทีละอย่าง กลับมาดูซ้ำได้ หรือขยับไปอยู่กับครอบครัวเมื่อพร้อม ไม่มีสิ่งใดที่ต้องสำรวจให้ครบก่อนเดินทางต่อ"
+            "th": "ใต้ใบใหญ่ แม่กับพี่น้องยังอยู่ใกล้ ๆ เจ้ากบจะแวะดูสิ่งที่สนใจ หรือว่ายกลับไปหาครอบครัวเลยก็ได้"
           },
           "interactions": [
             {
@@ -1663,6 +2182,44 @@
                 "th": "เจ้ากบหันไปหาจังหวะคุ้นเคย แม่กบเว้นช่องว่างไว้ให้ว่ายเข้าไปใกล้"
               },
               "nextNodeId": "node.act1.observe-mother"
+            },
+            {
+              "id": "interaction.act1.visit-dew",
+              "label": {
+                "th": "ดาวเล็กใต้ราก"
+              },
+              "condition": {
+                "not": {
+                  "kind": "node-completed",
+                  "nodeId": "node.act1.secret-dew"
+                }
+              },
+              "unavailableBehavior": "hidden",
+              "impact": "standard",
+              "effects": [],
+              "immediateFeedback": {
+                "th": "เจ้ากบหยุดดูอีกครู่ แล้วค่อยขยับต่อ"
+              },
+              "nextNodeId": "node.act1.secret-dew"
+            },
+            {
+              "id": "interaction.act1.visit-lotus",
+              "label": {
+                "th": "เสียงที่รอกัน"
+              },
+              "condition": {
+                "not": {
+                  "kind": "node-completed",
+                  "nodeId": "node.act1.secret-lotus"
+                }
+              },
+              "unavailableBehavior": "hidden",
+              "impact": "standard",
+              "effects": [],
+              "immediateFeedback": {
+                "th": "เจ้ากบหยุดดูอีกครู่ แล้วค่อยขยับต่อ"
+              },
+              "nextNodeId": "node.act1.secret-lotus"
             },
             {
               "id": "interaction.act1.join-family",
@@ -1829,13 +2386,13 @@
           ],
           "onEnterEffects": [],
           "prompt": {
-            "th": "เช้ายังอุ่นอยู่รอบตัวเจ้ากบ ความคุ้นเคยแต่ละอย่างชวนให้เข้าไปใกล้ ในตอนนี้คุณอยากอยู่กับจังหวะไหน"
+            "th": "แม่รออยู่ปลายก้าน พี่น้องชวนว่ายวนข้างราก เช้านี้เจ้ากบอยากอยู่ใกล้อะไรก่อน"
           },
           "choices": [
             {
               "id": "choice.act1.focus-mother",
               "label": {
-                "th": "ว่ายตามแม่กบ"
+                "th": "ว่ายตามแม่ไปช้า ๆ"
               },
               "condition": {
                 "kind": "always"
@@ -1853,7 +2410,7 @@
                 }
               ],
               "immediateFeedback": {
-                "th": "เจ้ากบเลือกอยู่ใกล้จังหวะของแม่ มีที่ว่างข้างกันให้ค่อย ๆ เรียนรู้"
+                "th": "แม่หยุดตรงช่องแคบ รอจนเจ้ากบว่ายเข้ามาข้างกัน"
               },
               "nextNodeId": "node.act1.home-reflection",
               "callbackEventIds": [
@@ -1863,7 +2420,7 @@
             {
               "id": "choice.act1.focus-roots",
               "label": {
-                "th": "อยู่ฟังรากบัว"
+                "th": "หยุดฟังน้ำข้างราก"
               },
               "condition": {
                 "kind": "always"
@@ -1881,7 +2438,7 @@
                 }
               ],
               "immediateFeedback": {
-                "th": "เจ้ากบเลือกฟังสิ่งที่อยู่เงียบ ๆ รากบัวขยับตอบด้วยจังหวะแผ่วเบา"
+                "th": "เจ้ากบปล่อยหางให้นิ่ง ลองจำจังหวะที่น้ำเบาลงตรงโคนราก"
               },
               "nextNodeId": "node.act1.home-reflection",
               "callbackEventIds": [
@@ -1891,7 +2448,7 @@
             {
               "id": "choice.act1.focus-siblings",
               "label": {
-                "th": "ว่ายเล่นกับพี่น้อง"
+                "th": "ว่ายวนเล่นกับพี่น้อง"
               },
               "condition": {
                 "kind": "always"
@@ -1909,7 +2466,7 @@
                 }
               ],
               "immediateFeedback": {
-                "th": "เจ้ากบเลือกตามวงน้ำของพี่น้อง ความอุ่นเกิดขึ้นในจังหวะที่วนมาพบกัน"
+                "th": "พี่น้องตัวหนึ่งวกมารับ เจ้ากบตามไปทันตอนที่ฟองอากาศลอยขึ้นพอดี"
               },
               "nextNodeId": "node.act1.home-reflection",
               "callbackEventIds": [
@@ -1994,7 +2551,7 @@
           "type": "decision",
           "act": 1,
           "title": {
-            "th": "การเอาชีวิตรอดเดี่ยว"
+            "th": "หยุดฟังในที่ที่น้ำเบา"
           },
           "entryCondition": {
             "kind": "flag",
@@ -2011,13 +2568,13 @@
           ],
           "onEnterEffects": [],
           "prompt": {
-            "th": "ฝนยังดังอยู่เหนือหัว มองไปทางไหนก็ยังไม่เห็นจังหวะคุ้นเคย ร่างเล็กเหนื่อยจากกระแสน้ำ ข้างรากมีช่องอากาศพอให้พักได้ ตอนนี้เจ้ากบจะเริ่มจากสิ่งใด"
+            "th": "หางยังล้าจากกระแส ถ้าฝืนส่งจังหวะเรียกอีกจะใช้แรง และเสียงฝนก็ยังกลบอยู่ ข้างรากมีโพรงให้นอนพยุงตัวพักได้ แต่ความคิดถึงอาจชัดขึ้นเมื่อเงียบลง เจ้ากบอยากเริ่มตรงไหน"
           },
           "choices": [
             {
               "id": "choice.act1.call-family",
               "label": {
-                "th": "พยายามร้องเรียกหาครอบครัว"
+                "th": "ส่งจังหวะเรียก แล้วเข้าพักใต้ราก"
               },
               "condition": {
                 "kind": "always"
@@ -2045,11 +2602,11 @@
                 }
               ],
               "immediateFeedback": {
-                "th": "เจ้ากบส่งเสียงออกไปอีกครั้ง เสียงบางลงพร้อมความเหนื่อย แต่ความคิดถึงมีที่ให้เอ่ยออกมาแล้ว"
+                "th": "เจ้ากบฝืนหางส่งจังหวะออกไปจนล้า ฝนยังกลบคำตอบ มันหยุดเรียกแล้วเลื่อนเข้าใต้ราก ให้ตัวเองได้พัก"
               },
               "nextNodeId": "node.act1.lily-fragment",
               "outcomePreview": {
-                "th": "ใช้แรงกายและแรงใจเพื่อเรียกหา ก่อนหยุดพักฟังอีกครั้ง"
+                "th": "ใช้แรงต้านน้ำเพื่อเรียกหา เสียงฝนอาจทำให้ใจสั่น ก่อนเข้าที่กำบัง"
               },
               "callbackEventIds": [
                 "event.act1.coping-call"
@@ -2058,7 +2615,7 @@
             {
               "id": "choice.act1.seek-safety",
               "label": {
-                "th": "หาช่องอากาศหลบพักก่อน"
+                "th": "เข้าพักใต้ราก ค่อยฟังอีกครั้ง"
               },
               "condition": {
                 "kind": "always"
@@ -2086,11 +2643,11 @@
                 }
               ],
               "immediateFeedback": {
-                "th": "เจ้ากบค่อย ๆ วางตัวในโพรงที่น้ำไหลเบา อากาศช่วยให้ร่างกายตั้งหลัก ความคิดถึงยังอยู่ด้วยกันตรงนี้"
+                "th": "น้ำในโพรงช่วยพยุงร่างจนหายเกร็ง พอเงียบลงความคิดถึงก็ชัด เจ้ากบพักอยู่กับมันได้ ยังไม่ต้องรีบว่ายออกไป"
               },
               "nextNodeId": "node.act1.lily-fragment",
               "outcomePreview": {
-                "th": "ร่างกายได้ตั้งหลัก ความกังวลยังไม่หายไปในทันที"
+                "th": "ร่างกายได้พักในน้ำเบา ความคิดถึงยังอยู่เมื่อเสียงรอบตัวเงียบลง"
               },
               "callbackEventIds": [
                 "event.act1.coping-safety"
@@ -2121,7 +2678,7 @@
           ],
           "onEnterEffects": [],
           "description": {
-            "th": "น้ำตรงนี้ไหลช้าพอให้มองเห็นสิ่งเล็ก ๆ อีกครั้ง สีเขียวชิ้นหนึ่งหมุนอยู่ใกล้ปลายราก มันลอยเข้ามาแล้วถอยออกไปตามระลอกน้ำ เจ้ากบมีเวลาพอจะเข้าไปดูใกล้ ๆ"
+            "th": "พ้นโพรงออกมา น้ำไหลช้าจนเห็นเม็ดดินค่อย ๆ จม สีเขียวชิ้นหนึ่งหมุนอยู่ใกล้ปลายราก เจ้ากบมีเวลาเข้าไปดู"
           },
           "interactions": [
             {
@@ -2139,7 +2696,7 @@
               "impact": "standard",
               "effects": [],
               "immediateFeedback": {
-                "th": "เจ้ากบเข้าไปใกล้ เห็นขอบใบบัวที่ฉีกขาดและเส้นบาง ๆ บนสีเขียวอ่อน"
+                "th": "เจ้ากบขยับเข้าไปใกล้พอเห็นเส้นใบ แล้วหยุดให้สีเขียวลอยเข้ามาเอง"
               },
               "nextNodeId": "node.act1.leaf-discovery"
             }
@@ -2193,13 +2750,13 @@
           ],
           "onEnterEffects": [],
           "prompt": {
-            "th": "เศษใบบัวอยู่ใกล้พอจะเก็บไว้ และกระแสน้ำก็ยังเปิดทางให้มันลอยต่อ เจ้ากบอยากดูแลความทรงจำนี้อย่างไร"
+            "th": "เศษใบอยู่ข้างตัว ใบพับเล็กยังมีที่ว่าง จะเก็บสีเขียวไว้ดู หรือเปิดทางให้มันลอยต่อ เจ้ากบเลือกได้ทั้งสองอย่าง"
           },
           "choices": [
             {
               "id": "choice.act1.keep-fragment",
               "label": {
-                "th": "เก็บเศษใบบัวไว้ดูต่างหน้า"
+                "th": "พับใบบัวเก็บไว้ข้างตัว"
               },
               "condition": {
                 "kind": "always"
@@ -2222,14 +2779,14 @@
                 }
               ],
               "immediateFeedback": {
-                "th": "เจ้ากบประคองเศษใบไว้แนบตัว สีเขียวเล็ก ๆ ช่วยให้ความคิดถึงมีที่วาง โดยไม่ต้องเป็นบ้านทั้งหลัง"
+                "th": "เจ้ากบค่อย ๆ ดุนเศษใบเข้ารอยพับ แล้วหยุดมองสีเขียวจนใจนิ่งขึ้น ภาพแม่ที่รออยู่กลับมาชัดทีละนิด"
               },
-              "nextNodeId": "node.act1.rest"
+              "nextNodeId": "node.act1.quiet-bank"
             },
             {
               "id": "choice.act1.release-fragment",
               "label": {
-                "th": "ปล่อยใบบัวลอยไปตามน้ำ"
+                "th": "เปิดทางให้ใบบัวลอยต่อ"
               },
               "condition": {
                 "kind": "always"
@@ -2252,9 +2809,9 @@
                 }
               ],
               "immediateFeedback": {
-                "th": "เจ้ากบมองใบบัวลอยห่างออกไป จังหวะที่เคยอยู่ด้วยกันยังอยู่ในความจำ แม้ไม่มีสิ่งใดให้เก็บไว้ข้างตัว"
+                "th": "เจ้ากบขยับพ้นปลายราก มองเศษใบลอยผ่านไปจนใจค่อยคลาย จังหวะที่แม่เคยรอยังจำได้อยู่"
               },
-              "nextNodeId": "node.act1.rest"
+              "nextNodeId": "node.act1.quiet-bank"
             }
           ],
           "checkpointId": "checkpoint.act1.keepsake"
@@ -2298,15 +2855,808 @@
             "kind": "act-rest",
             "flagId": "story.act1_complete",
             "message": {
-              "th": "เจ้ากบได้หยุดพักแล้ว คุณพักสายตาและวางเรื่องราวไว้ตรงนี้ก่อนได้ เมื่อพร้อมค่อยกลับมาอยู่ข้างกันอีกครั้ง"
+              "th": "เจ้ากบพักอยู่ข้างรากแล้ว คุณวางเรื่องไว้ตรงนี้ก่อนได้ เมื่อกลับมา ช่องแสงเล็ก ๆ จะยังรออยู่ที่เดิม"
             },
             "actionLabel": {
               "th": "บันทึกและกลับหน้าหลัก"
             }
           },
           "checkpointId": "checkpoint.act1.rest"
+        },
+        {
+          "id": "node.act1.secret-dew",
+          "type": "cutscene",
+          "act": 1,
+          "title": {
+            "th": "ดาวเล็กใต้ราก"
+          },
+          "entryCondition": {
+            "kind": "always"
+          },
+          "contentWarningIds": [],
+          "checkpointPolicy": "none",
+          "testReferenceIds": [
+            "tc.act1.schema",
+            "tc.s4.narrative",
+            "tc.s4.graph"
+          ],
+          "onEnterEffects": [],
+          "dialogueIds": [
+            "dialogue.act1.secret-dew-1",
+            "dialogue.act1.secret-dew-2",
+            "dialogue.act1.secret-dew-3"
+          ],
+          "nextNodeId": "node.act1.dew-offer",
+          "environment": {
+            "backgroundAssetId": "asset.image.act1-morning-pond",
+            "bgmAssetId": "asset.audio.act1-peaceful-stream",
+            "ambientAssetId": "asset.audio.morning-dew-drops"
+          }
+        },
+        {
+          "id": "node.act1.dew-offer",
+          "type": "decision",
+          "act": 1,
+          "title": {
+            "th": "หินประกายน้ำค้าง"
+          },
+          "entryCondition": {
+            "kind": "always"
+          },
+          "contentWarningIds": [],
+          "checkpointPolicy": "none",
+          "testReferenceIds": [
+            "tc.act1.schema",
+            "tc.s4.narrative",
+            "tc.s4.graph"
+          ],
+          "onEnterEffects": [],
+          "prompt": {
+            "th": "หินประกายน้ำค้างวางอยู่บนโคลนนุ่ม จะดุนเข้าใบพับไว้ดูต่อ หรือวางไว้ในแสงให้พี่น้องมาดูอีกก็ได้"
+          },
+          "choices": [
+            {
+              "id": "choice.act1.collect-dew-offer",
+              "label": {
+                "th": "เก็บหินประกายน้ำค้างไว้"
+              },
+              "condition": {
+                "all": [
+                  {
+                    "kind": "pouch",
+                    "itemId": "item_dew_stone",
+                    "state": "unseen"
+                  },
+                  {
+                    "kind": "pouch-capacity",
+                    "state": "space"
+                  }
+                ]
+              },
+              "unavailableBehavior": "hidden",
+              "impact": "irreversible",
+              "effects": [],
+              "immediateFeedback": {
+                "th": "เจ้ากบดุนหินเม็ดเล็กเข้าใบพับ แสงวาบที่ขอบหินอยู่ครู่หนึ่ง มันจำแม่ที่หยุดรอให้ดูจนพอใจได้"
+              },
+              "nextNodeId": "node.act1.dew-return",
+              "pouchEffect": {
+                "action": "collect",
+                "itemId": "item_dew_stone"
+              }
+            },
+            {
+              "id": "choice.act1.leave-dew-offer",
+              "label": {
+                "th": "ให้หินประกายน้ำค้างอยู่ตรงนี้"
+              },
+              "condition": {
+                "kind": "pouch",
+                "itemId": "item_dew_stone",
+                "state": "unseen"
+              },
+              "unavailableBehavior": "hidden",
+              "impact": "standard",
+              "effects": [],
+              "immediateFeedback": {
+                "th": "เจ้ากบปล่อยหินไว้ในแสง พี่น้องอีกตัวเลื่อนเข้ามาดู ก่อนทั้งคู่จะว่ายกลับพร้อมกัน"
+              },
+              "nextNodeId": "node.act1.dew-return",
+              "pouchEffect": {
+                "action": "refuse",
+                "itemId": "item_dew_stone"
+              }
+            }
+          ]
+        },
+        {
+          "id": "node.act1.dew-return",
+          "type": "cutscene",
+          "act": 1,
+          "title": {
+            "th": "กลับเข้าวงน้ำ"
+          },
+          "entryCondition": {
+            "kind": "always"
+          },
+          "contentWarningIds": [],
+          "checkpointPolicy": "none",
+          "testReferenceIds": [
+            "tc.act1.schema",
+            "tc.s4.narrative",
+            "tc.s4.graph"
+          ],
+          "onEnterEffects": [],
+          "dialogueIds": [
+            "dialogue.act1.dew-return-1"
+          ],
+          "nextNodeId": "node.act1.nursery",
+          "environment": {
+            "backgroundAssetId": "asset.image.act1-morning-pond",
+            "bgmAssetId": "asset.audio.act1-peaceful-stream",
+            "ambientAssetId": "asset.audio.morning-dew-drops"
+          }
+        },
+        {
+          "id": "node.act1.secret-lotus",
+          "type": "cutscene",
+          "act": 1,
+          "title": {
+            "th": "เสียงที่รอกัน"
+          },
+          "entryCondition": {
+            "kind": "always"
+          },
+          "contentWarningIds": [],
+          "checkpointPolicy": "none",
+          "testReferenceIds": [
+            "tc.act1.schema",
+            "tc.s4.narrative",
+            "tc.s4.graph"
+          ],
+          "onEnterEffects": [],
+          "dialogueIds": [
+            "dialogue.act1.secret-lotus-1",
+            "dialogue.act1.secret-lotus-2",
+            "dialogue.act1.secret-lotus-3"
+          ],
+          "nextNodeId": "node.act1.lotus-offer",
+          "environment": {
+            "backgroundAssetId": "asset.image.act1-morning-pond",
+            "bgmAssetId": "asset.audio.act1-peaceful-stream",
+            "ambientAssetId": "asset.audio.morning-dew-drops"
+          }
+        },
+        {
+          "id": "node.act1.lotus-offer",
+          "type": "decision",
+          "act": 1,
+          "title": {
+            "th": "เปลือกเมล็ดบัวเล็ก"
+          },
+          "entryCondition": {
+            "kind": "always"
+          },
+          "contentWarningIds": [],
+          "checkpointPolicy": "none",
+          "testReferenceIds": [
+            "tc.act1.schema",
+            "tc.s4.narrative",
+            "tc.s4.graph"
+          ],
+          "onEnterEffects": [],
+          "prompt": {
+            "th": "เปลือกเบาพอให้พกไปได้ หรือจะวางไว้ในง่ามรากที่เคยผลัดกันเล่น เจ้ากบอยากทำอย่างไร"
+          },
+          "choices": [
+            {
+              "id": "choice.act1.collect-lotus-offer",
+              "label": {
+                "th": "เก็บเปลือกเมล็ดบัวเล็กไว้"
+              },
+              "condition": {
+                "all": [
+                  {
+                    "kind": "pouch",
+                    "itemId": "item_lotus_shell",
+                    "state": "unseen"
+                  },
+                  {
+                    "kind": "pouch-capacity",
+                    "state": "space"
+                  }
+                ]
+              },
+              "unavailableBehavior": "hidden",
+              "impact": "irreversible",
+              "effects": [],
+              "immediateFeedback": {
+                "th": "เปลือกเมล็ดนอนอยู่ในใบพับ เจ้ากบดุนมันเบา ๆ ครั้งหนึ่ง ก่อนหันกลับไปหาพี่น้อง"
+              },
+              "nextNodeId": "node.act1.lotus-return",
+              "pouchEffect": {
+                "action": "collect",
+                "itemId": "item_lotus_shell"
+              }
+            },
+            {
+              "id": "choice.act1.leave-lotus-offer",
+              "label": {
+                "th": "ให้เปลือกเมล็ดบัวเล็กอยู่ตรงนี้"
+              },
+              "condition": {
+                "kind": "pouch",
+                "itemId": "item_lotus_shell",
+                "state": "unseen"
+              },
+              "unavailableBehavior": "hidden",
+              "impact": "standard",
+              "effects": [],
+              "immediateFeedback": {
+                "th": "เจ้ากบดุนเปลือกกลับไปในง่ามราก พี่น้องแตะหางมันเบา ๆ แล้วพากันว่ายไปหาแม่"
+              },
+              "nextNodeId": "node.act1.lotus-return",
+              "pouchEffect": {
+                "action": "refuse",
+                "itemId": "item_lotus_shell"
+              }
+            }
+          ]
+        },
+        {
+          "id": "node.act1.lotus-return",
+          "type": "cutscene",
+          "act": 1,
+          "title": {
+            "th": "กลับเข้าวงน้ำ"
+          },
+          "entryCondition": {
+            "kind": "always"
+          },
+          "contentWarningIds": [],
+          "checkpointPolicy": "none",
+          "testReferenceIds": [
+            "tc.act1.schema",
+            "tc.s4.narrative",
+            "tc.s4.graph"
+          ],
+          "onEnterEffects": [],
+          "dialogueIds": [
+            "dialogue.act1.lotus-return-1"
+          ],
+          "nextNodeId": "node.act1.nursery",
+          "environment": {
+            "backgroundAssetId": "asset.image.act1-morning-pond",
+            "bgmAssetId": "asset.audio.act1-peaceful-stream",
+            "ambientAssetId": "asset.audio.morning-dew-drops"
+          }
+        },
+        {
+          "id": "node.act1.quiet-bank",
+          "type": "exploration",
+          "act": 1,
+          "title": {
+            "th": "น้ำที่ช้าพอให้เลือก"
+          },
+          "entryCondition": {
+            "kind": "always"
+          },
+          "contentWarningIds": [],
+          "checkpointPolicy": "none",
+          "testReferenceIds": [
+            "tc.act1.schema",
+            "tc.s4.narrative",
+            "tc.s4.graph"
+          ],
+          "onEnterEffects": [],
+          "description": {
+            "th": "ใต้รากมีน้ำตื้นให้พัก กลีบบัวติดอยู่ข้างหนึ่ง อีกด้านมีเปลือกหอยเล็ก ๆ หงายรับหยดฝน เจ้ากบจะแวะดู หรือเข้าพักเลยก็ได้ หากอยากส่งต่อของที่พกมา ตรงนี้น้ำเบาพอจะค่อย ๆ วางลง"
+          },
+          "interactions": [
+            {
+              "id": "interaction.act1.visit-rain",
+              "label": {
+                "th": "มองกลีบบัวข้างราก"
+              },
+              "condition": {
+                "not": {
+                  "kind": "node-completed",
+                  "nodeId": "node.act1.secret-rain"
+                }
+              },
+              "unavailableBehavior": "hidden",
+              "impact": "standard",
+              "effects": [],
+              "immediateFeedback": {
+                "th": "เจ้ากบหยุดดูอีกครู่ แล้วค่อยขยับต่อ"
+              },
+              "nextNodeId": "node.act1.secret-rain"
+            },
+            {
+              "id": "interaction.act1.visit-river-shell",
+              "label": {
+                "th": "ดูเปลือกหอยในน้ำตื้น"
+              },
+              "condition": {
+                "kind": "pouch",
+                "itemId": "item_river_shell",
+                "state": "unseen"
+              },
+              "unavailableBehavior": "hidden",
+              "impact": "standard",
+              "effects": [],
+              "immediateFeedback": {
+                "th": "เจ้ากบหยุดดูอีกครู่ แล้วค่อยขยับต่อ"
+              },
+              "nextNodeId": "node.act1.river-discovery"
+            },
+            {
+              "id": "interaction.act1.settle-for-night",
+              "label": {
+                "th": "ขยับเข้าเงารากแล้วพัก"
+              },
+              "condition": {
+                "kind": "always"
+              },
+              "unavailableBehavior": "hidden",
+              "impact": "standard",
+              "effects": [],
+              "immediateFeedback": {
+                "th": "เจ้ากบหยุดดูอีกครู่ แล้วค่อยขยับต่อ"
+              },
+              "nextNodeId": "node.act1.rest-memory"
+            }
+          ]
+        },
+        {
+          "id": "node.act1.secret-rain",
+          "type": "cutscene",
+          "act": 1,
+          "title": {
+            "th": "ฝนที่แยกเป็นหยด"
+          },
+          "entryCondition": {
+            "kind": "always"
+          },
+          "contentWarningIds": [],
+          "checkpointPolicy": "none",
+          "testReferenceIds": [
+            "tc.act1.schema",
+            "tc.s4.narrative",
+            "tc.s4.graph"
+          ],
+          "onEnterEffects": [],
+          "dialogueIds": [
+            "dialogue.act1.secret-rain-1",
+            "dialogue.act1.secret-rain-2",
+            "dialogue.act1.secret-rain-3"
+          ],
+          "nextNodeId": "node.act1.rain-offer"
+        },
+        {
+          "id": "node.act1.rain-offer",
+          "type": "decision",
+          "act": 1,
+          "title": {
+            "th": "กลีบบัวที่ยังมีกลิ่นฝน"
+          },
+          "entryCondition": {
+            "kind": "always"
+          },
+          "contentWarningIds": [],
+          "checkpointPolicy": "none",
+          "testReferenceIds": [
+            "tc.act1.schema",
+            "tc.s4.narrative",
+            "tc.s4.graph"
+          ],
+          "onEnterEffects": [],
+          "prompt": {
+            "th": "กลีบบางอยู่ใกล้รอยพับข้างตัว จะเก็บกลิ่นฝนชิ้นนี้ไว้ หรือวางกลับลงบนรากให้มันพักตรงนี้"
+          },
+          "choices": [
+            {
+              "id": "choice.act1.collect-rain-offer",
+              "label": {
+                "th": "เก็บกลีบบัวที่ยังมีกลิ่นฝนไว้"
+              },
+              "condition": {
+                "all": [
+                  {
+                    "kind": "pouch",
+                    "itemId": "item_rain_petal",
+                    "state": "unseen"
+                  },
+                  {
+                    "kind": "pouch-capacity",
+                    "state": "space"
+                  }
+                ]
+              },
+              "unavailableBehavior": "hidden",
+              "impact": "irreversible",
+              "effects": [],
+              "immediateFeedback": {
+                "th": "เจ้ากบค่อย ๆ ดุนกลีบเข้าขอบใบพับ แล้วหยุดอยู่ข้างราก กลิ่นฝนอยู่ใกล้ แต่ฝนไม่ดึงมันไปไหนแล้ว"
+              },
+              "nextNodeId": "node.act1.rain-return",
+              "pouchEffect": {
+                "action": "collect",
+                "itemId": "item_rain_petal"
+              }
+            },
+            {
+              "id": "choice.act1.leave-rain-offer",
+              "label": {
+                "th": "ให้กลีบบัวที่ยังมีกลิ่นฝนอยู่ตรงนี้"
+              },
+              "condition": {
+                "kind": "pouch",
+                "itemId": "item_rain_petal",
+                "state": "unseen"
+              },
+              "unavailableBehavior": "hidden",
+              "impact": "standard",
+              "effects": [],
+              "immediateFeedback": {
+                "th": "เจ้ากบวางกลีบกลับบนราก หยดถัดไปตกข้าง ๆ มันยังนอนอยู่ตรงนั้น ส่วนเจ้ากบมีที่ว่างให้ขยับเข้าพัก"
+              },
+              "nextNodeId": "node.act1.rain-return",
+              "pouchEffect": {
+                "action": "refuse",
+                "itemId": "item_rain_petal"
+              }
+            }
+          ]
+        },
+        {
+          "id": "node.act1.rain-return",
+          "type": "cutscene",
+          "act": 1,
+          "title": {
+            "th": "ข้างรากเดิม"
+          },
+          "entryCondition": {
+            "kind": "always"
+          },
+          "contentWarningIds": [],
+          "checkpointPolicy": "none",
+          "testReferenceIds": [
+            "tc.act1.schema",
+            "tc.s4.narrative",
+            "tc.s4.graph"
+          ],
+          "onEnterEffects": [],
+          "dialogueIds": [
+            "dialogue.act1.rain-return-1"
+          ],
+          "nextNodeId": "node.act1.quiet-bank"
+        },
+        {
+          "id": "node.act1.river-discovery",
+          "type": "cutscene",
+          "act": 1,
+          "title": {
+            "th": "วงเล็กบนเปลือกหอย"
+          },
+          "entryCondition": {
+            "kind": "always"
+          },
+          "contentWarningIds": [],
+          "checkpointPolicy": "none",
+          "testReferenceIds": [
+            "tc.act1.schema",
+            "tc.s4.narrative",
+            "tc.s4.graph"
+          ],
+          "onEnterEffects": [],
+          "dialogueIds": [
+            "dialogue.act1.river-discovery-1",
+            "dialogue.act1.river-discovery-2"
+          ],
+          "nextNodeId": "node.act1.river-offer"
+        },
+        {
+          "id": "node.act1.river-offer",
+          "type": "decision",
+          "act": 1,
+          "title": {
+            "th": "เปลือกหอยลายคลื่น"
+          },
+          "entryCondition": {
+            "kind": "always"
+          },
+          "contentWarningIds": [],
+          "checkpointPolicy": "none",
+          "testReferenceIds": [
+            "tc.act1.schema",
+            "tc.s4.narrative",
+            "tc.s4.graph"
+          ],
+          "onEnterEffects": [],
+          "prompt": {
+            "th": "เปลือกหอยเล็กอยู่ตรงหน้า หากใบพับเต็ม เจ้ากบเลือกวางของเดิมหนึ่งชิ้นเพื่อรับมัน หรือเก็บของเดิมไว้แล้วให้เปลือกหอยอยู่ที่นี่ได้ ความทรงจำที่เคยอยู่ด้วยกันยังพาไปต่อได้"
+          },
+          "choices": [
+            {
+              "id": "choice.act1.collect-river-offer",
+              "label": {
+                "th": "เก็บเปลือกหอยลายคลื่นไว้"
+              },
+              "condition": {
+                "all": [
+                  {
+                    "kind": "pouch",
+                    "itemId": "item_river_shell",
+                    "state": "unseen"
+                  },
+                  {
+                    "kind": "pouch-capacity",
+                    "state": "space"
+                  }
+                ]
+              },
+              "unavailableBehavior": "hidden",
+              "impact": "irreversible",
+              "effects": [],
+              "immediateFeedback": {
+                "th": "เจ้ากบดุนเปลือกหอยเข้าใบพับ แล้วมองรอยโค้งใกล้ ๆ ก่อนพักหางอีกครั้ง"
+              },
+              "nextNodeId": "node.act1.river-return",
+              "pouchEffect": {
+                "action": "collect",
+                "itemId": "item_river_shell"
+              }
+            },
+            {
+              "id": "choice.act1.leave-river-offer",
+              "label": {
+                "th": "ให้เปลือกหอยลายคลื่นอยู่ตรงนี้"
+              },
+              "condition": {
+                "kind": "pouch",
+                "itemId": "item_river_shell",
+                "state": "unseen"
+              },
+              "unavailableBehavior": "hidden",
+              "impact": "standard",
+              "effects": [],
+              "immediateFeedback": {
+                "th": "เจ้ากบขยับเปลือกหอยให้นอนมั่นคงบนโคลน มองวงเล็ก ๆ ครั้งสุดท้ายแล้วค่อยหันเข้าที่พัก"
+              },
+              "nextNodeId": "node.act1.river-return",
+              "pouchEffect": {
+                "action": "refuse",
+                "itemId": "item_river_shell"
+              }
+            },
+            {
+              "id": "choice.act1.exchange-leaf",
+              "label": {
+                "th": "วางเศษใบบัว รับเปลือกหอย"
+              },
+              "condition": {
+                "all": [
+                  {
+                    "kind": "pouch-capacity",
+                    "state": "full"
+                  },
+                  {
+                    "kind": "pouch",
+                    "itemId": "item_leaf",
+                    "state": "held"
+                  },
+                  {
+                    "kind": "pouch",
+                    "itemId": "item_river_shell",
+                    "state": "unseen"
+                  }
+                ]
+              },
+              "unavailableBehavior": "hidden",
+              "impact": "irreversible",
+              "effects": [],
+              "immediateFeedback": {
+                "th": "เจ้ากบค่อย ๆ วางเศษใบบัวลงในน้ำตื้น แล้วดุนเปลือกหอยเข้าแทนที่ แม่ที่เคยรอปลายก้านยังนึกถึงได้ เมื่อหยุดอยู่ข้างราก"
+              },
+              "nextNodeId": "node.act1.river-return",
+              "pouchEffect": {
+                "action": "replace",
+                "itemId": "item_river_shell",
+                "oldItemId": "item_leaf"
+              }
+            },
+            {
+              "id": "choice.act1.exchange-dew_stone",
+              "label": {
+                "th": "วางหินประกายน้ำค้าง รับเปลือกหอย"
+              },
+              "condition": {
+                "all": [
+                  {
+                    "kind": "pouch-capacity",
+                    "state": "full"
+                  },
+                  {
+                    "kind": "pouch",
+                    "itemId": "item_dew_stone",
+                    "state": "held"
+                  },
+                  {
+                    "kind": "pouch",
+                    "itemId": "item_river_shell",
+                    "state": "unseen"
+                  }
+                ]
+              },
+              "unavailableBehavior": "hidden",
+              "impact": "irreversible",
+              "effects": [],
+              "immediateFeedback": {
+                "th": "เจ้ากบค่อย ๆ วางหินประกายน้ำค้างลงในน้ำตื้น แล้วดุนเปลือกหอยเข้าแทนที่ แสงที่ทุกตัวเคยหยุดดูด้วยกันยังนึกถึงได้ เมื่อหยุดอยู่ข้างราก"
+              },
+              "nextNodeId": "node.act1.river-return",
+              "pouchEffect": {
+                "action": "replace",
+                "itemId": "item_river_shell",
+                "oldItemId": "item_dew_stone"
+              }
+            },
+            {
+              "id": "choice.act1.exchange-lotus_shell",
+              "label": {
+                "th": "วางเปลือกเมล็ดบัวเล็ก รับเปลือกหอย"
+              },
+              "condition": {
+                "all": [
+                  {
+                    "kind": "pouch-capacity",
+                    "state": "full"
+                  },
+                  {
+                    "kind": "pouch",
+                    "itemId": "item_lotus_shell",
+                    "state": "held"
+                  },
+                  {
+                    "kind": "pouch",
+                    "itemId": "item_river_shell",
+                    "state": "unseen"
+                  }
+                ]
+              },
+              "unavailableBehavior": "hidden",
+              "impact": "irreversible",
+              "effects": [],
+              "immediateFeedback": {
+                "th": "เจ้ากบค่อย ๆ วางเปลือกเมล็ดบัวเล็กลงในน้ำตื้น แล้วดุนเปลือกหอยเข้าแทนที่ จังหวะที่พี่น้องผลัดกันรอยังนึกถึงได้ เมื่อหยุดอยู่ข้างราก"
+              },
+              "nextNodeId": "node.act1.river-return",
+              "pouchEffect": {
+                "action": "replace",
+                "itemId": "item_river_shell",
+                "oldItemId": "item_lotus_shell"
+              }
+            },
+            {
+              "id": "choice.act1.exchange-rain_petal",
+              "label": {
+                "th": "วางกลีบบัวที่ยังมีกลิ่นฝน รับเปลือกหอย"
+              },
+              "condition": {
+                "all": [
+                  {
+                    "kind": "pouch-capacity",
+                    "state": "full"
+                  },
+                  {
+                    "kind": "pouch",
+                    "itemId": "item_rain_petal",
+                    "state": "held"
+                  },
+                  {
+                    "kind": "pouch",
+                    "itemId": "item_river_shell",
+                    "state": "unseen"
+                  }
+                ]
+              },
+              "unavailableBehavior": "hidden",
+              "impact": "irreversible",
+              "effects": [],
+              "immediateFeedback": {
+                "th": "เจ้ากบค่อย ๆ วางกลีบบัวที่ยังมีกลิ่นฝนลงในน้ำตื้น แล้วดุนเปลือกหอยเข้าแทนที่ หยดฝนที่แยกออกจากกันอีกครั้งยังนึกถึงได้ เมื่อหยุดอยู่ข้างราก"
+              },
+              "nextNodeId": "node.act1.river-return",
+              "pouchEffect": {
+                "action": "replace",
+                "itemId": "item_river_shell",
+                "oldItemId": "item_rain_petal"
+              }
+            }
+          ]
+        },
+        {
+          "id": "node.act1.river-return",
+          "type": "cutscene",
+          "act": 1,
+          "title": {
+            "th": "ที่ว่างในวงน้ำ"
+          },
+          "entryCondition": {
+            "kind": "always"
+          },
+          "contentWarningIds": [],
+          "checkpointPolicy": "none",
+          "testReferenceIds": [
+            "tc.act1.schema",
+            "tc.s4.narrative",
+            "tc.s4.graph"
+          ],
+          "onEnterEffects": [],
+          "dialogueIds": [
+            "dialogue.act1.river-return-1"
+          ],
+          "nextNodeId": "node.act1.quiet-bank"
+        },
+        {
+          "id": "node.act1.rest-memory",
+          "type": "cutscene",
+          "act": 1,
+          "title": {
+            "th": "สิ่งที่ยังจำได้"
+          },
+          "entryCondition": {
+            "kind": "always"
+          },
+          "contentWarningIds": [],
+          "checkpointPolicy": "none",
+          "testReferenceIds": [
+            "tc.act1.schema",
+            "tc.s4.narrative",
+            "tc.s4.graph"
+          ],
+          "onEnterEffects": [],
+          "dialogueIds": [
+            "dialogue.act1.rest-memory-1"
+          ],
+          "nextNodeId": "node.act1.rest"
         }
       ]
+    }
+  ],
+  "secretMoments": [
+    {
+      "id": "moment.act1.dew",
+      "nodeId": "node.act1.secret-dew",
+      "returnNodeId": "node.act1.nursery"
+    },
+    {
+      "id": "moment.act1.lotus",
+      "nodeId": "node.act1.secret-lotus",
+      "returnNodeId": "node.act1.nursery"
+    },
+    {
+      "id": "moment.act1.rain",
+      "nodeId": "node.act1.secret-rain",
+      "returnNodeId": "node.act1.quiet-bank"
+    }
+  ],
+  "keepsakes": [
+    {
+      "id": "item_leaf"
+    },
+    {
+      "id": "item_dew_stone"
+    },
+    {
+      "id": "item_lotus_shell"
+    },
+    {
+      "id": "item_rain_petal"
+    },
+    {
+      "id": "item_river_shell"
     }
   ]
 }

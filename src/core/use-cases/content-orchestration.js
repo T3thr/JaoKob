@@ -1,7 +1,7 @@
 import { applyMetricEffects } from "../domain/meters.js";
 import { evaluateCondition, resolveChoiceTransaction } from "./choice-transaction.js";
 import { planGameStateTransition } from "../state-machine/game-state.js";
-import { createPouch, collectItem, refuseItem, validatePouch } from "../domain/keepsake-pouch.js";
+import { createPouch, collectItem, refuseItem, releaseItem, replaceItem, validatePouch } from "../domain/keepsake-pouch.js";
 import { resolvePouchTransaction } from "./pouch-transaction.js";
 
 /** Pure content progression. Trace: CR-0002 D3, ADR-P0-014, FR-ENG-002/008. */
@@ -210,6 +210,15 @@ export function createContentOrchestrator(catalog, { pouchEnabled = false } = {}
       requireFact(current.actions.some((item) => item.id === command.actionId && item.eligible), "CONTENT_ACTION_UNAVAILABLE");
       const nextBase = commandSnapshot(snapshot, command);
       const projected = applyEffects(snapshot, action.effects), target = nodes[action.nextNodeId];
+      const pouchEffect = pouchPolicy && Object.hasOwn(pouchPolicy.actionEffects, action.id) ? pouchPolicy.actionEffects[action.id] : null;
+      if (pouchEffect) {
+        const operations = { collect: collectItem, refuse: refuseItem, release: releaseItem };
+        const result = pouchEffect.action === "replace" ? replaceItem(snapshot.pouch, pouchEffect.oldItemId, pouchEffect.itemId)
+          : operations[pouchEffect.action]?.(snapshot.pouch, pouchEffect.itemId);
+        requireFact(result, "CONTENT_CAPABILITY");
+        requireFact(result.ok, result.error?.code);
+        projected.pouch = result.value;
+      }
       requireFact(target && evaluateCondition(target.entryCondition, projected), "CONTENT_TARGET_GUARD");
       let next, transition;
       if (node.type === "decision") {
@@ -226,12 +235,7 @@ export function createContentOrchestrator(catalog, { pouchEnabled = false } = {}
         next = { ...projected, revision: nextBase.revision, playTimeMs: nextBase.playTimeMs, state: transition.target, currentNodeId: target.id };
       }
       if (!next.progress.completedNodeIds.includes(node.id)) next.progress.completedNodeIds.push(node.id);
-      const pouchEffect = pouchPolicy && Object.hasOwn(pouchPolicy.actionEffects, action.id) ? pouchPolicy.actionEffects[action.id] : null;
-      if (pouchEffect) {
-        const result = pouchEffect.action === "collect" ? collectItem(snapshot.pouch, pouchEffect.itemId) : refuseItem(snapshot.pouch, pouchEffect.itemId);
-        requireFact(result.ok, result.error?.code);
-        next.pouch = result.value;
-      }
+      if (pouchEffect) next.pouch = projected.pouch;
       next.currentTreeId = catalog.treeByNode[target.id];
       next = enter(next, command.at);
       return { snapshot: freeze(next), transition, feedbackActionId: action.id, reason: "choice-committed" };
@@ -301,7 +305,7 @@ export function createContentOrchestrator(catalog, { pouchEnabled = false } = {}
       requireFact(admission.ok, "CONTENT_TRANSITION");
       const node = nodeFor(snapshot), transitions = [admission.value];
       if (node.type !== "cutscene") {
-        transitions.push(plan({ state: admission.value.target, metrics: snapshot.metrics, flags: snapshot.flags }, node.type === "decision" ? "REQUEST_DECISION" : "OPEN_EXPLORATION", node));
+        transitions.push(plan({ ...snapshot, state: admission.value.target }, node.type === "decision" ? "REQUEST_DECISION" : "OPEN_EXPLORATION", node));
       }
       return { snapshot: checked.value.snapshot, transitions };
     });

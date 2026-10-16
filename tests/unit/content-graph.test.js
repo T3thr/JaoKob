@@ -8,7 +8,7 @@ import { planGameStateTransition } from "../../src/core/state-machine/game-state
 
 const json = async (path) => JSON.parse(await readFile(new URL(path, import.meta.url), "utf8"));
 const [content, catalog, expected] = await Promise.all([
-  json("../../src/data/content/packages/act-01.json"),
+  json("../../src/data/content/compatibility/act-01-2.1.0.json"),
   json("../../src/data/content/packages/act-01-test-catalog.json"),
   json("../fixtures/content/graph/act-01-expectations.json"),
 ]);

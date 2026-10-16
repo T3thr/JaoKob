@@ -13,7 +13,7 @@
 .jk-pouch-slot-held { cursor: pointer; box-shadow: inset 0 0 0 4px var(--jk-pouch-slot-paper), 0 4px 8px rgb(41 61 50 / 8%); }
 .jk-pouch-slot-held:hover, .jk-pouch-slot-held[aria-pressed="true"] { border-color: var(--jk-moss); outline: 2px solid var(--jk-moss); outline-offset: 2px; }
 .jk-pouch-slot-empty { border-style: dashed; background: var(--jk-pouch-slot-paper); color: var(--jk-ink-soft); }
-.jk-pouch-art { margin: 0; inline-size: 100%; text-align: center; }
+.jk-pouch-art { margin: 0; inline-size: 100%; min-block-size: 128px; display: grid; place-items: center; text-align: center; }
 .jk-pouch-art img { display: block; inline-size: min(100%, 160px); block-size: 128px; object-fit: contain; margin-inline: auto; }
 .jk-pouch-art img[hidden], .jk-pouch-art figcaption[hidden] { display: none; }
 .jk-pouch-image-fallback { padding: var(--jk-space-3); font-size: .875em; }

@@ -15,7 +15,7 @@ const presentationFixture = async () => JSON.parse(await readFile(new URL("../fi
 
 test("tc.act1.schema FR-CNT-001/002: canonical Act 1 loads from JSON and object with immutable indexes", async () => {
   const [source, catalogText] = await Promise.all([
-    readFile(new URL("../../src/data/content/packages/act-01.json", import.meta.url), "utf8"),
+    readFile(new URL("../../src/data/content/compatibility/act-01-2.1.0.json", import.meta.url), "utf8"),
     readFile(new URL("../../src/data/content/packages/act-01-test-catalog.json", import.meta.url), "utf8"),
   ]);
   const actOptions = { testReferenceIds: JSON.parse(catalogText), expectedContentVersion: "2.1.0" };
@@ -42,7 +42,7 @@ test("tc.act1.schema FR-CNT-001/002: canonical Act 1 loads from JSON and object 
 });
 
 for (const prefix of ["/", "/JaoKob/"]) test(`tc.act1.schema canonical JSON same-origin load at ${prefix}`, async () => {
-  const source = await readFile(new URL("../../src/data/content/packages/act-01.json", import.meta.url), "utf8");
+  const source = await readFile(new URL("../../src/data/content/compatibility/act-01-2.1.0.json", import.meta.url), "utf8");
   const testReferenceIds = JSON.parse(await readFile(new URL("../../src/data/content/packages/act-01-test-catalog.json", import.meta.url), "utf8"));
   let requested;
   const result = await loadContentPackage("src/data/content/packages/act-01.json", { testReferenceIds, baseUrl: `https://example.test${prefix}index.html`, fetch: async (url) => {
@@ -256,8 +256,8 @@ test("NFR-SE-002 __proto__ cannot pollute indexes or records", () => {
 test("TC-S3-CONTRACT-001 CR-0002 D4/CR-0003 D1 frozen catalog exactly matches all local content schema sources", async () => {
   const root = new URL("../../specs/schemas/", import.meta.url);
   const rootFiles = (await readdir(root)).filter((name) => name.endsWith(".json") && name !== "save-state.schema.json");
-  const versioned = (await Promise.all(["v1.1.0", "v1.2.0"].map(async (version) =>
-    (await readdir(new URL(`${version}/`, root))).map((name) => `${version}/${name}`)))).flat();
+  const versioned = (await Promise.all(["v1.1.0", "v1.2.0", "v2.0.0"].map(async (version) =>
+    (await readdir(new URL(`${version}/`, root))).filter(name => name !== "save-state.schema.json").map((name) => `${version}/${name}`)))).flat();
   assert.deepEqual(Object.keys(CONTENT_SCHEMA_CATALOG).sort(), [...rootFiles, ...versioned].sort());
   for (const [path, schema] of Object.entries(CONTENT_SCHEMA_CATALOG)) {
     assert.deepEqual(schema, JSON.parse(await readFile(new URL(path, root), "utf8")), path);

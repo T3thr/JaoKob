@@ -2,13 +2,13 @@
 
 | Control | Value |
 |---|---|
-| Version / date | **0.2.3** / 2026-10-16, Asia/Bangkok: Slice3 T6 and PO D3 ratification |
-| Status | **PlanningPR12/Slice1PR13/Slice2PR14 merged; T6 source/evidence delivered for PO review;7/12 tasks delivered;T7–T11 and final human gates open** |
+| Version / date | **0.2.4** / 2026-10-16, Asia/Bangkok: Slice4 T7/T8 content/schema/map handoff |
+| Status | **PR12–15 merged; Slice4 T7/T8 candidate/map delivered for review;9/12 tasks delivered;T9–T11 and final human gates open** |
 | Author | Codex / Senior Technical Lead, Game Director, Principal UI/UX Architect |
 | Scope | S4 UI/Log/durable Pouch/Act 1 rewrite + Secret Moments/Act 2–5 map; S5 content/three endings/Grand Keepsake |
 | Change class | C2 branch/choice/presentation; C3 inventory/save/checkpoint/content contract compatibility |
 | Sources | [Proposal v0.2.1](../proposals/sprint-04-overhaul/01-proposal-plan.md), [revised SSOT](../sprints/sprint-04-ssot.md), [Sprint 3](../sprints/sprint-03-ssot.md) |
-| Review | PR12/13/14 merged; current `feat/sprint-04-slice-03-log` → develop; actual PR linked in [Slice3 audit](../changelog/2026-10/2026-10-16-0142-sprint-04-slice-03-history.md) after creation |
+| Review | PR12–15 merged; current `feat/sprint-04-slice-04-narrative` → develop; intended PR16, [Slice4 audit](../changelog/2026-10/2026-10-16-0302-sprint-04-slice-04-narrative.md) |
 
 ## 1. Authority, context and revision
 
@@ -140,3 +140,11 @@ v0.2.1 supplements the PO-endorsed v0.2.0 plan with final narrative/Pouch impact
 Slice2 amendment v0.2.2 is governed by the 2026-10-16 PO directive and ADR-P0-020. It publishes pouch/save schema2.0 and format2 while retaining content2.1; package/tree2.0/content3 remain future contracts. The previous planning rollback paragraph is historical: current runtime rollback must retain Save2 admission/downgrade protection or disable writes, preserving raw legacy backup. No new Canon is self-approved.
 
 Slice3 amendment v0.2.3 records current PO authorization of T6 and D3. The [contract](../design-system/session-history-contract.md) precedes source; [audit](../changelog/2026-10/2026-10-16-0142-sprint-04-slice-03-history.md) and [evidence](../../tests/e2e/evidence/sprint-04/slice-03/README.md) trace pure50+50 history, displayed-prefix receipts, accepted ordering, Thai projection, native modal, lifecycle and zero view-only storage/audio changes.935 unit cases and12 original routes pass. T6 rollback reverts ephemeral UI/history with no migration; preserve the existing Save2 baseline. This amendment does not approve merge/deployment, final human aesthetics or broader FR-UI-004 features.
+
+## Slice 4 amendment — current PO Open Mastery directive
+
+The PO explicitly authorizes T7/T8 and necessary content/schema corrections under the fixed five-PR matrix. [Act1 implementation contract](../design-system/act1-narrative-contract.md) was authored before code. Published older schemas remain immutable; additive schema2 common/event/tree/package contracts encode bounded item references, pre-state pouch/completion predicates and one atomic item effect per authored action. Secret progress reuses acknowledged completed-node IDs and the existing semantic dialogue cursor, so Save2 needs no new fields or return stack. Native target guards evaluate post-effect facts; Resume supplies full immutable facts without replay.
+
+The actual candidate rewrites all seven scenes, adds four childhood objects plus a fifth natural shell, three optional moments and held/released/default comfort. Original coping/leaf metrics and historical flags retain meaning. All935 prior assertions and exact2.1 archive remain. New source does not pretend old rewritten strings are cursor-equivalent: the normal entry stays2.1 until Slice5 T9/T10 promotes art/catalog/content with a reviewed migration or compatible continuation. Candidate3 Save2 is identity-validated; format1/content3 is rejected. No retroactive items/secrets.
+
+[T8 map](../proposals/sprint-04-overhaul/05-act-2-5-map-and-endings.md) supplies anchors/convergence/metric provenance/recovery, six-item combined continuity (including the fifth Act1 shell), cautious/repair truth tables, restrained A4-004 girl and HOME childhood→adult/red-heart handoff. Current adult front render was inspected and still lacks embroidered red heart; S5 Art/runtime owns that gap. Final prose, new draft S5 recovery values and human/device/AT acceptance remain review gates. A small HUD wrap/reserved image area/concise slot fallback correction was necessary after320px/200% screenshot inspection; this is accessibility repair under existing ADR-P0-019, not another delivery slice.

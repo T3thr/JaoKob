@@ -1,0 +1,8 @@
+{
+  "result": "PASS",
+  "metaSchemas": 17,
+  "strictPackageCases": 10,
+  "saveCursorCases": 59,
+  "networkSchemaFetch": false,
+  "semanticNegatives": "narrative-content.test.js also covers unknown references, duplicates, item rewards and secret lifecycle"
+}

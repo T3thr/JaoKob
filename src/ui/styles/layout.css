@@ -11,12 +11,12 @@ html, body { margin: 0; min-block-size: 100%; background: #cbd7bf; }
 .jk-background-image { inline-size: 100%; block-size: 100%; object-fit: cover; object-position: center 60%; }
 .jk-stage-bg::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 42%, transparent 40%, rgb(25 49 37 / 18%)), linear-gradient(180deg, rgb(18 38 28 / 7%), transparent 30%, rgb(31 51 37 / 8%)); }
 .jk-stage-header { position: relative; inline-size: min(100%, var(--jk-reading-max)); margin-inline: auto; z-index: var(--jk-layer-reading); }
-.jk-header-bar { display: flex; align-items: center; gap: 8px; padding: 8px; color: var(--jk-ink); background: var(--jk-glass); border: 1px solid rgb(255 255 255 / 48%); border-radius: 32px; box-shadow: 0 4px 16px rgb(27 53 38 / 8%); }
+.jk-header-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 8px; color: var(--jk-ink); background: var(--jk-glass); border: 1px solid rgb(255 255 255 / 48%); border-radius: 32px; box-shadow: 0 4px 16px rgb(27 53 38 / 8%); }
 @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .jk-header-bar { background: var(--jk-glass-translucent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
 }
-.jk-hud { flex: 1 1 0; min-inline-size: 0; }
-.jk-utility-rail { display: flex; gap: 4px; align-items: center; margin-inline-start: auto; }
+.jk-hud { flex: 1 1 16em; min-inline-size: 0; }
+.jk-utility-rail { display: flex; flex-wrap: wrap; justify-content: flex-end; max-inline-size: 100%; gap: 4px; align-items: center; margin-inline-start: auto; }
 .jk-stage-char { --jk-subject-size: clamp(112px, 20svh, 224px); position: fixed; z-index: var(--jk-layer-stage); display: grid; place-items: end center; inset-inline: 0; inset-block-start: 38svh; block-size: var(--jk-subject-size); pointer-events: none; }
 .jk-character-image { position: relative; z-index: 1; display: block; inline-size: var(--jk-subject-size); block-size: auto; object-fit: contain; filter: saturate(.9) drop-shadow(0 2px 3px rgb(57 73 44 / 12%)); }
 .jk-stage-char[data-media-state="ready"]::before { content: ""; position: absolute; inset-inline-start: 50%; inset-block-end: 0; inline-size: calc(var(--jk-subject-size) * 1.1); block-size: calc(var(--jk-subject-size) * .18); transform: translate(-50%, 30%); border-radius: 50%; background: radial-gradient(ellipse, rgb(50 70 39 / 25%), rgb(64 86 45 / 9%) 40%, transparent 70%); }

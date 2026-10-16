@@ -1,6 +1,6 @@
 # Visual Novel Runtime Design Specification
 
-Version: 1.0.0 · 2026-10-15 · implementation contract for ADR-P0-019 / CR-0005 / Sprint 4 T1–T2 / PR #13.
+Version: 1.0.1 · 2026-10-15 · implementation contract for ADR-P0-019 / CR-0005 / Sprint 4 T1–T2 / PR #13.
 
 Authority: [ADR-P0-019](../adr/ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md) supersedes ADR-P0-018. This specification records the PO mandate before implementation; it does not approve new mechanics or narrative. Human visual acceptance remains required.
 
@@ -87,3 +87,7 @@ Bootstrap owns commands, validated settings and storage ports. Data projection s
 Required evidence: all unit tests without skips; existing Act 1 routes and save/consent protections; real browser paths at 320×568, 390×844, 768×1024, 1440×900, 2560×1440 and 844×390; 200% text, reduced motion, high/forced contrast, modal close at both scroll ends, direct audio toggles, stage/Space/Enter guards, actual storm/advisory and consequence screens. Measure bottom baselines, complete text pagination, choice symmetry/no overflow and contrast. Archive the rejected baseline before replacing screenshots and identify both commits in Before/After. Numerical checks supplement screenshot inspection and do not substitute for PO playtest or assistive-technology review.
 
 No migration is required: save schema and the existing versioned preference schema are unchanged. Rollback reverts this PR revision; existing saves/preferences remain valid. No release, merge or production deployment is authorized by this specification.
+
+## Slice4 accessibility clarification (CR-0005)
+
+At narrow widths/large text, the single HUD capsule wraps meters and utility controls onto separate rows rather than squeezing Thai labels/values together. Numeric values remain legible and controls retain44px targets. Item illustrations reserve at least128px height during failure; small decorative slots use a short localized fallback, while inspection retains the full explanation. This corrective clarification follows actual320px/200% screenshot inspection; it changes no domain rule or paper baseline.

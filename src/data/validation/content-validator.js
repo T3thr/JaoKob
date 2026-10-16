@@ -12,6 +12,7 @@ const PACKAGE_SCHEMA_PATHS = Object.freeze({
   "1.0.0": "content-package.schema.json",
   "1.1.0": "v1.1.0/content-package.schema.json",
   "1.2.0": "v1.2.0/content-package.schema.json",
+  "2.0.0": "v2.0.0/content-package.schema.json",
 });
 const IDENTIFIER = /^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$/;
 
@@ -37,7 +38,8 @@ export function validateContentPackage(input, options = {}) {
   }
   for (const name of ["characters", "dialogues", "events"]) {
     const version = data[name]?.schemaVersion;
-    if (version !== undefined && version !== "1.0.0") return contentFailure(`$.${name}.schemaVersion`, "CONTENT_VERSION", "Unsupported catalog schema version.");
+    const expected = name === "events" && data.schemaVersion === "2.0.0" ? "2.0.0" : "1.0.0";
+    if (version !== undefined && version !== expected) return contentFailure(`$.${name}.schemaVersion`, "CONTENT_VERSION", "Unsupported catalog schema version.");
   }
   if (Array.isArray(data.narrativeTrees)) {
     for (const [i, tree] of data.narrativeTrees.entries()) {
@@ -109,6 +111,32 @@ export function validateContentPackage(input, options = {}) {
   const flagDefinitions = new Map(data.flagDefinitions.map((def) => [def.id, def]));
   const nodeEntries = catalogs["narrative-node.id"];
   const nodeById = new Map(nodeEntries.map((entry) => [entry.id, entry]));
+  const returnsTo = (start, returnId) => {
+    const memo = new Map(), active = new Set();
+    const visit = id => {
+      if (id === returnId) return true;
+      if (memo.has(id)) return memo.get(id);
+      if (active.has(id) || active.size + memo.size >= 256) return false;
+      const node = nodeById.get(id)?.value;
+      if (!node || node.completion) return false;
+      active.add(id);
+      const targets = [node.nextNodeId, ...(node.choices ?? []).map(action => action.nextNodeId), ...(node.interactions ?? []).map(action => action.nextNodeId)].filter(Boolean);
+      const result = targets.length > 0 && targets.every(visit);
+      active.delete(id); memo.set(id, result); return result;
+    };
+    return visit(start);
+  };
+  const momentNodes = new Set();
+  for (const [i, moment] of (data.secretMoments ?? []).entries()) {
+    const node = nodeById.get(moment.nodeId)?.value;
+    if (!node || node.type !== "cutscene" || node.checkpointPolicy !== "none" || node.completion
+      || node.dialogueIds.length < 2 || node.dialogueIds.length > 4 || node.onEnterEffects.length
+      || data.events.events.some(event => event.trigger.nodeId === node.id && event.resolution.effects.length)
+      || momentNodes.has(moment.nodeId) || moment.nodeId === moment.returnNodeId || !returnsTo(moment.nodeId, moment.returnNodeId)) {
+      semantic(`$.secretMoments[${i}]`, "Secret moments require 2–4 acknowledged beats without entry rewards or checkpoints.");
+    }
+    momentNodes.add(moment.nodeId);
+  }
   const checkedCutscenes = new Set();
 
   for (const [ti, tree] of data.narrativeTrees.entries()) {
@@ -140,6 +168,12 @@ export function validateContentPackage(input, options = {}) {
         if (action.unavailableBehavior === "disabled" && !action.disabledReason) semantic(`${at}.disabledReason`, "Disabled actions require a localized reason.");
         validateCondition(action.condition, `${at}.condition`, flagDefinitions, add);
         validateEffects(action.effects, `${at}.effects`, node, flagDefinitions, add);
+        if (action.pouchEffect && action.effects.some(effect => effect.type.endsWith("metric"))) {
+          semantic(`${at}.pouchEffect`, "New item transactions cannot reward meters.");
+        }
+        if (action.pouchEffect?.action === "replace" && action.pouchEffect.itemId === action.pouchEffect.oldItemId) {
+          semantic(`${at}.pouchEffect`, "Replacement requires two different items.");
+        }
       }
     }
     if (node.type === "cutscene" && node.nextNodeId && !checkedCutscenes.has(node.id)) {
@@ -181,6 +215,8 @@ export function collectContentRecords(data) {
     ["flag.id", data.flagDefinitions, "$.flagDefinitions"],
     ["content-warning.id", data.contentWarnings, "$.contentWarnings"],
     ["asset.id", data.assets, "$.assets"],
+    ["item.id", data.keepsakes ?? [], "$.keepsakes"],
+    ["secret-moment.id", data.secretMoments ?? [], "$.secretMoments"],
   ];
   for (const [ns, entries, path] of lists) {
     result[ns] = [];
