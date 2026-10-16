@@ -10,25 +10,25 @@ export const TH_KEEPSAKES = Object.freeze({
   item_dew_stone: Object.freeze({
     id: "item_dew_stone", name: "หินประกายน้ำค้าง",
     description: "หินเม็ดเล็ก ผิวด้านหนึ่งหม่น อีกด้านรับแสงเป็นจุดใส เมื่อใบข้างบนขยับ ประกายก็เลื่อนไปตามขอบ",
-    memoryText: "ตอนแสงหาย แม่กับพี่น้องหยุดรอด้วยกัน จนประกายเล็ก ๆ กลับมาอีกครั้ง",
+    memoryText: "แม่เอียงตัวหลบใบให้แสงลงถึงหิน ตัวหางไวลดหางข้างเจ้ากบ แล้วทั้งคู่ก็เห็นประกายพร้อมกัน",
     usageTypes: Object.freeze(["keepsake-memory"]), imagePath: null, imageAlt: "",
   }),
   item_lotus_shell: Object.freeze({
     id: "item_lotus_shell", name: "เปลือกเมล็ดบัวเล็ก",
     description: "เปลือกกลวงสีน้ำตาลอ่อน เคยหมุนอยู่ในง่ามราก แตะก้านเบา ๆ ทุกครั้งที่น้ำพากลับมา",
-    memoryText: "พี่น้องผลัดกันดุนเปลือก แล้วรอให้วงน้ำจางก่อนเริ่มใหม่ จังหวะนั้นยังจำได้",
+    memoryText: "พี่น้องดุนแรงจนเปลือกกระเด็น พอเจ้ากบดุนคืนเบา ๆ หัวเล็กสองหัวก็ว่ายสวนกันไปมาอยู่ข้างราก",
     usageTypes: Object.freeze(["keepsake-memory"]), imagePath: null, imageAlt: "",
   }),
   item_rain_petal: Object.freeze({
     id: "item_rain_petal", name: "กลีบบัวที่ยังมีกลิ่นฝน",
     description: "กลีบสีจาง ปลายงอเข้าหากันเล็กน้อย กลิ่นฝนชวนให้นึกถึงรากที่รับแรงน้ำไว้ให้",
-    memoryText: "หลังพายุ ฝนกลับมาแยกเป็นหยด มีช่วงเงียบให้เจ้ากบคลายหางแล้วหยุดพัก",
+    memoryText: "หยดฝนแตะกลีบจนเจ้ากบสะดุ้งนิดเดียว มันกลับไปดุนขอบบางให้พ้นน้ำ กลีบค่อย ๆ คลี่ออกบนราก",
     usageTypes: Object.freeze(["keepsake-memory"]), imagePath: null, imageAlt: "",
   }),
   item_river_shell: Object.freeze({
     id: "item_river_shell", name: "เปลือกหอยลายคลื่น",
-    description: "เปลือกหอยว่างขนาดเล็ก มีรอยโค้งวนเข้าหากัน เคยนอนนิ่งอยู่บนโคลนในน้ำตื้น",
-    memoryText: "ตรงน้ำที่ไหลช้า เจ้ากบมีเวลาเลือกว่าจะพกอะไรไปต่อ และมีที่ให้ค่อย ๆ วางของลง",
+    description: "เปลือกหอยว่างมีรอยวน ปากเปลือกเล็กพอบังปลายหัว ชวนให้นึกถึงเปลือกใหญ่ขอบบิ่นที่บึงเดิม",
+    memoryText: "ใต้ปากเปลือกหอยที่บ้าน พี่น้องเคยเบียดกันจนหางปัดจมูกเจ้ากบ พอแม่เรียก ทุกหางก็ถอยกรูออกมาพร้อมกัน",
     usageTypes: Object.freeze(["keepsake-memory"]), imagePath: null, imageAlt: "",
   }),
 });

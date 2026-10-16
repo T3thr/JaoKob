@@ -1,0 +1,38 @@
+{
+  "result": "PASS",
+  "baseline": "3164601",
+  "issues": [],
+  "checkedMarkdownLinks": 169,
+  "frozenUnitTestFiles": 36,
+  "frozenPublishedSchemas": 17,
+  "sourceNonLocalizedStructureUnchanged": true,
+  "coreUiAssetsArchiveUnchanged": true,
+  "archiveSha256": "498dbdcee737a5256e32dc8391d276a83744c4e91fe910c7cdf26a84eb1fb64f",
+  "narrativeBlocks": 100,
+  "duplicateBlocks": 0,
+  "stopWordOccurrences": {
+    "before": 46,
+    "after": 3
+  },
+  "candidate": {
+    "version": "3.0.0",
+    "schema": "2.0.0",
+    "nodes": 28,
+    "dialogues": 70,
+    "items": 5,
+    "moments": 3,
+    "rawBytes": 141775,
+    "gzipBytes": 15833,
+    "sha256": "25086b7e44d8c757d40e9f2515d0fafac6fa71fc55c81db5103811f8b25c5fb4"
+  },
+  "saveBytes": 6243,
+  "profileLayoutShifts": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "limits": "Scoped repository inspection; no formal security scanner, physical device, assistive technology, literary acceptance or later-act production E2E claim"
+}

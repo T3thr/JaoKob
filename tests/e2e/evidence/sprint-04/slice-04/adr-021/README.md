@@ -1,0 +1,27 @@
+# PR16 remediation evidence — ADR-P0-021 D1–D6
+
+2026-10-16 · CR-20261016-0302 · existing `feat/sprint-04-slice-04-narrative`, baseline3164601 · [PR #16](https://github.com/T3thr/JaoKob/pull/16).
+
+This directory records the subsequent remediation. The parent directory's990-case initial delivery evidence remains historical and unchanged. Authority and prospective compatibility plan precede source in [contract1.1](../../../../../../docs/design-system/act1-narrative-contract.md); prose/choice/gift staging is in [map1.1](../../../../../../docs/proposals/sprint-04-overhaul/05-act-2-5-map-and-endings.md), with the [updated audit](../../../../../../docs/changelog/2026-10/2026-10-16-0302-sprint-04-slice-04-narrative.md#8-adr-p0-021-remediation--intake-and-impact).
+
+| Gate / reproducible command | Actual result |
+|---|---|
+| `node --test tests/unit/*.test.js`, before changes | **990/990**,0 fail/cancel/skip/todo. [Baseline TAP](baseline-tests.tap) |
+| Same command, final source | **1004/1004**: all990 retained plus14 new,0 fail/cancel/skip/todo. No existing unit test was edited. [Final TAP](unit-tests.tap) |
+| `node tests/design/ending-trajectories.mjs` | Core predicate/transaction-backed **design graph**,7 decision/automatic anchors,20 edges;8 curated trajectories plus exhaustive eligible branches. [JSON](ending-trajectories.json) records source hashes, each choice, intermediate/final metrics and endpoint. |
+| `JKB_AJV_PATH=/absolute/path/to/ajv/dist/2020.js node tests/schema/narrative-reference.mjs` | **17** metaschemas,**10** strict package cases,**59** Save2 cursor cases. [JSON](schema-reference.json) |
+| `JKB_PLAYWRIGHT_PATH=/absolute/path/to/playwright/index.mjs JKB_EVIDENCE_DIR=tests/e2e/evidence/sprint-04/slice-04/adr-021 node tests/e2e/narrative-slice.mjs` | **6 profiles/21 captures**, full/refuse/cancel/replace/inspect/reload, empty/released comfort, exact secret page200%/high/forced contrast and complete fresh journey/History;0 unexpected page/console/external/3D errors. [JSON](narrative-browser.json) |
+| Installed `develop-web-game/scripts/web_game_playwright_client.js` | Two short input bursts [state](web-game/state-0.json) plus one paused reading capture [state](web-game-reading/state-0.json). Screenshots inspected against displayed Thai/state. Temporary loader resolves the already-installed Playwright; no runtime dependency/hook was added. |
+| Scoped artifact/source/link checks | [JSON](artifact-checks.json): narration/result duplicates, repetition count, exact non-localized content structure, frozen archive/schemas/old tests/Core/UI, hashes and transfer/save sizes; changed Markdown local links/anchors. This is not a formal security scan or device performance certification. |
+
+Without a leaf, **114** eligible design trajectories include36 HOME,57 NEARBY and21 DAWN. With held leaf,206 include74/106/26 respectively; released/refused each114. Each context is also enumerated fromHP1/ใจ1/Bond0:1,096 scenario-trajectories across eight contexts, all terminating with positive HP/ใจ. Coverage includes all20 edges across the contexts. These are Act4–5 **design** witnesses, not production later-act E2E.
+
+Self-reliant C/C/C/C/C preserves Bond0 throughout; cautious B then C/C/C/C retains the original automatic+10 and ends15; receiving water once then using natural shelter ends20. All three reach DAWN with dignity, shelter and water. Original cautious/voice/help still reaches70 HOME, accept-now80 HOME, nearby→repair80 HOME; declining repair remains NEARBY. Guard boundary29/30 and59/60, crisis precedence, held+historical leaf and one-time repair are separately tested. No item or gift tier enters the resolver.
+
+Act1 changes are localized strings only: same content3/schema2,28nodes/47edges/70dialogues,5items/3moments, flags, effects and Save2 fields. Mother/siblings have physical habits, waves displace the tadpole, branches/silt and a broken watercourse explain the continuing family search, and the fifth shell recalls the required opening's shared shelter. Exact duplicate narration/results are zero; actual whole-package `หยุด` occurrences were46 before and3 after (not a literary-quality score). Empty/released routes keep full prose and true physical state.
+
+Inspected [family reading](web-game-reading/shot-0.png), [full offer](320x568-full-offer.png), [desktop](1440x900-full-offer.png), [empty](320-empty-comfort.png), [released](320-released-comfort.png), [text200](320-secret-text200.png), [final History](390-journey-history.png). Six sampled profile shifts are0; final journey save is6,243 bytes. This does not certify representative-device load/paint percentiles or screen-reader behavior.
+
+Normal entry remains exact archived2.1 pending T9/T10. No schema/Save2 migration, new production state, later-act runtime, model/art/viewer, branch/PR, merge or deployment. Legacy browser12-route evidence is retained from the initial delivery; the unchanged normal entry/Core/UI are also covered by the retained unit regression, but that browser runner was not repeated in this remediation. Formal scanner, native400% zoom, physical-device/AT and human Thai/PO/Art final approval remain open. Existing adult shirt still lacks red-heart embroidery for S5; the new HOME staging is a living frog intercut with separate poetic gift mirrors, not new art delivered here.
+
+Rollback: reviewed revert of this remediation, preserving all player records, Save2 backups and downgrade/write guards. No player data is transformed or cleared.

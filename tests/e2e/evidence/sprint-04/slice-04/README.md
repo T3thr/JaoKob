@@ -2,6 +2,8 @@
 
 2026-10-16 · CR-20261016-0302 / CR-0005 / ADR-P0-019/020 · T7/T8 · [PR #16](https://github.com/T3thr/JaoKob/pull/16), implementation `148ed4b`.
 
+Subsequent PR16 remediation under accepted ADR-P0-021 D1–D6 has [separate evidence](adr-021/README.md), preserving this initial delivery history.
+
 ## What is delivered
 
 Actual `src/data/content/packages/act-01.json` is content3/schema2: **28 nodes,47 edges,70 dialogue records,five natural objects,three optional three-beat moments** across the seven canonical Act1 scenes. The fifth offering has a free-slot acquisition, refusal/keep-current and all four explicit atomic replacements. Native confirmation cancellation preserves state. Quiet-bank release permits an actually empty pouch; held/released/refused/default comfort stays truthful. Mother/root/current, the three home directions, original coping/leaf effects and irreversible historical flags remain intact.

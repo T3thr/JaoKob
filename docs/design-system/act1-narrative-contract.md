@@ -1,6 +1,17 @@
 # Act 1 narrative and content 3 contract
 
-Version 1.0.0 · 2026-10-16 · CR-0005 D2/D4/D5 · Sprint 4 Slice 4, T7/T8 · intended PR #16.
+Version 1.1.0 · 2026-10-16 · CR-0005 D2/D4/D5; ADR-P0-021 D1–D6 · Sprint 4 Slice 4, T7/T8 · existing PR #16.
+
+## ADR-P0-021 remediation contract (before implementation)
+
+The PO's current directive and accepted [ADR-P0-021](../adr/ADR-P0-021-narrative-resonance-authentic-adventure-and-branching-integrity.md) authorize remediation from `3164601` on the existing branch/PR. Baseline **990/990** passes, with zero failures/cancellations/skips/todos. The following prospective amendment governs this revision; the earlier delivery evidence below remains historical.
+
+- **D1 / T8-AC-05 / TC-S4-FAIR-001:** retain every existing GDD A/B effect and cautious compensation/repair. Add explicit self-reliant choices to the Act4–5 design, with zero Bond and accessible natural water/shelter. They must converge on the same anchors and produce reachable DAWN, NEARBY and HOME witnesses, not merely synthetic resolver inputs. A test-only choice graph will execute guards/transactions and enumerate trajectories; no later-act runtime is introduced.
+- **D2–D4 / T7-AC-01/02/04 / TC-S4-NARRATIVE-001/EMOTION-001:** revise Thai prose through animal perception, distinct mother/sibling actions and physical storm/blocked-return causes. Remove system commentary and duplicate narration/result blocks. Reduce repeated imperative language. The late girl's design begins with a visible misjudgment and mutual adjustment, still first appearing at A4-004.
+- **D5 / T7-AC-03 / TC-S4-CALLBACK-001:** keep `item_river_shell` an empty natural snail shell. Seed a childhood shell shelter in the required opening; its later resemblance recalls family closeness. Collect/refuse/four replacements receive distinct embodied results. No new item, automatic reward, imagined held prop or score.
+- **D6 / T8-AC-07 / TC-S4-GIFT-001:** HOME explicitly shows the living frog choosing shelter, exploring and returning freely. Crochet and adult velour are intercut poetic mirrors and the real gift; return to the active frog before the gift invitation. This replaces earlier literal-transformation wording prospectively under ADR-P0-021, without changing ending IDs, gates or assets.
+
+Readiness: accepted authority, affected artifacts and acceptance above; content stays 3.0.0/schema2/Save2 with the same 28 nodes, 47 edges, 70 dialogue IDs, effects and flags. Text/localization edits add no state, field, dependency or migration. Normal archived2.1 continuation and all990 existing tests remain intact. New independent design-graph/editorial tests, schema checks and actual candidate browser/Thai pagination inspection provide evidence; human literary approval and S5 runtime remain open. Rollback is a reviewed revert of this revision, preserving player records and the pinned entry.
 
 ## Authority, intake and readiness
 
@@ -54,7 +65,7 @@ The leaf's legacy +10/+5 morale effects remain **story coping** effects with dis
 
 Retain all 935 baseline cases and independently hash the archived content and published schemas. Add strict/reference schema positives/negatives; pure nested predicate/atomic effect/revision cases; exhaustive reachable node/action witnesses with optional choices normalized; full/refuse/each replacement/cancel/release-all routes; all seven scenes, secret skip/read/ack/Resume/Retry, callback state truth; Save 2/checkpoint round-trips and bounded UTF-8 size. Browser evidence uses the actual composition port with the candidate, existing native UI and actual Thai pagination at small/large profiles. No production debug hook.
 
-T8 supplies a testable design truth table, effect provenance/recovery matrix, restrained girl and model-gap manifest. It cannot establish unimplemented later-act E2E. Human Thai/PO/art, physical-device/AT and final T11 performance acceptance remain open. Rollback reverts the candidate/contract changes while the pinned 2.1 entry continues; preserve Save 2 raw backups and downgrade/write guards. Never clear player keys or convert version-3 saves into empty version-2.1 bags.
+T8 supplies reachable self-reliant/cautious trajectories and a Core-backed design graph, effect provenance/recovery matrix, a girl who learns from the frog's reactions, living-frog/gift-mirror staging and the model-gap manifest. It cannot establish unimplemented later-act E2E. Human Thai/PO/art, physical-device/AT and final T11 performance acceptance remain open. Rollback reverts the candidate/contract changes while the pinned 2.1 entry continues; preserve Save 2 raw backups and downgrade/write guards. Never clear player keys or convert version-3 saves into empty version-2.1 bags.
 
 ## Review findings applied within the authorized slice
 

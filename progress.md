@@ -47,3 +47,11 @@ Progress is tracked in docs/changelog/2026-09/2026-09-07-1248-sprint-03-benchmar
 - Screenshot inspection exposed inherited320px/200% HUD overlap and long missing-art slots. Header now wraps; image area reserves128px and slot fallback is concise. Reran browser/unit gates.
 - Final human editorial/PO/art/device/AT/performance approval remains open; T9/T10 normal-entry promotion/Intent art/cursor policy and T11 final acceptance remain in PR17. T8 records current plain adult shirt and S5 red-heart export work. No deploy/merge.
 - Delivered implementation148ed4b1f121e3f648ba3faddd5a69da3b257c80 as T3thr; pushed requested branch; opened [PR #16](https://github.com/T3thr/JaoKob/pull/16) to develop and attached it to this chat. Final audit links recorded; no auto-merge/deployment.
+
+## PR16 ADR-P0-021 remediation (2026-10-16)
+
+- Current PO directive: correct D1–D6 on the existing feature branch/PR16 from3164601, retaining all990 tests, update existing audit/CHANGELOG and commit/push; no new branch/PR/merge/deploy. T3thr identity/current remote verified; private references remain untracked.
+- Contract1.1 precedes source. Act1 now shows distinctive playful family, physical waves/silt/blocked return, and a fifth shell recalling the required opening's shared shelter. Narration/results have zero duplicates; package occurrences of หยุด reduced46→3. No graph/ID/effect/schema/save/default-entry change.
+- Map1.1 preserves A/B/compensation/repair, adds five self-reliant C choices, mutual-learning girl firstA4-004 and intercut HOME living frog/gift mirrors. Pure Core-backed test design graph proves all three endings and Bond0/15/20 DAWN witnesses, without implementing later acts.
+- Final unit1004/1004 (990 retained+14 new), zero fail/cancel/skip/todo; schema reference17/10/59 passes. Browser and installed action-client verification/visual inspection underway in a separate adr-021 evidence subdirectory; historical evidence preserved.
+- Remaining: evidence audit/static/link/review, concrete same-PR commit/push and remote-head verification. Human Thai/PO/device/AT acceptance, S5 runtime and T9–T11 remain open.
