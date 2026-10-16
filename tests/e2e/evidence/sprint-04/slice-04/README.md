@@ -1,6 +1,6 @@
 # Sprint 4 Slice 4: narrative candidate and S5 handoff evidence
 
-2026-10-16 · CR-20261016-0302 / CR-0005 / ADR-P0-019/020 · T7/T8 · intended PR #16.
+2026-10-16 · CR-20261016-0302 / CR-0005 / ADR-P0-019/020 · T7/T8 · [PR #16](https://github.com/T3thr/JaoKob/pull/16), implementation `148ed4b`.
 
 ## What is delivered
 

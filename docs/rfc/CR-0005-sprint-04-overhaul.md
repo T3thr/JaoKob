@@ -8,7 +8,7 @@
 | Scope | S4 UI/Log/durable Pouch/Act 1 rewrite + Secret Moments/Act 2–5 map; S5 content/three endings/Grand Keepsake |
 | Change class | C2 branch/choice/presentation; C3 inventory/save/checkpoint/content contract compatibility |
 | Sources | [Proposal v0.2.1](../proposals/sprint-04-overhaul/01-proposal-plan.md), [revised SSOT](../sprints/sprint-04-ssot.md), [Sprint 3](../sprints/sprint-03-ssot.md) |
-| Review | PR12–15 merged; current `feat/sprint-04-slice-04-narrative` → develop; intended PR16, [Slice4 audit](../changelog/2026-10/2026-10-16-0302-sprint-04-slice-04-narrative.md) |
+| Review | PR12–15 merged; current `feat/sprint-04-slice-04-narrative` → develop; [PR16](https://github.com/T3thr/JaoKob/pull/16), [Slice4 audit](../changelog/2026-10/2026-10-16-0302-sprint-04-slice-04-narrative.md) |
 
 ## 1. Authority, context and revision
 

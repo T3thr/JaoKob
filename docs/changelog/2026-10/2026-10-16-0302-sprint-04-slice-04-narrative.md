@@ -75,4 +75,4 @@ Required next owner work: PO/Narrative review this concrete candidate/map; Slice
 
 ## 7. Delivery
 
-Conventional commit and push on the requested feature branch; intended PR #16 → develop. Actual implementation SHA and created PR URL are appended after creation. No auto-merge or deployment.
+Implementation commit **`148ed4b1f121e3f648ba3faddd5a69da3b257c80`**, authored and committed by **T3thr <t.theerapat33@gmail.com>**, is pushed to `origin/feat/sprint-04-slice-04-narrative`. [PR #16](https://github.com/T3thr/JaoKob/pull/16) is **OPEN** against `develop` and attached to this chat. The authenticated GitHub account was verified as T3thr. This final documentation follow-up records the actual delivery identity; no source/test behavior changes after the recorded passing run. No auto-merge or deployment.
