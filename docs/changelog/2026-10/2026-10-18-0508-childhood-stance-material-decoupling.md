@@ -57,3 +57,7 @@ Not performed: physical iPhone/Android FPS/GPU-memory profiling, Safari/Firefox/
 No Save/schema/content migration. A reviewed revert of this asset change restores the old hugging/crochet artifact, which must then be labelled historical and must not be used as current narrative reference. The default GLB path and independent heart identity remain stable; node indices/material indices are not a public contract.
 
 PO visual review and human PR merge remain open; no merge or deployment was performed. This correction does not complete any of Sprint5's twenty production tasks. The active Sprint5 audit register receives a separate handoff reference in its planning checkout, because its SSOT is not yet part of develop.
+
+## 6. Git delivery
+
+Implementation commit `741b0b5` was pushed to `feat/sprint-05-childhood-stance-material` and [Draft PR #19](https://github.com/T3thr/JaoKob/pull/19) targets `develop`. The active Sprint5 audit row was separately committed as `81c2402` on `feat/sprint-05-planning-ssot`, leaving the ongoing dialogue/ADR24/ADR25/Act1 blueprint work untouched. It explicitly distinguishes actual asset PR #19 from the planning document's prospective Slice1 numbering. Both commits used verified identity `T3thr <t.theerapat33@gmail.com>`.
