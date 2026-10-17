@@ -6,7 +6,7 @@
 - **Operator:** Codex / Senior Software Architect, Lead Interactive Fiction Director, Master Craftsman
 - **Authority:** Current PO directive explicitly authorizes assessment, source/art/integration/verification, commit/push and PR17 to develop. No merge/deployment authorization.
 - **Baseline/branch:** develop@bc167d3 after PR16@37bad50; feat/sprint-04-slice-05-closeout. T3thr <t.theerapat33@gmail.com> verified. Private references remain untracked.
-- **Status:** Engineering delivery prepared for PR17 review. Final owner/manual acceptance, merge and deployment are not performed.
+- **Status:** Integrated and MERGED into `develop` at commit `4c0bd28` ([PR #17](https://github.com/T3thr/JaoKob/pull/17)). Sprint 4 closeout complete (5/5 PRs merged, 100%).
 
 ## 1. Outcome, scope and readiness
 
@@ -88,3 +88,9 @@ Implementation commit `68eb72c6b456e614944724e553692745f1ef9840` uses the reques
 All87 working-tree runtime hashes match the measured/static inventory. Complete unit TAP and resource/input/frame measurements are retained in gzip archives with uncompressedSHA-256/byte length; small reports retain the review summaries. Archives were restored and checked,169relative Markdown links resolve, and staged whitespace checks pass. Private references remain the only unrelated untracked directory. The final installed action-client run was repeated after the media-status fix and its screenshots/state inspected; local diagnostic servers and browser contexts are closed.
 
 This governance follow-up records remote delivery only; it changes no measured runtime. PR17 review/merge and the named human/device/AT gates remain open. Source, schema, test evidence, migration/rollback and the Sprint5 handoff are fully submitted within the fixed fifth slice.
+
+## 9. Integration and merge into develop
+
+On 2026-10-17, Product Owner completed review and merged [PR #17](https://github.com/T3thr/JaoKob/pull/17) into `develop` at commit `4c0bd28`.
+All 1,060 unit tests pass cleanly (100% pass, 0 fail, 0 skip). Sprint 4 is complete in full (5 of 5 PRs merged, 100%).
+All 12 tasks (T0–T11) are delivered and integrated. The repository is primed for Sprint 5 kickoff.

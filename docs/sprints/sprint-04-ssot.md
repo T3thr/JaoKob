@@ -3,16 +3,16 @@
 | Document control | Value |
 |---|---|
 | Sprint / document | `SPRINT-04` / `JKB-SPRINT-04-SSOT` |
-| Version / date | **0.5.0** / 2026-10-17, Asia/Bangkok: Slice5 T9–T11 engineering submission for PR17 |
-| Status | **Slices1–4 merged; 12/12 engineering/design task submissions delivered through five slices. PR17 and final human/device/AT acceptance remain open; sprint merge closeout is pending.** |
-| Authority | Current PO Slice5 directive authorizes T9/T10/T11, verification and PR17; ADR-P0-019/020/021 and CR-0005 govern the integrated delivery |
-| Integrated baseline | `develop@bc167d3` (governance sync after37bad50), including PR13@01cee6f, PR14@6692c1b, PR15@f8ee156, and PR16@37bad50 |
-| Review branch / PR | `feat/sprint-04-slice-05-closeout` / PR #17 → develop; PR13/14/15/16 merged |
+| Version / date | **0.5.1** / 2026-10-17, Asia/Bangkok: Sprint 4 COMPLETE; all 5 PRs merged into develop at 4c0bd28 |
+| Status | **Sprint 4 COMPLETE; all 5 PRs merged into develop (PR13/14/15/16/17@4c0bd28); 12/12 tasks delivered and integrated; 1,060/1,060 unit tests pass. Ready for Sprint 5 kickoff.** |
+| Authority | Current PO Slice 5 directive authorizes T9/T10/T11 closeout; ADR-P0-019/020/021 and CR-0005 govern the integrated delivery |
+| Integrated baseline | `develop@4c0bd28`, including PR13@01cee6f, PR14@6692c1b, PR15@f8ee156, PR16@37bad50, and PR17@4c0bd28 |
+| Review branch / PR | Slices 1–5 all MERGED into develop |
 | Proposal / RFC | [JKB-PROP-S4-001 v0.2.1](../proposals/sprint-04-overhaul/01-proposal-plan.md) / [CR-0005 v0.2.6](../rfc/CR-0005-sprint-04-overhaul.md) |
 | Models | [PR #11](https://github.com/T3thr/JaoKob/pull/11) MERGED at `e980339`; future **S5 END-HOME Grand Keepsake**, not S4 Pouch dependency |
 | Owners | PO, Technical Lead/Architect, Core/Application/Data/UI, Narrative/Game Design, Art, Accessibility, QA/DevOps |
 
-**Slice 1 merge & ADR-P0-020 ratification: 2026-10-16.** Slice 1 (T1/T2) was verified, accepted, and merged into `develop` via [PR #13](https://github.com/T3thr/JaoKob/pull/13) (commit `01cee6f`) fulfilling [ADR-P0-019](../adr/ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md). PO and Lead Architecture officially ratified [ADR-P0-020](../adr/ADR-P0-020-adventure-keepsake-pouch-and-item-system.md), locking the Adventure Keepsake Pouch capacity at **4 slots** to align with the 5-Act narrative arc. Slices 1–3 are merged. Following Slice 4 PR #16 delivery, [ADR-P0-021](../adr/ADR-P0-021-narrative-resonance-authentic-adventure-and-branching-integrity.md) was ratified and implemented; PR #16 was verified, accepted, and merged into `develop` via commit `37bad50`. Slice 5 (Tasks T9, T10, T11 / PR #17) is the final remaining sprint closeout slice.
+**Sprint 4 closeout: 2026-10-17.** All 5 PRs (PR #13, PR #14, PR #15, PR #16, PR #17) have been verified, accepted, and merged into `develop` at commit `4c0bd28`. Sprint 4 is complete in full (100%). All 12 tasks (T0–T11) are delivered with 1,060/1,060 unit tests passing. Next milestone is Sprint 5.
 
 ## 1. Goal and phased scope
 
@@ -86,9 +86,9 @@ Sprint 4 delivers all 12 tasks (T0–T11) through exactly **5 scoped Pull Reques
 | **Slice 2** | 4-Slot Keepsake Pouch & Save 2 Migration (Gate B.1) | T0, T3, T4, T5 | [PR #14](https://github.com/T3thr/JaoKob/pull/14) (`6692c1b`) | **MERGED** |
 | **Slice 3** | Session Dialogue History Backlog & Modal (Gate B.2) | T6 | [PR #15](https://github.com/T3thr/JaoKob/pull/15) (`f8ee156`) | **MERGED** |
 | **Slice 4** | Tender Act 1 Rewrite & Act 2–5 Map (Gate C) | T7, T8 | [PR #16](https://github.com/T3thr/JaoKob/pull/16) (`37bad50`; `feat/sprint-04-slice-04-narrative`) | **MERGED** |
-| **Slice 5** | Intent Tags, Integration & Final Acceptance (Gate D) | T9, T10, T11 | [PR #17](https://github.com/T3thr/JaoKob/pull/17) (`feat/sprint-04-slice-05-closeout`) | **ENGINEERING DELIVERED; REVIEW / MERGE PENDING** |
+| **Slice 5** | Intent Tags, Integration & Final Acceptance (Gate D) | T9, T10, T11 | [PR #17](https://github.com/T3thr/JaoKob/pull/17) (`4c0bd28`) | **MERGED** |
 
-Current Progress: **5/5 engineering slice submissions; 4/5 PRs merged (80%)**. PR17 contains the final T9–T11 integration. Full sprint acceptance still requires owner/manual gates and merge of PR17; no merge or deployment is performed by this delivery.
+Current Progress: **5 of 5 PRs merged (100%)**. **Sprint 4 is complete in full**. All 12 tasks (T0–T11) are delivered and integrated into `develop` with 1,060/1,060 unit tests passing. Next is Sprint 5.
 
 ### 4.2 Task Details and Specifications
 
@@ -288,7 +288,7 @@ Budgets unchanged: NFR-PE-001..005 (initial≤2MB compressed; shell+critical JSO
 
 | Record | Disposition |
 |---|---|
-| `CR-20261017-1400` | [Slice5 integration and final engineering acceptance](../changelog/2026-10/2026-10-17-1400-sprint-04-slice-05-closeout.md): T9/T10/T11, production3.0 plus exact2.1 continuation, new schema/catalog/original2D art, consolidated verification and local allowlisted artifact/rollback rehearsal; [PR17](https://github.com/T3thr/JaoKob/pull/17) to develop, review/merge pending. |
+| `CR-20261017-1400` | [Slice5 integration and final engineering acceptance](../changelog/2026-10/2026-10-17-1400-sprint-04-slice-05-closeout.md): T9/T10/T11, production3.0 plus exact2.1 continuation, new schema/catalog/original2D art, consolidated verification and local allowlisted artifact/rollback rehearsal; reviewed and MERGED into develop at 4c0bd28; Sprint 4 complete (5/5 PRs merged, 100%) |
 | `CR-20261016-1750` | [ADR-P0-021 ratification](../adr/ADR-P0-021-narrative-resonance-authentic-adventure-and-branching-integrity.md): binding mandate for narrative resonance, anti-slop, authentic characterization, and END-DAWN reachability; Slice 4 remediation within PR #16 |
 | `CR-20261016-0302` | [Slice4 T7/T8 narrative and map](../changelog/2026-10/2026-10-16-0302-sprint-04-slice-04-narrative.md): actual content3 candidate/schema2, five objects/three moments, retained935 regression, new graph/save/browser evidence; initial source148ed4b; ADR-P0-021 D1–D6 remediation from3164601 retains1004 tests plus14 checks, updates the same audit/PR, [PR16](https://github.com/T3thr/JaoKob/pull/16); reviewed and MERGED into develop at 37bad50 |
 | `CR-20261016-0142` | [Slice3 T6 Session Dialogue History](../changelog/2026-10/2026-10-16-0142-sprint-04-slice-03-history.md): source 3dfe56d; current PO D3 ratification; 935 unit cases, 12 original routes, 23 History captures; PR #15 reviewed and MERGED into develop at f8ee156 |
@@ -316,4 +316,4 @@ Budgets unchanged: NFR-PE-001..005 (initial≤2MB compressed; shell+critical JSO
 | D7 legacy vs new evidence/manual | QA/Accessibility separate approved expectation changes, new graph witness counts and actual human/device gates |
 | Local references | Preserve untracked folder; never stage personal reference photographs |
 
-Slice2 rollback retains dual-format admission and downgrade/write guards or disables writes; preserve raw Save1 backup, never downgrade Save2 or repair to an empty bag. T0–T8 are merged into develop (PR13/14/15/16@37bad50). Slice5 delivers T9 Intent/art, T10 content-bound production/save integration and T11 repeatable engineering verification with explicit pending final human acceptance; PR17 remains for review and merge. Versioned `jaokob:preferences` remains unchanged.
+Slice2 rollback retains dual-format admission and downgrade/write guards or disables writes; preserve raw Save1 backup, never downgrade Save2 or repair to an empty bag. T0–T11 are merged into develop (PR13/14/15/16/17@4c0bd28). Sprint 4 is complete in full (5/5 PRs merged, 100%). Next milestone is Sprint 5: Act 2–5 Production, Grand Keepsake and Release. Versioned `jaokob:preferences` remains unchanged.
