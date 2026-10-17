@@ -67,6 +67,12 @@ export function createStageView({ document, loadImage = async () => null }) {
     background, character, speakerPortrait,
     update(presentation = {}) {
       if (disposed) return;
+      const crop = presentation.background?.crop;
+      for (const orientation of ["portrait", "landscape"]) {
+        const point = crop?.[orientation];
+        if (point) background.style?.setProperty?.(`--jk-crop-${orientation}`, `${point.x}% ${point.y}%`);
+        else background.style?.removeProperty?.(`--jk-crop-${orientation}`);
+      }
       updateSlot(slots[0], presentation.background ?? null);
       updateSlot(slots[1], presentation.character?.portrait ?? null);
       updateSlot(slots[2], presentation.speaker?.portrait ?? null);

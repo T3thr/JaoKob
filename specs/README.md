@@ -22,13 +22,14 @@
 | `schemas/v2.0.0/common.schema.json` | Bounded pouch/capacity/completed-node predicates and atomic authored collect/refuse/release/replace; old common frozen |
 | `schemas/v2.0.0/event.schema.json` | Event catalog2 with item-state conditions; characters/dialogues remain1.0 |
 | `schemas/v2.0.0/narrative-tree.schema.json` | Tree2 with one explicit pouchEffect per choice/interaction |
-| `schemas/v2.0.0/content-package.schema.json` | Package2 registers stable keepsake IDs and fixed-return2–4-beat Secret Moments; actual content3 candidate |
+| `schemas/v2.0.0/content-package.schema.json` | Package2 registers stable keepsake IDs and fixed-return2–4-beat Secret Moments; current content3 |
+| `schemas/presentation-catalog.schema.json` | Additive catalog1: version-bound Thai intent/icon/paper skin, item images and portrait/landscape crops; no gameplay conditions/effects |
 
 ชื่อจริงของไฟล์ให้ยึดตามไฟล์ใน `schemas/` หากต่างจาก catalog นี้ และต้องอัปเดต catalog ใน change เดียวกัน
 
 Canonical `$id` ใช้ namespace `https://t3thr.github.io/JaoKob/specs/schemas/` เพื่อเป็น stable identifier ของ schema การ validate ในเครื่องต้องใช้ local catalog mapping และไม่ควรต้อง fetch schema ผ่าน network
 
-## Slice 2 save compatibility (ADR-P0-020 / PR #14)
+## Slice 2 save compatibility (historical ADR-P0-020 / PR #14)
 
 | Read/write contract | Disposition |
 |---|---|
@@ -37,7 +38,7 @@ Canonical `$id` ใช้ namespace `https://t3thr.github.io/JaoKob/specs/schema
 | Format2/content2.1 | Current writer; strict new schema plus domain/catalog checks; identity/idempotent restore |
 | Content3/future format/unverified legacy digest/corrupt | Preserve raw records; read-only recovery/memory session or explicit new-game consent; no guessed migration/downgrade |
 
-Current package/tree remain schema1.2/content2.1. New package/tree2.0/content3 narrative/secret contracts are future T7/T9/T10 work. `validateSaveEnvelope` mirrors both published save versions without a runtime dependency; it does not silently repair a bag. Structural JSON Schema checks are supplemented by pure cross-set/causal invariants and registry validation. Save2 cannot be overwritten by a higher-revision Save1 candidate. See [Slice2 contract](../docs/design-system/keepsake-pouch-contract.md) and [evidence](../tests/e2e/evidence/sprint-04/slice-02/README.md).
+At Slice2 delivery the package/tree remained schema1.2/content2.1. Slice5 now promotes package/tree2.0/content3 as specified below. `validateSaveEnvelope` mirrors both published save versions without a runtime dependency; it does not silently repair a bag. Structural JSON Schema checks are supplemented by pure cross-set/causal invariants and registry validation. Save2 cannot be overwritten by a higher-revision Save1 candidate. See [Slice2 contract](../docs/design-system/keepsake-pouch-contract.md) and [evidence](../tests/e2e/evidence/sprint-04/slice-02/README.md).
 
 Independent development check: `JKB_AJV_PATH=/absolute/path/to/ajv/dist/2020.js node tests/schema/pouch-reference.mjs`. It checks13 metaschemas, local references and47 new structural/semantic fixtures; the existing presentation reference runner retains11/36 checks. Format/date, migration, untrusted JSON and content references remain unit-test gates.
 
@@ -69,7 +70,7 @@ Schema 1.0/1.1 เดิมไม่เปลี่ยนและมี SHA-256
 
 ## Sprint 3 Task 1 consumer handoff
 
-Implemented contract: [CR-0003 D1/D3/D7](../docs/rfc/CR-0003-interactive-light-novel-presentation.md), [ADR-P0-015](../docs/adr/ADR-P0-015-interactive-light-novel-presentation.md), [Task 1 evidence](../docs/changelog/2026-09/2026-09-07-0119-sprint-03-task-01-presentation-contracts.md). Task 1 was approved and merged through PR #9 (`9e4f8b0`). The integrated benchmark now uses schema 1.2/content 2.1.0 in production; the original 2.0.0 package is retained under `src/data/content/compatibility/` for explicit migration proof. Save format remains 1. See the [Tasks 2–5 execution record](../docs/changelog/2026-09/2026-09-07-1248-sprint-03-benchmark-slice.md).
+Implemented contract: [CR-0003 D1/D3/D7](../docs/rfc/CR-0003-interactive-light-novel-presentation.md), [ADR-P0-015](../docs/adr/ADR-P0-015-interactive-light-novel-presentation.md), [Task 1 evidence](../docs/changelog/2026-09/2026-09-07-0119-sprint-03-task-01-presentation-contracts.md). Task 1 was approved and merged through PR #9 (`9e4f8b0`). At Sprint3 delivery the benchmark used schema 1.2/content 2.1.0; the original 2.0.0 package is retained under `src/data/content/compatibility/` for explicit migration proof. The Sprint3 save format was1; current Save2 compatibility is documented below. See the [Tasks 2–5 execution record](../docs/changelog/2026-09/2026-09-07-1248-sprint-03-benchmark-slice.md).
 
 ### Validation and media references
 
@@ -108,6 +109,12 @@ Success is `{ok:true,value:{sourceContentVersion,targetContentVersion,migrate,ca
 
 `canReplaceExisting(envelope)` is the same conservative admission predicate. Task 4 must supply a production-safe reviewed source artifact (never import tests), register migration at bootstrap, and inject this predicate as adapter `canReplaceExistingEnvelope` through **both stage and commit guards**, retaining revision/raw race checks. Read-only recovery/preparation preserves every raw slot; migration alone authorizes no write/reset. Task 4 owns concurrent corrupt/future/mixed-record and rollback write-guard integration. Revert Task 1 before target saves exist; afterward retain compatible validation/write protection or disable writes, with no guessed downgrade or backup deletion.
 
-## Slice4 candidate compatibility
+## Current Slice5 production compatibility
 
-Content3/schema2 is the actual rewritten Act1 candidate, exercised through the application content port. The normal entry remains archived2.1 until Slice5 T9/T10 promotion. Format2/content3 is a validated identity path with the same save schema; format1/content3 and guessed2.1→3 cursor transforms are unsupported/protected. Optional completion reuses progress.completedNodeIds; no new save field, transcript or stack. See [contract](../docs/design-system/act1-narrative-contract.md) and [reference runner](../tests/schema/narrative-reference.mjs).
+Content3/schema2 is the current normal New Game. Bootstrap keeps exact archived2.1 continuation for Save2/content2.1 and the proved2.0→2.1/Save1→2 chain. No source or checkpoint cursor is mapped into rewritten content3. Both semantic graphs are independently validated; mixed generations and late foreign records keep raw bytes protected. Recover/Resume are read-only; accepted later legacy actions still write content2.1/Save2. Format2/content3 is a validated identity path with the same save schema; format1/content3 and guessed2.1→3 cursor transforms are unsupported/protected. Optional completion reuses progress.completedNodeIds; no new save field, transcript or stack. See [contract](../docs/design-system/act1-narrative-contract.md) and [reference runner](../tests/schema/narrative-reference.mjs).
+
+## Slice5 presentation and static staging
+
+The standalone catalog1 schema leaves all17 published schemas byte-identical. Data validates schema, exact version/Thai locale, action/item/image/crop references, uniqueness and spoiler-free localized tags. It projects decoration only; Core retains conditions, eligibility and effects. Missing entries use the normal choice. Invalid decoration fails soft with a localized notice. Five original SVGs use the same-origin byte/hash/MIME/geometry whitelist and the shared32MiB decode cache; a fixed128px fallback preserves encountered-item prose. Released/refused memories retain their true status.
+
+Independent reference: `JKB_AJV_PATH=/absolute/path/to/ajv/dist/2020.js node tests/schema/closeout-reference.mjs`. Structural schema cases and cross-reference/text negatives are distinguished. [The closeout contract](../docs/design-system/sprint-04-closeout-contract.md) specifies exact binding, raw-save/race/rollback behavior and evidence. [The explicit static allowlist](releases/sprint-04-static-files.json) stages only87 runtime/licensed files through `tests/release/verify-static-artifact.mjs`; it is a local rehearsal, without a Pages workflow, release tag or deployment.

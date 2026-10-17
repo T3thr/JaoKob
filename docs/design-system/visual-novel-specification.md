@@ -1,6 +1,6 @@
 # Visual Novel Runtime Design Specification
 
-Version: 1.0.1 · 2026-10-15 · implementation contract for ADR-P0-019 / CR-0005 / Sprint 4 T1–T2 / PR #13.
+Version: 1.1.0 · 2026-10-17 · ADR-P0-019 / CR-0005; original T1–T2/PR13 contract with prospective Slice5 T9–T11 integration.
 
 Authority: [ADR-P0-019](../adr/ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md) supersedes ADR-P0-018. This specification records the PO mandate before implementation; it does not approve new mechanics or narrative. Human visual acceptance remains required.
 
@@ -91,3 +91,11 @@ No migration is required: save schema and the existing versioned preference sche
 ## Slice4 accessibility clarification (CR-0005)
 
 At narrow widths/large text, the single HUD capsule wraps meters and utility controls onto separate rows rather than squeezing Thai labels/values together. Numeric values remain legible and controls retain44px targets. Item illustrations reserve at least128px height during failure; small decorative slots use a short localized fallback, while inspection retains the full explanation. This corrective clarification follows actual320px/200% screenshot inspection; it changes no domain rule or paper baseline.
+
+## 9. Slice5 presentation integration
+
+[The pre-implementation closeout contract](sprint-04-closeout-contract.md) governs this addition. Data supplies one short Thai intent per authored action, an existing decorative SVG motif and the common paper skin. Intent expresses motive; all choices keep equal weight. No meter-derived label, reward color, score, hidden eligibility or ending hint enters presentation. Original source-authored outcome cues appear as separate described prose outside the button and reading card. Disabled reasons keep their own accessible description.
+
+All30 current actions and the retained legacy actions have version-bound catalogs. Missing optional entries retain plain labels; an invalid catalog leaves valid story controls playable. Five original item illustrations are visible only for encountered/held/memory records. Fixed128px art, intrinsic dimensions and truthful localized fallback preserve the name, description and memory if integrity/decode/network fails. Pouch redraw/close releases image leases and discards late results. The existing32MiB cache is shared between both content versions. Authored portrait/landscape crops set presentation CSS only.
+
+The HTML preloads the runtime loader, validator, local schema and orchestration modules to shorten the critical module dependency path. No additional runtime/library or speculative item/legacy-package download is introduced. DOM/keyboard/reading pages, focus, bottom24px paper, full-card targets, high/forced contrast and independent audio remain governed by the original specification. Viewport/contrast/rAF emulation does not certify physical devices or human AT/art acceptance.

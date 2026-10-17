@@ -1,0 +1,30 @@
+{
+  "baseline": {
+    "command": "node --test tests/unit/*.test.js",
+    "tests": 1004,
+    "suites": 0,
+    "pass": 1004,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "duration_ms": 27238.161625,
+    "rawArchive": "baseline-unit.tap.gz",
+    "uncompressedBytes": 215027,
+    "uncompressedSha256": "3f514c40f6f4ede3ffc95e353f9c72bf98689071994d3c5d5333903dcfe4583f"
+  },
+  "final": {
+    "command": "node --test tests/unit/*.test.js",
+    "tests": 1060,
+    "suites": 0,
+    "pass": 1060,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "duration_ms": 23629.598958,
+    "rawArchive": "unit.tap.gz",
+    "uncompressedBytes": 228499,
+    "uncompressedSha256": "6cc2cb449e03fefb206a86d2eda5d41f7ec853b50d486c0881650085221b99b5"
+  }
+}

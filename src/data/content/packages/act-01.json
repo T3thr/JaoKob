@@ -242,6 +242,81 @@
           "th": "ลิขสิทธิ์ 2018 ผู้สร้างโครงการ Sarabun ใช้ภายใต้ SIL Open Font License 1.1"
         }
       }
+    },
+    {
+      "id": "asset.image.keepsake-leaf-paper",
+      "type": "image",
+      "path": "assets/images/keepsakes/leaf-paper.svg",
+      "rights": {
+        "origin": "original",
+        "licenseId": "JaoKob-Original-Vector",
+        "attribution": {
+          "th": "ภาพวาดเส้นต้นฉบับสำหรับเจ้ากบตามคำสั่งเจ้าของโครงการ"
+        }
+      },
+      "alt": {
+        "th": "เศษใบบัวสีเขียวหม่น ขอบขาดและเส้นใบรับแสงอ่อน"
+      }
+    },
+    {
+      "id": "asset.image.keepsake-dew-stone",
+      "type": "image",
+      "path": "assets/images/keepsakes/dew-stone.svg",
+      "rights": {
+        "origin": "original",
+        "licenseId": "JaoKob-Original-Vector",
+        "attribution": {
+          "th": "ภาพวาดเส้นต้นฉบับสำหรับเจ้ากบตามคำสั่งเจ้าของโครงการ"
+        }
+      },
+      "alt": {
+        "th": "หินกลมสีเทาเขียว มีหยดน้ำและแสงเล็กบนผิว"
+      }
+    },
+    {
+      "id": "asset.image.keepsake-lotus-shell",
+      "type": "image",
+      "path": "assets/images/keepsakes/lotus-shell.svg",
+      "rights": {
+        "origin": "original",
+        "licenseId": "JaoKob-Original-Vector",
+        "attribution": {
+          "th": "ภาพวาดเส้นต้นฉบับสำหรับเจ้ากบตามคำสั่งเจ้าของโครงการ"
+        }
+      },
+      "alt": {
+        "th": "เปลือกเมล็ดบัวสีน้ำตาลอ่อน กลวงด้านใน ขอบมน"
+      }
+    },
+    {
+      "id": "asset.image.keepsake-rain-petal",
+      "type": "image",
+      "path": "assets/images/keepsakes/rain-petal.svg",
+      "rights": {
+        "origin": "original",
+        "licenseId": "JaoKob-Original-Vector",
+        "attribution": {
+          "th": "ภาพวาดเส้นต้นฉบับสำหรับเจ้ากบตามคำสั่งเจ้าของโครงการ"
+        }
+      },
+      "alt": {
+        "th": "กลีบบัวสีชมพูจางพับเล็กน้อย มีหยดฝนเกาะปลาย"
+      }
+    },
+    {
+      "id": "asset.image.keepsake-river-shell",
+      "type": "image",
+      "path": "assets/images/keepsakes/river-shell.svg",
+      "rights": {
+        "origin": "original",
+        "licenseId": "JaoKob-Original-Vector",
+        "attribution": {
+          "th": "ภาพวาดเส้นต้นฉบับสำหรับเจ้ากบตามคำสั่งเจ้าของโครงการ"
+        }
+      },
+      "alt": {
+        "th": "เปลือกหอยเล็กรอยวนสีน้ำตาลอ่อน ปากเปลือกเปิดเป็นช่องเงา"
+      }
     }
   ],
   "characters": {

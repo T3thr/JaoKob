@@ -1,0 +1,391 @@
+{
+  "at": "2026-10-17T07:40:29.344Z",
+  "browser": "151.0.7922.34",
+  "environment": {
+    "os": "darwin 25.2.0",
+    "cpu": "Apple M5",
+    "logicalCores": 10,
+    "totalMemory": 25769803776,
+    "physicalDevice": false
+  },
+  "checks": [
+    "actual staged index: root/subpath content3 New Game/reload; current and rollback archived2.1 exact read-only Resume; rollback3 raw preservation/cancel",
+    "failed archived registry cannot leave a stale media warning on a successfully initialized current New Game",
+    "all five encountered original images decode with Thai alt; no inspection writes; fixed128px integrity fallback; invalid optional catalog remains playable; excluded files404",
+    "actual emulated touch Resume/Settings/Pouch/History/close; trusted WebAudio activation, one music/ambience loop, unchanged desires/voices/raw save and16MiB bound"
+  ],
+  "captures": [
+    "artifact-root.png",
+    "artifact-subpath.png",
+    "rollback-protected-content3.png",
+    "legacy-media-failure-new-game-ready.png",
+    "item-item_leaf.png",
+    "item-item_dew_stone.png",
+    "item-item_lotus_shell.png",
+    "item-item_rain_petal.png",
+    "item-item_river_shell.png",
+    "image-integrity-fallback.png",
+    "catalog-failure-playable.png",
+    "touch-audio-pouch.png",
+    "touch-audio-history.png",
+    "frames-reading.png",
+    "frames-pouch.png",
+    "frames-transition.png"
+  ],
+  "errors": [],
+  "performance": {
+    "interactions": {
+      "method": "Trusted DOM clicks to next requestAnimationFrame after rendered DOM, full Pouch/detail/close,5 runs; pre-paint callback, not physical painted-frame timing.",
+      "inputToFrameCallback": {
+        "count": 150,
+        "p50": 6.800000071525574,
+        "p75": 7.400000095367432,
+        "p95": 8.600000023841858,
+        "max": 9.199999928474426
+      },
+      "budgetObserved": true
+    },
+    "loads": {
+      "cold": [
+        {
+          "inputReadyMs": 2908.2999999523163,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2883.2000000476837,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2896.4000000953674,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2923.600000023842,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2910.2999999523163,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2895.6999999284744,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2888.899999976158,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2957.600000023842,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2972.600000023842,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2923.2999999523163,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2953.4000000953674,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2917.2999999523163,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2882.7999999523163,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2916.3000000715256,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2918.0999999046326,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2894.399999976158,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2913,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2921.100000023842,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2925.399999976158,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2899.2000000476837,
+          "cachedResources": 0
+        }
+      ],
+      "warm": [
+        {
+          "inputReadyMs": 343,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 329.7999999523163,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 325.39999997615814,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 316.6999999284744,
+          "cachedResources": 62
+        },
+        {
+          "inputReadyMs": 304,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 324.40000009536743,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 316.89999997615814,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 306.10000002384186,
+          "cachedResources": 62
+        },
+        {
+          "inputReadyMs": 294.7999999523163,
+          "cachedResources": 62
+        },
+        {
+          "inputReadyMs": 306.7999999523163,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 310.10000002384186,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 309.1999999284744,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 337.10000002384186,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 316.6999999284744,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 304.7000000476837,
+          "cachedResources": 62
+        },
+        {
+          "inputReadyMs": 320.7000000476837,
+          "cachedResources": 62
+        },
+        {
+          "inputReadyMs": 328.39999997615814,
+          "cachedResources": 62
+        },
+        {
+          "inputReadyMs": 313.3000000715256,
+          "cachedResources": 62
+        },
+        {
+          "inputReadyMs": 302.10000002384186,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 316.2000000476837,
+          "cachedResources": 63
+        }
+      ],
+      "profile": {
+        "latencyMs": 150,
+        "downloadBytesPerSecond": 200000,
+        "uploadBytesPerSecond": 93750,
+        "cpuSlowdown": 4,
+        "device": "headless Chromium CDP emulation; no physical-device certification"
+      },
+      "coldSummary": {
+        "count": 20,
+        "p50": 2913,
+        "p75": 2923.2999999523163,
+        "p95": 2957.600000023842,
+        "max": 2972.600000023842
+      },
+      "warmSummary": {
+        "count": 20,
+        "p50": 316.2000000476837,
+        "p75": 324.40000009536743,
+        "p95": 337.10000002384186,
+        "max": 343
+      },
+      "budgetObserved": {
+        "coldP75AtMost3000": true,
+        "warmP75AtMost1500": true
+      },
+      "warmCacheHits": [
+        63,
+        63,
+        63,
+        62,
+        63,
+        63,
+        63,
+        62,
+        62,
+        63,
+        63,
+        63,
+        63,
+        63,
+        62,
+        62,
+        62,
+        62,
+        63,
+        63
+      ]
+    },
+    "frames": [
+      {
+        "mode": "reading",
+        "durationMs": 30039.399999976158,
+        "summary": {
+          "count": 3600,
+          "p50": 8.299999999999272,
+          "p75": 9,
+          "p95": 9.899999999999636,
+          "max": 10.400000000001455
+        },
+        "over20msRate": 0
+      },
+      {
+        "mode": "pouch",
+        "durationMs": 30037.899999976158,
+        "summary": {
+          "count": 3601,
+          "p50": 8.299999999999272,
+          "p75": 9,
+          "p95": 9.899999999997817,
+          "max": 10.80000000000291
+        },
+        "over20msRate": 0
+      },
+      {
+        "mode": "transition",
+        "durationMs": 30052.800000071526,
+        "summary": {
+          "count": 3600,
+          "p50": 8.299999999999272,
+          "p75": 8.900000000001455,
+          "p95": 9.799999999999272,
+          "max": 10.400000000001455
+        },
+        "over20msRate": 0
+      }
+    ],
+    "transfer": {
+      "criticalEncodedBytes": 166391,
+      "initialEncodedBytes": 166391,
+      "fullSaveBytes": 5404,
+      "method": "Resource Timing encodedBodySize includes gzip HTTP responses; initial Title with default muted audio; HTML diagnostic host measured separately."
+    }
+  },
+  "audio": {
+    "before": {
+      "status": "ready",
+      "contextState": "running",
+      "disposed": false,
+      "decodedBytes": 3072000,
+      "reservedBytes": 0,
+      "maxDecodedBytes": 16777216,
+      "cachedAssets": [
+        "asset.audio.morning-dew-drops",
+        "asset.audio.act1-peaceful-stream"
+      ],
+      "pendingLoads": 0,
+      "runningLoads": 0,
+      "queuedLoads": 0,
+      "pendingPreloads": 0,
+      "dedupeTokens": 0,
+      "voices": {
+        "music": 1,
+        "ambience": 1,
+        "effects": 0
+      },
+      "desired": {
+        "sessionId": "123e4567-e89b-42d3-a456-426614174000",
+        "bgmAssetId": "asset.audio.act1-peaceful-stream",
+        "ambientAssetId": "asset.audio.morning-dew-drops",
+        "volumes": {
+          "master": 1,
+          "music": 0.3,
+          "ambience": 0.3,
+          "effects": 0.3
+        },
+        "reducedIntensity": false
+      }
+    },
+    "after": {
+      "status": "ready",
+      "contextState": "running",
+      "disposed": false,
+      "decodedBytes": 3072000,
+      "reservedBytes": 0,
+      "maxDecodedBytes": 16777216,
+      "cachedAssets": [
+        "asset.audio.morning-dew-drops",
+        "asset.audio.act1-peaceful-stream"
+      ],
+      "pendingLoads": 0,
+      "runningLoads": 0,
+      "queuedLoads": 0,
+      "pendingPreloads": 0,
+      "dedupeTokens": 0,
+      "voices": {
+        "music": 1,
+        "ambience": 1,
+        "effects": 0
+      },
+      "desired": {
+        "sessionId": "123e4567-e89b-42d3-a456-426614174000",
+        "bgmAssetId": "asset.audio.act1-peaceful-stream",
+        "ambientAssetId": "asset.audio.morning-dew-drops",
+        "volumes": {
+          "master": 1,
+          "music": 0.3,
+          "ambience": 0.3,
+          "effects": 0.3
+        },
+        "reducedIntensity": false
+      }
+    },
+    "touchEmulation": true,
+    "subpath": true,
+    "humanListening": false
+  },
+  "result": "PASS",
+  "limits": [
+    "Chromium emulation and pre-paint rAF, no physical FPS claim",
+    "Human Thai/art/audio/AT and Safari/iOS/Firefox acceptance remain open",
+    "No deployment or merge performed"
+  ],
+  "rawArchive": {
+    "file": "closeout-rehearsal.json.gz",
+    "uncompressedBytes": 820748,
+    "uncompressedSha256": "2e390132030e6774434d2f7f13645d7866a5c05e9f3c66856deccd765e7b4641",
+    "encoding": "gzip; complete raw JSON including every resource/input/frame sample"
+  }
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="160" viewBox="0 0 200 160" fill="none">
+  <defs><linearGradient id="leaf" x1="66" y1="32" x2="140" y2="129" gradientUnits="userSpaceOnUse"><stop stop-color="#c7cd9c"/><stop offset="1" stop-color="#7d9467"/></linearGradient></defs>
+  <ellipse cx="101" cy="139" rx="52" ry="5" fill="#536447" opacity=".09"/>
+  <path d="M35 103C26 77 51 36 95 27C126 20 161 33 175 56L163 61L168 72L154 76L161 88L148 95L151 107C123 136 61 140 35 103Z" fill="url(#leaf)" stroke="#536447" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M43 114L133 53M69 96L58 66M89 82L84 48M111 68L113 39M70 96L106 106M92 81L135 89M112 68L146 67" stroke="#ece8bc" stroke-width="2" stroke-linecap="round"/>
+  <path d="M42 116L32 128" stroke="#6e7451" stroke-width="3" stroke-linecap="round"/>
+  <path d="M47 64C57 49 74 38 94 34" stroke="#e7e7bf" stroke-opacity=".65" stroke-width="3" stroke-linecap="round"/>
+</svg>

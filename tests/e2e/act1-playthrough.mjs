@@ -10,7 +10,7 @@ import { content, ROUTES, walk, envelope } from "../helpers/act1-session.js";
 
 const playwright = await import(process.env.JKB_PLAYWRIGHT_PATH ? pathToFileURL(process.env.JKB_PLAYWRIGHT_PATH).href : "playwright");
 const repo = resolve(fileURLToPath(new URL("../..", import.meta.url)));
-const output = resolve(repo, process.env.JKB_EVIDENCE_DIR ?? "tests/e2e/evidence/sprint-03/benchmark");
+const output = resolve(repo, process.env.JKB_EVIDENCE_DIR ?? "tests/e2e/evidence/sprint-04/slice-05/legacy");
 await mkdir(output, { recursive: true });
 const mime = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".json": "application/json", ".webp": "image/webp", ".svg": "image/svg+xml", ".mp3": "audio/mpeg", ".woff2": "font/woff2" };
 const transfers = [];
@@ -72,7 +72,12 @@ async function lockedBond(page) {
   }
 }
 async function verifyRoute(page, route, hotspots, { keyboard = false, captures = false } = {}) {
-  await click(page, "application.new-game", keyboard ? "Enter" : undefined);
+  // New Game is now content3. These unchanged golden witnesses exercise the
+  // archived graph through production admission, never a mocked content port.
+  await page.evaluate(({ key, raw }) => localStorage.setItem(key, raw), { key: saveKey, raw: JSON.stringify(envelope(walk()[0])) });
+  await page.reload(); await choice(page, "application.resume").waitFor(); await idle(page);
+  await click(page, "application.resume", keyboard ? "Enter" : undefined);
+  assert.equal((await save(page)).contentVersion, "2.1.0");
   let capturedStorm = false, capturedConfirmation = false, maxBytes = 0;
   for (let steps = 0; await choice(page, "application.finish").count() === 0; steps += 1) {
     assert.ok(steps < 200);
@@ -198,17 +203,17 @@ try {
     await open(page); await click(page, "application.new-game"); await click(page, "application.cancel-replace");
     assert.equal(await page.evaluate((key) => localStorage.getItem(key), saveKey), raw);
     await click(page, "application.new-game"); await click(page, "application.confirm-replace");
-    assert.equal((await save(page)).contentVersion, "2.1.0");
+    assert.equal((await save(page)).contentVersion, "3.0.0");
     evidence.checks.push(`${kind} save: byte preservation on cancel, explicit replace consent`); await ctx.close();
   }
 
   for (const fault of ["parse", "schema", "quota", "unavailable"]) {
     const { ctx, page } = await context();
     if (["parse", "schema"].includes(fault)) {
-      await page.route("**/compatibility/act-01-2.1.0.json", (route) => route.fulfill({ status: 200, contentType: "application/json", body: fault === "parse" ? "{" : '{"invalid":true}' }));
+      await page.route("**/packages/act-01.json", (route) => route.fulfill({ status: 200, contentType: "application/json", body: fault === "parse" ? "{" : '{"invalid":true}' }));
       await page.goto(`${origin}/index.html`); await page.locator('[data-jk-role="fatal-shell"]').waitFor();
       assert.equal(await page.evaluate((key) => localStorage.getItem(key), saveKey), null);
-      await page.unroute("**/compatibility/act-01-2.1.0.json");
+      await page.unroute("**/packages/act-01.json");
       await page.locator(`[data-jk-action="${fault === "parse" ? "reload-application" : "retry-render"}"]`).click(); await choice(page, "application.new-game").waitFor();
     } else {
       await ctx.addInitScript((fault) => {

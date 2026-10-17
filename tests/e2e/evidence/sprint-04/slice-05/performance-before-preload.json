@@ -1,0 +1,313 @@
+{
+  "at": "2026-10-17T07:23:02.969Z",
+  "browser": "151.0.7922.34",
+  "environment": {
+    "os": "darwin 25.2.0",
+    "cpu": "Apple M5",
+    "logicalCores": 10,
+    "totalMemory": 25769803776,
+    "physicalDevice": false
+  },
+  "checks": [
+    "actual staged index: root/subpath content3 New Game/reload; current and rollback archived2.1 exact read-only Resume; rollback3 raw preservation/cancel",
+    "all five encountered original images decode with Thai alt; no inspection writes; fixed128px integrity fallback; invalid optional catalog remains playable; excluded files404"
+  ],
+  "captures": [
+    "artifact-root.png",
+    "artifact-subpath.png",
+    "rollback-protected-content3.png",
+    "item-item_leaf.png",
+    "item-item_dew_stone.png",
+    "item-item_lotus_shell.png",
+    "item-item_rain_petal.png",
+    "item-item_river_shell.png",
+    "image-integrity-fallback.png",
+    "catalog-failure-playable.png",
+    "frames-reading.png",
+    "frames-pouch.png",
+    "frames-transition.png"
+  ],
+  "errors": [],
+  "performance": {
+    "interactions": {
+      "method": "Trusted DOM clicks to next requestAnimationFrame after rendered DOM, full Pouch/detail/close,5 runs; pre-paint callback, not physical painted-frame timing.",
+      "inputToFrameCallback": {
+        "count": 150,
+        "p50": 5.800000071525574,
+        "p75": 6.5,
+        "p95": 7.200000047683716,
+        "max": 7.800000071525574
+      },
+      "budgetObserved": true
+    },
+    "loads": {
+      "cold": [
+        {
+          "inputReadyMs": 3058.100000023842,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 3121.7000000476837,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2929,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 3191.600000023842,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 3094,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 3058.899999976158,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2985.8000000715256,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2895.899999976158,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2993.7999999523163,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2985.7999999523163,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2967.5,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 3095.399999976158,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2999,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 3100.8000000715256,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 3119.7000000476837,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 3072.399999976158,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 3162.1999999284744,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 3087.7999999523163,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 3082.399999976158,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2872.1999999284744,
+          "cachedResources": 0
+        }
+      ],
+      "warm": [
+        {
+          "inputReadyMs": 314.6999999284744,
+          "cachedResources": 62
+        },
+        {
+          "inputReadyMs": 300.6999999284744,
+          "cachedResources": 62
+        },
+        {
+          "inputReadyMs": 296.1999999284744,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 295.7999999523163,
+          "cachedResources": 62
+        },
+        {
+          "inputReadyMs": 294.2999999523163,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 298.39999997615814,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 298.89999997615814,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 297.7000000476837,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 309.8000000715256,
+          "cachedResources": 62
+        },
+        {
+          "inputReadyMs": 304.2000000476837,
+          "cachedResources": 62
+        },
+        {
+          "inputReadyMs": 288.39999997615814,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 296.89999997615814,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 303.3000000715256,
+          "cachedResources": 62
+        },
+        {
+          "inputReadyMs": 293.10000002384186,
+          "cachedResources": 62
+        },
+        {
+          "inputReadyMs": 307.2000000476837,
+          "cachedResources": 62
+        },
+        {
+          "inputReadyMs": 307.1999999284744,
+          "cachedResources": 62
+        },
+        {
+          "inputReadyMs": 295.6999999284744,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 302.5,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 299.59999990463257,
+          "cachedResources": 62
+        },
+        {
+          "inputReadyMs": 302.60000002384186,
+          "cachedResources": 63
+        }
+      ],
+      "profile": {
+        "latencyMs": 150,
+        "downloadBytesPerSecond": 200000,
+        "uploadBytesPerSecond": 93750,
+        "cpuSlowdown": 4,
+        "device": "headless Chromium CDP emulation; no physical-device certification"
+      },
+      "coldSummary": {
+        "count": 20,
+        "p50": 3058.899999976158,
+        "p75": 3095.399999976158,
+        "p95": 3162.1999999284744,
+        "max": 3191.600000023842
+      },
+      "warmSummary": {
+        "count": 20,
+        "p50": 298.89999997615814,
+        "p75": 303.3000000715256,
+        "p95": 309.8000000715256,
+        "max": 314.6999999284744
+      },
+      "budgetObserved": {
+        "coldP75AtMost3000": false,
+        "warmP75AtMost1500": true
+      },
+      "warmCacheHits": [
+        62,
+        62,
+        63,
+        62,
+        63,
+        63,
+        63,
+        63,
+        62,
+        62,
+        63,
+        63,
+        62,
+        62,
+        62,
+        62,
+        63,
+        63,
+        62,
+        63
+      ]
+    },
+    "frames": [
+      {
+        "mode": "reading",
+        "durationMs": 30020.600000023842,
+        "summary": {
+          "count": 3601,
+          "p50": 8.299999999999272,
+          "p75": 8.700000000000728,
+          "p95": 9.199999999999818,
+          "max": 9.400000000001455
+        },
+        "over20msRate": 0
+      },
+      {
+        "mode": "pouch",
+        "durationMs": 30083.399999976158,
+        "summary": {
+          "count": 3596,
+          "p50": 8.300000000000182,
+          "p75": 8.699999999998909,
+          "p95": 9.199999999999818,
+          "max": 49.599999999998545
+        },
+        "over20msRate": 0.00027808676307007786
+      },
+      {
+        "mode": "transition",
+        "durationMs": 30089,
+        "summary": {
+          "count": 3611,
+          "p50": 8.300000000000182,
+          "p75": 8.700000000000728,
+          "p95": 9.200000000000728,
+          "max": 16.90000000000009
+        },
+        "over20msRate": 0
+      }
+    ],
+    "transfer": {
+      "criticalEncodedBytes": 166386,
+      "initialEncodedBytes": 166386,
+      "fullSaveBytes": 5404,
+      "method": "Resource Timing encodedBodySize includes gzip HTTP responses; initial Title with default muted audio; HTML diagnostic host measured separately."
+    }
+  },
+  "result": "PASS",
+  "limits": [
+    "Chromium emulation and pre-paint rAF, no physical FPS claim",
+    "Human Thai/art/audio/AT and Safari/iOS/Firefox acceptance remain open",
+    "No deployment or merge performed"
+  ],
+  "rawArchive": {
+    "file": "performance-before-preload.json.gz",
+    "uncompressedBytes": 820638,
+    "uncompressedSha256": "03f2d77c4f107c518bd3b6e7a1117ff14a8997e944593f0adf3f659501f0d4e3",
+    "encoding": "gzip; complete raw JSON including every resource/input/frame sample"
+  }
+}

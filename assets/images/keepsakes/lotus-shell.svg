@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="160" viewBox="0 0 200 160" fill="none">
+  <defs><linearGradient id="husk" x1="63" y1="64" x2="138" y2="116" gradientUnits="userSpaceOnUse"><stop stop-color="#d4bd91"/><stop offset="1" stop-color="#ab9168"/></linearGradient></defs>
+  <ellipse cx="102" cy="136" rx="42" ry="5" fill="#736449" opacity=".09"/>
+  <path d="M62 69C73 43 116 37 139 61C152 76 148 107 127 121C102 137 69 120 62 96C59 87 58 77 62 69Z" fill="url(#husk)" stroke="#816f50" stroke-width="2"/>
+  <path d="M68 72C82 53 113 49 132 66C140 77 133 95 115 100C96 106 76 91 68 72Z" fill="#817151" stroke="#6d6048" stroke-width="1.5"/>
+  <path d="M74 73C88 60 112 57 127 68" stroke="#e4cfaa" stroke-width="3" stroke-linecap="round"/>
+  <path d="M72 100C83 114 100 119 116 114M130 86L126 97M83 93L87 106" stroke="#ead7ad" stroke-opacity=".65" stroke-width="2" stroke-linecap="round"/>
+</svg>

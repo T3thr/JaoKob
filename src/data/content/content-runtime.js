@@ -1,17 +1,18 @@
 import { loadContentPackage } from "./content-loader.js";
 import { contentFailure, deepFreeze } from "../validation/content-values.js";
 import { act1PouchPolicy } from "./act1-pouch-policy.js";
+import { loadPresentationCatalog } from "./presentation-catalog.js";
 
 /** Static loading and capability normalization. Trace: FR-CNT-001, CR-0002 D3/D4. */
 export async function loadGameContent(options = {}) {
   const baseUrl = options.baseUrl ?? import.meta.url;
-  // Slice 5 T9/T10 promotes content 3 together with its art/catalog and cursor policy.
-  const source = options.content ?? options.packageSource ?? new URL("./compatibility/act-01-2.1.0.json", import.meta.url).href;
+  const production = options.content === undefined && options.packageSource === undefined;
+  const source = options.content ?? options.packageSource ?? new URL("./packages/act-01.json", baseUrl).href;
   let testReferenceIds = options.testReferenceIds;
   if (!testReferenceIds) {
     try {
       const base = new URL(baseUrl);
-      const url = new URL(options.catalogSource ?? new URL("./packages/act-01-test-catalog.json", import.meta.url).href, base);
+      const url = new URL(options.catalogSource ?? new URL("./packages/act-01-test-catalog.json", baseUrl).href, base);
       if (!["http:", "https:"].includes(url.protocol) || url.origin !== base.origin || url.username || url.password || url.hash) return contentFailure("$catalog", "CONTENT_ORIGIN", "Test catalog must be same-origin.");
       const response = await (options.fetch ?? globalThis.fetch)(url.href, { credentials: "omit", redirect: "error", mode: "same-origin" });
       if (!response.ok || response.redirected || (response.url && new URL(response.url).origin !== base.origin)) return contentFailure("$catalog", "CONTENT_LOAD", "Test catalog request failed.");
@@ -22,7 +23,15 @@ export async function loadGameContent(options = {}) {
   if (!loaded.valid) return loaded;
   const prepared = prepareRuntimeContent(loaded);
   // Retain the independently supplied verification catalog for migration proof.
-  return prepared.valid ? deepFreeze({ ...prepared, testReferenceIds: [...testReferenceIds] }) : prepared;
+  if (!prepared.valid) return prepared;
+  const sourceCatalog = options.presentationCatalog ?? options.presentationSource
+    ?? (production ? new URL("./presentation/act-01-3.0.0.json", baseUrl).href : undefined);
+  const presentation = sourceCatalog === undefined ? null : await loadPresentationCatalog(sourceCatalog, { loaded: prepared, baseUrl, fetch: options.fetch });
+  return deepFreeze({ ...prepared, testReferenceIds: [...testReferenceIds],
+    presentationCatalog: presentation?.valid ? presentation : null,
+    presentationStatus: presentation === null ? "unrequested" : presentation.valid ? "ready" : "unavailable",
+    presentationErrors: presentation?.valid === false ? presentation.errors : [],
+  });
 }
 
 /** Reject unsupported behavior before creating a usable application session. */

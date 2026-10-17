@@ -8,7 +8,8 @@ import { createSilentAudioAdapter } from "../ui/audio/silent-audio-adapter.js";
 /** Optional media composition, isolated from story transactions. CR-0003 D2/D4. */
 export function createMediaComposition(options = {}, onChange = () => {}) {
   const enabled = options.mediaEnabled ?? Boolean(options.document?.defaultView || globalThis.document?.defaultView || options.audio || options.assetRegistry);
-  let loaded, resolver = options.assetResolver, cache = options.imageCache, preloader;
+  let loaded, cache = options.imageCache, preloader, initialization = 0;
+  const resolvers = new Map();
   let ready = Promise.resolve(), disposed = false, activated = false, lastDesire;
   let audioStatus = enabled ? "blocked" : undefined, mediaStatus = enabled ? "ready" : undefined;
   const document = options.document ?? globalThis.document;
@@ -24,7 +25,7 @@ export function createMediaComposition(options = {}, onChange = () => {}) {
     onStatus: ({ status }) => update("audio", status),
     loadAudioBytes: async (assetId, { signal }) => {
       await ready;
-      const result = await resolver?.read({ assetId, contentVersion: loaded.catalog.version }, { signal });
+      const result = await resolvers.get(loaded.catalog.version)?.read({ assetId, contentVersion: loaded.catalog.version }, { signal });
       if (!result?.ok || result.value.descriptor.type !== "audio") throw new Error("AUDIO_LOAD");
       const { decodedBytes, sampleRate, frames, channels } = result.value.descriptor;
       return { bytes: result.value.bytes, decodedBytes, sampleRate, frames, channels };
@@ -34,26 +35,32 @@ export function createMediaComposition(options = {}, onChange = () => {}) {
   const observe = (result) => { void Promise.resolve(result).then((value) => update("audio", value.status)); };
   async function initialize(content) {
     loaded = content;
+    const generation = ++initialization;
     if (!enabled || disposed) return;
     try {
       const baseUrl = options.applicationBaseUrl ?? new URL("../../", import.meta.url).href;
+      let resolver = resolvers.get(content.catalog.version) ?? options.assetResolver;
       if (!resolver) {
-        const registry = options.assetRegistry ?? await readRegistry(baseUrl, options.fetch ?? globalThis.fetch);
-        const candidate = createAssetResolver({ loaded, baseUrl, registry, fetch: options.fetch });
-        if (registry.registryVersion !== 1 || registry.contentVersion !== loaded.catalog.version || !Array.isArray(registry.assets)
-          || Object.keys(loaded.indexes.assets).some((assetId) => !candidate.resolve({ assetId, contentVersion: loaded.catalog.version }))) throw new Error("ASSET_REGISTRY");
+        const registry = options.assetRegistries?.[content.catalog.version] ?? options.assetRegistry
+          ?? await readRegistry(baseUrl, options.fetch ?? globalThis.fetch, content.catalog.version);
+        const candidate = createAssetResolver({ loaded: content, baseUrl, registry, fetch: options.fetch });
+        if (registry.registryVersion !== 1 || registry.contentVersion !== content.catalog.version || !Array.isArray(registry.assets)
+          || Object.keys(content.indexes.assets).some((assetId) => !candidate.resolve({ assetId, contentVersion: content.catalog.version }))) throw new Error("ASSET_REGISTRY");
         resolver = candidate;
       }
-      if (disposed) return;
-      cache ??= createImageCache({ readAsset: (reference, request) => resolver.read(reference, request) });
+      if (disposed || generation !== initialization) return;
+      resolvers.set(content.catalog.version, resolver);
+      // One shared32MiB cache, even when a legacy and primary session coexist.
+      cache ??= createImageCache({ readAsset: (reference, request) => resolvers.get(reference.contentVersion)?.read(reference, request) });
       preloader ??= createAssetPreloader({ load: async (reference, request) => {
-        const descriptor = resolver.resolve(reference);
+        const descriptor = resolvers.get(reference.contentVersion)?.resolve(reference);
         if (descriptor?.type === "image") return cache.acquire(reference, request);
         if (descriptor?.type === "audio" && activated && implementation.preload) return implementation.preload(reference.assetId, request);
         return null;
       } });
+      update("media", "ready");
       if (lastDesire) schedule(lastDesire);
-    } catch { update("media", "unavailable"); }
+    } catch { if (generation === initialization) update("media", "unavailable"); }
   }
   function schedule(desire) {
     if (hidden()) { preloader?.update({ current: [], next: [] }); return; }
@@ -86,22 +93,23 @@ export function createMediaComposition(options = {}, onChange = () => {}) {
       await ready;
       if (!enabled || disposed) return null;
       const lease = await cache?.acquire(reference);
-      if (!lease) { update("media", "unavailable"); return null; }
+      if (!lease) { if (reference.contentVersion === loaded?.catalog.version) update("media", "unavailable"); return null; }
       return { ok: true, value: { url: lease.url, release: lease.release } };
     },
     retry() {
       update("media", "ready"); preloader?.retry();
-      if (!cache && loaded) ready = initialize(loaded);
+      if (loaded && !resolvers.has(loaded.catalog.version)) ready = initialize(loaded);
     },
     status: () => ({ audioStatus, mediaStatus }),
     inspect: () => ({ audio: implementation.inspect?.(), images: cache?.stats(), queue: preloader?.stats() }),
     whenReady: () => ready,
-    dispose() { disposed = true; document?.removeEventListener?.("visibilitychange", visibilityChanged); preloader?.dispose(); cache?.dispose(); void audio.dispose(); },
+    dispose() { disposed = true; initialization++; document?.removeEventListener?.("visibilitychange", visibilityChanged); preloader?.dispose(); cache?.dispose(); resolvers.clear(); void audio.dispose(); },
   });
 }
 
-async function readRegistry(baseUrl, fetcher) {
-  const base = new URL(baseUrl), url = new URL("assets/provenance/benchmark-assets.json", base);
+async function readRegistry(baseUrl, fetcher, contentVersion) {
+  const path = contentVersion === "3.0.0" ? "assets/provenance/act-01-3.0.0.json" : "assets/provenance/benchmark-assets.json";
+  const base = new URL(baseUrl), url = new URL(path, base);
   if (!["http:", "https:"].includes(base.protocol) || base.username || base.password || base.search || base.hash
     || !base.pathname.endsWith("/") || url.origin !== base.origin) throw new Error("ASSET_ORIGIN");
   const controller = new AbortController(), timer = setTimeout(() => controller.abort(), 10_000);

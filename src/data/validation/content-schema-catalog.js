@@ -5591,5 +5591,171 @@ export const CONTENT_SCHEMA_CATALOG = deepFreeze({
         "pattern": "^item_[a-z][a-z0-9]*(?:_[a-z0-9]+)*$"
       }
     }
+  },
+  "presentation-catalog.schema.json": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://t3thr.github.io/JaoKob/specs/schemas/presentation-catalog.schema.json",
+    "title": "JaoKob presentation catalog 1.0.0",
+    "type": "object",
+    "required": [
+      "schemaVersion",
+      "contentVersion",
+      "locale",
+      "choices",
+      "items",
+      "backgrounds"
+    ],
+    "properties": {
+      "schemaVersion": {
+        "const": "1.0.0"
+      },
+      "contentVersion": {
+        "type": "string",
+        "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+      },
+      "locale": {
+        "const": "th"
+      },
+      "choices": {
+        "type": "array",
+        "maxItems": 256,
+        "items": {
+          "type": "object",
+          "required": [
+            "actionId",
+            "intent",
+            "icon",
+            "skin"
+          ],
+          "properties": {
+            "actionId": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+              "maxLength": 96
+            },
+            "intent": {
+              "type": "object",
+              "required": [
+                "th"
+              ],
+              "properties": {
+                "th": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 48
+                }
+              },
+              "additionalProperties": false
+            },
+            "icon": {
+              "enum": [
+                "ripple",
+                "roots",
+                "ripples",
+                "pouch"
+              ]
+            },
+            "skin": {
+              "const": "paper"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "items": {
+        "type": "array",
+        "maxItems": 128,
+        "items": {
+          "type": "object",
+          "required": [
+            "itemId",
+            "imageAssetId"
+          ],
+          "properties": {
+            "itemId": {
+              "type": "string",
+              "pattern": "^item_[a-z][a-z0-9]*(?:_[a-z0-9]+)*$",
+              "maxLength": 96
+            },
+            "imageAssetId": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+              "maxLength": 96
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "backgrounds": {
+        "type": "array",
+        "maxItems": 128,
+        "items": {
+          "type": "object",
+          "required": [
+            "assetId",
+            "crop"
+          ],
+          "properties": {
+            "assetId": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$",
+              "maxLength": 96
+            },
+            "crop": {
+              "type": "object",
+              "required": [
+                "portrait",
+                "landscape"
+              ],
+              "properties": {
+                "portrait": {
+                  "type": "object",
+                  "required": [
+                    "x",
+                    "y"
+                  ],
+                  "properties": {
+                    "x": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "y": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "landscape": {
+                  "type": "object",
+                  "required": [
+                    "x",
+                    "y"
+                  ],
+                  "properties": {
+                    "x": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "y": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "additionalProperties": false
   }
 });

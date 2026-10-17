@@ -1,0 +1,678 @@
+{
+  "browser": "151.0.7922.34",
+  "at": "2026-10-17T07:25:38.043Z",
+  "candidateVersion": "3.0.0",
+  "defaultEntryVersion": "3.0.0",
+  "profiles": [
+    {
+      "width": 320,
+      "height": 568,
+      "card": {
+        "x": 16,
+        "y": 320,
+        "width": 288,
+        "height": 224,
+        "top": 320,
+        "right": 304,
+        "bottom": 544,
+        "left": 16
+      },
+      "overflow": false,
+      "buttons": [
+        {
+          "height": 102.390625,
+          "scroll": false
+        },
+        {
+          "height": 102.390625,
+          "scroll": false
+        },
+        {
+          "height": 102.390625,
+          "scroll": false
+        },
+        {
+          "height": 102.390625,
+          "scroll": false
+        },
+        {
+          "height": 102.390625,
+          "scroll": false
+        }
+      ],
+      "shifts": 0
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "card": {
+        "x": 16,
+        "y": 572,
+        "width": 358,
+        "height": 248,
+        "top": 572,
+        "right": 374,
+        "bottom": 820,
+        "left": 16
+      },
+      "overflow": false,
+      "buttons": [
+        {
+          "height": 102.390625,
+          "scroll": false
+        },
+        {
+          "height": 102.390625,
+          "scroll": false
+        },
+        {
+          "height": 102.390625,
+          "scroll": false
+        },
+        {
+          "height": 102.390625,
+          "scroll": false
+        },
+        {
+          "height": 102.390625,
+          "scroll": false
+        }
+      ],
+      "shifts": 0
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "card": {
+        "x": 16,
+        "y": 728,
+        "width": 736,
+        "height": 272,
+        "top": 728,
+        "right": 752,
+        "bottom": 1000,
+        "left": 16
+      },
+      "overflow": false,
+      "buttons": [
+        {
+          "height": 73.59375,
+          "scroll": false
+        },
+        {
+          "height": 73.59375,
+          "scroll": false
+        },
+        {
+          "height": 73.59375,
+          "scroll": false
+        },
+        {
+          "height": 73.59375,
+          "scroll": false
+        },
+        {
+          "height": 73.59375,
+          "scroll": false
+        }
+      ],
+      "shifts": 0
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "card": {
+        "x": 336,
+        "y": 612,
+        "width": 768,
+        "height": 264,
+        "top": 612,
+        "right": 1104,
+        "bottom": 876,
+        "left": 336
+      },
+      "overflow": false,
+      "buttons": [
+        {
+          "height": 73.59375,
+          "scroll": false
+        },
+        {
+          "height": 73.59375,
+          "scroll": false
+        },
+        {
+          "height": 73.59375,
+          "scroll": false
+        },
+        {
+          "height": 73.59375,
+          "scroll": false
+        },
+        {
+          "height": 73.59375,
+          "scroll": false
+        }
+      ],
+      "shifts": 0
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "card": {
+        "x": 896,
+        "y": 1144,
+        "width": 768,
+        "height": 272,
+        "top": 1144,
+        "right": 1664,
+        "bottom": 1416,
+        "left": 896
+      },
+      "overflow": false,
+      "buttons": [
+        {
+          "height": 73.59375,
+          "scroll": false
+        },
+        {
+          "height": 73.59375,
+          "scroll": false
+        },
+        {
+          "height": 73.59375,
+          "scroll": false
+        },
+        {
+          "height": 73.59375,
+          "scroll": false
+        },
+        {
+          "height": 73.59375,
+          "scroll": false
+        }
+      ],
+      "shifts": 0
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "card": {
+        "x": 38,
+        "y": 198,
+        "width": 768,
+        "height": 168,
+        "top": 198,
+        "right": 806,
+        "bottom": 366,
+        "left": 38
+      },
+      "overflow": false,
+      "buttons": [
+        {
+          "height": 102.390625,
+          "scroll": false
+        },
+        {
+          "height": 102.390625,
+          "scroll": false
+        },
+        {
+          "height": 102.390625,
+          "scroll": false
+        },
+        {
+          "height": 102.390625,
+          "scroll": false
+        },
+        {
+          "height": 102.390625,
+          "scroll": false
+        }
+      ],
+      "shifts": 0
+    }
+  ],
+  "checks": [
+    "six profiles: true four-slot fifth offering, five eligible keep/replace choices, paper bottom24, no horizontal overflow,44px controls, native confirmation cancel, item inspection, atomic replacement, exact reload",
+    {
+      "newGameToRest": true,
+      "visitedNodes": [
+        "node.act1.opening",
+        "node.act1.nursery",
+        "node.act1.secret-dew",
+        "node.act1.dew-offer",
+        "node.act1.dew-return",
+        "node.act1.secret-lotus",
+        "node.act1.lotus-offer",
+        "node.act1.lotus-return",
+        "node.act1.home-focus",
+        "node.act1.home-reflection",
+        "node.act1.storm",
+        "node.act1.survival",
+        "node.act1.lily-fragment",
+        "node.act1.leaf-discovery",
+        "node.act1.keepsake",
+        "node.act1.quiet-bank",
+        "node.act1.secret-rain",
+        "node.act1.rain-offer",
+        "node.act1.rain-return",
+        "node.act1.river-discovery",
+        "node.act1.river-offer",
+        "node.act1.river-return",
+        "node.act1.rest-memory",
+        "node.act1.rest"
+      ],
+      "finalPouch": {
+        "capacity": 4,
+        "held": [
+          "item_dew_stone",
+          "item_lotus_shell",
+          "item_river_shell",
+          "item_rain_petal"
+        ],
+        "acquired": [
+          "item_dew_stone",
+          "item_lotus_shell",
+          "item_leaf",
+          "item_rain_petal",
+          "item_river_shell"
+        ],
+        "released": [
+          "item_leaf"
+        ],
+        "remembered": [
+          "item_dew_stone",
+          "item_lotus_shell",
+          "item_leaf",
+          "item_rain_petal",
+          "item_river_shell"
+        ],
+        "memory": []
+      },
+      "saveBytes": 6243
+    }
+  ],
+  "captures": [
+    "320x568-full-offer.png",
+    "320x568-four-items.png",
+    "390x844-full-offer.png",
+    "390x844-four-items.png",
+    "768x1024-full-offer.png",
+    "768x1024-four-items.png",
+    "1440x900-full-offer.png",
+    "1440x900-four-items.png",
+    "2560x1440-full-offer.png",
+    "2560x1440-four-items.png",
+    "844x390-full-offer.png",
+    "844x390-four-items.png",
+    "320-empty-comfort.png",
+    "320-empty-pouch.png",
+    "320-released-comfort.png",
+    "320-released-pouch.png",
+    "320-secret-text200.png",
+    "320-secret-high.png",
+    "320-secret-forced.png",
+    "390-complete-journey.png",
+    "390-journey-history.png"
+  ],
+  "errors": [],
+  "resources": {
+    "/src/ui/styles/index.css": {
+      "bytes": 295,
+      "gzipBytes": 158,
+      "sha256": "6ed3cf356ab875640a0f7d56f89ce836c7ac9c68431905b736d15f0c872f575d"
+    },
+    "/src/bootstrap/index.js": {
+      "bytes": 25134,
+      "gzipBytes": 6926,
+      "sha256": "f3e71be2521afa2b504bbaabcc219b885fbae49d3a220c2dc09e647c6878c18b"
+    },
+    "/src/ui/styles/tokens.css": {
+      "bytes": 1435,
+      "gzipBytes": 646,
+      "sha256": "18c3684f4205f5c039edf577519bd3840083f56437e06c351451269297afb140"
+    },
+    "/src/ui/styles/history.css": {
+      "bytes": 1801,
+      "gzipBytes": 591,
+      "sha256": "0e7fd8a3f6fe3b2a782b8dc241a4057377c9e17256b1798d2a9a9b21b4a53c05"
+    },
+    "/src/ui/styles/base.css": {
+      "bytes": 1700,
+      "gzipBytes": 828,
+      "sha256": "105ce05141be27e452dd0617c4f0d21a576b37793e1a855fecc6b9bcb454d306"
+    },
+    "/src/ui/styles/layout.css": {
+      "bytes": 7553,
+      "gzipBytes": 2172,
+      "sha256": "97c51b82e9fe19ce2c50fa59f6dbb51491150a751d3ae432c913e97086658eb6"
+    },
+    "/src/ui/styles/components.css": {
+      "bytes": 15302,
+      "gzipBytes": 3541,
+      "sha256": "886bbbe047876bd116a4f107fd693489d4f696828e2df18252558cd47fbaaff8"
+    },
+    "/src/ui/styles/keepsake-pouch.css": {
+      "bytes": 3207,
+      "gzipBytes": 1045,
+      "sha256": "7b55d741d344c8c7e3fd7150925c9117233c278358165d2dcbacbb4006113221"
+    },
+    "/src/core/use-cases/session-history.js": {
+      "bytes": 5089,
+      "gzipBytes": 1789,
+      "sha256": "574901799d927361a8a98e489a7ddf11e47c5998388237edb0943adc2513f057"
+    },
+    "/src/core/state-machine/game-state.js": {
+      "bytes": 9690,
+      "gzipBytes": 2555,
+      "sha256": "fa147ea8c16538faf2ba4c402bffead56bf29c23ee2c2813597bad2c0f478579"
+    },
+    "/src/core/ports/renderer-port.js": {
+      "bytes": 8355,
+      "gzipBytes": 2932,
+      "sha256": "6c62ea8b9b7eb295bbca066ccfbc7e06042e35b353fefb7d8dd65896b150ea21"
+    },
+    "/src/data/content/content-view-model.js": {
+      "bytes": 8165,
+      "gzipBytes": 2479,
+      "sha256": "8f37c349b4b225ff8b923951e49a54ee90f9c2cf2a3ce63cc5ffbc56011b5b14"
+    },
+    "/src/core/ports/storage-port.js": {
+      "bytes": 3709,
+      "gzipBytes": 1324,
+      "sha256": "c3bb38cac8dc000ebebd654a94b7fb962d92206dd0490e44e32b309d6969c2f2"
+    },
+    "/src/ui/styles/motion.css": {
+      "bytes": 1732,
+      "gzipBytes": 593,
+      "sha256": "fa29bd5b482b07332a640492fa94b20d4c0264223102a0d2471f2da7b4b344e1"
+    },
+    "/src/data/content/content-presentation.js": {
+      "bytes": 4966,
+      "gzipBytes": 2003,
+      "sha256": "b8d9e5648e5a04e29a9112bfedf691817321ddd84f2eb5846c7096dd8764faa4"
+    },
+    "/src/data/content/history-projection.js": {
+      "bytes": 3790,
+      "gzipBytes": 1448,
+      "sha256": "49001fe824dc89f428bb864a675020f1626633481c30839cb01f5d458e0cbcbf"
+    },
+    "/src/data/localization/th-application.js": {
+      "bytes": 7290,
+      "gzipBytes": 1888,
+      "sha256": "191ac9bbddd3233715e7f6a6576fb87302e837ab8fc979a88354606496a9a242"
+    },
+    "/src/data/persistence/local-storage-adapter.js": {
+      "bytes": 26276,
+      "gzipBytes": 6020,
+      "sha256": "8f198896dc735bb06b98294d68341c79f9feb43e58debda932d708c6750bc7ad"
+    },
+    "/src/data/validation/save-envelope-validator.js": {
+      "bytes": 16498,
+      "gzipBytes": 4004,
+      "sha256": "a648c3dc2d86ef5d4800b3f396039ee6efa9f82baf1343aad15a6a4c031435b1"
+    },
+    "/src/data/persistence/local-ui-preferences-adapter.js": {
+      "bytes": 2600,
+      "gzipBytes": 987,
+      "sha256": "beb1b0cb4c0d7931ac632036720d436708b52f71b2eeac53609ef7ca425a1812"
+    },
+    "/src/data/validation/content-values.js": {
+      "bytes": 3139,
+      "gzipBytes": 1290,
+      "sha256": "a0e8470ad04b55aa6324d46a75b7a17d91910b19d61701f1aa8793ed08c87f63"
+    },
+    "/src/ui/renderers/dom/dom-renderer.js": {
+      "bytes": 55611,
+      "gzipBytes": 13361,
+      "sha256": "e7573ebd479a28251a61efe42d83aa63ccc4642c2893fe72965e6a89854917d6"
+    },
+    "/src/bootstrap/media-composition.js": {
+      "bytes": 8277,
+      "gzipBytes": 2875,
+      "sha256": "da6bed985480718b1e97b81730b4a3e312202979920da1e4f39f950bb0103027"
+    },
+    "/src/data/content/keepsake-view-model.js": {
+      "bytes": 1784,
+      "gzipBytes": 882,
+      "sha256": "3618f203620bcbd6440f0b50bb6e22409300a32b0194210c834c7c381f3ba57d"
+    },
+    "/src/bootstrap/content-sessions.js": {
+      "bytes": 3885,
+      "gzipBytes": 1346,
+      "sha256": "75ad9a215c1050a4b68ce7b13bdcb9a38f8d84a95a71b38067d62e5c6e2f8083"
+    },
+    "/src/data/localization/th-history.js": {
+      "bytes": 2239,
+      "gzipBytes": 823,
+      "sha256": "e40f67d435f20c64c19ca153a0f48998cbbc7128686b950b15a3d143bde494f4"
+    },
+    "/src/data/localization/th-keepsakes.js": {
+      "bytes": 3965,
+      "gzipBytes": 1270,
+      "sha256": "6200273576bca22fb0ae67f618935288aedf634b538829805d8a572d19ea56d6"
+    },
+    "/src/core/domain/keepsake-pouch.js": {
+      "bytes": 5745,
+      "gzipBytes": 2040,
+      "sha256": "db93a7bf7447d4f699bb6f19b4995d84d0be7d7b9afa632837e463b1efe278eb"
+    },
+    "/src/core/ports/audio-port.js": {
+      "bytes": 3374,
+      "gzipBytes": 1465,
+      "sha256": "d3590d2be44fa8d3c73b08f1e3bc386f6b0bdc9724be848a8ef14c62b08b7ba9"
+    },
+    "/src/data/assets/asset-resolver.js": {
+      "bytes": 7866,
+      "gzipBytes": 3007,
+      "sha256": "36bb061204c13e5d7c24ef04f459ccfb971a50e5eb76fbd9db0bb0dbb7c88971"
+    },
+    "/src/data/assets/asset-preloader.js": {
+      "bytes": 4794,
+      "gzipBytes": 1784,
+      "sha256": "196befa434648ff818da05e15bfc3d3c2d8484e719f689087be500da2bb047c2"
+    },
+    "/src/ui/assets/image-cache.js": {
+      "bytes": 4620,
+      "gzipBytes": 1643,
+      "sha256": "b967497fc97c10b68a968585f6337bacab00cd41695d88cbe10537806aa97ab1"
+    },
+    "/src/ui/localization/th-system-messages.js": {
+      "bytes": 11077,
+      "gzipBytes": 3047,
+      "sha256": "cb4da8a7391a59f249fdbd2653b4763042eff5a30fd8e81633f69b2a5ff7d8eb"
+    },
+    "/src/ui/audio/silent-audio-adapter.js": {
+      "bytes": 667,
+      "gzipBytes": 395,
+      "sha256": "197e4ac52dcd00eb2386ed87031cb5b664c7d1ef183cfd6697722398e0df28df"
+    },
+    "/src/ui/audio/web-audio-adapter.js": {
+      "bytes": 22204,
+      "gzipBytes": 6227,
+      "sha256": "c1b3ca43893067bf171dc99f2c444632b5edb8c66cab3af17dba41200d3b7540"
+    },
+    "/src/ui/components/stage-view.js": {
+      "bytes": 4450,
+      "gzipBytes": 1445,
+      "sha256": "19e9a52c84c24fb17ebc1104db78fdd6ca7ae316024901bb66c06e3f1a9197cf"
+    },
+    "/src/ui/components/settings-dialog.js": {
+      "bytes": 5435,
+      "gzipBytes": 1820,
+      "sha256": "91a8f19d724e9dcad5f48d8393d87058b6b897d8f8db86398e8a13261df275a8"
+    },
+    "/src/ui/components/content-advisory-dialog.js": {
+      "bytes": 2140,
+      "gzipBytes": 864,
+      "sha256": "b74bd1de8870ab71b6d673f081bfd422e17c4164b5bad1464311e37dcb60731e"
+    },
+    "/src/ui/components/chrome-icons.js": {
+      "bytes": 2136,
+      "gzipBytes": 1117,
+      "sha256": "c223fa266f1068c51dea56518ea87104eb3c42d04119dab49054999314da6dbb"
+    },
+    "/src/ui/components/confirmation-dialog.js": {
+      "bytes": 1388,
+      "gzipBytes": 665,
+      "sha256": "8501046152d27b6c14eb047b32371f7d96f64233d400e62932f74cc82cbd6ad6"
+    },
+    "/src/ui/components/reading-pages.js": {
+      "bytes": 7307,
+      "gzipBytes": 2487,
+      "sha256": "d78af471929c206e8cb12a41ef60a5a12857e6decd0064a525fd3dbed74afb04"
+    },
+    "/src/ui/components/toggle-switch.js": {
+      "bytes": 1386,
+      "gzipBytes": 603,
+      "sha256": "454f54acbd0587b2696b41f1ef039cdd0dd371cc538685f3ff2d4d5f515eb8ad"
+    },
+    "/src/ui/components/keepsake-pouch-dialog.js": {
+      "bytes": 9674,
+      "gzipBytes": 2913,
+      "sha256": "8ca78a5ea8d5d16c0fa10e258a0a639c1906fe6dc8ae6aca3ab0eda57ac6ac88"
+    },
+    "/src/ui/components/history-dialog.js": {
+      "bytes": 3278,
+      "gzipBytes": 1271,
+      "sha256": "e883386d9cc31ad067bb0da0b335d1a3c63cc75699ae1e63a2c380cbf1e92ac4"
+    },
+    "/src/core/use-cases/content-orchestration.js": {
+      "bytes": 22192,
+      "gzipBytes": 5937,
+      "sha256": "7c5f7c20b0b9e66708ff5ed4ceb1c9f1ba645f6d1fcc3181ca651ea132e51e93"
+    },
+    "/src/data/migrations/content-2-0-0-to-2-1-0.js": {
+      "bytes": 7417,
+      "gzipBytes": 2653,
+      "sha256": "d478efb2cd2fbf240f6dfc8a9adbc33e4e46e1380da309ea882e13bbaa78115e"
+    },
+    "/src/data/content/content-runtime.js": {
+      "bytes": 7303,
+      "gzipBytes": 2437,
+      "sha256": "d799f5f8e0f6a1ff5862ed9170b4060f0c97f2d11b81b41dd7f508f3edf90e7a"
+    },
+    "/src/ui/components/modal-frame.js": {
+      "bytes": 2920,
+      "gzipBytes": 1096,
+      "sha256": "0cc99c6ff7f8bc4e294f252d30ae569344eb4e8140dc2a7677ff1a2c67442adc"
+    },
+    "/src/data/persistence/save-1-to-2.js": {
+      "bytes": 2502,
+      "gzipBytes": 1120,
+      "sha256": "a90a518a2e4c41ebd64bf0a50901ddbbbfdcf802e1de39ccdf2a0c7e8832f5d8"
+    },
+    "/src/core/domain/meters.js": {
+      "bytes": 8287,
+      "gzipBytes": 2526,
+      "sha256": "a9e2d181b6cffc875bfc62975fe0f0830ef1eb84addf080a8e907ec804b30823"
+    },
+    "/src/core/use-cases/choice-transaction.js": {
+      "bytes": 35984,
+      "gzipBytes": 8747,
+      "sha256": "e8880cb0f51e2a62d4061d1fc25475da63615273f12a7b550a8140e660d7a4f3"
+    },
+    "/src/core/use-cases/pouch-transaction.js": {
+      "bytes": 1991,
+      "gzipBytes": 821,
+      "sha256": "3e97a3563e28899b062d833da4b26a4788eaaa82eab37cfc08bd95ec97026ba7"
+    },
+    "/src/data/content/content-loader.js": {
+      "bytes": 3561,
+      "gzipBytes": 1413,
+      "sha256": "b9c776ca4ef15f634e7ad0ce0d07c01ffe7c2dc3fc83713cf94f227d1a807b02"
+    },
+    "/src/data/content/act1-pouch-policy.js": {
+      "bytes": 2366,
+      "gzipBytes": 779,
+      "sha256": "ed99daea5c105cf23408915af68a5f8ca28ddb450d3ecffe85bc0e317833848e"
+    },
+    "/src/data/content/presentation-catalog.js": {
+      "bytes": 4619,
+      "gzipBytes": 1953,
+      "sha256": "d4763afd0695b91a87db627a78f224de34bd9f9f900c10e4c5478689f279ae9f"
+    },
+    "/src/data/validation/content-validator.js": {
+      "bytes": 18575,
+      "gzipBytes": 5737,
+      "sha256": "1875fb85ae06099fb75ed92dc342c2e9a8b4f507c7c55bfe94bfa22cd2b74aec"
+    },
+    "/src/data/validation/content-schema-catalog.js": {
+      "bytes": 152888,
+      "gzipBytes": 11530,
+      "sha256": "382eecea5278c5abd9ae2f205215eb007149fd7753633024d5efb6e5e93dd276"
+    },
+    "/src/data/validation/content-schema-validator.js": {
+      "bytes": 9755,
+      "gzipBytes": 3266,
+      "sha256": "86b6ee9ea4352cabe964088809513c9227db8bed56704c65bfda35e92e241b04"
+    },
+    "/src/data/content/packages/act-01-test-catalog.json": {
+      "bytes": 201,
+      "gzipBytes": 118,
+      "sha256": "39fed240ac8aee3ecfed4965eff61967fe434b577048cbcd51850d7ba908269c"
+    },
+    "/src/data/content/packages/act-01.json": {
+      "bytes": 144908,
+      "gzipBytes": 16106,
+      "sha256": "7589d84473f9d0dbbf73c8703e9fec2fc5189b39b6a51d301d07b737c7c547b0"
+    },
+    "/src/data/content/presentation/act-01-3.0.0.json": {
+      "bytes": 6313,
+      "gzipBytes": 911,
+      "sha256": "4157ab9a72ee783f5037854a35d577b28e43f51511ba88d6e46be0b07914a7b2"
+    },
+    "/assets/provenance/act-01-3.0.0.json": {
+      "bytes": 7192,
+      "gzipBytes": 1732,
+      "sha256": "30d8f7fce3a3122f4efa8bc675561220b4a6d26c6ff7bfbbe4d480d6c2182112"
+    },
+    "/assets/images/ui/paper-fibres.svg": {
+      "bytes": 516,
+      "gzipBytes": 348,
+      "sha256": "ae0716e1eef95bcdefd5a8c4c70a4778dd0581d6c996c59abc4123c307b28434"
+    },
+    "/assets/fonts/sarabun-thai.woff2": {
+      "bytes": 9880,
+      "gzipBytes": 9903,
+      "sha256": "445226dce39d9c8d957ac4e8b0a12fb64c1715e74522fecea0bd6007dc4a6b25"
+    },
+    "/assets/fonts/sarabun-latin.woff2": {
+      "bytes": 11440,
+      "gzipBytes": 11463,
+      "sha256": "5223475551bd30c4be72545051a47896f2d05e84169c5ee8e7ff7d46d2aa4308"
+    },
+    "/assets/images/characters/jaokob/tadpole-neutral.webp": {
+      "bytes": 49608,
+      "gzipBytes": 49615,
+      "sha256": "a645ffaae4b23b9e321c162856a3f9d19faf1d64e0e871cb3759633cb0fc79cb"
+    },
+    "/assets/images/backgrounds/act1-morning-pond.webp": {
+      "bytes": 181760,
+      "gzipBytes": 181838,
+      "sha256": "f060ea8576f15845e44603fffecb0919f362b1eb838474a51ce02b8e4b9b4aa2"
+    },
+    "/assets/images/keepsakes/dew-stone.svg": {
+      "bytes": 1016,
+      "gzipBytes": 553,
+      "sha256": "ccac2b2e055a9a6a8c592f3095fe66e3d0764a2a00e66d64940b1794083ef0a6"
+    },
+    "/assets/images/keepsakes/lotus-shell.svg": {
+      "bytes": 911,
+      "gzipBytes": 515,
+      "sha256": "54e5387b61bf1e40f15178ee521be1fb4bcebc980dafee35abd36d47f0147059"
+    },
+    "/assets/images/keepsakes/leaf-paper.svg": {
+      "bytes": 944,
+      "gzipBytes": 515,
+      "sha256": "b2a2135af4339c6c12b8094bfc4b6c2376d91f505c4f35966d2d73bb425ecf20"
+    },
+    "/assets/images/keepsakes/rain-petal.svg": {
+      "bytes": 954,
+      "gzipBytes": 527,
+      "sha256": "20e0abfd4acf7ab8500a0899f2850ee1361e0769fd24dd39abdec1d2309b25ab"
+    }
+  },
+  "result": "PASS"
+}

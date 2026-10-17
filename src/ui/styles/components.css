@@ -53,7 +53,8 @@
 .jk-choice-button:disabled, .jk-secondary-button:disabled { color: #5b6154; background: #e4e7d9; border-color: #9ea791; }
 .jk-choice-label { display: block; }
 .jk-choice-copy { flex: 1; min-inline-size: 0; }
-.jk-choice-intent { font-size: .8125em; color: var(--jk-ink-soft); }
+.jk-choice-intent { display: block; margin-block-start: 4px; font-size: .8125em; line-height: 1.6; color: var(--jk-ink-soft); }
+.jk-choice-outcome { margin: 8px 0 0; padding-inline: 8px; color: var(--jk-ink); font-size: .875em; line-height: 1.8; }
 .jk-choice-cue { display: block; flex: 0 0 1rem; inline-size: 1rem; block-size: 1rem; }
 .jk-choice-cue .jk-chrome-icon { inline-size: 100%; block-size: 100%; }
 .jk-decision-card { position: relative; min-block-size: 80px; padding: var(--jk-space-2); border-color: rgb(139 151 106 / 60%); border-block-end-width: 3px; box-shadow: 0 .25rem .5rem rgb(36 60 40 / 9%); }

@@ -1,6 +1,6 @@
 /** Same-origin, manifest-bound media reader. Trace: CR-0003 D4, FR-CNT-006, NFR-PE-001/005. */
 const LIMITS = Object.freeze({ image: 500_000, audio: 2_000_000, font: 256_000 });
-const MIME = Object.freeze({ image: ["image/webp"], audio: ["audio/mpeg", "audio/webm"], font: ["font/woff2"] });
+const MIME = Object.freeze({ image: ["image/webp", "image/svg+xml"], audio: ["audio/mpeg", "audio/webm"], font: ["font/woff2"] });
 const failure = (code) => Object.freeze({ ok: false, error: Object.freeze({ code }) });
 
 /**
@@ -27,6 +27,8 @@ export function createAssetResolver({ loaded, registry, baseUrl, fetch: fetcher 
       || !MIME[asset.type]?.includes(metadata.mimeType) || !Number.isSafeInteger(metadata.byteLength)
       || metadata.byteLength <= 0 || metadata.byteLength > LIMITS[asset.type]
       || !/^[a-f0-9]{64}$/.test(metadata.sha256 ?? "")) continue;
+    if (asset.type === "image" && (metadata.mimeType === "image/svg+xml" && !asset.path.endsWith(".svg")
+      || metadata.mimeType === "image/webp" && !asset.path.endsWith(".webp"))) continue;
     if (asset.type === "image" && (!Number.isSafeInteger(metadata.width) || !Number.isSafeInteger(metadata.height)
       || metadata.width <= 0 || metadata.height <= 0 || metadata.width > 1600 || metadata.height > 900
       || metadata.decodedBytes !== metadata.width * metadata.height * 4)) continue;
@@ -100,6 +102,18 @@ function matchesMagic(buffer, mime) {
   const bytes = new Uint8Array(buffer);
   const ascii = (offset, value) => [...value].every((character, index) => bytes[offset + index] === character.charCodeAt(0));
   if (mime === "image/webp") return ascii(0, "RIFF") && ascii(8, "WEBP");
+  if (mime === "image/svg+xml") {
+    // Deliberately bounded original geometry, not a general SVG document loader.
+    // The subsequent exact registry digest still applies to every byte.
+    try {
+      const text = new TextDecoder("utf-8", { fatal: true }).decode(bytes);
+      if (!/^<svg\s/u.test(text) || !/<\/svg>\s*$/u.test(text) || /&|<!|<\?|\bon\w+\s*=|\bhref\s*=|\bstyle\s*=/iu.test(text)) return false;
+      if (/(?:https?:|data:|javascript:|file:|\/\/)/iu.test(text.replace('xmlns="http://www.w3.org/2000/svg"', ""))) return false;
+      const tags = [...text.matchAll(/<\/?([a-z][a-z0-9]*)\b/giu)].map(match => match[1].toLowerCase());
+      return tags.every(tag => ["svg", "g", "defs", "lineargradient", "stop", "path", "ellipse", "circle"].includes(tag))
+        && [...text.matchAll(/url\(([^)]+)\)/giu)].every(match => /^#[a-z][a-z0-9-]*$/iu.test(match[1]));
+    } catch { return false; }
+  }
   if (mime === "font/woff2") return ascii(0, "wOF2");
   if (mime === "audio/webm") return [0x1a, 0x45, 0xdf, 0xa3].every((byte, index) => bytes[index] === byte);
   return ascii(0, "ID3") || (bytes[0] === 0xff && (bytes[1] & 0xe0) === 0xe0);

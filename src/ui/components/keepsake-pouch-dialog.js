@@ -3,8 +3,11 @@ import { createModalFrame } from "./modal-frame.js";
 /** One native modal, temporary inspection/confirmation only. All domain facts
  * and action availability arrive from the immutable VM. ADR-P0-020 D5.
  */
-export function createKeepsakePouchDialog({ document, viewModel, message, onIntent }) {
+export function createKeepsakePouchDialog({ document, viewModel, message, onIntent, loadImage = async () => null }) {
   let view = viewModel, selected = null, pending = null, inspectionHeading = null;
+  let generation = 0, closed = false;
+  const leases = new Set();
+  function releaseImages() { generation++; for (const release of leases) release(); leases.clear(); }
   const text = (key, values = {}) => Object.entries(values).reduce((result, [name, value]) => result.replace(`{{${name}}}`, value), message(key));
   const send = (intent) => onIntent({ ...intent, expectedRevision: view.revision, viewRevision: view.viewRevision });
   const frame = createModalFrame({ document, name: "pouch", title: text("pouch.title"), description: text("pouch.description"),
@@ -22,10 +25,25 @@ export function createKeepsakePouchDialog({ document, viewModel, message, onInte
   function artwork(item, decorative = false) {
     const figure = element("figure", { class: "jk-pouch-art" });
     const fallback = element("figcaption", { class: "jk-pouch-image-fallback", hidden: "" }, text(decorative ? "pouch.imageSlotUnavailable" : "pouch.imageUnavailable"));
+    const attach = (src, release) => {
+      const image = element("img", { src, alt: decorative ? "" : item.image.alt, width: "160", height: "128", decoding: "async" });
+      image.addEventListener("error", () => {
+        image.setAttribute("hidden", ""); fallback.removeAttribute("hidden");
+        if (release && leases.delete(release)) release();
+      });
+      figure.replaceChildren(image, fallback);
+    };
     if (item.image?.src) {
-      const image = element("img", { src: item.image.src, alt: decorative ? "" : item.image.alt, width: "160", height: "128", decoding: "async" });
-      image.addEventListener("error", () => { image.setAttribute("hidden", ""); fallback.removeAttribute("hidden"); });
-      figure.append(image);
+      attach(item.image.src);
+    } else if (item.image?.assetId) {
+      const requestedGeneration = generation;
+      Promise.resolve().then(() => loadImage(item.image)).then(result => {
+        const value = result?.ok === true ? result.value : null;
+        if (closed || requestedGeneration !== generation) { value?.release?.(); return; }
+        if (!value?.url) { fallback.removeAttribute("hidden"); return; }
+        if (value.release) leases.add(value.release);
+        attach(value.url, value.release);
+      }).catch(() => { if (!closed && requestedGeneration === generation) fallback.removeAttribute("hidden"); });
     } else fallback.removeAttribute("hidden");
     figure.append(fallback);
     return figure;
@@ -36,6 +54,7 @@ export function createKeepsakePouchDialog({ document, viewModel, message, onInte
     frame.controls.find((control) => control.getAttribute("data-jk-role") === "pouch-cancel")?.focus();
   }
   function draw() {
+    releaseImages();
     frame.controls.splice(1);
     const pouch = view.pouch;
     content.replaceChildren();
@@ -114,7 +133,7 @@ export function createKeepsakePouchDialog({ document, viewModel, message, onInte
   }
   draw();
   return Object.freeze({ element: frame.element, scrollRegion: frame.body, controls: frame.controls,
-    open() { frame.open(); }, close: frame.close,
+    open() { if (closed) { closed = false; draw(); } frame.open(); }, close() { closed = true; releaseImages(); frame.close(); },
     updateStatus(next) { view = next; },
     setBusy(busy) { for (const control of frame.controls) control.disabled = busy || control.hasAttribute("data-pouch-disabled"); },
   });
