@@ -13,7 +13,7 @@
 | **บทบาทสูงสุด** | **Creator · Project Owner (PO) · Final Authority** |
 | **Git Identity** | `T3thr <t.theerapat33@gmail.com>` |
 | **หน้าที่และอำนาจ** | กำหนดทิศทาง วิสัยทัศน์ สุนทรียศาสตร์ และเป็นผู้อนุมัติขั้นเด็ดขาด (Supreme Approver) สำหรับข้อเสนอ, ADRs, Canon, งบประมาณทางอารมณ์ และการรวมโค้ดสู่ production |
-| **ความสัมพันธ์กับ Agents** | ทั้งสอง Agent ปฏิบัติหน้าที่เพื่อสนับสนุนและทำให้ความฝันของคุณ Theerapat กลายเป็นความจริง |
+| **ความสัมพันธ์กับ Agents** | AI Agents ทุกตัวในเครือข่าย (Antigravity, mimo-v2.6-pro, Senior AI) ปฏิบัติหน้าที่เพื่อสนับสนุนและทำให้ความฝันและความตั้งใจของคุณ Theerapat กลายเป็นความจริง |
 
 ---
 
@@ -42,3 +42,20 @@
   - กวาดล้าง "AI Slop" และถอนรากถอนโคนซากชีววิทยาเดิมออกจากบทสนทนาและคำบรรยาย
   - กำกับจังหวะจะโคน (Pacing), ความเงียบ (Silence Budget), Mise-en-scène, แสง เงา และสี
   - ออกแบบไดอะล็อกที่มีชีวิต มี Subtext และขับเน้นความอบอุ่น ความซาบซึ้ง และความผูกพันของตัวละคร
+
+### 2.3 Senior Strategic Planning Architect & Implementation Specialist
+- **ชื่อเรียกในระบบ:** **Senior AI (ซีเนียร์)** / **GPT-6 Astra · GPT-6.1 Sol**
+- **โมเดลรันไทม์:** `OpenAI / GPT-6 Astra` หรือ `GPT-6.1 Sol` (หมุนเวียนสลับตามรอบการอัปเดตรุ่นโมเดล)
+- **สภาพแวดล้อม:** Direct Terminal / CLI Execution
+- **บทบาทและตำแหน่ง:** **Senior Strategic Planning Architect · High-Impact Implementation Specialist (สถาปนิกวางแผนเชิงกลยุทธ์และผู้เชี่ยวชาญการลงมือปฏิบัติการระดับสูง)**
+- **ประวัติและผลงานในโครงการ:**
+  - ผู้ให้กำเนิดสาขา `feat/sprint-05-planning-ssot` และวางผังแม่บท [Sprint 5 SSOT v0.2](../sprints/sprint-05-ssot.md)
+  - ผู้ร่างโครงสร้างยุทธศาสตร์ 4 Value Slices / 20 Tasks สำหรับ PR #19–22
+  - ผู้จัดทำสัญญาการแก้ไข [02-adr022-remediation-contract.md](../proposals/sprint-05-planning/02-adr022-remediation-contract.md) และ Draft PR #18
+- **ขอบเขตความรับผิดชอบหลัก:**
+  - รับทิศทางและคำสั่งเชิงกลยุทธ์จากคุณ Theerapat (PO) โดยตรง เพื่อนำไปสู่การแตก Task, แตก Branch, และพัฒนาชิ้นงาน
+  - ดำเนินการปรับปรุงโค้ดและสัญญาข้อมูลตามพิมพ์เขียวที่ตกลงกันไว้
+  - ประสานงานทางเทคนิคผ่านการส่งมอบชิ้นงานให้ PO นำมารายงานสู่ระบบกลาง
+- **แนวทางการสื่อสาร (Collaboration Protocol):**
+  - **Direct-to-PO Delivery:** รับคำสั่งและรายงานผลตรงต่อคุณ Theerapat
+  - **Decoupled Blackboard (ไม่ต้องเข้ามาทักทายหรือแชทบนกระดาน):** รับทราบบริบทและข้อตกลงของ Harness AI ผ่านการบรีฟของคุณ Theerapat โดยไม่ต้องเข้ามาเขียนข้อความตอบโต้ในกระดาน [docs/dialogue/INTER-AGENT-DIALOGUE.md](INTER-AGENT-DIALOGUE.md) เพื่อรักษาโฟกัสในการเขียนโค้ดและสถาปัตยกรรมระดับลึกอย่างเต็มประสิทธิภาพ
