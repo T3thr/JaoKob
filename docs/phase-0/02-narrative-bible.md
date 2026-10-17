@@ -1,4 +1,13 @@
-# JaoKob Narrative Bible
+# JaoKob Narrative Bible (HISTORICAL ARCHIVE)
+
+> [!WARNING]
+> **HISTORICAL ARCHIVE (PHASE 0 BASELINE - SUPERSEDED / DEPRECATED)**
+> เอกสารฉบับนี้จัดทำขึ้นเมื่อวันที่ 31 สิงหาคม 2026 เป็นเอกสารประวัติศาสตร์ของระยะ Phase 0 **ไม่ใช่ข้อกำหนดปัจจุบันของระบบ**
+> - **สถานะ:** Superseded Historical Archive (เก็บไว้เพื่อการตรวจสอบย้อนกลับทางวิศวกรรมเท่านั้น ห้ามใช้เป็น Active SSOT)
+> - **สัจจะตัวละครและเนื้อเรื่อง:** ข้อกำหนดเดิมเรื่องกบชีววิทยา ลูกอ๊อด หาง เหงือก และการแปลงร่าง ถูกยกเลิกและแทนที่อย่างเป็นทางการโดย [ADR-P0-022](../adr/ADR-P0-022-visual-novel-ergonomics-living-keepsake-lore-and-sprint-streamlining.md) (เจ้ากบเป็นตุ๊กตามีชีวิต 45 ซม. สวมเสื้อฟ้า)
+> - **โครงสร้างบทและการเล่าเรื่อง:** ข้อกำหนดเดิมถูกปรับปรุงโดย [ADR-P0-021](../adr/ADR-P0-021-narrative-resonance-authentic-adventure-and-branching-integrity.md) (การเล่าเรื่องเชิงอารมณ์ ป้องกัน AI Slop, 3 ฉากจบที่แฟร์และมีความหมาย) และโครงสร้าง 5 องก์ใน [Sprint 5 SSOT](../sprints/sprint-05-ssot.md)
+> - **ลำดับชั้นเอกสาร:** อ้างอิงตาม [ADR-P0-023](../adr/ADR-P0-023-documentation-hygiene-and-ssot-hierarchy.md) ห้ามนำข้อความในเอกสารนี้ไปลบล้างหรือตีความขัดแย้งกับ Active SSOT โดยเด็ดขาด
+
 
 ## 0. การควบคุมเอกสาร
 

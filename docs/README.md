@@ -9,6 +9,23 @@
 
 เอกสารนี้ทำหน้าที่เป็น **Single Source of Truth (SSOT)** และคู่มือนำทางสำหรับนักพัฒนาและ AI Agent ทุกตัวในการทำงานร่วมกันอย่างมีวินัย ตรวจสอบย้อนกลับได้ และไร้ข้อผิดพลาด
 
+> [!IMPORTANT]
+> **ระบบลำดับชั้นความศักดิ์สิทธิ์ของเอกสาร (The Four-Tier Authority Hierarchy ตาม [ADR-P0-023](adr/ADR-P0-023-documentation-hygiene-and-ssot-hierarchy.md))**
+> เพื่อป้องกันปัญหาการอ่านเอกสารเก่าล้าหลัง (Documentation Rot) โครงการแบ่งเอกสารเป็น 4 ระดับอย่างเด็ดขาด หากมีเนื้อหาขัดแย้ง ให้ยึดถือระดับที่สูงกว่าเสมอ:
+> 1. **Tier 1 — พระราชบัญญัติสูงสุดและแผนงานปัจจุบัน (Supreme Active SSOT & Governance):**
+>    - [Sprint 5 Execution SSOT](sprints/sprint-05-ssot.md) (พิมพ์เขียว 4 Value Slices PR #19–22)
+>    - Active Accepted ADRs ใน [`docs/adr/`](adr/): [ADR-P0-022](adr/ADR-P0-022-visual-novel-ergonomics-living-keepsake-lore-and-sprint-streamlining.md) (สัจจะตัวละครตุ๊กตามีชีวิต 45 ซม., VN Ergonomics), [ADR-P0-021](adr/ADR-P0-021-narrative-resonance-authentic-adventure-and-branching-integrity.md) (Anti-slop, 3 ฉากจบที่มีความหมาย), [ADR-P0-020](adr/ADR-P0-020-adventure-keepsake-pouch-and-item-system.md) (Pouch 4 ช่อง ของ 6 ชิ้น), [ADR-P0-019](adr/ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md), [ADR-P0-023](adr/ADR-P0-023-documentation-hygiene-and-ssot-hierarchy.md)
+>    - แผนส่งมอบและผังติดตาม: [02-adr022-remediation-contract.md](proposals/sprint-05-planning/02-adr022-remediation-contract.md), [sprint-05-execution-matrix.md](traceability/sprint-05-execution-matrix.md)
+> 2. **Tier 2 — สัญญาข้อกำหนดการออกแบบ (Active Design & Narrative Contracts):**
+>    - โฟลเดอร์ [`docs/design-system/`](design-system/) (เช่น [visual-novel-specification.md](design-system/visual-novel-specification.md))
+>    - Machine-readable Data Contracts ใน [`specs/schemas/`](../specs/schemas/)
+> 3. **Tier 3 — ฐานข้อมูลการผสานงานรอบก่อนหน้า (Integrated Sprint Baselines):**
+>    - [Sprint 4 SSOT](sprints/sprint-04-ssot.md) (Integrated baseline ที่ commit `d1af293`, 1,060/1,060 tests pass)
+> 4. **Tier 4 — คลังเอกสารประวัติศาสตร์และข้อเสนอ (Historical Archives & Proposals - READ ONLY):**
+>    - [`docs/phase-0/`](phase-0/): เอกสารรากฐานเดิม (31 สิงหาคม 2026) **Superceded แล้ว ห้ามนำมาใช้อ้างอิงเป็น Active Requirements**
+>    - [`docs/proposals/`](proposals/): บันทึกการวิจัยและข้อเสนอรอบที่ปิดแล้ว
+>    - [`docs/sprints/`](sprints/) (Sprints 1–3): บันทึกประวัติรอบงานในอดีต
+
 **Current work: Sprint 5 under Accepted ADR-P0-022.** [SSOT 0.2](sprints/sprint-05-ssot.md) adopts **four value slices / twenty tasks**, with planned PR #19–22 for VN/runtime foundations, living-keepsake Act 1 and Act 2, Acts 3–5/cinematic endings, and Grand Keepsake/device acceptance. Implementation is **0/20 tasks, 0/4 execution PRs**. The direction is ready for Slice 1 contracts/design work; the planning update remains [Draft PR #18](https://github.com/T3thr/JaoKob/pull/18). [Remediation contract](proposals/sprint-05-planning/02-adr022-remediation-contract.md), [trace matrix](traceability/sprint-05-execution-matrix.md), [CR-0006](rfc/CR-0006-sprint-05-complete-story-and-package-boundaries.md) and [latest audit](changelog/2026-10/2026-10-18-0023-sprint-05-adr022-replanning.md) define the accepted overrides and remaining implementation evidence.
 
 **Current Canon/UI authority:** [ADR-P0-022](adr/ADR-P0-022-visual-novel-ergonomics-living-keepsake-lore-and-sprint-streamlining.md) replaces the biological opening with crochet childhood → adult living keepsake about 45 cm in a blue shirt before the storm. It mandates the VN overhaul, separate HUD/tools, silent successful saving, inline narrative choices, cinematic beats and **Save Format 2**. Exact old stories stay archived; there is no guessed conversion from biological history into the revised lore. [Assessment 0.2](proposals/sprint-05-planning/01-readiness-assessment.md) separates the reported critical feedback, inspected references and future acceptance.
@@ -19,7 +36,7 @@
 
 **Proposal archive:** ข้อเสนอการยกระดับสู่ Interactive Light Novel RPG และ Asset Customization Pipeline สำหรับ Phase 2 / Sprint 3 ดู [JKB-PROP-P2-001 Proposal](proposals/phase-02-visual-novel-architecture/01-visual-novel-transformation-tech-lead-proposal.md); มติที่ใช้จริงอยู่ใน Sprint 3 SSOT/CR-0003; proposal เป็นข้อมูลประวัติ
 
-**Governing architecture:** [ADR-P0-015](adr/ADR-P0-015-interactive-light-novel-presentation.md) is the presentation foundation. [ADR-P0-019](adr/ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md), [ADR-P0-020](adr/ADR-P0-020-adventure-keepsake-pouch-and-item-system.md) and [ADR-P0-021](adr/ADR-P0-021-narrative-resonance-authentic-adventure-and-branching-integrity.md) remain binding where ADR22 does not supersede them; the remediation contract contains the exact crosswalk. Sprint 4 delivered Session History; remaining controls/full-release scope are audited in T0/T5/T18. Earlier deferrals are historical scope, not permanent waivers.
+**Governing architecture:** [ADR-P0-015](adr/ADR-P0-015-interactive-light-novel-presentation.md) is the presentation foundation. [ADR-P0-019](adr/ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md), [ADR-P0-020](adr/ADR-P0-020-adventure-keepsake-pouch-and-item-system.md), [ADR-P0-021](adr/ADR-P0-021-narrative-resonance-authentic-adventure-and-branching-integrity.md), และ [ADR-P0-023](adr/ADR-P0-023-documentation-hygiene-and-ssot-hierarchy.md) remain binding where ADR22 does not supersede them; the remediation contract contains the exact crosswalk. Sprint 4 delivered Session History; remaining controls/full-release scope are audited in T0/T5/T18. Earlier deferrals are historical scope, not permanent waivers.
 
 ---
 
@@ -53,17 +70,19 @@ JaoKob/
 │   │   ├── sprint-03-ssot.md      <-- Integrated Sprint 3: Interactive Light Novel RPG benchmark
 │   │   ├── sprint-04-ssot.md      <-- Integrated Sprint 4: Visual Novel, Pouch, History, Act 1
 │   │   └── sprint-05-ssot.md      <-- Active planning draft: complete story and package boundaries
-│   ├── phase-0/                   <-- เอกสารข้อกำหนดรากฐาน (Baseline Specifications 9 ฉบับ)
-│   │   ├── 00-phase-0-charter.md  <-- ขอบเขต กฎบัตร และมาตรฐานอ้างอิง
-│   │   ├── 01-game-design-document.md <-- GDD ฉบับเต็ม (Core Loop, Meters, Endings)
-│   │   ├── 02-narrative-bible.md  <-- เรื่องเล่า 5 องก์, ตัวละคร, และ Sensory Rules
-│   │   ├── 03-software-requirements-specification.md <-- SRS (FR 50 ข้อ, NFR 38 ข้อ)
-│   │   ├── 04-architecture-blueprint.md <-- Clean Architecture, Ports & Adapters, ADRs
-│   │   ├── 05-production-directory-plan.md <-- ผังโฟลเดอร์และกฎการเป็นเจ้าของไฟล์
-│   │   ├── 06-ai-agent-engineering-guide.md <-- คู่มือวิศวกรรมสำหรับ AI Agent
-│   │   ├── 07-git-governance-and-deployment-runbook.md <-- Git & GitHub Pages Runbook
-│   │   └── 08-verification-traceability-and-quality-gates.md <-- แผนการตรวจรับและทดสอบ
-│   ├── adr/                       <-- Architecture Decision Records เพิ่มเติม
+│   ├── phase-0/                   <-- คลังเอกสารประวัติศาสตร์รากฐาน (HISTORICAL ARCHIVES - Superseded by ADRs & Sprint SSOT)
+│   │   ├── README.md              <-- ป้ายเตือนและดัชนีเอกสาร Phase 0
+│   │   ├── 00-phase-0-charter.md  <-- [Historical] ขอบเขต กฎบัตร และมาตรฐานอ้างอิง
+│   │   ├── 01-game-design-document.md <-- [Historical] Superseded by ADR-020/021/022
+│   │   ├── 02-narrative-bible.md  <-- [Historical] Superseded by ADR-021/022 & Sprint 5 SSOT
+│   │   ├── 03-software-requirements-specification.md <-- [Historical] SRS Phase 0
+│   │   ├── 04-architecture-blueprint.md <-- [Historical] Superseded by ADR-014/015/019/022
+│   │   ├── 05-production-directory-plan.md <-- [Historical] ผังโฟลเดอร์เดิม
+│   │   ├── 06-ai-agent-engineering-guide.md <-- [Historical] Governed by AGENTS.md
+│   │   ├── 07-git-governance-and-deployment-runbook.md <-- [Historical] Git Runbook เดิม
+│   │   └── 08-verification-traceability-and-quality-gates.md <-- [Historical] Verification เดิม
+│   ├── adr/                       <-- Architecture Decision Records คำตัดสินสถาปัตยกรรมสูงสุดที่มีผลผูกพัน (Tier 1)
+│   ├── design-system/             <-- สัญญาและข้อกำหนดการออกแบบ Visual Novel และ Ergonomics (Tier 2)
 │   └── traceability/              <-- Matrix ตรวจสอบย้อนกลับของแต่ละ Sprint
 ├── specs/                         <-- Machine-Readable Data Contracts (JSON Schemas Draft 2020-12)
 │   ├── README.md                  <-- สารบัญ Schema และ Versioning Contract
@@ -83,29 +102,36 @@ JaoKob/
 
 ## 2. ขั้นตอนก่อนเริ่มงานสำหรับ AI Agent ("ก่อนทำงานควรอ่านอะไร")
 
+> [!WARNING]
+> **ข้อห้ามเด็ดขาด (Strict Prohibition): ห้ามอ่านเอกสารใน `docs/phase-0/` เป็น Active Requirements!**  
+> เอกสารใน `docs/phase-0/` (เช่น `01-game-design-document.md` และ `02-narrative-bible.md`) เป็นเพียง **Historical Archive** ที่ถูกแทนที่แล้ว สัจจะตัวละครตุ๊กตามีชีวิต 45 ซม., เสื้อผ้า, การเล่าเรื่อง 5 องก์, และระบบ UI ปัจจุบันถูกควบคุมโดย **ADR-P0-022, ADR-P0-021, ADR-P0-020** และ **Sprint 5 Execution SSOT** เท่านั้น
+
 เพื่อประหยัด Token และป้องกันการหลุดกรอบสถาปัตยกรรม AI Agent ต้องปฏิบัติตามลำดับการโหลดบริบทดังนี้:
 
 ```mermaid
 flowchart TD
     A[เริ่มงานใหม่] --> B[1. อ่าน AGENTS.md]
-    B --> C[2. อ่าน docs/sprints/sprint-NN-ssot.md]
+    B --> C[2. อ่าน docs/sprints/sprint-05-ssot.md]
     C --> D[3. ตรวจสอบบันทึกล่าสุดใน docs/changelog/YYYY-MM/]
     D --> E{ระบุประเภทงานของ Task}
-    E -->|Core Logic / State| F[อ่าน 04-architecture-blueprint.md]
-    E -->|Game Design / Story| G[อ่าน 01-game-design-document.md & 02-narrative-bible.md]
-    E -->|Data / Schemas| H[อ่าน specs/schemas/*.schema.json]
-    E -->|UI / Renderer| I[อ่าน SRS NFR-US & Accessibility Standard]
-    F --> J[เริ่มวางแผน Implementation]
-    G --> J
-    H --> J
-    I --> J
+    E -->|Architecture & Core Logic| F[อ่าน Active ADRs ใน docs/adr/ & sprint-05-ssot.md]
+    E -->|Game Design / Story / Lore| G[อ่าน ADR-P0-022, ADR-P0-021 & sprint-05-ssot.md]
+    E -->|UI / Design System / Ergonomics| H[อ่าน docs/design-system/ & ADR-P0-019/022]
+    E -->|Items & Pouch Mechanics| I[อ่าน ADR-P0-020 & sprint-05-ssot.md]
+    E -->|Data / Schemas| J[อ่าน specs/schemas/*.schema.json]
+    F --> K[เริ่มวางแผน Implementation]
+    G --> K
+    H --> K
+    I --> K
+    J --> K
 ```
 
 ### Checklist ที่ต้องตรวจสอบก่อนเริ่มเขียนโค้ด (Definition of Ready - DoR):
 1. [ ] **อ่าน [`AGENTS.md`](../AGENTS.md):** ยืนยันข้อห้าม Boundary และขอบเขตความปลอดภัย
 2. [ ] **อ่าน SSOT ประจำ Sprint:** ใช้ [Sprint 5 SSOT](sprints/sprint-05-ssot.md) สำหรับงานปัจจุบัน และ [Sprint 4 SSOT](sprints/sprint-04-ssot.md) สำหรับ integrated baseline ตรวจสถานะอนุมัติของแต่ละ Task ก่อน implementation
-3. [ ] **อ่าน Change Record ล่าสุด:** เลือกตามวันเวลาจาก [`docs/changelog/`](changelog/) รวมเดือนปัจจุบัน เพื่อทราบสถานะก่อนหน้า
-4. [ ] **ตรวจสอบ Requirement ID:** ทราบแน่ชัดว่างานที่กำลังจะทำตอบโจทย์ Requirement ID ใด (เช่น `FR-STA-001`, `FR-ENG-001`)
+3. [ ] **อ่าน Active ADRs:** ตรวจสอบ [ADR-P0-022](adr/ADR-P0-022-visual-novel-ergonomics-living-keepsake-lore-and-sprint-streamlining.md), [ADR-P0-021](adr/ADR-P0-021-narrative-resonance-authentic-adventure-and-branching-integrity.md), [ADR-P0-020](adr/ADR-P0-020-adventure-keepsake-pouch-and-item-system.md) ตามขอบเขตงาน
+4. [ ] **อ่าน Change Record ล่าสุด:** เลือกตามวันเวลาจาก [`docs/changelog/`](changelog/) รวมเดือนปัจจุบัน เพื่อทราบสถานะก่อนหน้า
+5. [ ] **ตรวจสอบ Requirement ID:** ทราบแน่ชัดว่างานที่กำลังจะทำตอบโจทย์ Requirement ID ใด (เช่น `FR-STA-001`, `FR-ENG-001`, `GDD-LORE-001`)
 
 ---
 

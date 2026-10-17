@@ -1,4 +1,12 @@
-# JaoKob Verification, Traceability และ Quality Gates
+# JaoKob Verification, Traceability และ Quality Gates (HISTORICAL ARCHIVE)
+
+> [!WARNING]
+> **HISTORICAL ARCHIVE (PHASE 0 BASELINE - SUPERSEDED / DEPRECATED)**
+> เอกสารฉบับนี้จัดทำขึ้นเมื่อวันที่ 31 สิงหาคม 2026 เป็นเอกสารประวัติศาสตร์ของระยะ Phase 0 **ไม่ใช่ข้อกำหนดปัจจุบันของระบบ**
+> - **สถานะ:** Superseded Historical Archive (เก็บไว้เพื่อการตรวจสอบย้อนกลับทางวิศวกรรมเท่านั้น ห้ามใช้เป็น Active SSOT)
+> - **เกณฑ์ตรวจรับและ Quality Gates ปัจจุบัน:** ควบคุมโดย [Sprint 5 SSOT](../sprints/sprint-05-ssot.md) และ [docs/traceability/sprint-05-execution-matrix.md](../traceability/sprint-05-execution-matrix.md)
+> - **ลำดับชั้นเอกสาร:** อ้างอิงตาม [ADR-P0-023](../adr/ADR-P0-023-documentation-hygiene-and-ssot-hierarchy.md) ห้ามนำข้อความในเอกสารนี้ไปลบล้างหรือตีความขัดแย้งกับ Active SSOT โดยเด็ดขาด
+
 
 รหัสเอกสาร: `JKB-P0-VVP-001`
 
