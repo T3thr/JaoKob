@@ -16,14 +16,14 @@
 - Hosting เป้าหมาย: GitHub Pages แบบ Static Artifact
 
 **สถานะปัจจุบันของโครงการ:**
-โครงการได้รับอนุมัติผ่าน Phase 0 Baseline เรียบร้อยแล้ว ขณะนี้กำลังอยู่ใน **Sprint 1: Core Vertical Slice (Phase 1A & Phase 1B)**
-เอกสารควบคุมสูงสุดและคู่มือปฏิบัติการคือ [docs/README.md](docs/README.md) และเอกสารงานปัจจุบันคือ [docs/sprints/sprint-01-ssot.md](docs/sprints/sprint-01-ssot.md)
+โครงการผ่าน Phase 0 Baseline และรวมงาน Sprint 4 เข้า `develop` แล้วที่ `d1af293` ขณะนี้อยู่ใน **Sprint 5: Planning and Review** ตาม [Sprint 5 Execution SSOT](docs/sprints/sprint-05-ssot.md) ซึ่งยังเป็นร่างเพื่อหารือก่อนเริ่มพัฒนาจริง
+เอกสารควบคุมสูงสุดและคู่มือปฏิบัติการคือ [docs/README.md](docs/README.md) ส่วน [Sprint 4 SSOT](docs/sprints/sprint-04-ssot.md) เป็น integrated baseline และบันทึกเกณฑ์ตรวจรับที่ต้องส่งต่อ การเปลี่ยนทางนำทางนี้ไม่อนุมัติ Requirement, Canon หรือ RFC ใหม่
 
 ## 3. Authoritative Documents & Navigation
 
 อ่านเอกสารตามประเภทงาน:
 
-1. **Active Sprint SSOT:** [docs/sprints/sprint-01-ssot.md](docs/sprints/sprint-01-ssot.md) (ขอบเขตงาน, Task WBS, DoR, DoD ปัจจุบัน)
+1. **Active Sprint SSOT:** [docs/sprints/sprint-05-ssot.md](docs/sprints/sprint-05-ssot.md) (แผนงานปัจจุบัน, Task WBS, DoR, DoD และคำตัดสินที่ยังเปิดอยู่)
 2. **Master Operations Manual:** [docs/README.md](docs/README.md) (คู่มือการทำงาน, Folder structure, Pre/Post checklists)
 3. **Change History & Audit Trail:** [CHANGELOG.md](CHANGELOG.md) และคลังบันทึกรายเดือน [docs/changelog/](docs/changelog/)
 4. [Phase 0 Charter และ Compliance Baseline](docs/phase-0/00-phase-0-charter.md)
@@ -45,8 +45,8 @@
 
 1. **Pre-Execution (เตรียมตัว):**
    - ตรวจสอบ Git Identity ทันทีตามข้อ 5 (ต้องเป็น `T3thr <t.theerapat33@gmail.com>` เท่านั้น)
-   - โหลด `docs/sprints/sprint-01-ssot.md` เพื่อทราบว่า Task ดังกล่าวมี Requirement IDs, Acceptance Criteria และไฟล์เป้าหมายอะไร
-   - อ่านบันทึก Change Record ล่าสุดใน `docs/changelog/2026-09/` เพื่อทราบสถานะก่อนหน้า
+   - โหลด Active Sprint SSOT ตามข้อ 3 เพื่อทราบ Requirement IDs, Acceptance Criteria, สถานะอนุมัติ และไฟล์เป้าหมายของ Task
+   - อ่าน Change Record ล่าสุดตามวันเวลาใน `docs/changelog/YYYY-MM/` เพื่อทราบสถานะก่อนหน้า ไม่ยึดเดือนของ Sprint เก่า
    - ตรวจสอบ Git Branch: แตก Branch ใหม่จาก `develop` เสมอตามข้อ 5
 2. **Implementation (พัฒนา):**
    - เขียนโค้ดใน `src/` ตาม Clean Architecture อย่างเคร่งครัด (`src/core/` ห้ามแตะ DOM/Browser API)
@@ -54,7 +54,7 @@
 3. **Post-Execution (เกณฑ์ส่งมอบงานภาคบังคับ):**
    - **ห้ามข้ามขั้นตอน Changelog เด็ดขาด:** สร้างไฟล์ Change Record ใหม่ใน `docs/changelog/YYYY-MM/YYYY-MM-DD-HHmm-<slug>.md` ตามแม่แบบ
    - สรุปสั้นๆ 1-3 บรรทัดลงใน `CHANGELOG.md` ที่ Root พร้อมแนบลิงก์
-   - บันทึกรหัส Record ลงในทะเบียน Section 7 ของ `docs/sprints/sprint-01-ssot.md` และทำเครื่องหมาย `[x]` ใน WBS
+   - บันทึกรหัส Record ลงในทะเบียน Section 7 ของ Active Sprint SSOT และทำเครื่องหมาย `[x]` เฉพาะงานที่ส่งมอบจริง งานวางแผนไม่ทำให้ implementation WBS เสร็จโดยอัตโนมัติ
    - ทำ Commit และ Push ขึ้น Feature Branch แล้วสร้าง Pull Request (PR) สู่ `develop`
 
 ## 5. Contributor Identity & Git Governance (กติกาตัวตนและ Branching สำหรับ AI)

@@ -1,0 +1,144 @@
+{
+  "recordId": "CR-20261017-1808",
+  "recordOpenedAt": "2026-10-17T18:08:05+07:00",
+  "evidencePackagedAt": "2026-10-17T18:24:02+07:00",
+  "baselineCommit": "d1af29314d4497e2c37727282a5c7fc3e31333eb",
+  "branch": "feat/sprint-05-planning-ssot",
+  "scope": "Planning/documentation only. Baseline tests and design trajectories do not certify later-act runtime, replay or production 3D.",
+  "gitIdentity": {
+    "name": "T3thr",
+    "email": "t.theerapat33@gmail.com"
+  },
+  "unit": {
+    "command": "node --test tests/unit/*.test.js",
+    "exitCode": 0,
+    "tests": 1060,
+    "passed": 1060,
+    "failed": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "durationMs": 26908.413791,
+    "rawOutput": "baseline-unit.tap.gz"
+  },
+  "endingDesign": {
+    "command": "node tests/design/ending-trajectories.mjs",
+    "exitCode": 0,
+    "result": "PASS",
+    "nodes": 7,
+    "edges": 20,
+    "contexts": 8,
+    "trajectoryCount": 1096,
+    "report": "ending-trajectories.json",
+    "limitation": "Design begins at Act 4; no production Act 1-to-5 playthrough or human-choice probability is proved.",
+    "namedWitnesses": 8
+  },
+  "documentInventory": {
+    "count": 81,
+    "lines": 11082,
+    "baselineHashesVerifiedAgainstGit": true,
+    "scope": "Markdown documentation inventory, heading/status/requirement scan; binary and private references excluded",
+    "report": "source-inventory.json"
+  },
+  "artifacts": {
+    "source-inventory.json": {
+      "bytes": 127495,
+      "sha256": "d7a3f07c989d9402ee8796a08c52005f92c24dcd3c096f9d774bc5e66fca63aa"
+    },
+    "ending-trajectories.json": {
+      "bytes": 22336,
+      "sha256": "ace96872a0d7261fdbd5be52cb6326b85aa8de94ba02bdfc963048153bf109fd"
+    },
+    "baseline-unit.tap.gz": {
+      "bytes": 34947,
+      "sha256": "50bb79684437803f4e526eb0dfefba5b3d4ffba9899583a03ef583ea5bb45280",
+      "uncompressed": {
+        "bytes": 228513,
+        "sha256": "456e725b84d32c7e75e106f95ed170729597ff27a075b42f4a948af4b2f3e5b3"
+      }
+    }
+  },
+  "documentationChecks": {
+    "status": "PASS",
+    "checkedAt": "2026-10-17T18:27:44+07:00",
+    "method": "Temporary planning audit script: Markdown relative targets/heading fragments, explicit baseline IDs, WBS/matrix/TC references, declared dependency DAG, archive and baseline Git hashes, docs-only diff and git whitespace checks. No browser rendering or semantic proof of prose is implied.",
+    "markdownFiles": 9,
+    "relativeLinks": 135,
+    "headingFragments": 1,
+    "explicitBaselineRequirementReferences": 66,
+    "wbsTasks": 20,
+    "executionSlices": 10,
+    "plannedVerificationFamilies": 24,
+    "dependencyGraph": {
+      "1": [],
+      "2": [
+        1
+      ],
+      "3": [
+        2
+      ],
+      "4": [
+        2,
+        3
+      ],
+      "5": [
+        4
+      ],
+      "6": [
+        5
+      ],
+      "7": [
+        6
+      ],
+      "8": [
+        1
+      ],
+      "9": [
+        7,
+        8
+      ],
+      "10": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    "baselineSourceInventoryHashesVerified": 81,
+    "artifactHashesAndGzipRoundTrip": "PASS",
+    "sourceSchemaAssetsTestsChanged": false,
+    "newDocumentEmDashEmojiCheck": "PASS",
+    "whitespace": "PASS",
+    "changedFiles": [
+      "AGENTS.md",
+      "CHANGELOG.md",
+      "docs/README.md",
+      "docs/changelog/2026-10/2026-10-17-1808-sprint-05-planning-ssot.md",
+      "docs/proposals/README.md",
+      "docs/proposals/sprint-05-planning/01-readiness-assessment.md",
+      "docs/proposals/sprint-05-planning/evidence/README.md",
+      "docs/proposals/sprint-05-planning/evidence/baseline-unit.tap.gz",
+      "docs/proposals/sprint-05-planning/evidence/ending-trajectories.json",
+      "docs/proposals/sprint-05-planning/evidence/planning-verification.json",
+      "docs/proposals/sprint-05-planning/evidence/source-inventory.json",
+      "docs/rfc/CR-0006-sprint-05-complete-story-and-package-boundaries.md",
+      "docs/sprints/sprint-05-ssot.md"
+    ]
+  },
+  "notPerformed": [
+    "Independent schema reference runners",
+    "Browser/E2E/visual interaction",
+    "Static artifact and rollback rehearsal",
+    "Physical devices and real assistive technology",
+    "GPU/model-viewer production lifecycle",
+    "Human Thai/art/audio review and real VN player acceptance",
+    "Merge, tag, release or deployment"
+  ],
+  "migration": "No runtime, schema, content, asset or save changes in this planning delivery.",
+  "rollback": "Reviewable revert of this documentation PR; no save migration or destructive Git action."
+}

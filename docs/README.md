@@ -9,13 +9,15 @@
 
 เอกสารนี้ทำหน้าที่เป็น **Single Source of Truth (SSOT)** และคู่มือนำทางสำหรับนักพัฒนาและ AI Agent ทุกตัวในการทำงานร่วมกันอย่างมีวินัย ตรวจสอบย้อนกลับได้ และไร้ข้อผิดพลาด
 
-**Current Sprint4:** Slices1–4 merged through PR13@01cee6f, PR14@6692c1b, PR15@f8ee156 and PR16@37bad50; governance baselinebc167d3. Final Slice5 T9/T10/T11 is delivered for [PR17 review](https://github.com/T3thr/JaoKob/pull/17) on `feat/sprint-04-slice-05-closeout`. **12/12 engineering/design task submissions;4/5 PRs merged. Final owner/manual gates and PR17 merge remain open.** See [SSOT0.5.0](sprints/sprint-04-ssot.md), [closeout contract](design-system/sprint-04-closeout-contract.md) and [audit](changelog/2026-10/2026-10-17-1400-sprint-04-slice-05-closeout.md).
+**Current work: Sprint 5 planning and review.** [Sprint 5 Execution SSOT](sprints/sprint-05-ssot.md) proposes ten execution PRs and twenty tasks for Act 2–5, full-game runtime/save/replay, presentation refinement, Grand Keepsake and protected canonical packages. Implementation is **0/20 tasks, 0/10 PRs**; [CR-0006](rfc/CR-0006-sprint-05-complete-story-and-package-boundaries.md) records decisions still needed before dependent source work. The [readiness assessment](proposals/sprint-05-planning/01-readiness-assessment.md) and [planning audit](changelog/2026-10/2026-10-17-1808-sprint-05-planning-ssot.md) separate measured evidence from proposed gates.
+
+**Integrated baseline: Sprint 4.** All five PRs and twelve tasks are integrated, including [PR #17](https://github.com/T3thr/JaoKob/pull/17) at `4c0bd28`; current `develop` baseline is `d1af293`. The planning rerun passes **1,060/1,060 unit tests** and **1,096 design trajectories**, which do not prove later-act runtime. See [Sprint 4 SSOT](sprints/sprint-04-ssot.md), [closeout contract](design-system/sprint-04-closeout-contract.md) and [audit](changelog/2026-10/2026-10-17-1400-sprint-04-slice-05-closeout.md). Human Thai/art/audio, physical-device and assistive-technology gates lacking recorded acceptance remain explicit Sprint 5 work; merge is not evidence that those checks ran.
 
 **Runtime/promotion boundary:** Normal New Game now uses content3/schema2/Save2,28nodes/47edges/70dialogues,30 localized intent entries,five original2D images and three optional moments. Existing2.1 saves continue on their exact archived graph, including independent checkpoint cursors and proved Save1 chains; no2.1→3 cursor migration is invented. Published schemas and legacy bytes remain immutable. [Consolidated evidence](../tests/e2e/evidence/sprint-04/slice-05/README.md) separates automated browser/rollback/performance results from human Thai/art/audio/device/AT acceptance. The [Act2–5 handoff](proposals/sprint-04-overhaul/05-act-2-5-map-and-endings.md) and adult red-heart art gap stay Sprint5 work. No later-act runtime,3D,merge or deployment is inferred.
 
 **Proposal archive:** ข้อเสนอการยกระดับสู่ Interactive Light Novel RPG และ Asset Customization Pipeline สำหรับ Phase 2 / Sprint 3 ดู [JKB-PROP-P2-001 Proposal](proposals/phase-02-visual-novel-architecture/01-visual-novel-transformation-tech-lead-proposal.md); มติที่ใช้จริงอยู่ใน Sprint 3 SSOT/CR-0003; proposal เป็นข้อมูลประวัติ
 
-**Governing architecture:** [Sprint 3 SSOT](sprints/sprint-03-ssot.md), [CR-0003](rfc/CR-0003-interactive-light-novel-presentation.md) และ [ADR-P0-015](adr/ADR-P0-015-interactive-light-novel-presentation.md) ผ่าน joint approval 2026-09-07: Scene 3 three-choice handoff, ลูกอ๊อดลวดลาย/ผ้าผูกคอสีน้ำเงิน, Bond Locked Chip และ deferred Log/Typewriter.
+**Governing architecture:** [ADR-P0-015](adr/ADR-P0-015-interactive-light-novel-presentation.md) is the presentation foundation. Active refinements are [ADR-P0-019](adr/ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md), [ADR-P0-020](adr/ADR-P0-020-adventure-keepsake-pouch-and-item-system.md) and [ADR-P0-021](adr/ADR-P0-021-narrative-resonance-authentic-adventure-and-branching-integrity.md). Sprint 4 delivered Session History; remaining controls and full-release gaps are tracked in CR-0006 D6. Earlier Sprint 3 deferrals are historical scope, not permanent waivers.
 
 ---
 
@@ -34,16 +36,21 @@ JaoKob/
 │   ├── ORGANIZATION-LOG.md        <-- บันทึกประวัติการจัดระเบียบโครงสร้างเอกสาร
 │   ├── proposals/                 <-- ข้อเสนอทางเทคนิค การวิจัย และ Brainstorming ก่อนเปิด RFC/Sprint
 │   │   ├── README.md              <-- สารบัญข้อเสนอและการใช้งาน
-│   │   └── phase-02-visual-novel-architecture/ <-- ข้อเสนอ Phase 2 Visual Novel Transformation
+│   │   ├── phase-02-visual-novel-architecture/ <-- ข้อเสนอ Phase 2 Visual Novel Transformation
+│   │   ├── sprint-04-overhaul/    <-- Act 1 redesign และแผนส่งต่อ Act 2–5
+│   │   └── sprint-05-planning/    <-- Readiness assessment และหลักฐาน baseline
 │   ├── raw/                       <-- พื้นที่รับไฟล์ดิบ/สื่อร่างชั่วคราวก่อนจัดหมวดหมู่
 │   ├── changelog/                 <-- คลังบันทึกประวัติการทำงานระดับ Execution Session (ISO 12207)
 │   │   ├── README.md              <-- มาตรฐานและแม่แบบการบันทึกระดับวัน-เวลา
 │   │   ├── 2026-08/               <-- บันทึกประจำเดือนสิงหาคม 2026
-│   │   └── 2026-09/               <-- บันทึกประจำเดือนกันยายน 2026
+│   │   ├── 2026-09/               <-- บันทึกประจำเดือนกันยายน 2026
+│   │   └── 2026-10/               <-- บันทึกประจำเดือนตุลาคม 2026
 │   ├── sprints/                   <-- เอกสาร SSOT ประจำรอบการพัฒนา (Sprint Execution)
 │   │   ├── sprint-01-ssot.md      <-- Baseline Sprint 1: Core Vertical Slice
 │   │   ├── sprint-02-ssot.md      <-- Integrated Sprint 2: Content Engine & Canonical Act 1
-│   │   └── sprint-03-ssot.md      <-- Integrated Sprint 3: Interactive Light Novel RPG benchmark
+│   │   ├── sprint-03-ssot.md      <-- Integrated Sprint 3: Interactive Light Novel RPG benchmark
+│   │   ├── sprint-04-ssot.md      <-- Integrated Sprint 4: Visual Novel, Pouch, History, Act 1
+│   │   └── sprint-05-ssot.md      <-- Active planning draft: complete story and package boundaries
 │   ├── phase-0/                   <-- เอกสารข้อกำหนดรากฐาน (Baseline Specifications 9 ฉบับ)
 │   │   ├── 00-phase-0-charter.md  <-- ขอบเขต กฎบัตร และมาตรฐานอ้างอิง
 │   │   ├── 01-game-design-document.md <-- GDD ฉบับเต็ม (Core Loop, Meters, Endings)
@@ -94,8 +101,8 @@ flowchart TD
 
 ### Checklist ที่ต้องตรวจสอบก่อนเริ่มเขียนโค้ด (Definition of Ready - DoR):
 1. [ ] **อ่าน [`AGENTS.md`](../AGENTS.md):** ยืนยันข้อห้าม Boundary และขอบเขตความปลอดภัย
-2. [ ] **อ่าน SSOT ประจำ Sprint:** ใช้ [Sprint 3 SSOT](sprints/sprint-03-ssot.md) เป็น integrated baseline ปัจจุบัน เพื่อทราบ Goal, Scope, Requirement IDs และเกณฑ์ส่งมอบ (DoD)
-3. [ ] **อ่าน Change Record ล่าสุด:** ใน [`docs/changelog/2026-09/`](changelog/2026-09/) เพื่อทราบสถานะว่ารอบที่แล้วทำอะไรเสร็จไปแล้วบ้าง
+2. [ ] **อ่าน SSOT ประจำ Sprint:** ใช้ [Sprint 5 SSOT](sprints/sprint-05-ssot.md) สำหรับงานปัจจุบัน และ [Sprint 4 SSOT](sprints/sprint-04-ssot.md) สำหรับ integrated baseline ตรวจสถานะอนุมัติของแต่ละ Task ก่อน implementation
+3. [ ] **อ่าน Change Record ล่าสุด:** เลือกตามวันเวลาจาก [`docs/changelog/`](changelog/) รวมเดือนปัจจุบัน เพื่อทราบสถานะก่อนหน้า
 4. [ ] **ตรวจสอบ Requirement ID:** ทราบแน่ชัดว่างานที่กำลังจะทำตอบโจทย์ Requirement ID ใด (เช่น `FR-STA-001`, `FR-ENG-001`)
 
 ---
@@ -118,7 +125,7 @@ flowchart TD
 ### Checklist ที่ต้องอัปเดตก่อนส่งมอบงาน (Definition of Done - DoD Documentation Gate):
 1. [ ] **สร้าง Execution Change Record:** สร้างไฟล์ใหม่ใน `docs/changelog/YYYY-MM/YYYY-MM-DD-HHmm-<slug>.md` ตามแม่แบบใน [`docs/changelog/README.md`](changelog/README.md) โดยระบุวันเวลา, วัตถุประสงค์, Requirement IDs, รายการไฟล์ที่แก้ และผลการทดสอบ
 2. [ ] **อัปเดต Root [`CHANGELOG.md`](../CHANGELOG.md):** เพิ่มสรุปสั้น 1-3 บรรทัดภายใต้หัวข้อ Release หรือ Unreleased พร้อมทำลิงก์ Markdown ชี้ไปยังไฟล์ Change Record ในข้อ 1
-3. [ ] **อัปเดตสถานะใน Sprint SSOT:** เปิด [`docs/sprints/sprint-NN-ssot.md`](sprints/sprint-02-ssot.md) แล้วทำเครื่องหมาย `[x]` หน้า Task ที่ทำเสร็จแล้วในหัวข้อ Work Breakdown Structure (WBS)
+3. [ ] **อัปเดตสถานะใน Sprint SSOT:** เปิด [Active Sprint SSOT](sprints/sprint-05-ssot.md) ลงทะเบียน Record ใน Section 7 และทำเครื่องหมาย `[x]` เฉพาะงานที่ส่งมอบจริง ไม่ปิด implementation WBS ด้วยงานวางแผน
 4. [ ] **บันทึก ADR (ถ้ามี):** หากมีการตัดสินใจทางสถาปัตยกรรมที่เปลี่ยนไปจาก Phase 0 ให้บันทึก ADR ฉบับใหม่ใน [`docs/adr/`](adr/)
 
 ---
