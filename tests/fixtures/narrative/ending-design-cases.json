@@ -1,0 +1,26 @@
+{
+  "status": "S4 design reference only; S5 production resolver still required",
+  "cases": [
+    {"hp":80,"sanity":70,"bond":60,"compassion":true,"safeHelp":true,"repair":"none","expected":"END-HOME"},
+    {"hp":80,"sanity":70,"bond":79,"compassion":true,"safeHelp":true,"repair":"none","expected":"END-HOME"},
+    {"hp":80,"sanity":70,"bond":80,"compassion":true,"safeHelp":true,"repair":"none","expected":"END-HOME"},
+    {"hp":80,"sanity":70,"bond":100,"compassion":true,"safeHelp":true,"repair":"none","expected":"END-HOME"},
+    {"hp":80,"sanity":70,"bond":59,"compassion":true,"safeHelp":true,"repair":"none","expected":"END-NEARBY"},
+    {"hp":80,"sanity":70,"bond":50,"compassion":true,"safeHelp":false,"repair":"accept","expected":"END-HOME"},
+    {"hp":80,"sanity":70,"bond":50,"compassion":true,"safeHelp":false,"repair":"decline","expected":"END-NEARBY"},
+    {"hp":80,"sanity":70,"bond":60,"compassion":true,"safeHelp":false,"repair":"decline","expected":"END-NEARBY"},
+    {"hp":80,"sanity":70,"bond":49,"compassion":true,"safeHelp":false,"repair":"none","expected":"END-NEARBY"},
+    {"hp":80,"sanity":70,"bond":60,"compassion":false,"safeHelp":true,"repair":"none","expected":"END-NEARBY"},
+    {"hp":80,"sanity":70,"bond":30,"compassion":false,"safeHelp":false,"repair":"none","expected":"END-NEARBY"},
+    {"hp":80,"sanity":70,"bond":29,"compassion":false,"safeHelp":false,"repair":"none","expected":"END-DAWN"},
+    {"hp":80,"sanity":70,"bond":0,"compassion":false,"safeHelp":false,"repair":"none","expected":"END-DAWN"},
+    {"hp":0,"sanity":70,"bond":80,"compassion":true,"safeHelp":true,"repair":"none","expected":"GameOver"},
+    {"hp":80,"sanity":0,"bond":80,"compassion":true,"safeHelp":true,"repair":"none","expected":"GameOver"},
+    {"hp":0,"sanity":0,"bond":80,"compassion":true,"safeHelp":true,"repair":"none","expected":"GameOver"}
+  ],
+  "trustPaths": [
+    {"id":"cautious-wait-voice-help","deltas":[5,10,10,10,15,20],"expectedBond":70},
+    {"id":"accept-now-voice-help","deltas":[15,20,10,15,20],"expectedBond":80},
+    {"id":"cautious-nearby-repair","deltas":[5,10,10,10,15,10,20],"expectedBond":80}
+  ]
+}

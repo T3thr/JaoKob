@@ -19,7 +19,7 @@ const git = (...args) => execFileSync("git", args, { cwd: repo, encoding: "utf8"
 const evidence = { at: new Date().toISOString(), commit: git("rev-parse", "HEAD"), trackedDiffAtStartSha256: sha(git("diff", "HEAD")), benchmarkHarnessSha256: sha(await readFile(fileURLToPath(import.meta.url))),
   environment: { os: `${platform()} ${release()}`, hostCpu: cpus()[0]?.model, logicalCores: cpus().length, totalMemoryBytes: totalmem(),
     mode: "headless Chromium; host metadata only, not an approved physical reference device", physicalDisplayRefreshHz: null, cpuEmulation: "none" },
-  schemaVersion: "1.2.0", contentVersion: "2.1.0", packageSha256: sha(await readFile(resolve(repo, "src/data/content/packages/act-01.json"))),
+  schemaVersion: "1.2.0", contentVersion: "2.1.0", packageSha256: sha(await readFile(resolve(repo, "src/data/content/compatibility/act-01-2.1.0.json"))),
   checks: [], screenshots: [], viewports: [], media: {}, errors: [], expectedFaults: [], performance: {},
   notRun: ["Physical 4-core/4GB mobile device and hardware refresh validation", "Real Safari/iOS and Firefox", "Human audio listening", "VoiceOver/NVDA", "PO art/crop acceptance", "400% native browser zoom (320 CSS-pixel equivalent reflow used)", "Long-task/paint/compositing trace and layout-shift instrumentation", "Audio-enabled frame/load timing (audio-enabled resource stability checked separately)"] };
 const transfers = [];

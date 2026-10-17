@@ -1,0 +1,21 @@
+{
+  "result": "PASS",
+  "issues": [],
+  "checkedMarkdownLinks": 158,
+  "frozenPublishedSchemas": 13,
+  "archiveSha256": "498dbdcee737a5256e32dc8391d276a83744c4e91fe910c7cdf26a84eb1fb64f",
+  "candidate": {
+    "version": "3.0.0",
+    "schema": "2.0.0",
+    "nodes": 28,
+    "edges": 47,
+    "dialogues": 70,
+    "items": 5,
+    "moments": 3,
+    "rawBytes": 135820,
+    "gzipBytes": 14029
+  },
+  "boundaries": "All production ES module imports inspected; no Core browser API or production test dependency",
+  "assets": "No model/vendor/art/private reference changes",
+  "security": "Scoped changed-text credential-pattern inspection only; no formal scanner certification"
+}

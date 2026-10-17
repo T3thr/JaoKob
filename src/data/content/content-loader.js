@@ -54,6 +54,7 @@ function fromObject(data, options) {
     "character.id": "characters", "event.id": "events", "asset.id": "assets", "flag.id": "flags",
     "checkpoint.id": "checkpoints", "choice.id": "choices", "interaction.id": "interactions",
     "content-warning.id": "warnings",
+    "item.id": "items", "secret-moment.id": "secretMoments",
   };
   const indexes = Object.create(null);
   for (const [namespace, records] of Object.entries(collectContentRecords(result.packageData))) {

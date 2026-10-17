@@ -11,7 +11,7 @@ export function projectKeepsakePouch({ pouch, opportunity, locale = "th" }) {
     if (!metadata) throw new TypeError("POUCH_ITEM_REFERENCE");
     const status = pouch.held.includes(id) ? "held" : pouch.released.includes(id) ? "released" : "refused";
     return { id, name: metadata.name, description: metadata.description, memoryText: metadata.memoryText,
-      image: { src: new URL(metadata.imagePath, import.meta.url).href, alt: metadata.imageAlt }, status,
+      image: metadata.imagePath ? { src: new URL(metadata.imagePath, import.meta.url).href, alt: metadata.imageAlt } : null, status,
       opportunityId: opportunity?.id ?? null,
       actions: ["release", "use"].map((action) => ({ action, enabled: status === "held" && (action !== "use" || metadata.usageTypes.includes("scene-utility")) && (opportunity?.actions.includes(action) ?? false) })),
     };

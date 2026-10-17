@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { loadGameContent } from "../../src/data/content/content-runtime.js";
 import { createContentOrchestrator } from "../../src/core/use-cases/content-orchestration.js";
 
-export const content = JSON.parse(readFileSync(new URL("../../src/data/content/packages/act-01.json", import.meta.url)));
+export const content = JSON.parse(readFileSync(new URL("../../src/data/content/compatibility/act-01-2.1.0.json", import.meta.url)));
 export const testReferenceIds = JSON.parse(readFileSync(new URL("../../src/data/content/packages/act-01-test-catalog.json", import.meta.url)));
 export const loaded = await loadGameContent({ content, testReferenceIds });
 assert.equal(loaded.valid, true);

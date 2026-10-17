@@ -5,7 +5,8 @@ import { act1PouchPolicy } from "./act1-pouch-policy.js";
 /** Static loading and capability normalization. Trace: FR-CNT-001, CR-0002 D3/D4. */
 export async function loadGameContent(options = {}) {
   const baseUrl = options.baseUrl ?? import.meta.url;
-  const source = options.content ?? options.packageSource ?? new URL("./packages/act-01.json", import.meta.url).href;
+  // Slice 5 T9/T10 promotes content 3 together with its art/catalog and cursor policy.
+  const source = options.content ?? options.packageSource ?? new URL("./compatibility/act-01-2.1.0.json", import.meta.url).href;
   let testReferenceIds = options.testReferenceIds;
   if (!testReferenceIds) {
     try {
@@ -29,7 +30,7 @@ export function prepareRuntimeContent(loaded) {
   const data = loaded.packageData, indexes = loaded.indexes;
   const nodes = Object.values(indexes.nodes), events = Object.values(indexes.events);
   const unsupported = (path) => contentFailure(path, "CONTENT_CAPABILITY", "The current executor cannot safely represent this capability.");
-  if (!["1.1.0", "1.2.0"].includes(data.schemaVersion) || data.narrativeTrees.length !== 1 || nodes.length > 256) return unsupported("$.narrativeTrees");
+  if (!["1.1.0", "1.2.0", "2.0.0"].includes(data.schemaVersion) || data.narrativeTrees.length !== 1 || nodes.length > 256) return unsupported("$.narrativeTrees");
   if (loaded.entry.node.type !== "cutscene" || loaded.entry.node.checkpointPolicy !== "before-node") return unsupported("$.entryTreeId");
   const adjacency = Object.fromEntries(nodes.map((node) => [node.id, []]));
   for (const node of nodes) {

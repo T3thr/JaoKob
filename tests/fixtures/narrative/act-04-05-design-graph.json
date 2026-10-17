@@ -1,0 +1,917 @@
+{
+  "status": "ADR-P0-021 D1 S5 design graph; not shipped later-act content or production resolver",
+  "entryNodeId": "A4-004",
+  "resolverNodeId": "resolver",
+  "entryContext": "Immediately after the A4-004 water/shadow adjustment is visibly complete. Bond first unlocks here. A4-007 and A5-001/002/004 are acknowledged cutscenes folded into edges; they add no effects.",
+  "initialMetrics": {
+    "hp": 80,
+    "sanity": 70,
+    "bond": 0
+  },
+  "initialFlags": {
+    "draft.humanity.safe_distance_seen": true
+  },
+  "flagDefinitions": [
+    {
+      "id": "humanity.compassion_observed",
+      "valueType": "boolean",
+      "defaultValue": false
+    },
+    {
+      "id": "humanity.cautious_observer",
+      "valueType": "boolean",
+      "defaultValue": false
+    },
+    {
+      "id": "bond.accepted_water",
+      "valueType": "boolean",
+      "defaultValue": false
+    },
+    {
+      "id": "bond.accepted_water_late",
+      "valueType": "boolean",
+      "defaultValue": false
+    },
+    {
+      "id": "bond.followed_at_own_pace",
+      "valueType": "boolean",
+      "defaultValue": false
+    },
+    {
+      "id": "bond.waited_for_repeat",
+      "valueType": "boolean",
+      "defaultValue": false
+    },
+    {
+      "id": "bond.responded_gently",
+      "valueType": "boolean",
+      "defaultValue": false
+    },
+    {
+      "id": "bond.shared_keepsake",
+      "valueType": "boolean",
+      "defaultValue": false
+    },
+    {
+      "id": "bond.accepted_safe_help",
+      "valueType": "boolean",
+      "defaultValue": false
+    },
+    {
+      "id": "bond.chose_nearby_shelter",
+      "valueType": "boolean",
+      "defaultValue": false
+    },
+    {
+      "id": "keepsake.lily_fragment",
+      "valueType": "boolean",
+      "defaultValue": false
+    },
+    {
+      "id": "draft.humanity.safe_distance_seen",
+      "valueType": "boolean",
+      "defaultValue": false
+    },
+    {
+      "id": "draft.humanity.repeat_seen",
+      "valueType": "boolean",
+      "defaultValue": false
+    },
+    {
+      "id": "draft.ending.repair_offered",
+      "valueType": "boolean",
+      "defaultValue": false
+    }
+  ],
+  "nodes": [
+    {
+      "id": "A4-004",
+      "kind": "decision",
+      "choices": [
+        {
+          "id": "GDD-DEC-A4-001-A",
+          "label": "อยู่ดูจนเธอถอยพ้นถ้วย",
+          "source": "GDD-DEC-A4-001-A",
+          "condition": {
+            "kind": "always"
+          },
+          "effects": [
+            {
+              "type": "adjust-metric",
+              "metric": "sanity",
+              "amount": 10
+            },
+            {
+              "type": "adjust-metric",
+              "metric": "bond",
+              "amount": 15
+            },
+            {
+              "type": "set-flag",
+              "flagId": "humanity.compassion_observed",
+              "value": true
+            }
+          ],
+          "nextNodeId": "A4-005"
+        },
+        {
+          "id": "GDD-DEC-A4-001-B",
+          "label": "รักษาระยะ ดูจากใต้กระถาง",
+          "source": "GDD-DEC-A4-001-B",
+          "condition": {
+            "kind": "always"
+          },
+          "effects": [
+            {
+              "type": "adjust-metric",
+              "metric": "sanity",
+              "amount": 5
+            },
+            {
+              "type": "adjust-metric",
+              "metric": "bond",
+              "amount": 5
+            },
+            {
+              "type": "set-flag",
+              "flagId": "humanity.cautious_observer",
+              "value": true
+            }
+          ],
+          "nextNodeId": "A4-005"
+        },
+        {
+          "id": "draft.choice.a4.watch-from-runoff",
+          "label": "มองจากร่องน้ำใต้ใบไม้ แล้วดูทางของตัวเอง",
+          "source": "draft.choice.a4.watch-from-runoff",
+          "condition": {
+            "kind": "always"
+          },
+          "effects": [
+            {
+              "type": "set-flag",
+              "flagId": "humanity.compassion_observed",
+              "value": true
+            }
+          ],
+          "nextNodeId": "A4-005"
+        }
+      ]
+    },
+    {
+      "id": "A4-005",
+      "kind": "decision",
+      "choices": [
+        {
+          "id": "GDD-DEC-A4-002-A",
+          "label": "ดื่มน้ำเมื่อเงาของเธอพ้นถ้วย",
+          "source": "GDD-DEC-A4-002-A",
+          "condition": {
+            "kind": "flag",
+            "flagId": "draft.humanity.safe_distance_seen",
+            "operator": "eq",
+            "value": true
+          },
+          "effects": [
+            {
+              "type": "adjust-metric",
+              "metric": "hp",
+              "amount": 10
+            },
+            {
+              "type": "adjust-metric",
+              "metric": "sanity",
+              "amount": 5
+            },
+            {
+              "type": "adjust-metric",
+              "metric": "bond",
+              "amount": 20
+            },
+            {
+              "type": "set-flag",
+              "flagId": "bond.accepted_water",
+              "value": true
+            }
+          ],
+          "nextNodeId": "A4-006"
+        },
+        {
+          "id": "GDD-DEC-A4-002-B",
+          "label": "รอให้เธอเดินพ้นแล้วจึงดื่ม",
+          "source": "GDD-DEC-A4-002-B",
+          "condition": {
+            "kind": "flag",
+            "flagId": "draft.humanity.safe_distance_seen",
+            "operator": "eq",
+            "value": true
+          },
+          "effects": [
+            {
+              "type": "adjust-metric",
+              "metric": "hp",
+              "amount": 10
+            },
+            {
+              "type": "adjust-metric",
+              "metric": "bond",
+              "amount": 10
+            },
+            {
+              "type": "set-flag",
+              "flagId": "bond.accepted_water_late",
+              "value": true
+            }
+          ],
+          "nextNodeId": "A4-006"
+        },
+        {
+          "id": "draft.choice.a4.drink-rainwater",
+          "label": "เลาะไปดื่มน้ำฝนในร่องใบไม้",
+          "source": "draft.choice.a4.drink-rainwater",
+          "condition": {
+            "kind": "always"
+          },
+          "effects": [
+            {
+              "type": "adjust-metric",
+              "metric": "hp",
+              "amount": 10
+            },
+            {
+              "type": "adjust-metric",
+              "metric": "sanity",
+              "amount": 5
+            }
+          ],
+          "nextNodeId": "A4-006"
+        }
+      ]
+    },
+    {
+      "id": "A4-006",
+      "kind": "automatic",
+      "choices": [
+        {
+          "id": "GDD-CHO-007",
+          "label": "เห็นเธอเว้นระยะเดิมซ้ำ",
+          "source": "GDD-CHO-007",
+          "condition": {
+            "kind": "flag",
+            "flagId": "humanity.cautious_observer",
+            "operator": "eq",
+            "value": true
+          },
+          "effects": [
+            {
+              "type": "adjust-metric",
+              "metric": "bond",
+              "amount": 10
+            },
+            {
+              "type": "set-flag",
+              "flagId": "humanity.compassion_observed",
+              "value": true
+            },
+            {
+              "type": "set-flag",
+              "flagId": "draft.humanity.repeat_seen",
+              "value": true
+            }
+          ],
+          "nextNodeId": "A4-008"
+        },
+        {
+          "id": "draft.event.a4.repeat-seen",
+          "label": "เห็นระยะที่เธอปรับไว้ยังเปิดอยู่",
+          "source": "draft.event.a4.repeat-seen",
+          "condition": {
+            "kind": "flag",
+            "flagId": "humanity.cautious_observer",
+            "operator": "eq",
+            "value": false
+          },
+          "effects": [
+            {
+              "type": "set-flag",
+              "flagId": "draft.humanity.repeat_seen",
+              "value": true
+            }
+          ],
+          "nextNodeId": "A4-008"
+        }
+      ]
+    },
+    {
+      "id": "A4-008",
+      "kind": "decision",
+      "choices": [
+        {
+          "id": "GDD-DEC-A4-003-A",
+          "label": "ตามร่องหยดน้ำไปสวน",
+          "source": "GDD-DEC-A4-003-A",
+          "condition": {
+            "kind": "flag",
+            "flagId": "draft.humanity.repeat_seen",
+            "operator": "eq",
+            "value": true
+          },
+          "effects": [
+            {
+              "type": "adjust-metric",
+              "metric": "hp",
+              "amount": 5
+            },
+            {
+              "type": "adjust-metric",
+              "metric": "bond",
+              "amount": 10
+            },
+            {
+              "type": "set-flag",
+              "flagId": "bond.followed_at_own_pace",
+              "value": true
+            }
+          ],
+          "nextNodeId": "A5-003"
+        },
+        {
+          "id": "GDD-DEC-A4-003-B",
+          "label": "ดูอีกคืนแล้วจึงตามไป",
+          "source": "GDD-DEC-A4-003-B",
+          "condition": {
+            "kind": "flag",
+            "flagId": "draft.humanity.repeat_seen",
+            "operator": "eq",
+            "value": true
+          },
+          "effects": [
+            {
+              "type": "adjust-metric",
+              "metric": "sanity",
+              "amount": 5
+            },
+            {
+              "type": "adjust-metric",
+              "metric": "bond",
+              "amount": 10
+            },
+            {
+              "type": "set-flag",
+              "flagId": "bond.waited_for_repeat",
+              "value": true
+            }
+          ],
+          "nextNodeId": "A5-003"
+        },
+        {
+          "id": "draft.choice.a4.follow-watercourse",
+          "label": "เลาะร่องน้ำเข้าพงใต้ใบไม้",
+          "source": "draft.choice.a4.follow-watercourse",
+          "condition": {
+            "kind": "always"
+          },
+          "effects": [],
+          "nextNodeId": "A5-003"
+        }
+      ]
+    },
+    {
+      "id": "A5-003",
+      "kind": "decision",
+      "choices": [
+        {
+          "id": "GDD-DEC-A5-001-A",
+          "label": "ส่งเสียงตอบเบา ๆ จากที่ซ่อน",
+          "source": "GDD-DEC-A5-001-A",
+          "condition": {
+            "kind": "metric",
+            "metric": "bond",
+            "operator": "gte",
+            "value": 30
+          },
+          "effects": [
+            {
+              "type": "adjust-metric",
+              "metric": "sanity",
+              "amount": 5
+            },
+            {
+              "type": "adjust-metric",
+              "metric": "bond",
+              "amount": 15
+            },
+            {
+              "type": "set-flag",
+              "flagId": "bond.responded_gently",
+              "value": true
+            }
+          ],
+          "nextNodeId": "A5-005"
+        },
+        {
+          "id": "GDD-DEC-A5-001-B",
+          "label": "วางเศษใบบัวไว้ให้เห็น",
+          "source": "GDD-DEC-A5-001-B",
+          "condition": {
+            "all": [
+              {
+                "kind": "flag",
+                "flagId": "keepsake.lily_fragment",
+                "operator": "eq",
+                "value": true
+              },
+              {
+                "kind": "pouch",
+                "itemId": "item_leaf",
+                "state": "held"
+              }
+            ]
+          },
+          "effects": [
+            {
+              "type": "adjust-metric",
+              "metric": "sanity",
+              "amount": 10
+            },
+            {
+              "type": "adjust-metric",
+              "metric": "bond",
+              "amount": 15
+            },
+            {
+              "type": "set-flag",
+              "flagId": "bond.shared_keepsake",
+              "value": true
+            }
+          ],
+          "nextNodeId": "A5-005"
+        },
+        {
+          "id": "draft.choice.a5.keep-natural-cover",
+          "label": "อยู่ใต้ใบไม้ มองทางน้ำที่ยังเปิด",
+          "source": "draft.choice.a5.keep-natural-cover",
+          "condition": {
+            "kind": "always"
+          },
+          "effects": [],
+          "nextNodeId": "A5-005"
+        }
+      ]
+    },
+    {
+      "id": "A5-005",
+      "kind": "decision",
+      "choices": [
+        {
+          "id": "GDD-DEC-A5-002-A",
+          "label": "ก้าวลงบนผ้าเมื่อเห็นทางกลับสวน",
+          "source": "GDD-DEC-A5-002-A",
+          "condition": {
+            "kind": "metric",
+            "metric": "bond",
+            "operator": "gte",
+            "value": 50
+          },
+          "effects": [
+            {
+              "type": "adjust-metric",
+              "metric": "hp",
+              "amount": 10
+            },
+            {
+              "type": "adjust-metric",
+              "metric": "sanity",
+              "amount": 10
+            },
+            {
+              "type": "adjust-metric",
+              "metric": "bond",
+              "amount": 20
+            },
+            {
+              "type": "set-flag",
+              "flagId": "bond.accepted_safe_help",
+              "value": true
+            }
+          ],
+          "nextNodeId": "A5-006"
+        },
+        {
+          "id": "GDD-DEC-A5-002-B",
+          "label": "พักใต้กระถางใกล้เธอก่อน",
+          "source": "GDD-DEC-A5-002-B",
+          "condition": {
+            "kind": "always"
+          },
+          "effects": [
+            {
+              "type": "adjust-metric",
+              "metric": "hp",
+              "amount": 5
+            },
+            {
+              "type": "adjust-metric",
+              "metric": "sanity",
+              "amount": 10
+            },
+            {
+              "type": "adjust-metric",
+              "metric": "bond",
+              "amount": 10
+            },
+            {
+              "type": "set-flag",
+              "flagId": "bond.chose_nearby_shelter",
+              "value": true
+            }
+          ],
+          "nextNodeId": "A5-006"
+        },
+        {
+          "id": "draft.choice.a5.choose-wild-shelter",
+          "label": "พักใต้รากในพงข้างแอ่งน้ำฝน",
+          "source": "draft.choice.a5.choose-wild-shelter",
+          "condition": {
+            "kind": "always"
+          },
+          "effects": [
+            {
+              "type": "adjust-metric",
+              "metric": "hp",
+              "amount": 10
+            },
+            {
+              "type": "adjust-metric",
+              "metric": "sanity",
+              "amount": 10
+            }
+          ],
+          "nextNodeId": "A5-006"
+        }
+      ]
+    },
+    {
+      "id": "A5-006",
+      "kind": "repair",
+      "choices": [
+        {
+          "id": "draft.choice.a5.repair-accept",
+          "label": "ก้าวลงบนผ้าที่เธอวางในระยะเดิม",
+          "source": "GDD-END-006 / GDD-DEC-A5-002-A",
+          "condition": {
+            "all": [
+              {
+                "kind": "metric",
+                "metric": "bond",
+                "operator": "gte",
+                "value": 50
+              },
+              {
+                "kind": "flag",
+                "flagId": "humanity.compassion_observed",
+                "operator": "eq",
+                "value": true
+              },
+              {
+                "kind": "flag",
+                "flagId": "bond.accepted_safe_help",
+                "operator": "eq",
+                "value": false
+              },
+              {
+                "kind": "flag",
+                "flagId": "draft.ending.repair_offered",
+                "operator": "eq",
+                "value": false
+              }
+            ]
+          },
+          "effects": [
+            {
+              "type": "adjust-metric",
+              "metric": "hp",
+              "amount": 10
+            },
+            {
+              "type": "adjust-metric",
+              "metric": "sanity",
+              "amount": 10
+            },
+            {
+              "type": "adjust-metric",
+              "metric": "bond",
+              "amount": 20
+            },
+            {
+              "type": "set-flag",
+              "flagId": "bond.accepted_safe_help",
+              "value": true
+            },
+            {
+              "type": "set-flag",
+              "flagId": "draft.ending.repair_offered",
+              "value": true
+            }
+          ],
+          "nextNodeId": "resolver"
+        },
+        {
+          "id": "draft.choice.a5.repair-decline",
+          "label": "กลับไปพักในที่ที่เลือกไว้",
+          "source": "GDD-END-006",
+          "condition": {
+            "all": [
+              {
+                "kind": "metric",
+                "metric": "bond",
+                "operator": "gte",
+                "value": 50
+              },
+              {
+                "kind": "flag",
+                "flagId": "humanity.compassion_observed",
+                "operator": "eq",
+                "value": true
+              },
+              {
+                "kind": "flag",
+                "flagId": "bond.accepted_safe_help",
+                "operator": "eq",
+                "value": false
+              },
+              {
+                "kind": "flag",
+                "flagId": "draft.ending.repair_offered",
+                "operator": "eq",
+                "value": false
+              }
+            ]
+          },
+          "effects": [
+            {
+              "type": "set-flag",
+              "flagId": "draft.ending.repair_offered",
+              "value": true
+            }
+          ],
+          "nextNodeId": "resolver"
+        },
+        {
+          "id": "draft.event.a5.resolve",
+          "label": "เดินเรื่องจากที่พักที่เลือก",
+          "source": "GDD-END-004..006",
+          "condition": {
+            "not": {
+              "all": [
+                {
+                  "kind": "metric",
+                  "metric": "bond",
+                  "operator": "gte",
+                  "value": 50
+                },
+                {
+                  "kind": "flag",
+                  "flagId": "humanity.compassion_observed",
+                  "operator": "eq",
+                  "value": true
+                },
+                {
+                  "kind": "flag",
+                  "flagId": "bond.accepted_safe_help",
+                  "operator": "eq",
+                  "value": false
+                },
+                {
+                  "kind": "flag",
+                  "flagId": "draft.ending.repair_offered",
+                  "operator": "eq",
+                  "value": false
+                }
+              ]
+            }
+          },
+          "effects": [],
+          "nextNodeId": "resolver"
+        }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "END-HOME",
+      "condition": {
+        "all": [
+          {
+            "kind": "metric",
+            "metric": "bond",
+            "operator": "gte",
+            "value": 60
+          },
+          {
+            "kind": "flag",
+            "flagId": "humanity.compassion_observed",
+            "operator": "eq",
+            "value": true
+          },
+          {
+            "kind": "flag",
+            "flagId": "bond.accepted_safe_help",
+            "operator": "eq",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "END-NEARBY",
+      "condition": {
+        "kind": "metric",
+        "metric": "bond",
+        "operator": "gte",
+        "value": 30
+      }
+    },
+    {
+      "id": "END-DAWN",
+      "condition": {
+        "kind": "metric",
+        "metric": "bond",
+        "operator": "lt",
+        "value": 30
+      }
+    }
+  ],
+  "witnesses": [
+    {
+      "id": "self-reliant",
+      "choices": [
+        "draft.choice.a4.watch-from-runoff",
+        "draft.choice.a4.drink-rainwater",
+        "draft.choice.a4.follow-watercourse",
+        "draft.choice.a5.keep-natural-cover",
+        "draft.choice.a5.choose-wild-shelter"
+      ],
+      "bondTrace": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expectedBond": 0,
+      "expectedEnding": "END-DAWN"
+    },
+    {
+      "id": "cautious-then-self-reliant",
+      "choices": [
+        "GDD-DEC-A4-001-B",
+        "draft.choice.a4.drink-rainwater",
+        "draft.choice.a4.follow-watercourse",
+        "draft.choice.a5.keep-natural-cover",
+        "draft.choice.a5.choose-wild-shelter"
+      ],
+      "bondTrace": [
+        5,
+        5,
+        15,
+        15,
+        15,
+        15,
+        15
+      ],
+      "expectedBond": 15,
+      "expectedEnding": "END-DAWN"
+    },
+    {
+      "id": "water-then-self-reliant",
+      "choices": [
+        "draft.choice.a4.watch-from-runoff",
+        "GDD-DEC-A4-002-A",
+        "draft.choice.a4.follow-watercourse",
+        "draft.choice.a5.keep-natural-cover",
+        "draft.choice.a5.choose-wild-shelter"
+      ],
+      "bondTrace": [
+        0,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "expectedBond": 20,
+      "expectedEnding": "END-DAWN"
+    },
+    {
+      "id": "nearby-at-threshold",
+      "choices": [
+        "draft.choice.a4.watch-from-runoff",
+        "GDD-DEC-A4-002-A",
+        "GDD-DEC-A4-003-A",
+        "draft.choice.a5.keep-natural-cover",
+        "draft.choice.a5.choose-wild-shelter"
+      ],
+      "bondTrace": [
+        0,
+        20,
+        20,
+        30,
+        30,
+        30,
+        30
+      ],
+      "expectedBond": 30,
+      "expectedEnding": "END-NEARBY"
+    },
+    {
+      "id": "cautious-voice-home",
+      "choices": [
+        "GDD-DEC-A4-001-B",
+        "GDD-DEC-A4-002-B",
+        "GDD-DEC-A4-003-B",
+        "GDD-DEC-A5-001-A",
+        "GDD-DEC-A5-002-A"
+      ],
+      "bondTrace": [
+        5,
+        15,
+        25,
+        35,
+        50,
+        70,
+        70
+      ],
+      "expectedBond": 70,
+      "expectedEnding": "END-HOME"
+    },
+    {
+      "id": "accept-now-home",
+      "choices": [
+        "GDD-DEC-A4-001-A",
+        "GDD-DEC-A4-002-A",
+        "GDD-DEC-A4-003-A",
+        "GDD-DEC-A5-001-A",
+        "GDD-DEC-A5-002-A"
+      ],
+      "bondTrace": [
+        15,
+        35,
+        35,
+        45,
+        60,
+        80,
+        80
+      ],
+      "expectedBond": 80,
+      "expectedEnding": "END-HOME"
+    },
+    {
+      "id": "nearby-repair-home",
+      "choices": [
+        "GDD-DEC-A4-001-B",
+        "GDD-DEC-A4-002-B",
+        "GDD-DEC-A4-003-B",
+        "GDD-DEC-A5-001-A",
+        "GDD-DEC-A5-002-B",
+        "draft.choice.a5.repair-accept"
+      ],
+      "bondTrace": [
+        5,
+        15,
+        25,
+        35,
+        50,
+        60,
+        80
+      ],
+      "expectedBond": 80,
+      "expectedEnding": "END-HOME"
+    },
+    {
+      "id": "nearby-decline",
+      "choices": [
+        "GDD-DEC-A4-001-B",
+        "GDD-DEC-A4-002-B",
+        "GDD-DEC-A4-003-B",
+        "GDD-DEC-A5-001-A",
+        "GDD-DEC-A5-002-B",
+        "draft.choice.a5.repair-decline"
+      ],
+      "bondTrace": [
+        5,
+        15,
+        25,
+        35,
+        50,
+        60,
+        60
+      ],
+      "expectedBond": 60,
+      "expectedEnding": "END-NEARBY"
+    }
+  ]
+}

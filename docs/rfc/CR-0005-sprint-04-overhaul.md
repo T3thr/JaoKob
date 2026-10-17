@@ -2,15 +2,17 @@
 
 | Control | Value |
 |---|---|
-| Version / date | **0.2.3** / 2026-10-16, Asia/Bangkok: Slice3 T6 and PO D3 ratification |
-| Status | **PlanningPR12/Slice1PR13/Slice2PR14 merged; T6 source/evidence delivered for PO review;7/12 tasks delivered;T7–T11 and final human gates open** |
+| Version / date | **0.2.5** / 2026-10-16, Asia/Bangkok: ADR-P0-021 PR16 narrative and branching remediation |
+| Status | **PR12–15 merged; Slice4 T7/T8 candidate/map delivered for review;9/12 tasks delivered;T9–T11 and final human gates open** |
 | Author | Codex / Senior Technical Lead, Game Director, Principal UI/UX Architect |
 | Scope | S4 UI/Log/durable Pouch/Act 1 rewrite + Secret Moments/Act 2–5 map; S5 content/three endings/Grand Keepsake |
 | Change class | C2 branch/choice/presentation; C3 inventory/save/checkpoint/content contract compatibility |
 | Sources | [Proposal v0.2.1](../proposals/sprint-04-overhaul/01-proposal-plan.md), [revised SSOT](../sprints/sprint-04-ssot.md), [Sprint 3](../sprints/sprint-03-ssot.md) |
-| Review | PR12/13/14 merged; current `feat/sprint-04-slice-03-log` → develop; actual PR linked in [Slice3 audit](../changelog/2026-10/2026-10-16-0142-sprint-04-slice-03-history.md) after creation |
+| Review | PR12–15 merged; current `feat/sprint-04-slice-04-narrative` → develop; [PR16](https://github.com/T3thr/JaoKob/pull/16), [Slice4 audit](../changelog/2026-10/2026-10-16-0302-sprint-04-slice-04-narrative.md) |
 
 ## 1. Authority, context and revision
+
+Accepted [ADR-P0-021](../adr/ADR-P0-021-narrative-resonance-authentic-adventure-and-branching-integrity.md) and the current PO directive govern the PR16 remediation from3164601: preserve all990 existing tests/A-B effects, add reachable dignified low-Bond choices, embodied prose/family/blocked-return causality, mutual learning, a meaningful fifth shell and a living HOME frog with separate poetic gift mirrors. [Map1.1](../proposals/sprint-04-overhaul/05-act-2-5-map-and-endings.md) and [contract1.1](../design-system/act1-narrative-contract.md) record this prospective amendment. Earlier transformation shorthand is interpreted as a change of image medium, never the frog becoming an object. Same five slices/PR16; no promotion, merge or deployment is inferred.
 
 Current PO Directive explicitly replaces adventure-time doll inspection with an **Adventure Keepsake Pouch**, limited to **4 physical objects (ratified in ADR-P0-020)** with Secret Moments and Ending Nuances; assigns AI to rewrite/refine tender narrative; retains three endings/simple branches/no combat or complicated added stats; divides S4/S5 scope; and requests document updates plus commit before source work.
 
@@ -28,7 +30,7 @@ This is actual human direction/endorsement, not author self-approval. It does no
 
 S4 delivers paper reading card/frosted capsule HUD/Intent Tags, session Dialogue History, Pouch UI+pure durable state, revised Act 1 prose/choices/items/optional vignettes and a reviewed Act 2–5 map for S5. Visual benchmark starts Scene 1–3; writing/item gameplay covers all seven Act 1 scenes. S5 implements Act 2–5 and the existing three ending categories, including Grand Keepsake after END-HOME.
 
-No combat engine, XP/levels/equipment/rarity/crafting/currency/item power/weight optimization. HP/พลังใจ/Bond remain the three simple narrative signals and existing resolver inputs; removal/threshold redesign is not inferred from “cut complicated stats”. No fourth or premium ending; no complete-all-items gate for Canon. Tadpole/life stage, storm without player blame, later girl/Bond reveal, agency/consent and symbolic transformation exclusively in END-HOME remain controlling rules.
+No combat engine, XP/levels/equipment/rarity/crafting/currency/item power/weight optimization. HP/พลังใจ/Bond remain the three simple narrative signals and existing resolver inputs; removal/threshold redesign is not inferred from “cut complicated stats”. No fourth or premium ending; no complete-all-items gate for Canon. Tadpole/life stage, storm without player blame, later girl/Bond reveal, agency/consent and separate poetic gift mirrors exclusively in END-HOME while the frog remains alive and free remain controlling rules.
 
 S4 non-goals: production Act 2–5/ending code, model viewer/WebGL/vendor/model promotion, persistent exact dialogue transcript, typewriter/auto-advance/voice/TTS, all-seven-scene art production, Login/backend/telemetry/CDN/deployment. AI narrative drafting is in scope; final reviewed prose cannot be replaced by a decision to keep all old text merely for easier tests.
 
@@ -72,7 +74,7 @@ Act 2–5 draft map grounds major branches in Bible scene IDs: reeds/drain conve
 
 Act 1 candidate objects: leaf fragment, dew stone, lotus shell, rain petal; full capacity/release can be tested at a late safe rest. Red yarn is a proposed Act 2/3 object to preserve A2-006 first-human-material continuity. AI may draft alternatives under assignment; exact scene placement and final IDs are reviewed before content integration.
 
-Models move entirely to Act 5 END-HOME/S5, after symbolic transformation and existing consent gate. Both editions are one Canon ending's Grand Keepsake representations, not extra endings or carried dolls. No viewer port/vendor/GLB request/runtime dependency is part of S4. Future use of pinned spike model-viewer requires new production RFC/ADR, same-origin resources, poster fallback, rights and device checks; placing models in the roadmap does not adopt that library now.
+Models move entirely to Act 5 END-HOME/S5, after the existing consent gate, as poetic mirrors beside the living frog. Both editions are one Canon ending's Grand Keepsake representations, not extra endings or carried dolls. No viewer port/vendor/GLB request/runtime dependency is part of S4. Future use of pinned spike model-viewer requires new production RFC/ADR, same-origin resources, poster fallback, rights and device checks; placing models in the roadmap does not adopt that library now.
 
 ### 4.5 Final emotional/pouch/persona contract
 
@@ -82,7 +84,7 @@ Leaf/dew stone/lotus shell/rain petal/red yarn each have a held action, a rememb
 
 Bond remains original thresholds/order/consent/repair. For equal accepted metrics/trust flags, item/secret/strain/accessibility presentation variants yield the same ending ID; nuances stay within HOME/NEARBY/DAWN. No collection-based love ranking or penalty for cautious boundaries; preserve compensating trust opportunity/budget. The girl's unchanged persona is water, warm cloth, open return route, step back and waiting; no personal lore/name/romantic exposition/rescue monologue or narrated inner intention. Mother teachings remain memory, never a ghost or confirmed family death.
 
-Grand Keepsake appears only after END-HOME safe-help/symbolic transformation. Living tadpole→frog remains literal in Acts1–4; childhood yarn form is an epilogue memory representation, then adult velour/blue shirt/red-heart stitch and discreet real-gift closing narration. The same full emotional HOME closure/heart motif exists for empty/released Pouch and eligible non-max-Bond/Story Assist paths. Existing adult render has plain blue shirt: record S5 red-heart embroidery art/export/validation work, not completion or a GLB change now. No fourth ending or new girl's biography is created.
+Grand Keepsake appears only after END-HOME safe-help consent. The living frog continues to explore, drink and return freely. Childhood crochet and adult velour/blue shirt/red-heart stitch are separate epilogue gift images, intercut with the active frog before the discreet real-gift card; ADR-P0-021 D6 governs the image sequence. The same full emotional HOME closure/heart motif exists for empty/released Pouch and eligible non-max-Bond/Story Assist paths. Existing adult render has plain blue shirt: record S5 red-heart embroidery art/export/validation work, not completion or a GLB change now. No fourth ending or new girl's biography is created.
 
 ## 5. Impact and versioned contracts
 
@@ -140,3 +142,11 @@ v0.2.1 supplements the PO-endorsed v0.2.0 plan with final narrative/Pouch impact
 Slice2 amendment v0.2.2 is governed by the 2026-10-16 PO directive and ADR-P0-020. It publishes pouch/save schema2.0 and format2 while retaining content2.1; package/tree2.0/content3 remain future contracts. The previous planning rollback paragraph is historical: current runtime rollback must retain Save2 admission/downgrade protection or disable writes, preserving raw legacy backup. No new Canon is self-approved.
 
 Slice3 amendment v0.2.3 records current PO authorization of T6 and D3. The [contract](../design-system/session-history-contract.md) precedes source; [audit](../changelog/2026-10/2026-10-16-0142-sprint-04-slice-03-history.md) and [evidence](../../tests/e2e/evidence/sprint-04/slice-03/README.md) trace pure50+50 history, displayed-prefix receipts, accepted ordering, Thai projection, native modal, lifecycle and zero view-only storage/audio changes.935 unit cases and12 original routes pass. T6 rollback reverts ephemeral UI/history with no migration; preserve the existing Save2 baseline. This amendment does not approve merge/deployment, final human aesthetics or broader FR-UI-004 features.
+
+## Slice 4 amendment — current PO Open Mastery directive
+
+The PO explicitly authorizes T7/T8 and necessary content/schema corrections under the fixed five-PR matrix. [Act1 implementation contract](../design-system/act1-narrative-contract.md) was authored before code. Published older schemas remain immutable; additive schema2 common/event/tree/package contracts encode bounded item references, pre-state pouch/completion predicates and one atomic item effect per authored action. Secret progress reuses acknowledged completed-node IDs and the existing semantic dialogue cursor, so Save2 needs no new fields or return stack. Native target guards evaluate post-effect facts; Resume supplies full immutable facts without replay.
+
+The actual candidate rewrites all seven scenes, adds four childhood objects plus a fifth natural shell, three optional moments and held/released/default comfort. Original coping/leaf metrics and historical flags retain meaning. All935 prior assertions and exact2.1 archive remain. New source does not pretend old rewritten strings are cursor-equivalent: the normal entry stays2.1 until Slice5 T9/T10 promotes art/catalog/content with a reviewed migration or compatible continuation. Candidate3 Save2 is identity-validated; format1/content3 is rejected. No retroactive items/secrets.
+
+[T8 map](../proposals/sprint-04-overhaul/05-act-2-5-map-and-endings.md) supplies anchors/convergence/metric provenance/recovery, six-item combined continuity (including the fifth Act1 shell), cautious/repair truth tables, restrained A4-004 girl and HOME childhood→adult/red-heart handoff. Current adult front render was inspected and still lacks embroidered red heart; S5 Art/runtime owns that gap. Final prose, new draft S5 recovery values and human/device/AT acceptance remain review gates. A small HUD wrap/reserved image area/concise slot fallback correction was necessary after320px/200% screenshot inspection; this is accessibility repair under existing ADR-P0-019, not another delivery slice.

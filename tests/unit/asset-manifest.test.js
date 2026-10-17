@@ -9,7 +9,7 @@ import { createContentVersionMigration } from "../../src/data/migrations/content
 const root = new URL("../../", import.meta.url);
 const json = async (path) => JSON.parse(await readFile(new URL(path, root), "utf8"));
 const [content, source, registry, testReferenceIds] = await Promise.all([
-  json("src/data/content/packages/act-01.json"), json("src/data/content/compatibility/act-01-2.0.0.json"),
+  json("src/data/content/compatibility/act-01-2.1.0.json"), json("src/data/content/compatibility/act-01-2.0.0.json"),
   json("assets/provenance/benchmark-assets.json"), json("src/data/content/packages/act-01-test-catalog.json"),
 ]);
 const loaded = await loadGameContent({ content, testReferenceIds });

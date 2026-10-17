@@ -5,6 +5,7 @@ import {
   createMetrics,
 } from "../domain/meters.js";
 import { planGameStateTransition } from "../state-machine/game-state.js";
+import { validatePouch } from "../domain/keepsake-pouch.js";
 
 /**
  * Atomic, deterministic resolver for a single choice command.
@@ -105,7 +106,7 @@ export function evaluateCondition(condition, snapshot) {
     throw wrapMeterError(error);
   }
   const flags = readFlagEntries(snapshot.flags, null);
-  const budget = { nodes: 0 };
+  const budget = { nodes: 0, pouch: snapshot.pouch, progress: snapshot.progress };
   return evaluateConditionNode(condition, metrics, flags, 0, budget);
 }
 
@@ -175,7 +176,7 @@ export function resolveChoiceTransaction(request) {
     const policies = validateFlagPolicies(request.flagPolicies);
     const preFlags = readFlagEntries(snapshot.flags, registry);
 
-    const conditionSnapshot = { metrics: snapshot.metrics, flags: snapshot.flags };
+    const conditionSnapshot = { metrics: snapshot.metrics, flags: snapshot.flags, pouch: snapshot.pouch, progress: snapshot.progress };
     if (!evaluateCondition(choice.condition, conditionSnapshot)) {
       throw choiceError(
         "CHOICE_UNAVAILABLE",
@@ -857,6 +858,27 @@ function evaluateConditionNode(condition, metrics, flags, depth, budget) {
   }
 
   switch (condition.kind) {
+    case "pouch": {
+      if (!validatePouch(budget.pouch).valid || typeof condition.itemId !== "string" || condition.itemId.length > 96
+        || !/^item_[a-z][a-z0-9]*(?:_[a-z0-9]+)*$/.test(condition.itemId)
+        || !["held", "acquired", "released", "remembered", "unseen"].includes(condition.state)) {
+        throw choiceError("INVALID_CONDITION", "Pouch predicate is malformed.");
+      }
+      return condition.state === "unseen" ? !budget.pouch.remembered.includes(condition.itemId)
+        : budget.pouch[condition.state].includes(condition.itemId);
+    }
+    case "pouch-capacity": {
+      if (!validatePouch(budget.pouch).valid || !["full", "space"].includes(condition.state)) {
+        throw choiceError("INVALID_CONDITION", "Pouch capacity predicate is malformed.");
+      }
+      const full = budget.pouch.held.length === budget.pouch.capacity;
+      return condition.state === "full" ? full : !full;
+    }
+    case "node-completed": {
+      assertIdentifier(condition.nodeId, "condition.nodeId");
+      if (!Array.isArray(budget.progress?.completedNodeIds)) throw choiceError("INVALID_CONDITION", "Completion predicate requires progress.");
+      return budget.progress.completedNodeIds.includes(condition.nodeId);
+    }
     case "always":
       return true;
     case "metric":

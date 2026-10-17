@@ -19,6 +19,10 @@
 | `schemas/v1.2.0/narrative-tree.schema.json` | optional environment สำหรับ cutscene/exploration/decision; ห้ามใช้พร้อม legacy exploration background |
 | `schemas/v2.0.0/pouch.schema.json` | ADR-P0-020: four held slots, bounded acquired/released/remembered/refusal memory; cross-set invariants validated by pure Core |
 | `schemas/v2.0.0/save-state.schema.json` | SaveFormatVersion2 with required independent pouch in payload/checkpoint; published root Save1 remains frozen |
+| `schemas/v2.0.0/common.schema.json` | Bounded pouch/capacity/completed-node predicates and atomic authored collect/refuse/release/replace; old common frozen |
+| `schemas/v2.0.0/event.schema.json` | Event catalog2 with item-state conditions; characters/dialogues remain1.0 |
+| `schemas/v2.0.0/narrative-tree.schema.json` | Tree2 with one explicit pouchEffect per choice/interaction |
+| `schemas/v2.0.0/content-package.schema.json` | Package2 registers stable keepsake IDs and fixed-return2–4-beat Secret Moments; actual content3 candidate |
 
 ชื่อจริงของไฟล์ให้ยึดตามไฟล์ใน `schemas/` หากต่างจาก catalog นี้ และต้องอัปเดต catalog ใน change เดียวกัน
 
@@ -103,3 +107,7 @@ Task 1 prepares the VM/Port. The existing DOM renderer still omits this new stat
 Success is `{ok:true,value:{sourceContentVersion,targetContentVersion,migrate,canReplaceExisting}}`; failure is `{ok:false,error:{code:"SAVE_MIGRATION",details:{reason,path?}}}` without raw input in diagnostics. `migrate(envelope)` validates strict JSON/save schema and source/target snapshots and returns `{ok:true,value:{envelope,migrated}}`. Only envelope `contentVersion` changes; payload, revision, timestamps, reason and settings remain exact. Already-target input is a no-op in value, returned as a frozen clone. Source integrity, Mock/future versions, invalid cursor/causal state and unknown fields fail safely. Target integrity metadata is preserved under exact validation; this does not claim digest verification.
 
 `canReplaceExisting(envelope)` is the same conservative admission predicate. Task 4 must supply a production-safe reviewed source artifact (never import tests), register migration at bootstrap, and inject this predicate as adapter `canReplaceExistingEnvelope` through **both stage and commit guards**, retaining revision/raw race checks. Read-only recovery/preparation preserves every raw slot; migration alone authorizes no write/reset. Task 4 owns concurrent corrupt/future/mixed-record and rollback write-guard integration. Revert Task 1 before target saves exist; afterward retain compatible validation/write protection or disable writes, with no guessed downgrade or backup deletion.
+
+## Slice4 candidate compatibility
+
+Content3/schema2 is the actual rewritten Act1 candidate, exercised through the application content port. The normal entry remains archived2.1 until Slice5 T9/T10 promotion. Format2/content3 is a validated identity path with the same save schema; format1/content3 and guessed2.1→3 cursor transforms are unsupported/protected. Optional completion reuses progress.completedNodeIds; no new save field, transcript or stack. See [contract](../docs/design-system/act1-narrative-contract.md) and [reference runner](../tests/schema/narrative-reference.mjs).

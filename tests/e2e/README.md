@@ -32,3 +32,7 @@ JKB_PLAYWRIGHT_PATH=/absolute/path/to/playwright/index.mjs node tests/e2e/visual
 ```
 
 Evidence under `evidence/sprint-03/visual-novel/` records actual checks, raw percentile samples, network shaping, media failures, browser details and limits. Browser-emulated timing, decoded resource accounting and accessibility-tree checks do not establish physical-device, listening, screen-reader or PO aesthetic acceptance. The Sprint 3 execution record distinguishes these gates.
+
+## Sprint4 Slice4 narrative candidate
+
+`JKB_PLAYWRIGHT_PATH=/absolute/path/to/playwright/index.mjs node tests/e2e/narrative-slice.mjs` exercises actual content3/schema2 through the existing application content port with isolated real Save2/DOM/media. The production entry stays archived2.1 until T9/T10 promotion. Six full-pouch layouts, native cancellation/atomic replacement/reload, empty/released comfort, three secret accessibility variants and a complete fresh journey are recorded in [Slice4 evidence](evidence/sprint-04/slice-04/README.md). Source diagnostics exist only in served test HTML. Use `JKB_NARRATIVE_SERVE_ONLY=1` for the installed action client; it prints the temporary loopback URL. New illustrations and final human editorial/AT/device acceptance remain T9/T11.

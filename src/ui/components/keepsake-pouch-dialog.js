@@ -21,7 +21,7 @@ export function createKeepsakePouchDialog({ document, viewModel, message, onInte
   }
   function artwork(item, decorative = false) {
     const figure = element("figure", { class: "jk-pouch-art" });
-    const fallback = element("figcaption", { class: "jk-pouch-image-fallback", hidden: "" }, text("pouch.imageUnavailable"));
+    const fallback = element("figcaption", { class: "jk-pouch-image-fallback", hidden: "" }, text(decorative ? "pouch.imageSlotUnavailable" : "pouch.imageUnavailable"));
     if (item.image?.src) {
       const image = element("img", { src: item.image.src, alt: decorative ? "" : item.image.alt, width: "160", height: "128", decoding: "async" });
       image.addEventListener("error", () => { image.setAttribute("hidden", ""); fallback.removeAttribute("hidden"); });
