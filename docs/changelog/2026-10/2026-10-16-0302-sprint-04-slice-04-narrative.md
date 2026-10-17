@@ -6,7 +6,7 @@
 - **Operator:** Codex / Senior Software Architect, Lead Interactive Fiction Director, Narrative author
 - **Authority:** Current PO directive explicitly authorizes actual Act1 rewriting, content/schema corrections under Open Mastery, T8 design and commit/push/PR16 to develop. No merge/deployment authorization.
 - **Baseline / branch:** develop@ec12038 with PR14@6692c1b and PR15@f8ee156; `feat/sprint-04-slice-04-narrative`; T3thr <t.theerapat33@gmail.com> verified.
-- **Status:** Source/design/evidence delivered for human PR/Thai/PO review; candidate promotion is Slice5 T9/T10, final acceptance T11.
+- **Status:** Integrated and MERGED into `develop` at commit `37bad50` ([PR #16](https://github.com/T3thr/JaoKob/pull/16)); normal entry stays archived 2.1 until Slice 5 promotion (T9/T10); final acceptance T11.
 
 ## 1. Outcome, scope and authority
 
@@ -113,3 +113,8 @@ The initial12-route legacy browser evidence is retained rather than rerun, since
 ### 8.4 Remediation delivery identity
 
 Source/evidence commit **[`c00a8c71ca1be353ecb981e8b603657c60b44f40`](https://github.com/T3thr/JaoKob/commit/c00a8c71ca1be353ecb981e8b603657c60b44f40)** (`refactor(narrative): remediate Act 1 and ending reachability per ADR-P0-021`) is pushed to `origin/feat/sprint-04-slice-04-narrative`, updating the existing [PR #16](https://github.com/T3thr/JaoKob/pull/16) against `develop`. Author and committer are both **T3thr <t.theerapat33@gmail.com>**. This documentation follow-up records the actual delivered source identity; no source/test change follows the recorded verification. Private references remain untracked. No merge or deployment.
+
+### 8.5 Integration and merge into develop
+
+On 2026-10-17, Product Owner completed review and merged [PR #16](https://github.com/T3thr/JaoKob/pull/16) into `develop` at commit `37bad50`.
+All 1,004 unit tests pass cleanly (100% pass, 0 fail, 0 skip). Sprint 4 progress reaches 4 of 5 PRs merged (80%). Slice 5 (Tasks T9, T10, T11) is the remaining sprint closeout slice.

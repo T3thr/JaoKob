@@ -56,3 +56,9 @@ Progress is tracked in docs/changelog/2026-09/2026-09-07-1248-sprint-03-benchmar
 - Final unit1004/1004 (990 retained+14 new), zero fail/cancel/skip/todo; schema reference17/10/59 passes. Browser and installed action-client verification/visual inspection underway in a separate adr-021 evidence subdirectory; historical evidence preserved.
 - Remaining: evidence audit/static/link/review, concrete same-PR commit/push and remote-head verification. Human Thai/PO/device/AT acceptance, S5 runtime and T9–T11 remain open.
 - Delivered remediation source/evidence `c00a8c71ca1be353ecb981e8b603657c60b44f40` as T3thr, pushed the same feature branch to PR16. Final1004/1004, schema17/10/59, refreshed6profiles/21captures plus3action-client captures and scoped source/link/hash checks pass; screenshots inspected. Only actual delivery identity/progress documentation follows that run. Human editorial/PO/Art/device/AT and T9–T11/S5 work remain open; no new PR, merge or deployment.
+
+## Sprint 4 Slice 4 Merge & Slice 5 Readiness (2026-10-17)
+
+- PO Acceptance: PR #16 reviewed, approved, and merged into `develop` at commit `37bad50`. Unit test suite passes 1,004/1,004 (100% pass, 0 fail, 0 skip).
+- Master Delivery Matrix: 4 of 5 PRs merged (80%). Slices 1–4 are integrated into `develop`.
+- Next & Final Sprint Closeout: Sprint 4 Slice 5 (Tasks T9: Intent Tags, item art and Data presentation projection; T10: Bootstrap, migration/save wiring and application integration; T11: Legacy/new regression, narrative/visual/manual acceptance / PR #17) ready for kickoff.
