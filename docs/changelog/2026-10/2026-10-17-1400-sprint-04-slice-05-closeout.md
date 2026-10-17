@@ -80,3 +80,11 @@ The final runner passes all explicit functional/performance assertions:20cold/20
 Sixteen final-artifact captures include actual root/subpath, original five-item detail, integrity fallback, invalid optional catalog, protected rollback save and touch Pouch/History. WebAudio retains one music and one ambience voice,3072000decoded bytes/0reserved within16MiB, identical desires/voices/canonical bytes through view actions. All six current layout profiles measure CLS0; no unexpected page/console/external-network errors. Final HTML punctuation/icon regression7/7 also passes after preload changes. Remaining human/device/AT gates stay open.
 
 Final review additionally found that a successfully initialized current session must clear an archived session’s prior unavailable-media notice. A targeted regression and actual browser witness cover failed2.1 registry→Finish→confirmed3.0 New Game, while retaining late-result guards. Final unit count1060 includes this56th added case; no old assertion is changed.
+
+## 8. Remote delivery confirmation
+
+Implementation commit `68eb72c6b456e614944724e553692745f1ef9840` uses the requested Conventional Commit subject and T3thr as both author and committer. GitHub authentication is also T3thr. The feature branch was pushed with normal history to origin and [PR17](https://github.com/T3thr/JaoKob/pull/17) was created against develop and attached to this Codex chat. No protected branch was written, merged or deployed.
+
+All87 working-tree runtime hashes match the measured/static inventory. Complete unit TAP and resource/input/frame measurements are retained in gzip archives with uncompressedSHA-256/byte length; small reports retain the review summaries. Archives were restored and checked,169relative Markdown links resolve, and staged whitespace checks pass. Private references remain the only unrelated untracked directory. The final installed action-client run was repeated after the media-status fix and its screenshots/state inspected; local diagnostic servers and browser contexts are closed.
+
+This governance follow-up records remote delivery only; it changes no measured runtime. PR17 review/merge and the named human/device/AT gates remain open. Source, schema, test evidence, migration/rollback and the Sprint5 handoff are fully submitted within the fixed fifth slice.
