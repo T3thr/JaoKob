@@ -1,4 +1,14 @@
-# JaoKob Game Design Document
+# JaoKob Game Design Document (HISTORICAL ARCHIVE)
+
+> [!WARNING]
+> **HISTORICAL ARCHIVE (PHASE 0 BASELINE - SUPERSEDED / DEPRECATED)**
+> เอกสารฉบับนี้จัดทำขึ้นเมื่อวันที่ 31 สิงหาคม 2026 เป็นเอกสารประวัติศาสตร์ของระยะ Phase 0 **ไม่ใช่ข้อกำหนดปัจจุบันของระบบ**
+> - **สถานะ:** Superseded Historical Archive (เก็บไว้เพื่อการตรวจสอบย้อนกลับทางวิศวกรรมเท่านั้น ห้ามใช้เป็น Active SSOT)
+> - **สัจจะตัวละครและเนื้อเรื่อง:** ข้อกำหนดเดิมเรื่องกบชีววิทยา ลูกอ๊อด หาง เหงือก และการแปลงร่าง ถูกยกเลิกและแทนที่อย่างเป็นทางการโดย [ADR-P0-022](../adr/ADR-P0-022-visual-novel-ergonomics-living-keepsake-lore-and-sprint-streamlining.md) (เจ้ากบเป็นตุ๊กตามีชีวิต 45 ซม. สวมเสื้อฟ้า)
+> - **ระบบการเล่นและกระเป๋าไอเทม:** ระบบเดิมถูกแทนที่โดย [ADR-P0-020](../adr/ADR-P0-020-adventure-keepsake-pouch-and-item-system.md) (กระเป๋า 4 ช่อง ของ 6 ชิ้น) และ [ADR-P0-019](../adr/ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md)
+> - **แผนงานและสถาปัตยกรรมปัจจุบัน:** ควบคุมโดย [Sprint 5 SSOT](../sprints/sprint-05-ssot.md) ร่วมกับ Accepted ADRs ใน `docs/adr/`
+> - **ลำดับชั้นเอกสาร:** อ้างอิงตาม [ADR-P0-023](../adr/ADR-P0-023-documentation-hygiene-and-ssot-hierarchy.md) ห้ามนำข้อความในเอกสารนี้ไปลบล้างหรือตีความขัดแย้งกับ Active SSOT โดยเด็ดขาด
+
 
 ## 0. การควบคุมเอกสาร
 

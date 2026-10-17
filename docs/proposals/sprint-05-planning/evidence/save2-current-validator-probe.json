@@ -1,0 +1,38 @@
+{
+  "scope": "Current-validator fact probe only; no proposed extension is implemented or certified.",
+  "fixture": "tests/fixtures/pouch/valid-save2-leaf.json",
+  "fixtureSha256": "7f1a509c39d6d3ed7afcbcbe95bac3cee69ebcee7dbf607bb107bf8576464ec1",
+  "result": "PASS",
+  "cases": [
+    {
+      "name": "published Save 2 fixture",
+      "result": {
+        "valid": true
+      },
+      "expectedValid": true
+    },
+    {
+      "name": "add envelope extensions",
+      "result": {
+        "valid": false,
+        "issue": {
+          "path": "$.extensions",
+          "reason": "UNKNOWN_FIELD"
+        }
+      },
+      "expectedValid": false
+    },
+    {
+      "name": "add payload chapter snapshots",
+      "result": {
+        "valid": false,
+        "issue": {
+          "path": "$.payload.replaySnapshots",
+          "reason": "UNKNOWN_FIELD"
+        }
+      },
+      "expectedValid": false
+    }
+  ],
+  "conclusion": "Format number 2 alone does not admit new fields. A new schema profile and reader/write-guard compatibility checks are necessary."
+}

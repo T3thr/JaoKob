@@ -16,26 +16,31 @@
 - Hosting เป้าหมาย: GitHub Pages แบบ Static Artifact
 
 **สถานะปัจจุบันของโครงการ:**
-โครงการได้รับอนุมัติผ่าน Phase 0 Baseline เรียบร้อยแล้ว ขณะนี้กำลังอยู่ใน **Sprint 1: Core Vertical Slice (Phase 1A & Phase 1B)**
-เอกสารควบคุมสูงสุดและคู่มือปฏิบัติการคือ [docs/README.md](docs/README.md) และเอกสารงานปัจจุบันคือ [docs/sprints/sprint-01-ssot.md](docs/sprints/sprint-01-ssot.md)
+โครงการผ่าน Phase 0 Baseline และรวมงาน Sprint 4 เข้า `develop` แล้วที่ `d1af293` ขณะนี้ใช้ **Sprint 5 SSOT 0.2: Four Value Slices** ตาม [ADR-P0-022 ที่ PO อนุมัติ](docs/adr/ADR-P0-022-visual-novel-ergonomics-living-keepsake-lore-and-sprint-streamlining.md) และ [Sprint 5 Execution SSOT](docs/sprints/sprint-05-ssot.md) พร้อมเริ่มงานสัญญาและ Design System ของ Slice 1; implementation ยัง 0/20 tasks
+เอกสารควบคุมสูงสุดและคู่มือปฏิบัติการคือ [docs/README.md](docs/README.md) ส่วน [Sprint 4 SSOT](docs/sprints/sprint-04-ssot.md) เป็น integrated baseline และบันทึกเกณฑ์ตรวจรับที่ต้องส่งต่อ การเปลี่ยนทางนำทางนี้ไม่อนุมัติ Requirement, Canon หรือ RFC ใหม่
 
-## 3. Authoritative Documents & Navigation
+## 3. Authoritative Documents & Navigation (The Four-Tier Authority Hierarchy)
 
-อ่านเอกสารตามประเภทงาน:
+ปฏิบัติตามลำดับชั้นความศักดิ์สิทธิ์ของเอกสารตาม [ADR-P0-023](docs/adr/ADR-P0-023-documentation-hygiene-and-ssot-hierarchy.md) อย่างเคร่งครัด หากมีเนื้อหาขัดแย้งกัน ให้ยึดถือระดับที่สูงกว่าเป็นข้อยุติเสมอ:
 
-1. **Active Sprint SSOT:** [docs/sprints/sprint-01-ssot.md](docs/sprints/sprint-01-ssot.md) (ขอบเขตงาน, Task WBS, DoR, DoD ปัจจุบัน)
-2. **Master Operations Manual:** [docs/README.md](docs/README.md) (คู่มือการทำงาน, Folder structure, Pre/Post checklists)
-3. **Change History & Audit Trail:** [CHANGELOG.md](CHANGELOG.md) และคลังบันทึกรายเดือน [docs/changelog/](docs/changelog/)
-4. [Phase 0 Charter และ Compliance Baseline](docs/phase-0/00-phase-0-charter.md)
-5. [Game Design Document](docs/phase-0/01-game-design-document.md)
-6. [Narrative Bible](docs/phase-0/02-narrative-bible.md)
-7. [Software Requirements Specification](docs/phase-0/03-software-requirements-specification.md)
-8. [Architecture Blueprint](docs/phase-0/04-architecture-blueprint.md)
-9. [Production Directory Plan](docs/phase-0/05-production-directory-plan.md)
-10. [AI Agent Engineering Guide](docs/phase-0/06-ai-agent-engineering-guide.md)
-11. [Git Governance and Deployment Runbook](docs/phase-0/07-git-governance-and-deployment-runbook.md)
-12. [Verification, Traceability และ Quality Gates](docs/phase-0/08-verification-traceability-and-quality-gates.md)
-13. Machine-readable contract ใน `specs/schemas/`
+1. **Tier 1: พระราชบัญญัติสูงสุดและแผนงานปัจจุบัน (Supreme Active SSOT & Governance):**
+   - **Active Sprint SSOT:** [docs/sprints/sprint-05-ssot.md](docs/sprints/sprint-05-ssot.md) (แผนงานปัจจุบัน, Task WBS, DoR, DoD 4 Value Slices)
+   - **Active Accepted ADRs:** โฟลเดอร์ [docs/adr/](docs/adr/) โดยเฉพาะ:
+     - [ADR-P0-022](docs/adr/ADR-P0-022-visual-novel-ergonomics-living-keepsake-lore-and-sprint-streamlining.md) (สัจจะตัวละครตุ๊กตามีชีวิต 45 ซม., VN Ergonomics Overhaul, 4 Value Slices)
+     - [ADR-P0-021](docs/adr/ADR-P0-021-narrative-resonance-authentic-adventure-and-branching-integrity.md) (Authentic Adventure, Anti-slop, 3 ฉากจบที่มีความหมาย)
+     - [ADR-P0-020](docs/adr/ADR-P0-020-adventure-keepsake-pouch-and-item-system.md) (Adventure Keepsake Pouch 4 ช่อง ของ 6 ชิ้น)
+     - [ADR-P0-019](docs/adr/ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md) (Visual Novel Runtime Ergonomics)
+     - [ADR-P0-023](docs/adr/ADR-P0-023-documentation-hygiene-and-ssot-hierarchy.md) (Documentation Governance & Historical Deprecation)
+   - **Active Execution Contracts:** [docs/proposals/sprint-05-planning/02-adr022-remediation-contract.md](docs/proposals/sprint-05-planning/02-adr022-remediation-contract.md) และ [docs/traceability/sprint-05-execution-matrix.md](docs/traceability/sprint-05-execution-matrix.md)
+2. **Tier 2: สัญญาข้อกำหนดการออกแบบและข้อมูล (Active Design & Schema Contracts):**
+   - **Design System:** โฟลเดอร์ [docs/design-system/](docs/design-system/) (เช่น [visual-novel-specification.md](docs/design-system/visual-novel-specification.md))
+   - **Machine-readable Schemas:** สัญญาข้อมูลใน `specs/schemas/` และ `specs/README.md`
+3. **Tier 3: ฐานข้อมูลการผสานงานรอบก่อนหน้า (Integrated Baseline):**
+   - [Sprint 4 SSOT](docs/sprints/sprint-04-ssot.md) (integrated baseline ที่ commit `d1af293`)
+4. **Tier 4: คลังเอกสารประวัติศาสตร์และข้อเสนอ (Historical Archives - READ ONLY):**
+   - **[docs/phase-0/](docs/phase-0/):** เอกสารรากฐานเดิมทั้ง 9 ฉบับ (เช่น `01-game-design-document.md`, `02-narrative-bible.md`) **เป็น Historical Baseline Archive ที่ถูกแทนที่แล้ว ห้าม AI Agent นำข้อกำหนดชีววิทยา กบ ลูกอ๊อด หาง เหงือก หรือเวลาเล่น 4 ชม. ในเอกสาร Phase 0 มาใช้เป็น Active Requirements เด็ดขาด**
+   - **[docs/proposals/](docs/proposals/):** ข้อเสนอทางเทคนิคและการวิจัยที่ปิดรอบแล้ว
+   - **Change History & Master Manual:** [docs/README.md](docs/README.md), [CHANGELOG.md](CHANGELOG.md) และ [docs/changelog/](docs/changelog/)
 
 `AGENTS.md` และ `.agents/` กำหนดวิธีทำงาน แต่ไม่สร้าง Product Requirement ใหม่
 
@@ -45,8 +50,8 @@
 
 1. **Pre-Execution (เตรียมตัว):**
    - ตรวจสอบ Git Identity ทันทีตามข้อ 5 (ต้องเป็น `T3thr <t.theerapat33@gmail.com>` เท่านั้น)
-   - โหลด `docs/sprints/sprint-01-ssot.md` เพื่อทราบว่า Task ดังกล่าวมี Requirement IDs, Acceptance Criteria และไฟล์เป้าหมายอะไร
-   - อ่านบันทึก Change Record ล่าสุดใน `docs/changelog/2026-09/` เพื่อทราบสถานะก่อนหน้า
+   - โหลด Active Sprint SSOT ตามข้อ 3 เพื่อทราบ Requirement IDs, Acceptance Criteria, สถานะอนุมัติ และไฟล์เป้าหมายของ Task
+   - อ่าน Change Record ล่าสุดตามวันเวลาใน `docs/changelog/YYYY-MM/` เพื่อทราบสถานะก่อนหน้า ไม่ยึดเดือนของ Sprint เก่า
    - ตรวจสอบ Git Branch: แตก Branch ใหม่จาก `develop` เสมอตามข้อ 5
 2. **Implementation (พัฒนา):**
    - เขียนโค้ดใน `src/` ตาม Clean Architecture อย่างเคร่งครัด (`src/core/` ห้ามแตะ DOM/Browser API)
@@ -54,7 +59,7 @@
 3. **Post-Execution (เกณฑ์ส่งมอบงานภาคบังคับ):**
    - **ห้ามข้ามขั้นตอน Changelog เด็ดขาด:** สร้างไฟล์ Change Record ใหม่ใน `docs/changelog/YYYY-MM/YYYY-MM-DD-HHmm-<slug>.md` ตามแม่แบบ
    - สรุปสั้นๆ 1-3 บรรทัดลงใน `CHANGELOG.md` ที่ Root พร้อมแนบลิงก์
-   - บันทึกรหัส Record ลงในทะเบียน Section 7 ของ `docs/sprints/sprint-01-ssot.md` และทำเครื่องหมาย `[x]` ใน WBS
+   - บันทึกรหัส Record ลงในทะเบียน Section 7 ของ Active Sprint SSOT และทำเครื่องหมาย `[x]` เฉพาะงานที่ส่งมอบจริง งานวางแผนไม่ทำให้ implementation WBS เสร็จโดยอัตโนมัติ
    - ทำ Commit และ Push ขึ้น Feature Branch แล้วสร้าง Pull Request (PR) สู่ `develop`
 
 ## 5. Contributor Identity & Git Governance (กติกาตัวตนและ Branching สำหรับ AI)
