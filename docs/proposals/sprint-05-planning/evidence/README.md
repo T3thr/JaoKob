@@ -1,5 +1,13 @@
 # Sprint 5 planning evidence
 
+## Current ADR-P0-022 revision: 2026-10-18
+
+[ADR22 replanning verification](adr022-replanning-verification.json) records the four-slice/T0–T19/critical-finding trace checks, supplied ADR and inspected-render identities, unchanged production/schema/test/assets and historical evidence hashes. [Save2 current-validator probe](save2-current-validator-probe.json) records three actual cases: the existing fixture is valid, while added envelope and payload fields each fail with `UNKNOWN_FIELD`. It proves the current closed contract, not the proposed profile's future compatibility.
+
+The full unit/design suites below were not rerun for this documentation-only revision. Their exact original reports remain unchanged. No revised UI, new lore, extended Save2, browser/static artifact, physical-device/AT or human acceptance is claimed. See the [new audit](../../../changelog/2026-10/2026-10-18-0023-sprint-05-adr022-replanning.md) and [remediation contract](../02-adr022-remediation-contract.md).
+
+## Original planning evidence: 2026-10-17
+
 Baseline: `d1af29314d4497e2c37727282a5c7fc3e31333eb`, 2026-10-17. Scope: planning and documentation, [Draft PR #18](https://github.com/T3thr/JaoKob/pull/18). [SSOT](../../../sprints/sprint-05-ssot.md), [assessment](../01-readiness-assessment.md), [audit](../../../changelog/2026-10/2026-10-17-1808-sprint-05-planning-ssot.md).
 
 | File | Meaning |

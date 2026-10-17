@@ -2,126 +2,107 @@
 
 | Control | Value |
 |---|---|
-| Version / date | 0.1.0 / 2026-10-17, Asia/Bangkok |
-| Status | **Proposed for review; no runtime implementation or new Accepted ADR in this change** |
-| Classification | C2 cross-layer; C3 where package/save/schema contracts change |
-| Authority | PO requests Sprint5 planning, five-act closure, existing three endings, immutable Default Core Package and Sprint6 editor readiness |
-| Owners | Senior Software Architect, Lead Narrative Director, Principal Game Designer, Data/UI/Art/QA; PO accepts scope |
-| Execution source | [Sprint 5 SSOT](../sprints/sprint-05-ssot.md) |
-| Evidence | [Readiness assessment](../proposals/sprint-05-planning/01-readiness-assessment.md), [baseline verification](../proposals/sprint-05-planning/evidence/planning-verification.json) |
+| Version / date | **0.2.0 / 2026-10-18, Asia/Bangkok** |
+| Status | **Revised execution design under Accepted ADR-P0-022; detailed contracts are Slice 1 deliverables, not a new self-approved ADR** |
+| Authority | Current PO directive and [ADR-P0-022 D1–D6 / Consequences](../adr/ADR-P0-022-visual-novel-ergonomics-living-keepsake-lore-and-sprint-streamlining.md) |
+| Classification | Cross-layer planning for Canon/UI/runtime/schema/save-profile work; no runtime mutation in this PR |
+| Owners | Architect, Narrative/Game Design, UI/Accessibility, Data, Art/Audio, QA/DevOps; PO owns acceptance |
+| Execution | [SSOT 0.2](../sprints/sprint-05-ssot.md), [remediation contract](../proposals/sprint-05-planning/02-adr022-remediation-contract.md), [trace matrix](../traceability/sprint-05-execution-matrix.md), [Draft PR #18](https://github.com/T3thr/JaoKob/pull/18) |
 
-## 1. Problem and goals
+## 1. Decision update and goals
 
-Sprint4 delivers a verified Act1 vertical slice and later-act design. The production capability gate rejects act>1 and ending nodes; orchestration still requires positive HP/พลังใจ and Bond0, while state/transaction primitives already describe later crisis/ending behavior. A new JSON act alone cannot enable a full game. Save2 has one retry checkpoint but no explicit collection of captured chapter replay snapshots. Session selection and media references use contentVersion without a distinct story identity.
+The previous ten-execution-PR and Save3 proposals are retired. The new binding direction is four value slices, Save Format2, a living childhood/adult keepsake protagonist and a complete VN design-system overhaul. The former wait for future playtest feedback is resolved by ADR22. Do not request those decisions again.
 
-The goal is to implement existing full-story requirements, retain exact compatible saves, produce closure under ADR-P0-021, and make the runtime able to identify protected canonical content independently of future authored episodes. The current user already mandates that core protection. This RFC requests decisions on the mechanism and uncovered details, not renewed permission for that direction.
+The remaining implementation design must deliver five-act capability, three equal endings, safe persistence/replay, clear readable interaction and a protected default core for S6. Current source still rejects later acts/crisis/nonzero saved Bond; Save2 has no chapter snapshot collection; registry/session identity uses contentVersion alone. These are concrete Slice1 tasks, not already delivered capabilities.
 
-Non-goals: implement the Sprint6 Editor, user-authored imports, slot selector/storage, cross-package narrative links or hot swapping, backend/cloud save, new endings, broadened runtime dependency policy, retrospective rewriting of Accepted ADR rationale. All options below are proposals until the relevant owner records a decision.
+Non-goals: Editor/Story Slots UI or storage, user imports, new endings, Save Format3, backend/login/telemetry, a new runtime dependency without production review, personal recipient data, automatic merge/deploy or retrospective edits to accepted decision rationale.
 
-## 2. D1: Logical packages, catalog composition and immutable core
+## 2. Package identity and canonical protection
 
-| Option | Consequence | Recommendation |
-|---|---|---|
-| Continue a global contentVersion-only map | Two stories at version1.0 collide; no independent default protection; future storage/media keys ambiguous | Reject for future package boundary |
-| One logical core identity with versioned manifest and act components, normalized to one validated catalog | Fits five-act story; separates authoring file layout from playable session; explicit protection and bounded capability review | **Recommended** |
-| Independent game session/save per act | Breaks continuity of pouch/flags/checkpoints and makes Acts look like Story Slots | Reject for canonical campaign |
-| General plugin engine with arbitrary dependencies/import code | Unnecessary capability, supply-chain and privacy expansion | Out of scope |
+Retain the recommended one-logical-story approach: proposed `story.jaokob.core`, versioned manifest with schema/capability identity, act component references/digests and explicit entry. Exact fields/limits are recorded in T0/T1. Separate authoring files do not imply independent saves per act. Data validates all story references and supported capabilities into a bounded immutable catalog before activation; media loads on demand.
 
-Proposed descriptor fields are `packageId`, `contentVersion`, `schemaVersion`, entry reference, component references/digests, locale and supported capability declaration. Exact JSON shape, registered IDs and size bounds belong to S1. Proposed reserved ID is `story.jaokob.core`. Content IDs retain their published meaning; custom packages use a separate namespace and cannot shadow canonical nodes/flags/assets. Optional presentation metadata cannot supply predicates/effects.
+The bundled default identity is host-owned. Future custom registration cannot delete, patch, replace, shadow or win precedence over it, even when input claims the reserved ID or a read/write flag. Custom IDs occupy their own namespace. Two packages sharing version1.0 must remain isolated in registry/session/cache/media/save admission. Failed extension validation leaves the default available; missing/corrupt core produces an honest safe shell, not a silently substituted story.
 
-Data validates component schemas, all cross-references and capability compatibility before producing an immutable normalized catalog. Core sees a complete catalog for the active story, not filesystem paths or an editable registry. One logical package may be authored across several act files. For S5 prefer complete bounded story-data validation before activation, with media loaded on demand; if full-game data fails critical-load budget, revise the explicit loading contract before enabling partial graph activation. A failed dependency must not leave a playable half-catalog or dangling future edge.
+The new lore is a reviewed new canonical version. Preserve archived package bytes and published ID meanings; register changed runtime IDs and map design anchors explicitly. Final release freezes the current manifest. Future reviewed releases can add versions, while the S6 Editor has no write path to the original. Browser/device deletion is outside this application-level guarantee; the sole core copy must not live in LocalStorage.
 
-Default descriptor comes from the reviewed static artifact. Future custom registration cannot overwrite, delete, patch, replace or win precedence over it, even when input claims `readOnly:false` or the same package/version. The allowlist of trusted canonical identity is host-owned, not content-owned. Extension failure leaves canonical New Game available. A missing/corrupt core produces a recovery-safe shell; it does not silently select a custom story as canonical.
+Options retained: one normalized logical core package is recommended; global version-only identity, per-act independent game sessions and arbitrary executable plugins are rejected for this scope. No general import framework is needed to prove the seam with isolated data fixtures.
 
-Freeze every published package version with its manifest and keep exact archives. New canonical releases are reviewable versions, not edits through the browser Editor. S6 can offer “create a separate copy” with a new identity and origin reference; that copy has no write path to the original. This is application protection, not a claim to prevent the owner of a device/server from editing files. Keep a canonical copy bundled, not solely in evictable browser storage.
+## 3. Save Format 2 and compatibility
 
-S5 proof: inject a second harmless test package at the same contentVersion; verify independent identity/entry/flags/cache/save admission, reserved-ID and duplicate rejection, failed component/hash/reference handling, readonly core operations and no runtime import of fixture code. Do not ship a custom-story authoring UI just to demonstrate this seam.
+**Selected format direction from ADR22: keep `saveFormatVersion: 2`.** New valid legacy records must remain usable without reset or a compulsory migration. The old proposal to bump to3 is not active.
 
-## 3. D2: Versions, saved cursors and actual replay
+The [published schema2](../../specs/schemas/v2.0.0/save-state.schema.json) and runtime validator close unknown fields. The [fresh fact probe](../proposals/sprint-05-planning/evidence/save2-current-validator-probe.json) accepts the original fixture and rejects both an added envelope extension and payload snapshots. Keeping the format number alone does not make added fields compatible with old readers.
 
-**Recommendation:** new SaveFormatVersion3 only after approval of identity/replay fields; a separately versioned schema for new content/manifest contracts. Do not edit published root/schema2 definitions. Numeric save format, semantic content version and schema version are separate axes.
+Recommended design within the accepted direction: a separately versioned, closed **Save-2 extension schema profile**. It preserves existing field meanings and optionally carries a validated profile discriminator, package/manifest binding and bounded actual pre-Act4/pre-Act5 snapshots. T0/T1 fix exact keys/$id/count/byte limits and independent validator fixtures before writer work. The old schema remains byte-identical and continues to validate exact old saves. No `additionalProperties:true`, opaque flag stuffing or separate sidecar store is introduced as a shortcut.
 
-An exact identity tuple must follow catalog → orchestrator → localized projection → media resolver/cache → save/checkpoint/replay admission. Check package and version before comparing revisions or granting write permission. Integrity digests detect unexpected bytes and support compatibility proof; they do not authenticate the person controlling LocalStorage.
+The reader selects an explicit profile/package/version allowlist. A legacy archive cannot claim new replay capabilities; absence of the extension cannot synthesize chapter history. Unknown profile, mismatched manifest, cross-package checkpoint/snapshot, recursive data or oversize payload fails safely. Integrity covers the admitted extension. At most the registered replay points are stored, and the complete serialized record stays≤250KB UTF-8.
 
-| Migration / compatibility boundary | Required evidence |
+| Input / transition | Required handling |
 |---|---|
-| Save1/content2.0 → proved2.1 → Save2/2.1 | Existing sequential transforms and exact archive retained; no direct jump to rewritten story |
-| Save2/content3 → Save3 carrying the **same** story version | Pure envelope transformation if approved; preserves all active/checkpoint facts, creates no chapter memories that never happened; backup source bytes |
-| content3 completed Act1 → new full-game package | Separate reviewed semantic bridge at acknowledged A1-007 completion; source/target digests, independent payload/checkpoint mapping, later flags set only to defaults, no on-enter replay/new item awards |
-| content3 mid-beat/choice/moment | Exact archive continuation until an approved equivalent boundary; no nearest-node or dialogue-index guess |
-| Interim S5 package version → next promoted version | Exact archive or explicitly proved continuation for that pair; previous manifest never mutates |
-| Unknown format/version/package, corrupt record or incompatible checkpoint | Preserve raw slots; reject with typed outcome; compatible recovery or memory-only play; explicit reset consent remains |
+| Save1/content2.0 | Keep the existing proved2.0→2.1 then Save1→2 chain and archive |
+| Save1/2 content2.1; Save2 content3 | Exact original story/cursor/checkpoint; read-only Resume; subsequent legacy writes retain compatible profile |
+| Old biological Act1 complete → new keepsake lore | No automatic bridge. Preserve old progression; explicit New Game with replacement consent starts the new causal history |
+| New core Save2 profile | Exact identity, independent active/checkpoint/replay validation, protected staged writes and actual captured snapshots |
+| New-lore version → later new-lore version | Archive or separately proved unchanged semantic boundary; no nearest-node or dialogue-index guess |
+| New profile opened by old application | Typed safe refusal and preservation of raw canonical/staging/backup; no incompatible overwrite, verified in actual rollback rehearsal |
+| Unknown/corrupt/future/mixed records | Protected recovery or memory-only operation; no downgrade, silent clearing or invented pouch/history |
 
-Preferred format3 design keeps canonical/staging/backup/settings ownership with the existing adapter and current one-active-session UX. Reserve identity in the envelope, not arbitrary content strings in LocalStorage keys. Story Slots in S6 need their own storage/RFC decision; S5 does not introduce unreviewed key derivation or IndexedDB.
+“No breaking migration” here preserves existing-save usability and avoids mandatory conversion/reset; it is not a claim that old binaries read new fields. Retain canonical/staging/backup transaction, source bytes, revision/consent/race guards and tests. If the old-application refusal/write-protection proof fails, hold new-profile activation and fix it within PR19; do not bump to3 or waive the gate. Independent UI work proceeds.
 
-Replay requires actual pre-Act4 and pre-Act5 snapshots, bounded to registered replay points. Store all necessary causal facts: tree/node/state, metrics, flags, occurrences, pouch, RNG and package identity. Define separate policy for current-timeline progress versus historically read content/ending completion. Never build replay from endgame values or let historical viewed IDs grant an item/secret in the restored timeline. Latest validated settings stay outside rollback. Session History remains an ephemeral50+50 log, never the save-state authority.
+Replay restores actually captured causal metrics/flags/events/pouch/RNG/cursor while keeping current settings. Completed-content/ending history remains separate from current timeline eligibility. Resume, repeated input and viewer actions cannot duplicate completion or farm repair. Session History remains ephemeral50+50 and cannot reconstruct a chapter snapshot.
 
-Once-only repair is causal progress, not a UI toggle. Resume cannot offer it twice after decline; replay/retry may revisit it only with the corresponding restored earlier state, so its +20 cannot accumulate on a later state. Record ending completion once per accepted resolution; loading, opening gift media or double input cannot append a second result.
+Alternative: reuse unextended Save2 only if the full semantics can be represented honestly under the existing closed contract. Current inspection shows no snapshot field; hiding it in flags/history or rebuilding from final values is rejected. A sidecar/slot storage scheme would add transaction and compatibility complexity outside the chosen plan.
 
-Alternatives: keeping Save2 unchanged is acceptable only if S1 proves all required chapter replay/package identity semantics fit the published contract without overloading flags/history or synthesizing snapshots. Maintaining archives forever without a usable Act1-complete continuation does not fulfill the S5 continuation task. A single latest checkpoint is insufficient for both required Act4 and Act5 replay targets.
+## 4. Lore, narrative and mechanics reconciliation
 
-## 4. D3: Narrative and mechanics details needing reconciliation
+ADR22 replaces biological childhood and the natural-frog/plush separation rule. New Act1 starts in the crochet body, shows family warmth and growth to adult45cm/blue shirt before the storm. Acts2–5 use that body's limbs, clearances and viewpoint. All endings retain the living keepsake; HOME gift framing is not a transformation from an animal or the end of life.
 
-Accepted invariants remain: four held slots, three ending IDs/order/thresholds, no pre-A4-004 Bond, no item-exclusive HOME/recovery, mother/sibling fate unconfirmed, separate living frog and gift mirrors. The following are explicit authoring decisions before production IDs/effects are minted:
+T0 amends forward-facing GDD/Narrative/SRS/design text and T6 reauthors setup/payoff. Existing approved mechanics stay unless an authored change is explicitly reviewed: three resolver thresholds, no Bond beforeA4-004, cautious compensation, once-only repair, four held slots, distinct six-item histories, default variants and state-preserving convergence beforeA3-003. Low-meter recovery values, physical leaf use, variant precedence and legacy food/shelter language are reconciled before their dependent content, not improvised in UI.
 
-| Gap | Proposed disposition | Required owner |
+The old Act1-complete bridge proposal is retired because the stories now have different causal histories. Unknown family fate remains unknown; do not invent a reunion/death, personal biography or new magical capabilities. Each key board has world reference, camera, pose, clearance and safe route. Childhood height and family morphology not fixed by ADR22 remain authored details requiring review, not numeric guesses.
+
+## 5. UX and cinematic remediation
+
+ADR22 is the received feedback authority. Implement a coherent type/spacing/layer/state system, ambient meters separate from≥44×44 command targets, spacious utility overlays, default inert prose/background and pointer controls. Eliminate inner choice scrolling and saved-success visual/live-announcement artifacts while preserving actual save behavior and accessible failures.
+
+Narrative confirmation moves inline. Retain high-impact preference/eligibility/revision safety: arm without effects → explicit confirm → one transaction; no hover/focus commit or rapid-input bypass. Destructive save replacement retains its own consent. See the [interaction table](../proposals/sprint-05-planning/02-adr022-remediation-contract.md#33-inline-choice-confirmation) for cancellation, stale state, overlay/session and reflow behavior.
+
+Full-screen illustrated beats support growth, storm, city, girl and ending decisions. They retain complete Thai, still/reduced-motion and audio-off equivalents, semantic reload and exactly-once effects. Actual human reading-comfort and Thai review is required each slice. Lint/screenshot/CLS/unit counts are not substitutes for that acceptance.
+
+## 6. Production gift and device review
+
+The adult reference currently lacks red embroidery; T14/T15 create, inspect and export it with original2D posters. Childhood heart accessory is distinct, not a substitute or inventory requirement. Both models reflect the same protagonist's life stages, with clear chronological/gift framing and retained agency.
+
+The prior model-viewer spike is a candidate implementation reference only. Production version/license/maintenance/network/lifecycle/bytes must be reviewed before importing a same-origin pinned bundle. No CDN/decoder escape, data-directed imports or automatic download. Keep complete poster/text and optional HOME-only deliberate opt-in.
+
+Set measured export/viewer/GPU budgets before activation: starting proposals remain one active model, self-contained GLB≤2MB and≤25,000 triangles per model, no auto-spin. Initial game2MB/critical500KB limits are unchanged. Verify actual close/switch/race/context-loss/error disposal and resource plateau on physical iOS/Android, plus keyboard/AT. Do not infer production performance from spike desktop output. If3D cannot meet its gates, an actual scoped owner decision is needed; fallback alone does not close the requested3D task.
+
+## 7. Four-slice rollout, trace and rollback
+
+| Planned PR | Tasks | Outcome / internal checkpoints |
 |---|---|---|
-| Old literal-transformation wording in GDD/Narrative | Amend forward-facing baseline text to ADR-P0-021 D6; preserve its original decision record and three-ending rules | Narrative/PO |
-| Sprint2 recorded unresolved Act2 Bond wording vs NAR-CON-005 | Keep the explicit A4-004 gate and Bond0 earlier; publish exact amended wording so S5 has no conflicting instruction | Game Design/Narrative |
-| Map recovery `draft.recovery.a3.cool-edge` and `listen-rest` | Review proposed+10HP/+10พลังใจ, guards and once-only event IDs against full-game reachable states; preserve HP>20 food-wait guard with visible earlier recovery | Game Design/QA |
-| Self-reliant C choices | Preserve ADR21's Bond0 alternative and all existing A/B effects; ratify exact IDs, compassion/route flags, guards and feedback before content | Narrative/Game Design |
-| Physical leaf-sharing | Require acquired historical flag plus held membership; decide whether this authored use releases the leaf and test the actual consequence atomically; no invented new `use` operation in JSON | Narrative/Game Design/Architect |
-| Held/released/refused/unseen and competing variants | Keep actual fact distinctions and approved priority; explicitly mutually exclusive top voiced variants or reviewed stable tie-break; don't remove ambiguity guard blindly | Narrative/Data |
-| Narrative tier70 in handoff vs GDD HUD tiers80/60/30 | Treat descriptive selection separately from authoritative HUD labels; ratify ranges or align them explicitly; never change label thresholds by accident | Game Design/Narrative |
-| “Close every thread” vs unconfirmed family fate | Close the protagonist's relationship to memory through action; no death/reunion/backstory invented to force an answer | Existing NAR-CAN-002 / ADR21; Narrative checks prose |
+| #19 / S1 | T0–T5 | Contracts and fixtures → runtime/Save2 → VN/HUD/inline controls → comfort/compatibility review |
+| #20 / S2 | T6–T7 | New living Act1 → Act2/yarn/routes → media and actual read-through |
+| #21 / S3 | T8–T13 | Act3/convergence → Act4/relationship → Act5/three endings → full journeys/replay |
+| #22 / S4 | T14–T19 | Source art/exports → viewer/failure isolation → physical devices/human acceptance → artifact/rollback/core freeze |
 
-The core `item_lotus_shell` label and the river shell are distinct published items; do not rename or conflate them based on an English gloss. Red yarn remains a sixth registered item encountered only at A2-006 on both routes, not a sixth slot or proof it belonged to the girl. Expected examples are in SSOT §2, all draft prose remains subject to editorial acceptance.
+Four execution PRs remain fixed; checkpoints are commits/evidence sections, not additional PRs. The current planning PR18 changes no runtime. Promotion is fixture-backed capability inS1, revised Act1/2 package with an honest rest boundary inS2, full story inS3 and optional gift/final qualification inS4. Future execution branches follow AGENTS; this PO-authorized revision continues the existing planning branch.
 
-## 5. D4: Grand Keepsake production and fallback
+Trace: ADR-P0-022 D1–D6/Consequences; applicable ADR-P0-019/020/021; FR-STA-001..006, FR-ENG-001..009, FR-CNT-001..006, FR-SAV-001..009, FR-UI-001..007, FR-SET-001..004, FR-ACC-001..004; GDD-BAL-001..009, GDD-END-001..006, NAR-CON-001..010, NAR-SAFE-001..006; NFR-MA-001..006, NFR-PE-001..005, NFR-RL-001..005. Exact task/gate/artifact mapping is in the linked matrix.
 
-**Recommended candidate:** the spike's model-viewer approach, isolated behind UI composition and reviewed anew for production. ADR-P0-016 accepted pinned4.4.0 for the spike only; this RFC does not install/update/approve that version in the game. Confirm maintenance/license/security, packaged dependencies, lifecycle support and bytes when choosing the production pin. Do not use CDN delivery or data-directed imports.
+Valid old invariants remain. Superseded save-dot/modal/biological/stage-click assertions are replaced with ADR22-linked checks and a record of why the expected outcome changed. Historical evidence stays immutable. No unrelated test deletion, skip or assertion weakening is permitted.
 
-S8 first fixes adult red-heart embroidery and delivers accepted2D posters plus validated self-contained models. S9 enables the viewer after HOME's complete living-frog ending and explicit opt-in. Images/text always convey the complete gift; deliberate opt-in is required before vendor/GLB fetch, not merely before hiding a poster. Reviewer checks actual network trace.
+This documentation revision needs no data migration. Runtime rollback later must preserve new-profile raw records and prevent incompatible writes; every profile/package promotion has an explicit rehearsal. Final core freeze is immutable to Editor operations. No force push, automatic merge, deployment or shared-history rewrite follows this RFC.
 
-Approve budgets from real exports before S9: per-model bytes/triangles/textures and decoded/GPU envelope, viewer transfer, maximum live models/cache, startup deadline/fallback behavior and measured frame response on supported devices. Use existing spike limits only as starting proposals; do not claim production performance from desktop spike evidence. Recommended starting limits: one active model, self-contained GLB≤2MB and≤25,000triangles per model, no auto-spin; final optional transfer/GPU limits remain a D4 gate. Initial-game2MB/500KB budgets are unchanged.
+## 8. Readiness register
 
-Failures must keep the matched poster, localized description, close/back/retry controls and completed story. Verify close-before-import, switch-before-model-ready, stale callback, decode/hash/network error, WebGL/context loss, reduced motion, audio independence, repeated open/close resource plateau, focus return and actual touch/keyboard/AT. Closing a custom element is not by itself proof GPU resources were released.
+| Item | Disposition |
+|---|---|
+| ADR22 six decisions and Save2 | Decided by PO; ready for Slice1 contract/design work, no repeat approval request |
+| Exact profile/manifest/field bounds | Architect/Data/QA deliver and verify in T0/T1/T3 before dependent writer activation |
+| New-lore script/scale/registry | Narrative/Game Design/Art deliver before S2/S3 content promotion |
+| Review findings | Remediation authorized; human comfort/Thai acceptance remains open until actual revised builds |
+| Production dependency/art/device budgets | Scoped S4 decision and measured review, not permission inferred from the spike |
+| Remaining release controls/duration | T0/T5 implementation audit and T18 measured acceptance; no silent waiver |
 
-Alternative2D-only release would preserve story access but does **not** silently satisfy the planned Grand Keepsake3D task. If approved device/performance/dependency evidence cannot be established, present that scoped release decision to PO with the complete fallback already reviewable.
-
-## 6. D5/D6: Player feedback and honest release scope
-
-D5 keeps ADR-P0-019 active. Player evidence is captured against a build SHA, package/version, logical beat and viewport/input/settings. A bug violating the current contract can be fixed under that authority. Changes to pacing controls, reveal behavior or component contract need the upcoming feedback ADR and updated fixtures; a speculative CSS preference is not a user finding. Independent narrative/art tasks may proceed when their own DoR is satisfied.
-
-D6 addresses inherited gaps before “complete project” is claimed: `FR-UI-004` has a delivered Log but partial skip/pause/speed/typewriter semantics; `FR-SET-001/002` has broader settings than the current application exposes. Recommended plan materializes Story Assist/crisis/replay and approved cutscene controls in S2/S3, retains manual advance, and seeks an explicit baseline disposition for optional/deferred animation controls. No inert controls or removal of assertions is allowed. Target duration2.5–4hours and checkpoints8–15minutes require real reading evidence and an approved revision if the intended crafted story is shorter. A count of scenes or automated clicks cannot certify duration or literary quality.
-
-## 7. Cross-layer impact, validation and rollout
-
-| Boundary | Change / risk | Validation |
-|---|---|---|
-| Core | Expand supported execution while retaining six states and deterministic policies | full transition table, boundaries, safe paths, counterexamples, old/new catalog fixtures |
-| Data/schema | Package registry and policy generalization, published schema immutability | independent validator parity, namespace/capability/reference negatives, bytes/size bounds |
-| Persistence | package identity and multiple replay snapshots | pure sequential transforms, all saved cursors, stage/backup faults/races,≤250KB save |
-| UI/media | later-life stage, Bond/crisis/ending/replay, protected presentation seam, opt-in viewer | same accepted commands produce same story; keyboard/Thai/reflow/fallback/native-device tests |
-| Narrative | Acts2–5, six item callbacks, physical causality, equal endings | complete scripts, zero duplicate authored blocks, human rubric≥4/5 per axis, actual all-ending read-through |
-| Security/privacy | untrusted content/save, future packages, vendor and assets | safe text/allowlists, no dynamic content code, no third-party requests/telemetry/private references |
-| Release | S4 artifact checker intentionally excludes GLB/vendor and pins old rollback | new version-specific allowlist/digests; keep old checker/evidence meaningful |
-
-Trace: FR-STA-001..006, FR-CNT-001..006, FR-ENG-001..009, FR-UI-001..007, FR-SAV-001..009, FR-SET-001..004, FR-ACC-001..004; NFR-MA-001..006, NFR-RL-001..005, NFR-PE-001..005, NFR-SE-001..006, NFR-PO-001..004; GDD-BAL-001..009, GDD-END-001..006, NAR-BRN-001..004, NAR-END-001/002; ADR-P0-003/014/015/019/020/021. SSOT §4 maps artifacts/owners and §6 maps proposed TC IDs. Published model-spike decisions are references, not authorization to bypass new dependency review.
-
-Rollout: planning PR first; S1 decisions/contracts before source; S2/S3 generic capabilities behind reviewed catalogs; incremental Act2/3/4 package versions with truthful rest boundaries; S7 full story; S8/S9 gifts; S10 qualification/final freeze. Each PR starts from current develop, retains legacy cases, records evidence and requires reviewer acceptance. No merge/deploy is performed by this RFC.
-
-Rollback: docs-only change can be reverted independently. Future runtime rollback must retain readers/write guards for newer saves or disable incompatible writes; retain raw archives/backups, never coerce a future save to a current version. A reviewed downgrade rehearsal includes format3/full-game current records and legacy records across all slots, pending writes and stale consent. No force push, shared-history rewrite, automatic save reset or deletion of canonical story.
-
-## 8. Decision register
-
-| Decision | Current disposition | Recording requirement |
-|---|---|---|
-| D1 core identity/protection mechanism | Proposed; immutable core direction already mandated | PO/Architect decision, accepted manifest ADR and schema version |
-| D2 save/replay/continuation | Proposed | Architect/Data/QA approval of format, field policy and proved migration/rollback |
-| D3 authored rules/continuity | Proposed details under existing ADR21 | Narrative/Game Design approved registry and forward baseline amendments |
-| D4 production gift/dependency/budgets | Proposed | PO/Art/Architect/QA sign-off; no production dependency before accepted ADR |
-| D5 playtest changes | Awaiting actual player findings and later ADR | Evidence-specific decision; no guessed feedback |
-| D6 full release gaps/duration | Open | PO/Game Design/QA accepted disposition; no automatic requirement waiver |
-
-The document author is not the final approver. This planning delivery can be reviewed and committed without treating open decisions as implementation approval.
+The document author records the PO's accepted directions and a concrete implementation design. Source implementation and final human/device acceptance are not claimed by this planning update.

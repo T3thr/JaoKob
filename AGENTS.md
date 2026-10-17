@@ -16,7 +16,7 @@
 - Hosting เป้าหมาย: GitHub Pages แบบ Static Artifact
 
 **สถานะปัจจุบันของโครงการ:**
-โครงการผ่าน Phase 0 Baseline และรวมงาน Sprint 4 เข้า `develop` แล้วที่ `d1af293` ขณะนี้อยู่ใน **Sprint 5: Planning and Review** ตาม [Sprint 5 Execution SSOT](docs/sprints/sprint-05-ssot.md) ซึ่งยังเป็นร่างเพื่อหารือก่อนเริ่มพัฒนาจริง
+โครงการผ่าน Phase 0 Baseline และรวมงาน Sprint 4 เข้า `develop` แล้วที่ `d1af293` ขณะนี้ใช้ **Sprint 5 SSOT 0.2: Four Value Slices** ตาม [ADR-P0-022 ที่ PO อนุมัติ](docs/adr/ADR-P0-022-visual-novel-ergonomics-living-keepsake-lore-and-sprint-streamlining.md) และ [Sprint 5 Execution SSOT](docs/sprints/sprint-05-ssot.md) พร้อมเริ่มงานสัญญาและ Design System ของ Slice 1; implementation ยัง 0/20 tasks
 เอกสารควบคุมสูงสุดและคู่มือปฏิบัติการคือ [docs/README.md](docs/README.md) ส่วน [Sprint 4 SSOT](docs/sprints/sprint-04-ssot.md) เป็น integrated baseline และบันทึกเกณฑ์ตรวจรับที่ต้องส่งต่อ การเปลี่ยนทางนำทางนี้ไม่อนุมัติ Requirement, Canon หรือ RFC ใหม่
 
 ## 3. Authoritative Documents & Navigation
