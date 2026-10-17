@@ -83,6 +83,7 @@ JaoKob/
 │   │   └── 08-verification-traceability-and-quality-gates.md <-- [Historical] Verification เดิม
 │   ├── adr/                       <-- Architecture Decision Records คำตัดสินสถาปัตยกรรมสูงสุดที่มีผลผูกพัน (Tier 1)
 │   ├── design-system/             <-- สัญญาและข้อกำหนดการออกแบบ Visual Novel และ Ergonomics (Tier 2)
+│   ├── dialogue/                  <-- กระดานสนทนาและประสานงานระหว่าง AI Agents (Inter-Agent Blackboard)
 │   └── traceability/              <-- Matrix ตรวจสอบย้อนกลับของแต่ละ Sprint
 ├── specs/                         <-- Machine-Readable Data Contracts (JSON Schemas Draft 2020-12)
 │   ├── README.md                  <-- สารบัญ Schema และ Versioning Contract
