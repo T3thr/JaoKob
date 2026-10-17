@@ -18,3 +18,12 @@ Original prompt: Start the adult blue-shirt plush model. Milestone 1: editable B
 - Added segmented doll selection. Before activation only poster/text change; after opening 3D only the selected GLB is loaded. Request generations guard against obsolete async callbacks, including module import and model-load cancellation.
 - Browser checks passed for both dolls, pointer/keyboard/touch, reset/FOV, responsive layouts, failed-load retry per model and rapid/pending switches. Fixed focus transfer after hiding the open button; corrected the network test to recognize same-origin embedded texture blob URLs. Final material rebuild and browser evidence completed; childhood is ready in the local in-app preview.
 - Existing game unit suite: 691 passed, 0 failed/skipped. No src changes. Final likeness, actual iPhone/Android performance and Safari/VoiceOver remain open.
+
+## ADR-P0-025 — 2026-10-18
+
+PO mandate: default empty-handed seated stance and adult-tone velour; retain independent heart emote and crochet alternate. Isolated develop-based checkout preserves active narrative working tree. Implement four GLB mesh nodes with a STEP scale stance selector, KHR_materials_variants, default source visibility, embedded Blender helper, and localized preview controls. Verify raw GLB defaults, both stances × both materials, lazy loading, races/retry, renders, current game regression, and budget. No production integration, save change, new facial emotes or adult asset edits.
+
+- Completed: source defaults and embedded four-state helper verified after reopening Blender; corrected smooth-material seam by welding coincident positions while keeping loop UVs. Final GLB 704,780 bytes / 15,728 total stored triangles (12,584 default-visible / 13,384 heart-visible), validator 0 errors / 0 warnings.
+- Browser regression and four-state rendered-node/material checks passed, including rapid/pending selection, reload defaults, close/reopen, responsive controls and zero extra GLB fetches for variants. Screenshot action-loop inspected. Game regression: 1,060/1,060.
+- Follow-up remains PO visual review, real mobile GPU/FPS, Safari/AT and future production integration. No production WBS task is completed by this correction.
+- Delivery: implementation `741b0b5`, Draft PR #19 to develop; active Sprint5 audit reference `81c2402` on the planning branch. Existing narrative edits preserved.

@@ -1,19 +1,35 @@
 {
-  "change": "CR-0004",
-  "milestone": "1B",
-  "generator": "CR-0004-childhood-v1",
+  "change": "ADR-P0-025",
+  "milestone": "1C",
+  "generator": "ADR-P0-025-childhood-v2",
   "blender": "5.2.2 LTS",
-  "bodyParts": 39,
+  "bodyParts": 29,
+  "emptyArmParts": 10,
+  "heartArmParts": 10,
   "accessoryParts": 1,
-  "sourceTriangles": 13400,
-  "glbBytes": 598144,
+  "sourceTriangles": 15728,
+  "glbBytes": 704780,
   "byteBudget": 2000000,
   "triangleBudget": 25000,
   "withinBudget": true,
   "nodeNames": [
     "JaoKob_Childhood_Body",
+    "Stance_EmptyHands",
+    "Stance_HeartEmote",
     "Accessory_RedHeart"
   ],
+  "defaultStance": "empty",
+  "defaultMaterial": "Velour",
+  "materialVariants": [
+    "Velour",
+    "Crochet"
+  ],
+  "stanceAnimation": {
+    "name": "HeartEmote",
+    "emptyTime": 0,
+    "heartTime": 1
+  },
+  "allStoredTriangles": 15728,
   "normalTexture": [
     128,
     128
@@ -37,5 +53,18 @@
     "foot_forward": -1.02,
     "stitch_size": 0.09,
     "normal_strength": 0.6
-  }
+  },
+  "trianglesByNode": {
+    "Accessory_RedHeart": 800,
+    "JaoKob_Childhood_Body": 10240,
+    "Stance_EmptyHands": 2344,
+    "Stance_HeartEmote": 2344
+  },
+  "defaultVisibleTriangles": 12584,
+  "heartVisibleTriangles": 13384,
+  "adultGreenSRGB": [
+    0.38,
+    0.64,
+    0.13
+  ]
 }

@@ -1,20 +1,22 @@
 {
-  "change": "CR-0004",
-  "milestone": "1B",
+  "change": "ADR-P0-025",
+  "milestone": "1C",
   "status": "passed",
   "blender": "5.2.2 LTS",
-  "bodyParts": 39,
+  "bodyParts": 29,
   "heartParts": 1,
   "checks": [
     "Single continuous pill body object and no neck",
-    "Separate optional heart collection/object, visible by default",
+    "Separate heart/holding-arms hidden by default; empty arms visible",
+    "Velour default on all textile parts, crochet retained",
+    "Embedded Blender stance/material helper",
     "Two named highlights per eye",
     "Three separate lobes per hand/foot",
     "Two packed 128px authored textures",
     "Studio camera/lights excluded from export collections"
   ],
   "sourceDimensionsMetresXYZ": [
-    0.19927,
+    0.196,
     0.1719,
     0.2275
   ],

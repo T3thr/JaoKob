@@ -1,0 +1,757 @@
+{
+  "authority": "ADR-P0-025",
+  "status": "passed",
+  "browser": "151.0.7922.34",
+  "states": [
+    {
+      "stance": "empty",
+      "material": "Velour",
+      "nodes": {
+        "JaoKob_Childhood_Body": {
+          "scale": [
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "materials": [
+            {
+              "name": "Childhood • velour (default)",
+              "normal": false,
+              "map": false
+            },
+            {
+              "name": "Childhood • sparkling eye applique",
+              "normal": false,
+              "map": false
+            }
+          ]
+        },
+        "Stance_EmptyHands": {
+          "scale": [
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "materials": [
+            {
+              "name": "Childhood • velour (default)",
+              "normal": false,
+              "map": false
+            }
+          ]
+        },
+        "Stance_HeartEmote": {
+          "scale": [
+            0,
+            0,
+            0
+          ],
+          "materials": [
+            {
+              "name": "Childhood • velour (default)",
+              "normal": false,
+              "map": false
+            }
+          ]
+        },
+        "Accessory_RedHeart": {
+          "scale": [
+            0,
+            0,
+            0
+          ],
+          "materials": [
+            {
+              "name": "Childhood • velour (default)",
+              "normal": false,
+              "map": false
+            }
+          ]
+        }
+      },
+      "paused": true,
+      "currentTime": 0,
+      "variants": [
+        "Velour",
+        "Crochet"
+      ],
+      "alt": "ตุ๊กตากบกำมะหยี่สีเขียว ตัวป้อม ตากลม เสื้อแถบน้ำเงิน นั่งมือเปล่า วางแขนข้างลำตัว"
+    },
+    {
+      "stance": "heart",
+      "material": "Velour",
+      "nodes": {
+        "JaoKob_Childhood_Body": {
+          "scale": [
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "materials": [
+            {
+              "name": "Childhood • velour (default)",
+              "normal": false,
+              "map": false
+            },
+            {
+              "name": "Childhood • sparkling eye applique",
+              "normal": false,
+              "map": false
+            }
+          ]
+        },
+        "Stance_EmptyHands": {
+          "scale": [
+            0,
+            0,
+            0
+          ],
+          "materials": [
+            {
+              "name": "Childhood • velour (default)",
+              "normal": false,
+              "map": false
+            }
+          ]
+        },
+        "Stance_HeartEmote": {
+          "scale": [
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "materials": [
+            {
+              "name": "Childhood • velour (default)",
+              "normal": false,
+              "map": false
+            }
+          ]
+        },
+        "Accessory_RedHeart": {
+          "scale": [
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "materials": [
+            {
+              "name": "Childhood • velour (default)",
+              "normal": false,
+              "map": false
+            }
+          ]
+        }
+      },
+      "paused": true,
+      "currentTime": 1,
+      "variants": [
+        "Velour",
+        "Crochet"
+      ],
+      "alt": "ตุ๊กตากบกำมะหยี่สีเขียว ตัวป้อม ตากลม เสื้อแถบน้ำเงิน ใช้สองมือกอดหัวใจแดง"
+    },
+    {
+      "stance": "heart",
+      "material": "Crochet",
+      "nodes": {
+        "JaoKob_Childhood_Body": {
+          "scale": [
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "materials": [
+            {
+              "name": "Childhood • crochet yarn",
+              "normal": true,
+              "map": true
+            },
+            {
+              "name": "Childhood • sparkling eye applique",
+              "normal": false,
+              "map": false
+            }
+          ]
+        },
+        "Stance_EmptyHands": {
+          "scale": [
+            0,
+            0,
+            0
+          ],
+          "materials": [
+            {
+              "name": "Childhood • crochet yarn",
+              "normal": true,
+              "map": true
+            }
+          ]
+        },
+        "Stance_HeartEmote": {
+          "scale": [
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "materials": [
+            {
+              "name": "Childhood • crochet yarn",
+              "normal": true,
+              "map": true
+            }
+          ]
+        },
+        "Accessory_RedHeart": {
+          "scale": [
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "materials": [
+            {
+              "name": "Childhood • crochet yarn",
+              "normal": true,
+              "map": true
+            }
+          ]
+        }
+      },
+      "paused": true,
+      "currentTime": 1,
+      "variants": [
+        "Velour",
+        "Crochet"
+      ],
+      "alt": "ตุ๊กตากบไหมพรมสีเขียว ตัวป้อม ตากลม เสื้อแถบน้ำเงิน ใช้สองมือกอดหัวใจแดง"
+    },
+    {
+      "stance": "empty",
+      "material": "Crochet",
+      "nodes": {
+        "JaoKob_Childhood_Body": {
+          "scale": [
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "materials": [
+            {
+              "name": "Childhood • crochet yarn",
+              "normal": true,
+              "map": true
+            },
+            {
+              "name": "Childhood • sparkling eye applique",
+              "normal": false,
+              "map": false
+            }
+          ]
+        },
+        "Stance_EmptyHands": {
+          "scale": [
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "materials": [
+            {
+              "name": "Childhood • crochet yarn",
+              "normal": true,
+              "map": true
+            }
+          ]
+        },
+        "Stance_HeartEmote": {
+          "scale": [
+            0,
+            0,
+            0
+          ],
+          "materials": [
+            {
+              "name": "Childhood • crochet yarn",
+              "normal": true,
+              "map": true
+            }
+          ]
+        },
+        "Accessory_RedHeart": {
+          "scale": [
+            0,
+            0,
+            0
+          ],
+          "materials": [
+            {
+              "name": "Childhood • crochet yarn",
+              "normal": true,
+              "map": true
+            }
+          ]
+        }
+      },
+      "paused": true,
+      "currentTime": 0,
+      "variants": [
+        "Velour",
+        "Crochet"
+      ],
+      "alt": "ตุ๊กตากบไหมพรมสีเขียว ตัวป้อม ตากลม เสื้อแถบน้ำเงิน นั่งมือเปล่า วางแขนข้างลำตัว"
+    },
+    {
+      "stance": "empty",
+      "material": "Velour",
+      "nodes": {
+        "JaoKob_Childhood_Body": {
+          "scale": [
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "materials": [
+            {
+              "name": "Childhood • velour (default)",
+              "normal": false,
+              "map": false
+            },
+            {
+              "name": "Childhood • sparkling eye applique",
+              "normal": false,
+              "map": false
+            }
+          ]
+        },
+        "Stance_EmptyHands": {
+          "scale": [
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "materials": [
+            {
+              "name": "Childhood • velour (default)",
+              "normal": false,
+              "map": false
+            }
+          ]
+        },
+        "Stance_HeartEmote": {
+          "scale": [
+            0,
+            0,
+            0
+          ],
+          "materials": [
+            {
+              "name": "Childhood • velour (default)",
+              "normal": false,
+              "map": false
+            }
+          ]
+        },
+        "Accessory_RedHeart": {
+          "scale": [
+            0,
+            0,
+            0
+          ],
+          "materials": [
+            {
+              "name": "Childhood • velour (default)",
+              "normal": false,
+              "map": false
+            }
+          ]
+        }
+      },
+      "paused": true,
+      "currentTime": 0,
+      "variants": [
+        "Velour",
+        "Crochet"
+      ],
+      "alt": "ตุ๊กตากบกำมะหยี่สีเขียว ตัวป้อม ตากลม เสื้อแถบน้ำเงิน นั่งมือเปล่า วางแขนข้างลำตัว"
+    },
+    {
+      "stance": "empty",
+      "material": "Velour",
+      "nodes": {
+        "JaoKob_Childhood_Body": {
+          "scale": [
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "materials": [
+            {
+              "name": "Childhood • velour (default)",
+              "normal": false,
+              "map": false
+            },
+            {
+              "name": "Childhood • sparkling eye applique",
+              "normal": false,
+              "map": false
+            }
+          ]
+        },
+        "Stance_EmptyHands": {
+          "scale": [
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "materials": [
+            {
+              "name": "Childhood • velour (default)",
+              "normal": false,
+              "map": false
+            }
+          ]
+        },
+        "Stance_HeartEmote": {
+          "scale": [
+            0,
+            0,
+            0
+          ],
+          "materials": [
+            {
+              "name": "Childhood • velour (default)",
+              "normal": false,
+              "map": false
+            }
+          ]
+        },
+        "Accessory_RedHeart": {
+          "scale": [
+            0,
+            0,
+            0
+          ],
+          "materials": [
+            {
+              "name": "Childhood • velour (default)",
+              "normal": false,
+              "map": false
+            }
+          ]
+        }
+      },
+      "paused": true,
+      "currentTime": 0,
+      "variants": [
+        "Velour",
+        "Crochet"
+      ],
+      "alt": "ตุ๊กตากบกำมะหยี่สีเขียว ตัวป้อม ตากลม เสื้อแถบน้ำเงิน นั่งมือเปล่า วางแขนข้างลำตัว"
+    },
+    {
+      "stance": "heart",
+      "material": "Crochet",
+      "nodes": {
+        "JaoKob_Childhood_Body": {
+          "scale": [
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "materials": [
+            {
+              "name": "Childhood • crochet yarn",
+              "normal": true,
+              "map": true
+            },
+            {
+              "name": "Childhood • sparkling eye applique",
+              "normal": false,
+              "map": false
+            }
+          ]
+        },
+        "Stance_EmptyHands": {
+          "scale": [
+            0,
+            0,
+            0
+          ],
+          "materials": [
+            {
+              "name": "Childhood • crochet yarn",
+              "normal": true,
+              "map": true
+            }
+          ]
+        },
+        "Stance_HeartEmote": {
+          "scale": [
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "materials": [
+            {
+              "name": "Childhood • crochet yarn",
+              "normal": true,
+              "map": true
+            }
+          ]
+        },
+        "Accessory_RedHeart": {
+          "scale": [
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "materials": [
+            {
+              "name": "Childhood • crochet yarn",
+              "normal": true,
+              "map": true
+            }
+          ]
+        }
+      },
+      "paused": true,
+      "currentTime": 1,
+      "variants": [
+        "Velour",
+        "Crochet"
+      ],
+      "alt": "ตุ๊กตากบไหมพรมสีเขียว ตัวป้อม ตากลม เสื้อแถบน้ำเงิน ใช้สองมือกอดหัวใจแดง"
+    },
+    {
+      "stance": "heart",
+      "material": "Crochet",
+      "nodes": {
+        "JaoKob_Childhood_Body": {
+          "scale": [
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "materials": [
+            {
+              "name": "Childhood • crochet yarn",
+              "normal": true,
+              "map": true
+            },
+            {
+              "name": "Childhood • sparkling eye applique",
+              "normal": false,
+              "map": false
+            }
+          ]
+        },
+        "Stance_EmptyHands": {
+          "scale": [
+            0,
+            0,
+            0
+          ],
+          "materials": [
+            {
+              "name": "Childhood • crochet yarn",
+              "normal": true,
+              "map": true
+            }
+          ]
+        },
+        "Stance_HeartEmote": {
+          "scale": [
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "materials": [
+            {
+              "name": "Childhood • crochet yarn",
+              "normal": true,
+              "map": true
+            }
+          ]
+        },
+        "Accessory_RedHeart": {
+          "scale": [
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "materials": [
+            {
+              "name": "Childhood • crochet yarn",
+              "normal": true,
+              "map": true
+            }
+          ]
+        }
+      },
+      "paused": true,
+      "currentTime": 1,
+      "variants": [
+        "Velour",
+        "Crochet"
+      ],
+      "alt": "ตุ๊กตากบไหมพรมสีเขียว ตัวป้อม ตากลม เสื้อแถบน้ำเงิน ใช้สองมือกอดหัวใจแดง"
+    },
+    {
+      "stance": "heart",
+      "material": "Crochet",
+      "nodes": {
+        "JaoKob_Childhood_Body": {
+          "scale": [
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "materials": [
+            {
+              "name": "Childhood • crochet yarn",
+              "normal": true,
+              "map": true
+            },
+            {
+              "name": "Childhood • sparkling eye applique",
+              "normal": false,
+              "map": false
+            }
+          ]
+        },
+        "Stance_EmptyHands": {
+          "scale": [
+            0,
+            0,
+            0
+          ],
+          "materials": [
+            {
+              "name": "Childhood • crochet yarn",
+              "normal": true,
+              "map": true
+            }
+          ]
+        },
+        "Stance_HeartEmote": {
+          "scale": [
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "materials": [
+            {
+              "name": "Childhood • crochet yarn",
+              "normal": true,
+              "map": true
+            }
+          ]
+        },
+        "Accessory_RedHeart": {
+          "scale": [
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "materials": [
+            {
+              "name": "Childhood • crochet yarn",
+              "normal": true,
+              "map": true
+            }
+          ]
+        }
+      },
+      "paused": true,
+      "currentTime": 1,
+      "variants": [
+        "Velour",
+        "Crochet"
+      ],
+      "alt": "ตุ๊กตากบไหมพรมสีเขียว ตัวป้อม ตากลม เสื้อแถบน้ำเงิน ใช้สองมือกอดหัวใจแดง"
+    },
+    {
+      "stance": "empty",
+      "material": "Velour",
+      "nodes": {
+        "JaoKob_Childhood_Body": {
+          "scale": [
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "materials": [
+            {
+              "name": "Childhood • velour (default)",
+              "normal": false,
+              "map": false
+            },
+            {
+              "name": "Childhood • sparkling eye applique",
+              "normal": false,
+              "map": false
+            }
+          ]
+        },
+        "Stance_EmptyHands": {
+          "scale": [
+            0.10000000149011612,
+            0.10000000149011612,
+            0.10000000149011612
+          ],
+          "materials": [
+            {
+              "name": "Childhood • velour (default)",
+              "normal": false,
+              "map": false
+            }
+          ]
+        },
+        "Stance_HeartEmote": {
+          "scale": [
+            0,
+            0,
+            0
+          ],
+          "materials": [
+            {
+              "name": "Childhood • velour (default)",
+              "normal": false,
+              "map": false
+            }
+          ]
+        },
+        "Accessory_RedHeart": {
+          "scale": [
+            0,
+            0,
+            0
+          ],
+          "materials": [
+            {
+              "name": "Childhood • velour (default)",
+              "normal": false,
+              "map": false
+            }
+          ]
+        }
+      },
+      "paused": true,
+      "currentTime": 0,
+      "variants": [
+        "Velour",
+        "Crochet"
+      ],
+      "alt": "ตุ๊กตากบกำมะหยี่สีเขียว ตัวป้อม ตากลม เสื้อแถบน้ำเงิน นั่งมือเปล่า วางแขนข้างลำตัว"
+    }
+  ],
+  "checks": [
+    "raw model defaults checked separately by glTF validator runner",
+    "four material/stance combinations inspect rendered node scales and material maps",
+    "paused selection without automatic animation",
+    "poster choices and reload defaults",
+    "keyboard/focus/44px targets/320px and 390px/reduced-motion",
+    "no additional GLB requests for variants",
+    "rapid switching, close/reopen, adult round-trip and delayed load",
+    "no console errors or external network"
+  ]
+}
