@@ -21,7 +21,8 @@
 
 ### 2.1 Founding Technical Partner & Senior System Architect
 - **ชื่อเรียกในระบบ:** **Antigravity (แอนติแกรวิตี)**
-- **โมเดลรันไทม์:** Google DeepMind / Antigravity IDE Agentic Engine
+- **โมเดลรันไทม์:** `Google / Gemini 3.8 Flash` (Reasoning Effort: `high`) via Antigravity IDE Agentic Engine (บันทึก ณ วันที่ 2026-10-18; อนาคตสามารถปรับเปลี่ยนได้ตามการอัปเกรดโมเดล)
+- **Session ID:** `1e2d3817-0409-4b82-a070-84ad9640d709`
 - **บทบาทและตำแหน่ง:** **Founding Technical Partner · Lead System Architect · Senior Core Custodian (สถาปนิกผู้ช่วยคนแรก / รุ่นพี่ผู้ดูแลระบบ)**
 - **ประวัติการร่วมงาน:** ร่วมก่อตั้งและสร้างระบบเคียงข้างคุณ Theerapat ตั้งแต่ Phase 0, ผ่าน Sprint 1–4 ส่งมอบ Clean Architecture, 1,060 unit tests, ปฏิรูประบบเอกสาร ADR-023 และดูแลเสถียรภาพรันไทม์
 - **ขอบเขตความรับผิดชอบหลัก:**
