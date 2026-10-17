@@ -1,15 +1,17 @@
 {
   "model": "jaokob-childhood-crochet.glb",
-  "bytes": 598144,
+  "bytes": 704780,
   "byteBudget": 2000000,
-  "triangles": 13400,
+  "triangles": 15728,
   "triangleBudget": 25000,
-  "materials": 2,
-  "primitives": 3,
-  "nodes": 2,
+  "materials": 3,
+  "primitives": 5,
+  "nodes": 4,
   "nodeNames": [
     "Accessory_RedHeart",
-    "JaoKob_Childhood_Body"
+    "JaoKob_Childhood_Body",
+    "Stance_EmptyHands",
+    "Stance_HeartEmote"
   ],
   "images": [
     {
@@ -23,21 +25,36 @@
       "name": "childhood-crochet-color"
     }
   ],
-  "extensionsUsed": [],
+  "extensionsUsed": [
+    "KHR_materials_variants",
+    "KHR_materials_sheen"
+  ],
   "externalUris": [],
   "cameras": 0,
-  "animations": 0,
+  "animations": 1,
   "validator": {
     "uri": "jaokob-childhood-crochet.glb",
     "mimeType": "model/gltf-binary",
     "validatorVersion": "2.0.0-dev.3.10",
-    "validatedAt": "2026-10-14T06:07:45.867Z",
+    "validatedAt": "2026-10-17T22:11:59.323Z",
     "issues": {
       "numErrors": 0,
       "numWarnings": 0,
-      "numInfos": 2,
+      "numInfos": 6,
       "numHints": 0,
       "messages": [
+        {
+          "code": "UNUSED_MESH_TANGENT",
+          "message": "Tangents are not used because the material has no normal texture.",
+          "severity": 2,
+          "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+        },
+        {
+          "code": "UNUSED_MESH_TANGENT",
+          "message": "Tangents are not used because the material has no normal texture.",
+          "severity": 2,
+          "pointer": "/meshes/1/primitives/0/attributes/TANGENT"
+        },
         {
           "code": "UNUSED_MESH_TANGENT",
           "message": "Tangents are not used because the material has no normal texture.",
@@ -49,6 +66,18 @@
           "message": "This object may be unused.",
           "severity": 2,
           "pointer": "/meshes/1/primitives/1/attributes/TEXCOORD_0"
+        },
+        {
+          "code": "UNUSED_MESH_TANGENT",
+          "message": "Tangents are not used because the material has no normal texture.",
+          "severity": 2,
+          "pointer": "/meshes/2/primitives/0/attributes/TANGENT"
+        },
+        {
+          "code": "UNUSED_MESH_TANGENT",
+          "message": "Tangents are not used because the material has no normal texture.",
+          "severity": 2,
+          "pointer": "/meshes/3/primitives/0/attributes/TANGENT"
         }
       ],
       "truncated": false
@@ -56,12 +85,16 @@
     "info": {
       "version": "2.0",
       "generator": "Khronos glTF Blender I/O v5.2.40",
+      "extensionsUsed": [
+        "KHR_materials_variants",
+        "KHR_materials_sheen"
+      ],
       "resources": [
         {
           "pointer": "/buffers/0",
           "mimeType": "application/gltf-buffer",
           "storage": "glb",
-          "byteLength": 593616
+          "byteLength": 696144
         },
         {
           "pointer": "/images/0",
@@ -90,15 +123,15 @@
           }
         }
       ],
-      "animationCount": 0,
-      "materialCount": 2,
+      "animationCount": 1,
+      "materialCount": 3,
       "hasMorphTargets": false,
       "hasSkins": false,
       "hasTextures": true,
       "hasDefaultScene": true,
-      "drawCallCount": 3,
-      "totalVertexCount": 8172,
-      "totalTriangleCount": 13400,
+      "drawCallCount": 5,
+      "totalVertexCount": 9646,
+      "totalTriangleCount": 15728,
       "maxUVs": 1,
       "maxInfluences": 0,
       "maxAttributes": 5

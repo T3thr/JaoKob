@@ -1,4 +1,4 @@
-"""CR-0004 Milestone 1B: editable childhood crochet, Blender 5.2.2 LTS.
+"""ADR-P0-025: empty-handed velour with independent stance/material variants, Blender 5.2.2 LTS.
 
 Run this saved file in Blender Text Editor (Alt+P), or use -- --render.
 X right, -Y front, Z up; source unit = 0.1 m. No reference photos embedded.
@@ -10,8 +10,11 @@ import json
 import math
 from pathlib import Path
 import sys
+import struct
+import copy
 
 import bpy
+import bmesh
 from mathutils import Matrix, Vector
 
 P = {
@@ -20,11 +23,11 @@ P = {
     "lip_width": .54, "heart_width": .59, "heart_height": .91,
     "foot_forward": -1.02, "stitch_size": .09, "normal_strength": .60,
 }
-COLORS = {"green": (.47,.71,.43), "blue": (.12,.38,.78),
+COLORS = {"green": (.38,.64,.13), "blue": (.12,.38,.78),
           "white": (.98,.97,.925), "black": (.025,.035,.055),
           "lip": (.96,.30,.22), "crease": (.56,.12,.10), "heart": (.96,.025,.16)}
 SCENE_NAME = "JaoKob_Childhood_Spike"
-GENERATOR = "CR-0004-childhood-v1"
+GENERATOR = "ADR-P0-025-childhood-v2"
 RENDER_PREVIEWS = False
 
 
@@ -56,7 +59,7 @@ def arguments():
 def make_scene():
     old = bpy.data.scenes.get(SCENE_NAME)
     if old:
-        if old.get("generator") != GENERATOR:
+        if old.get("generator") not in (GENERATOR, "CR-0004-childhood-v1"):
             raise RuntimeError("A non-generated scene has this name; rename it first.")
         # Avoid unlinking an object shared with a manually created scene.
         for obj in list(old.objects):
@@ -68,7 +71,8 @@ def make_scene():
     bpy.context.window.scene = scene
     scene.unit_settings.system, scene.unit_settings.scale_length = "METRIC", .1
     collections = [bpy.data.collections.new(name) for name in (
-        "CHILDHOOD • editable body", "ACCESSORY • RedHeart • optional", "STUDIO • excluded from GLB")]
+        "CHILDHOOD • editable body", "ACCESSORY • RedHeart • optional",
+        "STANCE • EmptyHands", "STANCE • HeartEmote", "STUDIO • excluded from GLB")]
     for collection in collections:
         scene.collection.children.link(collection)
     return scene, *collections
@@ -165,6 +169,14 @@ def mesh_object(name, verts, faces, uvs, color, collection=None, mat=None):
             attribute.data[index].color = rgba
             uv_layer.data[index].uv = uvs[mesh.loops[index].vertex_index]
     mesh.color_attributes.active_color = attribute
+    # Join coincident seam/pole positions while retaining per-loop UV seams.
+    # Continuous vertex normals prevent a bright stripe on smooth velour.
+    bm = bmesh.new()
+    bm.from_mesh(mesh)
+    bmesh.ops.remove_doubles(bm, verts=list(bm.verts), dist=0.000001)
+    bm.to_mesh(mesh)
+    bm.free()
+    mesh.update()
     obj["part"] = name
     return obj
 
@@ -264,11 +276,24 @@ def make_body():
     mesh_object("Sweater_BlueWrapBand",verts,faces,uvs,"blue")
     for side,s in [("L",-1),("R",1)]:
         limb(side+"_ShortSleeve",[(s*.63,0,1.08),(s*.73,-.005,1.08),(s*.83,-.03,1.00),(s*.85,-.08,.94)],.164,"blue",steps=10)
+        # Author two mutually exclusive arm stances; neither is baked into the torso.
+        before=set(BODY.objects)
+        limb(side+"_RestingArm",[(s*.85,-.08,.94),(s*.90,-.23,.73),(s*.83,-.44,.45),(s*.83,-.56,.34)],.103)
+        ellipsoid(side+"_RestingPalm",(s*.83,-.59,.30),(.14,.13,.105),segments=20,rings=12)
+        for digit in range(3):
+            ellipsoid(f"{side}_RestingFinger_{digit+1}",(s*(.73+.095*digit),-.67-(1-abs(digit-1))*.025,.24),(.060,.105,.065),segments=12,rings=8)
+        for obj in sorted(set(BODY.objects)-before, key=lambda part: part.name):
+            BODY.objects.unlink(obj)
+            EMPTY.objects.link(obj)
+        before=set(BODY.objects)
         limb(side+"_HuggingArm",[(s*.85,-.08,.94),(s*1.0,-.35,.80),(s*.80,-.76,.78),(s*.48,-.99,.73)],.103)
         ellipsoid(side+"_Palm",(s*.49,-.99,.74),(.155,.11,.15),segments=20,rings=12)
         for digit in range(3):
             x=s*(.36+.095*digit)
             ellipsoid(f"{side}_Finger_{digit+1}",(x,-1.055,.80+(1-abs(digit-1))*.035),(.062,.085,.135),segments=12,rings=8)
+        for obj in sorted(set(BODY.objects)-before, key=lambda part: part.name):
+            BODY.objects.unlink(obj)
+            HUG.objects.link(obj)
         limb(side+"_SeatedLeg",[(s*.43,-.22,.29),(s*.54,-.48,.19),(s*.60,-.72,.15),(s*.66,P["foot_forward"]+.13,.16)],.115)
         foot = ellipsoid(side+"_FootPalm",(s*.69,P["foot_forward"],.20),(.21,.16,.15),segments=24,rings=12)
         for digit in range(3):
@@ -312,7 +337,7 @@ def make_heart():
     obj=mesh_object("RedHeart_EditableMesh",verts,faces,uvs,"heart",HEART)
     obj["accessory_id"]="red-heart"
     obj["optional"]=True
-    obj["default_visible"]=True
+    obj["default_visible"]=False
     return obj
 
 
@@ -325,12 +350,14 @@ def camera_view(cam,view):
 def export(scene,out):
     temporary=bpy.data.scenes.new("JaoKob_Childhood_Export")
     bpy.context.window.scene=temporary
-    for collection,name in [(BODY,"JaoKob_Childhood_Body"),(HEART,"Accessory_RedHeart")]:
+    for collection,name in [(BODY,"JaoKob_Childhood_Body"),(EMPTY,"Stance_EmptyHands"),(HUG,"Stance_HeartEmote"),(HEART,"Accessory_RedHeart")]:
         bpy.ops.object.select_all(action="DESELECT")
         copies=[]
-        for obj in collection.objects:
+        for obj in sorted(collection.objects, key=lambda part: part.name):
             copy=obj.copy()
             copy.data=obj.data.copy()
+            copy.hide_render=False
+            copy.hide_viewport=False
             copy.matrix_world=Matrix.Scale(.1,4)@obj.matrix_world
             temporary.collection.objects.link(copy)
             copies.append(copy)
@@ -346,43 +373,139 @@ def export(scene,out):
         # Keep only explicit, stable accessory metadata in exported extras.
         for key in list(merged.keys()): del merged[key]
         merged["asset_part"]="optional-heart" if collection==HEART else "body"
-        if collection==HEART: merged["default_visible"]=True
+        if collection==HEART: merged["default_visible"]=False
     bpy.ops.object.select_all(action="SELECT")
     destination=out/"model"/"jaokob-childhood-crochet.glb"
     bpy.ops.export_scene.gltf(filepath=str(destination),export_format="GLB",use_selection=True,use_active_scene=True,
         export_yup=True,export_apply=True,export_animations=False,export_cameras=False,export_lights=False,
         export_extras=True,export_texcoords=True,export_tangents=True)
+    add_glb_variants(destination)
     bpy.context.window.scene=scene
     for obj in list(temporary.objects): bpy.data.objects.remove(obj,do_unlink=True)
     bpy.data.scenes.remove(temporary)
     triangles=0
-    for obj in list(BODY.objects)+list(HEART.objects):
+    for obj in list(BODY.objects)+list(EMPTY.objects)+list(HUG.objects)+list(HEART.objects):
         obj.data.calc_loop_triangles()
         triangles+=len(obj.data.loop_triangles)
-    metrics={"change":"CR-0004","milestone":"1B","generator":GENERATOR,"blender":bpy.app.version_string,
-        "bodyParts":len(BODY.objects),"accessoryParts":len(HEART.objects),"sourceTriangles":triangles,
+    metrics={"change":"ADR-P0-025","milestone":"1C","generator":GENERATOR,"blender":bpy.app.version_string,
+        "bodyParts":len(BODY.objects),"emptyArmParts":len(EMPTY.objects),"heartArmParts":len(HUG.objects),"accessoryParts":len(HEART.objects),"sourceTriangles":triangles,
         "glbBytes":destination.stat().st_size,"byteBudget":2000000,"triangleBudget":25000,
         "withinBudget":triangles<=25000 and destination.stat().st_size<=2000000,
-        "nodeNames":["JaoKob_Childhood_Body","Accessory_RedHeart"],"normalTexture":[128,128],
+        "nodeNames":["JaoKob_Childhood_Body","Stance_EmptyHands","Stance_HeartEmote","Accessory_RedHeart"],
+        "defaultStance":"empty","defaultMaterial":"Velour","materialVariants":["Velour","Crochet"],
+        "stanceAnimation":{"name":"HeartEmote","emptyTime":0,"heartTime":1},"allStoredTriangles":triangles,"normalTexture":[128,128],
         "references":["front","side","back"],"referencePhotosEmbedded":False,"parameters":P}
+    data=destination.read_bytes()
+    document=json.loads(data[20:20+struct.unpack_from("<I",data,12)[0]])
+    counts={node["name"]:sum(document["accessors"][primitive["indices"]]["count"]//3
+        for primitive in document["meshes"][node["mesh"]]["primitives"]) for node in document["nodes"]}
+    metrics.update(trianglesByNode=counts,
+        defaultVisibleTriangles=counts["JaoKob_Childhood_Body"]+counts["Stance_EmptyHands"],
+        heartVisibleTriangles=counts["JaoKob_Childhood_Body"]+counts["Stance_HeartEmote"]+counts["Accessory_RedHeart"],
+        adultGreenSRGB=list(COLORS["green"]))
     (out/"evidence"/"childhood-model-metrics.json").write_text(json.dumps(metrics,indent=2)+"\n")
     if not metrics["withinBudget"]: raise RuntimeError("Childhood export exceeds milestone budget")
     return metrics
 
 
+def add_glb_variants(path):
+    """Portable glTF scale animation + KHR_materials_variants; no viewer internals.
+
+    STEP keys select complete arm poses, not an anatomical animation rig.
+    Zero-scale optional nodes are absent visually even in a generic GLB viewer.
+    """
+    data=path.read_bytes()
+    json_size=struct.unpack_from("<I",data,12)[0]
+    doc=json.loads(data[20:20+json_size])
+    binary=bytearray(data[28+json_size:])
+    yarn=next(i for i,m in enumerate(doc["materials"]) if "crochet yarn" in m["name"])
+    velour=copy.deepcopy(doc["materials"][yarn])
+    velour["name"]="Childhood • velour (default)"
+    velour.pop("normalTexture",None)
+    velour["pbrMetallicRoughness"].pop("baseColorTexture",None)
+    velour["pbrMetallicRoughness"]["roughnessFactor"]=.87
+    velour.setdefault("extensions",{})["KHR_materials_sheen"]={"sheenColorFactor":[.08,.08,.08],"sheenRoughnessFactor":.8}
+    velour_id=len(doc["materials"])
+    doc["materials"].append(velour)
+    doc.setdefault("extensionsUsed",[])
+    for extension in ["KHR_materials_variants","KHR_materials_sheen"]:
+        if extension not in doc["extensionsUsed"]: doc["extensionsUsed"].append(extension)
+    doc.setdefault("extensions",{})["KHR_materials_variants"]={"variants":[{"name":"Velour"},{"name":"Crochet"}]}
+    for mesh in doc["meshes"]:
+        for primitive in mesh["primitives"]:
+            if primitive["material"]==yarn:
+                primitive["material"]=velour_id
+                primitive.setdefault("extensions",{})["KHR_materials_variants"]={"mappings":[
+                    {"material":velour_id,"variants":[0]},{"material":yarn,"variants":[1]}]}
+    def accessor(values,kind,count,minimum=None,maximum=None):
+        binary.extend(b"\0"*((-len(binary))%4))
+        offset=len(binary)
+        binary.extend(struct.pack("<"+"f"*len(values),*values))
+        view=len(doc["bufferViews"])
+        doc["bufferViews"].append({"buffer":0,"byteOffset":offset,"byteLength":len(values)*4})
+        item={"bufferView":view,"componentType":5126,"count":count,"type":kind}
+        if minimum is not None: item.update(min=minimum,max=maximum)
+        index=len(doc["accessors"])
+        doc["accessors"].append(item)
+        return index
+    times=accessor([0,1,2],"SCALAR",3,[0],[2])
+    animation={"name":"HeartEmote","samplers":[],"channels":[]}
+    for index,node in enumerate(doc["nodes"]):
+        if node["name"]=="JaoKob_Childhood_Body": continue
+        scale=node.get("scale",[1,1,1])
+        empty=node["name"]=="Stance_EmptyHands"
+        # Preserve export's .1 scale, including when hidden by the initial pose.
+        initial=scale if empty else [0,0,0]
+        heart=[0,0,0] if empty else scale
+        node["scale"]=initial
+        output=accessor(initial+heart+heart,"VEC3",3)
+        sampler=len(animation["samplers"])
+        animation["samplers"].append({"input":times,"output":output,"interpolation":"STEP"})
+        animation["channels"].append({"sampler":sampler,"target":{"node":index,"path":"scale"}})
+    doc["animations"]=[animation]
+    doc["asset"]["extras"]={"authority":"ADR-P0-025","defaultStance":"empty","defaultMaterial":"Velour"}
+    doc["buffers"][0]["byteLength"]=len(binary)
+    encoded=json.dumps(doc,separators=(",",":"),ensure_ascii=False).encode()
+    encoded+=b" "*((-len(encoded))%4)
+    binary.extend(b"\0"*((-len(binary))%4))
+    path.write_bytes(struct.pack("<III",0x46546C67,2,28+len(encoded)+len(binary))+
+        struct.pack("<II",len(encoded),0x4E4F534A)+encoded+struct.pack("<II",len(binary),0x004E4942)+binary)
+
+
+def set_preview_state(stance="empty", surface="Velour"):
+    """Source equivalent of viewer state; hidden collections preserve editable parts."""
+    for collection,visible in [(EMPTY,stance=="empty"),(HUG,stance=="heart"),(HEART,stance=="heart")]:
+        collection.hide_render=not visible
+        collection.hide_viewport=not visible
+    for collection in [BODY,EMPTY,HUG,HEART]:
+        for obj in collection.objects:
+            if obj.data.materials[0] != EYES:
+                obj.data.materials[0]=VELOUR if surface=="Velour" else YARN
+    bpy.context.scene["default_stance"]="empty"
+    bpy.context.scene["default_material"]="Velour"
+    bpy.context.scene["velour_material"]=VELOUR.name
+    bpy.context.scene["crochet_material"]=YARN.name
+
+
 def main():
-    global BODY,HEART,YARN,EYES
+    global BODY,HEART,EMPTY,HUG,YARN,EYES,VELOUR
     args=arguments()
     out=args.output.resolve()
     for directory in ["model","textures","renders/childhood","evidence"]: (out/directory).mkdir(parents=True,exist_ok=True)
-    scene,BODY,HEART,studio=make_scene()
+    scene,BODY,HEART,EMPTY,HUG,studio=make_scene()
     YARN=material("Childhood • crochet yarn",crochet_normal(out))
+    YARN.use_fake_user=True
+    VELOUR=studio_helpers.material("Childhood • velour (default)",.87,.08)
     EYES=material("Childhood • sparkling eye applique",roughness=.36)
     make_body()
     make_heart()
     cam=studio_helpers.setup_studio(scene,studio,args.samples)
     camera_view(cam,"three-quarter")
     metrics=export(scene,out)
+    set_preview_state()
+    helper=bpy.data.texts.get("Childhood_Variants.py") or bpy.data.texts.new("Childhood_Variants.py")
+    helper.clear()
+    helper.write(SOURCE.with_name("childhood_variants.py").read_text())
     for screen in bpy.data.screens:
         for area in screen.areas:
             if area.type=="VIEW_3D":
@@ -400,6 +523,16 @@ def main():
                 bpy.data.images["Render Result"].save_render(str(out/"renders"/"childhood"/"poster.jpg"),scene=scene)
                 scene.render.image_settings.file_format="PNG"
         camera_view(cam,"three-quarter")
+        for stance in ["empty","heart"]:
+            for surface in ["Velour","Crochet"]:
+                if stance=="empty" and surface=="Velour": continue
+                set_preview_state(stance,surface)
+                scene.render.filepath=str(out/"renders"/"childhood"/f"{stance}-{surface.lower()}.png")
+                bpy.ops.render.render(write_still=True)
+                scene.render.image_settings.file_format="JPEG"
+                bpy.data.images["Render Result"].save_render(str(out/"renders"/"childhood"/f"poster-{stance}-{surface.lower()}.jpg"),scene=scene)
+                scene.render.image_settings.file_format="PNG"
+        set_preview_state()
     print("JAOKOB_CHILDHOOD_METRICS "+json.dumps(metrics))
 
 

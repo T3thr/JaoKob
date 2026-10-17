@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { writeFile } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 const { chromium } = await import(process.env.JKB_PLAYWRIGHT_PATH ? pathToFileURL(process.env.JKB_PLAYWRIGHT_PATH).href : 'playwright');
-const base = 'http://127.0.0.1:4174';
+const base = process.env.JKB_PREVIEW_URL ?? 'http://127.0.0.1:4174';
 const evidence = new URL('../evidence/', import.meta.url);
 const browser = await chromium.launch({ headless: true });
 const context = await browser.newContext({ viewport: { width: 1280, height: 960 } });
