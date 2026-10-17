@@ -3,7 +3,7 @@
 Status: **Accepted — binding architectural and documentation governance for Sprint 5 and beyond**
 
 Date: 2026-10-18. Authority: **PO Directive & Lead Architect**. Version: 1.0.0.  
-Branch: `feat/sprint-05-planning-ssot` · Baseline Commit: `2f24d9c`
+Branch: `feat/sprint-05-planning-ssot` · Baseline Commit: `2f24d9c` · Ratification Commit: `53b5bcd`
 
 ---
 

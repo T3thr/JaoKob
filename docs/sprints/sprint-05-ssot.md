@@ -282,6 +282,8 @@ The current static checker pins S4 manifest/rollback `bc167d3` and excludes GLB/
 
 | Record | Status |
 |---|---|
+| [ADR-P0-023](../adr/ADR-P0-023-documentation-hygiene-and-ssot-hierarchy.md) | Accepted; Four-Tier Authority Hierarchy & Historical Archive tagging (commit `53b5bcd`) |
+| [CR-20261018-0145](../changelog/2026-10/2026-10-18-0145-documentation-governance-and-ssot-hierarchy.md) | Documentation governance, deprecation banners, SSOT hierarchy (commit `53b5bcd`) |
 | [ADR-P0-022](../adr/ADR-P0-022-visual-novel-ergonomics-living-keepsake-lore-and-sprint-streamlining.md) | Accepted PO direction; supplied file preserved unchanged |
 | [CR-20261018-0023](../changelog/2026-10/2026-10-18-0023-sprint-05-adr022-replanning.md) | This four-slice/lore/UI/Save2 planning revision; Draft PR #18 |
 | [CR-0006](../rfc/CR-0006-sprint-05-complete-story-and-package-boundaries.md) | Revised execution design under ADR22; old ten-PR/Save3/automatic lore bridge proposals retired |

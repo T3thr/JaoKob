@@ -6,7 +6,7 @@
 - **Operator:** Codex / Senior Software Architect, Lead Interactive Fiction Director
 - **Status:** Delivered under PO Directive; ADR-P0-023 ratified, historical warning banners applied, 4-tier hierarchy enforced
 - **Authority:** PO Directive regarding stale documentation crisis (Phase 0 biological tadpole/gills/4-hour playtime tropes conflicting with active ADR-022 living keepsake lore)
-- **Baseline/branch:** `2f24d9c` on `feat/sprint-05-planning-ssot`; runtime/develop remains `d1af293`; identity `T3thr <t.theerapat33@gmail.com>` verified
+- **Baseline/branch:** `2f24d9c` on `feat/sprint-05-planning-ssot`; ratification commit `53b5bcd`; runtime/develop remains `d1af293`; identity `T3thr <t.theerapat33@gmail.com>` verified
 
 ---
 
