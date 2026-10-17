@@ -282,6 +282,7 @@ The current static checker pins S4 manifest/rollback `bc167d3` and excludes GLB/
 
 | Record | Status |
 |---|---|
+| [CR-20261018-0508](https://github.com/T3thr/JaoKob/blob/feat/sprint-05-childhood-stance-material/docs/changelog/2026-10/2026-10-18-0508-childhood-stance-material-decoupling.md) | ADR-P0-025 asset correction delivered in isolated [Draft PR #19](https://github.com/T3thr/JaoKob/pull/19): empty-handed/velour default, independent heart/crochet controls; GLB 704,780 bytes / 15,728 triangles, validator 0 errors/0 warnings, 1,060 regression passes. PO visual review/merge pending. This actual PR #19 is the exceptional asset correction, **not** the planned Slice1 PR number above; production WBS remains 0/20. |
 | [ADR-P0-023](../adr/ADR-P0-023-documentation-hygiene-and-ssot-hierarchy.md) | Accepted; Four-Tier Authority Hierarchy & Historical Archive tagging (commit `53b5bcd`) |
 | [CR-20261018-0145](../changelog/2026-10/2026-10-18-0145-documentation-governance-and-ssot-hierarchy.md) | Documentation governance, deprecation banners, SSOT hierarchy (commit `53b5bcd`) |
 | [ADR-P0-022](../adr/ADR-P0-022-visual-novel-ergonomics-living-keepsake-lore-and-sprint-streamlining.md) | Accepted PO direction; supplied file preserved unchanged |
