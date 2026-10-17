@@ -8,6 +8,7 @@
 | Authority | คำสั่ง PO ในเซสชันนี้ให้ศึกษา วิจัย และจัดทำแผนก่อนเริ่มพัฒนาจริง; ADR-P0-019/020/021 เป็นข้อผูกพันเดิม |
 | Baseline | `develop@d1af293`; Sprint 4 implementation merge `4c0bd28` / PR #17; ตรวจ remote แล้วตรงกัน |
 | Planning branch | `feat/sprint-05-planning-ssot`; contributor `T3thr <t.theerapat33@gmail.com>` |
+| Planning PR | [#18](https://github.com/T3thr/JaoKob/pull/18), Draft → `develop`; แยกจากสิบ execution PRs |
 | Assessment / RFC | [Readiness assessment](../proposals/sprint-05-planning/01-readiness-assessment.md), [CR-0006](../rfc/CR-0006-sprint-05-complete-story-and-package-boundaries.md) |
 | Verified now | 1,060/1,060 existing unit tests; 1,096 **design** trajectories across 8 contexts; [evidence](../proposals/sprint-05-planning/evidence/planning-verification.json) |
 | Owners | PO, Senior Software Architect, Principal Game Designer, Lead Narrative Director, UI/Accessibility, Art/Audio, QA/DevOps |
@@ -307,7 +308,7 @@ Paths เป็น placeholders ของ tool runtime และ evidence direct
 
 | Record | Change / status |
 |---|---|
-| `CR-20261017-1808` | [Planning delivery](../changelog/2026-10/2026-10-17-1808-sprint-05-planning-ssot.md): baseline study, SSOT/CR/assessment/evidence; docs-only, PO discussion pending |
+| `CR-20261017-1808` | [Planning delivery](../changelog/2026-10/2026-10-17-1808-sprint-05-planning-ssot.md): baseline study, SSOT/CR/assessment/evidence; [Draft PR #18](https://github.com/T3thr/JaoKob/pull/18), docs-only, PO discussion pending |
 | `CR-0006` | [Cross-layer proposal](../rfc/CR-0006-sprint-05-complete-story-and-package-boundaries.md); open technical/detail decisions, not an Accepted ADR |
 | `CR-20261017-1400` | [Sprint4 closeout](../changelog/2026-10/2026-10-17-1400-sprint-04-slice-05-closeout.md); PR17 merged4c0bd28, governance d1af293 |
 

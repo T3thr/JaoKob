@@ -1,6 +1,6 @@
 # Sprint 5 planning evidence
 
-Baseline: `d1af29314d4497e2c37727282a5c7fc3e31333eb`, 2026-10-17. Scope: planning and documentation. [SSOT](../../../sprints/sprint-05-ssot.md), [assessment](../01-readiness-assessment.md), [audit](../../../changelog/2026-10/2026-10-17-1808-sprint-05-planning-ssot.md).
+Baseline: `d1af29314d4497e2c37727282a5c7fc3e31333eb`, 2026-10-17. Scope: planning and documentation, [Draft PR #18](https://github.com/T3thr/JaoKob/pull/18). [SSOT](../../../sprints/sprint-05-ssot.md), [assessment](../01-readiness-assessment.md), [audit](../../../changelog/2026-10/2026-10-17-1808-sprint-05-planning-ssot.md).
 
 | File | Meaning |
 |---|---|

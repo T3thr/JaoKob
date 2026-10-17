@@ -60,7 +60,7 @@
   },
   "documentationChecks": {
     "status": "PASS",
-    "checkedAt": "2026-10-17T18:27:44+07:00",
+    "checkedAt": "2026-10-17T20:01:09+07:00",
     "method": "Temporary planning audit script: Markdown relative targets/heading fragments, explicit baseline IDs, WBS/matrix/TC references, declared dependency DAG, archive and baseline Git hashes, docs-only diff and git whitespace checks. No browser rendering or semantic proof of prose is implied.",
     "markdownFiles": 9,
     "relativeLinks": 135,
@@ -140,5 +140,16 @@
     "Merge, tag, release or deployment"
   ],
   "migration": "No runtime, schema, content, asset or save changes in this planning delivery.",
-  "rollback": "Reviewable revert of this documentation PR; no save migration or destructive Git action."
+  "rollback": "Reviewable revert of this documentation PR; no save migration or destructive Git action.",
+  "remoteDelivery": {
+    "pullRequest": "https://github.com/T3thr/JaoKob/pull/18",
+    "base": "develop",
+    "head": "feat/sprint-05-planning-ssot",
+    "stateAtCreation": "OPEN",
+    "draft": true,
+    "planningCommit": "37c91da48bd0fb2bb3b425bc68eb5aa514030b41",
+    "authenticatedAccount": "T3thr",
+    "attachedToCodexChat": true,
+    "mergeOrDeploymentPerformed": false
+  }
 }
