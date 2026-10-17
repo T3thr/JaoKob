@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "1.0.0",
+  "contentVersion": "2.1.0",
+  "locale": "th",
+  "choices": [
+    {
+      "actionId": "interaction.act1.observe-lily",
+      "intent": {
+        "th": "มองแสง"
+      },
+      "icon": "ripple",
+      "skin": "paper"
+    },
+    {
+      "actionId": "interaction.act1.observe-roots",
+      "intent": {
+        "th": "ฟังรอบตัว"
+      },
+      "icon": "roots",
+      "skin": "paper"
+    },
+    {
+      "actionId": "interaction.act1.observe-shadows",
+      "intent": {
+        "th": "คอยดู"
+      },
+      "icon": "ripple",
+      "skin": "paper"
+    },
+    {
+      "actionId": "interaction.act1.observe-mother",
+      "intent": {
+        "th": "ฟังแม่"
+      },
+      "icon": "ripple",
+      "skin": "paper"
+    },
+    {
+      "actionId": "interaction.act1.join-family",
+      "intent": {
+        "th": "กลับไปด้วยกัน"
+      },
+      "icon": "ripples",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.focus-mother",
+      "intent": {
+        "th": "ใกล้ชิด"
+      },
+      "icon": "ripple",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.focus-roots",
+      "intent": {
+        "th": "รับฟัง"
+      },
+      "icon": "roots",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.focus-siblings",
+      "intent": {
+        "th": "เล่นด้วยกัน"
+      },
+      "icon": "ripples",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.call-family",
+      "intent": {
+        "th": "เรียกหา"
+      },
+      "icon": "ripple",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.seek-safety",
+      "intent": {
+        "th": "ตั้งหลัก"
+      },
+      "icon": "roots",
+      "skin": "paper"
+    },
+    {
+      "actionId": "interaction.act1.inspect-fragment",
+      "intent": {
+        "th": "มองให้ชัด"
+      },
+      "icon": "ripple",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.keep-fragment",
+      "intent": {
+        "th": "เก็บไว้"
+      },
+      "icon": "pouch",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.release-fragment",
+      "intent": {
+        "th": "ปล่อยไป"
+      },
+      "icon": "ripple",
+      "skin": "paper"
+    }
+  ],
+  "items": [],
+  "backgrounds": [
+    {
+      "assetId": "asset.image.act1-morning-pond",
+      "crop": {
+        "portrait": {
+          "x": 53,
+          "y": 50
+        },
+        "landscape": {
+          "x": 50,
+          "y": 60
+        }
+      }
+    }
+  ]
+}

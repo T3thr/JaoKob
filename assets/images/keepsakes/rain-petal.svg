@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="160" viewBox="0 0 200 160" fill="none">
+  <defs><linearGradient id="petal" x1="83" y1="36" x2="132" y2="124" gradientUnits="userSpaceOnUse"><stop stop-color="#ecd1c0"/><stop offset=".6" stop-color="#dcbca8"/><stop offset="1" stop-color="#c3b797"/></linearGradient></defs>
+  <ellipse cx="104" cy="137" rx="41" ry="4" fill="#877a61" opacity=".08"/>
+  <path d="M60 110C54 87 76 59 113 28C113 53 145 71 145 95C144 117 120 135 96 130C79 128 66 120 60 110Z" fill="url(#petal)" stroke="#ae8d79" stroke-width="1.7"/>
+  <path d="M93 124C104 100 108 76 113 39M71 105C83 99 96 88 104 76M110 106C120 98 130 91 136 81" stroke="#f6e6d4" stroke-width="1.7" stroke-linecap="round"/>
+  <path d="M73 93C68 102 67 105 70 109C74 115 83 110 81 104C80 100 76 96 73 93Z" fill="#dfe7d8" stroke="#9cafa4" stroke-width="1.2"/>
+  <path d="M72 103L73 106" stroke="#fffaf0" stroke-width="2" stroke-linecap="round"/>
+</svg>

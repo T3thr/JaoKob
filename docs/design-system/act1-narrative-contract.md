@@ -1,6 +1,6 @@
 # Act 1 narrative and content 3 contract
 
-Version 1.1.0 · 2026-10-16 · CR-0005 D2/D4/D5; ADR-P0-021 D1–D6 · Sprint 4 Slice 4, T7/T8 · existing PR #16.
+Version 1.2.0 · 2026-10-17 · CR-0005 D2/D4/D5; ADR-P0-021 D1–D6 · mergedPR16 narrative with prospective Slice5/PR17 promotion disposition.
 
 ## ADR-P0-021 remediation contract (before implementation)
 
@@ -25,9 +25,9 @@ DoR is satisfied for the authored candidate: IDs, pure predicates/transactions, 
 
 `src/data/content/packages/act-01.json` becomes **content 3.0.0 / package and tree schema 2.0.0**, an executable review candidate. Archive the exact prior bytes at `src/data/content/compatibility/act-01-2.1.0.json`. Published schema bytes remain immutable; add versioned common/tree/package contracts. The existing application accepts the new candidate through its content port and is exercised with real storage/DOM/browser tests.
 
-The normal entry point stays explicitly pinned to archived 2.1 until Slice 5 T9/T10 promotes the candidate together with art/catalog and reviewed migration. This is the fixed five-PR matrix's integration boundary, not permission to defer the actual rewrite. Existing 935 assertions use the archived baseline; their assertions and historical 14-node/21-edge/12-outcome expectations remain intact. New graph evidence is separate.
+At Slice4 delivery the normal entry point stayed explicitly pinned to archived2.1. Slice5 now promotes content3 for New Game with the [reviewed continuation policy](sprint-04-closeout-contract.md): exact archived2.1 resumes and writes on its own graph; no2.1→3 cursor/checkpoint conversion occurs. This is the fixed five-PR matrix's integration boundary, not permission to defer the actual rewrite. Existing 935 assertions use the archived baseline; their assertions and historical 14-node/21-edge/12-outcome expectations remain intact. New graph evidence is separate.
 
-Save format remains **2**, schema 2.0.0. New version-3 Save 2 records round-trip unchanged; never apply the legacy leaf transform to them. Format 1/content 3 is unsupported. No guessed 2.1→3 cursor conversion: every old node/dialogue retains its semantic ID, but rewritten prose and inserted branches are not byte-equivalent read positions. Slice 5 must either prove an explicit cursor map or retain compatible 2.1 continuation. Until then old records remain protected by the existing version/write guards. No on-enter replay, retroactive items or invented secret completion.
+Save format remains **2**, schema 2.0.0. New version-3 Save 2 records round-trip unchanged; never apply the legacy leaf transform to them. Format 1/content 3 is unsupported. No guessed 2.1→3 cursor conversion: every old node/dialogue retains its semantic ID, but rewritten prose and inserted branches are not byte-equivalent read positions. Slice5 selects compatible2.1 continuation. Current3 and legacy2.1 saves retain their independent cursor/checkpoint facts and are protected from cross-generation writes, including higher-revision and raw-record races. No on-enter replay, retroactive items or invented secret completion.
 
 ## Authored data and pure execution
 
@@ -70,3 +70,7 @@ T8 supplies reachable self-reliant/cautious trajectories and a Core-backed desig
 ## Review findings applied within the authorized slice
 
 Actual screenshot inspection found inherited320px/200% HUD crowding and long decorative fallback text. The single capsule now wraps meters/utilities, illustrations reserve128px and small slots use a concise localized fallback; full item prose remains in inspection. Actual browser checks were rerun. Core review also fixed target-guard ordering so it evaluates the post-pouch candidate atomically; a rejection still returns the original snapshot. Final evidence is990unit cases,974route witnesses,12legacy routes and21candidate captures; these are implementation evidence, not human editorial/AT acceptance.
+
+## Slice5 promotion disposition (2026-10-17, CR-20261017-1400)
+
+All28 nodes/47 edges/70 dialogues/30 authored actions, their effects and story strings remain byte-equivalent in meaning and structure to mergedPR16; only five original asset records are appended. Production New Game uses content3/schema2/Save2, its strict presentation catalog and artwork registry. Exact archived2.1 remains immutable and lazily admitted when old saves require it. Refer to the closeout contract for supported Save1 chains, corrupt/future/mixed records, settings, guarded writes and rollback. ADR-P0-021 and the Act2–5/Sprint5 gift handoff remain unchanged; no later-act runtime or3D is introduced.

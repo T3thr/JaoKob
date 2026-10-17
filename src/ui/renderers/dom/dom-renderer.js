@@ -195,7 +195,7 @@ export function createDomRenderer(optionsOrRoot) {
           const scroll = modal?.scrollRegion?.scrollTop ?? 0;
           modal?.close(); modal?.element.remove?.();
           const createDialog = nextModalKind === "history" ? createHistoryDialog : nextModalKind === "pouch" ? createKeepsakePouchDialog : nextModalKind === "advisory" ? createContentAdvisoryDialog : nextModalKind === "settings" ? createSettingsDialog : createConfirmationDialog;
-          modal = createDialog({ document: activeScaffold.document, viewModel, message: (key) => message(messages, key), onIntent: emitIntent });
+          modal = createDialog({ document: activeScaffold.document, viewModel, message: (key) => message(messages, key), onIntent: emitIntent, loadImage: options.loadImage });
           // Replacing this container also works in the injected minimal DOM.
           activeScaffold.content.replaceChildren(gameShell.element, modal.element);
           modal.open(hadModal && previousModalKind === nextModalKind ? focusSetting : nextModalKind === "settings" ? viewModel.focusSetting : null,
@@ -852,14 +852,14 @@ function buildChoices(document, viewModel, messages, emitIntent) {
       },
       text: label,
     });
-    if (mode === "decision" || choice.id === "application.advance") {
+    if (mode === "decision" || choice.intentText || choice.id === "application.advance") {
       const copy = createElement(document, "span", { classNames: ["jk-choice-copy"] });
       copy.append(createElement(document, "span", { classNames: ["jk-choice-label"], text: label }));
+      if (choice.intentText) copy.append(createElement(document, "span", { classNames: ["jk-choice-intent"], text: choice.intentText }));
       button.textContent = "";
-      if (mode === "decision") {
-        const names = { "choice.act1.focus-mother": "ripple", "choice.act1.focus-roots": "roots", "choice.act1.focus-siblings": "ripples" };
+      if (mode === "decision" || choice.intentText) {
         const icon = createElement(document, "span", { classNames: ["jk-choice-icon"], attributes: { "aria-hidden": "true" } });
-        icon.append(createChromeIcon(document, names[choice.id] ?? "ripple")); button.append(icon);
+        icon.append(createChromeIcon(document, choice.iconName ?? "ripple")); button.append(icon);
       }
       const cue = createElement(document, "span", { classNames: ["jk-choice-cue"], attributes: { "aria-hidden": "true" } });
       cue.append(createChromeIcon(document, "chevron")); button.append(copy, cue);
@@ -878,6 +878,12 @@ function buildChoices(document, viewModel, messages, emitIntent) {
       });
     });
     item.append(button);
+    const descriptions = [];
+    if (choice.cue) {
+      const cueId = `jk-choice-outcome-${buttons.length + 1}`;
+      item.append(createElement(document, "p", { classNames: ["jk-choice-outcome"], attributes: { id: cueId }, text: readString(choice.cue) }));
+      descriptions.push(cueId);
+    }
 
     const unavailableReason = readString(choice.unavailableReason) || readString(choice.reason);
     if (disabled && unavailableReason) {
@@ -887,9 +893,10 @@ function buildChoices(document, viewModel, messages, emitIntent) {
         attributes: { id: reasonId },
         text: unavailableReason,
       });
-      button.setAttribute("aria-describedby", reasonId);
+      descriptions.push(reasonId);
       item.append(reason);
     }
+    if (descriptions.length) button.setAttribute("aria-describedby", descriptions.join(" "));
 
     list.append(item);
     buttons.push(Object.freeze({ element: button, disabled }));

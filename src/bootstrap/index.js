@@ -1,14 +1,10 @@
-import { createContentOrchestrator } from "../core/use-cases/content-orchestration.js";
 import { createSessionHistory, reduceSessionHistory } from "../core/use-cases/session-history.js";
 import { planGameStateTransition } from "../core/state-machine/game-state.js";
 import { assertRendererPort } from "../core/ports/renderer-port.js";
 import { assertStoragePort } from "../core/ports/storage-port.js";
-import { loadGameContent } from "../data/content/content-runtime.js";
 import { projectContentView } from "../data/content/content-view-model.js";
 import { projectContentPresentation } from "../data/content/content-presentation.js";
 import { projectHistoryAction } from "../data/content/history-projection.js";
-import { createContentVersionMigration } from "../data/migrations/content-2-0-0-to-2-1-0.js";
-import { migrateSave1To2 } from "../data/persistence/save-1-to-2.js";
 import { TH_APPLICATION as messages } from "../data/localization/th-application.js";
 import { createLocalStorageAdapter, createLocalSettingsAdapter } from "../data/persistence/local-storage-adapter.js";
 import { createLocalUiPreferencesAdapter, DEFAULT_UI_PREFERENCES } from "../data/persistence/local-ui-preferences-adapter.js";
@@ -16,6 +12,7 @@ import { validateGameSettings, CURRENT_SAVE_FORMAT_VERSION } from "../data/valid
 import { deepFreeze } from "../data/validation/content-values.js";
 import { createDomRenderer } from "../ui/renderers/dom/dom-renderer.js";
 import { createMediaComposition } from "./media-composition.js";
+import { createContentSessions } from "./content-sessions.js";
 
 /** Composition root. Trace: CR-0002 D3/D4, ADR-P0-014, FR-SAV-006, FR-ENG-008. */
 const failure = (code) => Object.freeze({ ok: false, error: Object.freeze({ code }) });
@@ -40,7 +37,7 @@ export function createGameApplication(options = {}) {
   let mode = "title", confirmation = null, notice = null, feedbackActionId = null, meterChanges = [];
   let memoryOnly = false, fatal = false, booted = false, busy = false, lastViewModel = null;
   let viewRevision = 0, revisionFloor = 0, lastAt = null, operation = Promise.resolve();
-  let migration = null, migrationAttempted = false, mediaRefreshPending = false, disposed = false;
+  let sessions, activeSession, resumeSession, mediaRefreshPending = false, disposed = false;
   let preferences = DEFAULT_UI_PREFERENCES, advisoryOpen = false, pouchOpen = false, preferenceStatusText = "";
   let requestedSettingsFocus = null;
   let requestedChoiceFocus = null, audibleMaster = 1, feedbackEventId = null;
@@ -116,7 +113,7 @@ export function createGameApplication(options = {}) {
     const facts = snapshot ? orchestrator.facts(snapshot) : null;
     if (projectMedia) media.accept({ ...projectContentPresentation({ loaded, snapshot, facts, settings, mode }), facts });
     lastViewModel = projectContentView({ loaded, snapshot, facts,
-      settings, notice, feedbackActionId, feedbackEventId, meterChanges, mode, hasResume: Boolean(resumeEnvelope), memoryResume: memoryOnly,
+      settings, notice: notice ?? (loaded.presentationStatus === "unavailable" ? messages.presentationUnavailable : null), feedbackActionId, feedbackEventId, meterChanges, mode, hasResume: Boolean(resumeEnvelope), memoryResume: memoryOnly,
       confirmation, preferences, advisoryOpen, pouchOpen, pouchOpportunity: snapshot ? orchestrator.pouchOpportunity(snapshot) : null,
       sessionHistory, historyOpen, historyPresentationId, feedbackNodeId,
       preferenceStatusText, focusSetting: requestedSettingsFocus, viewRevision: ++viewRevision, ...media.status() });
@@ -130,29 +127,16 @@ export function createGameApplication(options = {}) {
     await invoke(renderer, "announce", { text: [lastViewModel.feedback, notice].filter(Boolean).join(" "), meterChanges: lastViewModel.meterChanges });
     return success();
   }
-  function prepareEnvelope(envelope) {
-    if (envelope.contentVersion !== loaded.catalog.version) {
-      if (!migration || envelope.saveFormatVersion !== 1) return failure("SAVE_MIGRATION");
-      const prior = migration.migrate(envelope);
-      if (!prior.ok) return prior;
-      envelope = prior.value.envelope;
-    }
-    const result = migrateSave1To2(envelope);
-    if (!result.ok) return result;
-    const target = result.value.envelope;
-    return orchestrator.validateSnapshot({ ...target.payload, revision: target.revision }).ok ? result : failure("SAVE_MIGRATION");
+  function activateSession(session) {
+    if (activeSession === session) return;
+    activeSession = session; loaded = session.loaded; orchestrator = session.orchestrator;
+    void media.initialize(loaded);
   }
-  function compatible(envelope) { return prepareEnvelope(envelope).ok; }
-  async function prepareMigration(candidates) {
-    if (migrationAttempted || loaded.catalog.version !== "2.1.0" || !candidates.some((item) => item.envelope.contentVersion === "2.0.0")) return;
-    migrationAttempted = true;
-    const source = await loadGameContent({ ...options, content: options.migrationSourcePackage,
-      packageSource: new URL("../data/content/compatibility/act-01-2.0.0.json", import.meta.url).href,
-      expectedContentVersion: "2.0.0", testReferenceIds: loaded.testReferenceIds });
-    if (!source.valid) return; // Unknown input stays read-only; no heuristic migration.
-    const proof = createContentVersionMigration({ sourcePackage: source.packageData, targetPackage: loaded.packageData,
-      testReferenceIds: loaded.testReferenceIds });
-    if (proof.ok) migration = proof.value;
+  function compatible(envelope) {
+    const result = sessions?.admit(envelope);
+    // Admission of an archive does not authorize a current session to overwrite
+    // another content generation. Stage/commit recheck this same write guard.
+    return result?.ok === true && result.value.session === activeSession;
   }
   async function recover() {
     const result = await invoke(storage, "recoverCandidates", { captureConsent: true });
@@ -162,15 +146,16 @@ export function createGameApplication(options = {}) {
       return { unavailable: true, hasRecords: false };
     }
     const { candidates, rejected, consentToken } = result.value;
-    await prepareMigration(candidates);
-    const candidate = candidates.find((item) => compatible(item.envelope));
+    await sessions.prepare(candidates);
+    const prepared = candidates.map(item => sessions.admit(item.envelope));
+    const candidate = prepared.find(result => result.ok);
     revisionFloor = Math.max(revisionFloor, ...candidates.map((item) => item.envelope.revision));
-    const protectedRecords = rejected.length > 0 || candidates.some((item) => !compatible(item.envelope));
+    const protectedRecords = rejected.length > 0 || prepared.some(result => !result.ok || result.value.session !== candidate?.value.session);
     // Recovery is read-only. Even a valid backup must not overwrite a corrupt
     // or newer incompatible record without a separate player decision.
     if (protectedRecords) { memoryOnly = true; notice = candidate ? messages.recoveredMemory : messages.protected; }
     if (candidate && !resumeEnvelope) {
-      resumeEnvelope = prepareEnvelope(candidate.envelope).value.envelope;
+      resumeEnvelope = candidate.value.envelope; resumeSession = candidate.value.session;
       settings = { ...resumeEnvelope.settings };
       if (!protectedRecords) notice = messages.recovered;
     }
@@ -193,6 +178,7 @@ export function createGameApplication(options = {}) {
       revision, createdAt: snapshot.startedAt, savedAt: at, reason, payload, settings: { ...settings } });
     if (!compatible(envelope)) return presentFatal("SAVE_SCHEMA");
     resumeEnvelope = envelope;
+    resumeSession = activeSession;
     if (!memoryOnly) {
       // A record may have appeared since boot (for example in another tab).
       // Inspect all slots again before allowing any replacement attempt.
@@ -216,6 +202,7 @@ export function createGameApplication(options = {}) {
   }
   async function startSession() {
     if (revisionFloor >= Number.MAX_SAFE_INTEGER) return failure("REVISION_OVERFLOW");
+    activateSession(sessions.primary);
     const at = time();
     const started = orchestrator.start({ sessionId: sessionIdFactory(), at, revision: revisionFloor + 1 });
     if (!started.ok) return started;
@@ -227,12 +214,11 @@ export function createGameApplication(options = {}) {
   }
   async function bootInternal() {
     if (booted) return failure("ALREADY_BOOTED");
-    loaded = await loadGameContent(options);
-    if (!loaded.valid) return presentFatal(loaded.errors[0].code);
+    sessions = await createContentSessions(options);
+    if (!sessions.valid) return presentFatal(sessions.errors[0].code);
+    activateSession(sessions.primary);
     if (!loaded.catalog.pouchPolicy) return presentFatal("CONTENT_CAPABILITY");
-    orchestrator = createContentOrchestrator(loaded.catalog, { pouchEnabled: true });
     settings = { ...loaded.catalog.defaults.settings };
-    void media.initialize(loaded);
     const admission = planGameStateTransition({ snapshot: null, event: "BOOT_COMPLETED", context: { contentValid: true, applicationComposed: true } });
     if (!admission.ok) return presentFatal("CONTENT_TRANSITION");
     const recovered = await recover();
@@ -344,6 +330,7 @@ export function createGameApplication(options = {}) {
         return startSession();
       }
       case "application.resume": {
+        activateSession(resumeSession);
         const resumed = orchestrator.resume({ ...resumeEnvelope.payload, revision: resumeEnvelope.revision });
         if (!resumed.ok) return resumed;
         snapshot = resumed.value.snapshot; lastAt = time(); mode = "game";
@@ -359,7 +346,7 @@ export function createGameApplication(options = {}) {
       }
       case "application.finish":
         if (!orchestrator.facts(snapshot).complete) return failure("CONTENT_ACTION_UNAVAILABLE");
-        snapshot = null; mode = "title"; feedbackActionId = null; meterChanges = []; return render();
+        snapshot = null; mode = "title"; feedbackActionId = null; meterChanges = []; activateSession(sessions.primary); return render();
       case "application.settings": mode = "settings"; return render();
       case "application.history": historyOpen = true; return render(false);
       case "application.close-history": historyOpen = false; return render(false);
@@ -403,7 +390,9 @@ export function createGameApplication(options = {}) {
     getSessionHistory: () => sessionHistory,
     inspectMedia: media.inspect, whenMediaReady: media.whenReady,
     dispose() { disposed = true; sessionHistory = null; media.dispose(); renderer.dispose?.(); },
-    getStatus: () => Object.freeze({ booted, busy, fatal, persistenceDegraded: memoryOnly, hasResumeCandidate: Boolean(resumeEnvelope), mode }) });
+    getStatus: () => Object.freeze({ booted, busy, fatal, persistenceDegraded: memoryOnly, hasResumeCandidate: Boolean(resumeEnvelope), mode,
+      activeContentVersion: loaded?.catalog.version ?? null, newGameContentVersion: sessions?.primary?.loaded.catalog.version ?? null,
+      presentationStatus: loaded?.presentationStatus ?? "unrequested" }) });
 }
 
 function createSessionId() {

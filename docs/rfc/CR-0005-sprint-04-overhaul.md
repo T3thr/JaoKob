@@ -2,7 +2,7 @@
 
 | Control | Value |
 |---|---|
-| Version / date | **0.2.5** / 2026-10-16, Asia/Bangkok: ADR-P0-021 PR16 narrative and branching remediation |
+| Version / date | **0.2.6** / 2026-10-17, Asia/Bangkok: Slice5 T9/T10/T11 promotion and compatible-continuation contract |
 | Status | **PR12–15 merged; Slice4 T7/T8 candidate/map delivered for review;9/12 tasks delivered;T9–T11 and final human gates open** |
 | Author | Codex / Senior Technical Lead, Game Director, Principal UI/UX Architect |
 | Scope | S4 UI/Log/durable Pouch/Act 1 rewrite + Secret Moments/Act 2–5 map; S5 content/three endings/Grand Keepsake |
@@ -11,6 +11,8 @@
 | Review | PR12–15 merged; current `feat/sprint-04-slice-04-narrative` → develop; [PR16](https://github.com/T3thr/JaoKob/pull/16), [Slice4 audit](../changelog/2026-10/2026-10-16-0302-sprint-04-slice-04-narrative.md) |
 
 ## 1. Authority, context and revision
+
+The current PO Slice5 directive authorizes final T9/T10/T11 implementation and PR17 from bc167d3. The [closeout contract](../design-system/sprint-04-closeout-contract.md) records assessment before source: separate truthful presentation catalog/original five-item art; New Game3.0 with exact archived2.1 continuation instead of a guessed cursor transform; guarded Save2 writes, shared bounded media and consolidated verification/static/rollback evidence. No new runtime dependency, later-act code, schema/save field or deployment. Human final acceptance remains a distinct review gate.
 
 Accepted [ADR-P0-021](../adr/ADR-P0-021-narrative-resonance-authentic-adventure-and-branching-integrity.md) and the current PO directive govern the PR16 remediation from3164601: preserve all990 existing tests/A-B effects, add reachable dignified low-Bond choices, embodied prose/family/blocked-return causality, mutual learning, a meaningful fifth shell and a living HOME frog with separate poetic gift mirrors. [Map1.1](../proposals/sprint-04-overhaul/05-act-2-5-map-and-endings.md) and [contract1.1](../design-system/act1-narrative-contract.md) record this prospective amendment. Earlier transformation shorthand is interpreted as a change of image medium, never the frog becoming an object. Same five slices/PR16; no promotion, merge or deployment is inferred.
 

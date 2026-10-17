@@ -4,14 +4,18 @@ import { deepFreeze } from "../validation/content-values.js";
 /** Project already-validated domain facts. No command, storage or I/O.
  * Asset paths are static authored metadata resolved relative to this module.
  */
-export function projectKeepsakePouch({ pouch, opportunity, locale = "th" }) {
+export function projectKeepsakePouch({ pouch, opportunity, locale = "th", loaded }) {
   if (!pouch) return null;
   const item = (id) => {
     const metadata = TH_KEEPSAKES[id];
     if (!metadata) throw new TypeError("POUCH_ITEM_REFERENCE");
     const status = pouch.held.includes(id) ? "held" : pouch.released.includes(id) ? "released" : "refused";
+    const art = loaded?.presentationCatalog?.items[id];
+    const asset = art ? loaded.indexes.assets[art.imageAssetId] : null;
+    const image = asset ? { contentVersion: loaded.catalog.version, assetId: asset.id, alt: asset.alt[locale] ?? asset.alt.th }
+      : loaded?.presentationStatus === "unavailable" ? null : metadata.imagePath ? { src: new URL(metadata.imagePath, import.meta.url).href, alt: metadata.imageAlt } : null;
     return { id, name: metadata.name, description: metadata.description, memoryText: metadata.memoryText,
-      image: metadata.imagePath ? { src: new URL(metadata.imagePath, import.meta.url).href, alt: metadata.imageAlt } : null, status,
+      image, status,
       opportunityId: opportunity?.id ?? null,
       actions: ["release", "use"].map((action) => ({ action, enabled: status === "held" && (action !== "use" || metadata.usageTypes.includes("scene-utility")) && (opportunity?.actions.includes(action) ?? false) })),
     };

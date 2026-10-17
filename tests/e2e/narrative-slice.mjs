@@ -1,5 +1,5 @@
-/** Slice4 candidate through real composition/storage/DOM. Diagnostics are served
- * only by this test fixture; the normal production entry remains archived2.1. */
+/** Current production composition/storage/DOM. Only the diagnostic host is a
+ * fixture; content/catalog/registry admission uses the normal bootstrap defaults. */
 import assert from "node:assert/strict";
 import { createServer } from "node:http";
 import { readFile, mkdir, writeFile } from "node:fs/promises";
@@ -7,10 +7,10 @@ import { resolve, extname, sep } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { gzipSync } from "node:zlib";
 import { createHash } from "node:crypto";
-import { candidate, candidateTestIds, travel, FULL_PLAN, save2, narrativeAction, story } from "../helpers/narrative-session.js";
+import { candidate, travel, FULL_PLAN, save2, narrativeAction, story } from "../helpers/narrative-session.js";
 
 const root = resolve(fileURLToPath(new URL("../..", import.meta.url)));
-const output = resolve(root, process.env.JKB_EVIDENCE_DIR ?? "tests/e2e/evidence/sprint-04/slice-04");
+const output = resolve(root, process.env.JKB_EVIDENCE_DIR ?? "tests/e2e/evidence/sprint-04/slice-05/current");
 await mkdir(output, { recursive: true });
 const playwright = await import(process.env.JKB_PLAYWRIGHT_PATH ? pathToFileURL(process.env.JKB_PLAYWRIGHT_PATH).href : "playwright");
 const snapshotAt = (key, plan = {}) => travel(plan, { stop: s => s.currentNodeId === `node.act1.${key}` }).snapshot;
@@ -25,13 +25,9 @@ function fixture(params) {
   const seed = seeds[params.get("case")], envelope = seed ? save2(seed) : null;
   return `<!doctype html><html lang="th"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Act1 content3 review fixture</title><link rel="icon" href="./assets/images/ui/lotus-mark.svg"><link rel="stylesheet" href="./src/ui/styles/index.css"><main id="narrative-app" class="jk-app"></main><script type="module">
 import {createGameApplication} from './src/bootstrap/index.js';
-const content=await (await fetch('./src/data/content/packages/act-01.json')).json();
-const testReferenceIds=${JSON.stringify(candidateTestIds)};
 const initial=${JSON.stringify(envelope)};
 if(initial&&!localStorage.getItem('jaokob:save:canonical'))localStorage.setItem('jaokob:save:canonical',JSON.stringify(initial));
-const registry=await(await fetch('./assets/provenance/benchmark-assets.json')).json();
-const app=createGameApplication({document,root:document.querySelector('#narrative-app'),content,testReferenceIds,
-assetRegistry:{...registry,contentVersion:'3.0.0'},applicationBaseUrl:new URL('./',location.href).href});
+const app=createGameApplication({document,root:document.querySelector('#narrative-app'),applicationBaseUrl:new URL('./',location.href).href});
 window.narrativeApplication=app;
 window.layoutShifts=[];new PerformanceObserver(list=>window.layoutShifts.push(...list.getEntries().filter(e=>!e.hadRecentInput).map(e=>e.value))).observe({type:'layout-shift',buffered:true});
 await app.boot();if(initial)await app.dispatch({type:'SELECT_CHOICE',choiceId:'application.resume'});
@@ -60,7 +56,7 @@ if (process.env.JKB_NARRATIVE_SERVE_ONLY === "1") {
   await new Promise(done => { const stop = () => server.close(done); process.once("SIGINT", stop); process.once("SIGTERM", stop); }); process.exit(0);
 }
 const browser = await playwright.chromium.launch({ headless: true });
-const evidence = { browser: browser.version(), at: new Date().toISOString(), candidateVersion: "3.0.0", defaultEntryVersion: "2.1.0", profiles: [], checks: [], captures: [], errors: [], resources: {} };
+const evidence = { browser: browser.version(), at: new Date().toISOString(), candidateVersion: "3.0.0", defaultEntryVersion: "3.0.0", profiles: [], checks: [], captures: [], errors: [], resources: {} };
 const control = (page, id) => page.locator(`[data-choice-id="${id}"]:visible`);
 async function settled(page) {
   await page.waitForFunction(() => window.narrativeApplication && document.querySelector('#narrative-app')?.getAttribute('aria-busy') === 'false');
@@ -70,7 +66,10 @@ async function tap(page, id) {
   await control(page, id).click(); await settled(page);
 }
 async function expose(page, id) {
-  for (let i = 0; await control(page, id).count() === 0; i++) {
+  await page.evaluate(() => document.fonts.ready);
+  for (let i = 0; ; i++) {
+    await page.evaluate(() => new Promise(done => requestAnimationFrame(() => requestAnimationFrame(done))));
+    if (await control(page, id).count() && (id.startsWith('application.') || await page.locator('#narrative-app').getAttribute('data-reading-more') !== 'true')) return;
     assert.ok(i < 60, `Cannot expose ${id}`); await tap(page, "application.advance");
   }
 }
@@ -87,6 +86,11 @@ async function context(width = 390, height = 844, extra = {}) {
 }
 async function open(page, mode = "full", prefix = "") {
   await page.goto(`${origin}${prefix}/__narrative?case=${mode}`); await settled(page); await page.evaluate(() => document.fonts.ready);
+  await page.waitForFunction(() => {
+    const visual = narrativeApplication.getViewModel().presentation;
+    return (!visual.background || document.querySelector('#stage-bg')?.dataset.mediaState === 'ready')
+      && (!visual.character?.portrait || document.querySelector('#stage-char')?.dataset.mediaState === 'ready');
+  });
 }
 try {
   for (const [width, height] of [[320,568],[390,844],[768,1024],[1440,900],[2560,1440],[844,390]]) {
@@ -95,6 +99,7 @@ try {
     const before = await snapshot(page), bytes = await raw(page);
     assert.equal(before.pouch.held.length, 4);
     assert.equal(await page.locator('.jk-choice-slot [data-choice-id]:visible').count(), 5);
+    assert.equal(await page.locator('.jk-choice-slot .jk-choice-intent:visible').count(), 5);
     const geometry = await page.evaluate(() => ({
       card: document.querySelector('.jk-narrative').getBoundingClientRect().toJSON(),
       overflow: document.documentElement.scrollWidth > innerWidth + 1,
@@ -109,6 +114,7 @@ try {
     assert.equal(await page.locator('[data-jk-role="pouch-grid"] [data-item-id]').count(), 4);
     await page.locator('[data-item-id="item_rain_petal"]').click();
     assert.match(await page.locator('[data-jk-role="pouch-detail"]').innerText(), /หยด|ฝน/);
+    await page.locator('[data-jk-role="pouch-detail"] img[src^="blob:"]').waitFor();
     await capture(page, `${width}x${height}-four-items.png`);
     await page.keyboard.press('Escape'); assert.deepEqual(await snapshot(page), before); assert.equal(await raw(page), bytes);
     await choose(page, "choice.act1.exchange-leaf"); await choose(page, "application.confirm-choice");

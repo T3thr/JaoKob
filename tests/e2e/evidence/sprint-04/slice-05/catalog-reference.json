@@ -1,0 +1,8 @@
+{
+  "result": "PASS",
+  "structuralCatalogCases": 13,
+  "semanticCatalogNegatives": 11,
+  "byteIdenticalPublishedArtifacts": 21,
+  "storyEffectsAndIdsUnchanged": true,
+  "networkSchemaFetch": false
+}

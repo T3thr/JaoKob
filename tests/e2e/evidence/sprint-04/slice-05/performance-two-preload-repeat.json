@@ -1,0 +1,288 @@
+{
+  "at": "2026-10-17T07:30:21.455Z",
+  "browser": "151.0.7922.34",
+  "environment": {
+    "os": "darwin 25.2.0",
+    "cpu": "Apple M5",
+    "logicalCores": 10,
+    "totalMemory": 25769803776,
+    "physicalDevice": false
+  },
+  "performance": {
+    "interactions": {
+      "method": "Trusted DOM clicks to next requestAnimationFrame after rendered DOM, full Pouch/detail/close,5 runs; pre-paint callback, not physical painted-frame timing.",
+      "inputToFrameCallback": {
+        "count": 150,
+        "p50": 7.100000023841858,
+        "p75": 7.600000023841858,
+        "p95": 8.899999976158142,
+        "max": 9.600000023841858
+      },
+      "budgetObserved": true
+    },
+    "loads": {
+      "cold": [
+        {
+          "inputReadyMs": 3000.3000000715256,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2980.7999999523163,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2862,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 3010.600000023842,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2968.2999999523163,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2834.399999976158,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2873.600000023842,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 3040.899999976158,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 3028.399999976158,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 3020.5,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2996,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2880,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2973.4000000953674,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2837.2000000476837,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 3011.7000000476837,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 3008.6999999284744,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 3016.2000000476837,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 3020.399999976158,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2901,
+          "cachedResources": 0
+        },
+        {
+          "inputReadyMs": 2992,
+          "cachedResources": 0
+        }
+      ],
+      "warm": [
+        {
+          "inputReadyMs": 346.8000000715256,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 334.39999997615814,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 320.10000002384186,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 319.2000000476837,
+          "cachedResources": 62
+        },
+        {
+          "inputReadyMs": 354.89999997615814,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 357.2999999523163,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 314.39999997615814,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 297.60000002384186,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 311.39999997615814,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 325,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 338.59999990463257,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 322.7999999523163,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 337.2000000476837,
+          "cachedResources": 62
+        },
+        {
+          "inputReadyMs": 305,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 323.5,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 340.10000002384186,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 318.39999997615814,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 311.3000000715256,
+          "cachedResources": 62
+        },
+        {
+          "inputReadyMs": 310.89999997615814,
+          "cachedResources": 63
+        },
+        {
+          "inputReadyMs": 318.6999999284744,
+          "cachedResources": 62
+        }
+      ],
+      "profile": {
+        "latencyMs": 150,
+        "downloadBytesPerSecond": 200000,
+        "uploadBytesPerSecond": 93750,
+        "cpuSlowdown": 4,
+        "device": "headless Chromium CDP emulation; no physical-device certification"
+      },
+      "coldSummary": {
+        "count": 20,
+        "p50": 2992,
+        "p75": 3011.7000000476837,
+        "p95": 3028.399999976158,
+        "max": 3040.899999976158
+      },
+      "warmSummary": {
+        "count": 20,
+        "p50": 320.10000002384186,
+        "p75": 337.2000000476837,
+        "p95": 354.89999997615814,
+        "max": 357.2999999523163
+      },
+      "budgetObserved": {
+        "coldP75AtMost3000": false,
+        "warmP75AtMost1500": true
+      },
+      "warmCacheHits": [
+        63,
+        63,
+        63,
+        62,
+        63,
+        63,
+        63,
+        63,
+        63,
+        63,
+        63,
+        63,
+        62,
+        63,
+        63,
+        63,
+        63,
+        62,
+        63,
+        62
+      ]
+    },
+    "frames": [
+      {
+        "mode": "reading",
+        "durationMs": 30029.599999904633,
+        "summary": {
+          "count": 3602,
+          "p50": 8.299999999999272,
+          "p75": 9,
+          "p95": 9.900000000001455,
+          "max": 10.400000000001455
+        },
+        "over20msRate": 0
+      },
+      {
+        "mode": "pouch",
+        "durationMs": 30037.899999976158,
+        "summary": {
+          "count": 3601,
+          "p50": 8.299999999999727,
+          "p75": 8.900000000001455,
+          "p95": 9.899999999997817,
+          "max": 10.399999999999636
+        },
+        "over20msRate": 0
+      },
+      {
+        "mode": "transition",
+        "durationMs": 30079.700000047684,
+        "summary": {
+          "count": 3600,
+          "p50": 8.299999999999727,
+          "p75": 9,
+          "p95": 9.900000000000546,
+          "max": 18.09999999999991
+        },
+        "over20msRate": 0
+      }
+    ],
+    "transfer": {
+      "criticalEncodedBytes": 166388,
+      "initialEncodedBytes": 166388,
+      "fullSaveBytes": 5404,
+      "method": "Resource Timing encodedBodySize includes gzip HTTP responses; initial Title with default muted audio; HTML diagnostic host measured separately."
+    }
+  },
+  "scope": "Intermediate diagnostic series. Functional checks passed; cold p75=3011.7ms exceeds budget. Superseded by final artifact measurement with explicit assertions.",
+  "rawArchive": {
+    "file": "performance-two-preload-repeat.json.gz",
+    "uncompressedBytes": 819521,
+    "uncompressedSha256": "845328bf1451a886377d376e102fa48da6a66ded559b8df69ff188f3d63db850",
+    "encoding": "gzip; complete raw JSON including every resource/input/frame sample"
+  }
+}

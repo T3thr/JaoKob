@@ -1,0 +1,284 @@
+{
+  "schemaVersion": "1.0.0",
+  "contentVersion": "3.0.0",
+  "locale": "th",
+  "choices": [
+    {
+      "actionId": "interaction.act1.observe-lily",
+      "intent": {
+        "th": "มองแสง"
+      },
+      "icon": "ripple",
+      "skin": "paper"
+    },
+    {
+      "actionId": "interaction.act1.observe-roots",
+      "intent": {
+        "th": "ฟังรอบตัว"
+      },
+      "icon": "roots",
+      "skin": "paper"
+    },
+    {
+      "actionId": "interaction.act1.observe-shadows",
+      "intent": {
+        "th": "คอยดู"
+      },
+      "icon": "ripple",
+      "skin": "paper"
+    },
+    {
+      "actionId": "interaction.act1.observe-mother",
+      "intent": {
+        "th": "ฟังแม่"
+      },
+      "icon": "ripple",
+      "skin": "paper"
+    },
+    {
+      "actionId": "interaction.act1.visit-dew",
+      "intent": {
+        "th": "มองประกาย"
+      },
+      "icon": "ripple",
+      "skin": "paper"
+    },
+    {
+      "actionId": "interaction.act1.visit-lotus",
+      "intent": {
+        "th": "เล่นด้วยกัน"
+      },
+      "icon": "ripples",
+      "skin": "paper"
+    },
+    {
+      "actionId": "interaction.act1.join-family",
+      "intent": {
+        "th": "กลับไปด้วยกัน"
+      },
+      "icon": "ripples",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.focus-mother",
+      "intent": {
+        "th": "ใกล้ชิด"
+      },
+      "icon": "ripple",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.focus-roots",
+      "intent": {
+        "th": "รับฟัง"
+      },
+      "icon": "roots",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.focus-siblings",
+      "intent": {
+        "th": "เล่นด้วยกัน"
+      },
+      "icon": "ripples",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.call-family",
+      "intent": {
+        "th": "เรียกหา"
+      },
+      "icon": "ripple",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.seek-safety",
+      "intent": {
+        "th": "ตั้งหลัก"
+      },
+      "icon": "roots",
+      "skin": "paper"
+    },
+    {
+      "actionId": "interaction.act1.inspect-fragment",
+      "intent": {
+        "th": "มองให้ชัด"
+      },
+      "icon": "ripple",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.keep-fragment",
+      "intent": {
+        "th": "เก็บไว้"
+      },
+      "icon": "pouch",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.release-fragment",
+      "intent": {
+        "th": "ปล่อยไป"
+      },
+      "icon": "ripple",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.collect-dew-offer",
+      "intent": {
+        "th": "พกไปด้วย"
+      },
+      "icon": "pouch",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.leave-dew-offer",
+      "intent": {
+        "th": "วางไว้ตรงนี้"
+      },
+      "icon": "ripple",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.collect-lotus-offer",
+      "intent": {
+        "th": "พกไปด้วย"
+      },
+      "icon": "pouch",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.leave-lotus-offer",
+      "intent": {
+        "th": "วางไว้ตรงนี้"
+      },
+      "icon": "ripple",
+      "skin": "paper"
+    },
+    {
+      "actionId": "interaction.act1.visit-rain",
+      "intent": {
+        "th": "มองใกล้ ๆ"
+      },
+      "icon": "ripple",
+      "skin": "paper"
+    },
+    {
+      "actionId": "interaction.act1.visit-river-shell",
+      "intent": {
+        "th": "มองรอยวน"
+      },
+      "icon": "ripple",
+      "skin": "paper"
+    },
+    {
+      "actionId": "interaction.act1.settle-for-night",
+      "intent": {
+        "th": "พักข้างราก"
+      },
+      "icon": "roots",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.collect-rain-offer",
+      "intent": {
+        "th": "พกไปด้วย"
+      },
+      "icon": "pouch",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.leave-rain-offer",
+      "intent": {
+        "th": "วางไว้ตรงนี้"
+      },
+      "icon": "ripple",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.collect-river-offer",
+      "intent": {
+        "th": "พกไปด้วย"
+      },
+      "icon": "pouch",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.leave-river-offer",
+      "intent": {
+        "th": "ให้เปลือกอยู่ต่อ"
+      },
+      "icon": "ripple",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.exchange-leaf",
+      "intent": {
+        "th": "วางหนึ่งชิ้น"
+      },
+      "icon": "pouch",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.exchange-dew_stone",
+      "intent": {
+        "th": "วางหนึ่งชิ้น"
+      },
+      "icon": "pouch",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.exchange-lotus_shell",
+      "intent": {
+        "th": "วางหนึ่งชิ้น"
+      },
+      "icon": "pouch",
+      "skin": "paper"
+    },
+    {
+      "actionId": "choice.act1.exchange-rain_petal",
+      "intent": {
+        "th": "วางหนึ่งชิ้น"
+      },
+      "icon": "pouch",
+      "skin": "paper"
+    }
+  ],
+  "items": [
+    {
+      "itemId": "item_leaf",
+      "imageAssetId": "asset.image.keepsake-leaf-paper"
+    },
+    {
+      "itemId": "item_dew_stone",
+      "imageAssetId": "asset.image.keepsake-dew-stone"
+    },
+    {
+      "itemId": "item_lotus_shell",
+      "imageAssetId": "asset.image.keepsake-lotus-shell"
+    },
+    {
+      "itemId": "item_rain_petal",
+      "imageAssetId": "asset.image.keepsake-rain-petal"
+    },
+    {
+      "itemId": "item_river_shell",
+      "imageAssetId": "asset.image.keepsake-river-shell"
+    }
+  ],
+  "backgrounds": [
+    {
+      "assetId": "asset.image.act1-morning-pond",
+      "crop": {
+        "portrait": {
+          "x": 53,
+          "y": 50
+        },
+        "landscape": {
+          "x": 50,
+          "y": 60
+        }
+      }
+    }
+  ]
+}

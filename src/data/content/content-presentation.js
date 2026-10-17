@@ -33,7 +33,8 @@ export function projectContentPresentation({ loaded, snapshot, facts, settings, 
     if (!id) return null;
     const asset = indexes.assets[id];
     if (asset?.type !== "image") fail();
-    return { contentVersion: loaded.catalog.version, assetId: id, alt: text(asset.alt) };
+    const crop = loaded.presentationCatalog?.backgrounds[id]?.crop;
+    return { contentVersion: loaded.catalog.version, assetId: id, alt: text(asset.alt), ...(crop ? { crop } : {}) };
   };
   const environment = node?.environment ?? {};
   // Title borrows only the entry artwork. It does not enter that story node,

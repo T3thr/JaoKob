@@ -17,7 +17,7 @@ export function projectContentView({ loaded, snapshot, facts, settings, notice, 
   const view = { locale, state: snapshot?.state ?? "Title", viewRevision, revision: snapshot?.revision ?? 0,
     preferences: { ...preferences }, overlay: advisoryOpen ? "advisory" : pouchOpen ? "pouch" : historyOpen ? "history" : undefined, preferenceStatusText, focusSetting,
     history: projectSessionHistory(sessionHistory),
-    pouch: projectKeepsakePouch({ pouch: snapshot?.pouch, opportunity: pouchOpportunity, locale }),
+    pouch: projectKeepsakePouch({ pouch: snapshot?.pouch, opportunity: pouchOpportunity, locale, loaded }),
     contentAdvisory: { title: messages.noticeTitle, text: messages.notice },
     audioEnabled: settings.masterVolume > 0, soundState, soundControlLabel, soundStateLabel: messages[{ off: "soundOffShort", ready: "soundReadyShort", blocked: "soundBlockedShort", unavailable: "soundUnavailableShort" }[soundState]],
     confirmationRequired: mode === "replace-confirmation" || mode === "choice-confirmation",
@@ -67,7 +67,10 @@ export function projectContentView({ loaded, snapshot, facts, settings, notice, 
       for (const fact of facts.actions) {
         const action = indexes.choices[fact.id] ?? indexes.interactions[fact.id];
         if (!fact.eligible && action.unavailableBehavior === "hidden") continue;
-        choices.push({ id: fact.id, label: text(action.label), disabled: !fact.eligible, unavailableReason: text(action.disabledReason) });
+        const decoration = loaded.presentationCatalog?.choices[fact.id];
+        choices.push({ id: fact.id, label: text(action.label), disabled: !fact.eligible, unavailableReason: text(action.disabledReason),
+          ...(decoration ? { intentText: text(decoration.intent), iconName: decoration.icon, skin: decoration.skin, cue: text(action.outcomePreview) } : {}),
+        });
       }
     }
     const warnings = node.contentWarningIds.map((id) => indexes.warnings[id]);

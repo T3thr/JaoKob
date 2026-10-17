@@ -62,3 +62,17 @@ Progress is tracked in docs/changelog/2026-09/2026-09-07-1248-sprint-03-benchmar
 - PO Acceptance: PR #16 reviewed, approved, and merged into `develop` at commit `37bad50`. Unit test suite passes 1,004/1,004 (100% pass, 0 fail, 0 skip).
 - Master Delivery Matrix: 4 of 5 PRs merged (80%). Slices 1–4 are integrated into `develop`.
 - Next & Final Sprint Closeout: Sprint 4 Slice 5 (Tasks T9: Intent Tags, item art and Data presentation projection; T10: Bootstrap, migration/save wiring and application integration; T11: Legacy/new regression, narrative/visual/manual acceptance / PR #17) ready for kickoff.
+
+## Sprint 4 Slice 5 (2026-10-17)
+
+- Current PO directive: deliver final T9/T10/T11 through PR17 from develop@bc167d3 (PR16 merged37bad50), branch `feat/sprint-04-slice-05-closeout`; T3thr identity verified. Original prompt/history retained above; private references remain untracked.
+- Architectural assessment recorded before source in `docs/design-system/sprint-04-closeout-contract.md` and CR-20261017-1400. New Game uses3.0; old records continue on exact2.1 with proved Save1 chains, separate cursor/checkpoint validation and cross-generation/raw-race write protection. No guessed cursor migration.
+- T9: strict additive presentation catalog for30 actions, five original paper SVGs/provenance/verified pipeline/fixed text fallback, decorative existing motifs and crop projection. T10: content-bound sessions and shared bounded media. Core, published schemas, story graph/effects and old2.1 bytes unchanged.
+- Baseline1004 passed. New tests cover catalog/reference/lease/fallback and production save/admission/resume/backup/race/confirmation/settings/Retry/media switching. Retained12 browser routes and current six viewport journeys pass; final consolidated evidence is being recorded.
+- Initial Fast3G/CPU4x cold p75=3095.4ms identified a critical dependency-path delay; HTML modulepreload is being measured under the same profile. Record before/after results without changing the performance budget.
+
+- Final engineering gates:1060/1060,0 fail/cancel/skip/todo;18metaschemas and catalog13structural/11semantic negatives;12 archived browser routes,6 current profiles/21 captures,16 exact-artifact captures and3 action-client captures. Original1004 cases remain unchanged. Ending design7anchors/20edges/1096contexts-trajectories passes; later-act runtime remains Sprint5.
+- Final artifact87 explicit files/647077gzip bytes;76-file rollback restores2.1 and protects3.0 raw saves. Actual touch/WebAudio loops/Pouch/History, five original SVGs and integrity fallback pass. Final Fast3G/CPU4x20cold+20warm p75=2923.3/324.4ms;150 native-host inputs across5runs p95=8.6ms;3×30s CPU4x rAF series retained as pre-paint samples. An intermediate repeat at3011.7ms led to preloading all four necessary critical modules; earlier failed-budget observations remain in the evidence.
+- Audit/trace/SSOT/CHANGELOG/evidence complete for PR17 review. Delivered implementation68eb72c; branch pushed and [PR17](https://github.com/T3thr/JaoKob/pull/17) opened against develop and attached to this chat. Final owner Thai/Art/listening and physical-device/AT acceptance, merge/deployment remain open.
+
+- Final handoff: T3thr Git/GitHub identity verified; implementation `68eb72c6b456e614944724e553692745f1ef9840`; exact87runtime hashes, full raw archive checksums/restoration,169relative links and staged whitespace pass. Latest action-client screenshots/state inspected; all local diagnostic servers closed. Only private reference photographs remain untracked.
