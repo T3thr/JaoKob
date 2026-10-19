@@ -26,7 +26,7 @@
     "/model/jaokob-childhood-crochet.glb",
     "/model/jaokob-adult-plush.glb"
   ],
-  "embeddedTextureBlobRequests": 2,
+  "embeddedTextureBlobRequests": 0,
   "notPerformed": [
     "Physical iPhone/Android performance",
     "Safari/VoiceOver",

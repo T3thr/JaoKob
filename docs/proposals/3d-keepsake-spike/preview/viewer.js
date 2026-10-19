@@ -1,9 +1,9 @@
-// CR-0004: isolated preview; no dependency is imported by the game entry point.
+// ADR-P0-025 / CR-0004: isolated preview; no dependency is imported by the game entry point.
 import { th } from './th.js';
 
 const dolls = Object.freeze({
-  childhood: { model: 'jaokob-childhood-crochet.glb', poster: '../renders/childhood/poster.jpg', text: th.childhood },
-  adult: { model: 'jaokob-adult-plush.glb', poster: '../renders/poster.jpg', text: th.adult },
+  childhood: { model: 'jaokob-childhood-crochet.glb', poster: '../renders/childhood/poster.jpg', text: th.childhood, variants: th.childhoodVariantAlt, variantDir: '../renders/childhood' },
+  adult: { model: 'jaokob-adult-plush.glb', poster: '../renders/poster.jpg', text: th.adult, variants: th.adultVariantAlt, variantDir: '../renders/adult' },
 });
 const open = document.querySelector('#open');
 const status = document.querySelector('#status');
@@ -14,6 +14,10 @@ const selector = document.querySelector('#doll-selector');
 const initialOrbit = '25deg 78deg 105%';
 const failedLoads = { childhood: 0, adult: 0 };
 let selected = 'childhood';
+let stance = 'empty';
+let material = 'Velour';
+const options = document.querySelector('#variant-options');
+const selections = { childhood: { stance: 'empty', material: 'Velour' }, adult: { stance: 'empty', material: 'Velour' } };
 let viewer;
 let pendingModule;
 let mode = 'poster';
@@ -25,12 +29,37 @@ selector.setAttribute('aria-label', th.selectDoll);
 
 function describeSelection() {
   const doll = dolls[selected];
-  poster.src = doll.poster;
-  poster.alt = doll.text.alt;
+  const defaultVariant = stance === 'empty' && material === 'Velour';
+  poster.src = !defaultVariant
+    ? `${doll.variantDir}/poster-${stance}-${material.toLowerCase()}.jpg` : doll.poster;
+  poster.alt = selectionAlt();
+  for (const button of options.querySelectorAll('[data-stance]')) button.setAttribute('aria-pressed', String(button.dataset.stance === stance));
+  for (const button of options.querySelectorAll('[data-material]')) button.setAttribute('aria-pressed', String(button.dataset.material === material));
   document.querySelector('#doll-title').textContent = doll.text.name;
   document.querySelector('#edition').textContent = doll.text.edition;
   for (const button of selector.querySelectorAll('button')) {
     button.setAttribute('aria-pressed', String(button.dataset.doll === selected));
+  }
+}
+
+function selectionAlt() {
+  return dolls[selected].variants[`${stance}-${material}`];
+}
+
+function applyVariants(current) {
+  current.pause();
+  current.currentTime = stance === 'heart' ? 1 : 0;
+  current.variantName = material;
+  current.alt = selectionAlt();
+}
+
+function selectVariant(button) {
+  if (button.dataset.stance) stance = button.dataset.stance;
+  if (button.dataset.material) material = button.dataset.material;
+  describeSelection();
+  if (mode === 'ready') {
+    applyVariants(viewer);
+    status.textContent = selectionAlt();
   }
 }
 
@@ -74,7 +103,10 @@ async function show({ focusControls = true } = {}) {
     if (id !== requestId) return;
     const current = document.createElement('model-viewer');
     viewer = current;
-    current.alt = doll.text.alt;
+    current.alt = selectionAlt();
+    current.animationName = 'HeartEmote';
+    current.animationCrossfadeDuration = 0;
+    current.variantName = material;
     current.a11y = th.directions;
     current.setAttribute('camera-controls', '');
     current.setAttribute('disable-pan', '');
@@ -89,10 +121,12 @@ async function show({ focusControls = true } = {}) {
     current.setAttribute('loading', 'eager');
     current.setAttribute('interpolation-decay', matchMedia('(prefers-reduced-motion: reduce)').matches ? '0' : '60');
     current.addEventListener('error', () => fail(id, dollId), { once: true });
-    current.addEventListener('load', () => {
+    current.addEventListener('load', async () => {
+      await current.updateComplete;
       if (id !== requestId) return;
       const focusStayed = document.activeElement === open || document.activeElement === document.body;
       clearTimeout(timeout);
+      applyVariants(current);
       mode = 'ready';
       poster.hidden = true;
       open.hidden = true;
@@ -115,7 +149,9 @@ function selectDoll(dollId) {
   if (!Object.hasOwn(dolls, dollId) || dollId === selected) return;
   const reopen = mode === 'loading' || mode === 'ready';
   dispose();
+  selections[selected] = { stance, material };
   selected = dollId;
+  ({ stance, material } = selections[selected]);
   mode = 'poster';
   status.textContent = '';
   describeSelection();
@@ -150,6 +186,10 @@ function act(action) {
   viewer.cameraOrbit = `${orbit.theta}rad ${orbit.phi}rad ${orbit.radius}m`;
 }
 
+options.addEventListener('click', event => {
+  const button = event.target.closest('button[data-stance], button[data-material]');
+  if (button) selectVariant(button);
+});
 open.addEventListener('click', () => show());
 selector.addEventListener('click', event => {
   const button = event.target.closest('button[data-doll]');
@@ -165,5 +205,5 @@ document.addEventListener('keydown', event => {
 describeSelection();
 
 // Inspection hooks only in this excluded spike page, for reproducible browser QA.
-window.render_game_to_text = () => JSON.stringify({ mode, selected, loaded: Boolean(viewer?.loaded), orbit: viewer?.loaded ? viewer.getCameraOrbit() : null });
+window.render_game_to_text = () => JSON.stringify({ mode, selected, stance, material, animationTime: viewer?.currentTime, loaded: Boolean(viewer?.loaded), orbit: viewer?.loaded ? viewer.getCameraOrbit() : null });
 window.advanceTime = async () => new Promise(resolve => requestAnimationFrame(resolve));

@@ -1,0 +1,11 @@
+ADR-P0-025 — current develop d1af293 regression, 2026-10-18
+Command: node --test tests/unit/*.test.js
+1..976
+# tests 1060
+# suites 0
+# pass 1060
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 19552.6895
