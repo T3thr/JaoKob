@@ -53,3 +53,5 @@ No Save/schema/content migration. A reviewed revert of this M1D commit restores 
 ## 5. Delivery
 
 Continue [Draft PR #19](https://github.com/T3thr/JaoKob/pull/19) to `develop`, with its description rewritten around both dolls' final variant behavior and adult eyelid fix. The active Sprint5 audit registration is updated separately on its planning branch, without staging narrative work.
+
+Implementation **`71b6d71`** was pushed to the asset branch and PR #19 title/body updated for the combined final scope. Active Sprint5 audit registration **`9a1175b`** was pushed on `feat/sprint-05-planning-ssot` using `git commit --only` for its SSOT; ongoing dialogue and untracked ADR/blueprint files remain untouched. Both commits used verified `T3thr <t.theerapat33@gmail.com>` identity. The local 4175 preview was refreshed and left showing adult heart/Crochet for PO inspection.

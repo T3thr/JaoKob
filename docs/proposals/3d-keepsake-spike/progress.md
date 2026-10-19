@@ -36,3 +36,4 @@ PO requests adult parity (heart stance and crochet material) and smooth upper ey
 - Final adult: 1,038,744 bytes, 24,201 total stored triangles, validator 0 errors / 0 warnings. Reopened-source checks and 17 sampled occlusion angles pass (old top 248 exposed samples; new top 0). All eight browser combinations and interaction regression pass; game tests 1,060/1,060.
 - Repeat adult exports have identical JSON/positions/indices/UV/colors/textures but tiny Blender normal variation (max 0.00006754/component); no byte-identical claim. Childhood repeat GLB is byte-identical; existing childhood authored assets/tiles remain unchanged.
 - Remaining: PO art review, physical-device profiling, Safari/AT, future production integration. No production WBS task completion.
+- Delivery: adult implementation `71b6d71`, active Sprint5 audit `9a1175b`, updated Draft PR #19. Local 4175 browser refreshed to adult heart/Crochet for PO inspection.
