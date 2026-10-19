@@ -9,6 +9,9 @@ Y rear (the doll looks toward -Y), Z up; one Blender unit is 0.1 metre.
 """
 
 import argparse
+import importlib.util
+import struct
+import bmesh
 import json
 import math
 from pathlib import Path
@@ -40,9 +43,10 @@ COLORS = {
     "white": (0.96, 0.955, 0.86),
     "black": (0.038, 0.047, 0.031),
     "stitch": (0.25, 0.43, 0.087),
+    "heart": (.96,.025,.16),
 }
 SCENE_NAME = "JaoKob_Adult_Spike"
-GENERATOR = "CR-0004-v1"
+GENERATOR = "CR-0004-adult-v2"
 RENDER_PREVIEWS = False  # Set True when using Text Editor to render all four views.
 
 
@@ -73,10 +77,10 @@ def linear(rgb):
 def make_scene():
     old = bpy.data.scenes.get(SCENE_NAME)
     if old:
-        if old.get("generator") != GENERATOR:
+        if old.get("generator") not in (GENERATOR,"CR-0004-v1"):
             raise RuntimeError("A non-generated scene has this name; rename it before running this script.")
         for obj in list(old.objects):
-            bpy.data.objects.remove(obj, do_unlink=True)
+            if len(obj.users_scene)==1: bpy.data.objects.remove(obj, do_unlink=True)
         bpy.data.scenes.remove(old)
     scene = bpy.data.scenes.new(SCENE_NAME)
     scene["generator"] = GENERATOR
@@ -87,7 +91,12 @@ def make_scene():
     studio = bpy.data.collections.new("STUDIO • excluded from GLB")
     scene.collection.children.link(parts)
     scene.collection.children.link(studio)
-    return scene, parts, studio
+    extras=[]
+    for name in ["STANCE • EmptyHands", "STANCE • HeartEmote", "ACCESSORY • RedHeart • optional"]:
+        collection=bpy.data.collections.new(name)
+        scene.collection.children.link(collection)
+        extras.append(collection)
+    return scene, parts, studio, *extras
 
 
 def material(name, roughness, sheen=0.0):
@@ -124,31 +133,41 @@ def finish(obj, name, color, mat, collection):
 
 
 def ellipsoid(name, location, scale, color="green", segments=32, rings=20, mat=None):
-    segments = max(12, round(segments * .8 / 2) * 2)
+    segments = max(12, round(segments * .76 / 2) * 2)
     rings = max(8, round(rings * .75))
     bpy.ops.mesh.primitive_uv_sphere_add(segments=segments, ring_count=rings, location=location)
     obj = bpy.context.object
     obj.scale = scale
     bpy.ops.object.transform_apply(location=False, rotation=False, scale=True)
-    return finish(obj, name, color, mat or FABRIC, PARTS)
+    obj=finish(obj, name, color, mat or FABRIC, PARTS)
+    if obj.data.uv_layers:
+        for loop in obj.data.uv_layers.active.data:
+            loop.uv.x *= 2*math.pi*max(scale[0],scale[1])/.09
+            loop.uv.y *= math.pi*scale[2]/.09/2
+    return obj
 
 
 def tube(name, points, radii, color, sides=12, flatten=1.0, mat=None):
     """Swept rings with smooth centerline, closed ends and predictable topology."""
     points = [Vector(p) for p in points]
-    verts, faces = [], []
+    verts, faces, uv = [], [], []
+    distance=0
+    previous_u=None
     closed_curve = (points[0] - points[-1]).length < 1e-6
     for i, point in enumerate(points):
+        if i: distance += (point-points[i-1]).length
         closed_end = closed_curve and i in (0, len(points)-1)
         tangent = ((points[1]-points[-2]) if closed_end else (points[min(i + 1, len(points) - 1)] - points[max(0, i - 1)])).normalized()
         reference = Vector((0, 0, 1) if closed_curve else (0, 1, 0))
         if abs(tangent.dot(reference)) > 0.92:
             reference = Vector((1, 0, 0))
-        u = tangent.cross(reference).normalized()
+        u = (previous_u-tangent*previous_u.dot(tangent)).normalized() if previous_u is not None and not closed_curve else tangent.cross(reference).normalized()
+        previous_u=u
         v = tangent.cross(u).normalized()
         for j in range(sides):
             angle = 2 * math.pi * j / sides
             verts.append(point + radii[i] * (math.cos(angle) * u + flatten * math.sin(angle) * v))
+            uv.append((j/sides*2*math.pi*max(radii)/.09,distance/.09/2))
     for i in range(len(points) - 1):
         for j in range(sides):
             a, b = i * sides + j, i * sides + (j + 1) % sides
@@ -160,7 +179,57 @@ def tube(name, points, radii, color, sides=12, flatten=1.0, mat=None):
     mesh.update()
     obj = bpy.data.objects.new(name, mesh)
     PARTS.objects.link(obj)
-    return finish(obj, name, color, mat or FABRIC, PARTS)
+    obj=finish(obj, name, color, mat or FABRIC, PARTS)
+    surface_uv(obj,uv,2*math.pi*max(radii)/.09)
+    weld_seams(obj)
+    return obj
+
+
+def surface_uv(obj, uv, wrap):
+    layer=obj.data.uv_layers.new(name="UVMap")
+    for poly in obj.data.polygons:
+        values=[uv[obj.data.loops[i].vertex_index] for i in poly.loop_indices]
+        seam=max(v[0] for v in values)-min(v[0] for v in values)>wrap/2
+        for i,value in zip(poly.loop_indices,values):
+            u,v=value
+            layer.data[i].uv=(u+wrap if seam and u<wrap/2 else u,v)
+
+
+def weld_seams(obj):
+    bm=bmesh.new();bm.from_mesh(obj.data)
+    bmesh.ops.remove_doubles(bm,verts=list(bm.verts),dist=.000001)
+    bm.to_mesh(obj.data);bm.free();obj.data.update()
+
+
+def upper_lid(side,x):
+    """A continuous closed hood, enveloping the upper sclera in all azimuths.
+
+    Its arched opening preserves the sleepy face, while a thin inner shell
+    provides a real underside. This replaces the former decorative tube.
+    """
+    segments,rings=32,8
+    verts,uv,faces=[],[],[]
+    for k in range(rings+1):
+        for j in range(segments+1):
+            phi=2*math.pi*j/segments
+            rim_z=2.70+.075*math.sin(phi)**2
+            theta=k/rings*math.acos((rim_z-2.676)/.185)
+            verts.append((x+.249*math.sin(theta)*math.cos(phi),-.439+.160*math.sin(theta)*math.sin(phi),2.676+.185*math.cos(theta)))
+            uv.append((j/segments*17,k/rings*2.4))
+    for k in range(rings):
+        for j in range(segments):
+            a=k*(segments+1)+j
+            faces.append((a,a+segments+1,a+segments+2) if k==0 else (a,a+segments+1,a+segments+2,a+1))
+    mesh=bpy.data.meshes.new(side+" continuous upper lid")
+    mesh.from_pydata(verts,[],faces);mesh.update()
+    obj=bpy.data.objects.new(side+" upper eyelid hood",mesh);PARTS.objects.link(obj)
+    finish(obj,obj.name,"green",FABRIC,PARTS)
+    surface_uv(obj,uv,17);weld_seams(obj)
+    bpy.context.view_layer.objects.active=obj
+    solid=obj.modifiers.new("Soft closed eyelid shell","SOLIDIFY");solid.thickness=.012;solid.offset=-1
+    bpy.ops.object.modifier_apply(modifier=solid.name)
+    obj["occludes_upper_sclera"]=True
+    return obj
 
 
 def bezier(points, steps=18):
@@ -171,7 +240,7 @@ def bezier(points, steps=18):
 def limb(name, control, width, color="green", flatten=1.0):
     points = bezier(control)
     radii = [width * (0.8 + 0.2 * math.sin(math.pi * i / (len(points)-1))) for i in range(len(points))]
-    return tube(name, points, radii, color, sides=16, flatten=flatten)
+    return tube(name, points, radii, color, sides=12, flatten=flatten)
 
 
 def shirt():
@@ -179,13 +248,14 @@ def shirt():
     profile = [(0.76, .40, .285), (.79, .45, .32), (.87, .455, .322),
                (1.00, .43, .302), (1.15, .45, .32), (1.32, .48, .305),
                (1.48, .46, .275), (1.58, .34, .225), (1.63, .22, .205)]
-    n = 48
-    verts, faces = [], []
+    n = 40
+    verts, faces, uv = [], [], []
     for k, (z, rx, ry) in enumerate(profile):
         for j in range(n):
             t = 2 * math.pi * j/n
             wrinkle = .008 * math.sin(5*t + k*1.3) + .006 * math.cos(9*t-k*.8)
             verts.append(((rx * P["shirt_width"]/.45 + wrinkle) * math.cos(t), (ry + wrinkle) * math.sin(t), z + .012*math.cos(3*t+k*.6)))
+            uv.append((j/n*32,z/.09/2))
     for k in range(len(profile)-1):
         for j in range(n):
             a, b = k*n+j, k*n+(j+1)%n
@@ -198,6 +268,7 @@ def shirt():
     obj = bpy.data.objects.new("Shirt • separate editable garment", mesh)
     PARTS.objects.link(obj)
     finish(obj, obj.name, "blue", FABRIC, PARTS)
+    surface_uv(obj,uv,32)
     for label, z, rx, ry, radius in [("Hem", .812, .449, .323, .023), ("Crew neck", 1.625, .228, .211, .035)]:
         points = [(rx*math.cos(t), ry*math.sin(t), z) for t in (2*math.pi*i/64 for i in range(65))]
         tube(label, points, [radius]*len(points), "hem", sides=8)
@@ -238,8 +309,7 @@ def make_doll():
         ellipsoid(f"{side} sewn eye glint", (x+s*.012-.034, -.559, 2.735), (.032, .009, .033), "white", segments=16, rings=10, mat=APPLIQUE)
         ellipsoid(f"{side} small eye glint", (x+s*.012+.032, -.561, 2.696), (.012, .007, .013), "white", segments=12, rings=8, mat=APPLIQUE)
         ellipsoid(f"{side} sleepy lower eyelid", (x, -.459, 2.54), (.253, .132, .144), "lid", segments=32, rings=18)
-        points = bezier([(x-.232, -.468, 2.681), (x-.15, -.523, 2.832), (x+.13, -.517, 2.842), (x+.235, -.463, 2.716)], steps=24)
-        tube(f"{side} upper eyelid", points, [.042]*len(points), "green", sides=10, flatten=1.1)
+        upper_lid(side,x)
 
     # Two elongated upholstered lips, sharing rounded ends, with a shallow crease.
     for label, dz, radius in [("Upper peach lip", .043, .065), ("Lower peach lip", -.041, .067)]:
@@ -317,66 +387,144 @@ def camera_view(cam, view):
     aim(cam, (0,-.16,1.25))
 
 
-def export(scene, out):
-    # Export from a temporary scene containing ONLY copies of the doll parts.
-    # Joining those copies reduces draw calls while preserving editable originals.
-    temporary = bpy.data.scenes.new("JaoKob_GLTF_Export")
-    bpy.context.window.scene = temporary
-    for obj in PARTS.objects:
-        duplicate = obj.copy()
-        duplicate.data = obj.data.copy()
-        duplicate.matrix_world = Matrix.Scale(.1, 4) @ obj.matrix_world
-        temporary.collection.objects.link(duplicate)
-    bpy.context.view_layer.update()
-    for obj in temporary.objects:
-        obj.select_set(True)
-    bpy.context.view_layer.objects.active = next(iter(temporary.objects))
-    bpy.ops.object.join()
-    merged = bpy.context.object
-    merged.name = "JaoKob adult plush • seated base mesh"
-    destination = out / "model" / "jaokob-adult-plush.glb"
-    bpy.ops.export_scene.gltf(filepath=str(destination), export_format="GLB", use_selection=True, use_active_scene=True,
-                              export_yup=True, export_apply=True, export_animations=False,
-                              export_cameras=False, export_lights=False, export_extras=False, export_texcoords=False)
-    bpy.context.window.scene = scene
-    for obj in list(temporary.objects):
-        bpy.data.objects.remove(obj, do_unlink=True)
+def crochet_material():
+    mat=material("Adult • crochet yarn",.92,0)
+    nodes,links=mat.node_tree.nodes,mat.node_tree.links
+    source=output_directory(None)/"textures"
+    images=[]
+    for suffix in ["normal","color"]:
+        image=bpy.data.images.load(str(source/f"childhood-crochet-{suffix}.png"),check_existing=True)
+        if suffix=="normal": image.colorspace_settings.name="Non-Color"
+        image.pack();images.append(image)
+    tex=nodes.new("ShaderNodeTexImage");tex.image=images[0];tex.extension="REPEAT"
+    normal=nodes.new("ShaderNodeNormalMap");normal.inputs["Strength"].default_value=.6
+    links.new(tex.outputs["Color"],normal.inputs["Color"])
+    links.new(normal.outputs["Normal"],nodes["Principled BSDF"].inputs["Normal"])
+    color=nodes.new("ShaderNodeTexImage");color.image=images[1];color.extension="REPEAT"
+    mix=nodes.new("ShaderNodeMix");mix.data_type="RGBA";mix.blend_type="MULTIPLY";mix.inputs[0].default_value=1
+    vertex=next(n for n in nodes if n.type=="VERTEX_COLOR")
+    links.new(vertex.outputs["Color"],mix.inputs[6]);links.new(color.outputs["Color"],mix.inputs[7])
+    links.new(mix.outputs[2],nodes["Principled BSDF"].inputs["Base Color"])
+    mat.use_fake_user=True
+    return mat
+
+
+def make_variants():
+    for obj in list(PARTS.objects):
+        if any(part in obj.name for part in ["forearm","mitten","hand stitch"]):
+            PARTS.objects.unlink(obj);EMPTY.objects.link(obj)
+    before=set(PARTS.objects)
+    for side,s in [("L",-1),("R",1)]:
+        limb(f"{side} hugging forearm",[(s*.595,-.06,.85),(s*.79,-.25,.62),(s*.61,-.65,.77),(s*.36,-.80,.92)],.092,flatten=1.13)
+        ellipsoid(f"{side} hugging mitten",(s*.36,-.80,.94),(.13,.095,.15),segments=24,rings=16)
+        for finger in [-1,1]:
+            x=s*.36+finger*.04
+            tube(f"{side} hugging hand stitch {finger}",[(x,-.875,.87),(x,-.90,.94),(x,-.875,1.01)],[.0035]*3,"stitch",sides=6)
+    for obj in sorted(set(PARTS.objects)-before,key=lambda p:p.name):
+        PARTS.objects.unlink(obj);HUG.objects.link(obj)
+    verts,faces,uv=[],[],[]
+    n=32
+    for k in range(13):
+        a=math.pi*k/12;r=max(.00001,math.sin(a))
+        for j in range(n+1):
+            t=2*math.pi*j/n
+            x=.43*math.sin(t)**3*r
+            z=.92+.71*(13*math.cos(t)-5*math.cos(2*t)-2*math.cos(3*t)-math.cos(4*t)+2)/29*r
+            verts.append((x,-.67-.18*math.cos(a),z));uv.append((x/.09,z/.09/2))
+    for k in range(12):
+        for j in range(n):
+            a=k*(n+1)+j;faces.append((a,a+1,a+n+2,a+n+1))
+    mesh=bpy.data.meshes.new("Adult optional heart");mesh.from_pydata(verts,[],faces);mesh.update()
+    obj=bpy.data.objects.new("RedHeart_EditableMesh",mesh);HEART.objects.link(obj)
+    finish(obj,obj.name,"heart",FABRIC,HEART)
+    layer=mesh.uv_layers.new(name="UVMap")
+    for loop in mesh.loops: layer.data[loop.index].uv=uv[loop.vertex_index]
+    weld_seams(obj)
+    obj["optional"]=True;obj["default_visible"]=False
+
+
+def set_preview_state(stance="empty",surface="Velour"):
+    for coll,visible in [(EMPTY,stance=="empty"),(HUG,stance=="heart"),(HEART,stance=="heart")]:
+        coll.hide_render=not visible;coll.hide_viewport=not visible
+    for coll in [PARTS,EMPTY,HUG,HEART]:
+        for obj in coll.objects:
+            if obj.data.materials[0]!=APPLIQUE: obj.data.materials[0]=FABRIC if surface=="Velour" else YARN
+    scene=bpy.context.scene
+    scene["default_stance"]="empty";scene["default_material"]="Velour"
+    scene["velour_material"]=FABRIC.name;scene["crochet_material"]=YARN.name
+
+
+def export(scene,out):
+    temporary=bpy.data.scenes.new("JaoKob_Adult_Export");bpy.context.window.scene=temporary
+    for collection,name in [(PARTS,"JaoKob_Adult_Body"),(EMPTY,"Stance_EmptyHands"),(HUG,"Stance_HeartEmote"),(HEART,"Accessory_RedHeart")]:
+        bpy.ops.object.select_all(action="DESELECT")
+        copies=[]
+        for obj in sorted(collection.objects,key=lambda p:p.name):
+            duplicate=obj.copy();duplicate.data=obj.data.copy()
+            duplicate.hide_render=False;duplicate.hide_viewport=False
+            if duplicate.data.materials[0]!=APPLIQUE: duplicate.data.materials[0]=YARN
+            duplicate.matrix_world=Matrix.Scale(.1,4)@obj.matrix_world
+            temporary.collection.objects.link(duplicate);copies.append(duplicate)
+        bpy.context.view_layer.update()
+        for obj in copies: obj.select_set(True)
+        bpy.context.view_layer.objects.active=copies[0]
+        if len(copies)>1: bpy.ops.object.join()
+        merged=bpy.context.object;merged.name=name;merged.data.name=name+"_Mesh"
+        modifier=merged.modifiers.new("Portable triangulated tangent space","TRIANGULATE")
+        bpy.ops.object.modifier_apply(modifier=modifier.name)
+        for key in list(merged.keys()): del merged[key]
+        merged["asset_part"]="optional-heart" if collection==HEART else "body"
+        if collection==HEART: merged["default_visible"]=False
+    bpy.ops.object.select_all(action="SELECT")
+    destination=out/"model"/"jaokob-adult-plush.glb"
+    bpy.ops.export_scene.gltf(filepath=str(destination),export_format="GLB",use_selection=True,use_active_scene=True,
+        export_yup=True,export_apply=True,export_animations=False,export_cameras=False,export_lights=False,
+        export_extras=True,export_texcoords=True,export_tangents=True)
+    spec=importlib.util.spec_from_file_location("keepsake_variants",output_directory(None)/"scripts"/"keepsake_variants.py")
+    packaging=importlib.util.module_from_spec(spec);spec.loader.exec_module(packaging)
+    packaging.canonicalize_triangle_order(destination)
+    packaging.add_glb_variants(destination,"JaoKob_Adult_Body","Adult","CR-0004-M1D")
+    bpy.context.window.scene=scene
+    for obj in list(temporary.objects): bpy.data.objects.remove(obj,do_unlink=True)
     bpy.data.scenes.remove(temporary)
-    triangles = 0
-    for obj in PARTS.objects:
-        obj.data.calc_loop_triangles()
-        triangles += len(obj.data.loop_triangles)
-    metrics = {"change": "CR-0004", "generator": GENERATOR, "blender": bpy.app.version_string,
-               "stage": "base-mesh; final fabric textures and likeness approval deferred",
-               "parts": len(PARTS.objects), "sourceTriangles": triangles,
-               "glbBytes": destination.stat().st_size, "byteBudget": 2000000,
-               "withinBudget": destination.stat().st_size <= 2000000,
-               "rearGeometry": "inferred", "referencePhotosEmbedded": False,
-               "parameters": P}
-    (out/"evidence"/"model-metrics.json").write_text(json.dumps(metrics, indent=2)+"\n")
-    if not metrics["withinBudget"]:
-        raise RuntimeError(f"GLB exceeds byte budget: {metrics['glbBytes']}")
+    data=destination.read_bytes();doc=json.loads(data[20:20+struct.unpack_from("<I",data,12)[0]])
+    counts={node["name"]:sum(doc["accessors"][p["indices"]]["count"]//3 for p in doc["meshes"][node["mesh"]]["primitives"]) for node in doc["nodes"]}
+    total=sum(counts.values())
+    metrics={"change":"CR-0004","milestone":"1D","generator":GENERATOR,"blender":bpy.app.version_string,
+        "parts":sum(len(c.objects) for c in [PARTS,EMPTY,HUG,HEART]),"sourceTriangles":total,"glbBytes":len(data),
+        "byteBudget":2000000,"triangleBudget":25000,"withinBudget":len(data)<=2000000 and total<=25000,
+        "trianglesByNode":counts,"defaultVisibleTriangles":counts["JaoKob_Adult_Body"]+counts["Stance_EmptyHands"],
+        "heartVisibleTriangles":counts["JaoKob_Adult_Body"]+counts["Stance_HeartEmote"]+counts["Accessory_RedHeart"],
+        "defaultStance":"empty","defaultMaterial":"Velour","variants":["Velour","Crochet"],
+        "rearGeometry":"inferred","referencePhotosEmbedded":False,"parameters":P}
+    (out/"evidence"/"model-metrics.json").write_text(json.dumps(metrics,indent=2)+"\n")
+    if not metrics["withinBudget"]: raise RuntimeError(f"Adult budget exceeded: {metrics}")
     return metrics
 
 
 def main():
-    global PARTS, FABRIC, APPLIQUE
+    global PARTS, FABRIC, APPLIQUE, EMPTY, HUG, HEART, YARN
     args = arguments()
     out = output_directory(args.output)
-    for directory in ["model", "renders", "evidence"]:
+    for directory in ["model", "renders", "renders/adult", "evidence"]:
         (out/directory).mkdir(parents=True, exist_ok=True)
-    scene, PARTS, studio = make_scene()
+    scene, PARTS, studio, EMPTY, HUG, HEART = make_scene()
     FABRIC = material("Plush • matte vertex colors", .87, .08)
     APPLIQUE = material("Eye applique • matte embroidery", .76, .04)
+    YARN=crochet_material()
     make_doll()
+    make_variants()
     cam = setup_studio(scene, studio, args.samples)
     camera_view(cam, "three-quarter")
     metrics = export(scene, out)
+    set_preview_state()
+    helper=bpy.data.texts.get("Adult_Variants.py") or bpy.data.texts.new("Adult_Variants.py")
+    helper.clear();helper.write((output_directory(None)/"scripts"/"adult_variants.py").read_text())
     for screen in bpy.data.screens:
         for area in screen.areas:
             if area.type == "VIEW_3D":
                 area.spaces.active.region_3d.view_perspective = "CAMERA"
-                area.spaces.active.shading.type = "SOLID"
+                area.spaces.active.shading.type = "MATERIAL"
                 area.spaces.active.shading.color_type = "VERTEX"
     # Generated project saves separately; it never overwrites the user's current .blend.
     bpy.ops.wm.save_as_mainfile(filepath=str(out/"model"/"jaokob-adult-plush.blend"), copy=True)
@@ -390,7 +538,20 @@ def main():
                 scene.render.image_settings.quality = 85
                 bpy.data.images["Render Result"].save_render(str(out/"renders"/"poster.jpg"), scene=scene)
                 scene.render.image_settings.file_format = "PNG"
-        camera_view(cam, "three-quarter")
+        camera_view(cam,"three-quarter")
+        for stance,surface in [("empty","Crochet"),("heart","Velour"),("heart","Crochet")]:
+            set_preview_state(stance,surface)
+            scene.render.filepath=str(out/"renders/adult"/f"{stance}-{surface.lower()}.png")
+            bpy.ops.render.render(write_still=True)
+            scene.render.image_settings.file_format="JPEG"
+            bpy.data.images["Render Result"].save_render(str(out/"renders/adult"/f"poster-{stance}-{surface.lower()}.jpg"),scene=scene)
+            scene.render.image_settings.file_format="PNG"
+        set_preview_state()
+        for name,position in [("top",(0,-.201,8)),("high",(2,-5,7))]:
+            cam.location=position;aim(cam,(0,-.2,2.12));cam.data.ortho_scale=1.75
+            scene.render.filepath=str(out/"renders/adult"/f"eyelid-{name}.png")
+            bpy.ops.render.render(write_still=True)
+        camera_view(cam,"three-quarter");cam.data.ortho_scale=3.25
     print("JAOKOB_OUTPUT " + str(out))
     print("JAOKOB_METRICS " + json.dumps(metrics))
 

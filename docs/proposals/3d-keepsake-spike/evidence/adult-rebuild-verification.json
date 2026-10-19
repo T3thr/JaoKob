@@ -1,0 +1,42 @@
+{
+  "baselineCommit": "688e738",
+  "independentExports": {
+    "adult-plush": {
+      "bytes": 1038744,
+      "sha256": "0625363e5b8a7dea6a6604e72de0451b7410a07a9fc6b25e19267b5eeae7d7cd",
+      "independentExportByteIdentical": false,
+      "jsonPositionsIndicesUVColorsTexturesIdentical": true,
+      "normalDifferences": [
+        {
+          "normalBufferView": 9,
+          "maxComponentDelta": 6.753206253051758e-05
+        }
+      ]
+    },
+    "childhood-crochet": {
+      "bytes": 704780,
+      "sha256": "0d6433f75f72804c4def60dbb0439ad2fca78783a57baa3ae1da74d321c747e8",
+      "independentExportByteIdentical": true,
+      "jsonPositionsIndicesUVColorsTexturesIdentical": true,
+      "normalDifferences": []
+    }
+  },
+  "note": "Blender welded-mesh normal accumulation can differ below 0.0001 per component. Adult equivalence is measured, not claimed byte-identical. Childhood export remains byte-identical.",
+  "unchangedChildhoodAssetsAndTextures": [
+    "model/jaokob-childhood-crochet.blend",
+    "model/jaokob-childhood-crochet.glb",
+    "renders/childhood/heart-velour.png",
+    "renders/childhood/poster-empty-crochet.jpg",
+    "renders/childhood/poster-heart-crochet.jpg",
+    "renders/childhood/side.png",
+    "renders/childhood/poster.jpg",
+    "renders/childhood/three-quarter.png",
+    "renders/childhood/empty-crochet.png",
+    "renders/childhood/back.png",
+    "renders/childhood/heart-crochet.png",
+    "renders/childhood/front.png",
+    "renders/childhood/poster-heart-velour.jpg",
+    "textures/childhood-crochet-color.png",
+    "textures/childhood-crochet-normal.png"
+  ]
+}

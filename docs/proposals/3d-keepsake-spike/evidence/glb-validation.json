@@ -1,61 +1,140 @@
 {
   "model": "jaokob-adult-plush.glb",
-  "bytes": 546020,
+  "bytes": 1038744,
   "byteBudget": 2000000,
-  "triangles": 22508,
+  "triangles": 24201,
   "triangleBudget": 25000,
-  "materials": 2,
-  "primitives": 2,
-  "nodes": 1,
+  "materials": 3,
+  "primitives": 5,
+  "nodes": 4,
   "nodeNames": [
-    "JaoKob adult plush • seated base mesh"
+    "Accessory_RedHeart",
+    "JaoKob_Adult_Body",
+    "Stance_EmptyHands",
+    "Stance_HeartEmote"
   ],
-  "images": [],
+  "images": [
+    {
+      "bufferView": 6,
+      "mimeType": "image/png",
+      "name": "childhood-crochet-normal"
+    },
+    {
+      "bufferView": 7,
+      "mimeType": "image/png",
+      "name": "childhood-crochet-color"
+    }
+  ],
   "extensionsUsed": [
-    "KHR_materials_sheen"
+    "KHR_materials_sheen",
+    "KHR_materials_variants"
   ],
   "externalUris": [],
   "cameras": 0,
-  "animations": 0,
+  "animations": 1,
   "validator": {
     "uri": "jaokob-adult-plush.glb",
     "mimeType": "model/gltf-binary",
     "validatorVersion": "2.0.0-dev.3.10",
-    "validatedAt": "2026-10-17T22:11:59.309Z",
+    "validatedAt": "2026-10-19T03:32:30.507Z",
     "issues": {
       "numErrors": 0,
       "numWarnings": 0,
-      "numInfos": 0,
+      "numInfos": 6,
       "numHints": 0,
-      "messages": [],
+      "messages": [
+        {
+          "code": "UNUSED_MESH_TANGENT",
+          "message": "Tangents are not used because the material has no normal texture.",
+          "severity": 2,
+          "pointer": "/meshes/0/primitives/0/attributes/TANGENT"
+        },
+        {
+          "code": "UNUSED_MESH_TANGENT",
+          "message": "Tangents are not used because the material has no normal texture.",
+          "severity": 2,
+          "pointer": "/meshes/1/primitives/0/attributes/TANGENT"
+        },
+        {
+          "code": "UNUSED_MESH_TANGENT",
+          "message": "Tangents are not used because the material has no normal texture.",
+          "severity": 2,
+          "pointer": "/meshes/1/primitives/1/attributes/TANGENT"
+        },
+        {
+          "code": "UNUSED_OBJECT",
+          "message": "This object may be unused.",
+          "severity": 2,
+          "pointer": "/meshes/1/primitives/1/attributes/TEXCOORD_0"
+        },
+        {
+          "code": "UNUSED_MESH_TANGENT",
+          "message": "Tangents are not used because the material has no normal texture.",
+          "severity": 2,
+          "pointer": "/meshes/2/primitives/0/attributes/TANGENT"
+        },
+        {
+          "code": "UNUSED_MESH_TANGENT",
+          "message": "Tangents are not used because the material has no normal texture.",
+          "severity": 2,
+          "pointer": "/meshes/3/primitives/0/attributes/TANGENT"
+        }
+      ],
       "truncated": false
     },
     "info": {
       "version": "2.0",
       "generator": "Khronos glTF Blender I/O v5.2.40",
       "extensionsUsed": [
-        "KHR_materials_sheen"
+        "KHR_materials_sheen",
+        "KHR_materials_variants"
       ],
       "resources": [
         {
           "pointer": "/buffers/0",
           "mimeType": "application/gltf-buffer",
           "storage": "glb",
-          "byteLength": 543504
+          "byteLength": 1029824
+        },
+        {
+          "pointer": "/images/0",
+          "mimeType": "image/png",
+          "storage": "buffer-view",
+          "image": {
+            "width": 128,
+            "height": 128,
+            "format": "rgb",
+            "primaries": "srgb",
+            "transfer": "srgb",
+            "bits": 8
+          }
+        },
+        {
+          "pointer": "/images/1",
+          "mimeType": "image/png",
+          "storage": "buffer-view",
+          "image": {
+            "width": 128,
+            "height": 128,
+            "format": "rgb",
+            "primaries": "srgb",
+            "transfer": "srgb",
+            "bits": 8
+          }
         }
       ],
-      "animationCount": 0,
-      "materialCount": 2,
+      "animationCount": 1,
+      "materialCount": 3,
       "hasMorphTargets": false,
       "hasSkins": false,
-      "hasTextures": false,
+      "hasTextures": true,
       "hasDefaultScene": true,
-      "drawCallCount": 2,
-      "totalVertexCount": 11346,
-      "totalTriangleCount": 22508,
-      "maxUVs": 0,
+      "drawCallCount": 5,
+      "totalVertexCount": 14360,
+      "totalTriangleCount": 24201,
+      "maxUVs": 1,
       "maxInfluences": 0,
-      "maxAttributes": 3
+      "maxAttributes": 5
     }
   }
 }

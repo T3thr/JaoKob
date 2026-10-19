@@ -27,3 +27,12 @@ PO mandate: default empty-handed seated stance and adult-tone velour; retain ind
 - Browser regression and four-state rendered-node/material checks passed, including rapid/pending selection, reload defaults, close/reopen, responsive controls and zero extra GLB fetches for variants. Screenshot action-loop inspected. Game regression: 1,060/1,060.
 - Follow-up remains PO visual review, real mobile GPU/FPS, Safari/AT and future production integration. No production WBS task is completed by this correction.
 - Delivery: implementation `741b0b5`, Draft PR #19 to develop; active Sprint5 audit reference `81c2402` on the planning branch. Existing narrative edits preserved.
+
+## Milestone 1D — 2026-10-19
+
+PO requests adult parity (heart stance and crochet material) and smooth upper eyelids that cover exposed upper sclera from above. Continue open PR #19 on its original develop-based worktree. CR-0004 records explicit scope/acceptance; defaults stay empty/Velour for both dolls. Implement adult optional arm/heart groups and shared standard GLB packaging, genuine eyelid hood, separate per-doll choices, source/raycast/render/browser verification and game regression. Preserve childhood GLB/blend/render/texture bytes. No production lore, embroidery, src/Save/schema or facial-emote work.
+
+- Completed adult optional heart arms and Crochet parity, with empty/Velour defaults and per-doll session memory. Replaced decorative upper-lid tubes with closed hoods; top/high/front visuals retain the sleepy expression and cover the upper sclera.
+- Final adult: 1,038,744 bytes, 24,201 total stored triangles, validator 0 errors / 0 warnings. Reopened-source checks and 17 sampled occlusion angles pass (old top 248 exposed samples; new top 0). All eight browser combinations and interaction regression pass; game tests 1,060/1,060.
+- Repeat adult exports have identical JSON/positions/indices/UV/colors/textures but tiny Blender normal variation (max 0.00006754/component); no byte-identical claim. Childhood repeat GLB is byte-identical; existing childhood authored assets/tiles remain unchanged.
+- Remaining: PO art review, physical-device profiling, Safari/AT, future production integration. No production WBS task completion.

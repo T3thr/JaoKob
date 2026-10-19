@@ -4,8 +4,8 @@ import fs from 'node:fs/promises';
 import validator from 'gltf-validator';
 
 const models = [
-  { file: 'jaokob-adult-plush.glb', report: 'glb-validation.json' },
-  { file: 'jaokob-childhood-crochet.glb', report: 'childhood-glb-validation.json', childhood: true },
+  { file: 'jaokob-adult-plush.glb', report: 'glb-validation.json', body: 'JaoKob_Adult_Body' },
+  { file: 'jaokob-childhood-crochet.glb', report: 'childhood-glb-validation.json', body: 'JaoKob_Childhood_Body' },
 ];
 for (const model of models) {
   const data = await fs.readFile(new URL(`../model/${model.file}`, import.meta.url));
@@ -28,10 +28,10 @@ for (const model of models) {
   assert.equal(result.issues.numWarnings, 0, `${model.file}: validator warnings`);
   assert.ok(data.length <= 2000000 && triangles <= 25000, `${model.file}: export budget`);
   assert.equal(externalUris.length + evidence.cameras, 0);
-  if (model.childhood) {
-    assert.deepEqual(evidence.nodeNames.toSorted(), ['Accessory_RedHeart', 'JaoKob_Childhood_Body', 'Stance_EmptyHands', 'Stance_HeartEmote']);
+  {
+    assert.deepEqual(evidence.nodeNames.toSorted(), ['Accessory_RedHeart', model.body, 'Stance_EmptyHands', 'Stance_HeartEmote']);
     const heart = gltf.nodes.find(node => node.name === 'Accessory_RedHeart');
-    const body = gltf.nodes.find(node => node.name === 'JaoKob_Childhood_Body');
+    const body = gltf.nodes.find(node => node.name === model.body);
     assert.notEqual(heart.mesh, body.mesh, 'Heart must be removable without changing body mesh');
     assert.equal(heart.extras.asset_part, 'optional-heart');
     assert.equal(heart.extras.default_visible, false);
@@ -84,5 +84,5 @@ for (const model of models) {
       assert.equal(png.readUInt32BE(16), 128);
       assert.equal(png.readUInt32BE(20), 128);
     }
-  } else { assert.equal(evidence.animations, 0); }
+  }
 }

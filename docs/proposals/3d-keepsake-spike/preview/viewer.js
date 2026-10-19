@@ -2,8 +2,8 @@
 import { th } from './th.js';
 
 const dolls = Object.freeze({
-  childhood: { model: 'jaokob-childhood-crochet.glb', poster: '../renders/childhood/poster.jpg', text: th.childhood },
-  adult: { model: 'jaokob-adult-plush.glb', poster: '../renders/poster.jpg', text: th.adult },
+  childhood: { model: 'jaokob-childhood-crochet.glb', poster: '../renders/childhood/poster.jpg', text: th.childhood, variants: th.childhoodVariantAlt, variantDir: '../renders/childhood' },
+  adult: { model: 'jaokob-adult-plush.glb', poster: '../renders/poster.jpg', text: th.adult, variants: th.adultVariantAlt, variantDir: '../renders/adult' },
 });
 const open = document.querySelector('#open');
 const status = document.querySelector('#status');
@@ -16,7 +16,8 @@ const failedLoads = { childhood: 0, adult: 0 };
 let selected = 'childhood';
 let stance = 'empty';
 let material = 'Velour';
-const options = document.querySelector('#childhood-options');
+const options = document.querySelector('#variant-options');
+const selections = { childhood: { stance: 'empty', material: 'Velour' }, adult: { stance: 'empty', material: 'Velour' } };
 let viewer;
 let pendingModule;
 let mode = 'poster';
@@ -29,10 +30,9 @@ selector.setAttribute('aria-label', th.selectDoll);
 function describeSelection() {
   const doll = dolls[selected];
   const defaultVariant = stance === 'empty' && material === 'Velour';
-  poster.src = selected === 'childhood' && !defaultVariant
-    ? `../renders/childhood/poster-${stance}-${material.toLowerCase()}.jpg` : doll.poster;
+  poster.src = !defaultVariant
+    ? `${doll.variantDir}/poster-${stance}-${material.toLowerCase()}.jpg` : doll.poster;
   poster.alt = selectionAlt();
-  options.hidden = selected !== 'childhood';
   for (const button of options.querySelectorAll('[data-stance]')) button.setAttribute('aria-pressed', String(button.dataset.stance === stance));
   for (const button of options.querySelectorAll('[data-material]')) button.setAttribute('aria-pressed', String(button.dataset.material === material));
   document.querySelector('#doll-title').textContent = doll.text.name;
@@ -43,11 +43,10 @@ function describeSelection() {
 }
 
 function selectionAlt() {
-  return selected === 'childhood' ? th.variantAlt[`${stance}-${material}`] : th.adult.alt;
+  return dolls[selected].variants[`${stance}-${material}`];
 }
 
 function applyVariants(current) {
-  if (selected !== 'childhood') return;
   current.pause();
   current.currentTime = stance === 'heart' ? 1 : 0;
   current.variantName = material;
@@ -55,7 +54,6 @@ function applyVariants(current) {
 }
 
 function selectVariant(button) {
-  if (selected !== 'childhood') return;
   if (button.dataset.stance) stance = button.dataset.stance;
   if (button.dataset.material) material = button.dataset.material;
   describeSelection();
@@ -106,11 +104,9 @@ async function show({ focusControls = true } = {}) {
     const current = document.createElement('model-viewer');
     viewer = current;
     current.alt = selectionAlt();
-    if (dollId === 'childhood') {
-      current.animationName = 'HeartEmote';
-      current.animationCrossfadeDuration = 0;
-      current.variantName = material;
-    }
+    current.animationName = 'HeartEmote';
+    current.animationCrossfadeDuration = 0;
+    current.variantName = material;
     current.a11y = th.directions;
     current.setAttribute('camera-controls', '');
     current.setAttribute('disable-pan', '');
@@ -130,7 +126,7 @@ async function show({ focusControls = true } = {}) {
       if (id !== requestId) return;
       const focusStayed = document.activeElement === open || document.activeElement === document.body;
       clearTimeout(timeout);
-      if (dollId === 'childhood') applyVariants(current);
+      applyVariants(current);
       mode = 'ready';
       poster.hidden = true;
       open.hidden = true;
@@ -153,7 +149,9 @@ function selectDoll(dollId) {
   if (!Object.hasOwn(dolls, dollId) || dollId === selected) return;
   const reopen = mode === 'loading' || mode === 'ready';
   dispose();
+  selections[selected] = { stance, material };
   selected = dollId;
+  ({ stance, material } = selections[selected]);
   mode = 'poster';
   status.textContent = '';
   describeSelection();

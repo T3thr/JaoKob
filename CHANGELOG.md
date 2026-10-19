@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- **CR-0004 M1D:** Adult keepsake gains independent heart/Crochet options and closed upper eyelids; 1,038,744-byte GLB / 24,201 triangles, validator 0/0, all 8 preview combinations and 1,060 regression tests pass. [CR-20261019-1036](docs/changelog/2026-10/2026-10-19-1036-adult-keepsake-variants-eyelid.md).
+
 - **ADR-P0-025:** Childhood keepsake now defaults to empty hands and velour, with independent heart/crochet selectors; 704,780-byte GLB, 15,728 triangles, validator 0/0 and 1,060 regression passes. [CR-20261018-0508](docs/changelog/2026-10/2026-10-18-0508-childhood-stance-material-decoupling.md).
 
 - Integrated Sprint 4 Slice 5 into develop via [PR #17](https://github.com/T3thr/JaoKob/pull/17) (commit `4c0bd28`): promote content3 for New Game with exact2.1 save continuation, 30 localized intent entries, five original paper illustrations and strict fallbacks; 1,060 unit tests, ending trajectories, schema/browser gates and local static/rollback rehearsal pass. Sprint 4 closeout complete (5/5 PRs merged, 100%). [Closeout audit](docs/changelog/2026-10/2026-10-17-1400-sprint-04-slice-05-closeout.md)

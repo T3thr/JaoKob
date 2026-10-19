@@ -1,0 +1,110 @@
+{
+  "change": "CR-0004-M1D",
+  "status": "baseline defect confirmed",
+  "blender": "5.2.2 LTS",
+  "occlusion": [
+    {
+      "elevationDegrees": 90,
+      "azimuthDegrees": 0,
+      "samples": 732,
+      "exposedWhiteHits": 248
+    },
+    {
+      "elevationDegrees": 75,
+      "azimuthDegrees": 0,
+      "samples": 210,
+      "exposedWhiteHits": 108
+    },
+    {
+      "elevationDegrees": 75,
+      "azimuthDegrees": 45,
+      "samples": 210,
+      "exposedWhiteHits": 108
+    },
+    {
+      "elevationDegrees": 75,
+      "azimuthDegrees": 90,
+      "samples": 210,
+      "exposedWhiteHits": 108
+    },
+    {
+      "elevationDegrees": 75,
+      "azimuthDegrees": 135,
+      "samples": 210,
+      "exposedWhiteHits": 108
+    },
+    {
+      "elevationDegrees": 75,
+      "azimuthDegrees": 180,
+      "samples": 210,
+      "exposedWhiteHits": 108
+    },
+    {
+      "elevationDegrees": 75,
+      "azimuthDegrees": 225,
+      "samples": 210,
+      "exposedWhiteHits": 108
+    },
+    {
+      "elevationDegrees": 75,
+      "azimuthDegrees": 270,
+      "samples": 210,
+      "exposedWhiteHits": 108
+    },
+    {
+      "elevationDegrees": 75,
+      "azimuthDegrees": 315,
+      "samples": 210,
+      "exposedWhiteHits": 108
+    },
+    {
+      "elevationDegrees": 60,
+      "azimuthDegrees": 0,
+      "samples": 210,
+      "exposedWhiteHits": 104
+    },
+    {
+      "elevationDegrees": 60,
+      "azimuthDegrees": 45,
+      "samples": 210,
+      "exposedWhiteHits": 108
+    },
+    {
+      "elevationDegrees": 60,
+      "azimuthDegrees": 90,
+      "samples": 210,
+      "exposedWhiteHits": 108
+    },
+    {
+      "elevationDegrees": 60,
+      "azimuthDegrees": 135,
+      "samples": 210,
+      "exposedWhiteHits": 106
+    },
+    {
+      "elevationDegrees": 60,
+      "azimuthDegrees": 180,
+      "samples": 210,
+      "exposedWhiteHits": 108
+    },
+    {
+      "elevationDegrees": 60,
+      "azimuthDegrees": 225,
+      "samples": 210,
+      "exposedWhiteHits": 106
+    },
+    {
+      "elevationDegrees": 60,
+      "azimuthDegrees": 270,
+      "samples": 210,
+      "exposedWhiteHits": 108
+    },
+    {
+      "elevationDegrees": 60,
+      "azimuthDegrees": 315,
+      "samples": 210,
+      "exposedWhiteHits": 108
+    }
+  ],
+  "note": "Oblique rays sample upper sclera only; the lower front-facing white opening and eye glints are intentional. Structural/sampled evidence is accompanied by actual top/high/front renders."
+}

@@ -1,5 +1,6 @@
 {
-  "authority": "ADR-P0-025",
+  "authority": "CR-0004 / ADR-P0-025",
+  "doll": "childhood",
   "status": "passed",
   "browser": "151.0.7922.34",
   "states": [
@@ -751,7 +752,7 @@
     "poster choices and reload defaults",
     "keyboard/focus/44px targets/320px and 390px/reduced-motion",
     "no additional GLB requests for variants",
-    "rapid switching, close/reopen, adult round-trip and delayed load",
+    "rapid switching, close/reopen, per-doll independent memory round-trip and delayed load",
     "no console errors or external network"
   ]
 }
