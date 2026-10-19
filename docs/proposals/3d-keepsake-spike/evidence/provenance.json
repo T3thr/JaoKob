@@ -1,9 +1,9 @@
 {
-  "assetId": "spike.jaokob.adult-plush.v1",
+  "assetId": "spike.jaokob.adult-plush.v2",
   "creator": "Codex; deterministic Blender Python geometry",
-  "authority": "Product Owner authorization recorded in CR-0004",
+  "authority": "PO follow-up recorded in CR-0004 Milestone 1D",
   "intendedUse": "Private gift asset spike; final art acceptance pending",
-  "method": "Authored geometry and vertex colors; no photo textures or AI 3D service",
+  "method": "Authored geometry, vertex colors and two existing procedural yarn tiles; no photo textures or AI 3D service",
   "references": [
     {
       "file": "jaokob-adult-plush-basket.png",
@@ -20,5 +20,10 @@
   ],
   "referencePhotosEmbedded": false,
   "rearGeometry": "Inferred; not observed in reference photographs",
-  "runtimeLibrary": "model-viewer 4.4.0 pinned with package-lock integrity and upstream licenses in node_modules"
+  "runtimeLibrary": "model-viewer 4.4.0 pinned with package-lock integrity and upstream licenses in node_modules",
+  "changes": [
+    "optional heart/arm stance",
+    "Velour/Crochet material parity",
+    "closed upper-eyelid hood"
+  ]
 }

@@ -79,3 +79,11 @@ Verification plan: actual Blender build/render and all-angle inspection; validat
 - [x] 691 game tests, README/change record/manifest and existing PR update.
 
 Technical execution and remaining art/device gates: [CR-20261014-1244](../changelog/2026-10/2026-10-14-1244-childhood-crochet-model-spike.md). Review continues in [draft PR #11](https://github.com/T3thr/JaoKob/pull/11).
+
+## Milestone 1D — adult variant parity and upper-eyelid coverage (2026-10-19)
+
+Authority: PO explicitly requests adult Heart Emote and Crochet options like childhood, and correction of exposed upper sclera seen from above. This is an authorized continuation of the same isolated Spike and open Draft PR #19; it does not amend production lore or complete Sprint5 T14–T19. ADR-P0-025 continues to govern childhood defaults; the adult extension is scoped by this PO request.
+
+Acceptance: adult defaults to empty/Velour; both dolls expose independent empty/heart and Velour/Crochet choices, remembered separately during the page session. Adult hugging arms and heart are separate editable/export nodes. Replace the upper-eyelid line with a smooth covering surface while retaining the sleepy front expression; inspect front/side/high/top angles and test upper-sclera occlusion. Preserve childhood model/render/texture bytes. Both GLBs remain ≤2MB/≤25k total stored triangles and Khronos 0 errors/0 warnings. Verify all eight doll/stance/material combinations, poster-only demand loading, keyboard/focus, narrow layouts, retries and switching races. Run current game regression with no src/test changes.
+
+Impact/plan: adult Blender generator + shared GLB variant packaging, authored adult materials/UVs/arms/lids, adult source/render/GLB outputs, preview selection state/localization, verification and audit only. Use original geometry and existing authored yarn tiles, no photo embedding or new dependencies. Reuse the existing isolated develop-based branch so narrative edits remain untouched. No Save/schema migration; reviewed revert of this follow-up restores prior adult art and child-only controls. Physical-device performance, final likeness and production HOME integration remain separate gates.

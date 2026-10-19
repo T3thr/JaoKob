@@ -1,39 +1,195 @@
 {
-  "change": "CR-0004",
+  "change": "CR-0004 / ADR-P0-025",
   "milestones": [
     "1",
-    "1B"
+    "1B",
+    "1C",
+    "1D"
   ],
-  "adultUnchanged": [
-    "model/jaokob-adult-plush.glb",
-    "model/jaokob-adult-plush.blend",
-    "renders/back.png",
-    "renders/front.png",
-    "renders/side.png",
-    "renders/three-quarter.png",
-    "renders/poster.jpg",
-    "scripts/build_model.py"
+  "preservationBaseline": "688e738",
+  "childhoodAssetsAndTexturesUnchanged": [
+    "model/jaokob-childhood-crochet.blend",
+    "model/jaokob-childhood-crochet.glb",
+    "renders/childhood/heart-velour.png",
+    "renders/childhood/poster-empty-crochet.jpg",
+    "renders/childhood/poster-heart-crochet.jpg",
+    "renders/childhood/side.png",
+    "renders/childhood/poster.jpg",
+    "renders/childhood/three-quarter.png",
+    "renders/childhood/empty-crochet.png",
+    "renders/childhood/back.png",
+    "renders/childhood/heart-crochet.png",
+    "renders/childhood/front.png",
+    "renders/childhood/poster-heart-velour.jpg",
+    "textures/childhood-crochet-color.png",
+    "textures/childhood-crochet-normal.png"
   ],
+  "repeatExports": {
+    "adult-plush": {
+      "bytes": 1038744,
+      "sha256": "0625363e5b8a7dea6a6604e72de0451b7410a07a9fc6b25e19267b5eeae7d7cd",
+      "independentExportByteIdentical": false,
+      "jsonPositionsIndicesUVColorsTexturesIdentical": true,
+      "normalDifferences": [
+        {
+          "normalBufferView": 9,
+          "maxComponentDelta": 6.753206253051758e-05
+        }
+      ]
+    },
+    "childhood-crochet": {
+      "bytes": 704780,
+      "sha256": "0d6433f75f72804c4def60dbb0439ad2fca78783a57baa3ae1da74d321c747e8",
+      "independentExportByteIdentical": true,
+      "jsonPositionsIndicesUVColorsTexturesIdentical": true,
+      "normalDifferences": []
+    }
+  },
   "files": [
     {
+      "path": "README.md",
+      "bytes": 27132,
+      "sha256": "e6d6b387024ecaeb1fe9545396c792e84fcac0cce9177bf777978079b09d437e"
+    },
+    {
+      "path": "evidence/adr025-unit-summary.txt",
+      "bytes": 216,
+      "sha256": "756543e665b3e4d9b710123da1af13d57fe869e99c66ea19ca0a142d3e34c600"
+    },
+    {
+      "path": "evidence/adult-empty-crochet-web.png",
+      "bytes": 232029,
+      "sha256": "08a9c29a67478d87069430e18d19a71b87ccf038bf32663d8ba28810613cb663"
+    },
+    {
+      "path": "evidence/adult-empty-velour-web.png",
+      "bytes": 154788,
+      "sha256": "65f6e79c71e32902329a516deb7bac85700eb30f0cb10b9f824e1b1499a43968"
+    },
+    {
+      "path": "evidence/adult-eyelid-before-high.png",
+      "bytes": 879606,
+      "sha256": "747ada0b4b297b8d386011328367a9c221868c72e0d0c9adb73335b550976d7a"
+    },
+    {
+      "path": "evidence/adult-eyelid-before-top.png",
+      "bytes": 854989,
+      "sha256": "15860795e493dcaac2c0dafe52faafcd0f3b1cdc855b4bbb7cb36473f71e378b"
+    },
+    {
+      "path": "evidence/adult-eyelid-high-web.png",
+      "bytes": 151231,
+      "sha256": "1ba9e564b06c7ad68286487ee7201fa34505fb4edbf3ca0b4082649c4e6bc976"
+    },
+    {
+      "path": "evidence/adult-eyelid-top-web.png",
+      "bytes": 107930,
+      "sha256": "f41a13459236b95cd52063eb5c7fec0094576a6202d4683381a03a0f5211c697"
+    },
+    {
+      "path": "evidence/adult-heart-crochet-web.png",
+      "bytes": 227541,
+      "sha256": "359186871137ff1e32fb9f98ef3c15240f6f188ab1519586f5a7c63f47338f7b"
+    },
+    {
+      "path": "evidence/adult-heart-velour-web.png",
+      "bytes": 156919,
+      "sha256": "c5f19f4fbf08aba96ac6494cb73fa0efbcbf65e2ec5b510afc65b66e8ebc8ff8"
+    },
+    {
+      "path": "evidence/adult-m1d-unit-summary.txt",
+      "bytes": 199,
+      "sha256": "6fd3b3b96be74bbd828ed1ba6a74a67ceedd12662d2fe879f30dd8d977f1bb20"
+    },
+    {
+      "path": "evidence/adult-options-320.png",
+      "bytes": 117872,
+      "sha256": "db35aa570e9af13fa044b519efb3dd494a8593f519dac1bf954c6e792d1c81f0"
+    },
+    {
+      "path": "evidence/adult-options-390.png",
+      "bytes": 129291,
+      "sha256": "6c6e04bed6f8187c21cf8185491617b7395e9578f58a31e682e850b87ed766a4"
+    },
+    {
+      "path": "evidence/adult-preview-desktop.png",
+      "bytes": 154867,
+      "sha256": "46152ff06422f7214ee94fb59ebfdf533f60c09e958aa994a9c263ca1bd0de00"
+    },
+    {
+      "path": "evidence/adult-preview-mobile.png",
+      "bytes": 129291,
+      "sha256": "6c6e04bed6f8187c21cf8185491617b7395e9578f58a31e682e850b87ed766a4"
+    },
+    {
+      "path": "evidence/adult-rebuild-verification.json",
+      "bytes": 1602,
+      "sha256": "ffbbdbf65fd87681b97cfa5fee0dbec71ef48b8c65c33332838d4eb2d960620c"
+    },
+    {
+      "path": "evidence/adult-source-before.json",
+      "bytes": 2414,
+      "sha256": "cb2628a17a374df14229e6f8f58de0943f48b2a6fe4bf70ff4ec8d7b1abac68f"
+    },
+    {
+      "path": "evidence/adult-source-verification.json",
+      "bytes": 2361,
+      "sha256": "e33184662a77e8b314eafacd3f67ba96c849d5e15e1a9f88e155f528b6ad0d6d"
+    },
+    {
+      "path": "evidence/adult-variants-verification.json",
+      "bytes": 19583,
+      "sha256": "84b64b1553577f829d8d8e5b218f44708f6afbc797a5ecbb9cdde4052bc1084b"
+    },
+    {
+      "path": "evidence/childhood-empty-crochet-web.png",
+      "bytes": 246852,
+      "sha256": "a5b6563b916b42a25f6f37ed1ff3de24f3c78a9d44f769918739acf37f5d1723"
+    },
+    {
+      "path": "evidence/childhood-empty-velour-web.png",
+      "bytes": 157350,
+      "sha256": "e946e3f713ff74168aa19fb9e0a8fec2c37eb1ec553284fe7f44e674ae93e4fe"
+    },
+    {
       "path": "evidence/childhood-glb-validation.json",
-      "bytes": 2656,
-      "sha256": "38530bef7f0ed43ad1a5d7598571ca536bcef6fd37f84a29cba1cb7e9696dad5"
+      "bytes": 3832,
+      "sha256": "df9e0618b4caed5b3cdc27e7d6af2dc63933fea86ecf1ecc772164a3969758e9"
+    },
+    {
+      "path": "evidence/childhood-heart-crochet-web.png",
+      "bytes": 250556,
+      "sha256": "595eab909f79f38d522d96f5567f7484e92a34314ec623f6808ca4ffd28319b9"
+    },
+    {
+      "path": "evidence/childhood-heart-velour-web.png",
+      "bytes": 167649,
+      "sha256": "19c69754d71e6af3bbfc00f6b299d60c498c8c5f8066aa1932a52360b4b6238a"
     },
     {
       "path": "evidence/childhood-model-metrics.json",
-      "bytes": 817,
-      "sha256": "bd4e28e93287384cffb9de661f2442175d7209cd639ad6adf837f415d013f83e"
+      "bytes": 1441,
+      "sha256": "1855de7834a7c292c6dac563d74835f1d2bd74667749d5c8ea950fdf8933f5a0"
+    },
+    {
+      "path": "evidence/childhood-options-320.png",
+      "bytes": 104145,
+      "sha256": "3acf1505a736c45a5e8a830c8f49204dc797972657389ea2c2bb7c9bc84311a8"
+    },
+    {
+      "path": "evidence/childhood-options-390.png",
+      "bytes": 117506,
+      "sha256": "ebefbc298f73b20364bf50d42c784730ba595783f9fcdfcb3072560be755195e"
     },
     {
       "path": "evidence/childhood-preview-desktop.png",
-      "bytes": 241845,
-      "sha256": "935d0f2d716907fa08e058370731febdf081dc36e5df3d955e8dbfce6c6cb226"
+      "bytes": 158462,
+      "sha256": "90eab0f82288df07eefb1a24c4d1af3da8febd0b3f4ed3cbf335eff6080733e3"
     },
     {
       "path": "evidence/childhood-preview-mobile.png",
-      "bytes": 154168,
-      "sha256": "7ddc10ac882fb0a783937baee4a5aa4c597e8987b7b0c5646cde5cb60eb8a8bc"
+      "bytes": 117699,
+      "sha256": "7ef7e9213b846a3de47950993e11fb2486121b0dc277558debd91a4e3106dc81"
     },
     {
       "path": "evidence/childhood-provenance.json",
@@ -42,8 +198,8 @@
     },
     {
       "path": "evidence/childhood-source-verification.json",
-      "bytes": 620,
-      "sha256": "ba153d8ba9035dc03083579ace13ff405aa5260a9022e14841bb0cdced2eed17"
+      "bytes": 733,
+      "sha256": "9df9a794e9924570603df420a0e6126b42b65683d71ec6569b4ed8c971e8a373"
     },
     {
       "path": "evidence/childhood-unit-summary.txt",
@@ -51,34 +207,39 @@
       "sha256": "92ebcf870c921466cf567c3c42cb3bb289f74d713084ddcc4f276adef930f144"
     },
     {
+      "path": "evidence/childhood-variants-verification.json",
+      "bytes": 19792,
+      "sha256": "a62380d3509371aa233ae5334f2ac5e334afc1ad8e0399a2eea75f33f5089653"
+    },
+    {
       "path": "evidence/glb-validation.json",
-      "bytes": 1411,
-      "sha256": "83992eb4849c8942e8ecc9ad6ebcacf1fe7cb984e399198986aaf647915f73e0"
+      "bytes": 3819,
+      "sha256": "2492fb3968f7e67b040476283871f9bc87072bcbc2225cfce890d108bf41ece8"
     },
     {
       "path": "evidence/model-metrics.json",
-      "bytes": 659,
-      "sha256": "2bec34124c6eb2462bea4ceb68567254692e751573218726a28e7a99d903af81"
+      "bytes": 966,
+      "sha256": "f0c7ac490fbe3d7e4a9869720760c1d5dd804d9083f7568a268e685874b2ef9e"
     },
     {
       "path": "evidence/preview-desktop.png",
-      "bytes": 156613,
-      "sha256": "ad0b4593966244d32f4c49083acf64c2f526d478e7b73b32e36e7e27ed498ebd"
+      "bytes": 154861,
+      "sha256": "0aa32c8a2d7d37e9bdb291e993328e2b1cf3ea4941c61be5faab6dce1aa89bde"
     },
     {
       "path": "evidence/preview-mobile.png",
-      "bytes": 127126,
-      "sha256": "de6a53842c4d34960ed502191083684bbc663c4f7e69e9d64031fea5d96e3608"
+      "bytes": 129305,
+      "sha256": "2794c559366521dd15cb8c22b0dce9b5438db3af7a2aa9094bc3d69697a55908"
     },
     {
       "path": "evidence/preview-verification.json",
       "bytes": 1537,
-      "sha256": "ceb9c56d4dd0f705dde2c235d06436e4d1650c965c619f8a9aa72185759d4ce5"
+      "sha256": "45314ffe926734332b91d5c3348b57898487c89047d124b1b39fbb6e0f6bef63"
     },
     {
       "path": "evidence/provenance.json",
-      "bytes": 1007,
-      "sha256": "a1104b1ce52d16eda892b315fce7bc23204c83c28eb0f4cb6b096ebed0c27ad3"
+      "bytes": 1163,
+      "sha256": "1ff8798d7ed74cc71e1b5da0511b29696334dac93d69b3be7e0d65621f82049c"
     },
     {
       "path": "evidence/unit-summary.txt",
@@ -87,23 +248,23 @@
     },
     {
       "path": "model/jaokob-adult-plush.blend",
-      "bytes": 319043,
-      "sha256": "fee915318126748088a7daf230a86cc8fe635b82517798718ac97ee36a6e891a"
+      "bytes": 406057,
+      "sha256": "527c4cb7254e16c26ce7d75fe30b348e2f1d49fe11169848f4d98df444efd825"
     },
     {
       "path": "model/jaokob-adult-plush.glb",
-      "bytes": 546020,
-      "sha256": "cef78836f1498fc5dcf3d2bd8c968511c2eb7c6ee7e83733f0877c7f4756e64c"
+      "bytes": 1038744,
+      "sha256": "0625363e5b8a7dea6a6604e72de0451b7410a07a9fc6b25e19267b5eeae7d7cd"
     },
     {
       "path": "model/jaokob-childhood-crochet.blend",
-      "bytes": 251062,
-      "sha256": "dd05e11400810b179fc9cc18c44b8dc5640c0212a6055754e599bc8ca6ec1d35"
+      "bytes": 268076,
+      "sha256": "7ac63d80af6d8eef9d7ea94a72bdb8f943d8fe54ad2d3a28855b4590059fc1e3"
     },
     {
       "path": "model/jaokob-childhood-crochet.glb",
-      "bytes": 598144,
-      "sha256": "efca9b3a9c86141e777eece6d549eb4d30d1b5ccd9f586f3a021c2005d69dee1"
+      "bytes": 704780,
+      "sha256": "0d6433f75f72804c4def60dbb0439ad2fca78783a57baa3ae1da74d321c747e8"
     },
     {
       "path": "package-lock.json",
@@ -117,103 +278,198 @@
     },
     {
       "path": "preview/index.html",
-      "bytes": 2191,
-      "sha256": "e553a36b273171eefba2c7bbd7b32282a9887bc02557e0a841399752ecf601c5"
+      "bytes": 2929,
+      "sha256": "e6e456819468d36478338a98c42b5d40d4e68cc9305c47ff61011963a5fef1be"
     },
     {
       "path": "preview/style.css",
-      "bytes": 3113,
-      "sha256": "40629dde5182959043c63b3b0403860cf6f9c121d50295a374ed1941df77e86e"
+      "bytes": 3461,
+      "sha256": "efae5e7132d4df4f32f04bdf1d145f373a7bc048e167548e08677a09998caf6d"
     },
     {
       "path": "preview/th.js",
-      "bytes": 3579,
-      "sha256": "2acb07cea1f85fa188341ec5b0b7b0eb3137fb637ce88002718e3f575954537f"
+      "bytes": 5920,
+      "sha256": "4618dc394741a515c8167824f220ef46950a7c6e5b854e13d7b1bc33638e3b33"
     },
     {
       "path": "preview/viewer.js",
-      "bytes": 6580,
-      "sha256": "cae45bad641cde34b3fb6a5ef98849e6b7975d3d969c6b5828de5a88e9e8decc"
+      "bytes": 8478,
+      "sha256": "a941d53d1091d81284cdba468005c5e9b375e7349e9210debde08f6b5cede76e"
+    },
+    {
+      "path": "renders/adult/empty-crochet.png",
+      "bytes": 1032831,
+      "sha256": "1290d1bc1efc4295304576527d3b879a848101f481b1955692305cf06f7c1b25"
+    },
+    {
+      "path": "renders/adult/eyelid-high.png",
+      "bytes": 893514,
+      "sha256": "b3920789dfde505bdb30e30c7fec6a91f0dc272bd3552679a08b7fa4f94b2391"
+    },
+    {
+      "path": "renders/adult/eyelid-top.png",
+      "bytes": 869814,
+      "sha256": "d4631a486f55edb82c0d6e2e55f6dd0adfad6d6ee30e0659ced21e3f74ba010c"
+    },
+    {
+      "path": "renders/adult/heart-crochet.png",
+      "bytes": 1025682,
+      "sha256": "3d79b6441c2b3f3c80fd0b7eb62d497d2bb183f9dc0f5ac80ac3d95caa2b5812"
+    },
+    {
+      "path": "renders/adult/heart-velour.png",
+      "bytes": 906484,
+      "sha256": "4e9af2f51c3fc122cdd9f762936421ef6cd4502feeef32cde367625281545c58"
+    },
+    {
+      "path": "renders/adult/poster-empty-crochet.jpg",
+      "bytes": 62449,
+      "sha256": "4c419f06224f92ba6c396ded99236c5129ae57111efbad071f05cbc611c999e3"
+    },
+    {
+      "path": "renders/adult/poster-heart-crochet.jpg",
+      "bytes": 61944,
+      "sha256": "d1ad81f4abbbacfaff653a1b1a0ee114eeb9da232aa9d56f80d0d0162caff92a"
+    },
+    {
+      "path": "renders/adult/poster-heart-velour.jpg",
+      "bytes": 46284,
+      "sha256": "8a739b0d04bd234fc5eecee6ee93dba0381fc16697817f1526d6e4503dad7b39"
     },
     {
       "path": "renders/back.png",
-      "bytes": 861133,
-      "sha256": "422e31e0019faaa177f833b3503e90cf71870ffc21441deeae645f2408316e3a"
+      "bytes": 859579,
+      "sha256": "cca9aad52bbcb1183b3cdbbb0d1efe4b2e379d6d1d37ae348df714cc29612e9e"
     },
     {
       "path": "renders/childhood/back.png",
-      "bytes": 989670,
-      "sha256": "7d8fb5dd39f48db524b7b03c77fa23923ff91ed627b6dccd18f3e52572ab5516"
+      "bytes": 848936,
+      "sha256": "bdaaebf269b0dce7565da1cc0172a38bce211c450ca80ea9fd8f58fa6d1b000f"
+    },
+    {
+      "path": "renders/childhood/empty-crochet.png",
+      "bytes": 1049201,
+      "sha256": "dcb884ba2bf9389efbf26480fdf580e5c765dbd67803fe31cddc7f0c0e5d89c0"
     },
     {
       "path": "renders/childhood/front.png",
-      "bytes": 1041127,
-      "sha256": "96a54f0f1acc20e8f1172f1453b9f755660057db5430eb8f42c558b83af16fcf"
+      "bytes": 914323,
+      "sha256": "bcda9d1b5b0017b1de9b0b0df90ea8d103c6dace2c7d3f1cb7052bf6611ff4a7"
+    },
+    {
+      "path": "renders/childhood/heart-crochet.png",
+      "bytes": 1059169,
+      "sha256": "ab403bae2d1105a0f5a9574d38af2531b9fb958f38d0a4d62cee072c78ace10e"
+    },
+    {
+      "path": "renders/childhood/heart-velour.png",
+      "bytes": 933039,
+      "sha256": "fb9ae71235f30bc82f5300473e2398de9ebb9a250875e692f008f75ed491f1f0"
+    },
+    {
+      "path": "renders/childhood/poster-empty-crochet.jpg",
+      "bytes": 70082,
+      "sha256": "dd5801d12c7322c871adbc54ed0bd76dfbbbbb35be242e2697bb9886c73ec830"
+    },
+    {
+      "path": "renders/childhood/poster-heart-crochet.jpg",
+      "bytes": 71793,
+      "sha256": "7658329ecc275f84d2cac23b8db02eb96dbf060788fae2dd10165748062aea1f"
+    },
+    {
+      "path": "renders/childhood/poster-heart-velour.jpg",
+      "bytes": 51580,
+      "sha256": "a566c1647e2c4def39c44e53b316b5243d702d517cdc04a6ac574fc55a20637d"
     },
     {
       "path": "renders/childhood/poster.jpg",
-      "bytes": 70716,
-      "sha256": "d6eb77acb74fac184e92c7af896f4a0adf49dca7ae7bc4e61543e4650331fe5f"
+      "bytes": 48750,
+      "sha256": "09aaab430e732c541521d6d2966f364fed09f4b9e3621323d00f5065eccb0934"
     },
     {
       "path": "renders/childhood/side.png",
-      "bytes": 996944,
-      "sha256": "3e7b04e8c1303b70615822d67b28aef60233667e52887b2d16e9bf02099e3544"
+      "bytes": 868562,
+      "sha256": "ecb9ca4b35e0572e13f83b98a5bb3dab68f16ac0ab5ffd385db47af28cb2f832"
     },
     {
       "path": "renders/childhood/three-quarter.png",
-      "bytes": 1242050,
-      "sha256": "710aad2d970ba8cf0d2804b50ff56f36d1cc8a37b9ac3aa9135c38cd9217ec0b"
+      "bytes": 1095632,
+      "sha256": "48c554e4ad355535f848a328c803614e8cf4fc312632f58cd839437f17a9d68b"
     },
     {
       "path": "renders/front.png",
-      "bytes": 892983,
-      "sha256": "dd42e873e164d59d028a874b876783fd5dc9bdbcebeb810667b7c9adeb564b38"
+      "bytes": 890059,
+      "sha256": "24cd154654d510effc6a4c3cbbce2c7991855b05d412200c46ba4b1b612ca5cd"
     },
     {
       "path": "renders/poster.jpg",
-      "bytes": 45296,
-      "sha256": "a869b95569c043cdd5815476245fa86dfd28632dc91ae284c7c0285d50750d84"
+      "bytes": 44933,
+      "sha256": "a20cfa2502107d2b351d9c67f65f8bead313d3c549faa656868c19272cf7d35d"
     },
     {
       "path": "renders/side.png",
-      "bytes": 867496,
-      "sha256": "e1d9ed4538e816fcdca9329390567eba89496e3f78b12523bd88e930864ae077"
+      "bytes": 864853,
+      "sha256": "f172b33941b52607204ddda6720a875ad48e81421ac53a6816c6882a8a181287"
     },
     {
       "path": "renders/three-quarter.png",
-      "bytes": 1078025,
-      "sha256": "0754965a6fb479387e0996439c6be4d1cc46c17ac829c4b645b7d899680b35a9"
+      "bytes": 1077503,
+      "sha256": "398177615082cf54a21d1b2f2fec206edcd2ce096af6b5a6f711d8c0a4ef4c1f"
+    },
+    {
+      "path": "scripts/adult_variants.py",
+      "bytes": 1004,
+      "sha256": "21ac966d1a5a2c99067879a592091fd59663f96a85c4d923f1c1a4e0ab405c49"
     },
     {
       "path": "scripts/build_childhood_model.py",
-      "bytes": 19328,
-      "sha256": "1e7c1803423e012546b042c35a27d7e5d523581ace6c42038c4a84c16bea297d"
+      "bytes": 23895,
+      "sha256": "8d4171f026e76b18b3a03be12938ad1448153da89b89bb70d6a561b3641acfce"
     },
     {
       "path": "scripts/build_model.py",
-      "bytes": 19033,
-      "sha256": "941fd2065b681883c488c0f7d55ed24a35621f6d62ee7f93c231c434e3e9d8a0"
+      "bytes": 27963,
+      "sha256": "f1219f0a579f2503e194804659186426b2342aaeb7af76df6dcd4787d17bc4b4"
+    },
+    {
+      "path": "scripts/childhood_variants.py",
+      "bytes": 1013,
+      "sha256": "582134c0b6149376e946fd2a189629d96e9da903e391771926407e7bab89c2ef"
+    },
+    {
+      "path": "scripts/keepsake_variants.py",
+      "bytes": 5248,
+      "sha256": "7506e127f4de9dd36fbf2c68ba455a65f8f71f4821b11ff66380c9a94ae54912"
     },
     {
       "path": "scripts/serve_preview.py",
-      "bytes": 453,
-      "sha256": "28d6fd79b35cc47136461ea44d439f80a6b770cb4d7f7480991a2989b31a0a78"
+      "bytes": 593,
+      "sha256": "2c4ad9eeadaf848149d8feb90d9d4b3ab1f3568b9f8eba7a995437593c24ebd8"
     },
     {
       "path": "scripts/validate_glb.mjs",
-      "bytes": 3431,
-      "sha256": "4334a2638605874319bb30a52896910669c7a39cb300761e86d80eaf1ba4f616"
+      "bytes": 5626,
+      "sha256": "cde733456ff9035c3996672159d85e96ffef0c0dd812d328a5b94b7fdc22f357"
+    },
+    {
+      "path": "scripts/verify_adult_source.py",
+      "bytes": 4311,
+      "sha256": "51f81cdd22a09aeaf8a16f0021e523abb59eb818de0dcfeb0180f4800dd2a0d8"
     },
     {
       "path": "scripts/verify_childhood_source.py",
-      "bytes": 2703,
-      "sha256": "aa1c234da5d995131f6b418be72f368a30036652883a72f3a442a3a3a7f8655e"
+      "bytes": 4235,
+      "sha256": "2f585c9f4a70467e9803b876dcedd8079cd0811c64c3f6cbec27cd45694ec72f"
     },
     {
       "path": "scripts/verify_preview.mjs",
-      "bytes": 14068,
-      "sha256": "d651a37b275861796a43e63301acc5162250a60b4393a96083aefb523df955bb"
+      "bytes": 14099,
+      "sha256": "16a153cea80d074957bd428fd68ac86f8a88860db8019aeb882cca6a082b8b15"
+    },
+    {
+      "path": "scripts/verify_variants.mjs",
+      "bytes": 9096,
+      "sha256": "0afd29b8599e2c3bae7fe2969c451eb38a26a41da25fd3fff76dd80d26e68a1a"
     },
     {
       "path": "textures/childhood-crochet-color.png",

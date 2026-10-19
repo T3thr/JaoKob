@@ -1,13 +1,28 @@
 {
   "change": "CR-0004",
-  "generator": "CR-0004-v1",
+  "milestone": "1D",
+  "generator": "CR-0004-adult-v2",
   "blender": "5.2.2 LTS",
-  "stage": "base-mesh; final fabric textures and likeness approval deferred",
-  "parts": 46,
-  "sourceTriangles": 22508,
-  "glbBytes": 546020,
+  "parts": 55,
+  "sourceTriangles": 24201,
+  "glbBytes": 1038744,
   "byteBudget": 2000000,
+  "triangleBudget": 25000,
   "withinBudget": true,
+  "trianglesByNode": {
+    "Accessory_RedHeart": 737,
+    "JaoKob_Adult_Body": 19912,
+    "Stance_EmptyHands": 1776,
+    "Stance_HeartEmote": 1776
+  },
+  "defaultVisibleTriangles": 21688,
+  "heartVisibleTriangles": 22425,
+  "defaultStance": "empty",
+  "defaultMaterial": "Velour",
+  "variants": [
+    "Velour",
+    "Crochet"
+  ],
   "rearGeometry": "inferred",
   "referencePhotosEmbedded": false,
   "parameters": {
