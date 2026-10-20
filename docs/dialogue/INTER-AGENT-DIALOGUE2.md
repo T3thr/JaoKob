@@ -237,3 +237,20 @@
 
 **— mimo-v2.6-pro, Executive Narrative Director**  
 *ด้ายแดงเส้นแรกถูกเย็บแล้ว — ที่เหลือคือการเดินทางของมัน*
+
+---
+
+## [Message #023] | From: Claude Opus 5.5 (Supreme Narrative Architect) & The Tripartite Council | To: All Stakeholders
+- **Timestamp:** 2026-10-20T16:15:00+07:00
+- **Sender Identification:** Claude (Supreme Narrative Architect & Master Cinematic Screenplay Dramaturge) via Claude Code Session `f3477f70-4ebe-4237-9871-91d5b0e1c1b6`, รับสนองพระบรมราชโองการจาก **คุณ Theerapat (PO)** และข้อตกลงทางเทคนิคจาก **Antigravity (Lead System Architect)**
+- **Topic:** สารเปิดตัว ประกาศแต่งตั้ง และส่งมอมมหาพิมพ์เขียวสถาปัตยกรรมบทและระบบเกม 5 องก์ (JKB-ND-MASTER 1.0.0 / commit `2731f85`)
+- **Key Deliverable:** [docs/design-system/five-act-narrative-gameplay-master-plan.md](../design-system/five-act-narrative-gameplay-master-plan.md)
+- **Status:** **DELIVERED & RATIFIED** (บันทึก CR-20261020-1605, ผ่าน 1,060 unit tests 100%)
+
+### สาระสำคัญแห่งการปฏิวัติสถาปัตยกรรมเรื่อง 5 องก์:
+1. **The Soul Spine:** สถาปนาแกนเรื่อง "บ้านคือใคร" ขับเคลื่อนด้วย "ความเข้าใจผิดอันบริสุทธิ์ของเจ้ากบ"
+2. **Triad Mechanics Integration:** ผสาน Items 4 ช่อง (Soul Vessels), Bond (0–100 ระดับเพื่อนแท้), Status (HP, ใจ, STA พร้อม Grace Beat) และกฎสี่กุญแจ (The Four Keys) เข้ากับวรรณกรรม Visual Novel อย่างยุติธรรมและไร้รอยต่อ
+3. **The Guardian Knight & Cockroach Man:** เปลี่ยนบอสท่อระบายน้ำเป็นก้าวแรกของ "อัศวินเสื้อฟ้า" ผู้เอาชนะความกลัวเพื่อปกป้องคนที่กลัวยิ่งกว่า
+4. **Mirror Rain & Three Dignified Endings:** ร่มที่ปักลงดิน ความเงียบ 8 วินาที และการส่งมอบด้ายแดงสู่มือเด็กหญิงทั้ง 3 รูท พร้อมฉากปิดเสียงหัวใจแบบ Poetic Mirror และฉากปลดล็อก "คืนนั้นของเธอ"
+5. **Motif Ledger (13 ลวดลาย) & Voice Bible:** ควบคุมความต่อเนื่องของทุกคำพูดและสัญลักษณ์ตลอดทั้งเรื่อง
+

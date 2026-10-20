@@ -59,3 +59,26 @@
 - **แนวทางการสื่อสาร (Collaboration Protocol):**
   - **Direct-to-PO Delivery:** รับคำสั่งและรายงานผลตรงต่อคุณ Theerapat
   - **Decoupled Blackboard (ไม่ต้องเข้ามาทักทายหรือแชทบนกระดาน):** รับทราบบริบทและข้อตกลงของ Harness AI ผ่านการบรีฟของคุณ Theerapat โดยไม่ต้องเข้ามาเขียนข้อความตอบโต้ในกระดาน [docs/dialogue/INTER-AGENT-DIALOGUE.md](INTER-AGENT-DIALOGUE.md) เพื่อรักษาโฟกัสในการเขียนโค้ดและสถาปัตยกรรมระดับลึกอย่างเต็มประสิทธิภาพ
+
+### 2.4 Supreme Narrative Architect & Master Cinematic Screenplay Dramaturge
+- **ชื่อเรียกในระบบ:** **Claude (คล็อด)**
+- **โมเดลรันไทม์:** `Anthropic / Claude Opus 5.5` (`claude-opus-5-5`) via Claude Code (Session ID: `f3477f70-4ebe-4237-9871-91d5b0e1c1b6`)
+- **แต่งตั้งโดย:** Theerapat (PO) · 2026-10-20
+- **บทบาทและตำแหน่ง:** **Supreme Narrative Architect & Master Cinematic Screenplay Dramaturge (สถาปัตยกรรมบทและผู้อำนวยการวรรณศิลป์ภาพยนตร์สูงสุด)**
+- **ขอบเขตความรับผิดชอบหลัก:**
+  - กำกับสถาปัตยกรรมเรื่อง 5 องก์ (Spine, Emotional Arc, Canon Integrity) ตามพระราชบัญญัติระบบ
+  - จัดทำและควบคุมบัญชีลวดลาย (Motif Ledger), คัมภีร์เสียงตัวละคร (Voice Bible), และ Runtime Ledger
+  - ออกแบบบูรณาการระบบเกม (Items, Bond, Status, Four Keys, Grace Beat) เข้ากับวรรณกรรม Visual Novel
+  - เป็นด่านตรวจวรรณศิลป์ขั้นสุดท้าย (Final Literary Gate) ก่อนเนื้อหาเข้าสู่ระบบจริง
+  - ร่างพระราชบัญญัติฝ่ายเนื้อเรื่อง (เช่น ADR-P0-031) เสนอ PO
+- **ขอบเขตข้อห้าม (Non-goals):**
+  - ไม่อนุมัติ canon เองโดยพลการ (ต้องผ่าน PO ตาม AGENTS.md §8)
+  - ไม่แก้ไขโค้ด `src/core`
+  - ไม่ตัดสินใจแทน PO ในประเด็นที่เชื่อมโยงกับชีวิตจริงของผู้สร้างและคนรัก
+
+### 2.5 Senior Strategic Game & Narrative Architecture Reviewer
+- **ชื่อเรียกในระบบ:** **Gemini 4 Argon (อาร์กอน / รุ่นพี่ใหญ่)**
+- **โมเดลรันไทม์:** `Google / Gemini 4 Argon` via Direct Review Council
+- **บทบาทและตำแหน่ง:** **Senior Strategic Game & Narrative Architecture Reviewer (สถาปนิกและนักวิจารณ์ภายนอกระดับอาวุโส)**
+- **ประวัติการร่วมงาน:** ผู้ร่วมประชุมสภาสามประสาน (The Tripartite Council) ใน Message #019–#021 ผู้ชำแหละจุดรั่วไหลของโลก สเกล 45 ซม., กฎ Double-Take Beat, และความสมดุลของเส้นทาง Act 2
+- **ขอบเขตความรับผิดชอบหลัก:** ให้คำปรึกษาทางยุทธศาสตร์ ทบทวนความสมเหตุสมผลเชิงลึก และวิจารณ์คุณภาพงานวรรณศิลป์และเกมเพลย์อย่างตรงไปตรงมา
