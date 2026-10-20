@@ -1,0 +1,45 @@
+{
+  "record": "CR-20261020-1318",
+  "date": "2026-10-20",
+  "baseline": "7476722",
+  "status": "passed",
+  "scope": "Documentation only; existing source, model, render, texture, runtime and tests unchanged",
+  "localMarkdownLinksChecked": 87,
+  "trackedFilesOutsideAllowlistByteIdentical": 810,
+  "documents": [
+    "README.md",
+    "STRUCTURE.md",
+    "HANDOFF.md",
+    "progress.md",
+    "docs/changelog/2026-10/2026-10-20-1318-3d-structure-session-handoff.md"
+  ],
+  "rawGlbReadOnlyChecks": {
+    "jaokob-adult-plush.glb": {
+      "bytes": 1038744,
+      "triangles": 24201,
+      "skins": 0,
+      "morphPrimitives": 0,
+      "sha256": "0625363e5b8a7dea6a6604e72de0451b7410a07a9fc6b25e19267b5eeae7d7cd"
+    },
+    "jaokob-childhood-crochet.glb": {
+      "bytes": 704780,
+      "triangles": 15728,
+      "skins": 0,
+      "morphPrimitives": 0,
+      "sha256": "0d6433f75f72804c4def60dbb0439ad2fca78783a57baa3ae1da74d321c747e8"
+    }
+  },
+  "planningCheckoutPreservation": {
+    "branch": "feat/sprint-05-planning-ssot",
+    "head": "1fbbf63bca7056efeea7eccd79303dabeb01d017",
+    "branchHeadAndStatusUnchanged": true,
+    "fileHashesUnchanged": 846
+  },
+  "notRerun": [
+    "Blender build/render/source verification",
+    "Khronos Validator execution",
+    "Playwright/browser checks",
+    "game unit suite"
+  ],
+  "historicalEvidenceOnly": "Validator 0 errors/0 warnings and 1060 regression passes refer to M1C/M1D asset rounds, not this documentation turn."
+}
