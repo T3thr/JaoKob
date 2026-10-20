@@ -1,4 +1,12 @@
-# แผนโครงสร้างไดเรกทอรีสำหรับการผลิต
+# แผนโครงสร้างไดเรกทอรีสำหรับการผลิต (HISTORICAL ARCHIVE)
+
+> [!WARNING]
+> **HISTORICAL ARCHIVE (PHASE 0 BASELINE - SUPERSEDED / DEPRECATED)**
+> เอกสารฉบับนี้จัดทำขึ้นเมื่อวันที่ 31 สิงหาคม 2026 เป็นเอกสารประวัติศาสตร์ของระยะ Phase 0 **ไม่ใช่ข้อกำหนดปัจจุบันของระบบ**
+> - **สถานะ:** Superseded Historical Archive (เก็บไว้เพื่อการตรวจสอบย้อนกลับทางวิศวกรรมเท่านั้น ห้ามใช้เป็น Active SSOT)
+> - **แผนงานและสถาปัตยกรรมปัจจุบัน:** ควบคุมโดย [Sprint 5 SSOT](../sprints/sprint-05-ssot.md) ร่วมกับ Accepted ADRs ใน `docs/adr/`
+> - **ลำดับชั้นเอกสาร:** อ้างอิงตาม [ADR-P0-023](../adr/ADR-P0-023-documentation-hygiene-and-ssot-hierarchy.md) ห้ามนำข้อความในเอกสารนี้ไปลบล้างหรือตีความขัดแย้งกับ Active SSOT โดยเด็ดขาด
+
 
 ## 1. การควบคุมเอกสาร
 
