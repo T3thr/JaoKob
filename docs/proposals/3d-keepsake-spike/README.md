@@ -1,10 +1,14 @@
 # JaoKob keepsakes — two dolls, independent stance/material variants
 
+> **สำหรับ Agent/session ใหม่:** อ่าน [คู่มือโครงสร้าง](STRUCTURE.md) และ [Hand-off ทั้ง session](HANDOFF.md) ก่อนลงมือ คู่มือนี้เป็น runbook ของ assets ปัจจุบัน; hand-off แยกงานที่ merge แล้วจากแนวคิด standing VN character ที่ยังไม่ได้เริ่ม
+> **Integration status:** PR #19 merged เข้า `develop` ที่ `7476722` เมื่อ 2026-10-19; ไม่มี production game integration จากการ merge นี้
+
+
 Scope and authority: [ADR-P0-025](../../adr/ADR-P0-025-childhood-keepsake-default-stance-and-heart-emote-decoupling.md) D1/D2/D4, superseding the default stance/material of [CR-0004](../../rfc/CR-0004-adult-plush-model-spike.md) / ADR-P0-017. The PO explicitly reopened this archived spike for this asset correction; no production integration is implied.
 
 **Current childhood default: empty-handed seated stance + adult-tone velour.** The arms rest beside the legs. Heart-holding is a separate optional stance, and crochet is an independent alternate material. Both axes are stored in one GLB and work in all four combinations. The retained `jaokob-childhood-crochet` filename is for path compatibility, not the default surface. Other facial emotes remain deferred. **Adult Milestone 1D now has the same independent heart/Crochet options**, under the PO request recorded in CR-0004, plus closed upper-eyelid hoods covering the formerly exposed upper sclera. Both dolls default to empty hands / Velour; the preview remembers each doll’s choices separately for the current page session.
 
-Source photographs are local references in `docs/references/3d-doll-models/`; the model uses constructed geometry and authored materials rather than embedding those photos. This folder is not part of the production game build.
+The PO originally supplied photographs at `docs/references/3d-doll-models/`; that folder was not found in the inspected develop/planning checkouts on 2026-10-20. See [reference availability](STRUCTURE.md#8-ภาพอ้างอิงและรายการที่ยังไม่อยู่ใน-clone) before requesting new likeness work. The model uses constructed geometry and authored materials rather than embedding photographs. This folder is not part of the production game build.
 
 ## Outputs
 

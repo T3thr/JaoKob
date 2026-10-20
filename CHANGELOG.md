@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- **CR-0004 documentation:** Added the 3D directory guide and session hand-off covering delivered Keepsakes, lessons, merged PR #19 and the proposed standing VN character direction; no model/runtime changes. [CR-20261020-1318](docs/changelog/2026-10/2026-10-20-1318-3d-structure-session-handoff.md).
+
 - **CR-0004 M1D:** Adult keepsake gains independent heart/Crochet options and closed upper eyelids; 1,038,744-byte GLB / 24,201 triangles, validator 0/0, all 8 preview combinations and 1,060 regression tests pass. [CR-20261019-1036](docs/changelog/2026-10/2026-10-19-1036-adult-keepsake-variants-eyelid.md).
 
 - **ADR-P0-025:** Childhood keepsake now defaults to empty hands and velour, with independent heart/crochet selectors; 704,780-byte GLB, 15,728 triangles, validator 0/0 and 1,060 regression passes. [CR-20261018-0508](docs/changelog/2026-10/2026-10-18-0508-childhood-stance-material-decoupling.md).

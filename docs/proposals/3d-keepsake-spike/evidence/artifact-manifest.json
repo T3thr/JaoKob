@@ -48,8 +48,8 @@
   "files": [
     {
       "path": "README.md",
-      "bytes": 27132,
-      "sha256": "e6d6b387024ecaeb1fe9545396c792e84fcac0cce9177bf777978079b09d437e"
+      "bytes": 28056,
+      "sha256": "2fcfea0814643a7a657f1b91b6bbe4c7a7254f4adf713e31657e1f4a6fe979e1"
     },
     {
       "path": "evidence/adr025-unit-summary.txt",
@@ -480,6 +480,26 @@
       "path": "textures/childhood-crochet-normal.png",
       "bytes": 15583,
       "sha256": "aa5893d6e570e131bd933acb9614355f0ed33387123c7b2101058b423dc4710a"
+    },
+    {
+      "path": "STRUCTURE.md",
+      "bytes": 26485,
+      "sha256": "0b30066a4e8bd565120154b08612aeaf2c41ec6cf33c59159460a0088f4e05ee"
+    },
+    {
+      "path": "HANDOFF.md",
+      "bytes": 32349,
+      "sha256": "0aa6abbd23ed7d7d7e4acab8c0387fcfe1c6122c430e3f5fc4806385a7fcde51"
+    },
+    {
+      "path": "evidence/documentation-handoff-verification.json",
+      "bytes": 1465,
+      "sha256": "cf39f64f185700b2d50c9b0f63cab703edf28e9a0cf510470af938fb6ad98aad"
     }
-  ]
+  ],
+  "documentationUpdate": {
+    "record": "CR-20261020-1318",
+    "date": "2026-10-20",
+    "note": "Guide/report inventory and README hash updated only; original asset evidence remains historical."
+  }
 }

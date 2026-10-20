@@ -37,3 +37,10 @@ PO requests adult parity (heart stance and crochet material) and smooth upper ey
 - Repeat adult exports have identical JSON/positions/indices/UV/colors/textures but tiny Blender normal variation (max 0.00006754/component); no byte-identical claim. Childhood repeat GLB is byte-identical; existing childhood authored assets/tiles remain unchanged.
 - Remaining: PO art review, physical-device profiling, Safari/AT, future production integration. No production WBS task completion.
 - Delivery: adult implementation `71b6d71`, active Sprint5 audit `9a1175b`, updated Draft PR #19. Local 4175 browser refreshed to adult heart/Crochet for PO inspection.
+
+## Session hand-off — 2026-10-20
+
+- PR #19 was merged into develop at `7476722` by explicit PO authorization on 2026-10-19. The merge tree matched verified head `94f8b74`; the then-current planning branch/status and 798 file hashes were unchanged. Historical Draft statuses above describe their original delivery times.
+- PO discussed standing childhood/adult characters with breathing, dialogue gestures, surprise, anxiety and thinking for the VN. Astra recommends an adult-first, one-scene hybrid 2D background/3D character experiment, preserving seated Keepsakes. No rig/acting/runtime implementation has been approved or started by that discussion.
+- Added STRUCTURE.md and HANDOFF.md with source/export/evidence roles, lessons, current metrics, missing reference-folder status, active-planning caveats and proposed next steps. Direct develop documentation commit/push is explicitly authorized for this turn; it is not ongoing permission for later features.
+- Tests reported in older entries remain historical. This documentation turn checks links, facts, scope and hashes; it does not rerun Blender/browser/game tests. Active planning SSOT registration is left for its owner to preserve Antigravity work.
