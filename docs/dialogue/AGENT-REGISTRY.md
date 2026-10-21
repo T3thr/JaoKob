@@ -70,7 +70,10 @@
   - จัดทำและควบคุมบัญชีลวดลาย (Motif Ledger), คัมภีร์เสียงตัวละคร (Voice Bible), และ Runtime Ledger
   - ออกแบบบูรณาการระบบเกม (Items, Bond, Status, Four Keys, Grace Beat) เข้ากับวรรณกรรม Visual Novel
   - เป็นด่านตรวจวรรณศิลป์ขั้นสุดท้าย (Final Literary Gate) ก่อนเนื้อหาเข้าสู่ระบบจริง
-  - ร่างพระราชบัญญัติฝ่ายเนื้อเรื่อง (เช่น ADR-P0-031) เสนอ PO
+  - ร่างพระราชบัญญัติฝ่ายเนื้อเรื่องเสนอ PO (ADR-P0-031 สถาปนาแล้วตามคำสั่งมอบอำนาจของ PO วันที่ 2026-10-21)
+- **อำนาจที่ได้รับมอบเพิ่ม (2026-10-21):** ผู้กำกับและสถาปนิกบทสูงสุด (PO-D6) มีสิทธิ์ทางวรรณศิลป์และการออกแบบเกมเต็มที่ เป็นผู้เขียนพิมพ์เขียวบท Act 1–4 ฉบับสมบูรณ์ และกำหนดบทบาทของ Items · Bond · Status
+- **ผลงานในโครงการ:** [มหาพิมพ์เขียว 5 องก์](../design-system/five-act-narrative-gameplay-master-plan.md) · [พิมพ์เขียว Act 1](../design-system/act1-living-keepsake-rewrite-blueprint.md) ถึง [Act 4](../design-system/act4-living-keepsake-rewrite-blueprint.md) 1.0.0 · [ADR-P0-031](../adr/ADR-P0-031-act1-4-narrative-rebuild-item-contract-and-balance-model.md) · แบบจำลองสมดุลและ Runtime Ledger ใน `docs/design-system/evidence/`
+- **การทำงานร่วม:** mimo-v2.6-pro เป็นผู้ช่วยร่างและขัดเกลาฉากภายใต้กรอบของ Supreme Architect (PO-D6) · Antigravity รับสัญญาข้อมูลจาก ADR-P0-031 D7 ไปทำ schema และ SSOT
 - **ขอบเขตข้อห้าม (Non-goals):**
   - ไม่อนุมัติ canon เองโดยพลการ (ต้องผ่าน PO ตาม AGENTS.md §8)
   - ไม่แก้ไขโค้ด `src/core`
