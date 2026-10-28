@@ -1,3 +1,6 @@
+> **[STATUS AS OF 2026-10-29: SUSPENDED / SUPERSEDED BY ADR-P0-032 — DO NOT USE]**
+> พระราชบัญญัตินี้ถูกสั่งระงับผลบังคับใช้แล้ว (ยกเลิกด้ายแดงและโครงเรื่องเดิม) ให้ยึดตาม [ADR-P0-032](./ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md) แทน
+
 # ADR-P0-024: Living Keepsake Transmutation, Fourth-Wall Metaphorical Mirror, and Narrative Sovereignty Mandate
 
 Status: **Accepted — binding narrative, emotional core, and directorial governance for JaoKob**

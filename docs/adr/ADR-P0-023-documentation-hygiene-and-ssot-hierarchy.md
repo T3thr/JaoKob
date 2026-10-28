@@ -1,3 +1,6 @@
+> **[STATUS AS OF 2026-10-29: ACTIVE — APPROVED BY PO & ANTIGRAVITY]**
+> มีผลบังคับใช้เต็มรูปแบบสำหรับลำดับชั้นอำนาจเอกสาร 4 ระดับ (Four-Tier Authority Hierarchy) และการห้ามนำเอกสารชีววิทยาใน `docs/phase-0/` มาใช้
+
 # ADR-P0-023: Documentation Governance, Historical Deprecation Tagging, and Single Source of Truth Hierarchy
 
 Status: **Accepted — binding architectural and documentation governance for Sprint 5 and beyond**

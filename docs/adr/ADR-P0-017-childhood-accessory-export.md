@@ -1,3 +1,6 @@
+> **[STATUS AS OF 2026-10-29: SUPERSEDED BY ADR-P0-025 — DO NOT USE DEFAULT HEART POSE]**
+> ถูกแทนที่โดย [ADR-P0-025](./ADR-P0-025-childhood-keepsake-default-stance-and-heart-emote-decoupling.md) (ระหว่างเล่นเกมห้ามใช้ท่าถือหัวใจสีแดงเป็นค่าเริ่มต้น)
+
 # ADR-P0-017: Childhood Keepsake Accessory Export
 
 Date: 2026-10-14. Status: **Accepted for Milestone 1B by explicit Product Owner instruction.**

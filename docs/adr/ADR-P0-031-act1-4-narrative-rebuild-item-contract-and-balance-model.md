@@ -1,3 +1,7 @@
+> **[STATUS AS OF 2026-10-29: PARTIALLY ACTIVE — MATH & SCHEMA D7 ONLY / NARRATIVE SUSPENDED BY ADR-P0-032]**
+> คงไว้เฉพาะ **คณิตศาสตร์สเตตัส (`HP / ใจ / STA`), จุดพักยกพื้น (Rest Floor), กฎสี่กุญแจ, Grace Beat, Bond แยกรายเพื่อน, สัญญา Schema D7, และเครื่องวัดเวลาอ่าน 8–10 นาที/องก์**
+> ส่วน **เนื้อเรื่องด้ายแดง, พี่บัว/พี่แหน, คุณยาย, กบปูนปั้น และรายการไอเทมผูกด้ายแดง ถูกสั่งระงับ (SUSPENDED)** โดยให้ใช้เนื้อเรื่องและตัวละครตาม [ADR-P0-032](./ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md) แทน
+
 # ADR-P0-031: Act 1–4 Narrative Rebuild, Keepsake Item Contract, and Fair Balance Model
 # พระราชบัญญัติรื้อสร้างบทองก์ 1–4 สัญญาไอเทมของสะสม และแบบจำลองสมดุลที่ยุติธรรม
 

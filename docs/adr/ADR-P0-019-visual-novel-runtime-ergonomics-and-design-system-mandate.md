@@ -1,3 +1,6 @@
+> **[STATUS AS OF 2026-10-29: ACTIVE — APPROVED BY PO & ANTIGRAVITY]**
+> มีผลบังคับใช้เต็มรูปแบบสำหรับมาตรฐาน Visual Novel Ergonomics (พื้นที่สัมผัส ≥ 44×44 px, ห้ามใส่ตัวเลขสเตตัสในกล่องบทพูด, Inline Choices ไร้ Scrollbar)
+
 # ADR-P0-019: Visual Novel Runtime Ergonomics, Anti-Slop Strict Standards, and Formal Design System Mandate
 
 Status: **Accepted — binding design standard superseding ADR-P0-018, extending Sprint 4 Slice 1 (PR #13 Overhaul)**

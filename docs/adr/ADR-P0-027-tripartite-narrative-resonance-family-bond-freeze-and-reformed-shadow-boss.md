@@ -1,3 +1,6 @@
+> **[STATUS AS OF 2026-10-29: SUSPENDED / SUPERSEDED BY ADR-P0-032 — DO NOT USE]**
+> พระราชบัญญัตินี้ถูกสั่งระงับผลบังคับใช้เพื่อปลดล็อกข้อจำกัดในการเขียนบท ให้ยึดตาม [ADR-P0-032](./ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md) แทน
+
 # ADR-P0-027: Tripartite Narrative Architecture, Act 1 Family Bond Freeze, Route Companion Isolation, and Reformed Cockroach Man Specification
 
 Status: **Accepted — binding narrative architecture, gameplay design, and directorial mandate (Amends and expands ADR-P0-021, ADR-P0-024, and ADR-P0-026)**

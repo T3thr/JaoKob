@@ -1,0 +1,465 @@
+{
+  "manifestVersion": "1.0.0",
+  "schemaContract": "ADR-P0-032",
+  "storyProposalRef": "docs/design-system/new-five-act-story-and-mechanics-proposal.md",
+  "promptPipelineDir": "docs/design-system/asset-prompts/",
+  "assignedAgent": "Senior AI / GPT-6 Astra",
+  "updatedAt": "2026-10-29T05:50:00+07:00",
+  "categories": {
+    "characters": [
+      {
+        "assetId": "char_jao_kob_childhood_neutral",
+        "characterId": "char_jao_kob",
+        "outputPath": "assets/images/characters/jao-kob/childhood-neutral.webp",
+        "reference3D": "docs/proposals/3d-keepsake-spike/renders/childhood/poster.jpg",
+        "dimensions": "1024x1024",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "char_jao_kob_childhood_curious",
+        "characterId": "char_jao_kob",
+        "outputPath": "assets/images/characters/jao-kob/childhood-curious.webp",
+        "reference3D": "docs/proposals/3d-keepsake-spike/renders/childhood/front.png",
+        "dimensions": "1024x1024",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "char_jao_kob_adult_neutral",
+        "characterId": "char_jao_kob",
+        "outputPath": "assets/images/characters/jao-kob/adult-neutral.webp",
+        "reference3D": "docs/proposals/3d-keepsake-spike/renders/poster.jpg",
+        "dimensions": "1024x1024",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "char_jao_kob_adult_observant",
+        "characterId": "char_jao_kob",
+        "outputPath": "assets/images/characters/jao-kob/adult-observant.webp",
+        "reference3D": "docs/proposals/3d-keepsake-spike/renders/three-quarter.png",
+        "dimensions": "1024x1024",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "char_jao_kob_adult_determined",
+        "characterId": "char_jao_kob",
+        "outputPath": "assets/images/characters/jao-kob/adult-determined.webp",
+        "reference3D": "docs/proposals/3d-keepsake-spike/renders/front.png",
+        "dimensions": "1024x1024",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "char_jao_kob_adult_miracle_plush",
+        "characterId": "char_jao_kob",
+        "outputPath": "assets/images/characters/jao-kob/adult-miracle-plush.webp",
+        "reference3D": "docs/proposals/3d-keepsake-spike/renders/adult/empty-crochet.png",
+        "dimensions": "1024x1024",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "char_jao_kab_neutral_proud",
+        "characterId": "char_jao_kab",
+        "outputPath": "assets/images/characters/jao-kab/neutral-proud.webp",
+        "dimensions": "1024x1024",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "char_jao_kab_action_knuckle_tap",
+        "characterId": "char_jao_kab",
+        "outputPath": "assets/images/characters/jao-kab/action-knuckle-tap.webp",
+        "dimensions": "1024x1024",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "char_jao_kib_neutral_cheerful",
+        "characterId": "char_jao_kib",
+        "outputPath": "assets/images/characters/jao-kib/neutral-cheerful.webp",
+        "dimensions": "1024x1024",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "char_jao_kib_tinker_seed_tube",
+        "characterId": "char_jao_kib",
+        "outputPath": "assets/images/characters/jao-kib/tinker-seed-tube.webp",
+        "dimensions": "1024x1024",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "char_father_frog_calm",
+        "characterId": "char_father_frog",
+        "outputPath": "assets/images/characters/parents/father-frog-calm.webp",
+        "dimensions": "1024x1024",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "char_mother_frog_warm",
+        "characterId": "char_mother_frog",
+        "outputPath": "assets/images/characters/parents/mother-frog-warm.webp",
+        "dimensions": "1024x1024",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "char_pkam_neutral_guarded",
+        "characterId": "char_p_kam",
+        "outputPath": "assets/images/characters/p-kam/neutral-guarded.webp",
+        "dimensions": "1024x1024",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "char_pkam_allied_shield",
+        "characterId": "char_p_kam",
+        "outputPath": "assets/images/characters/p-kam/allied-shield.webp",
+        "dimensions": "1024x1024",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "char_jao_fiw_neutral_lively",
+        "characterId": "char_jao_fiw",
+        "outputPath": "assets/images/characters/jao-fiw/neutral-lively.webp",
+        "dimensions": "1024x1024",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "char_jao_fiw_gliding_brave",
+        "characterId": "char_jao_fiw",
+        "outputPath": "assets/images/characters/jao-fiw/gliding-brave.webp",
+        "dimensions": "1024x1024",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "char_cockroach_man_shadow_boast",
+        "characterId": "char_cockroach_man",
+        "outputPath": "assets/images/characters/cockroach-man/shadow-cloak-boast.webp",
+        "dimensions": "1024x1024",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "char_cockroach_man_shrunk_defeated",
+        "characterId": "char_cockroach_man",
+        "outputPath": "assets/images/characters/cockroach-man/shrunk-defeated.webp",
+        "dimensions": "1024x1024",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "char_jao_teuk_storm_kneeling",
+        "characterId": "char_jao_teuk",
+        "outputPath": "assets/images/characters/jao-teuk/storm-kneeling-mission.webp",
+        "dimensions": "1024x1024",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "char_jao_teuk_dawn_reunion",
+        "characterId": "char_jao_teuk",
+        "outputPath": "assets/images/characters/jao-teuk/dawn-reunion-smile.webp",
+        "dimensions": "1024x1024",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "char_peuak_bedside_frightened",
+        "characterId": "char_peuak",
+        "outputPath": "assets/images/characters/peuak/bedside-frightened-blanket.webp",
+        "dimensions": "1024x1024",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "char_peuak_warm_sunlight_hug",
+        "characterId": "char_peuak",
+        "outputPath": "assets/images/characters/peuak/warm-sunlight-hug.webp",
+        "dimensions": "1024x1024",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "char_boy_ton_crying",
+        "characterId": "char_boy_ton",
+        "outputPath": "assets/images/characters/city-humans/boy-ton-crying.webp",
+        "dimensions": "1024x1024",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "char_watchman_lung_flare",
+        "characterId": "char_watchman_lung",
+        "outputPath": "assets/images/characters/city-humans/watchman-lung-flare.webp",
+        "dimensions": "1024x1024",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      }
+    ],
+    "backgrounds": [
+      {
+        "assetId": "bg_act1_willow_roots",
+        "act": 1,
+        "outputPath": "assets/images/backgrounds/act-01/bg-act1-willow-roots.webp",
+        "dimensions": "1600x900",
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "bg_act1_bamboo_home_dusk",
+        "act": 1,
+        "outputPath": "assets/images/backgrounds/act-01/bg-act1-bamboo-home-dusk.webp",
+        "dimensions": "1600x900",
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "bg_act1_overflow_weir",
+        "act": 1,
+        "outputPath": "assets/images/backgrounds/act-01/bg-act1-overflow-weir.webp",
+        "dimensions": "1600x900",
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "bg_act2_echo_culvert",
+        "act": 2,
+        "outputPath": "assets/images/backgrounds/act-02/bg-act2-echo-culvert.webp",
+        "dimensions": "1600x900",
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "bg_act2_whirlpool_grate",
+        "act": 2,
+        "outputPath": "assets/images/backgrounds/act-02/bg-act2-whirlpool-grate.webp",
+        "dimensions": "1600x900",
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "bg_act2_shadow_sluice_chamber",
+        "act": 2,
+        "outputPath": "assets/images/backgrounds/act-02/bg-act2-shadow-sluice-chamber.webp",
+        "dimensions": "1600x900",
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "bg_act3_blackout_street_cart",
+        "act": 3,
+        "outputPath": "assets/images/backgrounds/act-03/bg-act3-blackout-street-cart.webp",
+        "dimensions": "1600x900",
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "bg_act3_flooded_footbridge",
+        "act": 3,
+        "outputPath": "assets/images/backgrounds/act-03/bg-act3-flooded-footbridge.webp",
+        "dimensions": "1600x900",
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "bg_act3_wayside_shelter_teuk",
+        "act": 3,
+        "outputPath": "assets/images/backgrounds/act-03/bg-act3-wayside-shelter-teuk.webp",
+        "dimensions": "1600x900",
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "bg_act4_garden_brick_wall",
+        "act": 4,
+        "outputPath": "assets/images/backgrounds/act-04/bg-act4-garden-brick-wall.webp",
+        "dimensions": "1600x900",
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "bg_act4_parapet_storm_abyss",
+        "act": 4,
+        "outputPath": "assets/images/backgrounds/act-04/bg-act4-parapet-storm-abyss.webp",
+        "dimensions": "1600x900",
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "bg_act5_bedside_table_night",
+        "act": 5,
+        "outputPath": "assets/images/backgrounds/act-05/bg-act5-bedside-table-night.webp",
+        "dimensions": "1600x900",
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "bg_act5_shadow_duel_wall",
+        "act": 5,
+        "outputPath": "assets/images/backgrounds/act-05/bg-act5-shadow-duel-wall.webp",
+        "dimensions": "1600x900",
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "bg_act5_bedroom_golden_dawn",
+        "act": 5,
+        "outputPath": "assets/images/backgrounds/act-05/bg-act5-bedroom-golden-dawn.webp",
+        "dimensions": "1600x900",
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "bg_act5_pond_homecoming_dawn",
+        "act": 5,
+        "outputPath": "assets/images/backgrounds/act-05/bg-act5-pond-homecoming-dawn.webp",
+        "dimensions": "1600x900",
+        "version": "v1",
+        "status": "pending-generation"
+      }
+    ],
+    "cinematicCGs": [
+      {
+        "assetId": "cg_act1_three_siblings_blue_shirt",
+        "act": 1,
+        "outputPath": "assets/images/cg/act-01/cg-act1-three-siblings-blue-shirt.webp",
+        "dimensions": "1600x900",
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "cg_act2_pkam_whirlpool_rescue",
+        "act": 2,
+        "outputPath": "assets/images/cg/act-02/cg-act2-pkam-whirlpool-rescue.webp",
+        "dimensions": "1600x900",
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "cg_act3_teuk_guardian_oath",
+        "act": 3,
+        "outputPath": "assets/images/cg/act-03/cg-act3-teuk-guardian-oath.webp",
+        "dimensions": "1600x900",
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "cg_act4_five_hero_storm_relay",
+        "act": 4,
+        "outputPath": "assets/images/cg/act-04/cg-act4-five-hero-storm-relay.webp",
+        "dimensions": "1600x900",
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "cg_act5_shadow_knight_protector",
+        "act": 5,
+        "outputPath": "assets/images/cg/act-05/cg-act5-shadow-knight-protector.webp",
+        "dimensions": "1600x900",
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "cg_act5_ending_ehome_miracle_plush",
+        "act": 5,
+        "outputPath": "assets/images/cg/act-05/cg-act5-ending-ehome-miracle-plush.webp",
+        "dimensions": "1600x900",
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "cg_act5_ending_edawn_two_worlds",
+        "act": 5,
+        "outputPath": "assets/images/cg/act-05/cg-act5-ending-edawn-two-worlds.webp",
+        "dimensions": "1600x900",
+        "version": "v1",
+        "status": "pending-generation"
+      }
+    ],
+    "keepsakes": [
+      {
+        "assetId": "item_kib_reed_charms",
+        "outputPath": "assets/images/keepsakes/v2/item-kib-reed-charms.webp",
+        "dimensions": "512x512",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "item_kab_bark_guard",
+        "outputPath": "assets/images/keepsakes/v2/item-kab-bark-guard.webp",
+        "dimensions": "512x512",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "item_lost_brass_button",
+        "outputPath": "assets/images/keepsakes/v2/item-lost-brass-button.webp",
+        "dimensions": "512x512",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "item_pkam_tin_gear",
+        "outputPath": "assets/images/keepsakes/v2/item-pkam-tin-gear.webp",
+        "dimensions": "512x512",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "item_teuk_whistle_charm",
+        "outputPath": "assets/images/keepsakes/v2/item-teuk-whistle-charm.webp",
+        "dimensions": "512x512",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      },
+      {
+        "assetId": "item_fiw_sun_ribbon",
+        "outputPath": "assets/images/keepsakes/v2/item-fiw-sun-ribbon.webp",
+        "dimensions": "512x512",
+        "transparent": true,
+        "version": "v1",
+        "status": "pending-generation"
+      }
+    ]
+  }
+}
+

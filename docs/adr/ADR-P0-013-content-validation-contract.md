@@ -1,3 +1,6 @@
+> **[STATUS AS OF 2026-10-29: ACTIVE — APPROVED BY PO & ANTIGRAVITY]**
+> มีผลบังคับใช้เต็มรูปแบบสำหรับสถาปัตยกรรม Pure JS Schema Validation
+
 # ADR-P0-013: Local Content Validation and Act 1 Rest Contract
 
 Status: Accepted direction under Tech Lead Step 1 directive; concrete contract recorded for implementation review.

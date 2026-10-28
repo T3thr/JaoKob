@@ -1,3 +1,6 @@
+> **[STATUS AS OF 2026-10-29: ACTIVE — APPROVED BY PO & ANTIGRAVITY]**
+> มีผลบังคับใช้สำหรับสถาปัตยกรรม Lazy-loaded 3D Keepsake Viewer ในฉากจบ
+
 # ADR-P0-016: Lazy-loaded Keepsake Inspection Candidate
 
 Date: 2026-10-14. Status: **Accepted for Milestone 1 by explicit Product Owner instruction; game integration deferred.**

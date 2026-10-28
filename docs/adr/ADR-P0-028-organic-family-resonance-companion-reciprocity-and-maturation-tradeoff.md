@@ -1,3 +1,6 @@
+> **[STATUS AS OF 2026-10-29: SUSPENDED / SUPERSEDED BY ADR-P0-032 — DO NOT USE FOR LORE]**
+> พระราชบัญญัตินี้ถูกสั่งระงับผลบังคับใช้ด้านเนื้อเรื่องและสถานที่เดิม ให้ใช้ครอบครัวเจ้ากบ (พ่อ แม่ เจ้ากับ เจ้ากิบ) และโครงเรื่องใหม่ตาม [ADR-P0-032](./ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md)
+
 # ADR-P0-028: Organic Family Resonance, Companion Reciprocity, and Maturation Trade-off Architecture
 
 - **Status:** Approved (PO Theerapat Mandate & Tripartite Consensus)

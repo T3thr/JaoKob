@@ -1,3 +1,6 @@
+> **[STATUS AS OF 2026-10-29: SUSPENDED / SUPERSEDED BY ADR-P0-032 — DO NOT USE FOR NARRATIVE]**
+> พระราชบัญญัตินี้ถูกสั่งระงับผลบังคับใช้แล้ว (ยกเลิกพล็อตมหาเส้นใยด้ายแดง, คุณยายเย็บเสื้อ, และกบปูนปั้น) ให้ยึดตาม [ADR-P0-032](./ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md) เป็นข้อยุติ
+
 # ADR-P0-030: Tripartite Narrative Architecture Overhaul: Five-Act Expansion, Mechanical Gauntlet, and Emotional Threading
 # พระราชบัญญัติปฏิรูปสถาปัตยกรรมเนื้อเรื่องสามประสาน: การขยายโครงสร้าง 5 องก์, สมรภูมิกลไกเขาวงกต, และมหาเส้นใยด้ายแดง
 

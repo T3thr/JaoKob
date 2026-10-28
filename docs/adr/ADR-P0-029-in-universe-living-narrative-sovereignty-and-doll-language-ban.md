@@ -1,3 +1,6 @@
+> **[STATUS AS OF 2026-10-29: SUSPENDED / SUPERSEDED BY ADR-P0-032 — DO NOT USE]**
+> พระราชบัญญัตินี้ถูกสั่งระงับผลบังคับใช้แล้ว เนื่องจากตาม [ADR-P0-032](./ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md) เจ้ากบเกิดเป็นกบสองขามีชีวิตในโลกแฟนตาซีสิ่งมีชีวิตใต้ชายคา และจะกลายร่างเป็นตุ๊กตาเจ้ากบจริง ๆ ให้เด็กหญิงเปื๊อกในฉากจบ `E-HOME`
+
 # ADR-P0-029: In-Universe Living Fairy-Tale Frog Narrative Sovereignty and Strict Ban on Doll/Velvet Fabric Narrative Language
 # พระราชบัญญัติสัจจะกบนิทานมีชีวิตในโลกเนื้อเรื่อง และการสั่งห้ามใช้คำว่าตุ๊กตา/ผิวกำมะหยี่ในบทบรรยายโดยเด็ดขาด
 

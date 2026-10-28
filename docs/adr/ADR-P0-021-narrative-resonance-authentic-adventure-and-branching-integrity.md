@@ -1,3 +1,7 @@
+> **[STATUS AS OF 2026-10-29: PARTIALLY ACTIVE — ANTI-SLOP ONLY / ENDING LOCK & DOLL BAN SUSPENDED BY ADR-P0-032]**
+> คงไว้เฉพาะ **วินัยการเขียนบท Anti-Slop (ห้ามผู้บรรยายสั่งสอนผู้เล่น, ห้ามบล็อกข้อความซ้ำ)**
+> ส่วน **เกณฑ์ล็อกฉากจบด้วยแต้ม Bond และข้อห้ามการกลายเป็นตุ๊กตา ถูกสั่งระงับ (SUSPENDED)** โดยให้ใช้โมเดล `Choice-Driven Ending` และปาฏิหาริย์การกลายเป็นตุ๊กตาในฉากจบ `E-HOME` ตาม [ADR-P0-032](./ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md)
+
 # ADR-P0-021: Narrative Resonance, Authentic Adventure Characterization, Anti-Slop Discipline, and Branching Integrity
 
 Status: **Accepted — binding architectural and narrative governance for Sprint 4 Slice 4 (PR #16 remediation) and beyond**

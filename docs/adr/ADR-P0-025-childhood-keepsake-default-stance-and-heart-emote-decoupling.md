@@ -1,3 +1,6 @@
+> **[STATUS AS OF 2026-10-29: ACTIVE — APPROVED BY PO & ANTIGRAVITY]**
+> มีผลบังคับใช้เต็มรูปแบบ: ระหว่างเล่นเกมใน Act 1–5 เจ้ากบต้องอยู่ในท่ามาตรฐานปกติ **ไม่ถือหัวใจสีแดง** (ท่าถือหัวใจเป็น Emote พิเศษใน 3D Viewer ตอนจบเกมเท่านั้น)
+
 # ADR-P0-025: Childhood Keepsake Default Seated Stance Invariant and Heart-Holding Emote Decoupling
 
 Status: **Accepted — binding 3D asset, lore, and visual specification (Amends and supersedes stance clause in ADR-P0-017)**

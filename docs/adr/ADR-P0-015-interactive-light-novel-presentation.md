@@ -1,3 +1,6 @@
+> **[STATUS AS OF 2026-10-29: ACTIVE — APPROVED BY PO & ANTIGRAVITY]**
+> มีผลบังคับใช้สำหรับสถาปัตยกรรม AudioPort และ Environment Metadata แยกจาก Pure Core
+
 # ADR-P0-015: Interactive Light Novel Presentation and Compatibility
 
 Status: **Accepted — architecture/documentation only; implementation deferred to a new Session.**

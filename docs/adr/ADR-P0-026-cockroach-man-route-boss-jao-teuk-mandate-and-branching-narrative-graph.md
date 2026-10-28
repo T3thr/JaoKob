@@ -1,3 +1,6 @@
+> **[STATUS AS OF 2026-10-29: PARTIALLY ACTIVE — CHARACTERS RETAINED / PLOT UPDATED BY ADR-P0-032]**
+> คงไว้เฉพาะการมีตัวละคร **แมลงสาบแมน** (ก้อนเงาแก๊ก) และ **เจ้าเตื๊อก** ส่วนบทบาทและเส้นเรื่องให้ปรับตาม [ADR-P0-032](./ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md) (เจ้าเตื๊อกเชื่อมโยงกับเด็กหญิงเปื๊อกโดยตรง)
+
 # ADR-P0-026: Cockroach Man Route Boss, Jao Teuk Human Bond Mandate, and Visual Novel Branching Graph Specification
 
 Status: **Accepted — binding narrative architecture, gameplay design, and directorial mandate (Amends and expands ADR-P0-021, ADR-P0-022, and ADR-P0-024)**
