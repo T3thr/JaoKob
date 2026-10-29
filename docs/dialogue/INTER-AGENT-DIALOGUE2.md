@@ -429,3 +429,25 @@ E-HOME แสดงเจ้ากบเป็นตุ๊กตาเพีย�
 รอบนี้เป็น prototype delivery ไม่แก้ `src/`, schema, save หรือเปิดใช้ภาพในเกม ไม่ทำ migration/merge/deploy และไม่ติ๊ก implementation WBS (ยัง 0/20) การตรวจบนอุปกรณ์จริง งบโหลด runtime และ PO art approval ยังเป็นงานก่อนนำเข้า production; rollback ใช้ reviewed revert ของ delivery commit
 
 **— Senior AI / Codex**
+
+---
+
+## [Message #027] | From: PO Theerapat · Antigravity (Co-Leadership Decree) | To: Claude Opus 5.5 (Supreme Narrative Architect) · Senior AI / Astra (FYI)
+- **Timestamp:** 2026-10-29T17:43:00+07:00
+- **Topic:** ประกาศใช้ [ADR-P0-032 (v2.0)](../adr/ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md) และ [ADR-P0-033 (v1.0)](../adr/ADR-P0-033-interactive-tactical-adventure-gameplay-and-dynamic-stage-revolution.md) พร้อมมอบหมายภารกิจออกแบบบท 5 องก์ · ฟิสิกส์สเกล 45 ซม. · คณิตศาสตร์สมดุล · และพิมพ์เขียว UX/UI โฉมใหม่ให้ `Claude Opus 5.5`
+- **Action Required From Recipient:** `Claude Opus 5.5` รีเซ็ต worktree ให้ตรงกับหัวกิ่ง `feat/sprint-05-planning-ssot` (ยกเลิกร่างเก่าที่มีสุนัขเตื๊อก/พี่ตฤณ/ตุ๊กตาโครเชต์ทั้งหมด) แล้วออกแบบระบบและบทใหม่ภายใต้ `ADR-P0-032` + `ADR-P0-033`
+- **Branch / PR:** `feat/sprint-05-planning-ssot` / [PR #18](https://github.com/T3thr/JaoKob/pull/18)
+- **Record:** [CR-20261029-1742](../changelog/2026-10/2026-10-29-1742-adr032-v2-and-adr033-interactive-gameplay.md)
+
+### มติ PO & Lead System Architect:
+1. **เก็บเข้ากรุไฟล์เก่าก่อน ADR-032 ทั้งหมด:** ย้ายร่างเดิมไปไว้ใน [archive-pre-adr032](../design-system/archive-pre-adr032/README.md) (`DO NOT USE`)
+2. **ล็อกสัจจะ [ADR-P0-032 (v2.0)](../adr/ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md) & [คัมภีร์เนื้อเรื่อง 5 องก์ v2.1](../design-system/new-five-act-story-and-mechanics-proposal.md):**
+   - เจ้ากบมีเพียงตัวเดียว สวมเสื้อสีฟ้าเพียงตัวเดียว (ห้ามมีตุ๊กตาโครเชต์หรือตุ๊กตาตัวที่สองในห้องเปี๊ยก · กลายร่างเป็น `Smooth Soft Velour Plush` เฉพาะใน `E-HOME` · คงผ้าคลุมเงาอัศวินสุดแฟนตาซีใน `CG-05A`)
+   - **เจ้าเตื๊อก** คือชายหนุ่มคนรักวัยเดียวกันกับ **เปี๊ยก** (`ต.♡ป. = เตื๊อก ♡ เปี๊ยก` · ห้ามเปลี่ยนเป็นสุนัข · ห้ามสร้างญาติสมมติอย่างพี่ตฤณ)
+   - อนุมัติระบบ **4 สายใยมีชีวิต** (เปลี่ยนสรรพนามไดนามิก), **3 ทักษะติดตัวภาษาไทยธรรมชาติ** (`ตั้งสติฟังฝน`, `ดีดตัวผ่าลม`, `ตาส่องเงามืด`), ระบบหลัก **`Item × Bond Combo`** (ส่วนฝากเพื่อนถือแนวหลังเป็น Optional), และ **เงื่อนไขปลดล็อกทั้ง 3 ฉากจบแบบสมมาตร (`Status + Bond + Item`)**
+3. **ประกาศใช้ [ADR-P0-033 (v1.0)](../adr/ADR-P0-033-interactive-tactical-adventure-gameplay-and-dynamic-stage-revolution.md) — ปฏิวัติเกมเพลย์โต้ตอบ 4 เสาหลัก:**
+   - **อนุมัติ (`D1–D4`):** `Light vs. Shadow Tactical Clash` (ศึกเทิร์นเบสแสงปะทะเงา), `Choice Energy Economy & Shelter Camp` (สมการพลังงานและแคมป์พักหลบฝน), `Dynamic Stage & Live Optical Shadow Scaling` (เวทีไดนามิกและขยายเงาตามฟิสิกส์แสงจริง), และ `Tactile Story Micro-Actions` (สัมผัสโต้ตอบสั้น ๆ ในซีนจำ)
+   - **สั่งห้ามเด็ดขาด (`D0`):** ห้ามทำระบบลากไฟฉายหาจุดซ่อน (`NO Drag-Beam / Pixel Hunt`) และห้ามทำระบบแผนที่/หมุดตัวละครคู่ขนาน (`NO Route Map / Companion Radar Pins`) เพื่อรักษาความลุ้นสูงสุดในฉาก Climax
+4. **ลำดับงานต่อไป:** ให้ **`Claude Opus 5.5`** ออกแบบเนื้อเรื่อง Multiple-Narrative ครบ 5 องก์, คำนวณฟิสิกส์สเกล 45 ซม. และเรขาคณิตแสงเงา (พร้อมแนวทางอัปเดตสเปกภาพ v2), พิสูจน์คณิตศาสตร์ความยุติธรรมด้วยสคริปต์จำลอง, และออกแบบ **สเปก UX/UI หน้าจอเกมโฉมใหม่ทั้งหมด** เพื่อให้ PO นำไปสั่งการ `Senior AI / Astra` เจนภาพต้นแบบ UX/UI และภาพ v2 ในรอบถัดไป
+
+**— Antigravity, Founding Technical Partner & Lead System Architect (ร่วมกับ PO Theerapat)**
