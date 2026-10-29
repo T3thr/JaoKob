@@ -1,0 +1,2105 @@
+{
+  "verifiedAt": "2026-10-29T09:52:51+07:00",
+  "command": "python3 docs/design-system/evidence/verify-visual-assets-v1.py --write-report",
+  "result": "pass",
+  "assetCount": 52,
+  "fileCount": 104,
+  "categoryCounts": {
+    "characters": 24,
+    "backgrounds": 15,
+    "cinematicCGs": 7,
+    "keepsakes": 6
+  },
+  "transparentAssetCount": 30,
+  "opaqueAssetCount": 22,
+  "masterBytes": 74356247,
+  "webpBytes": 11527190,
+  "manifestSha256": "67c6e06b47806981236d93b75e38b8529c847be86a4263d38c1cb3893bf768d6",
+  "provenanceSha256": "d11ba29e06d41d21c35c431aaf0dbe385471c970da357141401a929fcc5345f8",
+  "gallerySha256": "6b5d9f3d9861cb02142a63b4b2b8f333ecf580c7ed70a6119428ad1f7d6097a1",
+  "verifierSha256": "8bee104fc140ff9a5b1831e74fd6747c7b79ff0ad752438754bf74992949cc3a",
+  "checks": [
+    "unique IDs and paths",
+    "all 52 manifest/provenance entries and prompt files",
+    "all 104 file formats, dimensions, byte lengths and SHA-256 hashes",
+    "30 transparent pairs: real alpha, zero-alpha corners, no visible edge clipping",
+    "22 opaque scene pairs",
+    "v1 master paths",
+    "52 gallery images and Thai alt text"
+  ],
+  "limits": [
+    "Visual composition/canon checks are human-visible review, not automatic semantic proof",
+    "PO art approval remains pending",
+    "No runtime, device, accessibility or release certification"
+  ],
+  "files": [
+    {
+      "assetId": "char_jao_kob_childhood_neutral",
+      "path": "assets/images/characters/jao-kob/childhood-neutral.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 88904,
+      "sha256": "5167c40299a5d9311f3900342e0fbcaec41787ca6703ae1bf8d2130b0ff9aa87",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_kob_childhood_neutral",
+      "path": "assets/images/characters/jao-kob/versions/v1/childhood-neutral.png",
+      "format": "PNG",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 743434,
+      "sha256": "cb487dc7a3e9c85bde6c47c7af43358256500dc436560b8a320929cf24292ae3",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_kob_childhood_curious",
+      "path": "assets/images/characters/jao-kob/childhood-curious.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 112632,
+      "sha256": "6e928da47e7f54b215e043f6abc319b2db21b484b2129f28cf694caa7f70ee81",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_kob_childhood_curious",
+      "path": "assets/images/characters/jao-kob/versions/v1/childhood-curious.png",
+      "format": "PNG",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 907413,
+      "sha256": "dc949ec6a224e42168263ae80e7de80d0dd20fce582b105edfc67db0f2867767",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_kob_adult_neutral",
+      "path": "assets/images/characters/jao-kob/adult-neutral.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 86268,
+      "sha256": "6009202b142832deada81a46e17a563e73f764e0033ba97c1542426880b78d8c",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_kob_adult_neutral",
+      "path": "assets/images/characters/jao-kob/versions/v1/adult-neutral.png",
+      "format": "PNG",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 579235,
+      "sha256": "7a0bfd0d97018495a7b11c12e36abe8a6cd8460d2abafcb499bad31e00ddf95b",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_kob_adult_observant",
+      "path": "assets/images/characters/jao-kob/adult-observant.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 99928,
+      "sha256": "db2496fdb2d1d19b60e7d3ceca37b46db103fcd4a804a3002a5bc19633db0efd",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_kob_adult_observant",
+      "path": "assets/images/characters/jao-kob/versions/v1/adult-observant.png",
+      "format": "PNG",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 644758,
+      "sha256": "bef9a93703b703e648449a85fb51b6d5adabfcc1b143854f660e7ce7a7ebe6df",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_kob_adult_determined",
+      "path": "assets/images/characters/jao-kob/adult-determined.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 104340,
+      "sha256": "059852f7de8bbb3074b2eae237984dc4a891ed9429bc7aab50d03cb495c27be1",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_kob_adult_determined",
+      "path": "assets/images/characters/jao-kob/versions/v1/adult-determined.png",
+      "format": "PNG",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 679110,
+      "sha256": "633e9afc6668db1dbe371acaffc564ca634289453e13482eb9e98c16412dc673",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_kob_adult_miracle_plush",
+      "path": "assets/images/characters/jao-kob/adult-miracle-plush.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 186716,
+      "sha256": "8c20c34b9acd72d79cbfe1eb169384af7d7c14795941ba97d366c52012fbf09f",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_kob_adult_miracle_plush",
+      "path": "assets/images/characters/jao-kob/versions/v1/adult-miracle-plush.png",
+      "format": "PNG",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 1083373,
+      "sha256": "3c56bd83341d1167ae442fa4e6faccdaec7dbe6215e46612de24c31fb1cfa70e",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_kab_neutral_proud",
+      "path": "assets/images/characters/jao-kab/neutral-proud.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 111214,
+      "sha256": "7b97d97006c60b8dce78b4c8bdba4e6eff53e45741b5b4526791de51b1799ab4",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_kab_neutral_proud",
+      "path": "assets/images/characters/jao-kab/versions/v1/neutral-proud.png",
+      "format": "PNG",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 703483,
+      "sha256": "de847b951e300a7204a233b12fd3ce0e9130d7cf93738a55461e05deedadb2fc",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_kab_action_knuckle_tap",
+      "path": "assets/images/characters/jao-kab/action-knuckle-tap.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 117672,
+      "sha256": "de745ec3706e91b56bdce22f9440c5a8f146a051d62a8b597a7d98e82194e52e",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_kab_action_knuckle_tap",
+      "path": "assets/images/characters/jao-kab/versions/v1/action-knuckle-tap.png",
+      "format": "PNG",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 747340,
+      "sha256": "093f73ab9098b7c1d698e65363f74a902e8a9fe25a25eec6f55955871762462f",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_kib_neutral_cheerful",
+      "path": "assets/images/characters/jao-kib/neutral-cheerful.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 106044,
+      "sha256": "9c11c6e8603e246cc825d0d26a4c3cb061218dd704c88f44a3ec58ec9bc53125",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_kib_neutral_cheerful",
+      "path": "assets/images/characters/jao-kib/versions/v1/neutral-cheerful.png",
+      "format": "PNG",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 655616,
+      "sha256": "d175c33d1516855a30dcee072886de1541eed57656f77a34a4056eb031c8d781",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_kib_tinker_seed_tube",
+      "path": "assets/images/characters/jao-kib/tinker-seed-tube.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 122240,
+      "sha256": "2e13efee2b7e30f4b0f427e410e582186339efd78b60450a3be3172e2104eb90",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_kib_tinker_seed_tube",
+      "path": "assets/images/characters/jao-kib/versions/v1/tinker-seed-tube.png",
+      "format": "PNG",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 705347,
+      "sha256": "dddb3d1afa68b9cd0c4e9b8ad95608d231a6375acfc906abe1b96c81f446122f",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_father_frog_calm",
+      "path": "assets/images/characters/parents/father-frog-calm.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 117786,
+      "sha256": "d9508a7accf3be49e6296839c53d2976f0b41e5ee50259ee43cb597697129ce4",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 0
+    },
+    {
+      "assetId": "char_father_frog_calm",
+      "path": "assets/images/characters/parents/versions/v1/father-frog-calm.png",
+      "format": "PNG",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 698201,
+      "sha256": "cca22dd22510d5437d722bc074d95905cef505c2ed2b4b25b30dcc1f92e8095c",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 0
+    },
+    {
+      "assetId": "char_mother_frog_warm",
+      "path": "assets/images/characters/parents/mother-frog-warm.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 110432,
+      "sha256": "c97864195b535f8bd41ab90f0a2640829310658f83c5edbf6f62a6fc15df791a",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_mother_frog_warm",
+      "path": "assets/images/characters/parents/versions/v1/mother-frog-warm.png",
+      "format": "PNG",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 724302,
+      "sha256": "7015d2c11d29d870e60106514a9e3ca4b38a7b7132c06d38c2cd4f1b424faea1",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_pkam_neutral_guarded",
+      "path": "assets/images/characters/p-kam/neutral-guarded.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 280110,
+      "sha256": "42a0d1637b6dd26aba318aa75fad725b021ec3da11a8dfa762761ad39467840c",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_pkam_neutral_guarded",
+      "path": "assets/images/characters/p-kam/versions/v1/neutral-guarded.png",
+      "format": "PNG",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 1299298,
+      "sha256": "6b6bb854c472bf9fedc19efd25ac020371efd3b069dca8759e2a27401e9078f7",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_pkam_allied_shield",
+      "path": "assets/images/characters/p-kam/allied-shield.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 301294,
+      "sha256": "17a393d9ca1c98134f47959c782e165ba044de37bff712a189aa4d1c33ea91d2",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 0
+    },
+    {
+      "assetId": "char_pkam_allied_shield",
+      "path": "assets/images/characters/p-kam/versions/v1/allied-shield.png",
+      "format": "PNG",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 1499661,
+      "sha256": "c21ceb86a6fffa53fe5a8192edfef4d2ef57c2b5853167c4f5a9842563514234",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 0
+    },
+    {
+      "assetId": "char_jao_fiw_neutral_lively",
+      "path": "assets/images/characters/jao-fiw/neutral-lively.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 197622,
+      "sha256": "8a99e143be2d05df6de1a8404a972786a28a4d8f0f65831d171a1e425531cfe6",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_fiw_neutral_lively",
+      "path": "assets/images/characters/jao-fiw/versions/v1/neutral-lively.png",
+      "format": "PNG",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 1147667,
+      "sha256": "ed233d71ea43c034bd6f665d6e8a0d1d3b36bf194a2281f69976b5b310c31d0f",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_fiw_gliding_brave",
+      "path": "assets/images/characters/jao-fiw/gliding-brave.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 126682,
+      "sha256": "5c85b1063e3b9e4031fd53ecff8eb66ed96732136ce029caaee0bcd4bad9cfdd",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_fiw_gliding_brave",
+      "path": "assets/images/characters/jao-fiw/versions/v1/gliding-brave.png",
+      "format": "PNG",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 759164,
+      "sha256": "d863e8434d10a1661708fcf937f36dd8455fc9d76224f02233fc71eb4a92fe5e",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_cockroach_man_shadow_boast",
+      "path": "assets/images/characters/cockroach-man/shadow-cloak-boast.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 282224,
+      "sha256": "bafaef9eccbce70778f2e741f75c3e8b883f7f51816a969abe55072f09b275da",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 2
+    },
+    {
+      "assetId": "char_cockroach_man_shadow_boast",
+      "path": "assets/images/characters/cockroach-man/versions/v1/shadow-cloak-boast.png",
+      "format": "PNG",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 1346997,
+      "sha256": "3d28d9fda85897e19bdac0b68e5a786c13fce03f8d7714cfb0fb128676ddf985",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 2
+    },
+    {
+      "assetId": "char_cockroach_man_shrunk_defeated",
+      "path": "assets/images/characters/cockroach-man/shrunk-defeated.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 154538,
+      "sha256": "fd73338f6686e2552a34010003077e000336139d76dc741571ddfc8f9ec25eb9",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_cockroach_man_shrunk_defeated",
+      "path": "assets/images/characters/cockroach-man/versions/v1/shrunk-defeated.png",
+      "format": "PNG",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 703455,
+      "sha256": "a67d4ea36a7864db541dc4f0e34e81df3a1b7f5dee241550687c58619b30c731",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_teuk_storm_kneeling",
+      "path": "assets/images/characters/jao-teuk/storm-kneeling-mission.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 254628,
+      "sha256": "5e1e5bc91e9ecd15f2e78a1bb372c4251ca4b058d9ef14aa365d594caa9072ad",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_teuk_storm_kneeling",
+      "path": "assets/images/characters/jao-teuk/versions/v1/storm-kneeling-mission.png",
+      "format": "PNG",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 1233178,
+      "sha256": "b8bc91167ca534f61b421c3c1faabd62d736dde467e016162b05003a9e66dfc8",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_teuk_dawn_reunion",
+      "path": "assets/images/characters/jao-teuk/dawn-reunion-smile.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 123882,
+      "sha256": "9ffee18272a49ffd168809741a93456f47dca731f4ea2c10444879458d52fcde",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_jao_teuk_dawn_reunion",
+      "path": "assets/images/characters/jao-teuk/versions/v1/dawn-reunion-smile.png",
+      "format": "PNG",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 581890,
+      "sha256": "65104d0796897ccd78dbef1e4e52edc444e1c91752e7b62f60fd1835281cbcc3",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_peuak_bedside_frightened",
+      "path": "assets/images/characters/peuak/bedside-frightened-blanket.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 147614,
+      "sha256": "9b8aed3a94eadb63b0d4e4f6cc4e529f14e10db43ca0ad830d92ba3960267647",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_peuak_bedside_frightened",
+      "path": "assets/images/characters/peuak/versions/v1/bedside-frightened-blanket.png",
+      "format": "PNG",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 1084764,
+      "sha256": "bff9714752f2d97d53a07f99c0d133bd463722c7f83bfea6f14eb069272dec75",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_peuak_warm_sunlight_hug",
+      "path": "assets/images/characters/peuak/warm-sunlight-hug.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 178060,
+      "sha256": "3429990d80e8a5894636fbebeb5de4ed649addf3ec9206b8a29726d9ca4a6c30",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_peuak_warm_sunlight_hug",
+      "path": "assets/images/characters/peuak/versions/v1/warm-sunlight-hug.png",
+      "format": "PNG",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 1107551,
+      "sha256": "4d387e844ebfe3a8aff842b7924974c66f9a24cea32030d744d35d175671965f",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_boy_ton_crying",
+      "path": "assets/images/characters/city-humans/boy-ton-crying.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 197408,
+      "sha256": "3a5409ce8b1d0c722d2f80ad365e1380a81ab4c2fdd95b9198b21e2356b38f61",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_boy_ton_crying",
+      "path": "assets/images/characters/city-humans/versions/v1/boy-ton-crying.png",
+      "format": "PNG",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 998475,
+      "sha256": "7dc0d1445a0aa7159d300c8fe9a24138d4b49e68efd2e96af53bb51c57fe581f",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "char_watchman_lung_flare",
+      "path": "assets/images/characters/city-humans/watchman-lung-flare.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 148468,
+      "sha256": "a3dae8c6d89d02d9a63d364b7012d52cd62f5c95f0098350dc1ddafff12bc1f3",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 0
+    },
+    {
+      "assetId": "char_watchman_lung_flare",
+      "path": "assets/images/characters/city-humans/versions/v1/watchman-lung-flare.png",
+      "format": "PNG",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byteLength": 702744,
+      "sha256": "3499e69b9e86603dfc3e3725afc5fa2157dc31a8113e6a86fdcd83b07eaf9e2d",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 0
+    },
+    {
+      "assetId": "bg_act1_willow_roots",
+      "path": "assets/images/backgrounds/act-01/bg-act1-willow-roots.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 497986,
+      "sha256": "d48cf6d391809bebce8f5cc7bfc59afd97e87d501a44d915a85445aafb96ce69",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act1_willow_roots",
+      "path": "assets/images/backgrounds/act-01/versions/v1/bg-act1-willow-roots.png",
+      "format": "PNG",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 2757681,
+      "sha256": "8bd00e194706a203df7b68370ff5ea6b7a0fda6219b3f4afd66313b4d86f1dbf",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act1_bamboo_home_dusk",
+      "path": "assets/images/backgrounds/act-01/bg-act1-bamboo-home-dusk.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 289408,
+      "sha256": "6d35e673fdb2a444666b1632a6536aba299bc4e40b2d9f1c45d43e6b7fb856ea",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act1_bamboo_home_dusk",
+      "path": "assets/images/backgrounds/act-01/versions/v1/bg-act1-bamboo-home-dusk.png",
+      "format": "PNG",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 2086074,
+      "sha256": "a15f146b21233170fdcadeadba334cf634ee635b2f66b14f6a6bc67dfc28c8b4",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act1_overflow_weir",
+      "path": "assets/images/backgrounds/act-01/bg-act1-overflow-weir.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 336142,
+      "sha256": "5c1c60109f926800d8c92fb0bacad3cd97ac1a40090ffdf817db932aa61eb994",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act1_overflow_weir",
+      "path": "assets/images/backgrounds/act-01/versions/v1/bg-act1-overflow-weir.png",
+      "format": "PNG",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 2275394,
+      "sha256": "13cd03f6bf3fb1f9d48cbb7db46ba345c6e6d67227262cca1749507cefa1d526",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act2_echo_culvert",
+      "path": "assets/images/backgrounds/act-02/bg-act2-echo-culvert.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 271060,
+      "sha256": "4197ddbefdc24cb3aa6a4b72edbb3b46c5b43e31d9f8ddddd5eaef5a10e18c0b",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act2_echo_culvert",
+      "path": "assets/images/backgrounds/act-02/versions/v1/bg-act2-echo-culvert.png",
+      "format": "PNG",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 2202728,
+      "sha256": "2e25024969339f71cde81638d6331538442b3ba04651abadab8f7c55596666bc",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act2_whirlpool_grate",
+      "path": "assets/images/backgrounds/act-02/bg-act2-whirlpool-grate.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 336358,
+      "sha256": "db752471213a1a40991163cd3aa4e8f4109d7c7cfe21de91b0b4260f8f69d83f",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act2_whirlpool_grate",
+      "path": "assets/images/backgrounds/act-02/versions/v1/bg-act2-whirlpool-grate.png",
+      "format": "PNG",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 2308479,
+      "sha256": "6d1e062f8a244edebf5693d186ca687a7cfd2b03cf2f42487547e55d72290a6d",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act2_shadow_sluice_chamber",
+      "path": "assets/images/backgrounds/act-02/bg-act2-shadow-sluice-chamber.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 305540,
+      "sha256": "e76f3d9371aefce4f4180d90e55594482a41d93d7ec50a2cfb458850b12b6334",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act2_shadow_sluice_chamber",
+      "path": "assets/images/backgrounds/act-02/versions/v1/bg-act2-shadow-sluice-chamber.png",
+      "format": "PNG",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 2275306,
+      "sha256": "e87483a53cd642d7572f44c1c1c1ed4b94f6d053266e6e12ba02f6a7fd41fbf5",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act3_blackout_street_cart",
+      "path": "assets/images/backgrounds/act-03/bg-act3-blackout-street-cart.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 304748,
+      "sha256": "0fe25a0c3a34a126ab5b69ec4a298a2d14b975bbdb30d42cc98b4e50f4face3c",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act3_blackout_street_cart",
+      "path": "assets/images/backgrounds/act-03/versions/v1/bg-act3-blackout-street-cart.png",
+      "format": "PNG",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 2202047,
+      "sha256": "e1940b4de8037968aed7af09a8cde5763e4ee9e6b7a1c74b26c5c7dcf2ac0e0f",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act3_flooded_footbridge",
+      "path": "assets/images/backgrounds/act-03/bg-act3-flooded-footbridge.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 312424,
+      "sha256": "24ebe469bf15045f11453ecefbc3f557cbdaa34cb73438e888a01a92d7eae38e",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act3_flooded_footbridge",
+      "path": "assets/images/backgrounds/act-03/versions/v1/bg-act3-flooded-footbridge.png",
+      "format": "PNG",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 2249242,
+      "sha256": "ccb4c542758fd94109cc5b9d503fd13ef69642f5fa5eb49d7e789e82d57f83cf",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act3_wayside_shelter_teuk",
+      "path": "assets/images/backgrounds/act-03/bg-act3-wayside-shelter-teuk.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 352084,
+      "sha256": "eba049398e2f600ffcb041172f9e630783f24d3baf0ea844b8ddfd5fbb0680e2",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act3_wayside_shelter_teuk",
+      "path": "assets/images/backgrounds/act-03/versions/v1/bg-act3-wayside-shelter-teuk.png",
+      "format": "PNG",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 2365256,
+      "sha256": "d015ff961a67644de0953bdcc38b2747c6915fbe51901f1ed1773331318e93ab",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act4_garden_brick_wall",
+      "path": "assets/images/backgrounds/act-04/bg-act4-garden-brick-wall.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 423168,
+      "sha256": "f4f725528822862dfc3b93c66909ad7079b9e11c233bd91e3d7a95b929c7a2af",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act4_garden_brick_wall",
+      "path": "assets/images/backgrounds/act-04/versions/v1/bg-act4-garden-brick-wall.png",
+      "format": "PNG",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 2583344,
+      "sha256": "bfe7a110b9c196cfa68a75186962848f02713a85522d1ea10eefa212afbcc60f",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act4_parapet_storm_abyss",
+      "path": "assets/images/backgrounds/act-04/bg-act4-parapet-storm-abyss.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 296908,
+      "sha256": "cf1715ce7a1efc99cdbdf90a9b03838cbe503959d95ed12a78a27a008d9d6528",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act4_parapet_storm_abyss",
+      "path": "assets/images/backgrounds/act-04/versions/v1/bg-act4-parapet-storm-abyss.png",
+      "format": "PNG",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 2231787,
+      "sha256": "78285fae2ad58a83c0ea701d881d45512c70811f0c647995b888a19f89fd2791",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act5_bedside_table_night",
+      "path": "assets/images/backgrounds/act-05/bg-act5-bedside-table-night.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 175880,
+      "sha256": "ad3a1e843a3cd5af16ef395a846fd39c1781283c512c959a231614ec9dff35bd",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act5_bedside_table_night",
+      "path": "assets/images/backgrounds/act-05/versions/v1/bg-act5-bedside-table-night.png",
+      "format": "PNG",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 1821006,
+      "sha256": "0a64c44ac09d89da0e486d41c859687126188cf11c76c01deae1d662aa640fdd",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act5_shadow_duel_wall",
+      "path": "assets/images/backgrounds/act-05/bg-act5-shadow-duel-wall.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 160618,
+      "sha256": "14e1a48f747992d2166b8e415efb4a78a1dfdad4711df5e0ae3214ba09b21ea5",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act5_shadow_duel_wall",
+      "path": "assets/images/backgrounds/act-05/versions/v1/bg-act5-shadow-duel-wall.png",
+      "format": "PNG",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 1801104,
+      "sha256": "cadd9b13b4d0738aebbea948c5b972fbf3796aac199a4aae724e565d1ab83c2e",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act5_bedroom_golden_dawn",
+      "path": "assets/images/backgrounds/act-05/bg-act5-bedroom-golden-dawn.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 246824,
+      "sha256": "cf58d778b7a1b5df575a0fd6a64a2b9d8f9020bd40f6de292cc3c29446632e5e",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act5_bedroom_golden_dawn",
+      "path": "assets/images/backgrounds/act-05/versions/v1/bg-act5-bedroom-golden-dawn.png",
+      "format": "PNG",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 2081107,
+      "sha256": "71ad83b8fd602b2d50d6145e09a56497ae8d5b8d1fbeebfda18e42108e1fbac4",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act5_pond_homecoming_dawn",
+      "path": "assets/images/backgrounds/act-05/bg-act5-pond-homecoming-dawn.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 375654,
+      "sha256": "8a61e006b4e86786ab8f03f4feb32973515020fd95221e5fd1531b9e5391dea2",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "bg_act5_pond_homecoming_dawn",
+      "path": "assets/images/backgrounds/act-05/versions/v1/bg-act5-pond-homecoming-dawn.png",
+      "format": "PNG",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 2439157,
+      "sha256": "441389f6962e114bc802d0b2b8146f2d9b8c47b9c7edc2a2157e9c82f13dc8c4",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "cg_act1_three_siblings_blue_shirt",
+      "path": "assets/images/cg/act-01/cg-act1-three-siblings-blue-shirt.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 489808,
+      "sha256": "add225132f43bcef9d4da91831a3e5bb582b3efd68e65cec01f864dc780770f1",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "cg_act1_three_siblings_blue_shirt",
+      "path": "assets/images/cg/act-01/versions/v1/cg-act1-three-siblings-blue-shirt.png",
+      "format": "PNG",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 2853484,
+      "sha256": "328660649ee4ea8ea3985f6522d146b4467ae98083d89dfda05b14708fd27e6a",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "cg_act2_pkam_whirlpool_rescue",
+      "path": "assets/images/cg/act-02/cg-act2-pkam-whirlpool-rescue.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 430922,
+      "sha256": "cce760f27d3eb992b4cb8122593280d17ca8a3955188f45ed3f9236e76bdbcad",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "cg_act2_pkam_whirlpool_rescue",
+      "path": "assets/images/cg/act-02/versions/v1/cg-act2-pkam-whirlpool-rescue.png",
+      "format": "PNG",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 2694983,
+      "sha256": "12b23d4da5afe6bc05e92536e6302ce0951b5e7704bcaf4b86e32f8dfe4a69ed",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "cg_act3_teuk_guardian_oath",
+      "path": "assets/images/cg/act-03/cg-act3-teuk-guardian-oath.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 431416,
+      "sha256": "e97cea68a0433e56d7fc93b0a0c45cace7ec270da8daceb672eba666dd99468b",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "cg_act3_teuk_guardian_oath",
+      "path": "assets/images/cg/act-03/versions/v1/cg-act3-teuk-guardian-oath.png",
+      "format": "PNG",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 2639499,
+      "sha256": "4443a98e66c193bcf687ad7f8ed1724954d499ae8d898c5981386db92380a309",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "cg_act4_five_hero_storm_relay",
+      "path": "assets/images/cg/act-04/cg-act4-five-hero-storm-relay.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 495340,
+      "sha256": "83f03ebc51ad17efd030ef6caf99ad5f0f59cb7b72442dcb8587d0e30318d573",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "cg_act4_five_hero_storm_relay",
+      "path": "assets/images/cg/act-04/versions/v1/cg-act4-five-hero-storm-relay.png",
+      "format": "PNG",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 2837168,
+      "sha256": "6cbd85b43bb811d07a2f4c3b75d002efd5f58837e37f0bdb6d228288f10971f5",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "cg_act5_shadow_knight_protector",
+      "path": "assets/images/cg/act-05/cg-act5-shadow-knight-protector.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 220556,
+      "sha256": "01477cfbc6bc2b5e4e00cddf569e46a5359a4597c9f416563d16bfe3450d1008",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "cg_act5_shadow_knight_protector",
+      "path": "assets/images/cg/act-05/versions/v1/cg-act5-shadow-knight-protector.png",
+      "format": "PNG",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 2059383,
+      "sha256": "2693179727c61a62628d4c39b501d9c26491a74fc64677856dd7b835c62e0fba",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "cg_act5_ending_ehome_miracle_plush",
+      "path": "assets/images/cg/act-05/cg-act5-ending-ehome-miracle-plush.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 298164,
+      "sha256": "1f36ee55e442c2410809a74206bd1e03e16cdfe10a51842407073358e1f13bbf",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "cg_act5_ending_ehome_miracle_plush",
+      "path": "assets/images/cg/act-05/versions/v1/cg-act5-ending-ehome-miracle-plush.png",
+      "format": "PNG",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 2310457,
+      "sha256": "b7073ecaf2ff9c5bd8a748e3c4cd00c2e5234a9b4aa1fd5be33d3087f56b1c2b",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "cg_act5_ending_edawn_two_worlds",
+      "path": "assets/images/cg/act-05/cg-act5-ending-edawn-two-worlds.webp",
+      "format": "WEBP",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 356700,
+      "sha256": "40e5a210174128a867d8b0174af4d9c33c4cff4b8bfcc73891b5017adb709fd0",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "cg_act5_ending_edawn_two_worlds",
+      "path": "assets/images/cg/act-05/versions/v1/cg-act5-ending-edawn-two-worlds.png",
+      "format": "PNG",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "byteLength": 2501269,
+      "sha256": "4e5a7b6e7f9552c3bfd95a8417233013965a91b9e8eeadd66b5a02f0b23d4313",
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "cornerAlpha": null,
+      "outerEdgeMaxAlpha": null
+    },
+    {
+      "assetId": "item_kib_reed_charms",
+      "path": "assets/images/keepsakes/v2/item-kib-reed-charms.webp",
+      "format": "WEBP",
+      "dimensions": [
+        512,
+        512
+      ],
+      "byteLength": 41962,
+      "sha256": "f9417d1f88f88e6e4a041feda57d4c2c8056286a4376fb7146e786f38ddb692f",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "item_kib_reed_charms",
+      "path": "assets/images/keepsakes/v2/versions/v1/item-kib-reed-charms.png",
+      "format": "PNG",
+      "dimensions": [
+        512,
+        512
+      ],
+      "byteLength": 144638,
+      "sha256": "8dba226166cccfed514e78c6f0c660cb4fcc9f9fcada1597f999902efc01e449",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "item_kab_bark_guard",
+      "path": "assets/images/keepsakes/v2/item-kab-bark-guard.webp",
+      "format": "WEBP",
+      "dimensions": [
+        512,
+        512
+      ],
+      "byteLength": 67296,
+      "sha256": "324c681f850c9e4bf61f1993695980652cc879ffb215d901337f5ab982563048",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "item_kab_bark_guard",
+      "path": "assets/images/keepsakes/v2/versions/v1/item-kab-bark-guard.png",
+      "format": "PNG",
+      "dimensions": [
+        512,
+        512
+      ],
+      "byteLength": 285560,
+      "sha256": "4037e9ff32ff5c14c7c1e110381a57cc0cd337d336aa86876b405b30ed346566",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "item_lost_brass_button",
+      "path": "assets/images/keepsakes/v2/item-lost-brass-button.webp",
+      "format": "WEBP",
+      "dimensions": [
+        512,
+        512
+      ],
+      "byteLength": 69284,
+      "sha256": "bc6996b2b921061b376a1e9ef2d14e4e3a10c3b03fdeb5b4471214dacddd4880",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "item_lost_brass_button",
+      "path": "assets/images/keepsakes/v2/versions/v1/item-lost-brass-button.png",
+      "format": "PNG",
+      "dimensions": [
+        512,
+        512
+      ],
+      "byteLength": 301911,
+      "sha256": "bfdbeed93123770715a80e8efb7796628a58e3f3f579967e4d49cfc46e7b9f04",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "item_pkam_tin_gear",
+      "path": "assets/images/keepsakes/v2/item-pkam-tin-gear.webp",
+      "format": "WEBP",
+      "dimensions": [
+        512,
+        512
+      ],
+      "byteLength": 76920,
+      "sha256": "0089be2dc8690b36f44e71e477473215253673c43f94d3fcbb7a4e662f1f8afb",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "item_pkam_tin_gear",
+      "path": "assets/images/keepsakes/v2/versions/v1/item-pkam-tin-gear.png",
+      "format": "PNG",
+      "dimensions": [
+        512,
+        512
+      ],
+      "byteLength": 323483,
+      "sha256": "d7dfec7e55312ce27da78ea7bd434c3510af0016c6120e85d81d33db3adb8fe3",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "item_teuk_whistle_charm",
+      "path": "assets/images/keepsakes/v2/item-teuk-whistle-charm.webp",
+      "format": "WEBP",
+      "dimensions": [
+        512,
+        512
+      ],
+      "byteLength": 49386,
+      "sha256": "a8ab0d2a5113f448067685e857443b5366e6e484f68b8bad0ec0e05da250ae0e",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "item_teuk_whistle_charm",
+      "path": "assets/images/keepsakes/v2/versions/v1/item-teuk-whistle-charm.png",
+      "format": "PNG",
+      "dimensions": [
+        512,
+        512
+      ],
+      "byteLength": 181444,
+      "sha256": "2eaff62f5402f25556d334153f920fb1e733fdf24ab3176080e163658b79895e",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "item_fiw_sun_ribbon",
+      "path": "assets/images/keepsakes/v2/item-fiw-sun-ribbon.webp",
+      "format": "WEBP",
+      "dimensions": [
+        512,
+        512
+      ],
+      "byteLength": 57928,
+      "sha256": "6f9532ada089ffe783eb19b7d2045a61fe576794d51d6184f5d7bfc0d453a63c",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    },
+    {
+      "assetId": "item_fiw_sun_ribbon",
+      "path": "assets/images/keepsakes/v2/versions/v1/item-fiw-sun-ribbon.png",
+      "format": "PNG",
+      "dimensions": [
+        512,
+        512
+      ],
+      "byteLength": 206800,
+      "sha256": "7a12e4f82a8768d5b7e08d08736da23518df147e9193f38de9193746fc670e09",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "outerEdgeMaxAlpha": 1
+    }
+  ]
+}

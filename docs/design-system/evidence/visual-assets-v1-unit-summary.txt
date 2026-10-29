@@ -1,0 +1,16 @@
+Command: node --test tests/unit/*.test.js
+Completed at: 2026-10-29T06:34:56+07:00
+Scope: unchanged runtime baseline regression; no image semantic assertions.
+
+  duration_ms: 0.518208
+  type: 'test'
+  ...
+1..976
+# tests 1060
+# suites 0
+# pass 1060
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 16149.901625

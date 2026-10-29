@@ -2,6 +2,18 @@
 
 เอกสารนี้กำหนดโครงสร้างโฟลเดอร์มาตรฐานสำหรับเก็บภาพตัวละคร (`characters`), ฉากหลัง (`backgrounds`), ภาพคัตซีนจุดพีค (`cg`), และไอเทมของสะสม (`keepsakes`) ตามพระราชบัญญัติ [ADR-P0-032](../../docs/adr/ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md) และพิมพ์เขียว [new-five-act-story-and-mechanics-proposal.md](../../docs/design-system/new-five-act-story-and-mechanics-proposal.md)
 
+## ชุดต้นแบบ v1 ที่ส่งมอบ 2026-10-29
+
+เจนครบ **52 ภาพ**: ตัวละคร 24, ฉากหลัง 15, คัตซีน 7 และของสะสม 6 ชิ้น พร้อม PNG ใน `versions/v1/` และ WebP ตามพาธใน [manifest](asset-manifest-v1.json) ทุกภาพมีสถานะ `generated-awaiting-po-review` การวาง WebP ที่พาธปลายทางตามคำสั่ง PO รอบนี้เป็นการส่งตัวเลือกตรวจรับ ยังไม่ใช่การอนุมัติภาพหรือเปิดใช้ใน runtime
+
+- [หน้ารวมภาพสำหรับตรวจรับ](../../docs/design-system/evidence/visual-assets-v1-review.html): เปิดในเบราว์เซอร์ได้โดยตรง มีพื้นหลังสไปรต์สว่าง/เข้มและเส้นพื้นที่ข้อความ 28%
+- [พรอมป์ต์ ภาพอ้างอิง และประวัติการแก้](../provenance/visual-assets-v1.json)
+- [หลักฐานตรวจไฟล์ 104 ไฟล์](../../docs/design-system/evidence/visual-assets-v1-verification.json) และ [ตัวตรวจที่รันซ้ำได้](../../docs/design-system/evidence/verify-visual-assets-v1.py) (`Python 3` + `Pillow`, เครื่องมือพัฒนาเท่านั้น)
+
+ตัวละครชุดต้นแบบเก็บ **1024×1024 ทั้ง PNG และ WebP** ตาม manifest และคำขอ PO; การทำอนุพันธ์ runtime 512×512 และงบโหลดจริงเป็นงาน integration หลังตรวจรับ ฉากหลัง/CG เป็น 1600×900 และไอคอนเป็น 512×512 การปรับขนาดและเข้ารหัสเป็นขั้นตอนทางเทคนิคหลัง Image Generation โดยมีขนาด native และ checksum บันทึกใน provenance
+
+ชุด v1 ยึดรายการ CG เจ็ดภาพใน prompt/manifest: CG-01–04, CG-05A, E-HOME และ E-DAWN ส่วน E-POND มีฉากหลัง `bg_act5_pond_homecoming_dawn` แต่ยังไม่มีรายการ CG แยกในสัญญา v1 นี้
+
 ---
 
 ## 1. โครงสร้างโฟลเดอร์มาตรฐาน (Directory Layout)
@@ -32,7 +44,7 @@ assets/images/
 │   ├── act-02/                        # CG-02: เจ้ากบยื้อก้ามเหล็กพี่ก้ามเหนือน้ำวน & พังบัลลังก์เงา 2 เมตร
 │   ├── act-03/                        # CG-03: เจ้าเตื๊อกคุกเข่าท่ามกลางสายฝนมอบนกหวีดและภารกิจผู้พิทักษ์
 │   ├── act-04/                        # CG-04: ปฏิบัติการห้าประสานทะยานฝ่าสายฟ้าข้ามห้วงพายุ 12 เมตร
-│   └── act-05/                        # CG-05A (ศึกเงาอัศวินเสื้อฟ้าสองสเกล) & CG-05B/C/D (ฉากจบทั้ง 3 เส้นทาง)
+│   └── act-05/                        # v1: CG-05A (ศึกเงาอัศวิน) & CG-05B/C (E-HOME / E-DAWN)
 ├── keepsakes/                         # ไอคอนของสะสมในกระเป๋า 4 ช่อง (512x512 พื้นหลังโปร่งใส)
 │   └── v2/                            # ไอเทมเนื้อเรื่องใหม่ทั้ง 6 ชิ้นตาม ADR-P0-032
 └── ui/                                # องค์ประกอบกราฟิกส่วนติดต่อผู้ใช้
