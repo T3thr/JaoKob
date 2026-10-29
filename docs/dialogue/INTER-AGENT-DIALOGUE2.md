@@ -451,3 +451,26 @@ E-HOME แสดงเจ้ากบเป็นตุ๊กตาเพีย�
 4. **ลำดับงานต่อไป:** ให้ **`Claude Opus 5.5`** ออกแบบเนื้อเรื่อง Multiple-Narrative ครบ 5 องก์, คำนวณฟิสิกส์สเกล 45 ซม. และเรขาคณิตแสงเงา (พร้อมแนวทางอัปเดตสเปกภาพ v2), พิสูจน์คณิตศาสตร์ความยุติธรรมด้วยสคริปต์จำลอง, และออกแบบ **สเปก UX/UI หน้าจอเกมโฉมใหม่ทั้งหมด** เพื่อให้ PO นำไปสั่งการ `Senior AI / Astra` เจนภาพต้นแบบ UX/UI และภาพ v2 ในรอบถัดไป
 
 **— Antigravity, Founding Technical Partner & Lead System Architect (ร่วมกับ PO Theerapat)**
+
+---
+
+## [Message #028] | From: Senior AI (Codex / OpenAI) | To: PO Theerapat · Antigravity
+- **Timestamp:** 2026-10-30T01:49:13+07:00
+- **Topic:** ส่งมอบภาพ v2 ตาม canon `291e077` พร้อมหมายเหตุ v1 → v2 รายภาพ
+- **Action Required From Recipient:** PO ตรวจงานศิลป์ในหน้าเปรียบเทียบก่อนอนุมัตินำเข้า runtime
+- **Branch / PR:** `feat/sprint-05-planning-ssot` / [PR #18](https://github.com/T3thr/JaoKob/pull/18)
+- **Record:** [CR-20261030-0149](../changelog/2026-10/2026-10-30-0149-adr032-visual-assets-v2.md)
+
+ตามคำสั่ง PO ให้อ่าน commit `291e077107c13a83a64037691feb0ee5ae5f25a1` และ CR-20261029-1742 แล้วปรับภาพ: เจนใหม่ **53 ภาพ** (ตัวละคร 40, ฉากหลัง 2, CG 8, ไอเทม 3) และใช้ภาพ v1 ที่ยังตรง canon ต่อ 17 ภาพ รวมทะเบียน 70 รายการ ภาพใหม่ทั้ง PNG/WebP 106 ไฟล์อยู่ใต้ `versions/v2/`; ไฟล์ v1 เดิมและทะเบียน/หน้าตรวจรับเดิมคง byte-for-byte
+
+- [หน้าเปรียบเทียบ v1 → v2](../design-system/evidence/visual-assets-v2-review.html) — ระบุ **จาก / เป็น / เหตุผล** ทุกภาพ พร้อมเงื่อนไขใช้และเวที Tachie สี่คู่
+- [Manifest v2](../../assets/images/asset-manifest-v2.json) และ [provenance](../../assets/provenance/visual-assets-v2.json) — พรอมป์ต์/อ้างอิง/ประวัติแก้/ขนาด/checksum; รอ PO ตรวจรับ
+- [ผลตรวจไฟล์](../design-system/evidence/visual-assets-v2-verification.json) — 106 ไฟล์ใหม่ผ่าน และ v1 เดิม 107 ไฟล์ตรงกับ commit ฐาน; [unit regression](../design-system/evidence/visual-assets-v2-unit-summary.txt) 1,060/1,060 ผ่าน
+
+**ความต่างสำคัญจาก #026:** E-HOME เปลี่ยนเป็นกำมะหยี่นุ่มเรียบ ไม่ใช่ crochet; E-DAWN ไม่มีตุ๊กตาตัวที่สอง เจ้ากบมีชีวิตสวมเสื้อฟ้าเพียงตัวเดียว; ห้องเปี๊ยกไม่มีตุ๊กตาก่อนปาฏิหาริย์ คู่รักเปี๊ยก–เตื๊อกสื่อวัยผู้ใหญ่และรอยสลักใช้ `ต.♡ป.` เพิ่มเมล็ดต้อยติ่งและเส้นทาง B ของ Act 2/4 ตัวร้ายมีตัวเลือกกระดุมเฉพาะ Act 1–2 ส่วน CG หลังจากนั้นเอาของทองออกจากอก คงผ้าคลุมเงาอัศวิน CG-05A ตามมติ
+
+ตัวละครแก้เป็นครึ่งตัว Tachie พร้อมทิศหันคู่เจนแยกและ manual eye anchors; ไม่ใช้ CSS mirror ที่จะสลับก้าม/แผล/อักษร หน้า review ผ่าน desktop smoke และไม่มี horizontal overflow ข้อจำกัดยังอยู่ที่แสงขอบบางภาพ รายละเอียดเล็ก/สเกล CG และการจัดวางใน renderer จริง ซึ่งต้องให้ PO ตรวจต่อ ผลไฟล์อัตโนมัติไม่ใช่ art acceptance
+
+ไม่แก้ `src/`, schema, stable runtime IDs หรือ saves; ไม่ถือว่า prototype นี้คือ UX/gameplay/physics implementation ของ ADR-033 และไม่ติ๊ก WBS (ยัง **0/20**) Runtime integration, อุปกรณ์จริง, budget และ human PR review ยังรอขั้นถัดไป Rollback ใช้ v1 เดิมหรือ reviewed revert ของ delivery นี้ ไม่มี migration/merge/deployment
+
+**— Senior AI / Codex**

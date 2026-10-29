@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "verifiedAt": "2026-10-30T01:43:30+07:00",
+  "canonCommit": "291e077107c13a83a64037691feb0ee5ae5f25a1",
+  "catalogAssets": 70,
+  "generatedAssets": 53,
+  "generatedFiles": 106,
+  "carriedForwardAssets": 17,
+  "immutableV1Files": 107,
+  "galleryCards": 70,
+  "galleryLocalLinks": 179,
+  "runtimeChanged": false,
+  "totals": {
+    "pngBytes": 77832665,
+    "webpBytes": 11737394,
+    "transparentPairs": 43,
+    "opaquePairs": 10
+  },
+  "limits": [
+    "File verification does not approve canon, anatomy, lighting or art.",
+    "Eye-anchor arithmetic checks manual metadata, not image recognition or world scale.",
+    "Runtime integration, physical devices, load budget and PO art acceptance remain open."
+  ]
+}

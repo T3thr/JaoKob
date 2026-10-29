@@ -1,0 +1,17 @@
+Command: node --test tests/unit/*.test.js
+Working directory: /Users/3rapat/MyWork/Project/WebApp/games/jao-kob
+Canon/base commit: 291e077107c13a83a64037691feb0ee5ae5f25a1
+Completed (log mtime): 2026-10-29T20:29:00+07:00
+Source log: /private/tmp/jaokob-v2-unit.log
+Scope: unchanged-runtime regression during the visual-assets-v2 task.
+No src/specs/tests edits after this run. Not an art or runtime-integration certification.
+
+1..976
+# tests 1060
+# suites 0
+# pass 1060
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 23750.593958

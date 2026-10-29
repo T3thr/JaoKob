@@ -1,0 +1,1353 @@
+{
+  "canonCommit": "291e077107c13a83a64037691feb0ee5ae5f25a1",
+  "jobs": [
+    {
+      "jobIndex": 0,
+      "assetId": "char_jao_kob_childhood_neutral",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Childhood JaoKob, very large round black eyes, warm pastel green living skin, coral peach broad lip, sky-blue crewneck cotton shirt, tiny white THREE-point star at hem (three rays, not five). Upright relaxed torso, empty hands, calm smile. No pouch, no heart, no brass button yet. Facing: gently turn head and gaze toward image RIGHT; keep torso mostly front-facing to preserve left/right anatomy. Image 2 is face/color art anchor ONLY; do not copy its seated pose.",
+      "references": [
+        "assets/images/characters/jao-kob/versions/v1/childhood-neutral.png",
+        "docs/proposals/3d-keepsake-spike/renders/childhood/front.png"
+      ],
+      "outputPath": "assets/images/characters/jao-kob/versions/v2/childhood-neutral-right.webp",
+      "masterPath": "assets/images/characters/jao-kob/versions/v2/childhood-neutral-right.png",
+      "change": {
+        "from": "เจ้ากบวัยเด็ก — ท่าปกติ มือว่าง · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "to": "ปรับเต็มตัว/นั่งเป็น Tachie ครึ่งตัว จมขอบล่าง ใบหน้าใหญ่ แสงบนกึ่งกลาง",
+        "reason": "ADR-032 D7 ให้ใบหน้าอ่านง่ายในบทสนทนา ลดขาลอย และยึดลำตัวกับขอบล่างเวที",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 1,
+      "assetId": "char_jao_kob_childhood_curious",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Childhood JaoKob same big round eyes and coral lip, sky-blue crewneck with tiny three-ray white hem star. Upright curious torso tilting head, empty hands. No pouch, no heart, no brass button yet. Facing: gently turn head and gaze toward image RIGHT; keep torso mostly front-facing to preserve left/right anatomy. Image 2 is face/color art anchor ONLY; do not copy its seated pose.",
+      "references": [
+        "assets/images/characters/jao-kob/versions/v1/childhood-curious.png",
+        "docs/proposals/3d-keepsake-spike/renders/childhood/front.png"
+      ],
+      "outputPath": "assets/images/characters/jao-kob/versions/v2/childhood-curious-right.webp",
+      "masterPath": "assets/images/characters/jao-kob/versions/v2/childhood-curious-right.png",
+      "change": {
+        "from": "เจ้ากบวัยเด็ก — สงสัยใคร่รู้ · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "to": "ปรับเต็มตัว/นั่งเป็น Tachie ครึ่งตัว จมขอบล่าง ใบหน้าใหญ่ แสงบนกึ่งกลาง",
+        "reason": "ADR-032 D7 ให้ใบหน้าอ่านง่ายในบทสนทนา ลดขาลอย และยึดลำตัวกับขอบล่างเวที",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 2,
+      "assetId": "char_jao_kob_adult_neutral",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Adult 45cm JaoKob: olive pastel green living skin, relaxed heavy GREEN upper eyelids, broad PEACH lips exactly like 3D anchor. Sky-blue cotton crewneck and tiny white THREE-ray hem star, single woven-reed four-compartment adventure pouch. Upright calm ready torso, empty hands. No red heart, no doll seams, no brass button attached yet. Facing: gently turn head and gaze toward image RIGHT; keep torso mostly front-facing to preserve left/right anatomy. Image 2 is face/color art anchor ONLY; do not copy its seated pose.",
+      "references": [
+        "assets/images/characters/jao-kob/versions/v1/adult-neutral.png",
+        "docs/proposals/3d-keepsake-spike/renders/front.png"
+      ],
+      "outputPath": "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.webp",
+      "masterPath": "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.png",
+      "change": {
+        "from": "เจ้ากบวัยโต — ท่ายืนปกติ · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "to": "ปรับเต็มตัว/นั่งเป็น Tachie ครึ่งตัว จมขอบล่าง ใบหน้าใหญ่ แสงบนกึ่งกลาง",
+        "reason": "ADR-032 D7 ให้ใบหน้าอ่านง่ายในบทสนทนา ลดขาลอย และยึดลำตัวกับขอบล่างเวที",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 3,
+      "assetId": "char_jao_kob_adult_observant",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Adult JaoKob: olive pastel green skin, heavy green upper eyelids, broad peach lips; blue cotton crewneck, small three-ray white hem star, woven four-slot pouch. Observant thinking gesture with one empty hand lightly touching shirt hem. No heart, no attached brass button yet. Facing: gently turn head and gaze toward image RIGHT; keep torso mostly front-facing to preserve left/right anatomy. Image 2 is face/color art anchor ONLY; do not copy its seated pose.",
+      "references": [
+        "assets/images/characters/jao-kob/versions/v1/adult-observant.png",
+        "docs/proposals/3d-keepsake-spike/renders/front.png"
+      ],
+      "outputPath": "assets/images/characters/jao-kob/versions/v2/adult-observant-right.webp",
+      "masterPath": "assets/images/characters/jao-kob/versions/v2/adult-observant-right.png",
+      "change": {
+        "from": "เจ้ากบวัยโต — สังเกตอย่างตั้งใจ · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "to": "ปรับเต็มตัว/นั่งเป็น Tachie ครึ่งตัว จมขอบล่าง ใบหน้าใหญ่ แสงบนกึ่งกลาง",
+        "reason": "ADR-032 D7 ให้ใบหน้าอ่านง่ายในบทสนทนา ลดขาลอย และยึดลำตัวกับขอบล่างเวที",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 4,
+      "assetId": "char_jao_kob_adult_determined",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Adult JaoKob: olive pastel green skin, heavy green upper eyelids, broad peach lips, blue cotton crewneck, tiny white three-ray star, woven four-slot pouch. Determined steady expression, small empty fist held near torso. No heart, no attached brass button yet. Facing: gently turn head and gaze toward image RIGHT; keep torso mostly front-facing to preserve left/right anatomy. Image 2 is face/color art anchor ONLY; do not copy its seated pose.",
+      "references": [
+        "assets/images/characters/jao-kob/versions/v1/adult-determined.png",
+        "docs/proposals/3d-keepsake-spike/renders/front.png"
+      ],
+      "outputPath": "assets/images/characters/jao-kob/versions/v2/adult-determined-right.webp",
+      "masterPath": "assets/images/characters/jao-kob/versions/v2/adult-determined-right.png",
+      "change": {
+        "from": "เจ้ากบวัยโต — มุ่งมั่น · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "to": "ปรับเต็มตัว/นั่งเป็น Tachie ครึ่งตัว จมขอบล่าง ใบหน้าใหญ่ แสงบนกึ่งกลาง",
+        "reason": "ADR-032 D7 ให้ใบหน้าอ่านง่ายในบทสนทนา ลดขาลอย และยึดลำตัวกับขอบล่างเวที",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 5,
+      "assetId": "char_jao_kob_adult_miracle_plush",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: E-HOME only: the SAME adult JaoKob has become SMOOTH SOFT VELOUR PLUSH, short fine velvet pile, subtle stuffed contours, NO crochet loops, NO knitted/woven yarn, NO other doll. Half-lidded green eyes and peach lips match 3D anchor. Sky-blue cotton crewneck, three-ray WHITE star at hem and small BRASS button engraved exactly \"ต.♡ป.\" sewn beside star. Empty hands. No red heart. Upright waist-up portrait, NOT sitting toy. Facing: gently turn head and gaze toward image RIGHT; keep torso mostly front-facing to preserve left/right anatomy. Image 2 is face/color art anchor ONLY; do not copy its seated pose.",
+      "references": [
+        "assets/images/characters/jao-kob/versions/v1/adult-miracle-plush.png",
+        "docs/proposals/3d-keepsake-spike/renders/front.png"
+      ],
+      "outputPath": "assets/images/characters/jao-kob/versions/v2/adult-miracle-plush-right.webp",
+      "masterPath": "assets/images/characters/jao-kob/versions/v2/adult-miracle-plush-right.png",
+      "change": {
+        "from": "เจ้ากบ — ตุ๊กตาปาฏิหาริย์ E-HOME · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "to": "เปลี่ยนผิวถักโครเชต์เป็นกำมะหยี่นุ่มเรียบ เฉพาะ E-HOME และติดกระดุม ต.♡ป.",
+        "reason": "ADR-032 D1/D2 กำหนดตุ๊กตากำมะหยี่เฉพาะ E-HOME และเปี๊ยกเป็นคนรักวัยเดียวกับเตื๊อก",
+        "requirements": [
+          "ADR-P0-032 §D7",
+          "ADR-P0-032 §D1",
+          "ADR-P0-032 §D2"
+        ]
+      }
+    },
+    {
+      "jobIndex": 6,
+      "assetId": "char_jao_kab_neutral_proud",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: JaoKab older stout olive-green frog brother. Bare chest, diagonal woven reed strap, bark wrist guards, distinctive scar on anatomical LEFT eyebrow (appears viewer right in a near-front pose). Proud protective expression. Do not add shirt, hat or pouch. Facing: gently turn head and gaze toward image RIGHT; keep torso mostly front-facing to preserve left/right anatomy. ",
+      "references": [
+        "assets/images/characters/jao-kab/versions/v1/neutral-proud.png"
+      ],
+      "outputPath": "assets/images/characters/jao-kab/versions/v2/neutral-proud-right.webp",
+      "masterPath": "assets/images/characters/jao-kab/versions/v2/neutral-proud-right.png",
+      "change": {
+        "from": "เจ้ากับ — ยืนมั่นใจ · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "to": "ปรับเต็มตัว/นั่งเป็น Tachie ครึ่งตัว จมขอบล่าง ใบหน้าใหญ่ แสงบนกึ่งกลาง",
+        "reason": "ADR-032 D7 ให้ใบหน้าอ่านง่ายในบทสนทนา ลดขาลอย และยึดลำตัวกับขอบล่างเวที",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 7,
+      "assetId": "char_jao_kab_action_knuckle_tap",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: JaoKab older stout olive-green frog brother. Bare chest, diagonal woven reed strap, bark wrist guards and anatomical LEFT eyebrow scar. Upper body gesture tapping his TWO bark wrist guards together at chest height, determined affectionate look. No shirt or pouch. Facing: gently turn head and gaze toward image RIGHT; keep torso mostly front-facing to preserve left/right anatomy. ",
+      "references": [
+        "assets/images/characters/jao-kab/versions/v1/action-knuckle-tap.png"
+      ],
+      "outputPath": "assets/images/characters/jao-kab/versions/v2/action-knuckle-tap-right.webp",
+      "masterPath": "assets/images/characters/jao-kab/versions/v2/action-knuckle-tap-right.png",
+      "change": {
+        "from": "เจ้ากับ — เคาะสนับข้อมือ · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "to": "ปรับเต็มตัว/นั่งเป็น Tachie ครึ่งตัว จมขอบล่าง ใบหน้าใหญ่ แสงบนกึ่งกลาง",
+        "reason": "ADR-032 D7 ให้ใบหน้าอ่านง่ายในบทสนทนา ลดขาลอย และยึดลำตัวกับขอบล่างเวที",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 8,
+      "assetId": "char_jao_kib_neutral_cheerful",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: JaoKib younger female mint-green frog, round eyes with eyelashes. Bare torso, scalloped lotus-leaf collar with yellow wildflower, bamboo glowing-seed tube and clear dew-bead magnifier. Cheerful conversational smile. No shirt or pouch. Facing: gently turn head and gaze toward image RIGHT; keep torso mostly front-facing to preserve left/right anatomy. ",
+      "references": [
+        "assets/images/characters/jao-kib/versions/v1/neutral-cheerful.png"
+      ],
+      "outputPath": "assets/images/characters/jao-kib/versions/v2/neutral-cheerful-right.webp",
+      "masterPath": "assets/images/characters/jao-kib/versions/v2/neutral-cheerful-right.png",
+      "change": {
+        "from": "เจ้ากิบ — สดใสร่าเริง · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "to": "ปรับเต็มตัว/นั่งเป็น Tachie ครึ่งตัว จมขอบล่าง ใบหน้าใหญ่ แสงบนกึ่งกลาง",
+        "reason": "ADR-032 D7 ให้ใบหน้าอ่านง่ายในบทสนทนา ลดขาลอย และยึดลำตัวกับขอบล่างเวที",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 9,
+      "assetId": "char_jao_kib_tinker_seed_tube",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: JaoKib younger female mint-green frog, eyelashes, lotus-leaf collar with yellow wildflower. Attentive inventor holding small bamboo seed tube near chest in her hands, subtle green-gold seeds inside. No shirt or pouch. Facing: gently turn head and gaze toward image RIGHT; keep torso mostly front-facing to preserve left/right anatomy. ",
+      "references": [
+        "assets/images/characters/jao-kib/versions/v1/tinker-seed-tube.png"
+      ],
+      "outputPath": "assets/images/characters/jao-kib/versions/v2/tinker-seed-tube-right.webp",
+      "masterPath": "assets/images/characters/jao-kib/versions/v2/tinker-seed-tube-right.png",
+      "change": {
+        "from": "เจ้ากิบ — เตรียมกระบอกเมล็ดต้อยติ่ง · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "to": "ปรับเต็มตัว/นั่งเป็น Tachie ครึ่งตัว จมขอบล่าง ใบหน้าใหญ่ แสงบนกึ่งกลาง",
+        "reason": "ADR-032 D7 ให้ใบหน้าอ่านง่ายในบทสนทนา ลดขาลอย และยึดลำตัวกับขอบล่างเวที",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 10,
+      "assetId": "char_father_frog_calm",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Father frog, dignified older warm olive-green frog, vine belt and bamboo walking staff held vertically with tip outside crop. Calm listening expression, upper body slightly leaning toward conversation. No shirt. Facing: gently turn head and gaze toward image RIGHT; keep torso mostly front-facing to preserve left/right anatomy. ",
+      "references": [
+        "assets/images/characters/parents/versions/v1/father-frog-calm.png"
+      ],
+      "outputPath": "assets/images/characters/parents/versions/v2/father-frog-calm-right.webp",
+      "masterPath": "assets/images/characters/parents/versions/v2/father-frog-calm-right.png",
+      "change": {
+        "from": "พ่อกบ — สุขุมกับไม้เท้าไผ่ · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "to": "ปรับเต็มตัว/นั่งเป็น Tachie ครึ่งตัว จมขอบล่าง ใบหน้าใหญ่ แสงบนกึ่งกลาง",
+        "reason": "ADR-032 D7 ให้ใบหน้าอ่านง่ายในบทสนทนา ลดขาลอย และยึดลำตัวกับขอบล่างเวที",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 11,
+      "assetId": "char_mother_frog_warm",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Mother frog, warm mature pastel-green frog, simple dried lotus-leaf shawl around shoulders, welcoming gentle open hand near chest. No shirt. Facing: gently turn head and gaze toward image RIGHT; keep torso mostly front-facing to preserve left/right anatomy. ",
+      "references": [
+        "assets/images/characters/parents/versions/v1/mother-frog-warm.png"
+      ],
+      "outputPath": "assets/images/characters/parents/versions/v2/mother-frog-warm-right.webp",
+      "masterPath": "assets/images/characters/parents/versions/v2/mother-frog-warm-right.png",
+      "change": {
+        "from": "แม่กบ — อบอุ่นในผ้าคลุมใบบัว · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "to": "ปรับเต็มตัว/นั่งเป็น Tachie ครึ่งตัว จมขอบล่าง ใบหน้าใหญ่ แสงบนกึ่งกลาง",
+        "reason": "ADR-032 D7 ให้ใบหน้าอ่านง่ายในบทสนทนา ลดขาลอย และยึดลำตัวกับขอบล่างเวที",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 12,
+      "assetId": "char_pkam_neutral_guarded",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: P Kam terrestrial hermit crab: terracotta body, faded pale-cream blue FLORAL DENTED CANDY TIN on back (not seashell). His anatomical LEFT claw is MUCH larger with one worn notch; RIGHT claw small. Front-near three-quarter view so LEFT giant claw appears on viewer RIGHT. Watchful guarded expression, body cropped to dialogue portrait lower frame, eyestalks large and readable. No extra limbs duplicated. Facing: gently turn head and gaze toward image RIGHT; keep torso mostly front-facing to preserve left/right anatomy. ",
+      "references": [
+        "assets/images/characters/p-kam/versions/v1/neutral-guarded.png"
+      ],
+      "outputPath": "assets/images/characters/p-kam/versions/v2/neutral-guarded-right.webp",
+      "masterPath": "assets/images/characters/p-kam/versions/v2/neutral-guarded-right.png",
+      "change": {
+        "from": "พี่ก้าม — ระวังตัว · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "to": "ปรับเต็มตัว/นั่งเป็น Tachie ครึ่งตัว จมขอบล่าง ใบหน้าใหญ่ แสงบนกึ่งกลาง",
+        "reason": "ADR-032 D7 ให้ใบหน้าอ่านง่ายในบทสนทนา ลดขาลอย และยึดลำตัวกับขอบล่างเวที",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 13,
+      "assetId": "char_pkam_allied_shield",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: P Kam hermit crab with dented faded floral candy TIN on back, terracotta body. His giant notched anatomical LEFT claw (viewer RIGHT) raised as protective shield, his small RIGHT claw rests by body. Loyal open expression. Show upper body, crop walking legs below frame. No seashell, no swapped giant claw. Facing: gently turn head and gaze toward image RIGHT; keep torso mostly front-facing to preserve left/right anatomy. ",
+      "references": [
+        "assets/images/characters/p-kam/versions/v1/allied-shield.png"
+      ],
+      "outputPath": "assets/images/characters/p-kam/versions/v2/allied-shield-right.webp",
+      "masterPath": "assets/images/characters/p-kam/versions/v2/allied-shield-right.png",
+      "change": {
+        "from": "พี่ก้าม — กางก้ามปกป้องเพื่อน · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "to": "ปรับเต็มตัว/นั่งเป็น Tachie ครึ่งตัว จมขอบล่าง ใบหน้าใหญ่ แสงบนกึ่งกลาง",
+        "reason": "ADR-032 D7 ให้ใบหน้าอ่านง่ายในบทสนทนา ลดขาลอย และยึดลำตัวกับขอบล่างเวที",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 14,
+      "assetId": "char_jao_fiw_neutral_lively",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: JaoFiw female cinnamon-and-cream flying squirrel, very large lively eyes, yellow neck ribbon, bushy tail partly behind shoulder. Friendly smiling talking pose, arms relaxed; preserve old healed notch on anatomical LEFT gliding membrane. Crop lower body at hip, no floating seated legs. Facing: gently turn head and gaze toward image RIGHT; keep torso mostly front-facing to preserve left/right anatomy. ",
+      "references": [
+        "assets/images/characters/jao-fiw/versions/v1/neutral-lively.png"
+      ],
+      "outputPath": "assets/images/characters/jao-fiw/versions/v2/neutral-lively-right.webp",
+      "masterPath": "assets/images/characters/jao-fiw/versions/v2/neutral-lively-right.png",
+      "change": {
+        "from": "เจ้าฟิ้ว — ร่าเริง · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "to": "ปรับเต็มตัว/นั่งเป็น Tachie ครึ่งตัว จมขอบล่าง ใบหน้าใหญ่ แสงบนกึ่งกลาง",
+        "reason": "ADR-032 D7 ให้ใบหน้าอ่านง่ายในบทสนทนา ลดขาลอย และยึดลำตัวกับขอบล่างเวที",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 15,
+      "assetId": "char_jao_fiw_gliding_brave",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: JaoFiw cinnamon-and-cream flying squirrel, yellow neck ribbon. Brave confident expression, arms spread partway with gliding membranes visible as upper-body gesture, healed notch on anatomical LEFT membrane. Portrait torso fills bottom, NOT whole flying body or airborne feet. Facing: gently turn head and gaze toward image RIGHT; keep torso mostly front-facing to preserve left/right anatomy. ",
+      "references": [
+        "assets/images/characters/jao-fiw/versions/v1/gliding-brave.png"
+      ],
+      "outputPath": "assets/images/characters/jao-fiw/versions/v2/gliding-brave-right.webp",
+      "masterPath": "assets/images/characters/jao-fiw/versions/v2/gliding-brave-right.png",
+      "change": {
+        "from": "เจ้าฟิ้ว — กางพังผืดร่อน · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "to": "ปรับเต็มตัว/นั่งเป็น Tachie ครึ่งตัว จมขอบล่าง ใบหน้าใหญ่ แสงบนกึ่งกลาง",
+        "reason": "ADR-032 D7 ให้ใบหน้าอ่านง่ายในบทสนทนา ลดขาลอย และยึดลำตัวกับขอบล่างเวที",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 16,
+      "assetId": "char_cockroach_man_shadow_boast",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Cockroach Man is a harmless comic SHADOW-MIST IMP: purple-black amorphous mist under a billowing black plastic-bag cape, bottle-cap shoulder armor, glowing yellow eyes, two curled smoky horn-like antenna shapes. Boastful face, torso cropped bottom. ACTS 3-5 continuity: NO brass button, NO gold brooch/medallion/necklace/pendant anywhere. Absolutely NO real insect anatomy, no insect legs or wings, no realistic cockroach. Facing: gently turn head and gaze toward image LEFT; keep torso mostly front-facing to preserve left/right anatomy. ",
+      "references": [
+        "assets/images/characters/cockroach-man/versions/v1/shadow-cloak-boast.png"
+      ],
+      "outputPath": "assets/images/characters/cockroach-man/versions/v2/shadow-cloak-boast-left.webp",
+      "masterPath": "assets/images/characters/cockroach-man/versions/v2/shadow-cloak-boast-left.png",
+      "change": {
+        "from": "แมลงสาบแมน — เงาผ้าคลุมโอ้อวด · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "to": "แยกร่างหลัง Act 2: ไม่มีเข็มกลัด/กระดุมทองบนผ้าคลุม และใช้ portrait ครึ่งตัว",
+        "reason": "กระดุมถูกชิงคืนใน Act 2 จึงต้องแยกสถานะตัวร้ายหลังเหตุการณ์",
+        "requirements": [
+          "ADR-P0-032 §D7",
+          "ADR-P0-032 §D8.2"
+        ]
+      }
+    },
+    {
+      "jobIndex": 17,
+      "assetId": "char_cockroach_man_shrunk_defeated",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: precise-object-edit. ONE square transparent 1024x1024 upper-body VN portrait of the same harmless comic purple shadow-mist imp in ragged black plastic-bag cape and bottlecap shoulders, no gold button or jewelry. Defeated embarrassed spiral yellow eyes, smoky hands shyly near chest, gaze LEFT. CRITICAL framing correction: EYES at 35% down from TOP, the TWO SHORT curled smoke horns fit entirely between 8% and 25% of image height, full head fully inside frame with transparent margin. Shorten the tall horns drastically rather than cutting them off. Torso continues down through bottom-center edge, ample transparent space at lower left/right corners. Neutral TOP CENTER lighting, no orange directional rim light, no insect anatomy/wings/legs. Preserve identity and materials; no floor or tiny full body.",
+      "references": [
+        "/Users/3rapat/.codex/generated_images/01a184ba-5f96-7f32-8fd0-bc6f55541b53/exec-2ed44306-eb4f-4d45-99f0-8306483744b9.png"
+      ],
+      "outputPath": "assets/images/characters/cockroach-man/versions/v2/shrunk-defeated-left.webp",
+      "masterPath": "assets/images/characters/cockroach-man/versions/v2/shrunk-defeated-left.png",
+      "change": {
+        "from": "แมลงสาบแมน — หดตัวเมื่อพ่ายแพ้ · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "to": "ร่างแพ้หลังชิงกระดุมคืน ไม่มีของทองติดอก; ขยายใบหน้าแทนตัวจิ๋วเต็มตัว",
+        "reason": "กระดุมถูกชิงคืนใน Act 2 จึงต้องแยกสถานะตัวร้ายหลังเหตุการณ์",
+        "requirements": [
+          "ADR-P0-032 §D7",
+          "ADR-P0-032 §D8.2"
+        ]
+      },
+      "supersededGenerationRequests": [
+        {
+          "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Same comic shadow-mist imp, bottlecap shoulder armor, crumpled black plastic cape, curled smoke horns, yellow eyes. Defeated embarrassed shrinking EXPRESSION shown as readable upper-body portrait at same eye line, not tiny whole body. NO brass/gold ornament anywhere after Act2; no insect anatomy. Facing: gently turn head and gaze toward image LEFT; keep torso mostly front-facing to preserve left/right anatomy. ",
+          "references": [
+            "assets/images/characters/cockroach-man/versions/v1/shrunk-defeated.png"
+          ],
+          "generatedSourceFile": "exec-2ed44306-eb4f-4d45-99f0-8306483744b9.png",
+          "rejectedReason": "Framing repair: shorten curled smoke horns and place face higher; preserve embarrassed expression."
+        }
+      ],
+      "revisionReason": "Framing repair: shorten curled smoke horns and place face higher; preserve embarrassed expression."
+    },
+    {
+      "jobIndex": 18,
+      "assetId": "char_jao_teuk_storm_kneeling",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Teuk is an adult Thai MAN in his mid-20s, same adult age as Peuak, navy rain jacket, dark short rain-wet hair. KNEELING/LEANING CHEST-UP conversational view, legs and shoes entirely outside crop. Sincere worried eyes, one hand offering a narrow cylindrical BRASS WHISTLE engraved exactly \"ต.♡ป.\" on a small ring; other hand may hold a compact flashlight near lower edge. NOT a dog, no hat, no fake brother. Facing: gently turn head and gaze toward image LEFT; keep torso mostly front-facing to preserve left/right anatomy. ",
+      "references": [
+        "assets/images/characters/jao-teuk/versions/v1/storm-kneeling-mission.png"
+      ],
+      "outputPath": "assets/images/characters/jao-teuk/versions/v2/storm-kneeling-mission-left.webp",
+      "masterPath": "assets/images/characters/jao-teuk/versions/v2/storm-kneeling-mission-left.png",
+      "change": {
+        "from": "เจ้าเตื๊อก — คุกเข่ามอบภารกิจกลางฝน · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "to": "จากท่าเต็มตัว/คุกเข่าเห็นขา เป็นมนุษย์โน้มตัวระดับอก เพิ่มไฟฉายและรอยสลัก ต.♡ป.",
+        "reason": "ADR-032 D2/D7 ให้เตื๊อก–เปี๊ยกเป็นหนุ่มสาววัยเดียวกัน และใช้มุมโน้มตัวครึ่งอก",
+        "requirements": [
+          "ADR-P0-032 §D7",
+          "ADR-P0-032 §D2"
+        ]
+      }
+    },
+    {
+      "jobIndex": 19,
+      "assetId": "char_jao_teuk_dawn_reunion",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: precise-object-edit. Change ONLY the unwanted tiny realistic frog sitting on this man’s open palm: REMOVE it completely and reconstruct the EMPTY open hand. One human only. NO frog, animal, doll, toy, symbol or replacement object in either hand or anywhere. Preserve the same adult Thai man, happy smile, gaze LEFT, navy rainjacket, identity, half-body bottom-cropped portrait, neutral lighting and transparent background. Fingers relaxed natural greeting. No text or watermark.",
+      "references": [
+        "/Users/3rapat/.codex/generated_images/01a184ba-5f96-7f32-8fd0-bc6f55541b53/exec-c748b7b2-13df-4b53-a7ec-d527e7dea21a.png"
+      ],
+      "outputPath": "assets/images/characters/jao-teuk/versions/v2/dawn-reunion-smile-left.webp",
+      "masterPath": "assets/images/characters/jao-teuk/versions/v2/dawn-reunion-smile-left.png",
+      "change": {
+        "from": "เจ้าเตื๊อก — พบกันยามรุ่งอรุณ · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "to": "จากท่ายืนเห็นรองเท้า เป็นภาพครึ่งอกโน้มตัว ใบหน้าใหญ่และแสงกลาง",
+        "reason": "ADR-032 D2/D7 ให้เตื๊อก–เปี๊ยกเป็นหนุ่มสาววัยเดียวกัน และใช้มุมโน้มตัวครึ่งอก",
+        "requirements": [
+          "ADR-P0-032 §D7",
+          "ADR-P0-032 §D2"
+        ]
+      },
+      "supersededGenerationRequests": [
+        {
+          "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Teuk, adult Thai man mid-20s, same age as Peuak, same navy rain jacket and dark short hair. Warm relieved dawn smile, gently leaning CHEST-UP to speak with a small frog raised on furniture; no floor or furniture in cutout. Empty open hand greeting. No legs or shoes. Facing: gently turn head and gaze toward image LEFT; keep torso mostly front-facing to preserve left/right anatomy. ",
+          "references": [
+            "assets/images/characters/jao-teuk/versions/v1/dawn-reunion-smile.png"
+          ],
+          "generatedSourceFile": "exec-c748b7b2-13df-4b53-a7ec-d527e7dea21a.png",
+          "rejectedReason": "Remove unrequested tiny biological frog from empty greeting palm."
+        }
+      ],
+      "revisionReason": "Remove unrequested tiny biological frog from empty greeting palm."
+    },
+    {
+      "jobIndex": 20,
+      "assetId": "char_peuak_bedside_frightened",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. REDESIGN the female face in image 1 to look unmistakably like a MATURE YOUNG ADULT THAI WOMAN in her MID-TWENTIES, the same age and same semi-realistic 3D illustration language as the adult MAN in image 2. Image 1 is POSE/COSTUME reference, its old childlike face MUST CHANGE. Adult elongated oval face, mature jaw and nose bridge, natural ADULT eye-to-face proportions, substantially SMALLER almond eyes, adult brow, adult neck and shoulders. Not a teenager, not chibi, no huge doll eyes or round baby face. Keep dark chin-length bob, cream long-sleeve sleepwear, pale cream/light blue blanket clutched around shoulders with hands at chest, worried expression looking LEFT. Chest-up leaning portrait, torso extends through bottom edge; no legs, no seating, no other character, no toy/doll/frog. Square 1024x1024 true transparent alpha. Eyes center 35% from top, full head inside with clear top margin. Neutral TOP-CENTER soft lighting with balanced fill, no orange side rim. Preserve identifiable Peuak hair/palette but make age consistent with Teuk.",
+      "references": [
+        "/Users/3rapat/.codex/generated_images/01a184ba-5f96-7f32-8fd0-bc6f55541b53/exec-f06bf578-d097-41dc-8229-594cda9d67e7.png",
+        "/Users/3rapat/MyWork/Project/WebApp/games/jao-kob/assets/images/characters/jao-teuk/versions/v2/storm-kneeling-mission-left.png"
+      ],
+      "outputPath": "assets/images/characters/peuak/versions/v2/bedside-frightened-blanket-left.webp",
+      "masterPath": "assets/images/characters/peuak/versions/v2/bedside-frightened-blanket-left.png",
+      "change": {
+        "from": "เปื๊อก — หวาดกลัวใต้ผ้าห่ม · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "to": "จากหญิงหน้าวัยเด็กนั่งลอย เป็นหญิงสาววัยเดียวกับเตื๊อก ครึ่งอกใต้ผ้าห่ม",
+        "reason": "ADR-032 D2/D7 ให้เตื๊อก–เปี๊ยกเป็นหนุ่มสาววัยเดียวกัน และใช้มุมโน้มตัวครึ่งอก",
+        "requirements": [
+          "ADR-P0-032 §D7",
+          "ADR-P0-032 §D2"
+        ]
+      },
+      "supersededGenerationRequests": [
+        {
+          "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Peuak is an ADULT Thai woman in her mid-20s, same adult age as Teuk, mature young-adult facial proportions, chin-length dark brown bob, simple cream long-sleeve sleepwear. Chest-up leaning portrait, clutching pale blanket around shoulders/chest, frightened but dignified eyes. No legs, no seated crossed legs, no bed background. No doll anywhere, not a child. Facing: gently turn head and gaze toward image LEFT; keep torso mostly front-facing to preserve left/right anatomy. ",
+          "references": [
+            "assets/images/characters/peuak/versions/v1/bedside-frightened-blanket.png"
+          ],
+          "generatedSourceFile": "exec-f06bf578-d097-41dc-8229-594cda9d67e7.png",
+          "rejectedReason": "Peuak must visibly match Teuk as same-age adult, not childlike v1 face."
+        }
+      ],
+      "revisionReason": "Peuak must visibly match Teuk as same-age adult, not childlike v1 face."
+    },
+    {
+      "jobIndex": 21,
+      "assetId": "char_peuak_warm_sunlight_hug",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Correct E-HOME hug portrait. Image 1 is pose and composition only; REPLACE the childlike female face with the unmistakably adult Thai woman from image 2: same mature oval face, adult-sized almond eyes, nose/jaw, chin-length dark bob, mid-20s matching Teuk. Now warm relieved gentle smile looking LEFT. Keep cream sleepwear and chest-up bottom-cropped hug of ONE smooth short-pile VELOUR green JaoKob doll (image 3 identity), relaxed green half-lids and peach lips, blue cotton crewneck. Correct white shirt emblem to ONE connected THREE-RAY Y-shaped embroidered star beside the engraved brass button \"ต.♡ป.\" at lower hem, NOT detached dash strokes on chest. No crochet loops or knitting, no second frog or doll, no legs or feet. Neutral top-center light, no orange side rim. True transparent square 1024x1024, full head inside frame, eyes about one third down, torso cuts bottom. Preserve rest.",
+      "references": [
+        "/Users/3rapat/.codex/generated_images/01a184ba-5f96-7f32-8fd0-bc6f55541b53/exec-03b555c5-3eae-4c99-b0db-5aabf4de1a96.png",
+        "assets/images/characters/peuak/versions/v2/bedside-frightened-blanket-left.png",
+        "assets/images/characters/jao-kob/versions/v2/adult-miracle-plush-right.png"
+      ],
+      "outputPath": "assets/images/characters/peuak/versions/v2/warm-sunlight-hug-left.webp",
+      "masterPath": "assets/images/characters/peuak/versions/v2/warm-sunlight-hug-left.png",
+      "change": {
+        "from": "เปื๊อก — กอดตุ๊กตารับแสงเช้า · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "to": "จากกอดตุ๊กตาโครเชต์ เป็นหญิงสาววัยเดียวกับเตื๊อกกอดกำมะหยี่หนึ่งตัว เฉพาะ E-HOME",
+        "reason": "ADR-032 D1/D2 กำหนดตุ๊กตากำมะหยี่เฉพาะ E-HOME และเปี๊ยกเป็นคนรักวัยเดียวกับเตื๊อก",
+        "requirements": [
+          "ADR-P0-032 §D7",
+          "ADR-P0-032 §D1",
+          "ADR-P0-032 §D2"
+        ]
+      },
+      "supersededGenerationRequests": [
+        {
+          "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: E-HOME only: Peuak adult Thai woman mid-20s, chin-length dark bob, cream sleepwear, warm relieved smile; CHEST-UP leaning portrait hugging exactly ONE 45cm JaoKob who has transformed into SMOOTH SOFT VELOUR plush: fine smooth green velvet (NO crochet/knit loops), relaxed green half-lids, peach lips, blue cotton crewneck with white THREE-ray hem star and brass button engraved \"ต.♡ป.\". Doll and forearms naturally cropped at bottom; no feet, no legs or second frog. Facing: gently turn head and gaze toward image LEFT; keep torso mostly front-facing to preserve left/right anatomy. ",
+          "references": [
+            "assets/images/characters/peuak/versions/v1/warm-sunlight-hug.png"
+          ],
+          "generatedSourceFile": "exec-03b555c5-3eae-4c99-b0db-5aabf4de1a96.png",
+          "rejectedReason": "Match corrected adult Peuak face and restore the three-ray hem star"
+        }
+      ],
+      "revisionReason": "Match corrected adult Peuak face and restore the three-ray hem star"
+    },
+    {
+      "jobIndex": 22,
+      "assetId": "char_boy_ton_crying",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Boy Ton, Thai young boy in yellow raincoat, crying with worried teary face. CHEST-UP leaning conversational portrait, clutching coat near chest. No seated crossed legs, no floating full body, no floor, no medicine bottle yet. Facing: gently turn head and gaze toward image LEFT; keep torso mostly front-facing to preserve left/right anatomy. ",
+      "references": [
+        "assets/images/characters/city-humans/versions/v1/boy-ton-crying.png"
+      ],
+      "outputPath": "assets/images/characters/city-humans/versions/v2/boy-ton-crying-left.webp",
+      "masterPath": "assets/images/characters/city-humans/versions/v2/boy-ton-crying-left.png",
+      "change": {
+        "from": "เด็กชายต้น — ร้องไห้ในเสื้อกันฝน · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "to": "จากเด็กนั่งขัดสมาธิลอย เป็นครึ่งอกโน้มตัวหลังกล่องข้อความ",
+        "reason": "ADR-032 D7 ให้ใบหน้าอ่านง่ายในบทสนทนา ลดขาลอย และยึดลำตัวกับขอบล่างเวที",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 23,
+      "assetId": "char_watchman_lung_flare",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: precise-object-edit. Fix ONLY flare framing and light on the existing elderly Thai watchman chest-up portrait. SHRINK the red flare smoke and glow cloud to one-third its current size, held near his left-facing cheek at shoulder height. Every red spark, smoke wisp and glow must remain at least 80 pixels INSIDE the 1024x1024 square, especially the TOP; clear transparent margin all around upper silhouette. Keep same elderly face, grey hair and moustache, raincoat, hand, leftward gaze, bottom-cropped torso. Main face key light soft neutral TOP CENTER with balanced fill; motivated red glow only subtle on nearby hand and cheek, no orange rim light on opposite side. No extra cap, no background, no text. True transparent alpha.",
+      "references": [
+        "/Users/3rapat/.codex/generated_images/01a184ba-5f96-7f32-8fd0-bc6f55541b53/exec-7497a203-0838-4538-875f-9399a35d5096.png"
+      ],
+      "outputPath": "assets/images/characters/city-humans/versions/v2/watchman-lung-flare-left.webp",
+      "masterPath": "assets/images/characters/city-humans/versions/v2/watchman-lung-flare-left.png",
+      "change": {
+        "from": "คุณลุงยาม — ชูพลุเตือนภัย · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "to": "ปรับเต็มตัว/นั่งเป็น Tachie ครึ่งตัว จมขอบล่าง ใบหน้าใหญ่ แสงบนกึ่งกลาง",
+        "reason": "ADR-032 D7 ให้ใบหน้าอ่านง่ายในบทสนทนา ลดขาลอย และยึดลำตัวกับขอบล่างเวที",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      },
+      "supersededGenerationRequests": [
+        {
+          "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Bridge watchman, elderly Thai man with grey moustache, dark work raincoat and simple cap, tired caring face. CHEST-UP leaning portrait, holding short RED warning flare near shoulder. Keep flare and ALL glow fully INSIDE frame with transparent padding; top-center main face lighting, only subtle motivated red local reflection. No shoes/legs. Facing: gently turn head and gaze toward image LEFT; keep torso mostly front-facing to preserve left/right anatomy. ",
+          "references": [
+            "assets/images/characters/city-humans/versions/v1/watchman-lung-flare.png"
+          ],
+          "generatedSourceFile": "exec-7497a203-0838-4538-875f-9399a35d5096.png",
+          "rejectedReason": "Shrink flare smoke to preserve transparent top margin and prevent clipping"
+        }
+      ],
+      "revisionReason": "Shrink flare smoke to preserve transparent top margin and prevent clipping"
+    },
+    {
+      "jobIndex": 24,
+      "assetId": "char_jao_kob_childhood_neutral_facing_left",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Childhood JaoKob, very large round black eyes, warm pastel green living skin, coral peach broad lip, sky-blue crewneck cotton shirt, tiny white THREE-point star at hem (three rays, not five). Upright relaxed torso, empty hands, calm smile. No pouch, no heart, no brass button yet. Facing: gently turn head and gaze toward image LEFT. Torso stays mostly front-facing. Image 1 is newly drawn v2 identity reference: keep its face/wardrobe/framing/neutral light, redraw the opposite-facing gaze, do not mirror pixels.",
+      "references": [
+        "assets/images/characters/jao-kob/versions/v2/childhood-neutral-right.png"
+      ],
+      "outputPath": "assets/images/characters/jao-kob/versions/v2/childhood-neutral-left.webp",
+      "masterPath": "assets/images/characters/jao-kob/versions/v2/childhood-neutral-left.png",
+      "change": {
+        "from": "เจ้ากบวัยเด็ก — ท่าปกติ มือว่าง",
+        "to": "เพิ่มทิศหันตรงข้ามที่เจนใหม่ รักษาซ้ายขวาทางกายวิภาคและตัวอักษร ไม่ใช้ mirror",
+        "reason": "ADR-032 D7 ต้องมีทิศหันเข้าคู่สนทนาโดยไม่ mirror รอยแผล ก้าม หรือข้อความ",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 25,
+      "assetId": "char_jao_kob_adult_neutral_facing_left",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Adult 45cm JaoKob: olive pastel green living skin, relaxed heavy GREEN upper eyelids, broad PEACH lips exactly like 3D anchor. Sky-blue cotton crewneck and tiny white THREE-ray hem star, single woven-reed four-compartment adventure pouch. Upright calm ready torso, empty hands. No red heart, no doll seams, no brass button attached yet. Facing: gently turn head and gaze toward image LEFT. Torso stays mostly front-facing. Image 1 is newly drawn v2 identity reference: keep its face/wardrobe/framing/neutral light, redraw the opposite-facing gaze, do not mirror pixels.",
+      "references": [
+        "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.png"
+      ],
+      "outputPath": "assets/images/characters/jao-kob/versions/v2/adult-neutral-left.webp",
+      "masterPath": "assets/images/characters/jao-kob/versions/v2/adult-neutral-left.png",
+      "change": {
+        "from": "เจ้ากบวัยโต — ท่ายืนปกติ",
+        "to": "เพิ่มทิศหันตรงข้ามที่เจนใหม่ รักษาซ้ายขวาทางกายวิภาคและตัวอักษร ไม่ใช้ mirror",
+        "reason": "ADR-032 D7 ต้องมีทิศหันเข้าคู่สนทนาโดยไม่ mirror รอยแผล ก้าม หรือข้อความ",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 26,
+      "assetId": "char_jao_kob_adult_miracle_plush_facing_left",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: E-HOME only: the SAME adult JaoKob has become SMOOTH SOFT VELOUR PLUSH, short fine velvet pile, subtle stuffed contours, NO crochet loops, NO knitted/woven yarn, NO other doll. Half-lidded green eyes and peach lips match 3D anchor. Sky-blue cotton crewneck, three-ray WHITE star at hem and small BRASS button engraved exactly \"ต.♡ป.\" sewn beside star. Empty hands. No red heart. Upright waist-up portrait, NOT sitting toy. Facing: gently turn head and gaze toward image LEFT. Torso stays mostly front-facing. Image 1 is newly drawn v2 identity reference: keep its face/wardrobe/framing/neutral light, redraw the opposite-facing gaze, do not mirror pixels.",
+      "references": [
+        "assets/images/characters/jao-kob/versions/v2/adult-miracle-plush-right.png"
+      ],
+      "outputPath": "assets/images/characters/jao-kob/versions/v2/adult-miracle-plush-left.webp",
+      "masterPath": "assets/images/characters/jao-kob/versions/v2/adult-miracle-plush-left.png",
+      "change": {
+        "from": "เจ้ากบ — ตุ๊กตาปาฏิหาริย์ E-HOME",
+        "to": "เพิ่มทิศหันตรงข้ามที่เจนใหม่ รักษาซ้ายขวาทางกายวิภาคและตัวอักษร ไม่ใช้ mirror",
+        "reason": "ADR-032 D7 ต้องมีทิศหันเข้าคู่สนทนาโดยไม่ mirror รอยแผล ก้าม หรือข้อความ",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 27,
+      "assetId": "char_jao_kab_neutral_proud_facing_left",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: JaoKab older stout olive-green frog brother. Bare chest, diagonal woven reed strap, bark wrist guards, distinctive scar on anatomical LEFT eyebrow (appears viewer right in a near-front pose). Proud protective expression. Do not add shirt, hat or pouch. Facing: gently turn head and gaze toward image LEFT. Torso stays mostly front-facing. Image 1 is newly drawn v2 identity reference: keep its face/wardrobe/framing/neutral light, redraw the opposite-facing gaze, do not mirror pixels.",
+      "references": [
+        "assets/images/characters/jao-kab/versions/v2/neutral-proud-right.png"
+      ],
+      "outputPath": "assets/images/characters/jao-kab/versions/v2/neutral-proud-left.webp",
+      "masterPath": "assets/images/characters/jao-kab/versions/v2/neutral-proud-left.png",
+      "change": {
+        "from": "เจ้ากับ — ยืนมั่นใจ",
+        "to": "เพิ่มทิศหันตรงข้ามที่เจนใหม่ รักษาซ้ายขวาทางกายวิภาคและตัวอักษร ไม่ใช้ mirror",
+        "reason": "ADR-032 D7 ต้องมีทิศหันเข้าคู่สนทนาโดยไม่ mirror รอยแผล ก้าม หรือข้อความ",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 28,
+      "assetId": "char_jao_kib_neutral_cheerful_facing_left",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: JaoKib younger female mint-green frog, round eyes with eyelashes. Bare torso, scalloped lotus-leaf collar with yellow wildflower, bamboo glowing-seed tube and clear dew-bead magnifier. Cheerful conversational smile. No shirt or pouch. Facing: gently turn head and gaze toward image LEFT. Torso stays mostly front-facing. Image 1 is newly drawn v2 identity reference: keep its face/wardrobe/framing/neutral light, redraw the opposite-facing gaze, do not mirror pixels.",
+      "references": [
+        "assets/images/characters/jao-kib/versions/v2/neutral-cheerful-right.png"
+      ],
+      "outputPath": "assets/images/characters/jao-kib/versions/v2/neutral-cheerful-left.webp",
+      "masterPath": "assets/images/characters/jao-kib/versions/v2/neutral-cheerful-left.png",
+      "change": {
+        "from": "เจ้ากิบ — สดใสร่าเริง",
+        "to": "เพิ่มทิศหันตรงข้ามที่เจนใหม่ รักษาซ้ายขวาทางกายวิภาคและตัวอักษร ไม่ใช้ mirror",
+        "reason": "ADR-032 D7 ต้องมีทิศหันเข้าคู่สนทนาโดยไม่ mirror รอยแผล ก้าม หรือข้อความ",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 29,
+      "assetId": "char_father_frog_calm_facing_left",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Father frog, dignified older warm olive-green frog, vine belt and bamboo walking staff held vertically with tip outside crop. Calm listening expression, upper body slightly leaning toward conversation. No shirt. Facing: gently turn head and gaze toward image LEFT. Torso stays mostly front-facing. Image 1 is newly drawn v2 identity reference: keep its face/wardrobe/framing/neutral light, redraw the opposite-facing gaze, do not mirror pixels.",
+      "references": [
+        "assets/images/characters/parents/versions/v2/father-frog-calm-right.png"
+      ],
+      "outputPath": "assets/images/characters/parents/versions/v2/father-frog-calm-left.webp",
+      "masterPath": "assets/images/characters/parents/versions/v2/father-frog-calm-left.png",
+      "change": {
+        "from": "พ่อกบ — สุขุมกับไม้เท้าไผ่",
+        "to": "เพิ่มทิศหันตรงข้ามที่เจนใหม่ รักษาซ้ายขวาทางกายวิภาคและตัวอักษร ไม่ใช้ mirror",
+        "reason": "ADR-032 D7 ต้องมีทิศหันเข้าคู่สนทนาโดยไม่ mirror รอยแผล ก้าม หรือข้อความ",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 30,
+      "assetId": "char_mother_frog_warm_facing_left",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Mother frog, warm mature pastel-green frog, simple dried lotus-leaf shawl around shoulders, welcoming gentle open hand near chest. No shirt. Facing: gently turn head and gaze toward image LEFT. Torso stays mostly front-facing. Image 1 is newly drawn v2 identity reference: keep its face/wardrobe/framing/neutral light, redraw the opposite-facing gaze, do not mirror pixels.",
+      "references": [
+        "assets/images/characters/parents/versions/v2/mother-frog-warm-right.png"
+      ],
+      "outputPath": "assets/images/characters/parents/versions/v2/mother-frog-warm-left.webp",
+      "masterPath": "assets/images/characters/parents/versions/v2/mother-frog-warm-left.png",
+      "change": {
+        "from": "แม่กบ — อบอุ่นในผ้าคลุมใบบัว",
+        "to": "เพิ่มทิศหันตรงข้ามที่เจนใหม่ รักษาซ้ายขวาทางกายวิภาคและตัวอักษร ไม่ใช้ mirror",
+        "reason": "ADR-032 D7 ต้องมีทิศหันเข้าคู่สนทนาโดยไม่ mirror รอยแผล ก้าม หรือข้อความ",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 31,
+      "assetId": "char_pkam_neutral_guarded_facing_left",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: P Kam terrestrial hermit crab: terracotta body, faded pale-cream blue FLORAL DENTED CANDY TIN on back (not seashell). His anatomical LEFT claw is MUCH larger with one worn notch; RIGHT claw small. Front-near three-quarter view so LEFT giant claw appears on viewer RIGHT. Watchful guarded expression, body cropped to dialogue portrait lower frame, eyestalks large and readable. No extra limbs duplicated. Facing: gently turn head and gaze toward image LEFT. Torso stays mostly front-facing. Image 1 is newly drawn v2 identity reference: keep its face/wardrobe/framing/neutral light, redraw the opposite-facing gaze, do not mirror pixels.",
+      "references": [
+        "assets/images/characters/p-kam/versions/v2/neutral-guarded-right.png"
+      ],
+      "outputPath": "assets/images/characters/p-kam/versions/v2/neutral-guarded-left.webp",
+      "masterPath": "assets/images/characters/p-kam/versions/v2/neutral-guarded-left.png",
+      "change": {
+        "from": "พี่ก้าม — ระวังตัว",
+        "to": "เพิ่มทิศหันตรงข้ามที่เจนใหม่ รักษาซ้ายขวาทางกายวิภาคและตัวอักษร ไม่ใช้ mirror",
+        "reason": "ADR-032 D7 ต้องมีทิศหันเข้าคู่สนทนาโดยไม่ mirror รอยแผล ก้าม หรือข้อความ",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 32,
+      "assetId": "char_jao_fiw_neutral_lively_facing_left",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: JaoFiw female cinnamon-and-cream flying squirrel, very large lively eyes, yellow neck ribbon, bushy tail partly behind shoulder. Friendly smiling talking pose, arms relaxed; preserve old healed notch on anatomical LEFT gliding membrane. Crop lower body at hip, no floating seated legs. Facing: gently turn head and gaze toward image LEFT. Torso stays mostly front-facing. Image 1 is newly drawn v2 identity reference: keep its face/wardrobe/framing/neutral light, redraw the opposite-facing gaze, do not mirror pixels. FINAL CORRECTION: EDIT ONLY the healed membrane notch placement. This front-facing torso must have a completely smooth UNBROKEN membrane edge on image LEFT (her anatomical RIGHT). Put the ONE small healed notch on image RIGHT (her anatomical LEFT), near lower-right elbow membrane; if the bushy tail hides it, move the tail slightly behind so the notch is readable. Keep face gaze toward image LEFT, hands, identity and portrait crop. Do not mirror the image. No notch on image LEFT.",
+      "references": [
+        "/Users/3rapat/.codex/generated_images/01a184ba-5f96-7f32-8fd0-bc6f55541b53/exec-74a9f6b5-d1f7-4423-a939-5add2b908799.png"
+      ],
+      "outputPath": "assets/images/characters/jao-fiw/versions/v2/neutral-lively-left.webp",
+      "masterPath": "assets/images/characters/jao-fiw/versions/v2/neutral-lively-left.png",
+      "change": {
+        "from": "เจ้าฟิ้ว — ร่าเริง",
+        "to": "เพิ่มทิศหันตรงข้ามที่เจนใหม่ รักษาซ้ายขวาทางกายวิภาคและตัวอักษร ไม่ใช้ mirror",
+        "reason": "ADR-032 D7 ต้องมีทิศหันเข้าคู่สนทนาโดยไม่ mirror รอยแผล ก้าม หรือข้อความ",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      },
+      "supersededGenerationRequests": [
+        {
+          "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: JaoFiw female cinnamon-and-cream flying squirrel, very large lively eyes, yellow neck ribbon, bushy tail partly behind shoulder. Friendly smiling talking pose, arms relaxed; preserve old healed notch on anatomical LEFT gliding membrane. Crop lower body at hip, no floating seated legs. Facing: gently turn head and gaze toward image LEFT. Torso stays mostly front-facing. Image 1 is newly drawn v2 identity reference: keep its face/wardrobe/framing/neutral light, redraw the opposite-facing gaze, do not mirror pixels.",
+          "references": [
+            "assets/images/characters/jao-fiw/versions/v2/neutral-lively-right.png"
+          ],
+          "generatedSource": "exec-74a9f6b5-d1f7-4423-a939-5add2b908799.png",
+          "reason": "แก้รอยบากพังผืดซ้ายทางกายวิภาคที่ถูกสลับด้านใน attempt แรก"
+        }
+      ],
+      "revisionReason": "แก้รอยบากพังผืดซ้ายทางกายวิภาคที่ถูกสลับด้านใน attempt แรก"
+    },
+    {
+      "jobIndex": 33,
+      "assetId": "char_cockroach_man_shadow_boast_facing_right",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Precise minor image edit of the supplied RIGHT-FACING mist character portrait. Output square 1024x1024 with transparent background. Keep EXACT same layout: face on right half looking toward IMAGE RIGHT, open outstretched hand on IMAGE RIGHT, closed hand at chest on IMAGE LEFT. Do not mirror or reverse anything. Only shorten topmost purple smoke curls so every curl fits inside with 6% transparent top margin. Preserve black plastic cape, two silver bottlecap shoulders, glowing yellow eyes, opaque purple mist torso cropped through bottom edge. No gold, no brooch, no button. No insect anatomy, legs or wings. No floor, frame, text, watermark. Neutral soft top-center lighting. RIGHT-FACING same as supplied image.",
+      "references": [
+        "/Users/3rapat/.codex/generated_images/01a184ba-5f96-7f32-8fd0-bc6f55541b53/exec-48eb020d-c97f-41b7-93ef-38f5b9503333.png"
+      ],
+      "outputPath": "assets/images/characters/cockroach-man/versions/v2/shadow-cloak-boast-right.webp",
+      "masterPath": "assets/images/characters/cockroach-man/versions/v2/shadow-cloak-boast-right.png",
+      "change": {
+        "from": "แมลงสาบแมน — เงาผ้าคลุมโอ้อวด",
+        "to": "เพิ่มทิศหันตรงข้ามที่เจนใหม่ รักษาซ้ายขวาทางกายวิภาคและตัวอักษร ไม่ใช้ mirror",
+        "reason": "ADR-032 D7 ต้องมีทิศหันเข้าคู่สนทนาโดยไม่ mirror รอยแผล ก้าม หรือข้อความ",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      },
+      "supersededGenerationRequests": [
+        {
+          "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Cockroach Man is a harmless comic SHADOW-MIST IMP: purple-black amorphous mist under a billowing black plastic-bag cape, bottle-cap shoulder armor, glowing yellow eyes, two curled smoky horn-like antenna shapes. Boastful face, torso cropped bottom. ACTS 3-5 continuity: NO brass button, NO gold brooch/medallion/necklace/pendant anywhere. Absolutely NO real insect anatomy, no insect legs or wings, no realistic cockroach. Facing: gently turn head and gaze toward image RIGHT. Torso stays mostly front-facing. Image 1 is newly drawn v2 identity reference: keep its face/wardrobe/framing/neutral light, redraw the opposite-facing gaze, do not mirror pixels.",
+          "references": [
+            "assets/images/characters/cockroach-man/versions/v2/shadow-cloak-boast-left.png"
+          ],
+          "generatedSource": "exec-48eb020d-c97f-41b7-93ef-38f5b9503333.png",
+          "reason": "แก้ปลายควันเหนือศีรษะที่ชิดขอบบน"
+        },
+        {
+          "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Cockroach Man is a harmless comic SHADOW-MIST IMP: purple-black amorphous mist under a billowing black plastic-bag cape, bottle-cap shoulder armor, glowing yellow eyes, two curled smoky horn-like antenna shapes. Boastful face, torso cropped bottom. ACTS 3-5 continuity: NO brass button, NO gold brooch/medallion/necklace/pendant anywhere. Absolutely NO real insect anatomy, no insect legs or wings, no realistic cockroach. Facing: gently turn head and gaze toward image RIGHT. Torso stays mostly front-facing. Image 1 is newly drawn v2 identity reference: keep its face/wardrobe/framing/neutral light, redraw the opposite-facing gaze, do not mirror pixels. FINAL CORRECTION: EDIT the framing only. Preserve right-facing face, gold-free cape, two silver bottlecap shoulders, and hand gesture. Make the topmost smoke curl 7 percent below the upper edge, fully visible with transparent margin. Shorten the tallest curls slightly if necessary. Keep the lower torso cropped by the bottom edge. No gold button. No real insect legs or wings.",
+          "references": [
+            "/Users/3rapat/.codex/generated_images/01a184ba-5f96-7f32-8fd0-bc6f55541b53/exec-48eb020d-c97f-41b7-93ef-38f5b9503333.png"
+          ],
+          "generatedSource": "exec-7e2ec454-0cb4-4ee7-925f-39587dba05fd.png",
+          "reason": "ปลายควันครบ แต่ทิศหันกลับไปซ้าย จึงไม่ผ่านคู่ทิศหัน"
+        }
+      ],
+      "revisionReason": "แก้ปลายควันให้ครบพร้อมรักษาทิศหันขวา"
+    },
+    {
+      "jobIndex": 34,
+      "assetId": "char_jao_teuk_storm_kneeling_facing_right",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Teuk is an adult Thai MAN in his mid-20s, same adult age as Peuak, navy rain jacket, dark short rain-wet hair. KNEELING/LEANING CHEST-UP conversational view, legs and shoes entirely outside crop. Sincere worried eyes, one hand offering a narrow cylindrical BRASS WHISTLE engraved exactly \"ต.♡ป.\" on a small ring; other hand may hold a compact flashlight near lower edge. NOT a dog, no hat, no fake brother. Facing: gently turn head and gaze toward image RIGHT. Torso stays mostly front-facing. Image 1 is newly drawn v2 identity reference: keep its face/wardrobe/framing/neutral light, redraw the opposite-facing gaze, do not mirror pixels.",
+      "references": [
+        "assets/images/characters/jao-teuk/versions/v2/storm-kneeling-mission-left.png"
+      ],
+      "outputPath": "assets/images/characters/jao-teuk/versions/v2/storm-kneeling-mission-right.webp",
+      "masterPath": "assets/images/characters/jao-teuk/versions/v2/storm-kneeling-mission-right.png",
+      "change": {
+        "from": "เจ้าเตื๊อก — คุกเข่ามอบภารกิจกลางฝน",
+        "to": "เพิ่มทิศหันตรงข้ามที่เจนใหม่ รักษาซ้ายขวาทางกายวิภาคและตัวอักษร ไม่ใช้ mirror",
+        "reason": "ADR-032 D7 ต้องมีทิศหันเข้าคู่สนทนาโดยไม่ mirror รอยแผล ก้าม หรือข้อความ",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 35,
+      "assetId": "char_peuak_bedside_frightened_facing_right",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Peuak is an ADULT Thai woman in her mid-20s, same adult age as Teuk, mature young-adult facial proportions, chin-length dark brown bob, simple cream long-sleeve sleepwear. Chest-up leaning portrait, clutching pale blanket around shoulders/chest, frightened but dignified eyes. No legs, no seated crossed legs, no bed background. No doll anywhere, not a child. Facing: gently turn head and gaze toward image RIGHT. Torso stays mostly front-facing. Image 1 is newly drawn v2 identity reference: keep its face/wardrobe/framing/neutral light, redraw the opposite-facing gaze, do not mirror pixels. CRITICAL: preserve exactly the mature adult female face in the v2 reference. Same mid-20s adult age as Teuk; natural small almond eyes and adult nose/jaw, never round childlike face or huge chibi eyes.",
+      "references": [
+        "assets/images/characters/peuak/versions/v2/bedside-frightened-blanket-left.png"
+      ],
+      "outputPath": "assets/images/characters/peuak/versions/v2/bedside-frightened-blanket-right.webp",
+      "masterPath": "assets/images/characters/peuak/versions/v2/bedside-frightened-blanket-right.png",
+      "change": {
+        "from": "เปื๊อก — หวาดกลัวใต้ผ้าห่ม",
+        "to": "เพิ่มทิศหันตรงข้ามที่เจนใหม่ รักษาซ้ายขวาทางกายวิภาคและตัวอักษร ไม่ใช้ mirror",
+        "reason": "ADR-032 D7 ต้องมีทิศหันเข้าคู่สนทนาโดยไม่ mirror รอยแผล ก้าม หรือข้อความ",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 36,
+      "assetId": "char_boy_ton_crying_facing_right",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Boy Ton, Thai young boy in yellow raincoat, crying with worried teary face. CHEST-UP leaning conversational portrait, clutching coat near chest. No seated crossed legs, no floating full body, no floor, no medicine bottle yet. Facing: gently turn head and gaze toward image RIGHT. Torso stays mostly front-facing. Image 1 is newly drawn v2 identity reference: keep its face/wardrobe/framing/neutral light, redraw the opposite-facing gaze, do not mirror pixels.",
+      "references": [
+        "assets/images/characters/city-humans/versions/v2/boy-ton-crying-left.png"
+      ],
+      "outputPath": "assets/images/characters/city-humans/versions/v2/boy-ton-crying-right.webp",
+      "masterPath": "assets/images/characters/city-humans/versions/v2/boy-ton-crying-right.png",
+      "change": {
+        "from": "เด็กชายต้น — ร้องไห้ในเสื้อกันฝน",
+        "to": "เพิ่มทิศหันตรงข้ามที่เจนใหม่ รักษาซ้ายขวาทางกายวิภาคและตัวอักษร ไม่ใช้ mirror",
+        "reason": "ADR-032 D7 ต้องมีทิศหันเข้าคู่สนทนาโดยไม่ mirror รอยแผล ก้าม หรือข้อความ",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      }
+    },
+    {
+      "jobIndex": 37,
+      "assetId": "char_watchman_lung_flare_facing_right",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Precise character edit. One transparent 1024x1024 waist-up visual novel portrait of this SAME older Thai watchman with grey hair, small moustache and dark green rain poncho. Turn his HEAD and EYES toward IMAGE RIGHT clearly: the nose points RIGHT and gaze looks RIGHT. Keep body front-facing, torso cropped through bottom edge. Keep one raised hand holding a SMALL RED FLARE, complete plume fully inside canvas. Face must look to RIGHT not left. No feet, no floor, no text. Preserve weathered face identity and wardrobe. Soft neutral top-center key, flare glow localized to the holding hand. True transparent background.",
+      "references": [
+        "/Users/3rapat/.codex/generated_images/01a184ba-5f96-7f32-8fd0-bc6f55541b53/exec-38e53a9f-1fb6-4e2b-8660-c20b8f9b481d.png"
+      ],
+      "outputPath": "assets/images/characters/city-humans/versions/v2/watchman-lung-flare-right.webp",
+      "masterPath": "assets/images/characters/city-humans/versions/v2/watchman-lung-flare-right.png",
+      "change": {
+        "from": "คุณลุงยาม — ชูพลุเตือนภัย",
+        "to": "เพิ่มทิศหันตรงข้ามที่เจนใหม่ รักษาซ้ายขวาทางกายวิภาคและตัวอักษร ไม่ใช้ mirror",
+        "reason": "ADR-032 D7 ต้องมีทิศหันเข้าคู่สนทนาโดยไม่ mirror รอยแผล ก้าม หรือข้อความ",
+        "requirements": [
+          "ADR-P0-032 §D7"
+        ]
+      },
+      "supersededGenerationRequests": [
+        {
+          "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Bridge watchman, elderly Thai man with grey moustache, dark work raincoat and simple cap, tired caring face. CHEST-UP leaning portrait, holding short RED warning flare near shoulder. Keep flare and ALL glow fully INSIDE frame with transparent padding; top-center main face lighting, only subtle motivated red local reflection. No shoes/legs. Facing: gently turn head and gaze toward image RIGHT. Torso stays mostly front-facing. Image 1 is newly drawn v2 identity reference: keep its face/wardrobe/framing/neutral light, redraw the opposite-facing gaze, do not mirror pixels.",
+          "references": [
+            "assets/images/characters/city-humans/versions/v2/watchman-lung-flare-left.png"
+          ],
+          "generatedSource": "exec-38e53a9f-1fb6-4e2b-8660-c20b8f9b481d.png",
+          "reason": "ทิศหัน attempt แรกยังเป็นซ้าย ต้องหันขวา"
+        }
+      ],
+      "revisionReason": "ทิศหัน attempt แรกยังเป็นซ้าย ต้องหันขวา"
+    },
+    {
+      "jobIndex": 38,
+      "assetId": "char_cockroach_man_stolen_button_left",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Precise MINOR edit of supplied LEFT-facing comic mist villain portrait, transparent 1024x1024. Preserve pose, face direction toward IMAGE LEFT, plastic cape and two silver bottlecap shoulders. On the existing brass chest button replace solid heart with a hollow OUTLINE heart so exact engraving reads ต.♡ป. (Thai ต dot, outline heart, Thai ป dot). No other letters. Give topmost smoke curls 5% transparent top margin, fully visible. Torso remains cut at bottom. No other changes, no insect legs or wings, no frame/text/watermark.",
+      "references": [
+        "/Users/3rapat/.codex/generated_images/01a184ba-5f96-7f32-8fd0-bc6f55541b53/exec-beff7faa-13fd-4c75-82d5-a351406f68f7.png"
+      ],
+      "outputPath": "assets/images/characters/cockroach-man/versions/v2/stolen-button-boast-left.webp",
+      "masterPath": "assets/images/characters/cockroach-man/versions/v2/stolen-button-boast-left.png",
+      "change": {
+        "from": "แมลงสาบแมน — เงาผ้าคลุมโอ้อวด",
+        "to": "เพิ่มร่าง Act 1–2 ที่มีกระดุม ต.♡ป. แยกจากร่างหลัง Act 2 ที่ไม่มีเครื่องประดับทอง",
+        "reason": "กระดุม ต.♡ป. อยู่กับตัวร้ายเฉพาะก่อนถูกชิงคืนใน Act 2",
+        "requirements": [
+          "ADR-P0-032 §D3",
+          "ADR-P0-032 §D8.2"
+        ]
+      },
+      "supersededGenerationRequests": [
+        {
+          "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Same comic shadow-mist imp and black plastic cape, bottlecap shoulder armor, yellow eyes and two curly smoky horn shapes. Boastful villain portrait. For ACTS 1-2 ONLY a SINGLE SMALL ROUND BRASS SEWING BUTTON on cape chest engraved exactly \"ต.♡ป.\". No other gold insignia, no shield badge or fleur-de-lis. Not a real insect, no insect legs/wings. Gaze toward image LEFT.",
+          "references": [
+            "assets/images/characters/cockroach-man/versions/v2/shadow-cloak-boast-left.png"
+          ],
+          "generatedSource": "exec-beff7faa-13fd-4c75-82d5-a351406f68f7.png",
+          "reason": "แก้หัวใจทึบเป็นหัวใจเส้นและเว้นปลายควัน"
+        }
+      ],
+      "revisionReason": "แก้หัวใจทึบเป็นหัวใจเส้นและเว้นปลายควัน"
+    },
+    {
+      "jobIndex": 39,
+      "assetId": "char_cockroach_man_stolen_button_right",
+      "category": "characters",
+      "dimensions": "1024x1024",
+      "transparent": true,
+      "prompt": "Precise MINOR edit of supplied RIGHT-facing comic mist villain portrait, transparent 1024x1024. KEEP EXACT SAME FACE AND POSE DIRECTION: face on right half looks to IMAGE RIGHT, open hand is on IMAGE RIGHT, closed fist at chest IMAGE LEFT. Do not mirror. Add ONE small round BRASS STOLEN SEWING BUTTON where black cape joins at center chest, engraved exact Thai ต.♡ป. (Thai ต dot, outline heart, Thai ป dot). Clear upright nonmirrored engraved letters. Keep two silver bottlecap shoulders, complete purple smoke curls with transparent top margin, opaque black plastic cape. No other gold or jewelry. No insect legs or wings. Torso cropped through bottom edge, no floor, no text, no watermark.",
+      "references": [
+        "assets/images/characters/cockroach-man/versions/v2/shadow-cloak-boast-right.png"
+      ],
+      "outputPath": "assets/images/characters/cockroach-man/versions/v2/stolen-button-boast-right.webp",
+      "masterPath": "assets/images/characters/cockroach-man/versions/v2/stolen-button-boast-right.png",
+      "change": {
+        "from": "แมลงสาบแมน — เงาผ้าคลุมโอ้อวด",
+        "to": "เพิ่มร่าง Act 1–2 ที่มีกระดุม ต.♡ป. แยกจากร่างหลัง Act 2 ที่ไม่มีเครื่องประดับทอง",
+        "reason": "กระดุม ต.♡ป. อยู่กับตัวร้ายเฉพาะก่อนถูกชิงคืนใน Act 2",
+        "requirements": [
+          "ADR-P0-032 §D3",
+          "ADR-P0-032 §D8.2"
+        ]
+      },
+      "supersededGenerationRequests": [
+        {
+          "prompt": "Use case: identity-preserve. Asset type: ONE transparent visual-novel standing portrait, square 1024x1024, polished warm 3D storybook matching the supplied character identity. Redraw the pose/framing, preserving the character face, colors and clothing identity. This is a WAIST-UP / HIP-UP TACHIE, NOT a whole-body sticker. The torso extends past the BOTTOM edge and is cut off there naturally. No visible feet, shoes, crossed legs, floating seated pose, floor, pedestal, ground shadow, background, UI, title, watermark or frame. Large readable face; eyes centered 35-40% down from top of square (60-65% from bottom), top of head fully inside canvas with breathing room. Hands/gesture above the lower dialogue region when possible. Neutral soft TOP-CENTER key light with balanced fill on both sides; NO orange side rim light. Clean real transparent alpha around silhouette, opaque character. Do not fade the lower torso into transparency. One character only unless explicitly requested for E-HOME hug. Preserve anatomical LEFT/RIGHT characteristics, do not mirror them.  Subject: Same comic shadow-mist imp and black plastic cape, bottlecap shoulder armor, yellow eyes and two curly smoky horn shapes. Boastful villain portrait. For ACTS 1-2 ONLY a SINGLE SMALL ROUND BRASS SEWING BUTTON on cape chest engraved exactly \"ต.♡ป.\". No other gold insignia, no shield badge or fleur-de-lis. Not a real insect, no insect legs/wings. Gaze toward image RIGHT.",
+          "references": [
+            "assets/images/characters/cockroach-man/versions/v2/shadow-cloak-boast-left.png"
+          ],
+          "generatedSource": "exec-e5670fa8-f58a-411f-b5c4-80a0e920dfe6.png",
+          "reason": "แก้ทิศหันขวาที่เจนผิดเป็นซ้าย"
+        }
+      ],
+      "revisionReason": "แก้ทิศหันขวาที่เจนผิดเป็นซ้าย"
+    },
+    {
+      "jobIndex": 40,
+      "assetId": "bg_act5_bedside_table_night",
+      "category": "backgrounds",
+      "dimensions": "1600x900",
+      "transparent": false,
+      "prompt": "Use case: precise-object-edit. Edit this 16:9 1600x900 bedroom background. Preserve camera, bedroom, palette, bed, lamp, calm lower 28% and props EXCEPT remove the unfinished white/cream frog doll/core COMPLETELY. This story has NO pre-existing doll, NO plush, NO toy, NO crochet or knitted frog anywhere, including pillow or shelf. Replace the removed object with small ordinary sewing supplies in an open sewing tin: white thread spool, needle cushion, scissors. No blue shirt laid out separately. Battery bedside lamp softly lit at night during blackout. NO characters or humans. Low 45cm frog-eye camera, no text/UI.",
+      "references": [
+        "assets/images/backgrounds/act-05/versions/v1/bg-act5-bedside-table-night.png"
+      ],
+      "outputPath": "assets/images/backgrounds/act-05/versions/v2/bg-act5-bedside-table-night.webp",
+      "masterPath": "assets/images/backgrounds/act-05/versions/v2/bg-act5-bedside-table-night.png",
+      "change": {
+        "from": "โต๊ะหัวเตียงมีหุ่นกบผ้าดิบที่สร้างค้างไว้",
+        "to": "ลบหุ่นผ้าดิบ/ตุ๊กตาที่มีอยู่ก่อนออกจากโต๊ะ เหลือโคมไฟถ่านและกล่องเย็บผ้า ฉากว่างไม่มีตัวละคร",
+        "reason": "ลบหุ่นผ้าดิบ/ตุ๊กตาที่มีอยู่ก่อนออกจากโต๊ะ เหลือโคมไฟถ่านและกล่องเย็บผ้า ฉากว่างไม่มีตัวละคร",
+        "requirements": [
+          "ADR-P0-032 §D1"
+        ]
+      }
+    },
+    {
+      "jobIndex": 41,
+      "assetId": "bg_act2_banyan_transformer_windway",
+      "category": "backgrounds",
+      "dimensions": "1600x900",
+      "transparent": false,
+      "prompt": "Use case: illustration-story. Create one 16:9 1600x900 warm 3D storybook VN background matching the reference visual quality. A small-creature 45cm-eye viewpoint from a giant banyan root above a rushing Thai suburban drainage canal during rainy blackout night. Intertwined banyan roots form a walkable hollow at LEFT; rusty galvanized air channels and a broken narrow duct bridge extend diagonally at upper middle toward a distant transformer pole. Storm winds, wet leaves, dim blue lightning behind tree canopy. Readable worn roots and metal at human scale, no fantasy castle. Lower 28% calm dark foreground root ledge for textbox; no words/labels/UI, no characters, no creatures. Do not put glowing route arrows or companion pins.",
+      "references": [
+        "assets/images/backgrounds/act-02/versions/v1/bg-act2-shadow-sluice-chamber.png"
+      ],
+      "outputPath": "assets/images/backgrounds/act-02/versions/v2/bg-act2-banyan-transformer-windway.webp",
+      "masterPath": "assets/images/backgrounds/act-02/versions/v2/bg-act2-banyan-transformer-windway.png",
+      "change": {
+        "from": "ไม่มีภาพเส้นทาง B ในชุด v1",
+        "to": "เพิ่มฉากเส้นทาง B โพรงรากไทรและรางลมหม้อแปลง เพื่อแยกจากอุโมงค์พี่ก้าม",
+        "reason": "เพิ่มฉากเส้นทาง B โพรงรากไทรและรางลมหม้อแปลง เพื่อแยกจากอุโมงค์พี่ก้าม",
+        "requirements": [
+          "ADR-P0-032 §D4.2",
+          "ADR-P0-033 §D3"
+        ]
+      }
+    },
+    {
+      "jobIndex": 42,
+      "assetId": "cg_act1_three_siblings_blue_shirt",
+      "category": "cinematicCGs",
+      "dimensions": "1600x900",
+      "transparent": false,
+      "prompt": "Precise small edit of supplied cinematic, 1600x900. Keep composition and all FOUR characters exactly. On the purple villain at right REPLACE fleur-de-lis brooch motif with one small round brass sewing button engraved exact Thai ต.♡ป. with hollow heart. Repair holes in the blue shirt: only a few loose white threads at lower hem from missing button, not a shredded shirt. Preserve white three-ray hem star. Kab behind left has only ONE small scar at his anatomical LEFT eyebrow (the eyebrow on viewer RIGHT when torso faces front); remove scar on opposite eyebrow. Do not add anything else. No new character, no UI, no text besides tiny engraving.",
+      "references": [
+        "/Users/3rapat/.codex/generated_images/01a184ba-5f96-7f32-8fd0-bc6f55541b53/exec-b155324c-c624-4a1f-aec4-c14789a916e0.png"
+      ],
+      "outputPath": "assets/images/cg/act-01/versions/v2/cg-act1-three-siblings-blue-shirt.webp",
+      "masterPath": "assets/images/cg/act-01/versions/v2/cg-act1-three-siblings-blue-shirt.png",
+      "change": {
+        "from": "เจ้ากบสัดส่วนวัยเด็กต่อสู้ริมบึงตอนสว่าง ตัวร้ายมีตราดอกไม้ที่อก",
+        "to": "จากภาพสามพี่น้องวัยเด็ก เปลี่ยนเป็นศึกฝายคืนพายุที่เจ้ากบโต 45 ซม. และตัวร้ายยังถือกระดุม",
+        "reason": "จัดลำดับเหตุการณ์ ตัวละคร และของที่ถือให้ตรง Master Bible v2.1 และ ADR-032 v2.0",
+        "requirements": [
+          "ADR-P0-032 §D1–D3",
+          "ADR-P0-032 §D4",
+          "ADR-P0-032 §D8",
+          "ADR-P0-033 §D3"
+        ]
+      },
+      "supersededGenerationRequests": [
+        {
+          "prompt": "Use case: precise-object-edit. Asset type: polished warm 3D storybook CINEMATIC CG, landscape 16:9, 1600x900. Preserve reference character identities, frog half-lids and peach lips, blue cotton crewneck and WHITE THREE-point hem star (never five points), natural accessories and Thai setting. Never introduce a second JaoKob or doll; smooth living skin in all scenes except E-HOME. No real insect anatomy, no red heart prop, no labels, subtitles, watermark or UI. Redraw the first clash at a bamboo overflow weir on stormy blackout night, NOT a childhood discovery. Exactly THREE living frog siblings: adult 45cm JaoKob in sole blue shirt center-left, muscular bare-chested Kab reed sash/bark wrist guards LEFT eyebrow scar behind left, smaller female Kib lotus collar yellow flower on right shooting tiny green-gold seeds. JaoKob leaps toward a safe comic shadow imp at right; imp has black plastic cape, bottlecap shoulders, yellow eyes, curled smoke horns and ONE small stolen brass BUTTON on chest. Frog shirt has torn thread and white THREE-ray hem star, no button yet, no pouch yet (gift comes after fight). Exciting water splashes above calm lower foreground. No extra frogs or human. Image 1 is layout/edit target; later images are corrected v2 face/identity references. Preserve their canonical appearance, adapt pose to the scene.",
+          "references": [
+            "assets/images/cg/act-01/versions/v1/cg-act1-three-siblings-blue-shirt.png",
+            "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.png"
+          ],
+          "generatedSource": "exec-b155324c-c624-4a1f-aec4-c14789a916e0.png",
+          "reason": "แก้กระดุมตัวร้ายจากตราดอกไม้เป็นอักษรคู่รักและคงเสื้อฟ้าไม่ขาดเป็นรู"
+        }
+      ],
+      "revisionReason": "แก้กระดุมตัวร้ายจากตราดอกไม้เป็นอักษรคู่รักและคงเสื้อฟ้าไม่ขาดเป็นรู"
+    },
+    {
+      "jobIndex": 43,
+      "assetId": "cg_act2_pkam_whirlpool_rescue",
+      "category": "cinematicCGs",
+      "dimensions": "1600x900",
+      "transparent": false,
+      "prompt": "Redraw same two-character rescue cinematic at 1600x900. Keep warm 3D identities and flooded rusty sluice. FRONT-VIEW P Kam crab is center-bottom caught in whirlpool, dented floral candy tin on BACK. His anatomical LEFT claw is the HUGE NOTCHED ARMORED claw on IMAGE RIGHT; anatomical RIGHT claw on IMAGE LEFT is SMALL. Move blue-shirt adult JaoKob to ledge at IMAGE RIGHT, leaning LEFT and pulling that huge claw on IMAGE RIGHT with both hands. This orientation makes anatomical left unmistakable. Frog wears blue crewneck, white THREE-ray hem star and pouch; no button attached yet. At upper LEFT a BARK WRIST GUARD is wedged in gear teeth: curved brown bark cuff with TWO clearly visible woven reed fastening bands, not a plain wood plank. Only TWO characters, NO squirrel/rope rescuer. Preserve rescue tension and cool swirling water. No text/UI.",
+      "references": [
+        "/Users/3rapat/.codex/generated_images/01a184ba-5f96-7f32-8fd0-bc6f55541b53/exec-58d69a51-7c64-4fbd-aedc-57fdb4c11001.png"
+      ],
+      "outputPath": "assets/images/cg/act-02/versions/v2/cg-act2-pkam-whirlpool-rescue.webp",
+      "masterPath": "assets/images/cg/act-02/versions/v2/cg-act2-pkam-whirlpool-rescue.png",
+      "change": {
+        "from": "ฟิ้วช่วยดึงเชือกในจังหวะที่ยังไม่เข้าทีม และยังไม่มีสนับขัดเฟือง",
+        "to": "แสดง Item × Bond Combo สนับขัดเฟืองช่วยก้าม และให้ฟิ้วสมทบหลังเหตุช่วยชีวิตตามเส้นทาง A",
+        "reason": "จัดลำดับเหตุการณ์ ตัวละคร และของที่ถือให้ตรง Master Bible v2.1 และ ADR-032 v2.0",
+        "requirements": [
+          "ADR-P0-032 §D1–D3",
+          "ADR-P0-032 §D4",
+          "ADR-P0-032 §D8",
+          "ADR-P0-033 §D3"
+        ]
+      },
+      "supersededGenerationRequests": [
+        {
+          "prompt": "Use case: precise-object-edit. Asset type: polished warm 3D storybook CINEMATIC CG, landscape 16:9, 1600x900. Preserve reference character identities, frog half-lids and peach lips, blue cotton crewneck and WHITE THREE-point hem star (never five points), natural accessories and Thai setting. Never introduce a second JaoKob or doll; smooth living skin in all scenes except E-HOME. No real insect anatomy, no red heart prop, no labels, subtitles, watermark or UI. Redraw Act2 A-route rescue. Adult JaoKob LEFT in blue crewneck and woven pouch, gripping with BOTH hands the gigantic notched anatomical LEFT claw of P Kam who is caught below right in a whirlpool grate with faded floral candy tin on back. Show a recognizable BARK WRIST GUARD wedged between rusty sluice gear teeth above water, stopping the gear and allowing this rescue. Strong diagonal rescue tension, warm-green seed reflections in cool tunnel water. At this exact beat JaoFiw has NOT joined yet: remove flying squirrel/rope rescuer from v1. Only these TWO characters. No brass button attached to frog yet. Image 1 is layout/edit target; later images are corrected v2 face/identity references. Preserve their canonical appearance, adapt pose to the scene.",
+          "references": [
+            "assets/images/cg/act-02/versions/v1/cg-act2-pkam-whirlpool-rescue.png",
+            "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.png"
+          ],
+          "generatedSource": "exec-58d69a51-7c64-4fbd-aedc-57fdb4c11001.png",
+          "reason": "ทำสนับเปลือกไม้ให้เป็นเครื่องสวมข้อมือและระบุด้านก้ามซ้ายให้ชัด"
+        }
+      ],
+      "revisionReason": "ทำสนับเปลือกไม้ให้เป็นเครื่องสวมข้อมือและระบุด้านก้ามซ้ายให้ชัด"
+    },
+    {
+      "jobIndex": 44,
+      "assetId": "cg_act3_teuk_guardian_oath",
+      "category": "cinematicCGs",
+      "dimensions": "1600x900",
+      "transparent": false,
+      "prompt": "Use case: precise-object-edit. Asset type: polished warm 3D storybook CINEMATIC CG, landscape 16:9, 1600x900. Preserve reference character identities, frog half-lids and peach lips, blue cotton crewneck and WHITE THREE-point hem star (never five points), natural accessories and Thai setting. Never introduce a second JaoKob or doll; smooth living skin in all scenes except E-HOME. No real insect anatomy, no red heart prop, no labels, subtitles, watermark or UI. Preserve the kneeling human/frog promise scene inside a wooden Thai canal shelter at rainy blackout night. Teuk adult Thai man mid-20s navy rainjacket kneels on RIGHT down to adult 45cm JaoKob on LEFT; bandaged ankle visible only in this cinematic. Teuk offers narrow cylindrical BRASS WHISTLE engraved \"ต.♡ป.\". Frog in blue cotton crewneck with white THREE-ray hem star and woven pouch holds recovered brass BUTTON in an open palm (not yet sewn) engraved \"ต.♡ป.\"; a few green-gold seeds illuminate the button. A retrieved compact FLASHLIGHT rests beside Teuk, casting a visible gentle beam. P Kam faded floral candy tin and JaoFiw yellow ribbon quietly behind frog. Same small-to-human scale, warm mature human emotional face. No doll, no extra shirt. Image 1 is layout/edit target; later images are corrected v2 face/identity references. Preserve their canonical appearance, adapt pose to the scene.",
+      "references": [
+        "assets/images/cg/act-03/versions/v1/cg-act3-teuk-guardian-oath.png",
+        "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.png",
+        "assets/images/characters/jao-teuk/versions/v2/storm-kneeling-mission-left.png"
+      ],
+      "outputPath": "assets/images/cg/act-03/versions/v2/cg-act3-teuk-guardian-oath.webp",
+      "masterPath": "assets/images/cg/act-03/versions/v2/cg-act3-teuk-guardian-oath.png",
+      "change": {
+        "from": "กบยืนมือว่าง นกหวีดไม่มีอักษรคู่รัก และยังไม่แสดงไฟฉายที่เตื๊อกได้คืน",
+        "to": "เพิ่มหลักฐานเสื้อ–กระดุม ต.♡ป. ไฟฉายที่ช่วยคืน และนกหวีดคู่สัญญา",
+        "reason": "จัดลำดับเหตุการณ์ ตัวละคร และของที่ถือให้ตรง Master Bible v2.1 และ ADR-032 v2.0",
+        "requirements": [
+          "ADR-P0-032 §D1–D3",
+          "ADR-P0-032 §D4",
+          "ADR-P0-032 §D8",
+          "ADR-P0-033 §D3"
+        ]
+      }
+    },
+    {
+      "jobIndex": 45,
+      "assetId": "cg_act4_five_hero_storm_relay",
+      "category": "cinematicCGs",
+      "dimensions": "1600x900",
+      "transparent": false,
+      "prompt": "Use case: precise-object-edit. Asset type: polished warm 3D storybook CINEMATIC CG, landscape 16:9, 1600x900. Preserve reference character identities, frog half-lids and peach lips, blue cotton crewneck and WHITE THREE-point hem star (never five points), natural accessories and Thai setting. Never introduce a second JaoKob or doll; smooth living skin in all scenes except E-HOME. No real insect anatomy, no red heart prop, no labels, subtitles, watermark or UI. Preserve dramatic FIVE-hero sky-glide relay through rain to second-floor window. Exactly ONE adult JaoKob in blue shirt riding JaoFiw flying squirrel with yellow ribbon upper middle. Kab bare chest reed sash bark guards and Kib lotus collar seed tube left on wall; P Kam floral candy tin and huge LEFT notched claw anchoring below. Add a clear narrow white FLASHLIGHT BEAM rising from outside the garden gate at lower-left background toward window, visibly originating from distant Teuk silhouette in NAVY rainjacket (sixth character, human ally). All city electric windows dark: BLACKOUT, only battery bedside glow and lightning/flashlight. Villain at lower right is safe shadow mist black plastic cape with bottlecap shoulders, absolutely NO gold brooch/button/necklace because button recovered in Act2. Frog button remains carried in pouch until Act5. Preserve 45cm frog scale, no other blue-shirted frogs. Image 1 is layout/edit target; later images are corrected v2 face/identity references. Preserve their canonical appearance, adapt pose to the scene.",
+      "references": [
+        "assets/images/cg/act-04/versions/v1/cg-act4-five-hero-storm-relay.png",
+        "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.png"
+      ],
+      "outputPath": "assets/images/cg/act-04/versions/v2/cg-act4-five-hero-storm-relay.webp",
+      "masterPath": "assets/images/cg/act-04/versions/v2/cg-act4-five-hero-storm-relay.png",
+      "change": {
+        "from": "ห้าฮีโร่ร่อนข้ามกำแพง แต่ไม่มีเตื๊อกส่องไฟ ตัวร้ายยังมีกระดุมทอง",
+        "to": "แผน A ห้าฮีโร่กลางไฟดับ เพิ่มลำแสงไฟฉายเตื๊อกจากนอกรั้ว และลบเข็มกลัดทองตัวร้าย",
+        "reason": "จัดลำดับเหตุการณ์ ตัวละคร และของที่ถือให้ตรง Master Bible v2.1 และ ADR-032 v2.0",
+        "requirements": [
+          "ADR-P0-032 §D1–D3",
+          "ADR-P0-032 §D4",
+          "ADR-P0-032 §D8",
+          "ADR-P0-033 §D3"
+        ]
+      }
+    },
+    {
+      "jobIndex": 46,
+      "assetId": "cg_act5_shadow_knight_protector",
+      "category": "cinematicCGs",
+      "dimensions": "1600x900",
+      "transparent": false,
+      "prompt": "Precise local edit of FIRST image cinematic, landscape 1600x900. Preserve frog, giant CAPED knight shadow, sewn shirt button, star, lamp, imp, room and camera EXACTLY. Replace ONLY the person in bed on the RIGHT with the ADULT THAI WOMAN from SECOND reference. She is a young ADULT WOMAN in her mid-20s, same age as her boyfriend. Mature natural adult head-to-body proportions, elongated oval face, defined adult jaw and nose, smaller realistic adult eyes, chin-length dark bob, cream sleepwear. She is under the blue blanket and has a gentle relieved expression with eyes softly CLOSED. It must be clearly a sleeping adult woman, NOT a small child or teenager. Take adult face from second image, NOT the child face from first. No other content changes. Warm 3D storybook render, no text or watermark.",
+      "references": [
+        "/Users/3rapat/.codex/generated_images/01a184ba-5f96-7f32-8fd0-bc6f55541b53/exec-db991865-8827-42d9-bb1e-60ef5c331538.png",
+        "assets/images/characters/peuak/versions/v2/bedside-frightened-blanket-left.png"
+      ],
+      "outputPath": "assets/images/cg/act-05/versions/v2/cg-act5-shadow-knight-protector.webp",
+      "masterPath": "assets/images/cg/act-05/versions/v2/cg-act5-shadow-knight-protector.png",
+      "change": {
+        "from": "กระดุมถือแยกในมือ เปี๊ยกมีใบหน้าวัยเด็กและยังตื่นกลัว",
+        "to": "กระดุมเย็บติดชายเสื้อแล้ว ยกชายเสื้อรับโคมไฟ; คงเงาอัศวินมีผ้าคลุม แก้เปี๊ยกเป็นหญิงสาวและตัวร้ายไร้ทอง",
+        "reason": "จัดลำดับเหตุการณ์ ตัวละคร และของที่ถือให้ตรง Master Bible v2.1 และ ADR-032 v2.0",
+        "requirements": [
+          "ADR-P0-032 §D1–D3",
+          "ADR-P0-032 §D4",
+          "ADR-P0-032 §D8",
+          "ADR-P0-033 §D3"
+        ]
+      },
+      "supersededGenerationRequests": [
+        {
+          "prompt": "Use case: precise-object-edit. Asset type: polished warm 3D storybook CINEMATIC CG, landscape 16:9, 1600x900. Preserve reference character identities, frog half-lids and peach lips, blue cotton crewneck and WHITE THREE-point hem star (never five points), natural accessories and Thai setting. Never introduce a second JaoKob or doll; smooth living skin in all scenes except E-HOME. No real insect anatomy, no red heart prop, no labels, subtitles, watermark or UI. Preserve the spectacular GIANT FROG KNIGHT SHADOW with flowing fantasy CAPE across bedroom wall. Single living adult 45cm JaoKob stands close IN FRONT OF battery bedside lamp on left tabletop, lifting the hem of his ONLY blue cotton shirt to present sewn BRASS BUTTON engraved \"ต.♡ป.\" beside white THREE-ray star. Button ATTACHED to shirt, NOT loose in hand. Lamp behind frog projects enlarging shadow toward upper right wall; fantasy cape belongs ONLY to guardian SHADOW (not a physical cape worn by frog). Body shadow direction consistent with lamp->frog->wall, cape magical allowed. Mature young-adult Thai Peuak mid-20s sleeping under blanket on right, not a child. The small retreating safe mist imp at far right has NO brass button/brooch/gold jewelry. Include THREE supporting items for four-slot example: tin gear wedges lamp stand, tiny green-gold seeds at table edge, yellow ribbon near pillow. No extra fifth/sixth inventory props, no second frog or doll anywhere. Image 1 is layout/edit target; later images are corrected v2 face/identity references. Preserve their canonical appearance, adapt pose to the scene.",
+          "references": [
+            "assets/images/cg/act-05/versions/v1/cg-act5-shadow-knight-protector.png",
+            "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.png",
+            "assets/images/characters/peuak/versions/v2/bedside-frightened-blanket-left.png"
+          ],
+          "generatedSource": "exec-db991865-8827-42d9-bb1e-60ef5c331538.png",
+          "reason": "เปี๊ยกใน CG ยังมีใบหน้าเด็ก จึงแก้ให้ตรง portrait ผู้ใหญ่"
+        }
+      ],
+      "revisionReason": "เปี๊ยกใน CG ยังมีใบหน้าเด็ก จึงแก้ให้ตรง portrait ผู้ใหญ่"
+    },
+    {
+      "jobIndex": 47,
+      "assetId": "cg_act5_ending_ehome_miracle_plush",
+      "category": "cinematicCGs",
+      "dimensions": "1600x900",
+      "transparent": false,
+      "prompt": "Use case: precise-object-edit. Asset type: polished warm 3D storybook CINEMATIC CG, landscape 16:9, 1600x900. Preserve reference character identities, frog half-lids and peach lips, blue cotton crewneck and WHITE THREE-point hem star (never five points), natural accessories and Thai setting. Never introduce a second JaoKob or doll; smooth living skin in all scenes except E-HOME. No real insect anatomy, no red heart prop, no labels, subtitles, watermark or UI. E-HOME dawn miracle. Keep tender composition: adult Thai Peuak mid-20s with mature face and chin-length dark bob sleeping in bed LEFT, cradling exactly ONE 45cm JaoKob transformed into SMOOTH SOFT VELOUR PLUSH: short soft velvet pile, no crochet loops/knitted texture. Recognizable half-lidded green eyes, peach broad lips, blue cotton crewneck and white THREE-ray hem star with sewn brass \"ต.♡ป.\" button. Same-age adult Thai Teuk in wet navy rainjacket and bandaged ankle at doorway, emotional relieved smile. FOUR companions at right window witness farewell: bare-chested Kab reed sash bark guards, smaller female Kib lotus collar/yellow flower, P Kam faded floral tin/giant LEFT claw, JaoFiw cinnamon squirrel/yellow ribbon. Narrow cylindrical engraved \"ต.♡ป.\" brass whistle beside Peuak pillow. Warm dawn dust, no other doll or living duplicate of JaoKob. Texture must unmistakably be smooth velour, NOT knitting. Image 1 is layout/edit target; later images are corrected v2 face/identity references. Preserve their canonical appearance, adapt pose to the scene.",
+      "references": [
+        "assets/images/cg/act-05/versions/v1/cg-act5-ending-ehome-miracle-plush.png",
+        "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.png",
+        "assets/images/characters/peuak/versions/v2/bedside-frightened-blanket-left.png",
+        "assets/images/characters/jao-teuk/versions/v2/storm-kneeling-mission-left.png",
+        "assets/images/characters/jao-kob/versions/v2/adult-miracle-plush-right.png"
+      ],
+      "outputPath": "assets/images/cg/act-05/versions/v2/cg-act5-ending-ehome-miracle-plush.webp",
+      "masterPath": "assets/images/cg/act-05/versions/v2/cg-act5-ending-ehome-miracle-plush.png",
+      "change": {
+        "from": "เจ้ากบร่างโครเชต์ในอ้อมกอดเปี๊ยก และนกหวีดไม่มีอักษรคู่รัก",
+        "to": "E-HOME: จากโครเชต์เป็นกำมะหยี่หนึ่งตัวในอ้อมกอดหญิงสาววัยเดียวกับเตื๊อก",
+        "reason": "จัดลำดับเหตุการณ์ ตัวละคร และของที่ถือให้ตรง Master Bible v2.1 และ ADR-032 v2.0",
+        "requirements": [
+          "ADR-P0-032 §D1–D3",
+          "ADR-P0-032 §D4",
+          "ADR-P0-032 §D8",
+          "ADR-P0-033 §D3"
+        ]
+      }
+    },
+    {
+      "jobIndex": 48,
+      "assetId": "cg_act5_ending_edawn_two_worlds",
+      "category": "cinematicCGs",
+      "dimensions": "1600x900",
+      "transparent": false,
+      "prompt": "Precise local edit of supplied E-DAWN scene 1600x900. Preserve adult couple, FIVE living animal heroes, sunrise, composition and all clothing. Add ONE small round brass button engraved ต.♡ป. SEWN visibly onto JaoKob BLUE SHIRT hem next to white three-ray star, just to the LEFT of his woven pouch in picture. It must stay sewn to blue shirt, not floating. Keep ONE living blue-shirted JaoKob only. No doll anywhere. Preserve mature same-age adult woman and man waving with empty hands. No other changes.",
+      "references": [
+        "/Users/3rapat/.codex/generated_images/01a184ba-5f96-7f32-8fd0-bc6f55541b53/exec-6faea2fd-c443-4713-912f-8b76c829974d.png"
+      ],
+      "outputPath": "assets/images/cg/act-05/versions/v2/cg-act5-ending-edawn-two-worlds.webp",
+      "masterPath": "assets/images/cg/act-05/versions/v2/cg-act5-ending-edawn-two-worlds.png",
+      "change": {
+        "from": "เปี๊ยกกอดตุ๊กตาอีกตัว ขณะที่เจ้ากบมีชีวิตบนหน้าต่างไม่สวมเสื้อฟ้า",
+        "to": "E-DAWN: เอาตุ๊กตาในอ้อมแขนออก คืนเสื้อฟ้าให้เจ้ากบมีชีวิตหนึ่งตัว และให้คู่รักวัยเดียวกันโบกมือ",
+        "reason": "จัดลำดับเหตุการณ์ ตัวละคร และของที่ถือให้ตรง Master Bible v2.1 และ ADR-032 v2.0",
+        "requirements": [
+          "ADR-P0-032 §D1–D3",
+          "ADR-P0-032 §D4",
+          "ADR-P0-032 §D8",
+          "ADR-P0-033 §D3"
+        ]
+      },
+      "supersededGenerationRequests": [
+        {
+          "prompt": "Use case: precise-object-edit. Asset type: polished warm 3D storybook CINEMATIC CG, landscape 16:9, 1600x900. Preserve reference character identities, frog half-lids and peach lips, blue cotton crewneck and WHITE THREE-point hem star (never five points), natural accessories and Thai setting. Never introduce a second JaoKob or doll; smooth living skin in all scenes except E-HOME. No real insect anatomy, no red heart prop, no labels, subtitles, watermark or UI. E-DAWN complete continuity repair. On LEFT, SAME-AGE young-adult Thai romantic couple mid-20s: Peuak with chin-length dark bob in cream sleepwear and Teuk in navy rainjacket sit SIDE BY SIDE on bed, hands EMPTY except waving hello, no doll in either arms or room. Mature adult faces, affectionate equal partners. On RIGHT wooden windowsill exactly FIVE small living heroes face couple: ONE adult JaoKob wearing sky-BLUE crewneck with THREE-ray white hem star and sewn brass \"ต.♡ป.\" button, green half-lids and peach lips; Kab bare chest reed sash bark guards, Kib bare torso lotus collar/yellow flower, P Kam faded floral candy TIN and giant LEFT claw, JaoFiw yellow ribbon. All five recognizable, no duplicated frog. Golden dawn after storm with subtle rainbow beyond window. The single BLUE SHIRT stays ON LIVING JaoKob. No plush, no crochet, no cream frog core anywhere. Image 1 is layout/edit target; later images are corrected v2 face/identity references. Preserve their canonical appearance, adapt pose to the scene.",
+          "references": [
+            "assets/images/cg/act-05/versions/v1/cg-act5-ending-edawn-two-worlds.png",
+            "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.png",
+            "assets/images/characters/peuak/versions/v2/bedside-frightened-blanket-left.png",
+            "assets/images/characters/jao-teuk/versions/v2/storm-kneeling-mission-left.png"
+          ],
+          "generatedSource": "exec-6faea2fd-c443-4713-912f-8b76c829974d.png",
+          "reason": "เพิ่มกระดุมที่เย็บชายเสื้อให้เห็นใน E-DAWN"
+        }
+      ],
+      "revisionReason": "เพิ่มกระดุมที่เย็บชายเสื้อให้เห็นใน E-DAWN"
+    },
+    {
+      "jobIndex": 49,
+      "assetId": "cg_act4_iron_bastion_relay",
+      "category": "cinematicCGs",
+      "dimensions": "1600x900",
+      "transparent": false,
+      "prompt": "Precise local repair of supplied Act4 alternate-route cinematic 1600x900. Keep dynamic positions: Kab launches blue-shirt JaoKob, Fiw flies separately, Kib shoots seeds, P Kam anchors steel cable, Teuk shines flashlight from gate, shadow imp retreats. CORRECT KAB: remove added striped cloth shorts; he is a bare-chested green frog with a diagonal braided REED SASH across torso, bark wristguards, no human pants. CORRECT P KAM: attach dented faded floral candy tin firmly on his BACK as carried shell, not a separate pristine candy jar on ledge. Preserve giant notched left claw gripping cable. TURN OFF all distant streetlamps and electric windows for BLACKOUT; keep only lightning, Teuk flashlight and battery lamp in target bedroom. One blue shirt only; imp has NO gold ornament. No text/UI.",
+      "references": [
+        "/Users/3rapat/.codex/generated_images/01a184ba-5f96-7f32-8fd0-bc6f55541b53/exec-c75765d0-6fee-44f5-aab6-5d05eb43eb92.png"
+      ],
+      "outputPath": "assets/images/cg/act-04/versions/v2/cg-act4-iron-bastion-relay.webp",
+      "masterPath": "assets/images/cg/act-04/versions/v2/cg-act4-iron-bastion-relay.png",
+      "change": {
+        "from": "ไม่มี CG แผน B ในชุด v1",
+        "to": "เพิ่มภาพแผน B พี่ก้ามล็อกสลิง–พี่กับดีดส่ง เชื่อมไฟฉายเตื๊อกตามเนื้อเรื่องแยกแขนง",
+        "reason": "เพิ่มภาพแผน B พี่ก้ามล็อกสลิง–พี่กับดีดส่ง เชื่อมไฟฉายเตื๊อกตามเนื้อเรื่องแยกแขนง",
+        "requirements": [
+          "ADR-P0-032 §D4.4",
+          "ADR-P0-032 §D8.2",
+          "ADR-P0-033 §D5"
+        ]
+      },
+      "supersededGenerationRequests": [
+        {
+          "prompt": "Use case: precise-object-edit. Asset type: polished warm 3D storybook CINEMATIC CG, landscape 16:9, 1600x900. Preserve reference character identities, frog half-lids and peach lips, blue cotton crewneck and WHITE THREE-point hem star (never five points), natural accessories and Thai setting. Never introduce a second JaoKob or doll; smooth living skin in all scenes except E-HOME. No real insect anatomy, no red heart prop, no labels, subtitles, watermark or UI. NEW alternate Act4 IRON BASTION branch, not the flying-squirrel riding plan. Stormy blackout exterior of same cream-roof Thai house. P Kam floral candy tin at lower-left locks a steel gutter/cable with giant notched LEFT claw and small tin ratchet gear. Muscular bare-chested Kab reed sash/bark guards at middle-left has just spring-launched ONE adult JaoKob blue shirt through a clean diagonal gap toward second-floor window upper-right. Kib lotus collar/yellow flower at safe ledge fires green-gold seeds; JaoFiw yellow ribbon flies above distracting safe shadow imp (no gold button on imp). Clear FLASHLIGHT beam from distant adult Teuk navy rainjacket outside gate toward gap. Exactly five animal heroes plus one distant human ally and one mist villain. No doll, no other blue shirt, no sword. Legible physical route and action; cinematic warm/cool contrast, electric windows dark.",
+          "references": [
+            "assets/images/cg/act-04/versions/v1/cg-act4-five-hero-storm-relay.png",
+            "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.png"
+          ],
+          "generatedSource": "exec-c75765d0-6fee-44f5-aab6-5d05eb43eb92.png",
+          "reason": "คืนสายกกพี่กับ กระป๋องพี่ก้ามบนหลัง และฉากไฟเมืองดับ"
+        }
+      ],
+      "revisionReason": "คืนสายกกพี่กับ กระป๋องพี่ก้ามบนหลัง และฉากไฟเมืองดับ"
+    },
+    {
+      "jobIndex": 50,
+      "assetId": "item_kib_glowing_seeds",
+      "category": "keepsakes",
+      "dimensions": "512x512",
+      "transparent": true,
+      "prompt": "Use case: precise-object-edit. Asset type: ONE isolated 512x512 transparent keepsake icon, warm polished 3D storybook material, neutral top-center light, soft tidy highlights, centered with transparent padding, no scenery, no UI or captions, no watermark. Replace the old woven bracelet/charm entirely with a small cluster of THREE recognizable dry Ruellia seed pods split open, holding a few tiny glowing green-gold seeds. Organic brown woody narrow pods with fine ridges, a few seeds hovering only millimeters around opening; warm gentle magical glow kept entirely inside canvas. These are usable glowing SEEDS, not a necklace/bracelet. No cord loop, no reed band, no extra item.",
+      "references": [
+        "assets/images/keepsakes/v2/versions/v1/item-kib-reed-charms.png"
+      ],
+      "outputPath": "assets/images/keepsakes/v2/versions/v2/item-kib-glowing-seeds.webp",
+      "masterPath": "assets/images/keepsakes/v2/versions/v2/item-kib-glowing-seeds.png",
+      "change": {
+        "from": "สร้อยกกผูกเมล็ดต้อยติ่งใน v1",
+        "to": "เปลี่ยนจากเครื่องประดับสร้อยกกเป็นเมล็ดต้อยติ่งเรืองแสงตามทะเบียน D6; เก็บ ID เดิมเป็นประวัติเท่านั้น",
+        "reason": "เปลี่ยนจากเครื่องประดับสร้อยกกเป็นเมล็ดต้อยติ่งเรืองแสงตามทะเบียน D6; เก็บ ID เดิมเป็นประวัติเท่านั้น",
+        "requirements": [
+          "ADR-P0-032 §D6.2"
+        ]
+      }
+    },
+    {
+      "jobIndex": 51,
+      "assetId": "item_teuk_peuak_button",
+      "category": "keepsakes",
+      "dimensions": "512x512",
+      "transparent": true,
+      "prompt": "Use case: precise-object-edit. Asset type: ONE isolated 512x512 transparent keepsake icon, warm polished 3D storybook material, neutral top-center light, soft tidy highlights, centered with transparent padding, no scenery, no UI or captions, no watermark. Preserve round weathered BRASS FOUR-HOLE SEWING BUTTON and short loose white thread. Use near frontal angle so engraved marks readable. Replace old generic heart motif with clearly engraved exact inscription \"ต.♡ป.\" along UPPER arc above holes. This is Thai letter ต, dot, OUTLINE HEART ♡, Thai letter ป, dot; no other text. Exact characters upright and not mirrored. Inscription physically engraved dark into brass, not subtitle. Four holes small in lower-center so upper arc has space. No extra heart props.",
+      "references": [
+        "assets/images/keepsakes/v2/versions/v1/item-lost-brass-button.png"
+      ],
+      "outputPath": "assets/images/keepsakes/v2/versions/v2/item-teuk-peuak-button.webp",
+      "masterPath": "assets/images/keepsakes/v2/versions/v2/item-teuk-peuak-button.png",
+      "change": {
+        "from": "กระดุมสลักรูปหัวใจอย่างเดียว",
+        "to": "เพิ่มรอยสลักคู่รัก ต.♡ป. ให้อ่านตรงและคงกระดุมเย็บผ้า แยก ID ใหม่ตาม D6",
+        "reason": "เพิ่มรอยสลักคู่รัก ต.♡ป. ให้อ่านตรงและคงกระดุมเย็บผ้า แยก ID ใหม่ตาม D6",
+        "requirements": [
+          "ADR-P0-032 §D2",
+          "ADR-P0-032 §D6.2"
+        ]
+      }
+    },
+    {
+      "jobIndex": 52,
+      "assetId": "item_teuk_whistle_charm",
+      "category": "keepsakes",
+      "dimensions": "512x512",
+      "transparent": true,
+      "prompt": "Use case: precise-object-edit. Asset type: ONE isolated 512x512 transparent keepsake icon, warm polished 3D storybook material, neutral top-center light, soft tidy highlights, centered with transparent padding, no scenery, no UI or captions, no watermark. Preserve slim cylindrical BRASS WHISTLE with mouthpiece and slot, small silver keyring and simple dark navy cord. Make barrel almost horizontal on slight diagonal, with broad visible front surface. Engrave clearly readable exact \"ต.♡ป.\" on front length of brass barrel: Thai ต then dot then OUTLINE HEART ♡ then Thai ป then dot. This is physically dark engraved lettering in brass, not painted label/subtitle. Correct upright characters, never mirrored. No extra trinket.",
+      "references": [
+        "assets/images/keepsakes/v2/versions/v1/item-teuk-whistle-charm.png"
+      ],
+      "outputPath": "assets/images/keepsakes/v2/versions/v2/item-teuk-whistle-charm.webp",
+      "masterPath": "assets/images/keepsakes/v2/versions/v2/item-teuk-whistle-charm.png",
+      "change": {
+        "from": "นกหวีดทองเหลืองไม่มีอักษรคู่รัก",
+        "to": "เพิ่มรอยสลัก ต.♡ป. คู่กับกระดุมบนลำตัวนกหวีดเดิม",
+        "reason": "เพิ่มรอยสลัก ต.♡ป. คู่กับกระดุมบนลำตัวนกหวีดเดิม",
+        "requirements": [
+          "ADR-P0-032 §D2",
+          "ADR-P0-032 §D6.2"
+        ]
+      }
+    }
+  ]
+}
