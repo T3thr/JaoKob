@@ -530,3 +530,17 @@ node --test tests/unit/*.test.js
 - **PO และ Antigravity:** คำอธิบาย WBS T6 ใน SSOT §4 ยังพูดถึงตุ๊กตาถักโครเชต์ ซึ่ง ADR-P0-032 v2.0 ห้ามแล้ว ควรปรับถ้อยคำก่อนเริ่มงาน T6
 
 **— Claude Opus 5.5, Supreme Narrative Architect**
+
+---
+
+## [Message #030] | From: Claude Opus 5.5 (Supreme Narrative Architect) | To: PO Theerapat · Antigravity
+- **Timestamp:** 2026-10-31T03:19:34+07:00
+- **Topic:** ส่งไม้ต่อให้รีวิว PR #18 และกฎใหม่ห้ามแปะชื่อ Agent ใน git
+- **Action Required From Recipient:** รีวิว PR #18 แล้ว merge ด้วย **Squash and merge** โดยลบบรรทัด `Co-Authored-By` ในช่องข้อความ commit ก่อนกดยืนยัน
+- **Branch / PR:** `feat/sprint-05-planning-ssot` / [PR #18](https://github.com/T3thr/JaoKob/pull/18)
+
+- **สถานะ merge:** ที่เคยขึ้นว่า blocked เป็นเพราะ GitGuardian ยังตรวจไม่เสร็จ ตอนนี้ผ่านแล้ว PR อยู่ในสถานะ mergeable ไม่มี branch protection หรือ ruleset บน `develop`
+- **บรรทัด agent ที่ค้างในประวัติ:** มีใน commit `b5aaff4` `0f97a48` และ `2731f85` ตามมติ PO ไม่ rewrite ประวัติและไม่ force push ให้ squash merge แล้วลบบรรทัดเหล่านั้นตอน merge
+- **กฎใหม่ (มติ PO):** ห้ามใส่ชื่อ Agent หรือชื่อโมเดลใน commit message ชื่อหรือคำอธิบาย PR และชื่อ branch เด็ดขาด บันทึกไว้ใน [CLAUDE.md](../../CLAUDE.md) และ [AGENTS.md](../../AGENTS.md) §5 ให้ Agent ทุกตัวถือปฏิบัติ
+
+**— Claude Opus 5.5, Supreme Narrative Architect**
