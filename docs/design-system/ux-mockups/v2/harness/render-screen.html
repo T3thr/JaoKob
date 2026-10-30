@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>เจ้ากบ · Atomic Component v2</title>
+  <link rel="stylesheet" href="ux-components.css">
+</head>
+<body>
+<main class="game" aria-label="เจ้ากบ"></main>
+<script type="application/json" id="screen-copy">
+{
+  "ui":{"body":"กาย","mind":"ใจ","sta":"แรง","pouch":"กระเป๋าสานกกสี่ช่อง","settings":"ตั้งค่า","next":"อ่านต่อ","counter":"แก้ทาง","repeat":"ซ้ำ","selected":"เลือกแล้ว","journey":"ออกเดินทางต่อ","strands":"สถานะ · สายใย · ของแทนใจ","lock":"ยังไปไม่ได้","lantern":"ตะเกียงเหลือสองรอบ","gauge":"แสงสองช่องจากสิบช่อง เหลือสี่เทิร์น","stage":"เวทีตัวละคร","sewnButton":"กระดุม ต.♡ป. เย็บข้างดาวสามแฉก","hintStitch":"ลากตามจุดเพื่อเย็บกระดุม","hintTap":"แตะสามครั้ง · กบ – กับ – กิบ"},
+  "vn":{"speaker":"เตื๊อก","line":"เอ็งเข้าใจที่ข้าพูดใช่ไหม ถ้าใช่ เคาะราวไม้สามที","place":"ศาลาไม้ริมคลอง","title":"เสื้อที่เขาจำได้"},
+  "choice":{"intro":"กระป๋องลูกอมของพี่ก้ามติดซี่ตะแกรงน้ำวน ต้องรีบตัดสินใจ","place":"ตะแกรงน้ำวน","title":"อีกมือหนึ่งที่ยื่นมา","cards":[{"label":"ใช้สนับข้อมืองัดเฟืองเหล็ก","subtitle":"[ท่าผสาน · พี่ก้าม]","icon":"guard","friend":"kam","variant":"combo","accent":"#9A6B12"},{"label":"ดีดตัวผ่าลม กระโจนคว้าก้ามซ้าย","subtitle":"[ทักษะพี่น้อง]","icon":"jump","accent":"#4E8C57"},{"label":"ยืนหยัดเอง ยันขอบปูนดึงเต็มแรง","subtitle":"[แรง −●]","icon":"foot","accent":"#4A6FA5"}]},
+  "clash":{"intent":"แมลงสาบแมนเตรียมใช้ · กระซิบฝันร้าย","response":"กลิ่นแดดฟุ้งขึ้นจากริบบิ้น ขาที่ล้ากลับมีแรง","place":"ห้องเปี๊ยก · ก่อนฟ้าสาง","title":"อัศวินเงาข้างโคมไฟ","cards":[{"label":"ก้าวชิดโคมไฟ","icon":"lamp","accent":"#9A6B12"},{"label":"ยืนนิ่งกลางลำแสง","icon":"shield","tag":"counter","accent":"#9A6B12"},{"label":"สูดลมหลังฐานโคม","icon":"wind","accent":"#556B5E"},{"label":"ตั้งสติฟังฝน","icon":"drop","tag":"counter","accent":"#4E8C57"},{"label":"ดีดตัวผ่าลม","icon":"jump","tag":"repeat","variant":"repeat","accent":"#6E87AC"},{"label":"ริบบิ้นกลิ่นแดด","icon":"ribbon","accent":"#9A6B12"},{"label":"ห่าเมล็ดเรือง","icon":"seeds","accent":"#4E8C57"},{"label":"ชูชายเสื้อสะท้อนกระดุม","icon":"button","accent":"#9A6B12"}]},
+  "camp":{"place":"ศาลาไม้ริมคลอง · พักใต้ชายคา","title":"ใต้ชายคาหนึ่งอึดใจ","cards":[{"label":"ดามข้อเท้าด้วยสนับข้อมือ","subtitle":"สายใยเตื๊อก +","icon":"guard","friend":"teuk","variant":"selected","tag":"selected","accent":"#4E8C57"},{"label":"คุยกับเตื๊อก","subtitle":"สายใยเตื๊อก +","icon":"bond","accent":"#4A6FA5"},{"label":"จับแมลงกิน","subtitle":"แรง +●●","icon":"leaf","accent":"#4E8C57"},{"label":"เช็ดกระดุมให้พร้อมผสาน","subtitle":"พร้อมผสาน","icon":"button","accent":"#9A6B12"}]},
+  "endings":{"title":"ทางเลือกในแสงแรก","cards":[{"id":"E-HOME","label":"อยู่ตรงนี้ เป็นผู้พิทักษ์ข้างหมอนเธอ","reason":"","met":[true,true,true]},{"id":"E-POND","label":"กลับบ้านที่บึงน้ำใส","reason":"","met":[true,true,true]},{"id":"E-DAWN","label":"เป็นผู้พิทักษ์ของทั้งสองรุ่งอรุณ","reason":"เขายังไม่เคยยืนด้วยลำแข้งของตัวเองมากพอ","met":[false,true,true]}]}
+}
+</script>
+<script type="module">
+// JKB-DS-UX-ATOMIC-05 §§3–5. Review fixtures only; no game core or persistence.
+const copy=JSON.parse(document.getElementById('screen-copy').textContent);
+const screen=Math.min(10,Math.max(1,Number(new URLSearchParams(location.search).get('screen'))||1));
+const mobile=[2,4,6,7,10].includes(screen);
+const root=document.querySelector('main');
+const mode=screen<=2?'vn':screen<=4?'clash':screen<=6?'camp':screen<=8?'micro':'endings';
+const SVG='http://www.w3.org/2000/svg';
+const assets=new Set(['kob','kob-left','kob-determined','kam','kam-shield','fiw','kab','kib','teuk','villain','guard','button','ribbon','seeds','kob-button']);
+const glyphs={
+ leaf:'M20 3C9 2 3 7 4 14c1 6 11 8 15 2 3-4 1-10 1-13ZM5 20 17 7M9 16l-1-5m5 1 5 1',
+ star:'M12 2v10m0 0L3 21m9-9 9 9',
+ foot:'M10 23c3-3 4-6 2-9L5 7 4 4c0-2 3-2 3 0l4 4V2c0-2 3-2 3 0v6l4-4c2-2 4 0 2 2l-2 3-3 5c-1 3-1 6 1 8M7 6l4 5 2-5 3 5 3-4M12 14l3 0',
+ jump:'M2 19c5-1 8-5 10-11M10 9l6-2 4 4m-8-3-4-3m6 2 1-4M5 22l4-3m4-4 4 3M18 2l2 1m1 4 2 1',
+ shield:'M12 2 21 6l-1 8c-1 5-5 7-8 9-3-2-7-4-8-9L3 6l9-4Zm-5 10 3 3 7-7',
+ wind:'M2 7h12c6 0 6-6 1-5M2 12h17c5 0 5 7 0 7M2 17h8c5 0 5 6 0 6',
+ drop:'M12 2c-2 5-7 9-7 13a7 7 0 0 0 14 0c0-4-5-8-7-13ZM8 15c0 3 2 4 4 4',
+ bond:'M5 13c-5-7 5-13 9-5l3 7c2 4 6 0 4-3M8 21c-4-2-2-8 2-6l7 3M5 13l5 2m4-7 3 7',
+ lamp:'M9 6V4c0-4 6-4 6 0v2M6 6h12l2 13H4L6 6ZM4 22h16M12 9v7m-3-5 3 5 3-5',
+ sun:'M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10M12 1v3m0 16v3M1 12h3m16 0h3M4 4l2 2m12 12 2 2M4 20l2-2M18 6l2-2',
+ next:'m9 4 8 8-8 8',
+ lock:'M6 10V7a6 6 0 0 1 12 0v3M4 10h16v12H4V10Zm8 5v3',
+ gear:'m9 2 6 0 1 3 3 1 3 4-2 3 0 3-4 4-3-1-3 1-4-4 1-3-2-3 3-4 3-1 1-3Zm3 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8',
+ pouch:'M6 6c0-6 12-6 12 0M3 7h18v15H3V7ZM5 9h6v5H5V9Zm8 0h6v5h-6V9ZM5 16h6v4H5v-4Zm8 0h6v4h-6v-4Z'
+};
+function node(tag,cls,text,parent=root){const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;if(parent)parent.append(n);return n;}
+function svgNode(tag,attrs,parent){const n=document.createElementNS(SVG,tag);Object.entries(attrs||{}).forEach(([k,v])=>n.setAttribute(k,String(v)));parent?.append(n);return n;}
+function icon(name,parent,cls='icon'){const s=svgNode('svg',{viewBox:'0 0 24 24',class:cls,fill:'none',stroke:'currentColor','stroke-width':1.5,'stroke-linecap':'round','stroke-linejoin':'round','aria-hidden':'true','data-icon':name},parent);svgNode('path',{d:glyphs[name]||glyphs.star},s);return s;}
+function image(key,parent,cls='',alt=''){const n=node('img',cls,undefined,parent);n.src='assets/'+key+'.png';n.alt=alt;n.dataset.asset=key;return n;}
+function control(cls,label,parent,target=44){const b=node('button',cls,undefined,parent);b.type='button';b.setAttribute('aria-label',label);b.dataset.target=target;return b;}
+function TopHudCapsule(){const wrap=node('aside','hud-position');wrap.dataset.component='TopHudCapsule';wrap.setAttribute('aria-label','กายสี่เม็ด ใจสามเม็ด แรงสามเม็ด สายใยสหายสามสาย');const h=node('div','top-hud',undefined,wrap);[['body','leaf',4],['mind','star',3],['sta','foot',3]].forEach(([id,glyph,count])=>{const group=node('div','meter',undefined,h);group.dataset.meter=id;const title=node('span','meter-title',undefined,group);icon(glyph,title);node('span','',copy.ui[id],title);const p=node('span','pips',undefined,group);p.style.setProperty('--pip','var(--pip-'+id+')');for(let i=0;i<5;i++)node('i','pip'+(i>=count?' spent':''),undefined,p);});
+ node('i','hud-divider',undefined,h);
+ const necklace=svgNode('svg',{viewBox:'0 0 39 44',class:'bond-necklace','aria-hidden':'true'},h);
+ ['#B85D3B','#E5B53A','#4A6FA5'].forEach((color,i)=>{const x=6+i*13;const d=`M${x} 2C${x-3} 8 ${x+3} 10 ${x} 16S${x-3} 24 ${x} 30S${x+3} 37 ${x} 42`;svgNode('path',{d,fill:'none',stroke:color,'stroke-width':3.3},necklace);svgNode('path',{d,fill:'none',stroke:'#fcf4e3','stroke-width':.7,'stroke-dasharray':'1 2',opacity:.7},necklace);[13,26,37].forEach(y=>{svgNode('circle',{cx:x,cy:y,r:3.1,fill:'#27392d',stroke:color,'stroke-width':1.8},necklace);svgNode('path',{d:`m${x-2} ${y+1} 4-2`,stroke:'#fcf4e3','stroke-width':.5,opacity:.7},necklace);});});
+ node('i','hud-divider',undefined,h);icon('pouch',control('hud-control pouch',copy.ui.pouch,h));icon('gear',control('hud-control settings',copy.ui.settings,h));return wrap;}
+function Background(key){const b=image(key,root,'background');node('div','atmosphere');return b;}
+function sceneMark(data){const h=node('header','scene-mark');node('p','',data.place,h);node('h1','',data.title,h);node('i','rule',undefined,h);}
+// Eye anchors from the canonical manifest, with explicit face bounds for visual QA.
+const faceData={kob:[.18,.05,.7,.48], 'kob-left':[.18,.05,.7,.48], 'kob-determined':[.18,.05,.7,.48], 'kob-button':[.18,.05,.7,.48],teuk:[.25,.035,.4,.43],kam:[.22,.18,.58,.34],'kam-shield':[.38,.16,.58,.34],fiw:[.18,.13,.61,.42],kab:[.18,.04,.65,.47],kib:[.18,.1,.67,.44],villain:[.4,.17,.35,.31]};
+const eyeAnchor={kob:.24,'kob-left':.24,'kob-determined':.24,'kob-button':.24,teuk:.27,kam:.33,'kam-shield':.28,fiw:.36,kab:.25,kib:.3,villain:.31};
+function VnTachieStage(specs){const stage=node('section','tachie-stage');stage.dataset.component='VnTachieStage';stage.setAttribute('aria-label',copy.ui.stage);specs.forEach(s=>{const [key,slot,size,eyeY,passive=false]=s;const top=eyeY-eyeAnchor[key]*size;const c=node('div','tachie'+(passive?' passive':''),undefined,stage);c.dataset.character=key;c.dataset.eye=eyeAnchor[key];c.dataset.face=JSON.stringify(faceData[key]);c.style.setProperty('--slot',slot);c.style.setProperty('--top',top+'px');c.style.setProperty('--size',size+'px');image(key,c,'',key);if(key==='kob-button')image('button',c,'sewn-button',copy.ui.sewnButton);});return stage;}
+function stageFooter(ground){const f=node('div','stage-footer');f.style.setProperty('--ground',ground+'px');}
+function SaaDialogueCard(){const d=node('section','dialogue saa-paper');d.dataset.component='SaaDialogueCard';const sp=node('div','speaker-pill',undefined,d);const avatar=node('span','speaker-avatar',undefined,sp);image('teuk',avatar);node('span','',copy.vn.speaker,sp);node('p','dialogue-text',copy.vn.line,d);const next=control('next-button',copy.ui.next,d);next.textContent='▽';return d;}
+function TactileActionCard(data,parent){const card=control('tactile-card saa-paper '+(data.variant||''),data.label,parent,56);card.dataset.component='TactileActionCard';card.style.setProperty('--accent',data.accent||'var(--ink-muted)');const art=node('span','card-icon',undefined,card);if(data.friend){const pair=node('span','paired-item',undefined,art);image(data.icon,pair,'item-image');image(data.friend,pair,'friend-face');}else if(assets.has(data.icon))image(data.icon,art);else icon(data.icon,art);const text=node('span','card-content',undefined,card);node('span','card-label',data.label,text);if(data.subtitle)node('span','card-subtitle',data.subtitle,text);if(data.tag)node('span','card-tag',copy.ui[data.tag],card);if(data.variant==='selected')card.setAttribute('aria-pressed','true');return card;}
+function ClashIntentAndGauge(dock){const intent=node('div','intent');intent.dataset.component='ClashIntentAndGauge';intent.setAttribute('role','status');icon('wind',intent);node('span','',copy.clash.intent,intent);const gauge=node('section','clash-gauge',undefined,dock);gauge.setAttribute('aria-label',copy.ui.gauge);icon('lamp',gauge,'gauge-lamp');const cells=node('div','gauge-cells',undefined,gauge);for(let i=0;i<10;i++){const cell=node('i','gauge-cell'+(i<2?' light':'')+(i===6?' threshold':''),undefined,cells);cell.dataset.cell=i+1;}icon('sun',gauge,'gauge-sun');const drops=node('div','turn-drops',undefined,dock);for(let i=0;i<4;i++)icon('drop',drops);node('p','response-strip',copy.clash.response,dock);}
+function StrandArt(met,parent){const art=svgNode('svg',{viewBox:'0 0 90 95',class:'strand-art','aria-hidden':'true'},parent);const ds=['M10 3C10 26 37 24 45 57','M45 3C30 23 61 32 45 57','M80 3C80 26 51 25 45 57'];ds.forEach((d,i)=>{const g=svgNode('g',{class:['strand-a','strand-b','strand-c'][i]+(!met[i]?' unmet':'')},art);svgNode('path',{d,class:'thread-base'},g);svgNode('path',{d,class:'thread-fiber'},g);});svgNode('path',{d:'M44 57C23 42 23 80 45 67c22-14 20 18-1 8-17-10 1-23 6-12M44 75l-8 15m10-15 9 14',class:'knot'},art);return art;}
+function ThreeStrandDestinyCard(data,parent){const locked=data.met.includes(false);const card=control('destiny-card saa-paper'+(locked?' locked':''),data.label,parent,120);card.dataset.component='ThreeStrandDestinyCard';card.dataset.ending=data.id;card.setAttribute('aria-disabled',locked?'true':'false');StrandArt(data.met,card);const text=node('span','destiny-copy',undefined,card);node('span','destiny-label',data.label,text);const reason=node('span','destiny-reason',undefined,text);if(locked)icon('lock',reason,'destiny-status');node('span','',data.reason,reason);node('span','strand-caption',copy.ui.strands,card);return card;}
+function lanternClock(){const clock=node('aside','camp-clock');const icons=node('span','camp-clock-icons',undefined,clock);for(let i=0;i<3;i++){const s=icon('lamp',icons);if(i===0)s.classList.add('used');}node('span','',copy.ui.lantern,clock);}
+function render(){root.classList.add(mode);root.dataset.screen=screen;
+ if(screen===1){Background('shelter');TopHudCapsule();sceneMark(copy.vn);VnTachieStage([['kob',28,400,345,true],['teuk',72,730,345]]);stageFooter(626);SaaDialogueCard();}
+ if(screen===2){root.classList.add('choice');Background('whirlpool');TopHudCapsule();sceneMark(copy.choice);VnTachieStage([['kam-shield',28,300,345],['kob-left',72,285,345]]);stageFooter(526);const dock=node('section','decision-dock');node('p','summary-strip saa-paper',copy.choice.intro,dock);const grid=node('div','card-grid',undefined,dock);copy.choice.cards.forEach(c=>TactileActionCard(c,grid));}
+ if(screen===3||screen===4){Background('r5');TopHudCapsule();sceneMark(copy.clash);VnTachieStage(mobile?[['kob-button',28,180,290],['villain',72,230,300]]:[['kob-button',28,350,300],['villain',72,450,350]]);stageFooter(mobile?426:565);const dock=node('section','clash-dock');ClashIntentAndGauge(dock);const grid=node('div','card-grid clash-actions',undefined,dock);copy.clash.cards.forEach(c=>TactileActionCard(c,grid));}
+ if(screen===5||screen===6){Background('shelter');TopHudCapsule();sceneMark(copy.camp);lanternClock();VnTachieStage(mobile?[['kam',11,155,340.15],['kob',28,166,317.84],['fiw',50,126,363.36],['teuk',72,210,290.7]]:[['kam',12,420,385],['kob',30,420,345],['fiw',50,440,380],['teuk',76,620,345]]);stageFooter(mobile?442:655);const dock=node('section','camp-dock');const grid=node('div','card-grid camp-actions',undefined,dock);copy.camp.cards.forEach(c=>TactileActionCard(c,grid));const go=control('journey-button',copy.ui.journey,dock,56);node('span','',copy.ui.journey,go);icon('next',go);}
+ if(screen===7){root.classList.add('stitch');Background('stitch');TopHudCapsule();image('button',root,'button-item',copy.ui.sewnButton);const overlay=svgNode('svg',{viewBox:'0 0 390 844',preserveAspectRatio:'none',class:'stitch-overlay','aria-hidden':'true'},root);svgNode('path',{d:'M140 444C139 400 191 394 220 415',fill:'none',stroke:'#FCF4E3','stroke-width':2.2,'stroke-linecap':'round'},overlay);svgNode('path',{d:'M220 415C248 437 245 471 220 488',fill:'none',stroke:'#FCF4E3','stroke-width':1.5,'stroke-dasharray':'3 5','stroke-linecap':'round'},overlay);[[140,444],[220,415],[220,488]].forEach(([x,y],i)=>{const dot=control('stitch-point'+(i===0?' complete':''),copy.ui.hintStitch,root);dot.style.left=x+'px';dot.style.top=y+'px';dot.addEventListener('click',()=>dot.classList.add('complete'));});node('p','micro-hint saa-paper',copy.ui.hintStitch);}
+ if(screen===8){root.classList.add('tap');Background('tap');TopHudCapsule();const rings=svgNode('svg',{viewBox:'0 0 1440 900',preserveAspectRatio:'none',class:'tap-ripples','aria-hidden':'true'},root);[60,105,150].forEach((r,i)=>{svgNode('ellipse',{cx:490,cy:639,rx:r,ry:r*.32,transform:'rotate(-5 490 639)',fill:'none',stroke:'#E7A93B','stroke-width':2-i*.4,opacity:1-i*.23},rings);});control('tap-control',copy.ui.hintTap,root,120);node('p','micro-hint saa-paper',copy.ui.hintTap);}
+ if(screen===9||screen===10){Background('dawn');TopHudCapsule();node('h1','endings-title',copy.endings.title);VnTachieStage(mobile?[['kam',11,126,360.58],['kab',26,160,325],['kob-button',50,172,314.28],['kib',76,150,340],['fiw',90,128,363.08]]:[['kam',10,320,415.6],['kab',28,400,330],['kob-button',50,410,318.4],['kib',72,400,350],['fiw',90,380,386.8]]);stageFooter(mobile?441:626);const grid=node('section','destiny-grid');copy.endings.cards.forEach(c=>ThreeStrandDestinyCard(c,grid));}
+ node('div','face-guide');if(new URLSearchParams(location.search).get('guides')==='1')root.classList.add('guides');}
+render();
+await document.fonts.ready;
+await Promise.all([...document.images].map(i=>i.decode().catch(()=>null)));
+await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+const rect=n=>{const r=n.getBoundingClientRect();return {x:r.x,y:r.y,width:r.width,height:r.height,right:r.right,bottom:r.bottom};};
+const ui=[...root.querySelectorAll('.hud-position,.scene-mark,.dialogue,.decision-dock,.intent,.clash-dock,.camp-clock,.camp-dock,.endings-title,.destiny-grid,.micro-hint')];
+const H=innerHeight,band={top:.32*H,bottom:.48*H};
+const intersects=(a,b)=>a.x<b.right&&a.right>b.x&&a.y<b.bottom&&a.bottom>b.y;
+const faces=[...root.querySelectorAll('.tachie')].map(n=>{const r=rect(n);const [x,y,w,h]=JSON.parse(n.dataset.face);const face={x:r.x+x*r.width,y:r.y+y*r.height,width:w*r.width,height:h*r.height};face.right=face.x+face.width;face.bottom=face.y+face.height;const eye=r.y+Number(n.dataset.eye)*r.height;return {asset:n.dataset.character,eyeY:eye,eyeInBand:eye>=band.top&&eye<=band.bottom,face,overlaps:ui.filter(u=>intersects(face,rect(u))).map(u=>u.className)};});
+const targets=[...root.querySelectorAll('[data-target]')].map(n=>({label:n.getAttribute('aria-label'),minimum:Number(n.dataset.target),...rect(n)}));
+const strings=[...root.querySelectorAll('.dialogue-text,.speaker-pill>span:last-child,.summary-strip,.card-label,.card-subtitle,.card-tag,.intent>span,.response-strip,.camp-clock>span:last-child,.journey-button>span,.endings-title,.destiny-label,.destiny-reason>span,.micro-hint')].map(n=>n.textContent);
+const textClipping=[...root.querySelectorAll('.card-label,.card-subtitle,.dialogue-text,.destiny-label,.destiny-reason')].filter(n=>n.scrollWidth>n.clientWidth+1||n.scrollHeight>n.clientHeight+1).map(n=>n.textContent);
+const contentOverflow=[...root.querySelectorAll('.tactile-card .card-label,.tactile-card .card-subtitle')].filter(n=>{const r=rect(n),b=rect(n.closest('.tactile-card'));return r.bottom>b.bottom-1||r.y<b.y||r.right>b.right-1||r.x<b.x;}).map(n=>n.textContent);
+const destinyImageCount=root.querySelectorAll('.destiny-card img').length;
+const report={screen,viewport:{width:innerWidth,height:innerHeight,dpr:devicePixelRatio},fontReady:document.fonts.check('16px Sarabun'),fontFaces:[...document.fonts].map(f=>({family:f.family,status:f.status})),horizontalOverflow:document.documentElement.scrollWidth>innerWidth,brokenImages:[...document.images].filter(i=>!i.complete||i.naturalWidth===0).map(i=>i.src),faceBand:band,faces,uiBandIntrusions:ui.filter(n=>{const r=rect(n);return r.y<band.bottom&&r.bottom>band.top;}).map(n=>n.className),hud:rect(root.querySelector('.hud-position')),targets,undersizedTargets:targets.filter(r=>r.width+.1<r.minimum||r.height+.1<r.minimum),strings,textClipping,contentOverflow,components:[...root.querySelectorAll('[data-component]')].map(n=>{const s=getComputedStyle(n);return {name:n.dataset.component,...rect(n),style:{background:s.backgroundColor,border:s.borderColor,radius:s.borderRadius,font:s.fontFamily,color:s.color}};}),images:[...document.images].map(i=>({key:i.dataset.asset,path:i.getAttribute('src')}))};
+report.destinyImageCount=destinyImageCount;
+const evidence=node('script','audit-report',JSON.stringify(report),document.body);evidence.type='application/json';evidence.id='audit-evidence';document.documentElement.dataset.ready='yes';
+</script>
+</body>
+</html>

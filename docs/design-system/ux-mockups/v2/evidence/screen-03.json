@@ -1,0 +1,399 @@
+{
+  "screen": 3,
+  "viewport": {
+    "width": 1440,
+    "height": 900,
+    "dpr": 2
+  },
+  "fontReady": true,
+  "fontFaces": [
+    {
+      "family": "Sarabun",
+      "status": "loaded"
+    },
+    {
+      "family": "Sarabun",
+      "status": "loaded"
+    }
+  ],
+  "horizontalOverflow": false,
+  "brokenImages": [],
+  "faceBand": {
+    "top": 288,
+    "bottom": 432
+  },
+  "faces": [
+    {
+      "asset": "kob-button",
+      "eyeY": 300,
+      "eyeInBand": true,
+      "face": {
+        "x": 291.1953125,
+        "y": 233.5,
+        "width": 244.99999999999997,
+        "height": 168,
+        "right": 536.1953125,
+        "bottom": 401.5
+      },
+      "overlaps": []
+    },
+    {
+      "asset": "villain",
+      "eyeY": 350,
+      "eyeInBand": true,
+      "face": {
+        "x": 991.796875,
+        "y": 287,
+        "width": 157.5,
+        "height": 139.5,
+        "right": 1149.296875,
+        "bottom": 426.5
+      },
+      "overlaps": []
+    }
+  ],
+  "uiBandIntrusions": [],
+  "hud": {
+    "x": 24,
+    "y": 24,
+    "width": 358,
+    "height": 64,
+    "right": 382,
+    "bottom": 88
+  },
+  "targets": [
+    {
+      "label": "กระเป๋าสานกกสี่ช่อง",
+      "minimum": 44,
+      "x": 274.4296875,
+      "y": 34,
+      "width": 44,
+      "height": 44,
+      "right": 318.4296875,
+      "bottom": 78
+    },
+    {
+      "label": "ตั้งค่า",
+      "minimum": 44,
+      "x": 327,
+      "y": 34,
+      "width": 44,
+      "height": 44,
+      "right": 371,
+      "bottom": 78
+    },
+    {
+      "label": "ก้าวชิดโคมไฟ",
+      "minimum": 56,
+      "x": 180,
+      "y": 696,
+      "width": 261,
+      "height": 84,
+      "right": 441,
+      "bottom": 780
+    },
+    {
+      "label": "ยืนนิ่งกลางลำแสง",
+      "minimum": 56,
+      "x": 453,
+      "y": 696,
+      "width": 261,
+      "height": 84,
+      "right": 714,
+      "bottom": 780
+    },
+    {
+      "label": "สูดลมหลังฐานโคม",
+      "minimum": 56,
+      "x": 726,
+      "y": 696,
+      "width": 261,
+      "height": 84,
+      "right": 987,
+      "bottom": 780
+    },
+    {
+      "label": "ตั้งสติฟังฝน",
+      "minimum": 56,
+      "x": 999,
+      "y": 696,
+      "width": 261,
+      "height": 84,
+      "right": 1260,
+      "bottom": 780
+    },
+    {
+      "label": "ดีดตัวผ่าลม",
+      "minimum": 56,
+      "x": 180,
+      "y": 792,
+      "width": 261,
+      "height": 84,
+      "right": 441,
+      "bottom": 876
+    },
+    {
+      "label": "ริบบิ้นกลิ่นแดด",
+      "minimum": 56,
+      "x": 453,
+      "y": 792,
+      "width": 261,
+      "height": 84,
+      "right": 714,
+      "bottom": 876
+    },
+    {
+      "label": "ห่าเมล็ดเรือง",
+      "minimum": 56,
+      "x": 726,
+      "y": 792,
+      "width": 261,
+      "height": 84,
+      "right": 987,
+      "bottom": 876
+    },
+    {
+      "label": "ชูชายเสื้อสะท้อนกระดุม",
+      "minimum": 56,
+      "x": 999,
+      "y": 792,
+      "width": 261,
+      "height": 84,
+      "right": 1260,
+      "bottom": 876
+    }
+  ],
+  "undersizedTargets": [],
+  "strings": [
+    "กลิ่นแดดฟุ้งขึ้นจากริบบิ้น ขาที่ล้ากลับมีแรง",
+    "ก้าวชิดโคมไฟ",
+    "ยืนนิ่งกลางลำแสง",
+    "แก้ทาง",
+    "สูดลมหลังฐานโคม",
+    "ตั้งสติฟังฝน",
+    "แก้ทาง",
+    "ดีดตัวผ่าลม",
+    "ซ้ำ",
+    "ริบบิ้นกลิ่นแดด",
+    "ห่าเมล็ดเรือง",
+    "ชูชายเสื้อสะท้อนกระดุม",
+    "แมลงสาบแมนเตรียมใช้ · กระซิบฝันร้าย"
+  ],
+  "textClipping": [],
+  "contentOverflow": [],
+  "components": [
+    {
+      "name": "TopHudCapsule",
+      "x": 24,
+      "y": 24,
+      "width": 358,
+      "height": 64,
+      "right": 382,
+      "bottom": 88,
+      "style": {
+        "background": "rgb(32, 54, 42)",
+        "border": "rgb(36, 56, 45)",
+        "radius": "999px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    },
+    {
+      "name": "VnTachieStage",
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 900,
+      "right": 1440,
+      "bottom": 900,
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(36, 56, 45)",
+        "radius": "0px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 180,
+      "y": 696,
+      "width": 261,
+      "height": 84,
+      "right": 441,
+      "bottom": 780,
+      "style": {
+        "background": "rgb(252, 244, 227)",
+        "border": "rgb(214, 198, 165) rgb(214, 198, 165) rgb(214, 198, 165) rgb(154, 107, 18)",
+        "radius": "14px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 453,
+      "y": 696,
+      "width": 261,
+      "height": 84,
+      "right": 714,
+      "bottom": 780,
+      "style": {
+        "background": "rgb(252, 244, 227)",
+        "border": "rgb(214, 198, 165) rgb(214, 198, 165) rgb(214, 198, 165) rgb(154, 107, 18)",
+        "radius": "14px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 726,
+      "y": 696,
+      "width": 261,
+      "height": 84,
+      "right": 987,
+      "bottom": 780,
+      "style": {
+        "background": "rgb(252, 244, 227)",
+        "border": "rgb(214, 198, 165) rgb(214, 198, 165) rgb(214, 198, 165) rgb(85, 107, 94)",
+        "radius": "14px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 999,
+      "y": 696,
+      "width": 261,
+      "height": 84,
+      "right": 1260,
+      "bottom": 780,
+      "style": {
+        "background": "rgb(252, 244, 227)",
+        "border": "rgb(214, 198, 165) rgb(214, 198, 165) rgb(214, 198, 165) rgb(78, 140, 87)",
+        "radius": "14px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 180,
+      "y": 792,
+      "width": 261,
+      "height": 84,
+      "right": 441,
+      "bottom": 876,
+      "style": {
+        "background": "rgb(252, 244, 227)",
+        "border": "rgb(214, 198, 165) rgb(214, 198, 165) rgb(214, 198, 165) rgb(110, 135, 172)",
+        "radius": "14px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 453,
+      "y": 792,
+      "width": 261,
+      "height": 84,
+      "right": 714,
+      "bottom": 876,
+      "style": {
+        "background": "rgb(252, 244, 227)",
+        "border": "rgb(214, 198, 165) rgb(214, 198, 165) rgb(214, 198, 165) rgb(154, 107, 18)",
+        "radius": "14px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 726,
+      "y": 792,
+      "width": 261,
+      "height": 84,
+      "right": 987,
+      "bottom": 876,
+      "style": {
+        "background": "rgb(252, 244, 227)",
+        "border": "rgb(214, 198, 165) rgb(214, 198, 165) rgb(214, 198, 165) rgb(78, 140, 87)",
+        "radius": "14px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 999,
+      "y": 792,
+      "width": 261,
+      "height": 84,
+      "right": 1260,
+      "bottom": 876,
+      "style": {
+        "background": "rgb(252, 244, 227)",
+        "border": "rgb(214, 198, 165) rgb(214, 198, 165) rgb(214, 198, 165) rgb(154, 107, 18)",
+        "radius": "14px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    },
+    {
+      "name": "ClashIntentAndGauge",
+      "x": 410,
+      "y": 32,
+      "width": 620,
+      "height": 48.046875,
+      "right": 1030,
+      "bottom": 80.046875,
+      "style": {
+        "background": "rgb(94, 63, 148)",
+        "border": "rgb(196, 174, 215)",
+        "radius": "999px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(252, 244, 227)"
+      }
+    }
+  ],
+  "images": [
+    {
+      "key": "r5",
+      "path": "assets/r5.png"
+    },
+    {
+      "key": "kob-button",
+      "path": "assets/kob-button.png"
+    },
+    {
+      "key": "button",
+      "path": "assets/button.png"
+    },
+    {
+      "key": "villain",
+      "path": "assets/villain.png"
+    },
+    {
+      "key": "ribbon",
+      "path": "assets/ribbon.png"
+    },
+    {
+      "key": "seeds",
+      "path": "assets/seeds.png"
+    },
+    {
+      "key": "button",
+      "path": "assets/button.png"
+    }
+  ],
+  "destinyImageCount": 0,
+  "viewportFile": "viewports/mode2-clash-r5-desktop.png",
+  "problems": {},
+  "deviceDimensions": [
+    3458,
+    2424
+  ]
+}

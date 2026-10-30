@@ -1,0 +1,2206 @@
+{
+  "schemaContract": "ADR-P0-032",
+  "status": "prototype-awaiting-po-art-review",
+  "owner": "T3thr",
+  "origin": "AI generated with built-in image_gen from PO-authorized project prompts and repository art anchors; no stock media or external artist reference",
+  "permittedUse": "JaoKob prototypes under repository owner control; no third-party license asserted; release clearance and final art acceptance remain pending",
+  "assets": [
+    {
+      "assetId": "char_jao_kob_childhood_curious",
+      "prompt": "Create the childhood-curious pose variant of this exact Jao Kob character as a single transparent full-body visual novel sprite, 1024x1024 square. Keep the reference identity, proportions, olive-green living skin, coral smiling lips, giant innocent round eyes and blue crew-neck cotton shirt. Change pose only: seated with head tilted down curiously, looking at the hem of his shirt, one empty hand gently pulling the hem outward to inspect its tiny WHITE hand-stitched THREE-POINT STAR knot (three white stitches meet in a Y, not three parallel dashes), other hand by his side. Body and face in 3/4 facing RIGHT. NO heart, no other props, no pouch, no plush body. Same warm painted 2D/3D storybook finish. Whole body and feet visible, 8% clear margins; actual transparent alpha background, no floor/shadow backdrop, no text or watermark.",
+      "references": [
+        "imagegen-source:exec-5cc168bb-2283-48d9-8fc8-bdda716b2066.png"
+      ],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-3f6ab5f0-a6ef-4ea4-b25d-593ddb3965ce.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T06:08:38+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/characters/jao-kob/versions/v1/childhood-curious.png",
+        "dimensions": "1024x1024",
+        "byteLength": 907413,
+        "sha256": "dc949ec6a224e42168263ae80e7de80d0dd20fce582b105edfc67db0f2867767",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/characters/jao-kob/childhood-curious.webp",
+        "dimensions": "1024x1024",
+        "byteLength": 112632,
+        "sha256": "6e928da47e7f54b215e043f6abc319b2db21b484b2129f28cf694caa7f70ee81",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "char_jao_kob_adult_observant",
+      "prompt": "Make the adult-observant full-body sprite of Jao Kob. Reference 1 defines the exact ADULT identity, living olive-green skin, half-closed calm eyelids, pale peach lips, blue crew-neck cotton shirt, and four-compartment reed pouch. Reference 2 is ONLY for the tiny white Y-shaped three-point star stitch motif, not age or proportions. Change the adult pose: standing 3/4 facing RIGHT, head slightly bowed thoughtfully, one hand delicately touching the white THREE-stitch Y star on the lower shirt hem, other hand relaxed, observant expression. Preserve adult proportions and exact face. No heart or extra items. Asset: one polished 2D/3D hybrid warm painted storybook visual novel sprite; rich tactile lighting consistent with reference. 1024x1024 square, full silhouette entirely in frame, comfortable transparent margin all around. ACTUAL transparent alpha background, no floor, no backdrop, no frame, no UI, no lettering, no watermark.",
+      "references": [
+        "assets/images/characters/jao-kob/versions/v1/adult-neutral.png",
+        "assets/images/characters/jao-kob/versions/v1/childhood-curious.png"
+      ],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-21a664d3-dfd0-4317-b912-a80e26b675d3.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T06:12:50+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/characters/jao-kob/versions/v1/adult-observant.png",
+        "dimensions": "1024x1024",
+        "byteLength": 644758,
+        "sha256": "bef9a93703b703e648449a85fb51b6d5adabfcc1b143854f660e7ce7a7ebe6df",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/characters/jao-kob/adult-observant.webp",
+        "dimensions": "1024x1024",
+        "byteLength": 99928,
+        "sha256": "db2496fdb2d1d19b60e7d3ceca37b46db103fcd4a804a3002a5bc19633db0efd",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "char_jao_kob_adult_miracle_plush",
+      "prompt": "One adult-miracle-plush Jao Kob isolated sprite for the E-HOME ending only. Reference 1 gives the seated frog plush identity and crochet tactile material; reference 2 gives the adult facial identity and sky-blue crew-neck shirt. Create a soft olive-green crochet and velour frog doll with relaxed green upper eyelids, gentle peach smiling lips, rounded soft limbs, seated in a peaceful 3/4 view facing RIGHT, eyes softly closed in contentment. Sky-blue cotton shirt with a tiny white three-point Y stitch and a small restored brass button. Hands empty, resting on lap, NO red heart. No pouch needed in this ending form. Doll alone, without human arms or background, ready to composite into Peuak's embrace. Asset: one polished 2D/3D hybrid warm painted storybook visual novel sprite; rich tactile lighting consistent with reference. 1024x1024 square, full silhouette entirely in frame, comfortable transparent margin all around. ACTUAL transparent alpha background, no floor, no backdrop, no frame, no UI, no lettering, no watermark.",
+      "references": [
+        "docs/proposals/3d-keepsake-spike/renders/adult/empty-crochet.png",
+        "assets/images/characters/jao-kob/versions/v1/adult-neutral.png"
+      ],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-fb781690-1959-4f5a-9b1a-1c3cda0c9f26.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T06:12:59+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/characters/jao-kob/versions/v1/adult-miracle-plush.png",
+        "dimensions": "1024x1024",
+        "byteLength": 1083373,
+        "sha256": "3c56bd83341d1167ae442fa4e6faccdaec7dbe6215e46612de24c31fb1cfa70e",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/characters/jao-kob/adult-miracle-plush.webp",
+        "dimensions": "1024x1024",
+        "byteLength": 186716,
+        "sha256": "8c20c34b9acd72d79cbfe1eb169384af7d7c14795941ba97d366c52012fbf09f",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "char_jao_kib_neutral_cheerful",
+      "prompt": "Design Jao Kib, the little SISTER frog in the same family as references. Petite slender bipedal living frog, bright mint-olive green skin, large sparkling eyes with subtle eyelashes, rosy cheeks, cream belly, rounded fingers/toes and broad warm smile matching the family. NO T-SHIRT or dress: only a scalloped miniature lotus-leaf COLLAR around neck pinned with a bright yellow wildflower. A small bamboo popping-seed tube and a dewdrop magnifying lens hang neatly from vine straps. Standing full body 3/4 facing RIGHT, playful cheerful head tilt, arms relaxed. No blue clothing, no heart, no plush texture. Asset: one polished 2D/3D hybrid warm painted storybook visual novel sprite; rich tactile lighting consistent with reference. 1024x1024 square, full silhouette entirely in frame, comfortable transparent margin all around. ACTUAL transparent alpha background, no floor, no backdrop, no frame, no UI, no lettering, no watermark. The reference frog's blue shirt and reed pouch MUST NOT be copied. Only the listed clothing and accessories belong to this new character. No unlisted bags, belts or props.",
+      "references": [
+        "assets/images/characters/jao-kob/versions/v1/childhood-curious.png",
+        "assets/images/characters/jao-kob/versions/v1/adult-neutral.png"
+      ],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-e420d6ad-c4cb-4956-8c6c-0cfc9d8a8bc3.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T06:17:13+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/characters/jao-kib/versions/v1/neutral-cheerful.png",
+        "dimensions": "1024x1024",
+        "byteLength": 655616,
+        "sha256": "d175c33d1516855a30dcee072886de1541eed57656f77a34a4056eb031c8d781",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/characters/jao-kib/neutral-cheerful.webp",
+        "dimensions": "1024x1024",
+        "byteLength": 106044,
+        "sha256": "9c11c6e8603e246cc825d0d26a4c3cb061218dd704c88f44a3ec58ec9bc53125",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "char_father_frog_calm",
+      "prompt": "Father Frog only, a mature calm bipedal living frog from Jao Kob's family, using reference only for rounded facial structure, raised round eyes with calm lids, olive-green palette, cream belly and broad gentle lips. Wise kind eyes and steady stance. NO shirt or blue garment. Wearing a woven vine BELT at waist and holding a small bamboo walking STAFF. Full body standing 3/4 facing RIGHT, grounded paternal warmth. Natural skin, no plush body, no heart. One frog only. Asset: one polished 2D/3D hybrid warm painted storybook visual novel sprite; rich tactile lighting consistent with reference. 1024x1024 square, full silhouette entirely in frame, comfortable transparent margin all around. ACTUAL transparent alpha background, no floor, no backdrop, no frame, no UI, no lettering, no watermark. The reference frog's blue shirt and reed pouch MUST NOT be copied. Only the listed clothing and accessories belong to this new character. No unlisted bags, belts or props.",
+      "references": [
+        "assets/images/characters/jao-kob/versions/v1/adult-neutral.png"
+      ],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-c7e5e550-c8bc-4625-abe6-237f5d52fe50.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T06:17:17+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/characters/parents/versions/v1/father-frog-calm.png",
+        "dimensions": "1024x1024",
+        "byteLength": 698201,
+        "sha256": "cca22dd22510d5437d722bc074d95905cef505c2ed2b4b25b30dcc1f92e8095c",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/characters/parents/father-frog-calm.webp",
+        "dimensions": "1024x1024",
+        "byteLength": 117786,
+        "sha256": "d9508a7accf3be49e6296839c53d2976f0b41e5ee50259ee43cb597697129ce4",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "char_mother_frog_warm",
+      "prompt": "Mother Frog only, a kind maternal bipedal living frog from Jao Kob's family. Use reference ONLY for family facial shapes, raised eyes, soft olive-green skin, cream belly and broad gentle peach lips. Warm loving eyes, soft rounded mature body. NO T-SHIRT or blue garment. A soft cream DRIED-LOTUS-PETAL shawl drapes over her shoulders, decorated with a few tiny dried flowers. Full body standing 3/4 facing RIGHT, hands gently open in a welcoming gesture. No heart, no plush texture. Asset: one polished 2D/3D hybrid warm painted storybook visual novel sprite; rich tactile lighting consistent with reference. 1024x1024 square, full silhouette entirely in frame, comfortable transparent margin all around. ACTUAL transparent alpha background, no floor, no backdrop, no frame, no UI, no lettering, no watermark. The reference frog's blue shirt and reed pouch MUST NOT be copied. Only the listed clothing and accessories belong to this new character. No unlisted bags, belts or props.",
+      "references": [
+        "assets/images/characters/jao-kob/versions/v1/adult-neutral.png"
+      ],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-d9d3c390-2dcc-42cf-a4ae-dc76eafacb93.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T06:17:21+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/characters/parents/versions/v1/mother-frog-warm.png",
+        "dimensions": "1024x1024",
+        "byteLength": 724302,
+        "sha256": "7015d2c11d29d870e60106514a9e3ca4b38a7b7132c06d38c2cd4f1b424faea1",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/characters/parents/mother-frog-warm.webp",
+        "dimensions": "1024x1024",
+        "byteLength": 110432,
+        "sha256": "c97864195b535f8bd41ab90f0a2640829310658f83c5edbf6f62a6fc15df791a",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "char_jao_kab_neutral_proud",
+      "prompt": "Edit this Jao Kab sprite precisely. REMOVE the small wicker pouch/basket at his hip entirely. Keep the diagonal green-reed chest strap as a plain strap with no bag attached. Preserve everything else exactly: same face, left eyebrow notch, deeper olive-green living skin, cream chest, body and proud pose, BOTH bark wrist guards, warm storybook shading, facing right. No shirt, no heart. Full body 1024x1024 with real transparent alpha background. Do not add anything.",
+      "references": [
+        "assets/images/characters/jao-kab/versions/v1/neutral-proud.png"
+      ],
+      "revisionReason": "Remove unrequested pouch transferred from protagonist reference",
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-9c3db68d-e303-4510-885d-cff7a82119c7.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T06:19:33+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/characters/jao-kab/versions/v1/neutral-proud.png",
+        "dimensions": "1024x1024",
+        "byteLength": 703483,
+        "sha256": "de847b951e300a7204a233b12fd3ce0e9130d7cf93738a55461e05deedadb2fc",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/characters/jao-kab/neutral-proud.webp",
+        "dimensions": "1024x1024",
+        "byteLength": 111214,
+        "sha256": "7b97d97006c60b8dce78b4c8bdba4e6eff53e45741b5b4526791de51b1799ab4",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "supersededAttempts": [
+        {
+          "assetId": "char_jao_kab_neutral_proud",
+          "prompt": "Design Jao Kab, the older BROTHER frog of the supplied Jao Kob. Same family shape language: broad rounded face, raised eye globes, soft warm olive-green living skin, cream belly and broad gentle lips. Slightly deeper olive and sturdier, broader shoulders than the reference. NO T-SHIRT or other shirt; bare cream chest with a diagonal braided green-reed strap. Bark forearm guards on BOTH wrists bound in vines, tiny healed notch at HIS LEFT eyebrow. Standing proud full-body 3/4 facing RIGHT, chest out, arms relaxed, confident protective grin. No heart or weapons. Natural frog body, not plush. Asset: one polished 2D/3D hybrid warm painted storybook visual novel sprite; rich tactile lighting consistent with reference. 1024x1024 square, full silhouette entirely in frame, comfortable transparent margin all around. ACTUAL transparent alpha background, no floor, no backdrop, no frame, no UI, no lettering, no watermark.",
+          "references": [
+            "assets/images/characters/jao-kob/versions/v1/adult-neutral.png"
+          ],
+          "tool": "image_gen.imagegen",
+          "generatedSourceFile": "exec-5b1da51e-238d-4b4e-a027-2f62d4b47cb8.png",
+          "nativeDimensions": [
+            1254,
+            1254
+          ],
+          "packagedAt": "2026-10-29T06:14:35+07:00",
+          "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+          "master": {
+            "path": "assets/images/characters/jao-kab/versions/v1/neutral-proud.png",
+            "dimensions": "1024x1024",
+            "byteLength": 714769,
+            "sha256": "ccfc107de55aa8e32220ce174bfd84761b9b2a80344b46dcc3f6743575ccf3df",
+            "alphaExtrema": [
+              0,
+              255
+            ]
+          },
+          "output": {
+            "path": "assets/images/characters/jao-kab/neutral-proud.webp",
+            "dimensions": "1024x1024",
+            "byteLength": 111736,
+            "sha256": "3b34be1d1ce3b0fa46a7da9e4a8d094119da1baca3477b970dec443ec16fd90d",
+            "alphaExtrema": [
+              0,
+              255
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "assetId": "char_jao_kib_tinker_seed_tube",
+      "prompt": "Keep this exact Jao Kib little sister frog identity, bright mint-olive living skin, sparkling eyes, yellow wildflower and scalloped lotus-leaf neck collar. New tinker-seed-tube pose: standing full body 3/4 facing RIGHT, curious focused face, holding her miniature bamboo seed-launcher tube containing golden-green glowing acoustic popping seeds in one hand and inspecting it through a clear dewdrop magnifying lens in the other. No shirt, no blue clothing, no heart. Asset: one polished 2D/3D hybrid warm painted storybook visual novel sprite; rich tactile lighting consistent with reference. 1024x1024 square, full silhouette entirely in frame, comfortable transparent margin all around. ACTUAL transparent alpha background, no floor, no backdrop, no frame, no UI, no lettering, no watermark.",
+      "references": [
+        "assets/images/characters/jao-kib/versions/v1/neutral-cheerful.png"
+      ],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-d666d78f-9a03-43e1-be54-b1418f127302.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T06:19:37+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/characters/jao-kib/versions/v1/tinker-seed-tube.png",
+        "dimensions": "1024x1024",
+        "byteLength": 705347,
+        "sha256": "dddb3d1afa68b9cd0c4e9b8ad95608d231a6375acfc906abe1b96c81f446122f",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/characters/jao-kib/tinker-seed-tube.webp",
+        "dimensions": "1024x1024",
+        "byteLength": 122240,
+        "sha256": "2e13efee2b7e30f4b0f427e410e582186339efd78b60450a3be3172e2104eb90",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "char_jao_kab_action_knuckle_tap",
+      "prompt": "Keep the exact Jao Kab older-brother frog identity, colors, left eyebrow notch, bare cream chest, diagonal woven reed strap and two bark wrist guards from reference. Change only pose and expression to the action-knuckle-tap variant: 3/4 facing RIGHT, knees bent ready to leap, holding both forearms in front of chest and firmly tapping the two bark guards together, confident protective grin. Single full body, no shirt, no blue garment, no weapon, no heart. Asset: one polished 2D/3D hybrid warm painted storybook visual novel sprite; rich tactile lighting consistent with reference. 1024x1024 square, full silhouette entirely in frame, comfortable transparent margin all around. ACTUAL transparent alpha background, no floor, no backdrop, no frame, no UI, no lettering, no watermark. No pouch or bag, just the diagonal strap and wrist guards.",
+      "references": [
+        "assets/images/characters/jao-kab/versions/v1/neutral-proud.png"
+      ],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-7cb3f4cc-f5a0-4a11-9ed0-9fe6d6d973f6.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T06:21:44+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/characters/jao-kab/versions/v1/action-knuckle-tap.png",
+        "dimensions": "1024x1024",
+        "byteLength": 747340,
+        "sha256": "093f73ab9098b7c1d698e65363f74a902e8a9fe25a25eec6f55955871762462f",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/characters/jao-kab/action-knuckle-tap.webp",
+        "dimensions": "1024x1024",
+        "byteLength": 117672,
+        "sha256": "de745ec3706e91b56bdce22f9440c5a8f146a051d62a8b597a7d98e82194e52e",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "char_pkam_neutral_guarded",
+      "prompt": "Design P'Kam, a gruff battle-scarred terrestrial HERMIT CRAB, not a frog. Use reference ONLY for warm 2D/3D painted storybook lighting and finish, never its anatomy, shirt or pouch. Reddish-terracotta crab body, expressive gruff eyes. Makeshift shell is a dented round vintage cream-and-pale-blue tin CANDY CAN with faded floral motifs, NOT a seashell. One huge battle-notched iron-like LEFT PINCER held up as shield, a smaller dexterous RIGHT PINCER holding a small brass gear. Sturdy stance, full body 3/4 facing RIGHT. No words or brand labels on tin. Warm guarded expression. Output a single full-body 1024x1024 square VN character sprite in warm polished painted 2D/3D hybrid storybook style. Real transparent alpha background, no floor/cast-shadow backdrop, 8% clear margin, zero UI, text, lettering, frame or watermark. Keep accessories to only those specified.",
+      "references": [
+        "assets/images/characters/jao-kob/versions/v1/adult-neutral.png"
+      ],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-9940df4b-2ff7-4b38-82f2-370a21cf2f72.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T06:24:20+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/characters/p-kam/versions/v1/neutral-guarded.png",
+        "dimensions": "1024x1024",
+        "byteLength": 1299298,
+        "sha256": "6b6bb854c472bf9fedc19efd25ac020371efd3b069dca8759e2a27401e9078f7",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/characters/p-kam/neutral-guarded.webp",
+        "dimensions": "1024x1024",
+        "byteLength": 280110,
+        "sha256": "42a0d1637b6dd26aba318aa75fad725b021ec3da11a8dfa762761ad39467840c",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "char_jao_fiw_neutral_lively",
+      "prompt": "Design Jao Fiw, a petite FEMALE flying squirrel, NOT a frog. Use reference ONLY for polished warm 2D/3D painted storybook finish and soft lighting. Soft cinnamon-brown fur, cream belly, enormous sparkling expressive eyes, subtle feminine eyelashes, fluffy parachute-like tail. Bright SUNFLOWER-YELLOW RIBBON tied at neck like aviator scarf; small healed notch on LEFT gliding membrane. Standing full body 3/4 facing RIGHT, arms folded loosely across chest, tail puffed, lively chatty cheerful expression. No shirt, no pouch, no extra accessories. Output a single full-body 1024x1024 square VN character sprite in warm polished painted 2D/3D hybrid storybook style. Real transparent alpha background, no floor/cast-shadow backdrop, 8% clear margin, zero UI, text, lettering, frame or watermark. Keep accessories to only those specified.",
+      "references": [
+        "assets/images/characters/jao-kob/versions/v1/childhood-curious.png"
+      ],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-559a64e8-44c7-4061-94de-43528d57515a.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T06:24:25+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/characters/jao-fiw/versions/v1/neutral-lively.png",
+        "dimensions": "1024x1024",
+        "byteLength": 1147667,
+        "sha256": "ed233d71ea43c034bd6f665d6e8a0d1d3b36bf194a2281f69976b5b310c31d0f",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/characters/jao-fiw/neutral-lively.webp",
+        "dimensions": "1024x1024",
+        "byteLength": 197622,
+        "sha256": "8a99e143be2d05df6de1a8404a972786a28a4d8f0f65831d171a1e425531cfe6",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "char_pkam_allied_shield",
+      "prompt": "Pose variant of this EXACT P'Kam hermit crab. Preserve terracotta body, eye design, faded floral dented cream-and-pale-blue candy tin shell and notched giant LEFT claw. New allied-shield pose: face 3/4 RIGHT, advance one foot and extend the huge left pincer across the front as a broad protective shield for friends off-frame, eyes warm and reliable instead of suspicious. Smaller right claw holds his small brass gear. Full body with all limbs inside frame, one character only. Output a single full-body 1024x1024 square VN character sprite in warm polished painted 2D/3D hybrid storybook style. Real transparent alpha background, no floor/cast-shadow backdrop, 8% clear margin, zero UI, text, lettering, frame or watermark. Keep accessories to only those specified.",
+      "references": [
+        "assets/images/characters/p-kam/versions/v1/neutral-guarded.png"
+      ],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-c4216051-f56e-4c72-8c24-6972cd5bc2a4.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T06:27:24+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/characters/p-kam/versions/v1/allied-shield.png",
+        "dimensions": "1024x1024",
+        "byteLength": 1499661,
+        "sha256": "c21ceb86a6fffa53fe5a8192edfef4d2ef57c2b5853167c4f5a9842563514234",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/characters/p-kam/allied-shield.webp",
+        "dimensions": "1024x1024",
+        "byteLength": 301294,
+        "sha256": "17a393d9ca1c98134f47959c782e165ba044de37bff712a189aa4d1c33ea91d2",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "char_cockroach_man_shadow_boast",
+      "prompt": "A whimsical theatrical storybook PHANTOM, one full-body character sprite on actual transparent alpha background, 1024x1024 square. A rounded floating purple-black fog cloud dressed in a billowing cape made from torn black plastic wrapper. Two little silver soda bottle caps serve as shoulder pads. His simple smooth shadow mask has two friendly glowing yellow cartoon eyes and two CURLY RIBBON-LIKE SHADOW HORNS. A small polished brass button medal on his chest. He faces LEFT, spreading the cloak in an exaggerated boastful stage performance. Lower body dissolves into soft curled mist. A cute comic pantomime villain with absolutely no animal or insect anatomy. Warm painted 2D/3D hybrid storybook texture, soft amber rim light, gentle purple mist, clean silhouette, whole figure inside frame with 10% clear margin. No lettering, no logo, no watermark, no scene or floor. Original JaoKob fantasy character.",
+      "references": [],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-f2e1c31a-4e25-45c0-a5b7-f3aaa9d726c2.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T06:27:34+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/characters/cockroach-man/versions/v1/shadow-cloak-boast.png",
+        "dimensions": "1024x1024",
+        "byteLength": 1346997,
+        "sha256": "3d28d9fda85897e19bdac0b68e5a786c13fce03f8d7714cfb0fb128676ddf985",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/characters/cockroach-man/shadow-cloak-boast.webp",
+        "dimensions": "1024x1024",
+        "byteLength": 282224,
+        "sha256": "bafaef9eccbce70778f2e741f75c3e8b883f7f51816a969abe55072f09b275da",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "char_cockroach_man_shrunk_defeated",
+      "prompt": "Keep the exact comical purple-black mist phantom identity from reference, same shadow mask, two curly shadow ribbon horns, tiny bottle-cap shoulder pads and crumpled black plastic cloak. Shrunk-defeated pose: tiny palm-sized crumpled mist blob, slumped and dizzy with spiral cartoon yellow eyes after losing to a lamp beam, facing LEFT, cape deflated, no brass button (reclaimed by hero). Make silhouette visually smaller within the same square. STRICTLY ZERO insect body/legs/wings/carapace, no real cockroach; smoke and cloth only. No visible lamp or surrounding scene. Output a single full-body 1024x1024 square VN character sprite in warm polished painted 2D/3D hybrid storybook style. Real transparent alpha background, no floor/cast-shadow backdrop, 8% clear margin, zero UI, text, lettering, frame or watermark. Keep accessories to only those specified.",
+      "references": [
+        "assets/images/characters/cockroach-man/versions/v1/shadow-cloak-boast.png"
+      ],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-dad7d9d7-ff75-4cc6-94cb-e91211b8a1ef.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T06:30:03+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/characters/cockroach-man/versions/v1/shrunk-defeated.png",
+        "dimensions": "1024x1024",
+        "byteLength": 703455,
+        "sha256": "a67d4ea36a7864db541dc4f0e34e81df3a1b7f5dee241550687c58619b30c731",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/characters/cockroach-man/shrunk-defeated.webp",
+        "dimensions": "1024x1024",
+        "byteLength": 154538,
+        "sha256": "fd73338f6686e2552a34010003077e000336139d76dc741571ddfc8f9ec25eb9",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "char_jao_fiw_gliding_brave",
+      "prompt": "Edit this exact Jao Fiw flying squirrel sprite. Keep the same cinnamon fur, face, sunflower-yellow neck ribbon, LEFT membrane notch and wide gliding pose. Zoom the character OUT so the ENTIRE fluffy tail, all four feet, every fingertip and ribbon tip fit comfortably in the middle 75% of a 1024x1024 square, with at least 12% COMPLETELY EMPTY transparent margin on ALL four edges. Render a crisp isolated sprite with REAL alpha transparency and completely transparent four corners, no background color or specks at edges. Same soft storybook finish. One character only, no text, no scene.",
+      "references": [
+        "assets/images/characters/jao-fiw/versions/v1/gliding-brave.png"
+      ],
+      "revisionReason": "Regenerate gliding pose with clear transparent margins after alpha corner check failed",
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-e0d44c55-2118-4046-a926-38e1d4f2cb65.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T06:30:07+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/characters/jao-fiw/versions/v1/gliding-brave.png",
+        "dimensions": "1024x1024",
+        "byteLength": 759164,
+        "sha256": "d863e8434d10a1661708fcf937f36dd8455fc9d76224f02233fc71eb4a92fe5e",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/characters/jao-fiw/gliding-brave.webp",
+        "dimensions": "1024x1024",
+        "byteLength": 126682,
+        "sha256": "5c85b1063e3b9e4031fd53ecff8eb66ed96732136ce029caaee0bcd4bad9cfdd",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "char_jao_teuk_storm_kneeling",
+      "prompt": "Design Jao Teuk, a kind young THAI MAN in his twenties. Reference is ONLY a warm cinematic 2D/3D storybook finish anchor, do not copy frog anatomy, clothing or bag. Human face with wet tousled dark hair, caring emotional eyes. Rain-soaked NAVY windbreaker over neutral casual clothes, one sprained ankle wrapped in clean white bandage. Broken umbrella folded beside him as attached prop. KNEELING full body 3/4 facing LEFT down toward a 45cm frog outside the image, palm extended gently offering a small brass cylindrical whistle KEYCHAIN. Warm rim light on raindrops, no ground or environment, no other character, no red heart, no text. Output a single full-body 1024x1024 square VN character sprite in warm polished painted 2D/3D hybrid storybook style. Real transparent alpha background, no floor/cast-shadow backdrop, 8% clear margin, zero UI, text, lettering, frame or watermark. Keep accessories to only those specified.",
+      "references": [
+        "assets/images/characters/jao-kob/versions/v1/adult-neutral.png"
+      ],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-2d1d69c7-2375-4efc-b505-dff0f7a7178c.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T06:32:08+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/characters/jao-teuk/versions/v1/storm-kneeling-mission.png",
+        "dimensions": "1024x1024",
+        "byteLength": 1233178,
+        "sha256": "b8bc91167ca534f61b421c3c1faabd62d736dde467e016162b05003a9e66dfc8",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/characters/jao-teuk/storm-kneeling-mission.webp",
+        "dimensions": "1024x1024",
+        "byteLength": 254628,
+        "sha256": "5e1e5bc91e9ecd15f2e78a1bb372c4251ca4b058d9ef14aa365d594caa9072ad",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "char_peuak_bedside_frightened",
+      "prompt": "Design Peuak, a gentle young ADULT THAI WOMAN in her twenties, soft dark shoulder-length hair, kind human face and large expressive brown eyes. Reference is ONLY for warm 2D/3D painted storybook art finish, do not copy frog anatomy, shirt or bag. Cozy cream cotton pajamas under a soft cream-and-pale-blue blanket wrapped over head and around body. Sitting curled up, full covered body visible, facing LEFT, only her frightened wide eyes and a little face peek above blanket held near nose. Gentle vulnerable storybook mood, no horror. Isolated person and blanket only, no bed, no room, no insect, no plush or heart. Output a single full-body 1024x1024 square VN character sprite in warm polished painted 2D/3D hybrid storybook style. Real transparent alpha background, no floor/cast-shadow backdrop, 8% clear margin, zero UI, text, lettering, frame or watermark. Keep accessories to only those specified.",
+      "references": [
+        "assets/images/characters/jao-kob/versions/v1/adult-neutral.png"
+      ],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-be702e55-9bf1-4526-89bb-814d7c94ecf2.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T06:32:12+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/characters/peuak/versions/v1/bedside-frightened-blanket.png",
+        "dimensions": "1024x1024",
+        "byteLength": 1084764,
+        "sha256": "bff9714752f2d97d53a07f99c0d133bd463722c7f83bfea6f14eb069272dec75",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/characters/peuak/bedside-frightened-blanket.webp",
+        "dimensions": "1024x1024",
+        "byteLength": 147614,
+        "sha256": "9b8aed3a94eadb63b0d4e4f6cc4e529f14e10db43ca0ad830d92ba3960267647",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "char_jao_teuk_dawn_reunion",
+      "prompt": "Pose variant of the exact Thai young man Jao Teuk in the reference. Preserve same human face, hairstyle, age, navy windbreaker and casual clothes, white bandage on the same ankle. Standing full body 3/4 facing LEFT with a deeply relieved warm smile in gentle golden sunrise light. Hands relaxed open, slight protective favoring of bandaged ankle. No umbrella, no whistle being offered now, no other person or setting. Output a single full-body 1024x1024 square VN character sprite in warm polished painted 2D/3D hybrid storybook style. Real transparent alpha background, no floor/cast-shadow backdrop, 8% clear margin, zero UI, text, lettering, frame or watermark. Keep accessories to only those specified.",
+      "references": [
+        "assets/images/characters/jao-teuk/versions/v1/storm-kneeling-mission.png"
+      ],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-9fa7edc2-0403-42cb-9478-41fa31e00b3d.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T06:36:42+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/characters/jao-teuk/versions/v1/dawn-reunion-smile.png",
+        "dimensions": "1024x1024",
+        "byteLength": 581890,
+        "sha256": "65104d0796897ccd78dbef1e4e52edc444e1c91752e7b62f60fd1835281cbcc3",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/characters/jao-teuk/dawn-reunion-smile.webp",
+        "dimensions": "1024x1024",
+        "byteLength": 123882,
+        "sha256": "9ffee18272a49ffd168809741a93456f47dca731f4ea2c10444879458d52fcde",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "char_peuak_warm_sunlight_hug",
+      "prompt": "Peuak warm-sunlight-hug sprite for E-HOME. Preserve the exact young ADULT Thai woman's face and dark hair from reference 1; remove the head-covering blanket so cream cotton pajamas and gentle face are clear. Sitting full body 3/4 facing LEFT with teary eyes of relief and radiant smile. Gently cradle the EXACT green crochet Jao Kob plush from reference 2 close to her chest, with its blue crew-neck shirt, small white Y stitch and brass button. Warm golden morning light. Keep scale plausible: doll about 45cm, woman's whole seated body shown. No red heart, no bed or room. Output a single full-body 1024x1024 square VN character sprite in warm polished painted 2D/3D hybrid storybook style. Real transparent alpha background, no floor/cast-shadow backdrop, 8% clear margin, zero UI, text, lettering, frame or watermark. Keep accessories to only those specified.",
+      "references": [
+        "assets/images/characters/peuak/versions/v1/bedside-frightened-blanket.png",
+        "assets/images/characters/jao-kob/versions/v1/adult-miracle-plush.png"
+      ],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-3ed34ca2-d5f2-4112-b531-30c6eb74b945.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T06:36:46+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/characters/peuak/versions/v1/warm-sunlight-hug.png",
+        "dimensions": "1024x1024",
+        "byteLength": 1107551,
+        "sha256": "4d387e844ebfe3a8aff842b7924974c66f9a24cea32030d744d35d175671965f",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/characters/peuak/warm-sunlight-hug.webp",
+        "dimensions": "1024x1024",
+        "byteLength": 178060,
+        "sha256": "3429990d80e8a5894636fbebeb5de4ed649addf3ec9206b8a29726d9ca4a6c30",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "char_boy_ton_crying",
+      "prompt": "Boy Ton only, a small Thai BOY child in a wet YELLOW hooded raincoat, dark shorts and simple sandals, sitting crouched hugging his knees with tearful eyes looking down LEFT toward a missing medicine bottle off-frame. Reference is ONLY the human storybook rendering style; create a clearly different younger face. Vulnerable but non-graphic rainy-night emotion, warm gentle rim lighting on raindrops. Full body child alone, no drain, no floor or surroundings, no medicine text or bottle prop. Output a single full-body 1024x1024 square VN character sprite in warm polished painted 2D/3D hybrid storybook style. Real transparent alpha background, no floor/cast-shadow backdrop, 8% clear margin, zero UI, text, lettering, frame or watermark. Keep accessories to only those specified.",
+      "references": [
+        "assets/images/characters/jao-teuk/versions/v1/storm-kneeling-mission.png"
+      ],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-35f40734-8332-434a-b8f7-ca1a7a244aac.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T06:36:51+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/characters/city-humans/versions/v1/boy-ton-crying.png",
+        "dimensions": "1024x1024",
+        "byteLength": 998475,
+        "sha256": "7dc0d1445a0aa7159d300c8fe9a24138d4b49e68efd2e96af53bb51c57fe581f",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/characters/city-humans/boy-ton-crying.webp",
+        "dimensions": "1024x1024",
+        "byteLength": 197408,
+        "sha256": "3a5409ce8b1d0c722d2f80ad365e1380a81ab4c2fdd95b9198b21e2356b38f61",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "bg_act1_willow_roots",
+      "prompt": "Wide 16:9 Visual Novel background illustration from a 45cm low frog-eye perspective: ancient weeping willow tree roots dipping into a tranquil emerald-green reed pond after a gentle warm rain. Sunbeams filter through hanging willow vines, illuminating dewdrops on lotus pads and tall cattail reeds. Open flat mossy bank on the left and right sides for character sprites, calm water reflections in the bottom 28% reading zone. Warm hand-painted storybook aesthetic, no characters, no text, no UI.\nTechnical and composition contract: render exactly a WIDE 16:9 landscape frame, target 1600x900. Full opaque edge-to-edge scene. Warm hand-painted storybook environment with soft tactile 2D/3D forms, atmospheric depth and a restrained olive, teal, amber palette coherent with JaoKob. Low frog-eye camera around 45cm above the current walking surface. Reserve the lowest 28% of the image as calm LOW-CONTRAST unoccupied surface with subdued detail and no major objects; integrate it naturally, not a blank UI rectangle. Keep usable character staging space toward left and right. No people, no animals, no living characters, no readable text, no lettering, no UI, no frame, no watermark.",
+      "references": [],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-d39aadcd-6df7-4b3b-ac8b-105bea49dd7e.png",
+      "nativeDimensions": [
+        1672,
+        941
+      ],
+      "packagedAt": "2026-10-29T06:38:16+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/backgrounds/act-01/versions/v1/bg-act1-willow-roots.png",
+        "dimensions": "1600x900",
+        "byteLength": 2757681,
+        "sha256": "8bd00e194706a203df7b68370ff5ea6b7a0fda6219b3f4afd66313b4d86f1dbf",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/backgrounds/act-01/bg-act1-willow-roots.webp",
+        "dimensions": "1600x900",
+        "byteLength": 497986,
+        "sha256": "d48cf6d391809bebce8f5cc7bfc59afd97e87d501a44d915a85445aafb96ce69",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "bg_act1_overflow_weir",
+      "prompt": "Wide 16:9 Visual Novel background from a low 45cm perspective: an old stone-and-timber overflow weir at the boundary between a natural reed pond (left side) and a large concrete storm-drain sluice gate leading toward the city (right side) as twilight wind ripples the water. Swirling mist and dramatic twilight rim light, flat stepping stones on left and right for stage blocking, calm dark water in the lower 28% safe zone. Hand-painted storybook style, no characters, no text.\nTechnical and composition contract: render exactly a WIDE 16:9 landscape frame, target 1600x900. Full opaque edge-to-edge scene. Warm hand-painted storybook environment with soft tactile 2D/3D forms, atmospheric depth and a restrained olive, teal, amber palette coherent with JaoKob. Low frog-eye camera around 45cm above the current walking surface. Reserve the lowest 28% of the image as calm LOW-CONTRAST unoccupied surface with subdued detail and no major objects; integrate it naturally, not a blank UI rectangle. Keep usable character staging space toward left and right. No people, no animals, no living characters, no readable text, no lettering, no UI, no frame, no watermark.",
+      "references": [],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-6898f72b-c9f8-41ff-90b4-8e411ceb1eca.png",
+      "nativeDimensions": [
+        1672,
+        941
+      ],
+      "packagedAt": "2026-10-29T06:39:44+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/backgrounds/act-01/versions/v1/bg-act1-overflow-weir.png",
+        "dimensions": "1600x900",
+        "byteLength": 2275394,
+        "sha256": "13cd03f6bf3fb1f9d48cbb7db46ba345c6e6d67227262cca1749507cefa1d526",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/backgrounds/act-01/bg-act1-overflow-weir.webp",
+        "dimensions": "1600x900",
+        "byteLength": 336142,
+        "sha256": "5c1c60109f926800d8c92fb0bacad3cd97ac1a40090ffdf817db932aa61eb994",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "bg_act1_bamboo_home_dusk",
+      "prompt": "Edit only the distant city skyline in this 16:9 JaoKob bamboo-home dusk background. Replace the castle, spires and palace-like silhouette on the horizon with a modest CONTEMPORARY THAI SUBURBAN TOWN: low-rise houses with sloped roofs, a few plain rectangular apartment blocks, utility poles and scattered warm window lights. No castle, cathedral, European spires or landmark. Preserve every other aspect: giant bamboo, miniature woven frog homes, warm hanging lanterns, pond, stormy dusk sky, low frog-eye view and calm dark foreground lower 28%. No characters, text or UI. Full opaque 1600x900 wide 16:9 artwork.",
+      "references": [
+        "assets/images/backgrounds/act-01/versions/v1/bg-act1-bamboo-home-dusk.png"
+      ],
+      "revisionReason": "Replace castle-like distant skyline with contemporary Thai suburban town",
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-887e489e-d50d-4419-9eda-a842f63621bb.png",
+      "nativeDimensions": [
+        1672,
+        941
+      ],
+      "packagedAt": "2026-10-29T06:42:07+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/backgrounds/act-01/versions/v1/bg-act1-bamboo-home-dusk.png",
+        "dimensions": "1600x900",
+        "byteLength": 2086074,
+        "sha256": "a15f146b21233170fdcadeadba334cf634ee635b2f66b14f6a6bc67dfc28c8b4",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/backgrounds/act-01/bg-act1-bamboo-home-dusk.webp",
+        "dimensions": "1600x900",
+        "byteLength": 289408,
+        "sha256": "6d35e673fdb2a444666b1632a6536aba299bc4e40b2d9f1c45d43e6b7fb856ea",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "supersededAttempts": [
+        {
+          "assetId": "bg_act1_bamboo_home_dusk",
+          "prompt": "Wide 16:9 Visual Novel background illustration from a low 45cm perspective: a cozy miniature frog-family shelter nestled beneath a grove of giant green bamboo stalks beside a reed pond at dusk. Warm amber firefly lanterns hang from woven reed arches, while in the far distance above the horizon, deep indigo storm clouds gather over a distant city skyline. Clear bamboo-terrace staging areas on the left and right, soft shadowed foreground in the lower 28% for text readability. Rich painted storybook lighting, no characters, no text.\nTechnical and composition contract: render exactly a WIDE 16:9 landscape frame, target 1600x900. Full opaque edge-to-edge scene. Warm hand-painted storybook environment with soft tactile 2D/3D forms, atmospheric depth and a restrained olive, teal, amber palette coherent with JaoKob. Low frog-eye camera around 45cm above the current walking surface. Reserve the lowest 28% of the image as calm LOW-CONTRAST unoccupied surface with subdued detail and no major objects; integrate it naturally, not a blank UI rectangle. Keep usable character staging space toward left and right. No people, no animals, no living characters, no readable text, no lettering, no UI, no frame, no watermark.",
+          "references": [],
+          "tool": "image_gen.imagegen",
+          "generatedSourceFile": "exec-ce973884-7438-45b3-a693-14475575a3e1.png",
+          "nativeDimensions": [
+            1672,
+            941
+          ],
+          "packagedAt": "2026-10-29T06:39:43+07:00",
+          "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+          "master": {
+            "path": "assets/images/backgrounds/act-01/versions/v1/bg-act1-bamboo-home-dusk.png",
+            "dimensions": "1600x900",
+            "byteLength": 2146241,
+            "sha256": "68eb8897239e6958d181082886f22574921be7ee422f9309a83fba91aa85c7e7",
+            "alphaExtrema": [
+              255,
+              255
+            ]
+          },
+          "output": {
+            "path": "assets/images/backgrounds/act-01/bg-act1-bamboo-home-dusk.webp",
+            "dimensions": "1600x900",
+            "byteLength": 305228,
+            "sha256": "1b3dc909215447c355f569ee5440c1271ea7b2403498876acba3d06e0cb8c5d9",
+            "alphaExtrema": [
+              255,
+              255
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "assetId": "bg_act2_echo_culvert",
+      "prompt": "Wide 16:9 Visual Novel background from a low 45cm perspective: the interior of a cavernous brick-and-concrete underground storm culvert with a raised walkway ledge on both sides of a flowing water channel. Shafts of cool teal moonlight and warm amber streetlamp beams pierce down through iron manhole grates above, while tiny glowing golden-green acoustic seeds mark a secret trail along the left brick wall. Calm dark water reflections in the bottom 28%, atmospheric painted storybook lighting, no characters, no text.\nTechnical and composition contract: render exactly a WIDE 16:9 landscape frame, target 1600x900. Full opaque edge-to-edge scene. Warm hand-painted storybook environment with soft tactile 2D/3D forms, atmospheric depth and a restrained olive, teal, amber palette coherent with JaoKob. Low frog-eye camera around 45cm above the current walking surface. Reserve the lowest 28% of the image as calm LOW-CONTRAST unoccupied surface with subdued detail and no major objects; integrate it naturally, not a blank UI rectangle. Keep usable character staging space toward left and right. No people, no animals, no living characters, no readable text, no lettering, no UI, no frame, no watermark.",
+      "references": [],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-8ccb799b-2452-4859-959d-d3f5d87d17c9.png",
+      "nativeDimensions": [
+        1672,
+        941
+      ],
+      "packagedAt": "2026-10-29T06:42:07+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/backgrounds/act-02/versions/v1/bg-act2-echo-culvert.png",
+        "dimensions": "1600x900",
+        "byteLength": 2202728,
+        "sha256": "2e25024969339f71cde81638d6331538442b3ba04651abadab8f7c55596666bc",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/backgrounds/act-02/bg-act2-echo-culvert.webp",
+        "dimensions": "1600x900",
+        "byteLength": 271060,
+        "sha256": "4197ddbefdc24cb3aa6a4b72edbb3b46c5b43e31d9f8ddddd5eaef5a10e18c0b",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "bg_act2_shadow_sluice_chamber",
+      "prompt": "Wide 16:9 Visual Novel background from a low 45cm perspective: a grand circular underground sluice-gate chamber. On the right side stands a comical makeshift \"throne\" built from discarded megaphone cones, bottle caps, and tin cans positioned in front of an angled grate light beam so it casts a huge dramatic shadow onto the wet concrete wall behind it. On the left side is a sturdy iron gear platform with counterweight cables overhead. Painted storybook lighting, no characters, no text.\nTechnical and composition contract: render exactly a WIDE 16:9 landscape frame, target 1600x900. Full opaque edge-to-edge scene. Warm hand-painted storybook environment with soft tactile 2D/3D forms, atmospheric depth and a restrained olive, teal, amber palette coherent with JaoKob. Low frog-eye camera around 45cm above the current walking surface. Reserve the lowest 28% of the image as calm LOW-CONTRAST unoccupied surface with subdued detail and no major objects; integrate it naturally, not a blank UI rectangle. Keep usable character staging space toward left and right. No people, no animals, no living characters, no readable text, no lettering, no UI, no frame, no watermark.",
+      "references": [],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-fe8617b6-41bf-4dee-b6b9-a0cb98559323.png",
+      "nativeDimensions": [
+        1672,
+        941
+      ],
+      "packagedAt": "2026-10-29T06:42:08+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/backgrounds/act-02/versions/v1/bg-act2-shadow-sluice-chamber.png",
+        "dimensions": "1600x900",
+        "byteLength": 2275306,
+        "sha256": "e87483a53cd642d7572f44c1c1c1ed4b94f6d053266e6e12ba02f6a7fd41fbf5",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/backgrounds/act-02/bg-act2-shadow-sluice-chamber.webp",
+        "dimensions": "1600x900",
+        "byteLength": 305540,
+        "sha256": "e76f3d9371aefce4f4180d90e55594482a41d93d7ec50a2cfb458850b12b6334",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "bg_act2_whirlpool_grate",
+      "prompt": "Revise this 16:9 JaoKob drainage-junction background. Keep the brick culvert, iron pipes, bronze sluice gears, old tin shelter on left, teal and amber lighting, and empty raised ledges. Change the MIDGROUND water directly below the central sluice into a CLEAR CIRCULAR WHIRLPOOL spiraling around a partially submerged HORIZONTAL iron drain GRATE, with readable circular foam arcs and a visible depressed vortex center. The dangerous whirlpool belongs in the middle of frame ABOVE the lowest 28%. Preserve the lowest 28% as calm dark low-detail water for dialogue. Low 45cm frog-eye view. No characters, no words, no UI. 1600x900, wide 16:9 opaque artwork.",
+      "references": [
+        "assets/images/backgrounds/act-02/versions/v1/bg-act2-whirlpool-grate.png"
+      ],
+      "revisionReason": "Make the central whirlpool and horizontal trapping grate visually explicit",
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-865fe73f-0373-46b0-b8ed-4a801df717b1.png",
+      "nativeDimensions": [
+        1672,
+        941
+      ],
+      "packagedAt": "2026-10-29T06:47:27+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/backgrounds/act-02/versions/v1/bg-act2-whirlpool-grate.png",
+        "dimensions": "1600x900",
+        "byteLength": 2308479,
+        "sha256": "6d1e062f8a244edebf5693d186ca687a7cfd2b03cf2f42487547e55d72290a6d",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/backgrounds/act-02/bg-act2-whirlpool-grate.webp",
+        "dimensions": "1600x900",
+        "byteLength": 336358,
+        "sha256": "db752471213a1a40991163cd3aa4e8f4109d7c7cfe21de91b0b4260f8f69d83f",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "supersededAttempts": [
+        {
+          "assetId": "bg_act2_whirlpool_grate",
+          "prompt": "Wide 16:9 Visual Novel background from a low 45cm perspective: a dramatic underground drainage junction where rushing rainwater swirls around a heavy iron grate and rusted brass sluice gears. Acoustic iron pipes run along the walls, and an old vintage tin-can shelter sits wedged near the stone ledge. High-contrast cinematic teal and warm bronze lighting, clear ledges on left and right for sprites, dark calm shadow gradient in the lower 28% for text readability, no characters, no text.\nTechnical and composition contract: render exactly a WIDE 16:9 landscape frame, target 1600x900. Full opaque edge-to-edge scene. Warm hand-painted storybook environment with soft tactile 2D/3D forms, atmospheric depth and a restrained olive, teal, amber palette coherent with JaoKob. Low frog-eye camera around 45cm above the current walking surface. Reserve the lowest 28% of the image as calm LOW-CONTRAST unoccupied surface with subdued detail and no major objects; integrate it naturally, not a blank UI rectangle. Keep usable character staging space toward left and right. No people, no animals, no living characters, no readable text, no lettering, no UI, no frame, no watermark.",
+          "references": [],
+          "tool": "image_gen.imagegen",
+          "generatedSourceFile": "exec-ef9c5072-8b90-4769-a703-9608dd02b75e.png",
+          "nativeDimensions": [
+            1672,
+            941
+          ],
+          "packagedAt": "2026-10-29T06:42:08+07:00",
+          "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+          "master": {
+            "path": "assets/images/backgrounds/act-02/versions/v1/bg-act2-whirlpool-grate.png",
+            "dimensions": "1600x900",
+            "byteLength": 2309543,
+            "sha256": "9b5bf0605f50541e4171cbe6a0521ac08fb0b3dd5b826578cbfa37bb73c877ee",
+            "alphaExtrema": [
+              255,
+              255
+            ]
+          },
+          "output": {
+            "path": "assets/images/backgrounds/act-02/bg-act2-whirlpool-grate.webp",
+            "dimensions": "1600x900",
+            "byteLength": 342444,
+            "sha256": "1db4859e9854fc2c710aad5e1972acca78248dbcbf4f6779a4ff5892f0a76bc9",
+            "alphaExtrema": [
+              255,
+              255
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "assetId": "bg_act3_blackout_street_cart",
+      "prompt": "Wide 16:9 Visual Novel background from a low 45cm ground-level perspective: looking out from beneath a cozy wooden street-vendor cart onto a rain-lashed Thai suburban sidewalk during a power blackout. Power lines overhead are dark, while warm yellow car headlights and a small glass medicine bottle resting near a curb drain grate reflect in the shimmering rainwater puddles. Warm vs cool cinematic rain atmosphere, calm dark wet asphalt in the lower 28%, no characters, no text.\nTechnical and composition contract: render exactly a WIDE 16:9 landscape frame, target 1600x900. Full opaque edge-to-edge scene. Warm hand-painted storybook environment with soft tactile 2D/3D forms, atmospheric depth and a restrained olive, teal, amber palette coherent with JaoKob. Low frog-eye camera around 45cm above the current walking surface. Reserve the lowest 28% of the image as calm LOW-CONTRAST unoccupied surface with subdued detail and no major objects; integrate it naturally, not a blank UI rectangle. Keep usable character staging space toward left and right. No people, no animals, no living characters, no readable text, no lettering, no UI, no frame, no watermark. Contemporary Thai suburban neighborhood: ordinary low-rise buildings, tiled sloped roofs, utility poles; no fantasy castles or European cathedral skyline. Blackout: street lamps and shop signs are dark; only specified emergency light/car headlights are lit.",
+      "references": [],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-2155aec3-a850-4f82-94f4-f67d45891d67.png",
+      "nativeDimensions": [
+        1672,
+        941
+      ],
+      "packagedAt": "2026-10-29T06:47:27+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/backgrounds/act-03/versions/v1/bg-act3-blackout-street-cart.png",
+        "dimensions": "1600x900",
+        "byteLength": 2202047,
+        "sha256": "e1940b4de8037968aed7af09a8cde5763e4ee9e6b7a1c74b26c5c7dcf2ac0e0f",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/backgrounds/act-03/bg-act3-blackout-street-cart.webp",
+        "dimensions": "1600x900",
+        "byteLength": 304748,
+        "sha256": "0fe25a0c3a34a126ab5b69ec4a298a2d14b975bbdb30d42cc98b4e50f4face3c",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "bg_act3_flooded_footbridge",
+      "prompt": "Wide 16:9 Visual Novel background from a low 45cm perspective: a wooden pedestrian footbridge over a swollen suburban canal in the pouring rain at night. A glowing red emergency warning flare sits near a wooden barrier on the wet planks, casting warm crimson-and-gold reflections across the rain-slicked wood. Storybook painterly realism, clear staging lanes on left and right, no characters, no text.\nTechnical and composition contract: render exactly a WIDE 16:9 landscape frame, target 1600x900. Full opaque edge-to-edge scene. Warm hand-painted storybook environment with soft tactile 2D/3D forms, atmospheric depth and a restrained olive, teal, amber palette coherent with JaoKob. Low frog-eye camera around 45cm above the current walking surface. Reserve the lowest 28% of the image as calm LOW-CONTRAST unoccupied surface with subdued detail and no major objects; integrate it naturally, not a blank UI rectangle. Keep usable character staging space toward left and right. No people, no animals, no living characters, no readable text, no lettering, no UI, no frame, no watermark. Contemporary Thai suburban neighborhood: ordinary low-rise buildings, tiled sloped roofs, utility poles; no fantasy castles or European cathedral skyline. Blackout: street lamps and shop signs are dark; only specified emergency light/car headlights are lit.",
+      "references": [],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-3ad1c565-55d2-4ee4-9c6b-6b46a332d316.png",
+      "nativeDimensions": [
+        1672,
+        941
+      ],
+      "packagedAt": "2026-10-29T06:47:28+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/backgrounds/act-03/versions/v1/bg-act3-flooded-footbridge.png",
+        "dimensions": "1600x900",
+        "byteLength": 2249242,
+        "sha256": "ccb4c542758fd94109cc5b9d503fd13ef69642f5fa5eb49d7e789e82d57f83cf",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/backgrounds/act-03/bg-act3-flooded-footbridge.webp",
+        "dimensions": "1600x900",
+        "byteLength": 312424,
+        "sha256": "24ebe469bf15045f11453ecefbc3f557cbdaa34cb73438e888a01a92d7eae38e",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "bg_act3_wayside_shelter_teuk",
+      "prompt": "Wide 16:9 Visual Novel background from a low 45cm perspective: a small wooden Thai wayside bus shelter in the middle of a heavy night rainstorm. Beyond the shelter, a fallen banyan tree branch and rushing floodwater block the main road, while at the far end of a dark quiet alley stands a two-story cream-roofed house with a dimly lit second-floor bedroom window. Inside the shelter, a warm emergency lantern glows softly. Emotional cinematic storybook lighting, no characters, no text.\nTechnical and composition contract: render exactly a WIDE 16:9 landscape frame, target 1600x900. Full opaque edge-to-edge scene. Warm hand-painted storybook environment with soft tactile 2D/3D forms, atmospheric depth and a restrained olive, teal, amber palette coherent with JaoKob. Low frog-eye camera around 45cm above the current walking surface. Reserve the lowest 28% of the image as calm LOW-CONTRAST unoccupied surface with subdued detail and no major objects; integrate it naturally, not a blank UI rectangle. Keep usable character staging space toward left and right. No people, no animals, no living characters, no readable text, no lettering, no UI, no frame, no watermark. Contemporary Thai suburban neighborhood: ordinary low-rise buildings, tiled sloped roofs, utility poles; no fantasy castles or European cathedral skyline. Blackout: street lamps and shop signs are dark; only specified emergency light/car headlights are lit.",
+      "references": [],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-b1ef1070-bcc2-4cb8-afba-c45e1aec84ba.png",
+      "nativeDimensions": [
+        1672,
+        940
+      ],
+      "packagedAt": "2026-10-29T06:47:28+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/backgrounds/act-03/versions/v1/bg-act3-wayside-shelter-teuk.png",
+        "dimensions": "1600x900",
+        "byteLength": 2365256,
+        "sha256": "d015ff961a67644de0953bdcc38b2747c6915fbe51901f1ed1773331318e93ab",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/backgrounds/act-03/bg-act3-wayside-shelter-teuk.webp",
+        "dimensions": "1600x900",
+        "byteLength": 352084,
+        "sha256": "eba049398e2f600ffcb041172f9e630783f24d3baf0ea844b8ddfd5fbb0680e2",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "bg_act4_garden_brick_wall",
+      "prompt": "Wide 16:9 Visual Novel background from a low 45cm perspective: the base of a towering moss-covered red brick garden wall in a stormy night garden. Climbing ivy vines and a taut metal clothesline cable lead upward toward the top of the wall, while a round brass-rimmed garden drain pipe opens at the bottom right corner. Dramatic storm wind and silver-blue rain streaks, warm window glow high above, no characters, no text.\nTechnical and composition contract: render exactly a WIDE 16:9 landscape frame, target 1600x900. Full opaque edge-to-edge scene. Warm hand-painted storybook environment with soft tactile 2D/3D forms, atmospheric depth and a restrained olive, teal, amber palette coherent with JaoKob. Low frog-eye camera around 45cm above the current walking surface. Reserve the lowest 28% of the image as calm LOW-CONTRAST unoccupied surface with subdued detail and no major objects; integrate it naturally, not a blank UI rectangle. Keep usable character staging space toward left and right. No people, no animals, no living characters, no readable text, no lettering, no UI, no frame, no watermark.\nArchitecture continuity: a modest contemporary Thai town and home, simple low-rise buildings, tropical plants and utility poles where relevant; no European castle or medieval architecture. Keep all staging props above the calm bottom 28%.",
+      "references": [],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-d8feba65-464a-47d6-b741-1a3e39e29203.png",
+      "nativeDimensions": [
+        1672,
+        940
+      ],
+      "packagedAt": "2026-10-29T06:49:57+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/backgrounds/act-04/versions/v1/bg-act4-garden-brick-wall.png",
+        "dimensions": "1600x900",
+        "byteLength": 2583344,
+        "sha256": "bfe7a110b9c196cfa68a75186962848f02713a85522d1ea10eefa212afbcc60f",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/backgrounds/act-04/bg-act4-garden-brick-wall.webp",
+        "dimensions": "1600x900",
+        "byteLength": 423168,
+        "sha256": "f4f725528822862dfc3b93c66909ad7079b9e11c233bd91e3d7a95b929c7a2af",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "bg_act5_bedside_table_night",
+      "prompt": "Wide 16:9 Visual Novel background from a 45cm tabletop perspective inside a cozy young woman's bedroom during a rainy night power outage: on the wooden bedside table sits a warm battery-powered desk lamp, a small framed photo of a couple on a wooden bridge, a sewing basket, and an unfinished plain cream-cloth frog doll core without a shirt. In the soft background, a bed with a pastel blanket is visible while raindrops streak the window glass. Intimate, deeply emotional storybook lighting, no living characters, no text.\nTechnical and composition contract: render exactly a WIDE 16:9 landscape frame, target 1600x900. Full opaque edge-to-edge scene. Warm hand-painted storybook environment with soft tactile 2D/3D forms, atmospheric depth and a restrained olive, teal, amber palette coherent with JaoKob. Low frog-eye camera around 45cm above the current walking surface. Reserve the lowest 28% of the image as calm LOW-CONTRAST unoccupied surface with subdued detail and no major objects; integrate it naturally, not a blank UI rectangle. Keep usable character staging space toward left and right. No people, no animals, no living characters, no readable text, no lettering, no UI, no frame, no watermark. The framed keepsake photo is a tiny blurred inanimate prop, not readable portraits; the unfinished cream cloth frog core is a small inanimate sewing object, not a living character.\nArchitecture continuity: a modest contemporary Thai town and home, simple low-rise buildings, tropical plants and utility poles where relevant; no European castle or medieval architecture. Keep all staging props above the calm bottom 28%.",
+      "references": [],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-4766afc7-932e-42a3-95d4-a21d0d1b704e.png",
+      "nativeDimensions": [
+        1672,
+        941
+      ],
+      "packagedAt": "2026-10-29T06:49:58+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/backgrounds/act-05/versions/v1/bg-act5-bedside-table-night.png",
+        "dimensions": "1600x900",
+        "byteLength": 1821006,
+        "sha256": "0a64c44ac09d89da0e486d41c859687126188cf11c76c01deae1d662aa640fdd",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/backgrounds/act-05/bg-act5-bedside-table-night.webp",
+        "dimensions": "1600x900",
+        "byteLength": 175880,
+        "sha256": "ad3a1e843a3cd5af16ef395a846fd39c1781283c512c959a231614ec9dff35bd",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "bg_act5_pond_homecoming_dawn",
+      "prompt": "Wide 16:9 Visual Novel background from a 45cm frog-eye perspective: the Whispering Reed Pond and bamboo grove bathed in glorious golden morning sunlight after a storm, with a faint rainbow arching over the distant city skyline, blooming pink lotus flowers, and sparkling calm water in the lower 28% reading zone. Warm celebratory storybook painting, no characters, no text.\nTechnical and composition contract: render exactly a WIDE 16:9 landscape frame, target 1600x900. Full opaque edge-to-edge scene. Warm hand-painted storybook environment with soft tactile 2D/3D forms, atmospheric depth and a restrained olive, teal, amber palette coherent with JaoKob. Low frog-eye camera around 45cm above the current walking surface. Reserve the lowest 28% of the image as calm LOW-CONTRAST unoccupied surface with subdued detail and no major objects; integrate it naturally, not a blank UI rectangle. Keep usable character staging space toward left and right. No people, no animals, no living characters, no readable text, no lettering, no UI, no frame, no watermark.\nArchitecture continuity: a modest contemporary Thai town and home, simple low-rise buildings, tropical plants and utility poles where relevant; no European castle or medieval architecture. Keep all staging props above the calm bottom 28%.",
+      "references": [],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-102d62d7-f13d-4aeb-883e-30ee8c3a42db.png",
+      "nativeDimensions": [
+        1672,
+        941
+      ],
+      "packagedAt": "2026-10-29T06:49:59+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/backgrounds/act-05/versions/v1/bg-act5-pond-homecoming-dawn.png",
+        "dimensions": "1600x900",
+        "byteLength": 2439157,
+        "sha256": "441389f6962e114bc802d0b2b8146f2d9b8c47b9c7edc2a2157e9c82f13dc8c4",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/backgrounds/act-05/bg-act5-pond-homecoming-dawn.webp",
+        "dimensions": "1600x900",
+        "byteLength": 375654,
+        "sha256": "8a61e006b4e86786ab8f03f4feb32973515020fd95221e5fd1531b9e5391dea2",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "bg_act5_shadow_duel_wall",
+      "prompt": "Wide 16:9 Visual Novel background inside a dark bedroom illuminated by a single focused warm beam from a bedside desk lamp on the left pointing toward the wide bedroom wall above the bed on the right, creating a dramatic shadow-theater projection stage across the wall. Rain outside the open window, dramatic golden light beam cutting through the dark room, calm dark wooden table surface in the lower 28% safe zone, no characters, no text.\nTechnical and composition contract: render exactly a WIDE 16:9 landscape frame, target 1600x900. Full opaque edge-to-edge scene. Warm hand-painted storybook environment with soft tactile 2D/3D forms, atmospheric depth and a restrained olive, teal, amber palette coherent with JaoKob. Low frog-eye camera around 45cm above the current walking surface. Reserve the lowest 28% of the image as calm LOW-CONTRAST unoccupied surface with subdued detail and no major objects; integrate it naturally, not a blank UI rectangle. Keep usable character staging space toward left and right. No people, no animals, no living characters, no readable text, no lettering, no UI, no frame, no watermark.\nUse the supplied room as the location and material continuity reference: warm wood, cream bedding, sage-and-pale-pink textile accents, same modest contemporary Thai home. Recompose to the requested camera view. No living characters, no silhouettes of people, no readable text.",
+      "references": [
+        "assets/images/backgrounds/act-05/versions/v1/bg-act5-bedside-table-night.png"
+      ],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-a103b4cf-461e-43f7-b5ac-5ea9e3dde1ab.png",
+      "nativeDimensions": [
+        1672,
+        941
+      ],
+      "packagedAt": "2026-10-29T06:51:54+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/backgrounds/act-05/versions/v1/bg-act5-shadow-duel-wall.png",
+        "dimensions": "1600x900",
+        "byteLength": 1801104,
+        "sha256": "cadd9b13b4d0738aebbea948c5b972fbf3796aac199a4aae724e565d1ab83c2e",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/backgrounds/act-05/bg-act5-shadow-duel-wall.webp",
+        "dimensions": "1600x900",
+        "byteLength": 160618,
+        "sha256": "14e1a48f747992d2166b8e415efb4a78a1dfdad4711df5e0ae3214ba09b21ea5",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "bg_act5_bedroom_golden_dawn",
+      "prompt": "Wide 16:9 Visual Novel background: the same cozy bedroom after the storm has passed at sunrise. Radiant golden-pink morning sunlight streams through the open bedroom window, sparkling on fresh raindrops on the windowsill and filling the soft cream-and-sky-blue bedding with breathtaking warmth and peace. A clear windowsill on the right and soft bed pillow area on the left, painted storybook masterpiece quality, no characters, no text.\nTechnical and composition contract: render exactly a WIDE 16:9 landscape frame, target 1600x900. Full opaque edge-to-edge scene. Warm hand-painted storybook environment with soft tactile 2D/3D forms, atmospheric depth and a restrained olive, teal, amber palette coherent with JaoKob. Low frog-eye camera around 45cm above the current walking surface. Reserve the lowest 28% of the image as calm LOW-CONTRAST unoccupied surface with subdued detail and no major objects; integrate it naturally, not a blank UI rectangle. Keep usable character staging space toward left and right. No people, no animals, no living characters, no readable text, no lettering, no UI, no frame, no watermark.\nUse the supplied room as the location and material continuity reference: warm wood, cream bedding, sage-and-pale-pink textile accents, same modest contemporary Thai home. Recompose to the requested camera view. No living characters, no silhouettes of people, no readable text.",
+      "references": [
+        "assets/images/backgrounds/act-05/versions/v1/bg-act5-bedside-table-night.png"
+      ],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-46ff7149-017b-4489-9428-7a5fbfaf2851.png",
+      "nativeDimensions": [
+        1672,
+        941
+      ],
+      "packagedAt": "2026-10-29T06:51:55+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/backgrounds/act-05/versions/v1/bg-act5-bedroom-golden-dawn.png",
+        "dimensions": "1600x900",
+        "byteLength": 2081107,
+        "sha256": "71ad83b8fd602b2d50d6145e09a56497ae8d5b8d1fbeebfda18e42108e1fbac4",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/backgrounds/act-05/bg-act5-bedroom-golden-dawn.webp",
+        "dimensions": "1600x900",
+        "byteLength": 246824,
+        "sha256": "cf58d778b7a1b5df575a0fd6a64a2b9d8f9020bd40f6de292cc3c29446632e5e",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "bg_act4_parapet_storm_abyss",
+      "prompt": "Edit this exact 16:9 garden-parapet background, preserving the layout, wet brick parapet, tropical vines, utility poles, house and second-floor bedroom window. Change the sunset-orange horizon and sky to dark midnight blue-gray storm clouds lit only by a cool silver lightning flash. This scene is a night power outage: all distant homes and garden lights are dark, only a small dim warm battery lamp glows inside the bedroom window on the right. Keep the 12-meter chasm between left parapet and right bedroom visibly open. Keep the bottom 28% a low-contrast gently blurred brick surface. Painterly tactile storybook rendering. No people, no animals, no text, no UI, opaque full canvas. Output 1600x900.",
+      "references": [
+        "assets/images/backgrounds/act-04/versions/v1/bg-act4-parapet-storm-abyss.png"
+      ],
+      "revisionReason": "Replace sunset horizon with storm-night lighting consistent with Act 4 blackout.",
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-2645d34a-c5b2-44ff-8249-057421305600.png",
+      "nativeDimensions": [
+        1672,
+        941
+      ],
+      "packagedAt": "2026-10-29T06:51:55+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/backgrounds/act-04/versions/v1/bg-act4-parapet-storm-abyss.png",
+        "dimensions": "1600x900",
+        "byteLength": 2231787,
+        "sha256": "78285fae2ad58a83c0ea701d881d45512c70811f0c647995b888a19f89fd2791",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/backgrounds/act-04/bg-act4-parapet-storm-abyss.webp",
+        "dimensions": "1600x900",
+        "byteLength": 296908,
+        "sha256": "cf1715ce7a1efc99cdbdf90a9b03838cbe503959d95ed12a78a27a008d9d6528",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "supersededAttempts": [
+        {
+          "assetId": "bg_act4_parapet_storm_abyss",
+          "prompt": "Wide 16:9 Visual Novel background from a dynamic elevated perspective on top of a wet brick garden parapet: looking across a 12-meter wind-swept garden gap toward the second-floor bedroom window of a cozy house. Warm golden light flickers dimly inside that distant window, while lightning illuminates swirling autumn leaves and rain across the gap between the wall (left foreground) and the windowsill (right midground). Epic cinematic storybook atmosphere, no characters, no text.\nTechnical and composition contract: render exactly a WIDE 16:9 landscape frame, target 1600x900. Full opaque edge-to-edge scene. Warm hand-painted storybook environment with soft tactile 2D/3D forms, atmospheric depth and a restrained olive, teal, amber palette coherent with JaoKob. Low frog-eye camera around 45cm above the current walking surface. Reserve the lowest 28% of the image as calm LOW-CONTRAST unoccupied surface with subdued detail and no major objects; integrate it naturally, not a blank UI rectangle. Keep usable character staging space toward left and right. No people, no animals, no living characters, no readable text, no lettering, no UI, no frame, no watermark.\nArchitecture continuity: a modest contemporary Thai town and home, simple low-rise buildings, tropical plants and utility poles where relevant; no European castle or medieval architecture. Keep all staging props above the calm bottom 28%.",
+          "references": [],
+          "tool": "image_gen.imagegen",
+          "generatedSourceFile": "exec-f493e851-f55a-462a-bb19-7c80d658293e.png",
+          "nativeDimensions": [
+            1672,
+            941
+          ],
+          "packagedAt": "2026-10-29T06:49:58+07:00",
+          "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+          "master": {
+            "path": "assets/images/backgrounds/act-04/versions/v1/bg-act4-parapet-storm-abyss.png",
+            "dimensions": "1600x900",
+            "byteLength": 2381538,
+            "sha256": "5e46820d931c5e7ab6e0fe5e82b1998135c125ea2adfe1bfb388f6fd58b3ff88",
+            "alphaExtrema": [
+              255,
+              255
+            ]
+          },
+          "output": {
+            "path": "assets/images/backgrounds/act-04/bg-act4-parapet-storm-abyss.webp",
+            "dimensions": "1600x900",
+            "byteLength": 353290,
+            "sha256": "f01fcef330cc9011777a61baf073a79fd57d627e2e71de60205c9c91bec09d30",
+            "alphaExtrema": [
+              255,
+              255
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "assetId": "char_jao_kob_childhood_neutral",
+      "prompt": "Make a precise minimal edit to this exact transparent character sprite. Preserve the character's face, green color, lips, eyes, pose, anatomy, clothing, proportions, framing, pouch if present, light and shadow exactly. Replace ONLY the tiny white thread mark at the lower right hem of his sky-blue t-shirt with a tiny THREE-POINT star sewn from exactly three short white thread rays that meet at one center, like a simple Y: one ray up, one down-left, one down-right. It is a tiny white embroidered three-armed sparkle, no printed alphabet letter, no X, no fourth ray, no separate parallel stitches. All other pixels and details should remain visually unchanged. Empty hands, no heart. Real alpha transparent background, no added floor or drop shadow. Square 1024x1024 sprite.",
+      "references": [
+        "assets/images/characters/jao-kob/versions/v1/childhood-neutral.png"
+      ],
+      "revisionReason": "Unify the tiny white three-stitch hem star across Jao Kob sprite variants.",
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-58c93e79-4c34-4d5b-a6ab-24253bd64dcb.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T06:54:24+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/characters/jao-kob/versions/v1/childhood-neutral.png",
+        "dimensions": "1024x1024",
+        "byteLength": 743434,
+        "sha256": "cb487dc7a3e9c85bde6c47c7af43358256500dc436560b8a320929cf24292ae3",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/characters/jao-kob/childhood-neutral.webp",
+        "dimensions": "1024x1024",
+        "byteLength": 88904,
+        "sha256": "5167c40299a5d9311f3900342e0fbcaec41787ca6703ae1bf8d2130b0ff9aa87",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "supersededAttempts": [
+        {
+          "assetId": "char_jao_kob_childhood_neutral",
+          "prompt": "Use case: stylized-concept. Asset type: JaoKob visual novel character sprite, childhood-neutral, v1, 1024x1024 square.\nCreate one full-body character sprite using the supplied 3D renders as exact identity and proportions references. Transform the simple render into a polished warm 2D/3D hybrid painted storybook sprite. Preserve the distinctive rounded frog head, enormous raised eye globes with white sclera and dark pupils, chubby cheeks, broad coral smiling mouth, short round body, simple rounded green fingers and toes. Soft pastel olive-green living skin, pale yellow belly, NOT plush or crochet.\nA small cute bipedal baby frog, wide innocent glossy dark eyes with bright catchlights, NO half-closed adult eyelids. Slightly oversized pastel sky-blue crew-neck cotton T-shirt, with a tiny irregular three-point WHITE thread stitch near the bottom hem. Relaxed seated pose in 3/4 view turned toward the RIGHT edge of the image, empty hands resting naturally at sides. No props, NO red heart, no pouch for childhood. Full body centered with 8% transparent margin on every side, clean readable silhouette, softly tactile painterly light, warm colors. Actual transparent alpha background, no floor, no cast shadow backdrop, no lettering, labels, UI, frame or watermark. One character only.",
+          "references": [
+            "docs/proposals/3d-keepsake-spike/renders/childhood/poster.jpg",
+            "docs/proposals/3d-keepsake-spike/renders/childhood/front.png"
+          ],
+          "tool": "image_gen.imagegen",
+          "generatedSourceFile": "exec-5cc168bb-2283-48d9-8fc8-bdda716b2066.png",
+          "nativeDimensions": [
+            1254,
+            1254
+          ],
+          "packagedAt": "2026-10-29T06:08:34+07:00",
+          "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+          "master": {
+            "path": "assets/images/characters/jao-kob/versions/v1/childhood-neutral.png",
+            "dimensions": "1024x1024",
+            "byteLength": 756937,
+            "sha256": "4c85a40cc647426f1f06bc978b434f2168380f56e500597319f36add643d8568",
+            "alphaExtrema": [
+              0,
+              255
+            ]
+          },
+          "output": {
+            "path": "assets/images/characters/jao-kob/childhood-neutral.webp",
+            "dimensions": "1024x1024",
+            "byteLength": 93844,
+            "sha256": "38be1eafb54eae7b0232d833e75ab649395d067f8746eb5c752a688c7086b8b4",
+            "alphaExtrema": [
+              0,
+              255
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "assetId": "char_jao_kob_adult_neutral",
+      "prompt": "Make a precise minimal edit to this exact transparent character sprite. Preserve the character's face, green color, lips, eyes, pose, anatomy, clothing, proportions, framing, pouch if present, light and shadow exactly. Replace ONLY the tiny white thread mark at the lower right hem of his sky-blue t-shirt with a tiny THREE-POINT star sewn from exactly three short white thread rays that meet at one center, like a simple Y: one ray up, one down-left, one down-right. It is a tiny white embroidered three-armed sparkle, no printed alphabet letter, no X, no fourth ray, no separate parallel stitches. All other pixels and details should remain visually unchanged. Empty hands, no heart. Real alpha transparent background, no added floor or drop shadow. Square 1024x1024 sprite.",
+      "references": [
+        "assets/images/characters/jao-kob/versions/v1/adult-neutral.png"
+      ],
+      "revisionReason": "Unify the tiny white three-stitch hem star across Jao Kob sprite variants.",
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-874545cc-e6ec-4b70-a432-3d3503c53d3d.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T06:54:27+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/characters/jao-kob/versions/v1/adult-neutral.png",
+        "dimensions": "1024x1024",
+        "byteLength": 579235,
+        "sha256": "7a0bfd0d97018495a7b11c12e36abe8a6cd8460d2abafcb499bad31e00ddf95b",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/characters/jao-kob/adult-neutral.webp",
+        "dimensions": "1024x1024",
+        "byteLength": 86268,
+        "sha256": "6009202b142832deada81a46e17a563e73f764e0033ba97c1542426880b78d8c",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "supersededAttempts": [
+        {
+          "assetId": "char_jao_kob_adult_neutral",
+          "prompt": "Create one adult-neutral Jao Kob visual novel sprite, 1024x1024 square, on real transparent alpha background. Transform these exact 3D character references into a polished warm 2D/3D hybrid painted storybook sprite. Preserve the broad rounded adult frog face, prominent raised round eye globes with green upper eyelids relaxed halfway down, dark pupils in white sclera, broad pale-peach lips, warm pastel olive-green skin. He is a LIVING 45cm young adult bipedal frog, not a plush toy; NO crochet texture or seams on his skin. STANDING full body in a relaxed calm 3/4 view facing RIGHT, hands empty at sides, composed warm dependable smile. Signature sky-blue #5DA9E9 crew-neck cotton T-shirt with tiny WHITE three-point hand-stitched Y-shaped star knot at the bottom hem. A small woven reed pouch with exactly FOUR visible compartments strapped across his hip. Simple rounded finger and toe shapes like reference, gentle pale yellow belly under shirt, tactile painterly lighting. No red heart, no text, labels, UI, floor or watermark. Entire character in frame with 8% transparent margins.",
+          "references": [
+            "docs/proposals/3d-keepsake-spike/renders/front.png",
+            "docs/proposals/3d-keepsake-spike/renders/three-quarter.png"
+          ],
+          "tool": "image_gen.imagegen",
+          "generatedSourceFile": "exec-78c5e8e1-c9aa-462a-b206-ecf05ad6e755.png",
+          "nativeDimensions": [
+            1254,
+            1254
+          ],
+          "packagedAt": "2026-10-29T06:08:42+07:00",
+          "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+          "master": {
+            "path": "assets/images/characters/jao-kob/versions/v1/adult-neutral.png",
+            "dimensions": "1024x1024",
+            "byteLength": 601926,
+            "sha256": "25ed107c6a57daefab7ce5f392cc154a8d27d231fc568cd2947775deac7ceea0",
+            "alphaExtrema": [
+              0,
+              255
+            ]
+          },
+          "output": {
+            "path": "assets/images/characters/jao-kob/adult-neutral.webp",
+            "dimensions": "1024x1024",
+            "byteLength": 92460,
+            "sha256": "e8d26da878f2bb0b5c6cf555a5a9d87fd3febfb002fdddc74e889374e8f22a0f",
+            "alphaExtrema": [
+              0,
+              255
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "assetId": "char_jao_kob_adult_determined",
+      "prompt": "Make a precise minimal edit to this exact transparent character sprite. Preserve the character's face, green color, lips, eyes, pose, anatomy, clothing, proportions, framing, pouch if present, light and shadow exactly. Replace ONLY the tiny white thread mark at the lower right hem of his sky-blue t-shirt with a tiny THREE-POINT star sewn from exactly three short white thread rays that meet at one center, like a simple Y: one ray up, one down-left, one down-right. It is a tiny white embroidered three-armed sparkle, no printed alphabet letter, no X, no fourth ray, no separate parallel stitches. All other pixels and details should remain visually unchanged. Empty hands, no heart. Real alpha transparent background, no added floor or drop shadow. Square 1024x1024 sprite.",
+      "references": [
+        "assets/images/characters/jao-kob/versions/v1/adult-determined.png"
+      ],
+      "revisionReason": "Unify the tiny white three-stitch hem star across Jao Kob sprite variants.",
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-206bbe96-f7e8-47eb-8199-4bc6828c3170.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T06:54:31+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/characters/jao-kob/versions/v1/adult-determined.png",
+        "dimensions": "1024x1024",
+        "byteLength": 679110,
+        "sha256": "633e9afc6668db1dbe371acaffc564ca634289453e13482eb9e98c16412dc673",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/characters/jao-kob/adult-determined.webp",
+        "dimensions": "1024x1024",
+        "byteLength": 104340,
+        "sha256": "059852f7de8bbb3074b2eae237984dc4a891ed9429bc7aab50d03cb495c27be1",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "supersededAttempts": [
+        {
+          "assetId": "char_jao_kob_adult_determined",
+          "prompt": "Make the adult-determined full-body sprite of Jao Kob. Reference 1 defines exact ADULT frog identity, living olive-green skin, relaxed green upper eyelids, peach lips, signature blue crew-neck cotton shirt and small woven FOUR-compartment reed pouch. Reference 2 ONLY shows the tiny white Y-shaped three-point star stitch at the hem. New pose: standing 3/4 facing RIGHT, feet planted wider in a brave ready-to-act stance, leaning forward slightly, subtle determined furrow above calm eyes, hands empty and loosely clenched beside hips. Preserve the warm dependable face and adult body. No heart, no weapons. Asset: one polished 2D/3D hybrid warm painted storybook visual novel sprite; rich tactile lighting consistent with reference. 1024x1024 square, full silhouette entirely in frame, comfortable transparent margin all around. ACTUAL transparent alpha background, no floor, no backdrop, no frame, no UI, no lettering, no watermark.",
+          "references": [
+            "assets/images/characters/jao-kob/versions/v1/adult-neutral.png",
+            "assets/images/characters/jao-kob/versions/v1/childhood-curious.png"
+          ],
+          "tool": "image_gen.imagegen",
+          "generatedSourceFile": "exec-3304b929-4230-4641-b295-274f3129fa66.png",
+          "nativeDimensions": [
+            1254,
+            1254
+          ],
+          "packagedAt": "2026-10-29T06:12:54+07:00",
+          "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+          "master": {
+            "path": "assets/images/characters/jao-kob/versions/v1/adult-determined.png",
+            "dimensions": "1024x1024",
+            "byteLength": 700547,
+            "sha256": "177c9370f647e4294501368c052751d99888b4ff0c6af3906de615fb6ecf9c27",
+            "alphaExtrema": [
+              0,
+              255
+            ]
+          },
+          "output": {
+            "path": "assets/images/characters/jao-kob/adult-determined.webp",
+            "dimensions": "1024x1024",
+            "byteLength": 109792,
+            "sha256": "f2e9130d4750cae2061c7cb145b50bea166ada81868737f73b9fbcb0668bf2aa",
+            "alphaExtrema": [
+              0,
+              255
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "assetId": "cg_act1_three_siblings_blue_shirt",
+      "prompt": "Wide 16:9 cinematic storybook CG illustration: three cute young bipedal frog siblings by the roots of a sunlit weeping willow tree at the edge of a reed pond. In the center, little Jao Kob (wide innocent eyes, wearing a slightly oversized sky-blue crew-neck t-shirt with a tiny white 3-stitch star at the hem, empty hands, NO red heart) stands bravely alongside his older brother Jao Kab (no shirt, woven reed chest strap and bark wrist guards) and younger sister Jao Kib (no shirt, scalloped lotus-leaf collar with a yellow wildflower, holding glowing acoustic seeds). Together on the left, they shine a water-reflection beam that startles a comical purple-black shadow-cloak phantom (\"Cockroach Man\", no insect legs/wings) retreating on the right. Warm magical morning light, no text.\nShow EXACTLY three living frog siblings, standing together in the LEFT half and looking toward ONE harmless shadow-cloak phantom on the RIGHT. Childhood Jao Kob has the enormous round innocent eyes, coral lips, blue shirt and tiny white three-armed hem stitch from reference 1, no pouch. The older brother from reference 2 is taller and bare-chested with reed strap and bark wrist guards, no blue shirt. The younger sister from reference 3 is the smallest, lotus collar with yellow wildflower, bamboo seed tube; no shirt. Both siblings should read as young frogs. Reflection from pond water, guided by the siblings' stance and small bright seeds, makes a luminous ray toward the ghost. Ghost is a purple-black mist blob in an inflated scrap-plastic cape with bottle-cap shoulder pieces, yellow eyes and curling shadow ribbons, absolutely no real insect anatomy. Do not duplicate any sibling.\nUse the supplied images as precise character-design and setting references, reposing them naturally into this NEW single cinematic scene, never make a collage or sprite sheet. Warm tactile painterly 3D-storybook forms and expressive faces coherent with the references. Full opaque widescreen 16:9 composition, target 1600x900. No captions, no readable writing, no logos, no UI, no borders, no red heart prop, no gore. Readable silhouettes and clear spatial relations.",
+      "references": [
+        "assets/images/characters/jao-kob/versions/v1/childhood-curious.png",
+        "assets/images/characters/jao-kab/versions/v1/neutral-proud.png",
+        "assets/images/characters/jao-kib/versions/v1/neutral-cheerful.png",
+        "assets/images/characters/cockroach-man/versions/v1/shadow-cloak-boast.png",
+        "assets/images/backgrounds/act-01/versions/v1/bg-act1-willow-roots.png"
+      ],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-4395e5f9-5f77-49a9-887e-7452cc8b62b1.png",
+      "nativeDimensions": [
+        1672,
+        941
+      ],
+      "packagedAt": "2026-10-29T06:58:14+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/cg/act-01/versions/v1/cg-act1-three-siblings-blue-shirt.png",
+        "dimensions": "1600x900",
+        "byteLength": 2853484,
+        "sha256": "328660649ee4ea8ea3985f6522d146b4467ae98083d89dfda05b14708fd27e6a",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/cg/act-01/cg-act1-three-siblings-blue-shirt.webp",
+        "dimensions": "1600x900",
+        "byteLength": 489808,
+        "sha256": "add225132f43bcef9d4da91831a3e5bb582b3efd68e65cec01f864dc780770f1",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "cg_act2_pkam_whirlpool_rescue",
+      "prompt": "Wide 16:9 cinematic storybook CG illustration: a breathtaking emotional rescue inside a flooded underground storm culvert. Jao Kob (45cm green bipedal frog in his sky-blue crew-neck t-shirt) braces his feet against an iron sluice ledge on the left, gripping with both hands the scarred iron-like pincer of P'Kam (a hermit crab wearing a dented vintage floral tin candy can shell) to pull him up from a roaring whirlpool grate below, while Jao Fiw (a petite gliding squirrel with a yellow neck ribbon) anchors a counterweight cable overhead. Dynamic water spray, dramatic warm-and-teal lighting, deep emotional bond, no text.\nShow EXACTLY three allies. Adult Jao Kob's relaxed green eyelid shape, broad peach lips, blue shirt, tiny white THREE-ray star stitch and four-slot woven pouch must follow reference 1. His body is alive and green, not plush. He is completely ABOVE the water on the LEFT, leaning back with BOTH hands securely wrapped around P'Kam's huge LEFT claw extended upward from lower center. P'Kam is a terracotta HERMIT CRAB, his dented pale cream/blue floral metal candy TIN is the shell, not a seashell; his small right claw is visible near his tin body. Show a clear circular whirlpool drain below, strong rescue line of action and convincing contact between hands and claw. A single cinnamon/cream female flying squirrel with yellow neck ribbon is secured on an upper beam pulling the counterweight cable; no bird wings. No other characters.\nUse the supplied images as precise character-design and setting references, reposing them naturally into this NEW single cinematic scene, never make a collage or sprite sheet. Warm tactile painterly 3D-storybook forms and expressive faces coherent with the references. Full opaque widescreen 16:9 composition, target 1600x900. No captions, no readable writing, no logos, no UI, no borders, no red heart prop, no gore. Readable silhouettes and clear spatial relations.",
+      "references": [
+        "assets/images/characters/jao-kob/versions/v1/adult-determined.png",
+        "assets/images/characters/p-kam/versions/v1/allied-shield.png",
+        "assets/images/characters/jao-fiw/versions/v1/neutral-lively.png",
+        "assets/images/backgrounds/act-02/versions/v1/bg-act2-whirlpool-grate.png"
+      ],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-b8bee135-66a8-495e-8116-f355877ad7f6.png",
+      "nativeDimensions": [
+        1672,
+        941
+      ],
+      "packagedAt": "2026-10-29T06:58:15+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/cg/act-02/versions/v1/cg-act2-pkam-whirlpool-rescue.png",
+        "dimensions": "1600x900",
+        "byteLength": 2694983,
+        "sha256": "12b23d4da5afe6bc05e92536e6302ce0951b5e7704bcaf4b86e32f8dfe4a69ed",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/cg/act-02/cg-act2-pkam-whirlpool-rescue.webp",
+        "dimensions": "1600x900",
+        "byteLength": 430922,
+        "sha256": "cce760f27d3eb992b4cb8122593280d17ca8a3955188f45ed3f9236e76bdbcad",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "cg_act3_teuk_guardian_oath",
+      "prompt": "Wide 16:9 cinematic storybook CG illustration: under a rain-lashed wooden wayside shelter at night during a city blackout, a kind young Thai man (\"Jao Teuk\", wet hair, navy windbreaker, bandaged sprained ankle, broken umbrella beside him) kneels on the right facing left, his eyes filled with tears and hope as he recognizes the sky-blue cotton t-shirt worn by the 45cm living frog \"Jao Kob\" standing on the left. Jao Teuk gently holds out a shiny brass whistle keychain toward Jao Kob under the warm glow of an emergency lantern, while P'Kam and Jao Fiw watch quietly beside Jao Kob. Deeply moving cinematic atmosphere, no text.\nExactly ONE young adult Thai man kneels on the RIGHT facing LEFT and THREE small animal allies gather on the LEFT facing him. The 45cm tall Jao Kob is small beside a kneeling adult human: frog head reaches only the man's lower chest, not his head. Jao Kob wears the reference blue shirt with tiny white three-ray star stitch and four-slot woven pouch, no heart. Teuk has the reference black wavy hair, navy rain jacket and bandaged left ankle; the broken umbrella lies near him. His offered brass whistle is a small CYLINDER on a silver keyring with a blue cord, with anatomically clear fingers. P'Kam's shell is a dented vintage floral TIN and Jao Fiw is a cinnamon/cream flying squirrel with yellow neck ribbon, smaller than the frog. Nighttime blackout, lantern is the only warm light; distant homes dark. No Peuak or extra human.\nUse the supplied images as precise character-design and setting references, reposing them naturally into this NEW single cinematic scene, never make a collage or sprite sheet. Warm tactile painterly 3D-storybook forms and expressive faces coherent with the references. Full opaque widescreen 16:9 composition, target 1600x900. No captions, no readable writing, no logos, no UI, no borders, no red heart prop, no gore. Readable silhouettes and clear spatial relations.",
+      "references": [
+        "assets/images/characters/jao-kob/versions/v1/adult-neutral.png",
+        "assets/images/characters/jao-teuk/versions/v1/storm-kneeling-mission.png",
+        "assets/images/characters/p-kam/versions/v1/neutral-guarded.png",
+        "assets/images/characters/jao-fiw/versions/v1/neutral-lively.png",
+        "assets/images/backgrounds/act-03/versions/v1/bg-act3-wayside-shelter-teuk.png"
+      ],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-31ddfdee-7bfa-4c87-8ae4-ef3b76fafbcd.png",
+      "nativeDimensions": [
+        1672,
+        941
+      ],
+      "packagedAt": "2026-10-29T06:58:16+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/cg/act-03/versions/v1/cg-act3-teuk-guardian-oath.png",
+        "dimensions": "1600x900",
+        "byteLength": 2639499,
+        "sha256": "4443a98e66c193bcf687ad7f8ed1724954d499ae8d898c5981386db92380a309",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/cg/act-03/cg-act3-teuk-guardian-oath.webp",
+        "dimensions": "1600x900",
+        "byteLength": 431416,
+        "sha256": "e97cea68a0433e56d7fc93b0a0c45cace7ec270da8daceb672eba666dd99468b",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "cg_act5_shadow_knight_protector",
+      "prompt": "Wide 16:9 masterpiece cinematic CG illustration showing dual visual scales inside a dark bedroom: in the foreground on the bedside table, 45cm Jao Kob (in his sky-blue crew-neck t-shirt) stands heroically right in front of a glowing battery desk lamp, holding up a shiny brass button that focuses the golden beam. Across the entire bedroom wall above the bed in the background, Jao Kob's shadow projects as a gigantic, noble guardian knight silhouette that completely engulfs and banishes the shrinking comical shadow of Cockroach Man, while young woman Peuak peeks out from under her blanket in awe and relief as her fear melts away. Warm golden light overcoming darkness, no text.\nUse only ONE physical living Jao Kob, ONE adult Thai woman Peuak, and the tiny phantom. Jao Kob remains 45cm, green and alive, blue shirt with tiny white three-ray stitched star and four-slot woven pouch, broad peach lips and familiar green eyelids. He stands on the tabletop on the LEFT in front of the compact battery lamp, lifting a small reflective FOUR-hole brass button into its beam. His enormous guardian silhouette on the WALL behind him is an optical SHADOW shaped like a noble frog knight with outstretched protective arms, NOT an actual giant armored character; keep real frog and projected shadow visually distinct. The tiny comical purple-black ghost-shadow shrinks at the edge of the larger guardian shadow, no insect legs/wings. Peuak is the adult young woman from reference 2, dark hair, cream pajamas, safely tucked under the blanket on the right, looking toward her guardian in relief. Realistic room scale and emotionally expressive staging. Night rain at the window, no daylight. No other characters.\nRecompose reference designs into one coherent new cinematic illustration, not a collage. Warm tactile hand-painted 3D storybook look, cinematic depth, beautifully expressive faces and believable contact. Full opaque widescreen 16:9, output target 1600x900, no borders, no typography, no writing, no watermark, no UI. Each reference is for design/setting continuity only.",
+      "references": [
+        "assets/images/characters/jao-kob/versions/v1/adult-determined.png",
+        "assets/images/characters/peuak/versions/v1/bedside-frightened-blanket.png",
+        "assets/images/characters/cockroach-man/versions/v1/shrunk-defeated.png",
+        "assets/images/backgrounds/act-05/versions/v1/bg-act5-shadow-duel-wall.png"
+      ],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-c5c92907-2427-4bdf-9ed9-5ca46b8e06fb.png",
+      "nativeDimensions": [
+        1672,
+        941
+      ],
+      "packagedAt": "2026-10-29T07:00:07+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/cg/act-05/versions/v1/cg-act5-shadow-knight-protector.png",
+        "dimensions": "1600x900",
+        "byteLength": 2059383,
+        "sha256": "2693179727c61a62628d4c39b501d9c26491a74fc64677856dd7b835c62e0fba",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/cg/act-05/cg-act5-shadow-knight-protector.webp",
+        "dimensions": "1600x900",
+        "byteLength": 220556,
+        "sha256": "01477cfbc6bc2b5e4e00cddf569e46a5359a4597c9f416563d16bfe3450d1008",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "cg_act4_five_hero_storm_relay",
+      "prompt": "Wide 16:9 epic cinematic action CG illustration: on top of a rain-swept brick garden wall during a lightning flash, five small heroes execute a synchronized relay launch across a 12-meter storm gap toward a glowing second-floor bedroom window on the far right. On the brick parapet (left), P'Kam anchors a taut cable with his giant claw, younger sister Jao Kib fires bursting golden-green acoustic seeds that shatter a dark shadow tornado, and older brother Jao Kab boosts Jao Kob upward. In mid-air center-right, Jao Fiw spreads her gliding membranes wide with Jao Kob (in his sky-blue crew-neck t-shirt) riding her slipstream right past a stunned, tumbling shadow-cloak phantom (\"Cockroach Man\"). Breathtaking sense of flight and brotherhood, no text.\nThis is ONE decisive moment, not sequential panels. EXACTLY FIVE heroes and ONE ghost, each appears once: three heroes on left wall (P'Kam with giant claw securing cable, small female Kib firing gold-green seeds from bamboo tube, shirtless Kab with reed chest strap and bark wrist guards just finishing his upward boost with raised hands); two heroes airborne (one yellow-ribbon flying squirrel Fiw with extended furry gliding membranes, and ONE living blue-shirt Jao Kob riding the rising air immediately beside/above her). Do NOT show another Jao Kob on the wall. A single comical purple mist phantom with inflated black plastic cape and bottle-cap shoulder pieces tumbles aside as Kib's seed burst disperses its small shadow whirlwind. No insect anatomy, no insect wings. Nighttime dark blue-gray storm sky, cool lightning, distant Thai town windows dark during blackout. A narrow WARM battery-lit second-floor window at far right is the landing goal beyond a visibly vast open garden gap; do not connect wall to window with a floor. Jao Kob alone wears a blue crew-neck t-shirt and four-slot woven pouch, tiny white THREE-point hem stitch. Match all character identities in references; Kab no shirt, Kib no shirt. Show excitement and resolve, no injury.\nRecompose reference designs into one coherent new cinematic illustration, not a collage. Warm tactile hand-painted 3D storybook look, cinematic depth, beautifully expressive faces and believable contact. Full opaque widescreen 16:9, output target 1600x900, no borders, no typography, no writing, no watermark, no UI. Each reference is for design/setting continuity only.\nREFERENCE GUIDE: image 1 = adult Jao Kob; image 2 = Kab and Kib plus the mist phantom designs only (do not copy the childhood frog); image 3 = P'Kam and Fiw designs; image 4 = Fiw's fully spread gliding membranes; image 5 = the nighttime gap location. Use precisely the FIVE heroes listed, ONE instance of each.",
+      "references": [
+        "assets/images/characters/jao-kob/versions/v1/adult-determined.png",
+        "assets/images/cg/act-01/versions/v1/cg-act1-three-siblings-blue-shirt.png",
+        "assets/images/cg/act-02/versions/v1/cg-act2-pkam-whirlpool-rescue.png",
+        "assets/images/characters/jao-fiw/versions/v1/gliding-brave.png",
+        "assets/images/backgrounds/act-04/versions/v1/bg-act4-parapet-storm-abyss.png"
+      ],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-bc1c22b1-f674-4167-b0a0-420e6e2dfab4.png",
+      "nativeDimensions": [
+        1672,
+        941
+      ],
+      "packagedAt": "2026-10-29T07:04:04+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/cg/act-04/versions/v1/cg-act4-five-hero-storm-relay.png",
+        "dimensions": "1600x900",
+        "byteLength": 2837168,
+        "sha256": "6cbd85b43bb811d07a2f4c3b75d002efd5f58837e37f0bdb6d228288f10971f5",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/cg/act-04/cg-act4-five-hero-storm-relay.webp",
+        "dimensions": "1600x900",
+        "byteLength": 495340,
+        "sha256": "83f03ebc51ad17efd030ef6caf99ad5f0f59cb7b72442dcb8587d0e30318d573",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "item_kib_reed_charms",
+      "prompt": "Game inventory icon, 512x512, isolated on 100% transparent background: a small woven green-reed bracelet strung with three dried acoustic popping seeds (\"เมล็ดต้อยติ่ง\") and a tiny glowing golden dewdrop bead crafted by younger sister Jao Kib, warm hand-painted storybook style, no text.\nShow exactly THREE brown dried popping seed pods, no fourth seed, and ONE tiny golden dewdrop bead attached to one small woven green-reed loop bracelet.\nStyle: refined warm hand-painted watercolor with softly sculpted 3D volume, tactile materials, clean readable inventory silhouette, olive/amber/sky-blue color harmony. Isolated SINGLE item, absolutely real transparent alpha background, no solid color, no fake checkerboard, no scenery, no platform, no floor shadow, no UI frame. Center the complete object with at least 12% clear transparent margin on all four sides. Target final 512x512 square. No lettering, no Thai glyphs, no captions, no logos or watermark. Any magical glow must fade naturally to transparent.",
+      "references": [],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-f6faa2fd-b964-434c-974a-109eb196edf6.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T07:09:01+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/keepsakes/v2/versions/v1/item-kib-reed-charms.png",
+        "dimensions": "512x512",
+        "byteLength": 144638,
+        "sha256": "8dba226166cccfed514e78c6f0c660cb4fcc9f9fcada1597f999902efc01e449",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/keepsakes/v2/item-kib-reed-charms.webp",
+        "dimensions": "512x512",
+        "byteLength": 41962,
+        "sha256": "f9417d1f88f88e6e4a041feda57d4c2c8056286a4376fb7146e786f38ddb692f",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "item_kab_bark_guard",
+      "prompt": "Game inventory icon, 512x512, isolated on 100% transparent background: a sturdy miniature forearm bracer carved from warm reddish-brown tree bark and bound with braided green pond reeds (\"สนับข้อมือเปลือกไม้ของพี่กับ\"), showing a small protective notch mark, warm storybook style, no text.\nShow one single curved bark wrist bracer with braided green reed bindings and a small protective notch. It must read as a handmade miniature arm guard, not a shield or wooden mug.\nStyle: refined warm hand-painted watercolor with softly sculpted 3D volume, tactile materials, clean readable inventory silhouette, olive/amber/sky-blue color harmony. Isolated SINGLE item, absolutely real transparent alpha background, no solid color, no fake checkerboard, no scenery, no platform, no floor shadow, no UI frame. Center the complete object with at least 12% clear transparent margin on all four sides. Target final 512x512 square. No lettering, no Thai glyphs, no captions, no logos or watermark. Any magical glow must fade naturally to transparent.",
+      "references": [],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-0e354e5b-e74c-4c14-8dc0-1c426cf46913.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T07:09:05+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/keepsakes/v2/versions/v1/item-kab-bark-guard.png",
+        "dimensions": "512x512",
+        "byteLength": 285560,
+        "sha256": "4037e9ff32ff5c14c7c1e110381a57cc0cd337d336aa86876b405b30ed346566",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/keepsakes/v2/item-kab-bark-guard.webp",
+        "dimensions": "512x512",
+        "byteLength": 67296,
+        "sha256": "324c681f850c9e4bf61f1993695980652cc879ffb215d901337f5ab982563048",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "item_lost_brass_button",
+      "prompt": "Game inventory icon, 512x512, isolated on 100% transparent background: a gleaming vintage golden-brass four-hole coat button with a tiny wisp of white cotton thread still looped through the center and a subtle heart-engraved rim (\"กระดุมทองเหลืองที่สาบสูญ\"), warm magical reflection, storybook style, no text.\nShow exactly FOUR round sewing holes in a square arrangement, one small white cotton thread wisp looped through the center. The small heart engraving is etched into brass at the rim, subtle, not a red heart object and not text.\nStyle: refined warm hand-painted watercolor with softly sculpted 3D volume, tactile materials, clean readable inventory silhouette, olive/amber/sky-blue color harmony. Isolated SINGLE item, absolutely real transparent alpha background, no solid color, no fake checkerboard, no scenery, no platform, no floor shadow, no UI frame. Center the complete object with at least 12% clear transparent margin on all four sides. Target final 512x512 square. No lettering, no Thai glyphs, no captions, no logos or watermark. Any magical glow must fade naturally to transparent.",
+      "references": [],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-f8a83079-d4fc-45f8-9ab3-2ce9d21b4eae.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T07:09:08+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/keepsakes/v2/versions/v1/item-lost-brass-button.png",
+        "dimensions": "512x512",
+        "byteLength": 301911,
+        "sha256": "bfdbeed93123770715a80e8efb7796628a58e3f3f579967e4d49cfc46e7b9f04",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/keepsakes/v2/item-lost-brass-button.webp",
+        "dimensions": "512x512",
+        "byteLength": 69284,
+        "sha256": "bc6996b2b921061b376a1e9ef2d14e4e3a10c3b03fdeb5b4471214dacddd4880",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "item_pkam_tin_gear",
+      "prompt": "Game inventory icon, 512x512, isolated on 100% transparent background: an antique toothed brass-and-tin clockwork ratchet gear attached to a small piece of pastel floral-painted vintage candy tin (\"เฟืองสังกะสีสลักลายของพี่ก้าม\"), warm metallic highlights, storybook style, no text.\nShow one toothed antique metal ratchet gear physically attached to a small fragment of pale cream-and-blue floral candy tin, coherent with P'Kam's tin shell. Hand painted faded flowers, no writing.\nStyle: refined warm hand-painted watercolor with softly sculpted 3D volume, tactile materials, clean readable inventory silhouette, olive/amber/sky-blue color harmony. Isolated SINGLE item, absolutely real transparent alpha background, no solid color, no fake checkerboard, no scenery, no platform, no floor shadow, no UI frame. Center the complete object with at least 12% clear transparent margin on all four sides. Target final 512x512 square. No lettering, no Thai glyphs, no captions, no logos or watermark. Any magical glow must fade naturally to transparent.",
+      "references": [],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-faa37aa6-48fa-4f45-a959-4663edfd827a.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T07:09:12+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/keepsakes/v2/versions/v1/item-pkam-tin-gear.png",
+        "dimensions": "512x512",
+        "byteLength": 323483,
+        "sha256": "d7dfec7e55312ce27da78ea7bd434c3510af0016c6120e85d81d33db3adb8fe3",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/keepsakes/v2/item-pkam-tin-gear.webp",
+        "dimensions": "512x512",
+        "byteLength": 76920,
+        "sha256": "0089be2dc8690b36f44e71e477473215253673c43f94d3fcbb7a4e662f1f8afb",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "item_teuk_whistle_charm",
+      "prompt": "Game inventory icon, 512x512, isolated on 100% transparent background: a classic polished brass cylindrical guardian whistle attached to a small silver keyring with a tiny sky-blue woven cord tag (\"นกหวีดพวงกุญแจผู้พิทักษ์จากเจ้าเตื๊อก\"), glistening with a single raindrop, warm storybook style, no text.\nWhistle must be a narrow straight cylindrical tubular brass whistle, not a bulbous police whistle. One silver split keyring and small sky-blue woven cord. One distinct water droplet clings to the brass.\nStyle: refined warm hand-painted watercolor with softly sculpted 3D volume, tactile materials, clean readable inventory silhouette, olive/amber/sky-blue color harmony. Isolated SINGLE item, absolutely real transparent alpha background, no solid color, no fake checkerboard, no scenery, no platform, no floor shadow, no UI frame. Center the complete object with at least 12% clear transparent margin on all four sides. Target final 512x512 square. No lettering, no Thai glyphs, no captions, no logos or watermark. Any magical glow must fade naturally to transparent.",
+      "references": [],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-4e7d762d-4807-4ae1-ae0e-0ea464034d22.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T07:09:15+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/keepsakes/v2/versions/v1/item-teuk-whistle-charm.png",
+        "dimensions": "512x512",
+        "byteLength": 181444,
+        "sha256": "2eaff62f5402f25556d334153f920fb1e733fdf24ab3176080e163658b79895e",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/keepsakes/v2/item-teuk-whistle-charm.webp",
+        "dimensions": "512x512",
+        "byteLength": 49386,
+        "sha256": "a8ab0d2a5113f448067685e857443b5366e6e484f68b8bad0ec0e05da250ae0e",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "item_fiw_sun_ribbon",
+      "prompt": "Game inventory icon, 512x512, isolated on 100% transparent background: a fluttering strip of warm sunflower-yellow silk ribbon tied with a tiny dried golden wildflower petal (\"เศษริบบิ้นกลิ่นแดดของเจ้าฟิ้ว\"), radiating a gentle warm sunlit aura, storybook style, no text.\nOne sunflower-yellow silk ribbon strip with a tiny dried golden flower petal tied to it. Graceful curved ribbon, warm highlights, no extra flowers, no blue ribbon.\nStyle: refined warm hand-painted watercolor with softly sculpted 3D volume, tactile materials, clean readable inventory silhouette, olive/amber/sky-blue color harmony. Isolated SINGLE item, absolutely real transparent alpha background, no solid color, no fake checkerboard, no scenery, no platform, no floor shadow, no UI frame. Center the complete object with at least 12% clear transparent margin on all four sides. Target final 512x512 square. No lettering, no Thai glyphs, no captions, no logos or watermark. Any magical glow must fade naturally to transparent.",
+      "references": [],
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-2c80d8bb-9a7f-45a1-a6a5-df134e99c4b7.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T07:09:19+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/keepsakes/v2/versions/v1/item-fiw-sun-ribbon.png",
+        "dimensions": "512x512",
+        "byteLength": 206800,
+        "sha256": "7a12e4f82a8768d5b7e08d08736da23518df147e9193f38de9193746fc670e09",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/keepsakes/v2/item-fiw-sun-ribbon.webp",
+        "dimensions": "512x512",
+        "byteLength": 57928,
+        "sha256": "6f9532ada089ffe783eb19b7d2045a61fe576794d51d6184f5d7bfc0d453a63c",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "assetId": "cg_act5_ending_ehome_miracle_plush",
+      "references": [
+        "assets/images/cg/act-05/versions/v1/cg-act5-ending-ehome-miracle-plush.png",
+        "assets/images/characters/p-kam/versions/v1/neutral-guarded.png",
+        "assets/images/keepsakes/v2/versions/v1/item-teuk-whistle-charm.png"
+      ],
+      "revisionReason": "Restore P'Kam's distinct iron-like left claw and cylindrical whistle shape in E-HOME.",
+      "prompt": "Make only two small prop-continuity corrections to image 1, preserving its whole composition, camera, faces, human ages, doll, FOUR companions, light, colors and background exactly. First: on P'Kam, the terracotta hermit crab on the right windowsill between lotus-collar frog Kib and yellow-ribbon squirrel Fiw, replace his small anatomical LEFT claw (viewer-right side of his body) with his distinctive oversized dark iron-like scarred/notched claw as shown in image 2. Rest it gently on the FRONT edge of the windowsill without covering any friend's face; keep his other claw small and reddish, exactly two claws total. Keep the floral candy tin shell. Second: replace only the bulbous brass whistle near Peuak's hand at bottom left with the straight cylindrical brass tubular whistle shown in image 3, naturally lying on the bedding at the same small size, silver keyring and blue cord unchanged. Do not change anything else. Soft warm storybook cinematic scene, opaque 16:9 1600x900, no text or added characters.",
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-1f7b3380-825b-406f-bd5c-a2ca037bcc93.png",
+      "nativeDimensions": [
+        1672,
+        941
+      ],
+      "packagedAt": "2026-10-29T09:41:03+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/cg/act-05/versions/v1/cg-act5-ending-ehome-miracle-plush.png",
+        "dimensions": "1600x900",
+        "byteLength": 2310457,
+        "sha256": "b7073ecaf2ff9c5bd8a748e3c4cd00c2e5234a9b4aa1fd5be33d3087f56b1c2b",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/cg/act-05/cg-act5-ending-ehome-miracle-plush.webp",
+        "dimensions": "1600x900",
+        "byteLength": 298164,
+        "sha256": "1f36ee55e442c2410809a74206bd1e03e16cdfe10a51842407073358e1f13bbf",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "supersededAttempts": [
+        {
+          "assetId": "cg_act5_ending_ehome_miracle_plush",
+          "prompt": "Wide 16:9 heartwarming finale CG illustration (`E-HOME`): golden sunrise streams into Peuak's cozy bedroom after the storm. On the bed (left-center), Peuak sleeps peacefully with a radiant, tear-glistening smile, hugging the newly transmuted \"Jao Kob\" plush doll (soft green plush frog in his sky-blue crew-neck cotton t-shirt with the brass button restored and the brass whistle keychain resting beside her hand). At the bedroom doorway in the soft background, Jao Teuk (with a bandaged ankle) smiles warmly in relief, while on the sunlit windowsill on the right, Jao Kab, Jao Kib, P'Kam, and Jao Fiw look on with proud, loving smiles. Pure emotional catharsis, no text.\nThis is specifically the E-HOME transformation ending. Exactly ONE Jao Kob, now an inanimate soft green CROCHET/PLUSH frog doll, 45cm long, eyes peacefully closed, blue crew-neck shirt with tiny white three-point stitched hem mark and a restored brass four-hole button. No separate living Jao Kob anywhere. Peuak is an ADULT young Thai woman in cream pajamas, asleep on the bed hugging this doll with a gentle smile and a small happy tear. A cylindrical brass whistle with silver keyring and sky-blue cord rests beside her hand. Teuk, the ADULT young Thai man with black wavy hair and navy jacket, stands quietly in the background doorway, his bandaged left ankle visible. On the RIGHT windowsill, clearly show exactly FOUR living animal companions: shirtless Kab with reed chest strap and bark wrist guards; smallest female Kib with lotus-leaf collar, yellow flower and bamboo seed tube; terracotta hermit crab P'Kam inside his dented pale blue/cream floral TIN shell; cinnamon flying squirrel Fiw with bright yellow neck ribbon. These four have distinct separated silhouettes and are much smaller than the adult humans. Soft pink-gold dawn, room continuity with last reference. No heart-shaped prop.\nRecompose reference designs into one coherent new cinematic illustration, not a collage. Warm tactile hand-painted 3D storybook look, cinematic depth, beautifully expressive faces and believable contact. Full opaque widescreen 16:9, output target 1600x900, no borders, no typography, no writing, no watermark, no UI. Each reference is for design/setting continuity only.\nREFERENCE GUIDE: image 1 = the sole transformed plush Jao Kob; image 2 = Peuak's identity and the doll design; image 3 = Kab (reed strap and bark guards) and Kib (lotus collar) designs ONLY, do not copy the ghost or extra childhood frog; image 4 = Teuk, P'Kam and Fiw designs ONLY, no extra Jao Kob from that reference; image 5 = room at dawn. NO villain appears in this peaceful ending.",
+          "references": [
+            "assets/images/characters/jao-kob/versions/v1/adult-miracle-plush.png",
+            "assets/images/characters/peuak/versions/v1/warm-sunlight-hug.png",
+            "assets/images/cg/act-01/versions/v1/cg-act1-three-siblings-blue-shirt.png",
+            "assets/images/cg/act-03/versions/v1/cg-act3-teuk-guardian-oath.png",
+            "assets/images/backgrounds/act-05/versions/v1/bg-act5-bedroom-golden-dawn.png"
+          ],
+          "tool": "image_gen.imagegen",
+          "generatedSourceFile": "exec-81c56d89-5b3d-4c95-a724-701906affbbc.png",
+          "nativeDimensions": [
+            1672,
+            941
+          ],
+          "packagedAt": "2026-10-29T07:04:04+07:00",
+          "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+          "master": {
+            "path": "assets/images/cg/act-05/versions/v1/cg-act5-ending-ehome-miracle-plush.png",
+            "dimensions": "1600x900",
+            "byteLength": 2402562,
+            "sha256": "3ac9022b3092a6e984e6915f3309ea28d9d4a6b891246afb6175bac8409c2ccc",
+            "alphaExtrema": [
+              255,
+              255
+            ]
+          },
+          "output": {
+            "path": "assets/images/cg/act-05/cg-act5-ending-ehome-miracle-plush.webp",
+            "dimensions": "1600x900",
+            "byteLength": 329122,
+            "sha256": "bf83b95f9666fc34b8f82c99aefe996985d2e004d9611ffb88f985c2fbef818b",
+            "alphaExtrema": [
+              255,
+              255
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "assetId": "cg_act5_ending_edawn_two_worlds",
+      "references": [
+        "assets/images/cg/act-05/versions/v1/cg-act5-ending-edawn-two-worlds.png",
+        "assets/images/characters/p-kam/versions/v1/neutral-guarded.png"
+      ],
+      "revisionReason": "Restore P'Kam's distinct iron-like left claw in E-DAWN.",
+      "prompt": "Make only ONE small character-continuity correction to image 1; preserve all faces, cast count, humans waving, living bare-chested Jao Kob with pouch, clothed plush doll in Peuak's arms, morning light, rainbow, camera and entire composition. P'Kam is the terracotta hermit crab with floral candy tin shell on the right windowsill next to the yellow-ribbon squirrel. Replace his small anatomical LEFT claw at the lower viewer-right side of his body with the distinctive large dark iron-like scarred/notched LEFT claw from reference 2, resting gently on the FRONT edge of the windowsill. His currently raised viewer-left waving claw stays small and red. Exactly two claws, not three. Keep both the crab and squirrel's faces fully visible and preserve the tin shell. No other changes, no shirt added to living Jao Kob, no extra animals. Warm storybook opaque 16:9 cinematic image 1600x900, no text.",
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-5de36c36-f328-4931-9c03-b352f570a960.png",
+      "nativeDimensions": [
+        1672,
+        941
+      ],
+      "packagedAt": "2026-10-29T09:41:04+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/cg/act-05/versions/v1/cg-act5-ending-edawn-two-worlds.png",
+        "dimensions": "1600x900",
+        "byteLength": 2501269,
+        "sha256": "4e5a7b6e7f9552c3bfd95a8417233013965a91b9e8eeadd66b5a02f0b23d4313",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/cg/act-05/cg-act5-ending-edawn-two-worlds.webp",
+        "dimensions": "1600x900",
+        "byteLength": 356700,
+        "sha256": "40e5a210174128a867d8b0174af4d9c33c4cff4b8bfcc73891b5017adb709fd0",
+        "alphaExtrema": [
+          255,
+          255
+        ]
+      },
+      "supersededAttempts": [
+        {
+          "assetId": "cg_act5_ending_edawn_two_worlds",
+          "prompt": "Wide 16:9 uplifting finale CG illustration (`E-DAWN`): on the sunlit bedroom windowsill overlooking a glistening morning garden and distant reed pond under a rainbow, living 45cm Jao Kob stands proudly in the center alongside his brother Jao Kab, sister Jao Kib, P'Kam, and Jao Fiw. Inside the room on the left, Peuak and Jao Teuk smile and wave toward the window while holding the finished bedside plush doll now wearing the returned sky-blue shirt and brass button. Harmonious bridge between the human world and nature, no text.\nThis is specifically E-DAWN, a DIFFERENT ending. Inside the room on the LEFT: the two ADULT young Thai humans Peuak (cream pajamas, long dark hair) and Teuk (navy jacket, wavy dark hair, bandaged left ankle) gently wave toward their tiny friends. Peuak holds one small finished bedside frog cloth/plush doll wearing the RETURNED blue shirt and restored brass four-hole button. On the center-to-RIGHT windowsill show EXACTLY FIVE distinct living animals: Jao Kob centered among Kab, Kib, P'Kam and Fiw. CRITICAL: the LIVING Jao Kob on the sill has returned his shirt to the doll, so remove the shirt from reference 1 for this scene: bare warm green torso with pale cream belly, the same familiar green eyelids and broad peach lips, woven four-compartment pouch strap if needed. He is alive and 45cm, NOT plush and NOT wearing any blue clothing. Only the inanimate doll in Peuak's arms wears the blue shirt. Kab is sturdy, shirtless, reed chest strap, bark wrist guards; Kib smallest, female lotus collar and yellow flower, bamboo seed tube; P'Kam is the terracotta crab with floral TIN shell; Fiw is the cinnamon squirrel with yellow ribbon. Keep every companion visible as a separate silhouette. Outside a tropical garden and distant reed pond, faint rainbow, golden dawn after storm. No extra frog, no duplicate companion, no hearts.\nRecompose reference designs into one coherent new cinematic illustration, not a collage. Warm tactile hand-painted 3D storybook look, cinematic depth, beautifully expressive faces and believable contact. Full opaque widescreen 16:9, output target 1600x900, no borders, no typography, no writing, no watermark, no UI. Each reference is for design/setting continuity only.\nREFERENCE GUIDE: image 1 = the living Jao Kob face and body; remove his blue shirt in this ending; image 2 = Peuak's identity and the doll design; image 3 = Kab (reed strap and bark guards) and Kib (lotus collar) designs ONLY, do not copy the ghost or extra childhood frog; image 4 = Teuk, P'Kam and Fiw designs ONLY, no extra Jao Kob from that reference; image 5 = room at dawn. NO villain appears in this peaceful ending.",
+          "references": [
+            "assets/images/characters/jao-kob/versions/v1/adult-neutral.png",
+            "assets/images/characters/peuak/versions/v1/warm-sunlight-hug.png",
+            "assets/images/cg/act-01/versions/v1/cg-act1-three-siblings-blue-shirt.png",
+            "assets/images/cg/act-03/versions/v1/cg-act3-teuk-guardian-oath.png",
+            "assets/images/backgrounds/act-05/versions/v1/bg-act5-bedroom-golden-dawn.png"
+          ],
+          "tool": "image_gen.imagegen",
+          "generatedSourceFile": "exec-c6373294-3b7c-4c16-91c6-95a1dfd8fecf.png",
+          "nativeDimensions": [
+            1672,
+            941
+          ],
+          "packagedAt": "2026-10-29T07:04:05+07:00",
+          "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+          "master": {
+            "path": "assets/images/cg/act-05/versions/v1/cg-act5-ending-edawn-two-worlds.png",
+            "dimensions": "1600x900",
+            "byteLength": 2525474,
+            "sha256": "c1528ac30ce50b1ec859777cfbd70cae4033f23b0b2a9540d1529a07a4621c24",
+            "alphaExtrema": [
+              255,
+              255
+            ]
+          },
+          "output": {
+            "path": "assets/images/cg/act-05/cg-act5-ending-edawn-two-worlds.webp",
+            "dimensions": "1600x900",
+            "byteLength": 364934,
+            "sha256": "9f159b612cd75437e43354793e51284893c6e3bc33f949819a5a1160da1d932d",
+            "alphaExtrema": [
+              255,
+              255
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "assetId": "char_watchman_lung_flare",
+      "references": [
+        "assets/images/characters/city-humans/versions/v1/watchman-lung-flare.png"
+      ],
+      "revisionReason": "Keep the complete flare within frame and remove faint stray background alpha at a corner.",
+      "prompt": "Precisely clean up the alpha background of this isolated watchman sprite, preserving the exact artwork, pose, red flare cloud, colors and framing. All pixels outside the watchman and the small contained flare glow must be FULLY TRANSPARENT, including the entire outer border and all four corners: alpha ZERO, no barely visible wash or stray pixels anywhere outside the silhouette/glow. Keep the old man's full boots and entire flare glow visible inside the square with a clean empty transparent margin on every side. Maintain his gray hair, olive rain poncho, dark uniform, face looking left, raised safety flare. Do not enlarge the figure or glow. Do not add background, ground, shadows, text or a checkerboard. Export a clean transparent PNG-like sprite, 1024x1024 square.",
+      "tool": "image_gen.imagegen",
+      "generatedSourceFile": "exec-84e71f07-be6e-417a-aa24-085d63bc988e.png",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "packagedAt": "2026-10-29T09:47:55+07:00",
+      "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+      "master": {
+        "path": "assets/images/characters/city-humans/versions/v1/watchman-lung-flare.png",
+        "dimensions": "1024x1024",
+        "byteLength": 702744,
+        "sha256": "3499e69b9e86603dfc3e3725afc5fa2157dc31a8113e6a86fdcd83b07eaf9e2d",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "output": {
+        "path": "assets/images/characters/city-humans/watchman-lung-flare.webp",
+        "dimensions": "1024x1024",
+        "byteLength": 148468,
+        "sha256": "a3dae8c6d89d02d9a63d364b7012d52cd62f5c95f0098350dc1ddafff12bc1f3",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "supersededAttempts": [
+        {
+          "assetId": "char_watchman_lung_flare",
+          "prompt": "Watchman Lung only, an elderly THAI night WATCHMAN with kind weathered human face, gray hair and small mustache, dark work uniform under a soaked olive-gray rain PONCHO. Reference is ONLY the warm cinematic storybook rendering style; create a clearly older distinct person. Standing full body 3/4 facing LEFT, shivering yet resolute, one arm raised holding a glowing RED SAFETY FLARE to warn traffic off-screen. Soft red flare illumination and a few rain droplets; whole flare and body in frame. No ground, bridge, text, uniform logo or additional people. Output a single full-body 1024x1024 square VN character sprite in warm polished painted 2D/3D hybrid storybook style. Real transparent alpha background, no floor/cast-shadow backdrop, 8% clear margin, zero UI, text, lettering, frame or watermark. Keep accessories to only those specified.",
+          "references": [
+            "assets/images/characters/jao-teuk/versions/v1/storm-kneeling-mission.png"
+          ],
+          "tool": "image_gen.imagegen",
+          "generatedSourceFile": "exec-3b4f2d21-90e9-4adb-a820-e9793bd53450.png",
+          "nativeDimensions": [
+            1254,
+            1254
+          ],
+          "packagedAt": "2026-10-29T06:36:55+07:00",
+          "normalization": "sips resampling to contracted dimensions; cwebp quality 92, alpha quality 100",
+          "master": {
+            "path": "assets/images/characters/city-humans/versions/v1/watchman-lung-flare.png",
+            "dimensions": "1024x1024",
+            "byteLength": 842400,
+            "sha256": "8c14e30d78f4353a779f0486cc75d9b397fe974a72409cae2986af957e1c9097",
+            "alphaExtrema": [
+              0,
+              255
+            ]
+          },
+          "output": {
+            "path": "assets/images/characters/city-humans/watchman-lung-flare.webp",
+            "dimensions": "1024x1024",
+            "byteLength": 196772,
+            "sha256": "a08f53b6bac06b2147de7b6b68436ffc16954ce20fb48e4cbc8044fca050f3b7",
+            "alphaExtrema": [
+              0,
+              255
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

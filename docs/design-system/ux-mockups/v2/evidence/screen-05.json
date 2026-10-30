@@ -1,0 +1,319 @@
+{
+  "screen": 5,
+  "viewport": {
+    "width": 1440,
+    "height": 900,
+    "dpr": 2
+  },
+  "fontReady": true,
+  "fontFaces": [
+    {
+      "family": "Sarabun",
+      "status": "loaded"
+    },
+    {
+      "family": "Sarabun",
+      "status": "loaded"
+    }
+  ],
+  "horizontalOverflow": false,
+  "brokenImages": [],
+  "faceBand": {
+    "top": 288,
+    "bottom": 432
+  },
+  "faces": [
+    {
+      "asset": "kam",
+      "eyeY": 384.9984375,
+      "eyeInBand": true,
+      "face": {
+        "x": 55.196875000000006,
+        "y": 321.9984375,
+        "width": 243.6,
+        "height": 142.8,
+        "right": 298.796875,
+        "bottom": 464.79843750000003
+      },
+      "overlaps": []
+    },
+    {
+      "asset": "kob",
+      "eyeY": 344.9953125,
+      "eyeInBand": true,
+      "face": {
+        "x": 297.6,
+        "y": 265.1953125,
+        "width": 294,
+        "height": 201.6,
+        "right": 591.6,
+        "bottom": 466.7953125
+      },
+      "overlaps": []
+    },
+    {
+      "asset": "fiw",
+      "eyeY": 379.99375,
+      "eyeInBand": true,
+      "face": {
+        "x": 579.2,
+        "y": 278.79375,
+        "width": 268.4,
+        "height": 184.79999999999998,
+        "right": 847.6,
+        "bottom": 463.59375
+      },
+      "overlaps": []
+    },
+    {
+      "asset": "teuk",
+      "eyeY": 344.99375,
+      "eyeInBand": true,
+      "face": {
+        "x": 939.3984375,
+        "y": 199.29375,
+        "width": 248,
+        "height": 266.6,
+        "right": 1187.3984375,
+        "bottom": 465.89375
+      },
+      "overlaps": []
+    }
+  ],
+  "uiBandIntrusions": [],
+  "hud": {
+    "x": 24,
+    "y": 24,
+    "width": 358,
+    "height": 64,
+    "right": 382,
+    "bottom": 88
+  },
+  "targets": [
+    {
+      "label": "กระเป๋าสานกกสี่ช่อง",
+      "minimum": 44,
+      "x": 274.4296875,
+      "y": 34,
+      "width": 44,
+      "height": 44,
+      "right": 318.4296875,
+      "bottom": 78
+    },
+    {
+      "label": "ตั้งค่า",
+      "minimum": 44,
+      "x": 327,
+      "y": 34,
+      "width": 44,
+      "height": 44,
+      "right": 371,
+      "bottom": 78
+    },
+    {
+      "label": "ดามข้อเท้าด้วยสนับข้อมือ",
+      "minimum": 56,
+      "x": 140,
+      "y": 666,
+      "width": 281,
+      "height": 132,
+      "right": 421,
+      "bottom": 798
+    },
+    {
+      "label": "คุยกับเตื๊อก",
+      "minimum": 56,
+      "x": 433,
+      "y": 666,
+      "width": 281,
+      "height": 132,
+      "right": 714,
+      "bottom": 798
+    },
+    {
+      "label": "จับแมลงกิน",
+      "minimum": 56,
+      "x": 726,
+      "y": 666,
+      "width": 281,
+      "height": 132,
+      "right": 1007,
+      "bottom": 798
+    },
+    {
+      "label": "เช็ดกระดุมให้พร้อมผสาน",
+      "minimum": 56,
+      "x": 1019,
+      "y": 666,
+      "width": 281,
+      "height": 132,
+      "right": 1300,
+      "bottom": 798
+    },
+    {
+      "label": "ออกเดินทางต่อ",
+      "minimum": 56,
+      "x": 1062,
+      "y": 816,
+      "width": 238,
+      "height": 56,
+      "right": 1300,
+      "bottom": 872
+    }
+  ],
+  "undersizedTargets": [],
+  "strings": [
+    "ตะเกียงเหลือสองรอบ",
+    "ดามข้อเท้าด้วยสนับข้อมือ",
+    "สายใยเตื๊อก +",
+    "เลือกแล้ว",
+    "คุยกับเตื๊อก",
+    "สายใยเตื๊อก +",
+    "จับแมลงกิน",
+    "แรง +●●",
+    "เช็ดกระดุมให้พร้อมผสาน",
+    "พร้อมผสาน",
+    "ออกเดินทางต่อ"
+  ],
+  "textClipping": [],
+  "contentOverflow": [],
+  "components": [
+    {
+      "name": "TopHudCapsule",
+      "x": 24,
+      "y": 24,
+      "width": 358,
+      "height": 64,
+      "right": 382,
+      "bottom": 88,
+      "style": {
+        "background": "rgb(32, 54, 42)",
+        "border": "rgb(36, 56, 45)",
+        "radius": "999px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    },
+    {
+      "name": "VnTachieStage",
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 900,
+      "right": 1440,
+      "bottom": 900,
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(36, 56, 45)",
+        "radius": "0px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 140,
+      "y": 666,
+      "width": 281,
+      "height": 132,
+      "right": 421,
+      "bottom": 798,
+      "style": {
+        "background": "rgb(252, 244, 227)",
+        "border": "rgb(78, 140, 87)",
+        "radius": "14px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 433,
+      "y": 666,
+      "width": 281,
+      "height": 132,
+      "right": 714,
+      "bottom": 798,
+      "style": {
+        "background": "rgb(252, 244, 227)",
+        "border": "rgb(214, 198, 165) rgb(214, 198, 165) rgb(214, 198, 165) rgb(74, 111, 165)",
+        "radius": "14px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 726,
+      "y": 666,
+      "width": 281,
+      "height": 132,
+      "right": 1007,
+      "bottom": 798,
+      "style": {
+        "background": "rgb(252, 244, 227)",
+        "border": "rgb(214, 198, 165) rgb(214, 198, 165) rgb(214, 198, 165) rgb(78, 140, 87)",
+        "radius": "14px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 1019,
+      "y": 666,
+      "width": 281,
+      "height": 132,
+      "right": 1300,
+      "bottom": 798,
+      "style": {
+        "background": "rgb(252, 244, 227)",
+        "border": "rgb(214, 198, 165) rgb(214, 198, 165) rgb(214, 198, 165) rgb(154, 107, 18)",
+        "radius": "14px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    }
+  ],
+  "images": [
+    {
+      "key": "shelter",
+      "path": "assets/shelter.png"
+    },
+    {
+      "key": "kam",
+      "path": "assets/kam.png"
+    },
+    {
+      "key": "kob",
+      "path": "assets/kob.png"
+    },
+    {
+      "key": "fiw",
+      "path": "assets/fiw.png"
+    },
+    {
+      "key": "teuk",
+      "path": "assets/teuk.png"
+    },
+    {
+      "key": "guard",
+      "path": "assets/guard.png"
+    },
+    {
+      "key": "teuk",
+      "path": "assets/teuk.png"
+    },
+    {
+      "key": "button",
+      "path": "assets/button.png"
+    }
+  ],
+  "destinyImageCount": 0,
+  "viewportFile": "viewports/mode3-camp-c3-desktop.png",
+  "problems": {},
+  "deviceDimensions": [
+    3458,
+    2424
+  ]
+}

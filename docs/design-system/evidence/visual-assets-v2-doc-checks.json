@@ -1,0 +1,343 @@
+{
+  "status": "PASS",
+  "verifiedAt": "2026-10-30T01:54:16+07:00",
+  "relativeLinks": 60,
+  "scope": {
+    "fullFiles": [
+      "assets/images/README.md",
+      "docs/design-system/asset-prompts/04-V2-STORY-CONTINUITY-AND-TACHIE.md",
+      "docs/changelog/2026-10/2026-10-30-0149-adr032-visual-assets-v2.md"
+    ],
+    "addedLinesOnly": [
+      "CHANGELOG.md",
+      "docs/sprints/sprint-05-ssot.md",
+      "docs/dialogue/INTER-AGENT-DIALOGUE2.md"
+    ]
+  },
+  "checks": [
+    {
+      "source": "assets/images/README.md",
+      "target": "../../docs/adr/ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md",
+      "exists": true
+    },
+    {
+      "source": "assets/images/README.md",
+      "target": "../../docs/design-system/new-five-act-story-and-mechanics-proposal.md",
+      "exists": true
+    },
+    {
+      "source": "assets/images/README.md",
+      "target": "asset-manifest-v2.json",
+      "exists": true
+    },
+    {
+      "source": "assets/images/README.md",
+      "target": "../../docs/design-system/evidence/visual-assets-v2-review.html",
+      "exists": true
+    },
+    {
+      "source": "assets/images/README.md",
+      "target": "../../docs/design-system/asset-prompts/04-V2-STORY-CONTINUITY-AND-TACHIE.md",
+      "exists": true
+    },
+    {
+      "source": "assets/images/README.md",
+      "target": "../../docs/design-system/asset-prompts/visual-assets-v2-jobs.json",
+      "exists": true
+    },
+    {
+      "source": "assets/images/README.md",
+      "target": "../provenance/visual-assets-v2.json",
+      "exists": true
+    },
+    {
+      "source": "assets/images/README.md",
+      "target": "../../docs/design-system/evidence/visual-assets-v2-verification.json",
+      "exists": true
+    },
+    {
+      "source": "assets/images/README.md",
+      "target": "../../docs/design-system/evidence/verify-visual-assets-v2.py",
+      "exists": true
+    },
+    {
+      "source": "assets/images/README.md",
+      "target": "../../docs/changelog/2026-10/2026-10-30-0149-adr032-visual-assets-v2.md",
+      "exists": true
+    },
+    {
+      "source": "assets/images/README.md",
+      "target": "asset-manifest-v1.json",
+      "exists": true
+    },
+    {
+      "source": "assets/images/README.md",
+      "target": "../../docs/design-system/evidence/visual-assets-v1-review.html",
+      "exists": true
+    },
+    {
+      "source": "assets/images/README.md",
+      "target": "../provenance/visual-assets-v1.json",
+      "exists": true
+    },
+    {
+      "source": "assets/images/README.md",
+      "target": "../../docs/design-system/evidence/visual-assets-v1-verification.json",
+      "exists": true
+    },
+    {
+      "source": "assets/images/README.md",
+      "target": "../../docs/design-system/evidence/verify-visual-assets-v1.py",
+      "exists": true
+    },
+    {
+      "source": "assets/images/README.md",
+      "target": "../../docs/design-system/asset-prompts/00-ASTRA-WORKFLOW-AND-OUTPUT-CONTRACT.md",
+      "exists": true
+    },
+    {
+      "source": "assets/images/README.md",
+      "target": "../../docs/design-system/asset-prompts/01-CHARACTER-SPRITE-PROMPTS.md",
+      "exists": true
+    },
+    {
+      "source": "assets/images/README.md",
+      "target": "../../docs/design-system/asset-prompts/02-BACKGROUND-SCENE-PROMPTS.md",
+      "exists": true
+    },
+    {
+      "source": "assets/images/README.md",
+      "target": "../../docs/design-system/asset-prompts/03-CINEMATIC-CG-AND-KEEPSAKE-PROMPTS.md",
+      "exists": true
+    },
+    {
+      "source": "assets/images/README.md",
+      "target": "../../docs/design-system/asset-prompts/04-V2-STORY-CONTINUITY-AND-TACHIE.md",
+      "exists": true
+    },
+    {
+      "source": "docs/design-system/asset-prompts/04-V2-STORY-CONTINUITY-AND-TACHIE.md",
+      "target": "../../changelog/2026-10/2026-10-29-1742-adr032-v2-and-adr033-interactive-gameplay.md",
+      "exists": true
+    },
+    {
+      "source": "docs/design-system/asset-prompts/04-V2-STORY-CONTINUITY-AND-TACHIE.md",
+      "target": "../../adr/ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md",
+      "exists": true
+    },
+    {
+      "source": "docs/design-system/asset-prompts/04-V2-STORY-CONTINUITY-AND-TACHIE.md",
+      "target": "../../adr/ADR-P0-033-interactive-tactical-adventure-gameplay-and-dynamic-stage-revolution.md",
+      "exists": true
+    },
+    {
+      "source": "docs/design-system/asset-prompts/04-V2-STORY-CONTINUITY-AND-TACHIE.md",
+      "target": "../new-five-act-story-and-mechanics-proposal.md",
+      "exists": true
+    },
+    {
+      "source": "docs/design-system/asset-prompts/04-V2-STORY-CONTINUITY-AND-TACHIE.md",
+      "target": "../../sprints/sprint-05-ssot.md",
+      "exists": true
+    },
+    {
+      "source": "docs/design-system/asset-prompts/04-V2-STORY-CONTINUITY-AND-TACHIE.md",
+      "target": "visual-assets-v2-jobs.json",
+      "exists": true
+    },
+    {
+      "source": "docs/design-system/asset-prompts/04-V2-STORY-CONTINUITY-AND-TACHIE.md",
+      "target": "visual-assets-v2-jobs.json",
+      "exists": true
+    },
+    {
+      "source": "docs/design-system/asset-prompts/04-V2-STORY-CONTINUITY-AND-TACHIE.md",
+      "target": "../../../assets/provenance/visual-assets-v2.json",
+      "exists": true
+    },
+    {
+      "source": "docs/design-system/asset-prompts/04-V2-STORY-CONTINUITY-AND-TACHIE.md",
+      "target": "../evidence/visual-assets-v2-review.html",
+      "exists": true
+    },
+    {
+      "source": "docs/design-system/asset-prompts/04-V2-STORY-CONTINUITY-AND-TACHIE.md",
+      "target": "../../../assets/images/asset-manifest-v2.json",
+      "exists": true
+    },
+    {
+      "source": "docs/design-system/asset-prompts/04-V2-STORY-CONTINUITY-AND-TACHIE.md",
+      "target": "../evidence/verify-visual-assets-v2.py",
+      "exists": true
+    },
+    {
+      "source": "docs/design-system/asset-prompts/04-V2-STORY-CONTINUITY-AND-TACHIE.md",
+      "target": "../evidence/visual-assets-v2-verification.json",
+      "exists": true
+    },
+    {
+      "source": "docs/design-system/asset-prompts/04-V2-STORY-CONTINUITY-AND-TACHIE.md",
+      "target": "../evidence/visual-assets-v2-browser-review.json",
+      "exists": true
+    },
+    {
+      "source": "docs/design-system/asset-prompts/04-V2-STORY-CONTINUITY-AND-TACHIE.md",
+      "target": "../evidence/visual-assets-v2-unit-summary.txt",
+      "exists": true
+    },
+    {
+      "source": "docs/design-system/asset-prompts/04-V2-STORY-CONTINUITY-AND-TACHIE.md",
+      "target": "../../changelog/2026-10/2026-10-30-0149-adr032-visual-assets-v2.md",
+      "exists": true
+    },
+    {
+      "source": "docs/changelog/2026-10/2026-10-30-0149-adr032-visual-assets-v2.md",
+      "target": "2026-10-29-1742-adr032-v2-and-adr033-interactive-gameplay.md",
+      "exists": true
+    },
+    {
+      "source": "docs/changelog/2026-10/2026-10-30-0149-adr032-visual-assets-v2.md",
+      "target": "../../design-system/evidence/visual-assets-v2-review.html",
+      "exists": true
+    },
+    {
+      "source": "docs/changelog/2026-10/2026-10-30-0149-adr032-visual-assets-v2.md",
+      "target": "../../design-system/asset-prompts/04-V2-STORY-CONTINUITY-AND-TACHIE.md",
+      "exists": true
+    },
+    {
+      "source": "docs/changelog/2026-10/2026-10-30-0149-adr032-visual-assets-v2.md",
+      "target": "../../design-system/asset-prompts/visual-assets-v2-jobs.json",
+      "exists": true
+    },
+    {
+      "source": "docs/changelog/2026-10/2026-10-30-0149-adr032-visual-assets-v2.md",
+      "target": "../../adr/ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md",
+      "exists": true
+    },
+    {
+      "source": "docs/changelog/2026-10/2026-10-30-0149-adr032-visual-assets-v2.md",
+      "target": "../../design-system/new-five-act-story-and-mechanics-proposal.md",
+      "exists": true
+    },
+    {
+      "source": "docs/changelog/2026-10/2026-10-30-0149-adr032-visual-assets-v2.md",
+      "target": "../../adr/ADR-P0-025-childhood-keepsake-default-stance-and-heart-emote-decoupling.md",
+      "exists": true
+    },
+    {
+      "source": "docs/changelog/2026-10/2026-10-30-0149-adr032-visual-assets-v2.md",
+      "target": "../../adr/ADR-P0-033-interactive-tactical-adventure-gameplay-and-dynamic-stage-revolution.md",
+      "exists": true
+    },
+    {
+      "source": "docs/changelog/2026-10/2026-10-30-0149-adr032-visual-assets-v2.md",
+      "target": "../../../assets/images/asset-manifest-v2.json",
+      "exists": true
+    },
+    {
+      "source": "docs/changelog/2026-10/2026-10-30-0149-adr032-visual-assets-v2.md",
+      "target": "../../../assets/provenance/visual-assets-v2.json",
+      "exists": true
+    },
+    {
+      "source": "docs/changelog/2026-10/2026-10-30-0149-adr032-visual-assets-v2.md",
+      "target": "../../design-system/evidence/visual-assets-v2-verification.json",
+      "exists": true
+    },
+    {
+      "source": "docs/changelog/2026-10/2026-10-30-0149-adr032-visual-assets-v2.md",
+      "target": "../../design-system/evidence/visual-assets-v2-unit-summary.txt",
+      "exists": true
+    },
+    {
+      "source": "docs/changelog/2026-10/2026-10-30-0149-adr032-visual-assets-v2.md",
+      "target": "../../design-system/evidence/visual-assets-v2-browser-review.json",
+      "exists": true
+    },
+    {
+      "source": "docs/changelog/2026-10/2026-10-30-0149-adr032-visual-assets-v2.md",
+      "target": "../../design-system/evidence/visual-assets-v2-stage-review.jpg",
+      "exists": true
+    },
+    {
+      "source": "docs/changelog/2026-10/2026-10-30-0149-adr032-visual-assets-v2.md",
+      "target": "../../design-system/evidence/visual-assets-v2-dawn-comparison.jpg",
+      "exists": true
+    },
+    {
+      "source": "docs/changelog/2026-10/2026-10-30-0149-adr032-visual-assets-v2.md",
+      "target": "../../design-system/evidence/visual-assets-v2-doc-checks.json",
+      "exists": true
+    },
+    {
+      "source": "CHANGELOG.md",
+      "target": "docs/changelog/2026-10/2026-10-30-0149-adr032-visual-assets-v2.md",
+      "exists": true
+    },
+    {
+      "source": "docs/sprints/sprint-05-ssot.md",
+      "target": "../changelog/2026-10/2026-10-30-0149-adr032-visual-assets-v2.md",
+      "exists": true
+    },
+    {
+      "source": "docs/sprints/sprint-05-ssot.md",
+      "target": "../design-system/evidence/visual-assets-v2-review.html",
+      "exists": true
+    },
+    {
+      "source": "docs/dialogue/INTER-AGENT-DIALOGUE2.md",
+      "target": "../changelog/2026-10/2026-10-30-0149-adr032-visual-assets-v2.md",
+      "exists": true
+    },
+    {
+      "source": "docs/dialogue/INTER-AGENT-DIALOGUE2.md",
+      "target": "../design-system/evidence/visual-assets-v2-review.html",
+      "exists": true
+    },
+    {
+      "source": "docs/dialogue/INTER-AGENT-DIALOGUE2.md",
+      "target": "../../assets/images/asset-manifest-v2.json",
+      "exists": true
+    },
+    {
+      "source": "docs/dialogue/INTER-AGENT-DIALOGUE2.md",
+      "target": "../../assets/provenance/visual-assets-v2.json",
+      "exists": true
+    },
+    {
+      "source": "docs/dialogue/INTER-AGENT-DIALOGUE2.md",
+      "target": "../design-system/evidence/visual-assets-v2-verification.json",
+      "exists": true
+    },
+    {
+      "source": "docs/dialogue/INTER-AGENT-DIALOGUE2.md",
+      "target": "../design-system/evidence/visual-assets-v2-unit-summary.txt",
+      "exists": true
+    }
+  ],
+  "errors": [],
+  "whitespaceDiff": "PASS",
+  "dialogueAppendOnly": true,
+  "screenshots": [
+    {
+      "path": "docs/design-system/evidence/visual-assets-v2-dawn-comparison.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1265,
+        712
+      ],
+      "sha256": "9dcdf9ba45ec00447af874e6d202282196ff80c3521ed25ee65c2d80d43bfc57"
+    },
+    {
+      "path": "docs/design-system/evidence/visual-assets-v2-stage-review.jpg",
+      "format": "JPEG",
+      "dimensions": [
+        1265,
+        712
+      ],
+      "sha256": "260b849c78beb53d770346735191f659331d941e8298a6e260010e842d19921f"
+    }
+  ],
+  "excludedUserEdit": "docs/changelog/2026-10/2026-10-29-1742-adr032-v2-and-adr033-interactive-gameplay.md"
+}

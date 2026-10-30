@@ -1,0 +1,62 @@
+{
+  "checkedAt": "2026-10-29T18:49:35.134Z",
+  "browser": "Codex IAB",
+  "url": "http://127.0.0.1:8765/docs/design-system/evidence/visual-assets-v2-review.html#stage",
+  "search": {
+    "total": 70,
+    "visible": [
+      {
+        "id": "cg_act5_ending_edawn_two_worlds",
+        "title": "E-DAWN · รุ่งอรุณสองภพ"
+      }
+    ]
+  },
+  "toggles": {
+    "classes": "dark-sprites hide-guides hide-dialogue",
+    "dialogueVisible": "none",
+    "guidesVisible": "none"
+  },
+  "navigation": [
+    {
+      "name": "ตัวละคร",
+      "url": "http://127.0.0.1:8765/docs/design-system/evidence/visual-assets-v2-review.html#characters"
+    },
+    {
+      "name": "ฉากหลัง",
+      "url": "http://127.0.0.1:8765/docs/design-system/evidence/visual-assets-v2-review.html#backgrounds"
+    },
+    {
+      "name": "คัตซีน",
+      "url": "http://127.0.0.1:8765/docs/design-system/evidence/visual-assets-v2-review.html#cinematicCGs"
+    },
+    {
+      "name": "ของสะสม",
+      "url": "http://127.0.0.1:8765/docs/design-system/evidence/visual-assets-v2-review.html#keepsakes"
+    },
+    {
+      "name": "ใช้ v1 ต่อ",
+      "url": "http://127.0.0.1:8765/docs/design-system/evidence/visual-assets-v2-review.html#carry"
+    }
+  ],
+  "finalState": {
+    "cards": 70,
+    "classes": "dark-sprites",
+    "failed": [],
+    "horizontalOverflow": false,
+    "imageElements": 133,
+    "loaded": 63,
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  "consoleWarningsAndErrors": [],
+  "screenshots": [
+    "docs/design-system/evidence/visual-assets-v2-stage-review.jpg",
+    "docs/design-system/evidence/visual-assets-v2-dawn-comparison.jpg"
+  ],
+  "limits": [
+    "Lazy offscreen images were not all fetched in the browser; the separate file validator checks every referenced local file.",
+    "Desktop prototype review only; no physical-device, assistive-technology or runtime certification."
+  ]
+}

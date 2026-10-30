@@ -1,3 +1,6 @@
+> **[STATUS AS OF 2026-10-29: SUPERSEDED BY ADR-P0-019 — DO NOT USE]**
+> ถูกแทนที่โดย [ADR-P0-019](./ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md)
+
 # ADR-P0-018: Visual Novel Design System, Layout Anchoring, and Anti-Slop Presentation Standards
 
 Status: **Superseded by [ADR-P0-019](./ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md) (Implementation Rejection on Runtime Playtest Feedback)**

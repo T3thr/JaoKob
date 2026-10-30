@@ -1,0 +1,403 @@
+{
+  "id": "JKB-UX-DEVICE-MOCKUPS-V1",
+  "status": "generated-awaiting-po-visual-review",
+  "createdAt": "2026-10-30T12:24:38+07:00",
+  "branch": "feat/sprint-05-planning-ssot",
+  "identity": "T3thr <t.theerapat33@gmail.com>",
+  "requirements": [
+    "ADR-P0-032 D7–D8",
+    "ADR-P0-033 D0–D5",
+    "JKB-DS-UX-INTERACTIVE 1.0.0",
+    "PO direct-image-generation device-mockup request"
+  ],
+  "scope": "Ten raster device/browser design mockups: five modes, MacBook Pro and iPhone 16 Pro.",
+  "nonGoals": [
+    "Production gameplay implementation",
+    "Website rendering",
+    "Release or deployment",
+    "Canon/schema/save changes"
+  ],
+  "pipeline": "Built-in Image Generation with approved device and actual v2 scene/character/item references; Thai UI text generated directly in pixels. Lossless PNG-to-WebP format conversion only.",
+  "sourceAuthority": "Claude narrative worktree design documents are read-only review inputs; draft specification approval status is unchanged.",
+  "verification": {
+    "generatedFinalImages": 10,
+    "validPngFiles": 10,
+    "validWebpFiles": 10,
+    "bothDestinationHashesMatch": true,
+    "losslessWebpPixelsMatchPng": true,
+    "visualInspection": "All ten final images viewed; refined Act5 sewn buttons, clash answer/repeat badges, camp four-cell pouch and single hem star.",
+    "protectedClaudeMarkdownAndMjs": {
+      "checked": 31,
+      "modified": []
+    }
+  },
+  "verificationNotPerformed": [
+    "Browser/Playwright/Chromium rendering (prohibited by latest user request)",
+    "DOM overflow, functional input, exact CSS target sizes, screen-reader or WCAG conformance (raster concepts only)",
+    "Independent human Thai editorial sign-off"
+  ],
+  "migration": "None; review images only.",
+  "rollback": "Remove only the ten named PNG/WebP deliverables and this manifest; preserve Claude files and earlier work.",
+  "approvalsRequired": [
+    "PO visual review; any later implementation requires separate scope approval."
+  ],
+  "artifacts": [
+    {
+      "key": "mode1-vn-desktop",
+      "generation": {
+        "tool": "built-in image_gen",
+        "prompt": "Use case: ui-mockup. Create ONE finished premium JaoKob gameplay DEVICE BROWSER MOCKUP image, not a wireframe, not a collage. Image 1 is the approved DEVICE/CHROME FRAME reference: preserve its front-on full visible hardware, dark studio background, bezel, browser realism, screen-dominant framing. REPLACE ALL OLD GAME CONTENT from image 1. Other images define the actual current v2 character identity, blue cotton shirt, natural warm handcrafted cinematic 3D materials, and locations. Precisely draw crisp Thai text directly into pixels, Sarabun-like clean Thai typography, generous leading and correct diacritics. Paper #fcf4e3, ink #293d32, moss glass HUD, fine cotton stitching, woven reed and aged brass. Minimal premium controls, no clutter. No HP/Sanity English, no 80/100, no Locked Bond from old reference. No minimap, damage numbers, boss HP bars, no red hearts, no plush toys. Keep all HUD and cards clear of character faces. Only one blue-shirt protagonist. Exact text and screen hierarchy below.  Output wide landscape 16:9 high resolution. A physical MacBook Pro, keyboard lip visible, Google Chrome with macOS menu, tab JaoKob and address https://t3thr.github.io/JaoKob/. Device fills 94% canvas width, flat straight-on screen, no hands or desk props.  Compact top frosted forest-green HUD: three rows กาย ●●●●○, ใจ ●●●○○, แรง ●●●○○ with lotus leaf / three-pronged star / frog leg icons, 3 braided companion cords with actual knots, 4-cell woven reed pouch button and small settings cog. No raw meter numerals.  GAME: stormy wooden canal pavilion night, frog on elevated wooden rail left looking RIGHT at kneeling young adult Thai man Teuk in dark blue wet rain jacket on RIGHT looking left, holding flashlight. Match references 2–5. Eyelines level, faces clearly visible, warm winding lantern and rain outside, distant flood. Strong foreground dialogue card across bottom center about 50% screen width and 23% height, translucent botanical corner impressions and little sewn edge. Speaker badge เตื๊อก. EXACT dialogue in large readable Thai: เอ็งเข้าใจที่ข้าพูดใช่ไหม ถ้าใช่... เคาะราวไม้สามที . Tiny ▽ lower right. ONLY reading-state dialogue, no choice buttons. Calm touching interaction. Frog blue shirt with white THREE-PRONGED star near lower hem; NO sewn brass button yet in this act.",
+        "references": [
+          "docs/proposals/phase-02-visual-novel-architecture/jaokob-visual-target-desktop-reading-state.png",
+          "assets/images/backgrounds/act-03/versions/v1/bg-act3-wayside-shelter-teuk.png",
+          "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.png",
+          "assets/images/characters/jao-teuk/versions/v2/storm-kneeling-mission-left.png",
+          "assets/images/cg/act-03/versions/v2/cg-act3-teuk-guardian-oath.png"
+        ],
+        "outputId": "exec-cc381a2e-6f4f-4266-8a18-d4b74855d660.png"
+      },
+      "refinement": null,
+      "dimensions": [
+        1585,
+        992
+      ],
+      "files": {
+        "png": {
+          "path": "mode1-vn-desktop.png",
+          "bytes": 2228543,
+          "sha256": "166ac351a852738af297d2085ddeaba4ad06e77a2860c83ddd1681116935f989"
+        },
+        "webp": {
+          "path": "mode1-vn-desktop.webp",
+          "bytes": 1653758,
+          "sha256": "ec368880a0a959d5373de133ebd2662a5c6a2683623217b8fa0f61a24f866fca"
+        }
+      }
+    },
+    {
+      "key": "mode1-choice-mobile",
+      "generation": {
+        "tool": "built-in image_gen",
+        "prompt": "Use case: ui-mockup. Create ONE finished premium JaoKob gameplay DEVICE BROWSER MOCKUP image, not a wireframe, not a collage. Image 1 is the approved DEVICE/CHROME FRAME reference: preserve its front-on full visible hardware, dark studio background, bezel, browser realism, screen-dominant framing. REPLACE ALL OLD GAME CONTENT from image 1. Other images define the actual current v2 character identity, blue cotton shirt, natural warm handcrafted cinematic 3D materials, and locations. Precisely draw crisp Thai text directly into pixels, Sarabun-like clean Thai typography, generous leading and correct diacritics. Paper #fcf4e3, ink #293d32, moss glass HUD, fine cotton stitching, woven reed and aged brass. Minimal premium controls, no clutter. No HP/Sanity English, no 80/100, no Locked Bond from old reference. No minimap, damage numbers, boss HP bars, no red hearts, no plush toys. Keep all HUD and cards clear of character faces. Only one blue-shirt protagonist. Exact text and screen hierarchy below.  Output tall portrait 9:16 high resolution. A physical iPhone 16 Pro, full titanium frame and Dynamic Island visible with 9:41 status, Mobile Safari bottom address bar t3thr.github.io/JaoKob/ and real back/share/bookmark/tab icons, home indicator. Device fills 90% width, small black studio margins, straight-on not tilted. All game content above Safari toolbar.  Compact top frosted forest-green HUD: three rows กาย ●●●●○, ใจ ●●●○○, แรง ●●●○○ with lotus leaf / three-pronged star / frog leg icons, 3 braided companion cords with actual knots, 4-cell woven reed pouch button and small settings cog. No raw meter numerals.  GAME: Act2 whirlpool iron grate rescue inside wet storm drain, exact orange hermit crab P'Kam in dented pale blue floral candy tin, large LEFT claw extended, stuck against whirlpool grate; living frog in blue shirt above on concrete edge reaching to save him. Use rescue CG for identity and action, show full readable event in UPPER MIDDLE screen, no duplicated sprites. Bottom 40% game viewport: short cream paper narration EXACT กระป๋องลูกอมของพี่ก้ามติดซี่ตะแกรงน้ำวน ต้องรีบตัดสินใจ... . Under it EXACTLY THREE broad generous tactile cards vertically stacked, all visible above Safari without scrollbar. Card1 gold dashed sewn border and actual bark wristguard item icon, Thai two lines ท่าผสาน: ใช้สนับข้อมืองัดเฟืองเหล็ก then [ สายใยพี่ก้าม ]. Card2 rich leaf-green, frog-jump icon, white text ดีดตัวผ่าลม: กระโจนคว้าก้ามซ้าย then [ ทักษะพี่น้อง ]. Card3 indigo-blue, footprint icon, white text ยืนหยัดเอง: ยันขอบปูนดึงเต็มแรง then [ ใช้แรง ● ]. Correct left-claw rescue, tiny white three-pronged star on blue shirt, no sewn button. Large readable buttons with refined handcrafted leaf corner motifs.",
+        "references": [
+          "docs/proposals/phase-02-visual-novel-architecture/jaokob-visual-target-mobile-decision-state.png",
+          "assets/images/cg/act-02/versions/v2/cg-act2-pkam-whirlpool-rescue.png",
+          "assets/images/characters/jao-kob/versions/v2/adult-determined-right.png",
+          "assets/images/characters/p-kam/versions/v2/neutral-guarded-left.png",
+          "assets/images/keepsakes/v2/versions/v1/item-kab-bark-guard.png"
+        ],
+        "outputId": "exec-682da49a-c1b3-491b-8415-1ef9ae9bbbb8.png"
+      },
+      "refinement": null,
+      "dimensions": [
+        941,
+        1672
+      ],
+      "files": {
+        "png": {
+          "path": "mode1-choice-mobile.png",
+          "bytes": 2366520,
+          "sha256": "7322d1d3fb67848d258ff8ce7991cea4bd83be102dfc02a02994b58cc69c865c"
+        },
+        "webp": {
+          "path": "mode1-choice-mobile.webp",
+          "bytes": 1714260,
+          "sha256": "d495ef81fc680476ad2edfd2eb05967857e9b3438a74251a895de11e63f3f110"
+        }
+      }
+    },
+    {
+      "key": "mode2-clash-r5-desktop",
+      "generation": {
+        "tool": "built-in image_gen",
+        "prompt": "Use case: ui-mockup. Create ONE finished premium JaoKob gameplay DEVICE BROWSER MOCKUP image, not a wireframe, not a collage. Image 1 is the approved DEVICE/CHROME FRAME reference: preserve its front-on full visible hardware, dark studio background, bezel, browser realism, screen-dominant framing. REPLACE ALL OLD GAME CONTENT from image 1. Other images define the actual current v2 character identity, blue cotton shirt, natural warm handcrafted cinematic 3D materials, and locations. Precisely draw crisp Thai text directly into pixels, Sarabun-like clean Thai typography, generous leading and correct diacritics. Paper #fcf4e3, ink #293d32, moss glass HUD, fine cotton stitching, woven reed and aged brass. Minimal premium controls, no clutter. No HP/Sanity English, no 80/100, no Locked Bond from old reference. No minimap, damage numbers, boss HP bars, no red hearts, no plush toys. Keep all HUD and cards clear of character faces. Only one blue-shirt protagonist. Exact text and screen hierarchy below.  Output wide landscape 16:9 high resolution. A physical MacBook Pro, keyboard lip visible, Google Chrome with macOS menu, tab JaoKob and address https://t3thr.github.io/JaoKob/. Device fills 94% canvas width, flat straight-on screen, no hands or desk props.  Compact top frosted forest-green HUD: three rows กาย ●●●●○, ใจ ●●●○○, แรง ●●●○○ with lotus leaf / three-pronged star / frog leg icons, 3 braided companion cords with actual knots, 4-cell woven reed pouch button and small settings cog. No raw meter numerals.  GAME: final R5 shadow duel on bedside wooden table. References 2–5 exact room, blue shirt living frog at left, brass ต.♡ป. button sewn beside white three-pronged shirt-hem star, small exposed battery lamp bulb at far left, frosted glass shade lifted off and resting beside lamp. Two caped shadows on wall above bed: smaller FROG KNIGHT on LEFT and nearly twice larger dark-cloak phantom shadow on RIGHT. Peacefully sleeping young Thai woman Peuak in right background. Small actual black-bag cloak phantom with glowing eyes at right, no insect anatomy, NO BUTTON on villain. UPPER CENTER smoke-violet fabric intent strip #6E4FA3 EXACT เจตนาศัตรู: กระซิบฝันร้าย (ลดแสงเงา). MIDDLE LOWER above actions: clear ten equal-cell horizontal light-vs-shadow tug gauge, first TWO cells amber gold lit, remaining eight smoky purple, tiny sun far right, dashed seventh threshold, four droplet turn icons. LOWEST: paper command panel 4 columns × 2 rows, EXACT eight distinct buttons: ก้าวชิดโคมไฟ ; ยืนนิ่งกลางลำแสง [แก้ทาง] ; สูดลมหลังฐานโคม ; ตั้งสติฟังฝน [แก้ทาง] ; ดีดตัวผ่าลม [ซ้ำ] ; ริบบิ้นกลิ่นแดด ; ห่าเมล็ดเรือง ; ชูชายเสื้อสะท้อนกระดุม ต.♡ป. . Counter badges warm gold, repeat badge dusty blue. Paper stitched cards, no overlapping faces, dramatic intimate game screenshot look.\nReference2 (CG) defines entire bedroom and sleeping woman, reference3 frog, reference4 buttonless villain, reference5 brass button. Preserve these identities.",
+        "references": [
+          "docs/proposals/phase-02-visual-novel-architecture/jaokob-visual-target-desktop-reading-state.png",
+          "assets/images/cg/act-05/versions/v2/cg-act5-shadow-knight-protector.png",
+          "assets/images/characters/jao-kob/versions/v2/adult-determined-right.png",
+          "assets/images/characters/cockroach-man/versions/v2/shadow-cloak-boast-left.png",
+          "assets/images/keepsakes/v2/versions/v2/item-teuk-peuak-button.png"
+        ],
+        "outputId": "exec-c3c6c638-a1c9-43c8-b6b1-8cea3a123c0e.png"
+      },
+      "refinement": null,
+      "dimensions": [
+        1584,
+        993
+      ],
+      "files": {
+        "png": {
+          "path": "mode2-clash-r5-desktop.png",
+          "bytes": 2196087,
+          "sha256": "349f3d777cd6f103f4ba8a5dc48a1831cdf5e9e048a0ccfe6e406e0d6acf5c59"
+        },
+        "webp": {
+          "path": "mode2-clash-r5-desktop.webp",
+          "bytes": 1629072,
+          "sha256": "d0a3318801e26f82aad4887ef17f82cad06f3fe8fc721fcc0d441d07a5469260"
+        }
+      }
+    },
+    {
+      "key": "mode2-clash-r5-mobile",
+      "generation": {
+        "tool": "built-in image_gen",
+        "prompt": "Use case: ui-mockup. Create ONE finished premium JaoKob gameplay DEVICE BROWSER MOCKUP image, not a wireframe, not a collage. Image 1 is the approved DEVICE/CHROME FRAME reference: preserve its front-on full visible hardware, dark studio background, bezel, browser realism, screen-dominant framing. REPLACE ALL OLD GAME CONTENT from image 1. Other images define the actual current v2 character identity, blue cotton shirt, natural warm handcrafted cinematic 3D materials, and locations. Precisely draw crisp Thai text directly into pixels, Sarabun-like clean Thai typography, generous leading and correct diacritics. Paper #fcf4e3, ink #293d32, moss glass HUD, fine cotton stitching, woven reed and aged brass. Minimal premium controls, no clutter. No HP/Sanity English, no 80/100, no Locked Bond from old reference. No minimap, damage numbers, boss HP bars, no red hearts, no plush toys. Keep all HUD and cards clear of character faces. Only one blue-shirt protagonist. Exact text and screen hierarchy below.  Output tall portrait 9:16 high resolution. A physical iPhone 16 Pro, full titanium frame and Dynamic Island visible with 9:41 status, Mobile Safari bottom address bar t3thr.github.io/JaoKob/ and real back/share/bookmark/tab icons, home indicator. Device fills 90% width, small black studio margins, straight-on not tilted. All game content above Safari toolbar.  Compact top frosted forest-green HUD: three rows กาย ●●●●○, ใจ ●●●○○, แรง ●●●○○ with lotus leaf / three-pronged star / frog leg icons, 3 braided companion cords with actual knots, 4-cell woven reed pouch button and small settings cog. No raw meter numerals.  GAME: R5 bedside shadow battle, portrait re-composition, sleeping young Thai woman on bed background. Exposed warm lamp bulb on left tabletop and removed frosted glass shade beside base. Living frog in blue shirt with white three-pronged star and sewn brass ต.♡ป. button at left; small black-bag cloak shadow phantom at right NO villain button. HUGE wall shadows in upper half: small caped frog knight left, larger dark villain right, nearly 1:2 ratio, readable against warm wall. Smoke-violet intent ribbon below HUD EXACT เจตนาศัตรู: กระซิบฝันร้าย . Beneath stage a clear TEN-CELL horizontal gold-vs-purple tug gauge: first two lit gold, sun at right, four rain-drop turn icons. Bottom game zone roomy touch buttons EXACT 2 columns × 4 rows, all eight visible and no scroll: row1 ก้าวชิดโคมไฟ | ยืนนิ่งกลางลำแสง ; row2 สูดลมหลังฐานโคม | ตั้งสติฟังฝน ; row3 ดีดตัวผ่าลม | ริบบิ้นกลิ่นแดด ; row4 ห่าเมล็ดเรือง | ชูชายเสื้อสะท้อนกระดุม . The second and fourth buttons have small gold แก้ทาง tags, fifth has blue ซ้ำ tag. Text short clean clear with enough room, stitched cream-paper cards, comfortable thumb targets. Keep main stage faces entirely above command grid.\nReference2 (CG) defines entire bedroom and sleeping woman, reference3 frog, reference4 buttonless villain, reference5 brass button. Preserve these identities.",
+        "references": [
+          "docs/proposals/phase-02-visual-novel-architecture/jaokob-visual-target-mobile-decision-state.png",
+          "assets/images/cg/act-05/versions/v2/cg-act5-shadow-knight-protector.png",
+          "assets/images/characters/jao-kob/versions/v2/adult-determined-right.png",
+          "assets/images/characters/cockroach-man/versions/v2/shadow-cloak-boast-left.png",
+          "assets/images/keepsakes/v2/versions/v2/item-teuk-peuak-button.png"
+        ],
+        "outputId": "exec-ebfc4f8b-8134-49ae-ab0c-e80446356df9.png"
+      },
+      "refinement": {
+        "prompt": "Use case: precise-object-edit / ui-mockup. Edit image1 existing iPhone R5 mockup. Reference2 approved iPhone hardware, reference3 actual blue-shirt frog, reference4 actual brass item. PRESERVE entire device, Safari URL, scene, shadows, sleeping woman, all Thai button names and 2columns×4rows grid. Make ONLY these localized HUD corrections: (1) two gold badges แก้ทาง ONLY on second button top-right ยืนนิ่งกลางลำแสง and fourth button row2-right ตั้งสติฟังฝน. Remove gold badge from bottom-right ชูชายเสื้อสะท้อนกระดุม. (2) one blue badge ซ้ำ ONLY on fifth button row3-left ดีดตัวผ่าลม; remove blue badge from seventh button ห่าเมล็ดเรือง. (3) gauge above cards EXACTLY TEN equal cells, first TWO gold filled, remaining EIGHT dark purple; move sun icon to FAR RIGHT end, small lamp at far left, thin dashed threshold after seventh cell, keep4rain droplets alongside. (4) Frog brass button is sewn directly on blue SHIRT HEM beside white THREE-PRONGED STAR, not suspended on woven pouch strap: relocate small existing button slightly left/down onto shirt near star. Preserve other pixels and original warm paper, moss HUD, typography and art identities. No new layout, no extra labels.",
+        "references": [
+          "generated-source:exec-afbb8d17-04d1-4d21-a011-ed7f7a42c762.png",
+          "docs/proposals/phase-02-visual-novel-architecture/jaokob-visual-target-mobile-decision-state.png",
+          "assets/images/characters/jao-kob/versions/v2/adult-determined-right.png",
+          "assets/images/keepsakes/v2/versions/v2/item-teuk-peuak-button.png"
+        ]
+      },
+      "dimensions": [
+        941,
+        1672
+      ],
+      "files": {
+        "png": {
+          "path": "mode2-clash-r5-mobile.png",
+          "bytes": 2048638,
+          "sha256": "c7ec56306860f2f443be9de4100fd51205c42702bec9b2d717618f0a287d3035"
+        },
+        "webp": {
+          "path": "mode2-clash-r5-mobile.webp",
+          "bytes": 1523634,
+          "sha256": "997506b6699394fc569263b424fd42d4c50278648905b7c9a08312d0298e7864"
+        }
+      }
+    },
+    {
+      "key": "mode3-camp-c3-desktop",
+      "generation": {
+        "tool": "built-in image_gen",
+        "prompt": "Use case: ui-mockup. Create ONE finished premium JaoKob gameplay DEVICE BROWSER MOCKUP image. Image1 defines physical DEVICE FRAME ONLY: preserve its straight-on hardware, screen-dominant framing, dark studio background, bezel and browser realism; REPLACE ALL OLD GAME CONTENT. Other refs define exact current v2 character identity and cinematic handcrafted 3D game look. Draw all Thai text directly in image, crisp Sarabun-like typography, correct diacritics, comfortably large. Warm paper #fcf4e3, ink #293d32, dark moss frosted glass, cotton stitching, woven reed and aged brass. No old HP/Sanity/Bond Locked, no old 80/100 numerals. No minimap, boss HP bars, damage numbers, red hearts, or plush toys. Only one blue-shirt living frog. Keep faces unobscured. Wide landscape 16:9 high resolution, full physical MacBook Pro on black background, keyboard lip visible, Google Chrome browser with macOS menu, tab JaoKob, address https://t3thr.github.io/JaoKob/. Device fills94% width, no props. Compact forest-green frosted top HUD: กาย ●●●●○ · ใจ ●●●○○ · แรง ●●●○○ with leaf / three-pronged star / frog-leg glyphs,3 braided cords with knots,4-cell reed pouch and settings cog; no raw meter numerals. GAME: C3 under-eave shelter camp in stormy wooden canal pavilion, warm orange WINDING lantern, cool rain outside. Exactly FOUR companions resting together: blue-shirt45cm frog on bench left; small hermit crab in dented pale blue floral tin floor left; tiny flying squirrel yellow ribbon center; young Thai man Teuk right seated against post, RIGHT ankle wrapped. Identity from refs2–7, intimate recovery scene. TOP RIGHT clock:3 winding lantern icons,1 dim used2glow, EXACT เวลาพัก: ตะเกียงเหลือ 2 รอบลาน . Bottom warm #F2C988 panel, exactly4 equally sized dry banana-leaf stitched activity cards in ONE ROW: ดามข้อเท้าให้เตื๊อกด้วยสนับข้อมือ ; พูดคุยถามไถ่เตื๊อก ; แบ่งแมลงเพิ่มแรงกาย ; เช็ดกระดุมเตรียมพร้อมผสาน . First uses real bark guard icon and Teuk portrait, selected green sewn outline and เลือกแล้ว . Others knot/leaf-energy/button art. No digital timer. No cards on faces. Big legible Thai.\nREFERENCE ROLES: first image only physical device/browser frame; remaining actual scene CG, main character and item identity. The group CG includes the correct small companions; retain each rather than making new characters.",
+        "references": [
+          "docs/proposals/phase-02-visual-novel-architecture/jaokob-visual-target-desktop-reading-state.png",
+          "assets/images/cg/act-03/versions/v2/cg-act3-teuk-guardian-oath.png",
+          "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.png",
+          "assets/images/characters/jao-teuk/versions/v2/storm-kneeling-mission-left.png",
+          "assets/images/keepsakes/v2/versions/v1/item-kab-bark-guard.png"
+        ],
+        "outputId": "exec-557ab7a0-92a7-4dd9-8696-b4879ed20920.png"
+      },
+      "refinement": {
+        "prompt": "Use case: precise-object-edit / ui-mockup. Edit image1 completed MacBook C3 shelter camp. Image2 device reference; image3 actual frog; image4 brass button. Preserve original device frame Chrome URL, all four resting characters, all text, lantern clock, four activity cards. ONLY fix2 small graphic icons: TOP HUD existing three basket-tubes must become ONE little flat woven reed pouch showing EXACTLY FOUR square compartments arranged2x2, like a tiny 4-slot inventory; no3tubes or extra slots. LAST ACTIVITY CARD item icon must be shiny aged BRASS FOUR-HOLE BUTTON engraved ต.♡ป. resting on blue cloth instead of brown wooden button. No other edits. Keep all Thai typography, scene and lighting unchanged.",
+        "references": [
+          "generated-source:exec-a0b302cf-2c43-4998-862c-fd3c34187562.png",
+          "docs/proposals/phase-02-visual-novel-architecture/jaokob-visual-target-desktop-reading-state.png",
+          "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.png",
+          "assets/images/keepsakes/v2/versions/v2/item-teuk-peuak-button.png"
+        ]
+      },
+      "dimensions": [
+        1584,
+        993
+      ],
+      "files": {
+        "png": {
+          "path": "mode3-camp-c3-desktop.png",
+          "bytes": 2253879,
+          "sha256": "9f95e307c3d556387408cf40f3a8f84d795bcdf05c2587fe244ee3a5109e1ef9"
+        },
+        "webp": {
+          "path": "mode3-camp-c3-desktop.webp",
+          "bytes": 1681944,
+          "sha256": "f959f7068dd991ceed6605020c56dc2e1ac532cfe15240a12c2cada578ea3b63"
+        }
+      }
+    },
+    {
+      "key": "mode3-camp-c3-mobile",
+      "generation": {
+        "tool": "built-in image_gen",
+        "prompt": "Use case: ui-mockup. Create ONE finished premium JaoKob gameplay DEVICE BROWSER MOCKUP image. Image1 defines physical DEVICE FRAME ONLY: preserve its straight-on hardware, screen-dominant framing, dark studio background, bezel and browser realism; REPLACE ALL OLD GAME CONTENT. Other refs define exact current v2 character identity and cinematic handcrafted 3D game look. Draw all Thai text directly in image, crisp Sarabun-like typography, correct diacritics, comfortably large. Warm paper #fcf4e3, ink #293d32, dark moss frosted glass, cotton stitching, woven reed and aged brass. No old HP/Sanity/Bond Locked, no old 80/100 numerals. No minimap, boss HP bars, damage numbers, red hearts, or plush toys. Only one blue-shirt living frog. Keep faces unobscured. Tall portrait9:16 high resolution, full physical iPhone16Pro titanium frame on black background, Dynamic Island and9:41 visible, Safari bottom address bar t3thr.github.io/JaoKob/ with real navigation/share/bookmark/tab icons and home indicator. Device fills90% width, upright not tilted, all UI above Safari. Compact forest-green frosted top HUD: กาย ●●●●○ · ใจ ●●●○○ · แรง ●●●○○ with leaf / three-pronged star / frog-leg glyphs,3 braided cords with knots,4-cell reed pouch and settings cog; no raw meter numerals. GAME: C3 portrait camp warm shelter under wooden canal pavilion eaves. FOUR resting friends upper-middle:45cm living frog in blue shirt with white three-pronged star on bench; small orange hermit crab in pale floral tin; tiny flying squirrel yellow ribbon; young Thai man Teuk seated against post with wrapped RIGHT ankle. Winding lantern above, cool rain beyond. Small diegetic clock3 lanterns1dim2glow; EXACT ตะเกียงเหลือสองรอบ . Below faces warm paper panel exactly FOUR generous activity cards in2columns×2rows: ดามข้อเท้าด้วยสนับข้อมือ ; คุยกับเตื๊อก ; จับแมลงกิน ; เตรียมของให้พร้อม . First selected green sewn border, actual bark guard icon, เลือกแล้ว label. Other cards have knot/leaf-energy/brass button icons. Beneath grid broad forest-green button ออกเดินทางต่อ . All visible above Safari. Dry banana-leaf fibers and cotton borders, no digital countdown, no duplicate characters.\nREFERENCE ROLES: first image only physical device/browser frame; remaining actual scene CG, main character and item identity. The group CG includes the correct small companions; retain each rather than making new characters.",
+        "references": [
+          "docs/proposals/phase-02-visual-novel-architecture/jaokob-visual-target-mobile-decision-state.png",
+          "assets/images/cg/act-03/versions/v2/cg-act3-teuk-guardian-oath.png",
+          "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.png",
+          "assets/images/characters/jao-teuk/versions/v2/storm-kneeling-mission-left.png",
+          "assets/images/keepsakes/v2/versions/v1/item-kab-bark-guard.png"
+        ],
+        "outputId": "exec-31f19ca1-82a4-4377-b5cf-ac487fa9e793.png"
+      },
+      "refinement": {
+        "prompt": "Use case: precise-object-edit / ui-mockup. Edit image1 existing iPhone C3 camp. Image2 device frame reference; image3 exact frog identity. Keep entire existing image: all four characters, all Thai text, winding-lantern clock,2x2activity cards, departure button, device/Safari unchanged. ONLY2very localized fixes: TOP HUD woven pouch icon currently has extra cells: make it EXACTLY FOUR square compartments2rows×2columns, no extra basket openings. On blue-shirt frog there are two white star symbols: REMOVE upper chest symbol, KEEP ONLY tiny white THREE-PRONGED STAR near lower SHIRT HEM. Keep blue shirt plain elsewhere. No additional changes.",
+        "references": [
+          "generated-source:exec-10b44bd0-85c3-4cac-ae95-2f86bd2b0a4a.png",
+          "docs/proposals/phase-02-visual-novel-architecture/jaokob-visual-target-mobile-decision-state.png",
+          "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.png"
+        ]
+      },
+      "dimensions": [
+        941,
+        1672
+      ],
+      "files": {
+        "png": {
+          "path": "mode3-camp-c3-mobile.png",
+          "bytes": 2244788,
+          "sha256": "0ce39c68e339a28403a30c632a3d7c011f068db51dda0dc2c2beb95bcb6404b8"
+        },
+        "webp": {
+          "path": "mode3-camp-c3-mobile.webp",
+          "bytes": 1653678,
+          "sha256": "676e36956bb38fab7745cd75a08f2fc01d2599c582adfe7398d7feedfd138e44"
+        }
+      }
+    },
+    {
+      "key": "mode4-stitch-mobile",
+      "generation": {
+        "tool": "built-in image_gen",
+        "prompt": "Use case: ui-mockup. Create ONE finished premium JaoKob gameplay DEVICE BROWSER MOCKUP image. Image1 defines physical DEVICE FRAME ONLY: preserve its straight-on hardware, screen-dominant framing, dark studio background, bezel and browser realism; REPLACE ALL OLD GAME CONTENT. Other refs define exact current v2 character identity and cinematic handcrafted 3D game look. Draw all Thai text directly in image, crisp Sarabun-like typography, correct diacritics, comfortably large. Warm paper #fcf4e3, ink #293d32, dark moss frosted glass, cotton stitching, woven reed and aged brass. No old HP/Sanity/Bond Locked, no old 80/100 numerals. No minimap, boss HP bars, damage numbers, red hearts, or plush toys. Only one blue-shirt living frog. Keep faces unobscured. Tall portrait9:16 high resolution, full physical iPhone16Pro titanium frame on black background, Dynamic Island and9:41 visible, Safari bottom address bar t3thr.github.io/JaoKob/ with real navigation/share/bookmark/tab icons and home indicator. Device fills90% width, upright not tilted, all UI above Safari. GAME: full-screen MACRO2small green frog hands sewing onto sky-blue cotton t-shirt hem with SMALL white THREE-PRONGED embroidered star (exactly3spokes, NOT5pointed star). SMALL brass4-hole button engraved ต.♡ป. beside star;2broken white thread ends. Right frog hand holds tiny steel sewing needle threaded white cotton, left steadies shirt. Warm lamp light; no frog face, no human hands. Ref2frog identity and shirt,ref3exact button,ref4macro composition. THREE small GOLD glowing guide dots around button stitching holes, thin curved WHITE dashed cotton path joins them, first short stitch completed. Minimalist cream paper hint lower screen above Safari, EXACT ลากตามจุดเพื่อเย็บกระดุม (1 / 3 ฝีเข็ม) . Two lines if needed, crisp readable Thai. Only small cog top right, no HUD, timer or failure words. Cotton fibers, satin-green fingers, aged brass; no invented alphabet on button.",
+        "references": [
+          "docs/proposals/phase-02-visual-novel-architecture/jaokob-visual-target-mobile-decision-state.png",
+          "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.png",
+          "assets/images/keepsakes/v2/versions/v2/item-teuk-peuak-button.png",
+          ".claude/worktrees/jaokob-narrative-design-b649d8/docs/design-system/ux-mockups/v1/plates/plate-mode4-stitch-closeup.png"
+        ],
+        "outputId": "exec-ad6a38f8-96b5-4ad9-97ab-f046edba53db.png"
+      },
+      "refinement": null,
+      "dimensions": [
+        941,
+        1672
+      ],
+      "files": {
+        "png": {
+          "path": "mode4-stitch-mobile.png",
+          "bytes": 2134952,
+          "sha256": "6c699afb04e8179bba23fec817ea5fc5246019af8b66670e9834d4e89b449276"
+        },
+        "webp": {
+          "path": "mode4-stitch-mobile.webp",
+          "bytes": 1459028,
+          "sha256": "2e23e567b9f7647f76ee3194e2e7900705aac1cc522f9a6a64fc5024ccb6033d"
+        }
+      }
+    },
+    {
+      "key": "mode4-tap-or-whistle-desktop",
+      "generation": {
+        "tool": "built-in image_gen",
+        "prompt": "Use case: ui-mockup. Create ONE finished premium JaoKob gameplay DEVICE BROWSER MOCKUP image. Image1 defines physical DEVICE FRAME ONLY: preserve its straight-on hardware, screen-dominant framing, dark studio background, bezel and browser realism; REPLACE ALL OLD GAME CONTENT. Other refs define exact current v2 character identity and cinematic handcrafted 3D game look. Draw all Thai text directly in image, crisp Sarabun-like typography, correct diacritics, comfortably large. Warm paper #fcf4e3, ink #293d32, dark moss frosted glass, cotton stitching, woven reed and aged brass. No old HP/Sanity/Bond Locked, no old 80/100 numerals. No minimap, boss HP bars, damage numbers, red hearts, or plush toys. Only one blue-shirt living frog. Keep faces unobscured. Wide landscape 16:9 high resolution, full physical MacBook Pro on black background, keyboard lip visible, Google Chrome browser with macOS menu, tab JaoKob, address https://t3thr.github.io/JaoKob/. Device fills94% width, no props. GAME: full-screen cinematic closeup tiny green living frog hand emerging from sky-blue short sleeve gently tapping rainwet wooden canal pavilion railing. Behind at right young Thai man Teuk kneels watching warmly, wet dark-blue rain jacket, face clear but softly out of focus; winding lantern upper left, heavy storm outside. Ref2frog skin hand,ref3human identity,ref4macrocomposition. On railing EXACTLY THREE concentric GOLD light touch ripples expanding across wet wood and raindrops; white-gold glint under fingertips. Bottom center compact cream paper hint EXACT แตะสามจังหวะ · กบ – กับ – กิบ . No dialogue panel, action grid, countdown or failure state, only tiny forest-green settings cog top right. Image fills game area, subtle handcrafted touch affordance, not arcade.",
+        "references": [
+          "docs/proposals/phase-02-visual-novel-architecture/jaokob-visual-target-desktop-reading-state.png",
+          "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.png",
+          "assets/images/characters/jao-teuk/versions/v2/storm-kneeling-mission-left.png",
+          ".claude/worktrees/jaokob-narrative-design-b649d8/docs/design-system/ux-mockups/v1/plates/plate-mode4-tap-rail.png"
+        ],
+        "outputId": "exec-e4a91c44-f64f-4ed7-bfbe-155f9d387dbe.png"
+      },
+      "refinement": null,
+      "dimensions": [
+        1584,
+        993
+      ],
+      "files": {
+        "png": {
+          "path": "mode4-tap-or-whistle-desktop.png",
+          "bytes": 2038050,
+          "sha256": "399d07f87090a401aa12153ae6d648fbceef947a805a2cb464ba605c1d173b69"
+        },
+        "webp": {
+          "path": "mode4-tap-or-whistle-desktop.webp",
+          "bytes": 1485622,
+          "sha256": "b00d272ef7f47972240f0b89cc234f8420dd83dc8bf7b17ea95a97c3f05d1ebf"
+        }
+      }
+    },
+    {
+      "key": "mode5-endings-desktop",
+      "generation": {
+        "tool": "built-in image_gen",
+        "prompt": "Use case: ui-mockup. Create ONE finished premium JaoKob gameplay DEVICE BROWSER MOCKUP image. Image1 defines physical DEVICE FRAME ONLY: preserve its straight-on hardware, screen-dominant framing, dark studio background, bezel and browser realism; REPLACE ALL OLD GAME CONTENT. Other refs define exact current v2 character identity and cinematic handcrafted 3D game look. Draw all Thai text directly in image, crisp Sarabun-like typography, correct diacritics, comfortably large. Warm paper #fcf4e3, ink #293d32, dark moss frosted glass, cotton stitching, woven reed and aged brass. No old HP/Sanity/Bond Locked, no old 80/100 numerals. No minimap, boss HP bars, damage numbers, red hearts, or plush toys. Only one blue-shirt living frog. Keep faces unobscured. Wide landscape 16:9 high resolution, full physical MacBook Pro on black background, keyboard lip visible, Google Chrome browser with macOS menu, tab JaoKob, address https://t3thr.github.io/JaoKob/. Device fills94% width, no props. GAME: golden dawn bedroom after rain, OPEN wooden window, blue sky soft rainbow. EXACTLY FIVE living heroes on windowsill upper-middle: blue-shirt JaoKob CENTER with small brass ต.♡ป. button sewn beside WHITE THREE-PRONGED hem star; shirtless bigger frog Kab bark wristguards; little frog Kib lotus collar; tiny orange hermit crab Kam floral tin one-third frog size; tiny flying squirrel Fiw yellow ribbon. RefCG for exact5identities, genuine green skin. Sleeping young Thai woman on bed behind, NO DOLLS. Small heading ทางเลือกในแสงแรก . BOTTOM third THREE equally sized equal-height cream paper cards in3COLUMNS, symmetric equal visual dignity. Each has THREE real cotton strands, tiny labels สถานะ · สายใย · ของแทนใจ, braided downward and tied into knot at button. LEFT E-HOME all3strands warm lit, EXACT อยู่ตรงนี้ เป็นผู้พิทักษ์ข้างหมอนเธอ . MIDDLE E-POND all3lit, EXACT กลับบ้านที่บึงน้ำใสพร้อมครอบครัว . RIGHT E-DAWN FIRST strand DIM, other2lit, small brass lock, EXACT เป็นผู้พิทักษ์ของทั้งสองรุ่งอรุณ and muted legible reason เขายังไม่เคยยืนด้วยลำแข้งของตัวเองมากพอ . Locked card SAME SIZE. No winner badges, meters, numbers or ratings in GAME UI. #293d32 text on#fcf4e3, hopeful premium warm cotton-and-gold aesthetic.\nREFERENCE ROLES: first image only physical device/browser frame; remaining actual scene CG, main character and item identity. The group CG includes the correct small companions; retain each rather than making new characters.",
+        "references": [
+          "docs/proposals/phase-02-visual-novel-architecture/jaokob-visual-target-desktop-reading-state.png",
+          "assets/images/backgrounds/act-05/versions/v1/bg-act5-bedroom-golden-dawn.png",
+          "assets/images/cg/act-05/versions/v2/cg-act5-ending-edawn-two-worlds.png",
+          "assets/images/characters/jao-kob/versions/v2/adult-determined-right.png",
+          "assets/images/keepsakes/v2/versions/v2/item-teuk-peuak-button.png"
+        ],
+        "outputId": "exec-1832f136-fe7e-4ae7-a871-28c620f99121.png"
+      },
+      "refinement": {
+        "prompt": "Use case: precise-object-edit / ui-mockup. Edit image1 completed MacBook ending screen. Image2 physical MacBook reference; image3 hero identity; image4 exact small brass button. KEEP EVERYTHING: entire MacBook Chrome URL, golden dawn bedroom, sleeping woman, EXACTLY FIVE heroes on windowsill, all text, symmetrical3equal cards, correct dim first strand in right card. Make ONLY ONE tiny localized continuity correction: center blue-shirt frog JaoKob needs ONE small brass button engraved ต.♡ป. SEWN with white cotton onto lower blue SHIRT HEM immediately BESIDE the tiny WHITE THREE-PRONGED embroidered star, on the fabric to left of woven pouch from viewer's perspective. Button diameter proportional to reference, around1/12frog head width, visible discreetly. Keep star clear. Button is attached to SHIRT, not pouch strap or neck. Do not change any card icons or existing button art on the UI. Absolutely preserve scene, hardware, character expressions, and Thai typography.",
+        "references": [
+          "generated-source:exec-8fad8d53-9220-485f-a2cf-234189ebf6f4.png",
+          "docs/proposals/phase-02-visual-novel-architecture/jaokob-visual-target-desktop-reading-state.png",
+          "assets/images/characters/jao-kob/versions/v2/adult-determined-right.png",
+          "assets/images/keepsakes/v2/versions/v2/item-teuk-peuak-button.png"
+        ]
+      },
+      "dimensions": [
+        1584,
+        993
+      ],
+      "files": {
+        "png": {
+          "path": "mode5-endings-desktop.png",
+          "bytes": 2183589,
+          "sha256": "0a0e75a1b6d5a2ff6c9058eb7b98c452bfb2e35bf792cfeb99bf3cc200921f37"
+        },
+        "webp": {
+          "path": "mode5-endings-desktop.webp",
+          "bytes": 1641486,
+          "sha256": "05bafe62f6b3066ef0cc92371cfe7e6e81dfa5db8400dab3974c0365c884162f"
+        }
+      }
+    },
+    {
+      "key": "mode5-endings-mobile",
+      "generation": {
+        "tool": "built-in image_gen",
+        "prompt": "Use case: ui-mockup. Create ONE finished premium JaoKob gameplay DEVICE BROWSER MOCKUP image. Image1 defines physical DEVICE FRAME ONLY: preserve its straight-on hardware, screen-dominant framing, dark studio background, bezel and browser realism; REPLACE ALL OLD GAME CONTENT. Other refs define exact current v2 character identity and cinematic handcrafted 3D game look. Draw all Thai text directly in image, crisp Sarabun-like typography, correct diacritics, comfortably large. Warm paper #fcf4e3, ink #293d32, dark moss frosted glass, cotton stitching, woven reed and aged brass. No old HP/Sanity/Bond Locked, no old 80/100 numerals. No minimap, boss HP bars, damage numbers, red hearts, or plush toys. Only one blue-shirt living frog. Keep faces unobscured. Tall portrait9:16 high resolution, full physical iPhone16Pro titanium frame on black background, Dynamic Island and9:41 visible, Safari bottom address bar t3thr.github.io/JaoKob/ with real navigation/share/bookmark/tab icons and home indicator. Device fills90% width, upright not tilted, all UI above Safari. GAME: portrait golden dawn bedroom after storm. UPPER MIDDLE open wooden windowsill EXACTLY FIVE tiny living heroes together: blue-shirt frog JaoKob CENTER sewn brass ต.♡ป. button beside WHITE THREE-PRONGED hem star; shirtless bigger frog Kab bark wristguards; little frog Kib lotus collar; tiny orange hermit crab floral tin; tiny flying squirrel yellow ribbon. All5from sourceCG and identity refs, NO extra frogs or dolls. Golden light and rainwashed garden, woman sleeping bed distant left. Small heading ทางเลือกในแสงแรก , tiny cog. Below stage ABOVE SAFARI THREE equally sized cream paper cards stacked3EQUAL HEIGHT ROWS, equally weighted framing and dignity. All3FULLY VISIBLE, generous big Thai text. Each3cotton strands สถานะ · สายใย · ของแทนใจ braided horizontally into knot right. ROW1 E-HOME all3lit, EXACT อยู่ตรงนี้ เป็นผู้พิทักษ์ข้างหมอนเธอ . ROW2 E-POND all3lit, EXACT กลับบ้านที่บึงน้ำใสพร้อมครอบครัว . ROW3 E-DAWN first strand DIM other2lit, modest lock, EXACT เป็นผู้พิทักษ์ของทั้งสองรุ่งอรุณ plus smaller legible เขายังไม่เคยยืนด้วยลำแข้งของตัวเองมากพอ . Third row SAME SIZE, not obscured. No ranking, rewards, meters or raw numbers. Warm paper#fcf4e3 ink#293d32, fine stitching, perfect diacritics.\nREFERENCE ROLES: first image only physical device/browser frame; remaining actual scene CG, main character and item identity. The group CG includes the correct small companions; retain each rather than making new characters.",
+        "references": [
+          "docs/proposals/phase-02-visual-novel-architecture/jaokob-visual-target-mobile-decision-state.png",
+          "assets/images/backgrounds/act-05/versions/v1/bg-act5-bedroom-golden-dawn.png",
+          "assets/images/cg/act-05/versions/v2/cg-act5-ending-edawn-two-worlds.png",
+          "assets/images/characters/jao-kob/versions/v2/adult-determined-right.png",
+          "assets/images/keepsakes/v2/versions/v2/item-teuk-peuak-button.png"
+        ],
+        "outputId": "exec-d8f466b2-ee11-4b36-a4d4-bdd4546a8d11.png"
+      },
+      "refinement": {
+        "prompt": "Use case: precise-object-edit / ui-mockup. Edit image1 existing iPhone ending screen. Image2 physical iPhone frame reference, image3 canonical blue-shirt frog, image4 actual small brass button. Preserve ENTIRE image, original device/Safari URL, golden bedroom, five living heroes and sleeping young woman, all crisp Thai text and three equal cards with braided threads. ONLY add ONE SMALL brass button engraved ต.♡ป. sewn with white thread directly on the CENTER BLUE-SHIRT FROG'S LOWER SHIRT HEM beside existing white THREE-PRONGED STAR, to LEFT of woven pouch from viewer perspective. Diameter about1/12frog head width, visible but discreet. Must be on BLUE FABRIC, not pouch strap. Keep star visible. Do not alter UI knots, cards, character identities or composition.",
+        "references": [
+          "generated-source:exec-6dc1c0b8-c589-46d0-87ba-a54f75ff695d.png",
+          "docs/proposals/phase-02-visual-novel-architecture/jaokob-visual-target-mobile-decision-state.png",
+          "assets/images/characters/jao-kob/versions/v2/adult-determined-right.png",
+          "assets/images/keepsakes/v2/versions/v2/item-teuk-peuak-button.png"
+        ]
+      },
+      "dimensions": [
+        941,
+        1672
+      ],
+      "files": {
+        "png": {
+          "path": "mode5-endings-mobile.png",
+          "bytes": 2223922,
+          "sha256": "dcbd050537576ca872f5c9e9430eb84efde19adc0e5ffb754c6b923d831cfafa"
+        },
+        "webp": {
+          "path": "mode5-endings-mobile.webp",
+          "bytes": 1660708,
+          "sha256": "3d54890d413c406a711abcfead986e0b0abfa26a9770e4aa2654da97db8ae6eb"
+        }
+      }
+    }
+  ]
+}

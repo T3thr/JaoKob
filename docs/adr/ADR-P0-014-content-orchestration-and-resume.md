@@ -1,3 +1,6 @@
+> **[STATUS AS OF 2026-10-29: ACTIVE — APPROVED BY PO & ANTIGRAVITY]**
+> มีผลบังคับใช้เต็มรูปแบบสำหรับสถาปัตยกรรม Pure Content Orchestration, Idempotent Resume และ Save Consent
+
 # ADR-P0-014: Pure Content Orchestration, Resume and Save Consent
 
 Status: Accepted implementation direction under Tech Lead Step 3 directive; final integrated diff awaits owner review.

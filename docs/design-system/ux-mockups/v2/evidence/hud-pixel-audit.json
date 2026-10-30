@@ -1,0 +1,56 @@
+{
+  "method": "358\u00d764 CSS px same master on ALL ten screens, including desktop/mobile. Compare fully covered pill interior; transparent antialias corner pixels belong to the scene and are excluded.",
+  "allIdentical": true,
+  "screens": [
+    {
+      "screen": 1,
+      "sha256Pixels": "83cc9cab4fd57d7f0950a8fd89edf5495b34991d51d3326a2f26b62f057d1232",
+      "sameAsMaster": true
+    },
+    {
+      "screen": 2,
+      "sha256Pixels": "83cc9cab4fd57d7f0950a8fd89edf5495b34991d51d3326a2f26b62f057d1232",
+      "sameAsMaster": true
+    },
+    {
+      "screen": 3,
+      "sha256Pixels": "83cc9cab4fd57d7f0950a8fd89edf5495b34991d51d3326a2f26b62f057d1232",
+      "sameAsMaster": true
+    },
+    {
+      "screen": 4,
+      "sha256Pixels": "83cc9cab4fd57d7f0950a8fd89edf5495b34991d51d3326a2f26b62f057d1232",
+      "sameAsMaster": true
+    },
+    {
+      "screen": 5,
+      "sha256Pixels": "83cc9cab4fd57d7f0950a8fd89edf5495b34991d51d3326a2f26b62f057d1232",
+      "sameAsMaster": true
+    },
+    {
+      "screen": 6,
+      "sha256Pixels": "83cc9cab4fd57d7f0950a8fd89edf5495b34991d51d3326a2f26b62f057d1232",
+      "sameAsMaster": true
+    },
+    {
+      "screen": 7,
+      "sha256Pixels": "83cc9cab4fd57d7f0950a8fd89edf5495b34991d51d3326a2f26b62f057d1232",
+      "sameAsMaster": true
+    },
+    {
+      "screen": 8,
+      "sha256Pixels": "83cc9cab4fd57d7f0950a8fd89edf5495b34991d51d3326a2f26b62f057d1232",
+      "sameAsMaster": true
+    },
+    {
+      "screen": 9,
+      "sha256Pixels": "83cc9cab4fd57d7f0950a8fd89edf5495b34991d51d3326a2f26b62f057d1232",
+      "sameAsMaster": true
+    },
+    {
+      "screen": 10,
+      "sha256Pixels": "83cc9cab4fd57d7f0950a8fd89edf5495b34991d51d3326a2f26b62f057d1232",
+      "sameAsMaster": true
+    }
+  ]
+}

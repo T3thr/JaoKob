@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-29",
+  "timezone": "Asia/Bangkok",
+  "surface": "Codex in-app browser",
+  "page": "docs/design-system/evidence/visual-assets-v1-review.html",
+  "viewport": {"width": 631, "height": 1016},
+  "observed": {
+    "imageCount": 52,
+    "loadedImages": 52,
+    "missingImages": [],
+    "horizontalOverflow": false,
+    "darkSpriteBackgroundToggle": "checked and visually verified",
+    "lower28PercentBackgroundOverlay": "checked and visually verified",
+    "categoryAnchorNavigation": "characters and backgrounds verified"
+  },
+  "result": "pass",
+  "limits": "Review-gallery smoke check only; not game runtime, mobile-device, assistive-technology or PO art acceptance."
+}

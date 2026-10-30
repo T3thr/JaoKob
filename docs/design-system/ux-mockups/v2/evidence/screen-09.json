@@ -1,0 +1,289 @@
+{
+  "screen": 9,
+  "viewport": {
+    "width": 1440,
+    "height": 900,
+    "dpr": 2
+  },
+  "fontReady": true,
+  "fontFaces": [
+    {
+      "family": "Sarabun",
+      "status": "loaded"
+    },
+    {
+      "family": "Sarabun",
+      "status": "loaded"
+    }
+  ],
+  "horizontalOverflow": false,
+  "brokenImages": [],
+  "faceBand": {
+    "top": 288,
+    "bottom": 432
+  },
+  "faces": [
+    {
+      "asset": "kam",
+      "eyeY": 415.6,
+      "eyeInBand": true,
+      "face": {
+        "x": 54.400000000000006,
+        "y": 367.6,
+        "width": 185.6,
+        "height": 108.80000000000001,
+        "right": 240,
+        "bottom": 476.40000000000003
+      },
+      "overlaps": []
+    },
+    {
+      "asset": "kab",
+      "eyeY": 330,
+      "eyeInBand": true,
+      "face": {
+        "x": 275.1953125,
+        "y": 246,
+        "width": 260,
+        "height": 188,
+        "right": 535.1953125,
+        "bottom": 434
+      },
+      "overlaps": []
+    },
+    {
+      "asset": "kob-button",
+      "eyeY": 318.4,
+      "eyeInBand": true,
+      "face": {
+        "x": 588.8,
+        "y": 240.5,
+        "width": 287,
+        "height": 196.79999999999998,
+        "right": 875.8,
+        "bottom": 437.29999999999995
+      },
+      "overlaps": []
+    },
+    {
+      "asset": "kib",
+      "eyeY": 350,
+      "eyeInBand": true,
+      "face": {
+        "x": 908.796875,
+        "y": 270,
+        "width": 268,
+        "height": 176,
+        "right": 1176.796875,
+        "bottom": 446
+      },
+      "overlaps": []
+    },
+    {
+      "asset": "fiw",
+      "eyeY": 386.79999999999995,
+      "eyeInBand": true,
+      "face": {
+        "x": 1174.4,
+        "y": 299.4,
+        "width": 231.79999999999998,
+        "height": 159.6,
+        "right": 1406.2,
+        "bottom": 459
+      },
+      "overlaps": []
+    }
+  ],
+  "uiBandIntrusions": [],
+  "hud": {
+    "x": 24,
+    "y": 24,
+    "width": 358,
+    "height": 64,
+    "right": 382,
+    "bottom": 88
+  },
+  "targets": [
+    {
+      "label": "กระเป๋าสานกกสี่ช่อง",
+      "minimum": 44,
+      "x": 274.4296875,
+      "y": 34,
+      "width": 44,
+      "height": 44,
+      "right": 318.4296875,
+      "bottom": 78
+    },
+    {
+      "label": "ตั้งค่า",
+      "minimum": 44,
+      "x": 327,
+      "y": 34,
+      "width": 44,
+      "height": 44,
+      "right": 371,
+      "bottom": 78
+    },
+    {
+      "label": "อยู่ตรงนี้ เป็นผู้พิทักษ์ข้างหมอนเธอ",
+      "minimum": 120,
+      "x": 151,
+      "y": 626,
+      "width": 366,
+      "height": 244,
+      "right": 517,
+      "bottom": 870
+    },
+    {
+      "label": "กลับบ้านที่บึงน้ำใส",
+      "minimum": 120,
+      "x": 537,
+      "y": 626,
+      "width": 366,
+      "height": 244,
+      "right": 903,
+      "bottom": 870
+    },
+    {
+      "label": "เป็นผู้พิทักษ์ของทั้งสองรุ่งอรุณ",
+      "minimum": 120,
+      "x": 923,
+      "y": 626,
+      "width": 366,
+      "height": 244,
+      "right": 1289,
+      "bottom": 870
+    }
+  ],
+  "undersizedTargets": [],
+  "strings": [
+    "ทางเลือกในแสงแรก",
+    "อยู่ตรงนี้ เป็นผู้พิทักษ์ข้างหมอนเธอ",
+    "",
+    "กลับบ้านที่บึงน้ำใส",
+    "",
+    "เป็นผู้พิทักษ์ของทั้งสองรุ่งอรุณ",
+    "เขายังไม่เคยยืนด้วยลำแข้งของตัวเองมากพอ"
+  ],
+  "textClipping": [],
+  "contentOverflow": [],
+  "components": [
+    {
+      "name": "TopHudCapsule",
+      "x": 24,
+      "y": 24,
+      "width": 358,
+      "height": 64,
+      "right": 382,
+      "bottom": 88,
+      "style": {
+        "background": "rgb(32, 54, 42)",
+        "border": "rgb(36, 56, 45)",
+        "radius": "999px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    },
+    {
+      "name": "VnTachieStage",
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 900,
+      "right": 1440,
+      "bottom": 900,
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(36, 56, 45)",
+        "radius": "0px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    },
+    {
+      "name": "ThreeStrandDestinyCard",
+      "x": 151,
+      "y": 626,
+      "width": 366,
+      "height": 244,
+      "right": 517,
+      "bottom": 870,
+      "style": {
+        "background": "rgb(252, 244, 227)",
+        "border": "rgb(214, 198, 165)",
+        "radius": "16px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    },
+    {
+      "name": "ThreeStrandDestinyCard",
+      "x": 537,
+      "y": 626,
+      "width": 366,
+      "height": 244,
+      "right": 903,
+      "bottom": 870,
+      "style": {
+        "background": "rgb(252, 244, 227)",
+        "border": "rgb(214, 198, 165)",
+        "radius": "16px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    },
+    {
+      "name": "ThreeStrandDestinyCard",
+      "x": 923,
+      "y": 626,
+      "width": 366,
+      "height": 244,
+      "right": 1289,
+      "bottom": 870,
+      "style": {
+        "background": "rgb(252, 244, 227)",
+        "border": "rgb(214, 198, 165)",
+        "radius": "16px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    }
+  ],
+  "images": [
+    {
+      "key": "dawn",
+      "path": "assets/dawn.png"
+    },
+    {
+      "key": "kam",
+      "path": "assets/kam.png"
+    },
+    {
+      "key": "kab",
+      "path": "assets/kab.png"
+    },
+    {
+      "key": "kob-button",
+      "path": "assets/kob-button.png"
+    },
+    {
+      "key": "button",
+      "path": "assets/button.png"
+    },
+    {
+      "key": "kib",
+      "path": "assets/kib.png"
+    },
+    {
+      "key": "fiw",
+      "path": "assets/fiw.png"
+    }
+  ],
+  "destinyImageCount": 0,
+  "viewportFile": "viewports/mode5-endings-desktop.png",
+  "problems": {},
+  "deviceDimensions": [
+    3458,
+    2424
+  ]
+}

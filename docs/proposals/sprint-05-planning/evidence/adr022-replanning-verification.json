@@ -1,0 +1,122 @@
+{
+  "recordId": "CR-20261018-0023",
+  "recordOpenedAt": "2026-10-18T00:23:53+07:00",
+  "checkedAt": "2026-10-18T00:43:54+07:00",
+  "planningBaseCommit": "c99e745cbbcf5391a4f00ef3777f4bac3f2fe7d3",
+  "runtimeBaseCommit": "d1af29314d4497e2c37727282a5c7fc3e31333eb",
+  "branch": "feat/sprint-05-planning-ssot",
+  "pullRequest": "https://github.com/T3thr/JaoKob/pull/18",
+  "scope": "ADR22 documentation revision only; no execution PR, source, content, schema, asset or dependency implementation.",
+  "status": "PASS",
+  "documentationChecks": {
+    "method": "Relative Markdown targets/heading anchors, explicit baseline/ADR IDs, parsed WBS and four-slice matrix, eight finding rows, TC references, ordered dependency chain, allowed changed-file scope and Git whitespace; no visual or prose-quality certification.",
+    "markdownFiles": 12,
+    "relativeLinks": 181,
+    "headingFragments": 6,
+    "explicitRequirementIds": 54,
+    "executionSlices": 4,
+    "plannedPRs": [
+      19,
+      20,
+      21,
+      22
+    ],
+    "tasks": 20,
+    "taskAllocation": [
+      6,
+      2,
+      6,
+      6
+    ],
+    "criticalFindingRows": 8,
+    "verificationIds": 34,
+    "dependencyChain": [
+      "S1",
+      "S2",
+      "S3",
+      "S4"
+    ],
+    "newDraftEmDashEmojiCheck": "PASS",
+    "whitespace": "PASS"
+  },
+  "authority": {
+    "path": "docs/adr/ADR-P0-022-visual-novel-ergonomics-living-keepsake-lore-and-sprint-streamlining.md",
+    "bytes": 18194,
+    "sha256": "5dafeed5f6debc4649bdf19a6a04c7814c39696e6a3d88e87503097ce8acc103",
+    "suppliedADRPreservedUnchanged": true,
+    "directionApprovedBy": "PO directive and supplied Accepted ADR22; no new ADR authored"
+  },
+  "inspectedImages": [
+    {
+      "path": "docs/proposals/3d-keepsake-spike/renders/childhood/front.png",
+      "bytes": 1041127,
+      "sha256": "96a54f0f1acc20e8f1172f1453b9f755660057db5430eb8f42c558b83af16fcf"
+    },
+    {
+      "path": "docs/proposals/3d-keepsake-spike/renders/poster.jpg",
+      "bytes": 45296,
+      "sha256": "a869b95569c043cdd5815476245fa86dfd28632dc91ae284c7c0285d50750d84"
+    },
+    {
+      "path": "docs/proposals/3d-keepsake-spike/renders/front.png",
+      "bytes": 892983,
+      "sha256": "dd42e873e164d59d028a874b876783fd5dc9bdbcebeb810667b7c9adeb564b38"
+    }
+  ],
+  "imageInspectionLimits": "Three model renders opened; adult embroidery absent. Height comes from ADR, not image measurement. Separate veteran UI-review screenshots were not in the referenced repository set.",
+  "currentValidatorProbe": {
+    "path": "docs/proposals/sprint-05-planning/evidence/save2-current-validator-probe.json",
+    "bytes": 1051,
+    "sha256": "a66117a2bd9e33a9c10c35467141d188c4fb0b27e9ab5c98bfab4d8e99819e0e",
+    "method": "Node inline diagnostic importing validateSaveEnvelope and cloning valid-save2-leaf.json; assertions match three recorded outcomes; no files under src/tests/specs altered.",
+    "passedCases": 3,
+    "proposedProfileImplemented": false
+  },
+  "productionByteComparison": {
+    "baseline": "c99e745cbbcf5391a4f00ef3777f4bac3f2fe7d3",
+    "files": 616,
+    "pathAndSha256Digest": "858ba2a503f0e55fba809d3c18caa867351b0e7b3d6f540fea21a493f5143581",
+    "unchanged": true
+  },
+  "historicalEvidence": {
+    "unchanged": true,
+    "unitTests": 1060,
+    "unitPasses": 1060,
+    "designTrajectories": 1096,
+    "originalRunDate": "2026-10-17",
+    "rerunThisRevision": false,
+    "files": [
+      "baseline-unit.tap.gz",
+      "ending-trajectories.json",
+      "source-inventory.json",
+      "planning-verification.json"
+    ]
+  },
+  "notPerformed": [
+    "New Save2-profile implementation or validation",
+    "Revised UI/lore/full-game execution",
+    "Browser/E2E and independent schema runners",
+    "Static artifact and runtime rollback rehearsal",
+    "Production 3D/GPU",
+    "Physical iOS/Android or assistive technology",
+    "Human Thai, art and reading-comfort acceptance",
+    "Merge or deployment"
+  ],
+  "migration": "None; exact legacy/profile/rollback implementation gates are documented, not executed.",
+  "changedFiles": [
+    "AGENTS.md",
+    "CHANGELOG.md",
+    "docs/README.md",
+    "docs/adr/ADR-P0-022-visual-novel-ergonomics-living-keepsake-lore-and-sprint-streamlining.md",
+    "docs/changelog/2026-10/2026-10-18-0023-sprint-05-adr022-replanning.md",
+    "docs/proposals/README.md",
+    "docs/proposals/sprint-05-planning/01-readiness-assessment.md",
+    "docs/proposals/sprint-05-planning/02-adr022-remediation-contract.md",
+    "docs/proposals/sprint-05-planning/evidence/README.md",
+    "docs/proposals/sprint-05-planning/evidence/adr022-replanning-verification.json",
+    "docs/proposals/sprint-05-planning/evidence/save2-current-validator-probe.json",
+    "docs/rfc/CR-0006-sprint-05-complete-story-and-package-boundaries.md",
+    "docs/sprints/sprint-05-ssot.md",
+    "docs/traceability/sprint-05-execution-matrix.md"
+  ]
+}

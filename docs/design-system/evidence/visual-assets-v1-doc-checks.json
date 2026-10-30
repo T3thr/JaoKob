@@ -1,0 +1,127 @@
+{
+  "result": "pass",
+  "scope": "relative links introduced in this delivery",
+  "checkedLinks": 24,
+  "links": [
+    {
+      "source": "docs/changelog/2026-10/2026-10-29-1008-adr032-visual-assets-v1.md",
+      "target": "../../adr/ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md",
+      "exists": true
+    },
+    {
+      "source": "docs/changelog/2026-10/2026-10-29-1008-adr032-visual-assets-v1.md",
+      "target": "../../adr/ADR-P0-025-childhood-keepsake-default-stance-and-heart-emote-decoupling.md",
+      "exists": true
+    },
+    {
+      "source": "docs/changelog/2026-10/2026-10-29-1008-adr032-visual-assets-v1.md",
+      "target": "../../design-system/asset-prompts/00-ASTRA-WORKFLOW-AND-OUTPUT-CONTRACT.md",
+      "exists": true
+    },
+    {
+      "source": "docs/changelog/2026-10/2026-10-29-1008-adr032-visual-assets-v1.md",
+      "target": "../../../assets/images/asset-manifest-v1.json",
+      "exists": true
+    },
+    {
+      "source": "docs/changelog/2026-10/2026-10-29-1008-adr032-visual-assets-v1.md",
+      "target": "../../../assets/provenance/visual-assets-v1.json",
+      "exists": true
+    },
+    {
+      "source": "docs/changelog/2026-10/2026-10-29-1008-adr032-visual-assets-v1.md",
+      "target": "../../design-system/evidence/visual-assets-v1-review.html",
+      "exists": true
+    },
+    {
+      "source": "docs/changelog/2026-10/2026-10-29-1008-adr032-visual-assets-v1.md",
+      "target": "../../design-system/evidence/visual-assets-v1-verification.json",
+      "exists": true
+    },
+    {
+      "source": "docs/changelog/2026-10/2026-10-29-1008-adr032-visual-assets-v1.md",
+      "target": "../../design-system/evidence/visual-assets-v1-verification.json",
+      "exists": true
+    },
+    {
+      "source": "docs/changelog/2026-10/2026-10-29-1008-adr032-visual-assets-v1.md",
+      "target": "../../design-system/evidence/visual-assets-v1-unit-summary.txt",
+      "exists": true
+    },
+    {
+      "source": "docs/changelog/2026-10/2026-10-29-1008-adr032-visual-assets-v1.md",
+      "target": "../../design-system/evidence/visual-assets-v1-browser-review.json",
+      "exists": true
+    },
+    {
+      "source": "assets/images/README.md",
+      "target": "asset-manifest-v1.json",
+      "exists": true
+    },
+    {
+      "source": "assets/images/README.md",
+      "target": "../../docs/design-system/evidence/visual-assets-v1-review.html",
+      "exists": true
+    },
+    {
+      "source": "assets/images/README.md",
+      "target": "../provenance/visual-assets-v1.json",
+      "exists": true
+    },
+    {
+      "source": "assets/images/README.md",
+      "target": "../../docs/design-system/evidence/visual-assets-v1-verification.json",
+      "exists": true
+    },
+    {
+      "source": "assets/images/README.md",
+      "target": "../../docs/design-system/evidence/verify-visual-assets-v1.py",
+      "exists": true
+    },
+    {
+      "source": "docs/sprints/sprint-05-ssot.md",
+      "target": "../changelog/2026-10/2026-10-29-1008-adr032-visual-assets-v1.md",
+      "exists": true
+    },
+    {
+      "source": "docs/sprints/sprint-05-ssot.md",
+      "target": "../design-system/evidence/visual-assets-v1-review.html",
+      "exists": true
+    },
+    {
+      "source": "docs/dialogue/INTER-AGENT-DIALOGUE2.md",
+      "target": "../changelog/2026-10/2026-10-29-1008-adr032-visual-assets-v1.md",
+      "exists": true
+    },
+    {
+      "source": "docs/dialogue/INTER-AGENT-DIALOGUE2.md",
+      "target": "../design-system/evidence/visual-assets-v1-review.html",
+      "exists": true
+    },
+    {
+      "source": "docs/dialogue/INTER-AGENT-DIALOGUE2.md",
+      "target": "../../assets/images/asset-manifest-v1.json",
+      "exists": true
+    },
+    {
+      "source": "docs/dialogue/INTER-AGENT-DIALOGUE2.md",
+      "target": "../../assets/provenance/visual-assets-v1.json",
+      "exists": true
+    },
+    {
+      "source": "docs/dialogue/INTER-AGENT-DIALOGUE2.md",
+      "target": "../design-system/evidence/visual-assets-v1-verification.json",
+      "exists": true
+    },
+    {
+      "source": "docs/dialogue/INTER-AGENT-DIALOGUE2.md",
+      "target": "../design-system/evidence/visual-assets-v1-unit-summary.txt",
+      "exists": true
+    },
+    {
+      "source": "CHANGELOG.md",
+      "target": "docs/changelog/2026-10/2026-10-29-1008-adr032-visual-assets-v1.md",
+      "exists": true
+    }
+  ]
+}

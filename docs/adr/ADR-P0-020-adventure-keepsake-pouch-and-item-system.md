@@ -1,3 +1,6 @@
+> **[STATUS AS OF 2026-10-29: ACTIVE SYSTEM CONTRACT — ITEM REGISTRY UPDATED BY ADR-P0-032]**
+> อนุมัติโดย PO & Antigravity: คงสถาปัตยกรรม **กระเป๋าของสะสม 4 ช่องคงที่ (`collect`, `replace`, `use`, `refuse → memory`)** ส่วนรายชื่อไอเทมในเนื้อเรื่องใหม่ให้เป็นไปตามที่ออกแบบภายใต้ [ADR-P0-032](./ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md)
+
 # ADR-P0-020: Adventure Keepsake Pouch Architecture, Four-Slot Capacity, and Interactive Item Lifecycle
 
 Status: **Accepted — binding architectural contract for Sprint 4 Slice 2 (T0, T3, T4, T5 / PR #14)**

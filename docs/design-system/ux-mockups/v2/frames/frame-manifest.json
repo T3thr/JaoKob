@@ -1,0 +1,48 @@
+{
+  "desktop": {
+    "file": "frames/frame-macbook-chrome.png",
+    "sha256": "1bbc7e6428b84a051507c3a238a06877af89d93e0a5ac8c71d7853c2feb296a8",
+    "source": "docs/proposals/phase-02-visual-novel-architecture/jaokob-visual-target-desktop-reading-state.png",
+    "sourceSha256": "819069dfb2525c946d3ac9a69c0286d4d94fab4880417430f5196f64b7d55e00",
+    "sourceGameOpening": [
+      133,
+      145,
+      1454,
+      851
+    ],
+    "opening": [
+      290,
+      316,
+      3170,
+      2116
+    ],
+    "dimensions": [
+      3458,
+      2424
+    ],
+    "method": "Reference hardware/browser caps retained; side bezels extended to fit exact viewport without resampling UI."
+  },
+  "mobile": {
+    "file": "frames/frame-iphone-safari.png",
+    "sha256": "10b384357ed79b8325d862929649738dbe8c8b4bcbd69b11cc228ca0bbc97f33",
+    "source": "docs/proposals/phase-02-visual-novel-architecture/jaokob-visual-target-mobile-decision-state.png",
+    "sourceSha256": "28838c1673d15f6255e6f596895328042abcab1b7024d08e1c37568825c77736",
+    "sourceGameOpening": [
+      128,
+      150,
+      814,
+      1400
+    ],
+    "opening": [
+      146,
+      171,
+      926,
+      1859
+    ],
+    "dimensions": [
+      1070,
+      2168
+    ],
+    "method": "Reference hardware/browser caps retained; side bezels extended to fit exact viewport without resampling UI."
+  }
+}
