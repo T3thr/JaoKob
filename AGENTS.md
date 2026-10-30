@@ -68,6 +68,7 @@
   - **Git Committer Name:** `T3thr`
   - **Git Committer Email:** `t.theerapat33@gmail.com`
   - **กฎเหล็กเรื่องตัวตน (Strict Identity Rule):** AI Agent ทุกตัวต้องตรวจสอบ `git config user.email` ก่อนทำการ commit เสมอ หากไม่ใช่ `t.theerapat33@gmail.com` ให้สั่งการ `git config --local user.name "T3thr"` และ `git config --local user.email "t.theerapat33@gmail.com"` ทันที ห้ามใช้บัญชีองค์กร/ภายนอก (เช่น `theerapat.p@codefin.io` หรืออื่นๆ) มา commit หรือ push ใน repository นี้โดยเด็ดขาด
+  - **กฎห้ามแปะชื่อ Agent (มติ PO 2026-10-31):** งานทุกชิ้นเป็นของ PO ห้าม AI Agent ทุกตัวใส่ชื่อ Agent หรือชื่อโมเดลลงใน git commit message, ชื่อหรือคำอธิบาย Pull Request และชื่อ branch โดยเด็ดขาด ห้ามมีบรรทัด `Co-Authored-By:` ห้ามมีข้อความ "Generated with ..." และห้าม push branch ที่ตั้งชื่อตาม Agent (เช่น `claude/…`, `codex/…`) ก่อน commit หรือเปิด PR ทุกครั้งต้องตรวจและลบบรรทัดเหล่านี้ออก
 - **Remote:** `https://github.com/T3thr/JaoKob.git`
 - **Protected Branches:**
   - `main`: Production Release Source เท่านั้น (ห้าม AI ทำ Direct Commit หรือ Direct Push เด็ดขาด)
