@@ -11,7 +11,7 @@ Date: 2026-10-18. Authority: **PO Directive (Theerapat), Executive Narrative Dir
 
 ## 1. Context & Motivation
 
-สืบเนื่องจากการส่งมอบข้อความวิเคราะห์ทางวรรณศิลป์ Message #004 ใน [INTER-AGENT-DIALOGUE.md](../dialogue/INTER-AGENT-DIALOGUE.md) โดย Executive Narrative Director (mimo-v2.6-pro) และการประชุมหารือเชิงลึกร่วมกับ Creator & Project Owner (Theerapat) พบว่า:
+สืบเนื่องจากการส่งมอบข้อความวิเคราะห์ทางวรรณศิลป์ Message #004 ใน [INTER-AGENT-DIALOGUE.md](../dialogue/archive/volume-01-messages-001-020-foundation-to-sprint-04.md) โดย Executive Narrative Director (mimo-v2.6-pro) และการประชุมหารือเชิงลึกร่วมกับ Creator & Project Owner (Theerapat) พบว่า:
 
 1. **ความเข้าใจคลาดเคลื่อนต่อสัจจะ "การกลายเป็นตุ๊กตา" ในฉากจบ END-HOME:**
    - ใน [ADR-P0-021 D6](ADR-P0-021-narrative-resonance-authentic-adventure-and-branching-integrity.md) มีข้อความห้ามมิให้มีภาพ "เจ้ากบถูกสตัฟฟ์, สูญเสียวิญญาณ, หรือถูกทำให้เป็นวัตถุไร้ชีวิต" เพื่อป้องกันเนื้อเรื่องในแนวหดหู่หรือซาดิสม์จากยุคเก่า

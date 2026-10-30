@@ -33,14 +33,14 @@
   Wide 16:9 epic cinematic action CG illustration: on top of a rain-swept brick garden wall during a lightning flash, five small heroes execute a synchronized relay launch across a 12-meter storm gap toward a glowing second-floor bedroom window on the far right. On the brick parapet (left), P'Kam anchors a taut cable with his giant claw, younger sister Jao Kib fires bursting golden-green acoustic seeds that shatter a dark shadow tornado, and older brother Jao Kab boosts Jao Kob upward. In mid-air center-right, Jao Fiw spreads her gliding membranes wide with Jao Kob (in his sky-blue crew-neck t-shirt) riding her slipstream right past a stunned, tumbling shadow-cloak phantom ("Cockroach Man"). Breathtaking sense of flight and brotherhood, no text.
   ```
 
-### CG-05A (Act 5 Climax): ศึกสองสเกล — เงาอัศวินเจ้ากบเสื้อฟ้ากางแขนปกป้องเด็กหญิงเปื๊อก
+### CG-05A (Act 5 Climax): ศึกสองสเกล — เงาอัศวินเจ้ากบเสื้อฟ้ากางแขนปกป้องเด็กหญิงเปี๊ยก
 - **พาธส่งมอบไฟล์:** `assets/images/cg/act-05/cg-act5-shadow-knight-protector.webp`
 - **Prompt สำหรับเจนภาพ:**
   ```text
   Wide 16:9 masterpiece cinematic CG illustration showing dual visual scales inside a dark bedroom: in the foreground on the bedside table, 45cm Jao Kob (in his sky-blue crew-neck t-shirt) stands heroically right in front of a glowing battery desk lamp, holding up a shiny brass button that focuses the golden beam. Across the entire bedroom wall above the bed in the background, Jao Kob's shadow projects as a gigantic, noble guardian knight silhouette that completely engulfs and banishes the shrinking comical shadow of Cockroach Man, while young woman Peuak peeks out from under her blanket in awe and relief as her fear melts away. Warm golden light overcoming darkness, no text.
   ```
 
-### CG-05B (Ending `E-HOME`): ปาฏิหาริย์ตุ๊กตาเจ้ากบเสื้อฟ้าในอ้อมกอดของเด็กหญิงเปื๊อกยามรุ่งอรุณ
+### CG-05B (Ending `E-HOME`): ปาฏิหาริย์ตุ๊กตาเจ้ากบเสื้อฟ้าในอ้อมกอดของเด็กหญิงเปี๊ยกยามรุ่งอรุณ
 - **พาธส่งมอบไฟล์:** `assets/images/cg/act-05/cg-act5-ending-ehome-miracle-plush.webp`
 - **Prompt สำหรับเจนภาพ:**
   ```text

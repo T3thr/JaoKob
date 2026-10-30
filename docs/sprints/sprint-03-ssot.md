@@ -60,7 +60,7 @@ Sprint 3 เป็น Living High-Fidelity Benchmark Slice เพื่อทด
 
 ## 2. Traceability Matrix
 
-แหล่ง requirement: [SRS](../phase-0/03-software-requirements-specification.md), [GDD](../phase-0/01-game-design-document.md), [Narrative Bible](../phase-0/02-narrative-bible.md), [Architecture](../phase-0/04-architecture-blueprint.md), [Directory Plan](../phase-0/05-production-directory-plan.md). ตารางนี้ไม่สร้าง FR/NFR/GDD ใหม่ให้ Approved. `TC-S3-*` เป็น **proposed test/evidence IDs** ที่ Task owner ต้อง materialize
+แหล่ง requirement: [SRS](../archive/phase-0/03-software-requirements-specification.md), [GDD](../archive/phase-0/01-game-design-document.md), [Narrative Bible](../archive/phase-0/02-narrative-bible.md), [Architecture](../archive/phase-0/04-architecture-blueprint.md), [Directory Plan](../archive/phase-0/05-production-directory-plan.md). ตารางนี้ไม่สร้าง FR/NFR/GDD ใหม่ให้ Approved. `TC-S3-*` เป็น **proposed test/evidence IDs** ที่ Task owner ต้อง materialize
 
 | Requirement / decision | Design / observable outcome | Owned artifact / WBS | Verification / eventual PR |
 |---|---|---|---|
@@ -208,7 +208,7 @@ Dependency order: **T1 → T2/T3/T4 adapter work → T4 integration → T5**. `c
 
 ### 5.2 Implementation DoR — all relevant items required per Task
 
-ตาม [JKB-P0-AI-001 §6](../phase-0/06-ai-agent-engineering-guide.md#6-definition-of-ready) ต้องตรวจรายการที่แต่ละ Task พึ่งพา; Tasks 1–5 ผ่าน implementation readiness ตาม approved contracts และคำสั่ง prototype/full-cycle ปัจจุบัน; physical/manual acceptance profile remains open:
+ตาม [JKB-P0-AI-001 §6](../archive/phase-0/06-ai-agent-engineering-guide.md#6-definition-of-ready) ต้องตรวจรายการที่แต่ละ Task พึ่งพา; Tasks 1–5 ผ่าน implementation readiness ตาม approved contracts และคำสั่ง prototype/full-cycle ปัจจุบัน; physical/manual acceptance profile remains open:
 
 - [x] D1/D2 schema/Port/desired-state and D3 mapping/rollback design approved by PO/Tech Lead; implementation QA proof remains required.
 - [x] D5–D8 decided by PO/Tech Lead joint directive; no separate completed QA/Accessibility/asset review is inferred from that authority.

@@ -128,7 +128,7 @@ Act 5: The Gentle Garden, The Mirror Rain, & The Three Horizons (สวนหล
    - **ก้าวที่ 3:** ร่างพิมพ์เขียว **Act 4 ใหม่ (rev.0.1 - The Workshop Labyrinth)**
    - **ก้าวที่ 4:** ร่างพิมพ์เขียว **Act 5 ใหม่ (rev.0.1 - The Grand Climax & Epiphany)**
 2. **การบันทึกบทสนทนาข้าม Agent:**
-   - บันทึกการสนทนาทั้งหมดต้องกระทำใน [INTER-AGENT-DIALOGUE2.md](../dialogue/INTER-AGENT-DIALOGUE2.md) เท่านั้น ห้ามเขียนลงเล่ม 1 ที่ปิดรอบไปแล้ว
+   - บันทึกการสนทนาทั้งหมดต้องกระทำใน [INTER-AGENT-DIALOGUE2.md](../dialogue/archive/volume-02-messages-021-031-sprint-05-planning.md) เท่านั้น ห้ามเขียนลงเล่ม 1 ที่ปิดรอบไปแล้ว
 
 ---
 

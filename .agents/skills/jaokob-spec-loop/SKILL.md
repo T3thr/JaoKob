@@ -11,7 +11,7 @@ Use this skill to keep every JaoKob change within an approved specification, arc
 
 1. Read [AGENTS.md](../../../AGENTS.md).
 2. Read the relevant product source of truth routed from AGENTS.md.
-3. Read the complete [AI Agent Engineering Guide](../../../docs/phase-0/06-ai-agent-engineering-guide.md).
+3. Read the documentation portal [docs/README.md](../../../docs/README.md) and the active [Sprint 5 SSOT](../../../docs/sprints/sprint-05-ssot.md). The Phase 0 AI Agent Engineering Guide is Tier 4 history in `docs/archive/phase-0/` and must not override them.
 4. Use the [workflow checklist](../../workflows/spec-driven-loop.md) and load the [engineering checklist](../../standards/engineering-standards.md) when source, schema, UI, content, test, or delivery work is in scope.
 5. Inspect the current files, working-tree changes, consumers, tests, ADRs, RFCs, and schemas affected by the request.
 

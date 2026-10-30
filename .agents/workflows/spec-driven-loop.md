@@ -1,6 +1,6 @@
 # Spec-Driven AI Loop Checklist
 
-เอกสารนี้เป็น Checklist แบบย่อสำหรับการปฏิบัติงาน ต้องอ่านข้อกำหนดฉบับเต็มใน [JKB-P0-AI-001](../../docs/phase-0/06-ai-agent-engineering-guide.md)
+เอกสารนี้เป็น Checklist แบบย่อสำหรับการปฏิบัติงาน ข้อกำหนดที่มีผลอยู่ใน [AGENTS.md](../../AGENTS.md) และ [docs/README.md](../../docs/README.md) ส่วน [JKB-P0-AI-001](../../docs/archive/phase-0/06-ai-agent-engineering-guide.md) เป็นประวัติ Tier 4
 
 ## 1. Intake
 

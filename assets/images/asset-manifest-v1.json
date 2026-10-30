@@ -325,7 +325,7 @@
         "sha256": "9b8aed3a94eadb63b0d4e4f6cc4e529f14e10db43ca0ad830d92ba3960267647",
         "byteLength": 147614,
         "provenanceRef": "assets/provenance/visual-assets-v1.json",
-        "altTh": "เปื๊อก — หวาดกลัวใต้ผ้าห่ม",
+        "altTh": "เปี๊ยก — หวาดกลัวใต้ผ้าห่ม",
         "sourcePrompt": "docs/design-system/asset-prompts/01-CHARACTER-SPRITE-PROMPTS.md"
       },
       {
@@ -340,7 +340,7 @@
         "sha256": "3429990d80e8a5894636fbebeb5de4ed649addf3ec9206b8a29726d9ca4a6c30",
         "byteLength": 178060,
         "provenanceRef": "assets/provenance/visual-assets-v1.json",
-        "altTh": "เปื๊อก — กอดตุ๊กตารับแสงเช้า",
+        "altTh": "เปี๊ยก — กอดตุ๊กตารับแสงเช้า",
         "sourcePrompt": "docs/design-system/asset-prompts/01-CHARACTER-SPRITE-PROMPTS.md"
       },
       {

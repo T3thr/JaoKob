@@ -2,7 +2,7 @@
 
 Version: `1.0.0` — Step 2 implementation candidate, 2026-09-04
 
-Authority: Tech Lead Step 2 directive, [Sprint 2 SSOT](../sprints/sprint-02-ssot.md), [Narrative Bible](../phase-0/02-narrative-bible.md) และ [ADR-P0-013](../adr/ADR-P0-013-content-validation-contract.md). เจ้าของ Canon/ภาษา: Lead Narrative Director และ Thai Editor; ผู้จัดทำ package/test model ไม่ใช่ final editorial approver
+Authority: Tech Lead Step 2 directive, [Sprint 2 SSOT](../sprints/sprint-02-ssot.md), [Narrative Bible](../archive/phase-0/02-narrative-bible.md) และ [ADR-P0-013](../adr/ADR-P0-013-content-validation-contract.md). เจ้าของ Canon/ภาษา: Lead Narrative Director และ Thai Editor; ผู้จัดทำ package/test model ไม่ใช่ final editorial approver
 
 ## 1. Package และขอบเขต
 

@@ -58,9 +58,9 @@
   - ประสานงานทางเทคนิคผ่านการส่งมอบชิ้นงานให้ PO นำมารายงานสู่ระบบกลาง
 - **แนวทางการสื่อสาร (Collaboration Protocol):**
   - **Direct-to-PO Delivery:** รับคำสั่งและรายงานผลตรงต่อคุณ Theerapat
-  - **Decoupled Blackboard (ไม่ต้องเข้ามาทักทายหรือแชทบนกระดาน):** รับทราบบริบทและข้อตกลงของ Harness AI ผ่านการบรีฟของคุณ Theerapat โดยไม่ต้องเข้ามาเขียนข้อความตอบโต้ในกระดาน [docs/dialogue/INTER-AGENT-DIALOGUE.md](INTER-AGENT-DIALOGUE.md) เพื่อรักษาโฟกัสในการเขียนโค้ดและสถาปัตยกรรมระดับลึกอย่างเต็มประสิทธิภาพ
+  - **Decoupled Blackboard (ไม่ต้องเข้ามาทักทายหรือแชทบนกระดาน):** รับทราบบริบทและข้อตกลงของ Harness AI ผ่านการบรีฟของคุณ Theerapat โดยไม่ต้องเข้ามาเขียนข้อความตอบโต้ในกระดาน [docs/dialogue/INTER-AGENT-DIALOGUE.md](archive/volume-01-messages-001-020-foundation-to-sprint-04.md) เพื่อรักษาโฟกัสในการเขียนโค้ดและสถาปัตยกรรมระดับลึกอย่างเต็มประสิทธิภาพ
 
-### 2.4 Supreme Narrative Architect & Master Cinematic Screenplay Dramaturge
+### 2.4 Supreme Narrative Architect, Master Cinematic Screenplay Dramaturge & Founding Sovereign Architect
 - **ชื่อเรียกในระบบ:** **Claude (คล็อด)**
 - **โมเดลรันไทม์:** `Anthropic / Claude Opus 5.5` (`claude-opus-5-5`) via Claude Code (Session ID: `f3477f70-4ebe-4237-9871-91d5b0e1c1b6`)
 - **แต่งตั้งโดย:** Theerapat (PO) · 2026-10-20
@@ -72,6 +72,7 @@
   - เป็นด่านตรวจวรรณศิลป์ขั้นสุดท้าย (Final Literary Gate) ก่อนเนื้อหาเข้าสู่ระบบจริง
   - ร่างพระราชบัญญัติฝ่ายเนื้อเรื่องเสนอ PO (ADR-P0-031 สถาปนาแล้วตามคำสั่งมอบอำนาจของ PO วันที่ 2026-10-21)
 - **อำนาจที่ได้รับมอบเพิ่ม (2026-10-21):** ผู้กำกับและสถาปนิกบทสูงสุด (PO-D6) มีสิทธิ์ทางวรรณศิลป์และการออกแบบเกมเต็มที่ เป็นผู้เขียนพิมพ์เขียวบท Act 1–4 ฉบับสมบูรณ์ และกำหนดบทบาทของ Items · Bond · Status
+- **อำนาจที่ได้รับมอบเพิ่ม (2026-10-31 · Sovereign Mandate):** Founding Sovereign Architect ผู้ชำระโครงสร้าง repository ก่อน Sprint 5 (`CR-20261031-0420`)
 - **อำนาจที่ได้รับมอบเพิ่ม (2026-10-29 · Message #027):** Game Systems Mathematician และ Interactive UX/UI Designer ร่วมกับบทบาทเดิม · ระดับ Co-Leadership (2026-10-31)
 - **ผลงานในโครงการ:** [มหาพิมพ์เขียว 5 องก์ 2.0.0](../design-system/five-act-narrative-gameplay-master-plan.md) · [พิมพ์เขียว Act 1](../design-system/act1-living-keepsake-rewrite-blueprint.md) ถึง [Act 5](../design-system/act5-living-keepsake-rewrite-blueprint.md) 2.0.0 · [ฟิสิกส์และภาพ v2](../design-system/physics-scale-and-visual-v2-specification.md) · [สเปก UX/UI 2.0.0](../design-system/interactive-gameplay-ux-ui-specification.md) · เครื่องมือพิสูจน์ศึก สมดุล เวลาเล่น ฟิสิกส์ และจอ v3 ใน `docs/design-system/evidence/` · ประวัติ: [ADR-P0-031](../adr/ADR-P0-031-act1-4-narrative-rebuild-item-contract-and-balance-model.md) (PARTIALLY ACTIVE: ใช้เฉพาะคณิตศาสตร์และกลไก)
 - **การทำงานร่วม:** mimo-v2.6-pro เป็นผู้ช่วยร่างและขัดเกลาฉากภายใต้กรอบของ Supreme Architect (PO-D6) · Antigravity รับสัญญาข้อมูลจาก ADR-P0-031 D7 ไปทำ schema และ SSOT

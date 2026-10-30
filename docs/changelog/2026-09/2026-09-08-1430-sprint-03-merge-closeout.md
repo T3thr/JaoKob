@@ -21,7 +21,7 @@
 
 - **Requirement / Change IDs:** `CR-0003` D1–D8; `ADR-P0-015`; `FR-CNT-001/002/004/005/006`; `FR-UI-001/002/003/005/007`; `FR-SET-003/004`; `FR-SAV-003/004/005/006/007/009`; `FR-ACC-001/002/003/004`; `FR-LOC-001/003`; `NFR-PE-001..005`; `GDD-BOND-005`; `NAR-CHR-001`; `NAR-WLD-005`
 - **Architecture decisions:** [ADR-P0-015](../../adr/ADR-P0-015-interactive-light-novel-presentation.md) (Interactive Light Novel RPG Presentation and Asset Architecture)
-- **Traceability:** [Sprint 3 SSOT](../../sprints/sprint-03-ssot.md), [CR-0003 RFC](../../rfc/CR-0003-interactive-light-novel-presentation.md), [Presentation Traceability Matrix](../../traceability/sprint-03-presentation-matrix.md)
+- **Traceability:** [Sprint 3 SSOT](../../sprints/sprint-03-ssot.md), [CR-0003 RFC](../../rfc/CR-0003-interactive-light-novel-presentation.md), Presentation Traceability Matrix (ไฟล์นี้ไม่เคยถูกเก็บใน repository)
 - **Integrated behavior:**
   - Content Schema **1.2.0** และ Production Content **2.1.0** พร้อม Presentation bindings (background, character sprite, BGM, ambience, SFX)
   - Living High-Fidelity Prototype ครอบคลุม Act 1 Scene 1–2 และ Decision Handoff ที่ Scene 3 (`node.act1.home-focus` พร้อม 3 ตัวเลือกตาม Canon และบทสะท้อนผล)

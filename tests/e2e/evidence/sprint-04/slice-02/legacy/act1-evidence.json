@@ -160,7 +160,7 @@
     "unavailable negative browser smoke"
   ],
   "screenshots": [
-    "act1-title-keyboard.png",
+    "../../slice-01/legacy-routes/act1-title-keyboard.png",
     "act1-storm.png",
     "act1-choice-confirmation.png",
     "act1-rest.png",

@@ -69,7 +69,7 @@ No new approval of ADR22 is needed. Slice1 can start its contract/design work; e
 
 ## 6. Evidence and research ledger
 
-The original survey covers81 baseline Markdown documents /11,082 lines; [inventory](evidence/source-inventory.json) retains their baseline hashes. The original [verification manifest](evidence/planning-verification.json), [unit TAP](evidence/baseline-unit.tap.gz) and [design report](evidence/ending-trajectories.json) remain unchanged historical evidence: 1,060/1,060 unit passes and 1,096 design trajectories across eight contexts/eight named witnesses. Design begins at Act4; it does not prove revised Act1–5 or human choice probabilities.
+The original survey covers81 baseline Markdown documents /11,082 lines; [inventory](evidence/source-inventory.json) retains their baseline hashes. The original [verification manifest](evidence/planning-verification.json), [unit TAP](evidence/baseline-unit.tap.gz) and [design report](../../../tests/e2e/evidence/sprint-04/slice-04/adr-021/ending-trajectories.json) remain unchanged historical evidence: 1,060/1,060 unit passes and 1,096 design trajectories across eight contexts/eight named witnesses. Design begins at Act4; it does not prove revised Act1–5 or human choice probabilities.
 
 This revision adds the [Save2 probe](evidence/save2-current-validator-probe.json) and [replanning verification](evidence/adr022-replanning-verification.json): current source/profile facts, document links/IDs/WBS/trace, unchanged supplied ADR and runtime/test/schema/assets, evidence integrity and inspected image identities. It does not rerun the unchanged full suite, schema reference/browser/static artifact checks or human/device/AT acceptance.
 

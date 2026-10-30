@@ -94,7 +94,7 @@
   Wide 16:9 Visual Novel background from a low 45cm perspective: the base of a towering moss-covered red brick garden wall in a stormy night garden. Climbing ivy vines and a taut metal clothesline cable lead upward toward the top of the wall, while a round brass-rimmed garden drain pipe opens at the bottom right corner. Dramatic storm wind and silver-blue rain streaks, warm window glow high above, no characters, no text.
   ```
 
-### 4.2 ยอดกำแพงสวนและห้วงน้ำเชี่ยว 12 เมตรสู่หน้าต่างห้องเปื๊อก (`bg-act4-parapet-storm-abyss.webp` — ฉากรวมพล 5 ฮีโร่ `A4-06`–`A4-13`)
+### 4.2 ยอดกำแพงสวนและห้วงน้ำเชี่ยว 12 เมตรสู่หน้าต่างห้องเปี๊ยก (`bg-act4-parapet-storm-abyss.webp` — ฉากรวมพล 5 ฮีโร่ `A4-06`–`A4-13`)
 - **พาธส่งมอบไฟล์:** `assets/images/backgrounds/act-04/bg-act4-parapet-storm-abyss.webp`
 - **Prompt สำหรับเจนภาพ:**
   ```text
@@ -103,7 +103,7 @@
 
 ---
 
-## องก์ที่ 5 (Act 5): ห้องนอนชั้นสองของเด็กหญิงเปื๊อกและปาฏิหาริย์รุ่งอรุณ (`assets/images/backgrounds/act-05/`)
+## องก์ที่ 5 (Act 5): ห้องนอนชั้นสองของเด็กหญิงเปี๊ยกและปาฏิหาริย์รุ่งอรุณ (`assets/images/backgrounds/act-05/`)
 
 ### 5.1 โต๊ะข้างเตียงและหุ่นตุ๊กตาผ้าไร้เสื้อในคืนไฟดับ (`bg-act5-bedside-table-night.webp` — `A5-01`–`A5-04`)
 - **พาธส่งมอบไฟล์:** `assets/images/backgrounds/act-05/bg-act5-bedside-table-night.webp`
@@ -119,7 +119,7 @@
   Wide 16:9 Visual Novel background inside a dark bedroom illuminated by a single focused warm beam from a bedside desk lamp on the left pointing toward the wide bedroom wall above the bed on the right, creating a dramatic shadow-theater projection stage across the wall. Rain outside the open window, dramatic golden light beam cutting through the dark room, calm dark wooden table surface in the lower 28% safe zone, no characters, no text.
   ```
 
-### 5.3 ห้องนอนของเปื๊อกในแสงสีทองแห่งรุ่งอรุณ (`bg-act5-bedroom-golden-dawn.webp` — ฉากจบ `E-HOME` & `E-DAWN` `A5-10`–`A5-12`)
+### 5.3 ห้องนอนของเปี๊ยกในแสงสีทองแห่งรุ่งอรุณ (`bg-act5-bedroom-golden-dawn.webp` — ฉากจบ `E-HOME` & `E-DAWN` `A5-10`–`A5-12`)
 - **พาธส่งมอบไฟล์:** `assets/images/backgrounds/act-05/bg-act5-bedroom-golden-dawn.webp`
 - **Prompt สำหรับเจนภาพ:**
   ```text

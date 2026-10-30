@@ -1,6 +1,6 @@
 # JaoKob Engineering Standards Checklist
 
-เอกสารนี้สรุปเกณฑ์ตรวจงานสำหรับ Agent รายละเอียดและข้อยกเว้นอยู่ใน [JKB-P0-AI-001](../../docs/phase-0/06-ai-agent-engineering-guide.md) และ [Architecture Blueprint](../../docs/phase-0/04-architecture-blueprint.md)
+เอกสารนี้สรุปเกณฑ์ตรวจงานสำหรับ Agent กติกาที่มีผลอยู่ใน [AGENTS.md](../../AGENTS.md), [docs/README.md](../../docs/README.md) และ [Sprint 5 SSOT](../../docs/sprints/sprint-05-ssot.md) ส่วน [JKB-P0-AI-001](../../docs/archive/phase-0/06-ai-agent-engineering-guide.md) และ [Architecture Blueprint](../../docs/archive/phase-0/04-architecture-blueprint.md) เป็นประวัติ Tier 4 ใช้ดูเหตุผลเดิมเท่านั้น
 
 ## Architecture
 

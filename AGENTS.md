@@ -16,31 +16,25 @@
 - Hosting เป้าหมาย: GitHub Pages แบบ Static Artifact
 
 **สถานะปัจจุบันของโครงการ:**
-โครงการผ่าน Phase 0 Baseline และรวมงาน Sprint 4 เข้า `develop` แล้วที่ `d1af293` ขณะนี้ใช้ **Sprint 5 SSOT 0.2: Four Value Slices** ตาม [ADR-P0-022 ที่ PO อนุมัติ](docs/adr/ADR-P0-022-visual-novel-ergonomics-living-keepsake-lore-and-sprint-streamlining.md) และ [Sprint 5 Execution SSOT](docs/sprints/sprint-05-ssot.md) พร้อมเริ่มงานสัญญาและ Design System ของ Slice 1; implementation ยัง 0/20 tasks
-เอกสารควบคุมสูงสุดและคู่มือปฏิบัติการคือ [docs/README.md](docs/README.md) ส่วน [Sprint 4 SSOT](docs/sprints/sprint-04-ssot.md) เป็น integrated baseline และบันทึกเกณฑ์ตรวจรับที่ต้องส่งต่อ การเปลี่ยนทางนำทางนี้ไม่อนุมัติ Requirement, Canon หรือ RFC ใหม่
+Planning ของ Sprint 5 ปิดแล้ว (PR #18 รวมเข้า `develop` ที่ `524e9a5`) และ Implementation เริ่ม 2026-11-01 ตาม [Sprint 5 SSOT](docs/sprints/sprint-05-ssot.md) · เนื้อเรื่องและกติกาเกมยึด ADR-P0-032 v2.0 กับ ADR-P0-033 และสัญญาออกแบบใน [docs/design-system/](docs/design-system/) · แผนที่เอกสารทั้งหมดอยู่ที่ [docs/README.md](docs/README.md)
 
 ## 3. Authoritative Documents & Navigation (The Four-Tier Authority Hierarchy)
 
 ปฏิบัติตามลำดับชั้นความศักดิ์สิทธิ์ของเอกสารตาม [ADR-P0-023](docs/adr/ADR-P0-023-documentation-hygiene-and-ssot-hierarchy.md) อย่างเคร่งครัด หากมีเนื้อหาขัดแย้งกัน ให้ยึดถือระดับที่สูงกว่าเป็นข้อยุติเสมอ:
 
-1. **Tier 1: พระราชบัญญัติสูงสุดและแผนงานปัจจุบัน (Supreme Active SSOT & Governance):**
-   - **Active Sprint SSOT:** [docs/sprints/sprint-05-ssot.md](docs/sprints/sprint-05-ssot.md) (แผนงานปัจจุบัน, Task WBS, DoR, DoD 4 Value Slices)
-   - **Active Accepted ADRs:** โฟลเดอร์ [docs/adr/](docs/adr/) โดยเฉพาะ:
-     - [ADR-P0-022](docs/adr/ADR-P0-022-visual-novel-ergonomics-living-keepsake-lore-and-sprint-streamlining.md) (สัจจะตัวละครตุ๊กตามีชีวิต 45 ซม., VN Ergonomics Overhaul, 4 Value Slices)
-     - [ADR-P0-021](docs/adr/ADR-P0-021-narrative-resonance-authentic-adventure-and-branching-integrity.md) (Authentic Adventure, Anti-slop, 3 ฉากจบที่มีความหมาย)
-     - [ADR-P0-020](docs/adr/ADR-P0-020-adventure-keepsake-pouch-and-item-system.md) (Adventure Keepsake Pouch 4 ช่อง ของ 6 ชิ้น)
-     - [ADR-P0-019](docs/adr/ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md) (Visual Novel Runtime Ergonomics)
-     - [ADR-P0-023](docs/adr/ADR-P0-023-documentation-hygiene-and-ssot-hierarchy.md) (Documentation Governance & Historical Deprecation)
-   - **Active Execution Contracts:** [docs/proposals/sprint-05-planning/02-adr022-remediation-contract.md](docs/proposals/sprint-05-planning/02-adr022-remediation-contract.md) และ [docs/traceability/sprint-05-execution-matrix.md](docs/traceability/sprint-05-execution-matrix.md)
-2. **Tier 2: สัญญาข้อกำหนดการออกแบบและข้อมูล (Active Design & Schema Contracts):**
-   - **Design System:** โฟลเดอร์ [docs/design-system/](docs/design-system/) (เช่น [visual-novel-specification.md](docs/design-system/visual-novel-specification.md))
-   - **Machine-readable Schemas:** สัญญาข้อมูลใน `specs/schemas/` และ `specs/README.md`
-3. **Tier 3: ฐานข้อมูลการผสานงานรอบก่อนหน้า (Integrated Baseline):**
-   - [Sprint 4 SSOT](docs/sprints/sprint-04-ssot.md) (integrated baseline ที่ commit `d1af293`)
-4. **Tier 4: คลังเอกสารประวัติศาสตร์และข้อเสนอ (Historical Archives - READ ONLY):**
-   - **[docs/phase-0/](docs/phase-0/):** เอกสารรากฐานเดิมทั้ง 9 ฉบับ (เช่น `01-game-design-document.md`, `02-narrative-bible.md`) **เป็น Historical Baseline Archive ที่ถูกแทนที่แล้ว ห้าม AI Agent นำข้อกำหนดชีววิทยา กบ ลูกอ๊อด หาง เหงือก หรือเวลาเล่น 4 ชม. ในเอกสาร Phase 0 มาใช้เป็น Active Requirements เด็ดขาด**
-   - **[docs/proposals/](docs/proposals/):** ข้อเสนอทางเทคนิคและการวิจัยที่ปิดรอบแล้ว
-   - **Change History & Master Manual:** [docs/README.md](docs/README.md), [CHANGELOG.md](CHANGELOG.md) และ [docs/changelog/](docs/changelog/)
+1. **Tier 1: กติกาและแผนปัจจุบัน (Supreme Active SSOT & Governance):**
+   - **Active Sprint SSOT:** [docs/sprints/sprint-05-ssot.md](docs/sprints/sprint-05-ssot.md)
+   - **ADR ที่มีผล:** ตรวจสถานะล่าสุดที่ [docs/adr/README.md](docs/adr/README.md) ก่อนอ้างทุกครั้ง ปัจจุบันมีผลเต็ม: [ADR-P0-032 v2.0](docs/adr/ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md) (canon เรื่องและภาพ) · [ADR-P0-033](docs/adr/ADR-P0-033-interactive-tactical-adventure-gameplay-and-dynamic-stage-revolution.md) (เกมเพลย์โต้ตอบ) · [ADR-P0-023](docs/adr/ADR-P0-023-documentation-hygiene-and-ssot-hierarchy.md) (ลำดับชั้นเอกสาร) · ADR-P0-013, 014, 015, 016, 019, 020, 025 · ใช้เฉพาะส่วนวิศวกรรม: ADR-P0-021, 022, 026, 031
+   - **สัญญาส่งมอบของ Sprint นี้:** [docs/traceability/sprint-05-execution-matrix.md](docs/traceability/sprint-05-execution-matrix.md) และ [docs/proposals/sprint-05-planning/](docs/proposals/sprint-05-planning/) (เฉพาะส่วนวิศวกรรม)
+   - **กระดานสื่อสาร Agent:** [docs/dialogue/sprint-05/BOARD.md](docs/dialogue/sprint-05/BOARD.md) ตามกติกาใน [docs/dialogue/README.md](docs/dialogue/README.md)
+2. **Tier 2: สัญญาออกแบบและข้อมูล (Active Design & Schema Contracts):**
+   - [docs/design-system/](docs/design-system/) เริ่มที่ [README](docs/design-system/README.md) และ [มหาพิมพ์เขียว 5 องก์](docs/design-system/five-act-narrative-gameplay-master-plan.md)
+   - สัญญาข้อมูลที่เครื่องอ่านได้ใน [specs/schemas/](specs/schemas/) และ [specs/README.md](specs/README.md)
+3. **Tier 3: ฐานที่รวมเข้าระบบแล้ว (Integrated Baseline):**
+   - [Sprint 4 SSOT](docs/sprints/sprint-04-ssot.md) และสัญญา runtime ที่โค้ดปัจจุบันทำตาม (เช่น [visual-novel-specification.md](docs/design-system/visual-novel-specification.md))
+4. **Tier 4: คลังประวัติศาสตร์ (Historical Archives · อ่านอย่างเดียว):**
+   - [docs/archive/](docs/archive/): Phase 0 ทั้งชุด (บรรยายกบชีววิทยาและเวลาเล่นหลายชั่วโมง ซึ่งถูกแทนที่แล้ว) · พิมพ์เขียวก่อน ADR-032 · บันทึกรอบงานเก่า **ห้ามใช้ตัดสินงานใหม่**
+   - [docs/dialogue/archive/](docs/dialogue/archive/) · Sprint 1–3 ใน [docs/sprints/](docs/sprints/) · ข้อเสนอที่ปิดแล้วใน [docs/proposals/](docs/proposals/) · [docs/rfc/](docs/rfc/) · [docs/changelog/](docs/changelog/)
 
 `AGENTS.md` และ `.agents/` กำหนดวิธีทำงาน แต่ไม่สร้าง Product Requirement ใหม่
 
@@ -114,7 +108,7 @@ Checklist แบบย่ออยู่ที่ [`.agents/workflows/spec-drive
 - Behavioral Change ทุกครั้งต้อง Trace จาก Requirement ไป Design, Artifact, Verification และ Pull Request
 - Commit และรายงานต้องระบุ Requirement หรือ Change ID
 
-## 7. Architecture Boundaries
+## 9. Architecture Boundaries
 
 - `src/core/` ห้าม import `src/ui/`, `src/data/` หรือ Browser API
 - `src/ui/` ห้ามอ่าน LocalStorage, Parse Content หรือแก้ Domain State โดยตรง
@@ -125,7 +119,7 @@ Checklist แบบย่ออยู่ที่ [`.agents/workflows/spec-drive
 - Runtime Dependency ใหม่หรือการเปลี่ยน Vanilla Baseline ต้องมี RFC และ ADR
 - Stable Content ID, Event Flag และ Published Schema Version ห้ามนำกลับมาใช้กับความหมายใหม่
 
-## 8. Implementation Standards for Phase 1 and Later
+## 10. Implementation Standards for Phase 1 and Later
 
 - JavaScript ใช้ ES Modules, Explicit Import and Export, ไม่มี Global Mutable State, `eval`, `new Function` หรือ Inline Event Handler
 - Core ต้อง Deterministic; ส่ง Clock, Random, Storage และ Renderer ผ่าน Port
@@ -138,7 +132,7 @@ Checklist แบบย่ออยู่ที่ [`.agents/workflows/spec-drive
 
 รายละเอียดบังคับอยู่ใน JKB-P0-AI-001 ห้ามใช้รายการย่อนี้แทนการอ่านเอกสารเมื่อทำ Implementation
 
-## 9. Verification
+## 11. Verification
 
 เลือก Gate ตาม Change และรายงานผลจริง
 
@@ -151,9 +145,11 @@ Checklist แบบย่ออยู่ที่ [`.agents/workflows/spec-drive
 - Integration and end-to-end
 - Security and static artifact
 
+คำสั่งตรวจที่มีจริงและต้องผ่านก่อนทุก commit: `node --test 'tests/unit/**/*.test.js'` และ `node tests/docs/check-doc-links.mjs` (ลิงก์ในเอกสารต้องมีปลายทางจริงและเป็น relative)
+
 ห้ามสร้างชื่อคำสั่งทดสอบจากการคาดเดา หาก Tooling ยังไม่มี ให้ระบุว่า Gate ยังไม่ Materialize ห้ามอ้างว่าผ่าน ห้ามลด Assertion, Skip Critical Test หรือแก้ Expected Result ที่ขัด Requirement
 
-## 10. Change Control
+## 12. Change Control
 
 - Editorial Change ที่ไม่เปลี่ยนความหมายใช้ Owner Review
 - Behavioral หรือ Cross-layer Change ต้องมี RFC
@@ -164,7 +160,7 @@ Checklist แบบย่ออยู่ที่ [`.agents/workflows/spec-drive
 - Architecture และ Schema ต้องได้รับ Senior Software Architect
 - Release และ Deployment ต้องได้รับ Quality and DevOps Specialist กับ Human Authorization
 
-## 11. Workspace Conduct
+## 13. Workspace Conduct
 
 - ตรวจ Working Tree และ Diff ก่อนแก้ไฟล์
 - รักษาการเปลี่ยนแปลงของผู้ใช้หรือ Agent อื่น และห้ามย้อนงานที่ไม่เกี่ยวข้อง
@@ -174,7 +170,7 @@ Checklist แบบย่ออยู่ที่ [`.agents/workflows/spec-drive
 - ห้าม Commit Secret, Credential, Personal Data, Private Narrative Source หรือ Unlicensed Asset
 - ห้ามเพิ่ม Login, Monetization, Telemetry, Backend หรือ External Runtime Service
 
-## 12. Completion Report
+## 14. Completion Report
 
 ทุกงานต้องสรุป
 

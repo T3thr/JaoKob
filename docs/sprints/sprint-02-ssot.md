@@ -32,7 +32,7 @@ Sprint 2 เป็นสะพานจาก First Playable Slice สู่ร�
 
 ### 1.1 ขอบเขต Phase และความหมายของความสำเร็จ
 
-[Charter Section 6](../phase-0/00-phase-0-charter.md) กำหนด G1 เป็น Verification and Playtest ก่อน Content Expansion และ G2 เป็น Release Candidate Gate หลัง Phase 2 ส่วน `GDD-SCP-003` กำหนด Full Release ครบห้าองก์และสาม Ending จึงแบ่ง Phase 2 เป็นหลายสปรินต์: Sprint 2 ส่งมอบ Act 1 และโครงสร้าง Content; Web Audio Engine ยกไป Sprint 3 ตามคำสั่งเจ้าของโครงการ ส่วน Act 2–5 และงานศิลป์เต็มชุดต้องมีแผนรอบถัดไป
+[Charter Section 6](../archive/phase-0/00-phase-0-charter.md) กำหนด G1 เป็น Verification and Playtest ก่อน Content Expansion และ G2 เป็น Release Candidate Gate หลัง Phase 2 ส่วน `GDD-SCP-003` กำหนด Full Release ครบห้าองก์และสาม Ending จึงแบ่ง Phase 2 เป็นหลายสปรินต์: Sprint 2 ส่งมอบ Act 1 และโครงสร้าง Content; Web Audio Engine ยกไป Sprint 3 ตามคำสั่งเจ้าของโครงการ ส่วน Act 2–5 และงานศิลป์เต็มชุดต้องมีแผนรอบถัดไป
 
 หลักฐาน Sprint 1 เป็นฐานส่งต่องานจาก G1 ไม่ใช่หลักฐานว่า Gate ระดับ Release ทุกตัวผ่านแล้ว การจบ Sprint 2 ไม่เท่ากับ Feature Complete ทั้งเกม ไม่ปิด G2 และไม่อ้างว่าเข้าถึง `END-HOME`, `END-NEARBY`, `END-DAWN` ด้วย Content ที่ยังไม่ได้ผลิต
 
@@ -40,7 +40,7 @@ Sprint 2 เป็นสะพานจาก First Playable Slice สู่ร�
 
 ## 2. ขอบเขตข้อกำหนดที่ครอบคลุม (Normative Requirements Scope)
 
-แหล่งอำนาจคือ [GDD](../phase-0/01-game-design-document.md), [Narrative Bible](../phase-0/02-narrative-bible.md), [SRS](../phase-0/03-software-requirements-specification.md), [Architecture Blueprint](../phase-0/04-architecture-blueprint.md) และ [Production Directory Plan](../phase-0/05-production-directory-plan.md) ตารางนี้กำหนดส่วนที่นำมาส่งมอบและตรวจใน Sprint 2 โดยไม่เปลี่ยนข้อความ Requirement ต้นทาง
+แหล่งอำนาจคือ [GDD](../archive/phase-0/01-game-design-document.md), [Narrative Bible](../archive/phase-0/02-narrative-bible.md), [SRS](../archive/phase-0/03-software-requirements-specification.md), [Architecture Blueprint](../archive/phase-0/04-architecture-blueprint.md) และ [Production Directory Plan](../archive/phase-0/05-production-directory-plan.md) ตารางนี้กำหนดส่วนที่นำมาส่งมอบและตรวจใน Sprint 2 โดยไม่เปลี่ยนข้อความ Requirement ต้นทาง
 
 **การแก้รหัสอ้างอิงจาก brief:** `NAR-ACT1-001` ถึง `NAR-ACT1-006` ไม่ใช่รหัสที่มีอยู่ใน Narrative Bible จึงใช้ `NAR-ACT-001`, `NAR-ACT-002` และ `NAR-SC-A1-001` ถึง `NAR-SC-A1-007` ตามต้นฉบับ ไม่สร้างรหัส Canon ใหม่ นอกจากนี้ `FR-LOC-002` หมายถึงเปลี่ยน locale โดยไม่เปลี่ยน Domain State มิใช่ชื่อข้อกำหนด Resource Isolation
 
@@ -151,7 +151,7 @@ Core ปัจจุบันมี `evaluateCondition`, Choice Transaction แ�
 - D4 ใช้ pure JS schema assertions + local registry snapshot, ไม่มี npm; schema 1.0 เดิมคงไว้และตรวจได้ แพ็กเกจรุ่นใหม่ opt-in 1.1; actual Act 1 contentVersion และ old-save migration/consent ยังต้องล็อกเมื่อทำ Content/Integration
 - Task 1 ผ่าน DoR ตาม directive: inputs/outputs/typed errors, schema versions, negative fixtures, privacy/boundaries, migration=none และ rollback ระบุใน ADR/Test/Audit Record ไม่มีการใช้ D3 ที่ยังไม่อนุมัติมาขวางงาน Validator ซึ่งไม่ execute state
 
-ใช้ [JKB-P0-AI-001 Section 6](../phase-0/06-ai-agent-engineering-guide.md) และ [Spec-driven loop](../../.agents/workflows/spec-driven-loop.md):
+ใช้ [JKB-P0-AI-001 Section 6](../archive/phase-0/06-ai-agent-engineering-guide.md) และ [Spec-driven loop](../../.agents/workflows/spec-driven-loop.md):
 
 - [ ] Requirement/Canon ที่เกี่ยวข้องไม่มี conflict; คำตัดสิน CR-0001/CR-0002 ที่ Task พึ่งพามีผู้อนุมัติและหลักฐาน
 - [ ] Input/output/error contract, schema version, effect capability, file ownership และขอบเขตหนึ่ง PR ชัดเจน

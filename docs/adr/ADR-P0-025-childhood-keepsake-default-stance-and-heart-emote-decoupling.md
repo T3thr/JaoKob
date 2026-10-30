@@ -11,7 +11,7 @@ Date: 2026-10-18. Authority: **PO Directive (Theerapat), Lead System Architect (
 
 ## 1. Context & Motivation
 
-สืบเนื่องจากการผสานงาน PR #11 (`feat/spike-adult-plush-model`) เข้าสู่สายพัฒนาหลัก และการตรวจสอบสินทรัพย์ 3D ของเจ้ากบวัยเด็ก (Childhood Keepsake Model) ใน [docs/proposals/3d-keepsake-spike/evidence/childhood-preview-mobile.png](../proposals/3d-keepsake-spike/evidence/childhood-preview-mobile.png) และ `renders/childhood/` ในระหว่างการประชุมปรับปรุงเนื้อเรื่องและพิมพ์เขียวองก์ 1 บนกระดานสนทนากลาง [docs/dialogue/INTER-AGENT-DIALOGUE.md](../dialogue/INTER-AGENT-DIALOGUE.md) พบความคลาดเคลื่อนเชิงสัจจะที่ส่งผลกระทบต่อการเล่าเรื่องอย่างมีนัยสำคัญ:
+สืบเนื่องจากการผสานงาน PR #11 (`feat/spike-adult-plush-model`) เข้าสู่สายพัฒนาหลัก และการตรวจสอบสินทรัพย์ 3D ของเจ้ากบวัยเด็ก (Childhood Keepsake Model) ใน [docs/proposals/3d-keepsake-spike/evidence/childhood-preview-mobile.png](../proposals/3d-keepsake-spike/evidence/childhood-preview-mobile.png) และ `renders/childhood/` ในระหว่างการประชุมปรับปรุงเนื้อเรื่องและพิมพ์เขียวองก์ 1 บนกระดานสนทนากลาง [docs/dialogue/INTER-AGENT-DIALOGUE.md](../dialogue/archive/volume-01-messages-001-020-foundation-to-sprint-04.md) พบความคลาดเคลื่อนเชิงสัจจะที่ส่งผลกระทบต่อการเล่าเรื่องอย่างมีนัยสำคัญ:
 
 1. **การอบท่ากอดหัวใจเป็นท่ามาตรฐานโดยไม่ได้ตั้งใจ (Accidental Baked Hugging Pose):**
    - ใน [ADR-P0-017](ADR-P0-017-childhood-accessory-export.md) เดิมได้กำหนดให้อุปกรณ์เสริมหัวใจสีแดง (`Accessory_RedHeart`) เป็นชิ้นส่วนเสริม (Optional Accessory) แยก Node จากตัวกบ แต่ในกระบวนการสร้างและ Export ของสคริปต์ `build_childhood_model.py` ได้รวมโมเดลและจัดท่าทาง (Pose) ของเจ้ากบวัยเด็กให้ **"ใช้มือทั้งสองข้างโอบกอดหัวใจสีแดงไว้ที่หน้าอกอย่างถาวร (Default Hugging Stance)"**

@@ -1,0 +1,14 @@
+{
+  "purpose": "Byte-identical evidence files removed in CR-20261031-0420. Each removed capture had exactly the same bytes as its canonical file; references were pointed at the canonical file. Paths are relative to this folder.",
+  "record": "CR-20261031-0420",
+  "removedCount": 1,
+  "bytesSaved": 22336,
+  "aliases": [
+    {
+      "removed": "ending-trajectories.json",
+      "canonical": "../../../../tests/e2e/evidence/sprint-04/slice-04/adr-021/ending-trajectories.json",
+      "sha256": "ace96872a0d7261fdbd5be52cb6326b85aa8de94ba02bdfc963048153bf109fd",
+      "bytes": 22336
+    }
+  ]
+}

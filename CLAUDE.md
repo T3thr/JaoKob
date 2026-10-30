@@ -12,8 +12,9 @@ This project adheres to **ISO/IEC/IEEE 12207:2017** and **Clean Architecture (Po
 ## Authoritative Governance (Must Read)
 1. **Repository System Rules:** Read [AGENTS.md](AGENTS.md) unconditionally before taking any action.
 2. **Operations Manual:** Read [docs/README.md](docs/README.md) for repository directory structure, pre-execution and post-execution checklists.
-3. **Active Sprint SSOT:** Read [docs/sprints/sprint-01-ssot.md](docs/sprints/sprint-01-ssot.md) for the active sprint requirements, DoR, and DoD.
-4. **Change History:** Inspect [docs/changelog/2026-09/](docs/changelog/2026-09/) to know the exact progress from prior sessions.
+3. **Active Sprint SSOT:** Read [docs/sprints/sprint-05-ssot.md](docs/sprints/sprint-05-ssot.md) for the active sprint requirements, DoR, and DoD.
+4. **Change History & Board:** Inspect the newest records in [docs/changelog/](docs/changelog/) and the active agent board [docs/dialogue/sprint-05/BOARD.md](docs/dialogue/sprint-05/BOARD.md) to know the exact progress from prior sessions.
+5. **Never use Tier 4 history** in [docs/archive/](docs/archive/) (Phase 0, pre-ADR-032 blueprints) to decide new story, rules or architecture.
 
 ## Architecture Boundaries
 - `src/core/`: 100% Pure Vanilla JavaScript ES Modules. **Zero imports from `src/ui/`, `src/data/`, and zero calls to Browser/DOM APIs (`window`, `document`, `localStorage`)**.
@@ -30,4 +31,5 @@ This project adheres to **ISO/IEC/IEEE 12207:2017** and **Clean Architecture (Po
 Never conclude a task or commit without creating a change record:
 1. Create `docs/changelog/YYYY-MM/YYYY-MM-DD-HHmm-<slug>.md` per [docs/changelog/README.md](docs/changelog/README.md).
 2. Summarize (1-3 lines) in [CHANGELOG.md](CHANGELOG.md) with a markdown link.
-3. Register the Record ID in Section 7 of [docs/sprints/sprint-01-ssot.md](docs/sprints/sprint-01-ssot.md) and tick `[x]` in WBS.
+3. Register the Record ID in Section 7 of the active [docs/sprints/sprint-05-ssot.md](docs/sprints/sprint-05-ssot.md) and tick `[x]` in WBS only for work that is really done.
+4. Run `node --test 'tests/unit/**/*.test.js'` and `node tests/docs/check-doc-links.mjs`; both must pass.

@@ -34,7 +34,7 @@
 - เปิดอ่าน [01-CHARACTER-SPRITE-PROMPTS.md](./01-CHARACTER-SPRITE-PROMPTS.md) และเจนภาพตัวละครตามลำดับความสำคัญ:
   1. **กลุ่มที่ 1 (ครอบครัวกบ):** `jao-kob` (วัยเด็ก & วัยโต), `jao-kab` (พี่ชายคนโต), `jao-kib` (น้องสาวคนเล็ก), `parents` (พ่อกบ & แม่กบ)
   2. **กลุ่มที่ 2 (เพื่อนร่วมทาง & คู่ปรับตลอดกาล):** `p-kam` (ปูเสฉวนเกราะกระป๋องลูกอม), `jao-fiw` (กระรอกบินผ้าพันคอเหลือง), `cockroach-man` (จอมวายร้ายผ้าคลุมเงาดำ)
-  3. **กลุ่มที่ 3 (ตัวละครมนุษย์):** `jao-teuk` (เจ้าเตื๊อก), `peuak` (เด็กหญิงเปื๊อก), `city-humans` (เด็กชายต้น & คุณลุงยาม)
+  3. **กลุ่มที่ 3 (ตัวละครมนุษย์):** `jao-teuk` (เจ้าเตื๊อก), `peuak` (เด็กหญิงเปี๊ยก), `city-humans` (เด็กชายต้น & คุณลุงยาม)
 
 ### ขั้นตอนที่ 3: เจนภาพฉากหลังทั้ง 5 องก์ (`Backgrounds`) ตามไฟล์ `02-BACKGROUND-SCENE-PROMPTS.md`
 - เปิดอ่าน [02-BACKGROUND-SCENE-PROMPTS.md](./02-BACKGROUND-SCENE-PROMPTS.md) และเจนฉากหลังเรียงจาก `act-01` ถึง `act-05`
@@ -47,7 +47,7 @@
 - พร้อมกันนั้น ให้สำเนาเก็บไว้ในโฟลเดอร์ย่อย `versions/v1/` ของแต่ละหมวดด้วย (เช่น `assets/images/characters/jao-kob/versions/v1/adult-neutral.png`) เพื่อรองรับการเปรียบเทียบเมื่อมีการปรับปรุง `v2` ในอนาคต
 
 ### ขั้นตอนที่ 6: อัปเดตทะเบียน `assets/images/asset-manifest-v1.json` และรายงานผลบนกระดานสนทนา
-- เมื่อเจนภาพครบ (หรือเสร็จแต่ละชุด) ให้อัปเดตสถานะใน `assets/images/asset-manifest-v1.json` และบันทึกข้อความรายงานผลลงใน [INTER-AGENT-DIALOGUE2.md](../../dialogue/INTER-AGENT-DIALOGUE2.md)
+- เมื่อเจนภาพครบ (หรือเสร็จแต่ละชุด) ให้อัปเดตสถานะใน `assets/images/asset-manifest-v1.json` และบันทึกข้อความรายงานผลลงในกระดานที่เปิดอยู่ [Sprint 5 Board](../../dialogue/sprint-05/BOARD.md) ตามกติกาใน [dialogue/README.md](../../dialogue/README.md)
 
 ---
 

@@ -2,6 +2,16 @@
 
 พื้นที่สำหรับเก็บเอกสารข้อเสนอทางเทคนิค (Technical Proposals), การวิจัยสถาปัตยกรรม (Architecture Research), และการระดมสมอง (Brainstorming Specifications) ก่อนที่จะถูกแปลงเป็น Request for Comments (RFC), Architecture Decision Records (ADR), หรือ Sprint SSOT ที่ได้รับอนุมัติ
 
+## ระดับเอกสาร ([ADR-P0-023](../adr/ADR-P0-023-documentation-hygiene-and-ssot-hierarchy.md))
+
+| โฟลเดอร์ | ระดับ | ใช้อย่างไร |
+|---|---|---|
+| [sprint-05-planning/](sprint-05-planning/) | **Tier 1 เฉพาะส่วนวิศวกรรม** | สัญญาส่งมอบ package, save และ runtime ของ Sprint 5 · ส่วนเนื้อเรื่องยุค ADR-P0-022 ถูกแทนด้วย ADR-P0-032 v2.0 และ [design-system/](../design-system/) |
+| [3d-keepsake-spike/](3d-keepsake-spike/) | Tier 4 งานวิจัย | โมเดล 3D และ viewer ทดลอง ยังไม่เข้า runtime |
+| [sprint-04-overhaul/](sprint-04-overhaul/) · [phase-02-visual-novel-architecture/](phase-02-visual-novel-architecture/) | Tier 4 | ข้อเสนอที่ปิดรอบแล้ว |
+
+**กติกาเหล็ก:** ข้อเสนอไม่ใช่กติกา จนกว่าจะถูกยกเป็น ADR หรือเข้า Sprint SSOT · หลักฐานที่ซ้ำกับที่อื่นถูกยุบแล้ว ดู `deduplicated-aliases.json` ในโฟลเดอร์ evidence
+
 ## รายการเอกสารข้อเสนอในปัจจุบัน
 
 | รหัสเอกสาร | ชื่อข้อเสนอ | ผู้จัดทำ | สถานะ | ลิงก์เอกสาร |

@@ -87,7 +87,7 @@
     "rerunThisRevision": false,
     "files": [
       "baseline-unit.tap.gz",
-      "ending-trajectories.json",
+      "../../../../tests/e2e/evidence/sprint-04/slice-04/adr-021/ending-trajectories.json",
       "source-inventory.json",
       "planning-verification.json"
     ]

@@ -9,7 +9,7 @@ import { createLocalStorageAdapter, LOCAL_STORAGE_KEYS } from "../../src/data/pe
 import { validateSaveEnvelope } from "../../src/data/validation/save-envelope-validator.js";
 import { createPresentationPackage } from "../fixtures/presentation/presentation-package.js";
 
-const archivedBytes = readFileSync(new URL("../fixtures/presentation/migration/act-01-2.0.0.json", import.meta.url));
+const archivedBytes = readFileSync(new URL("../../src/data/content/compatibility/act-01-2.0.0.json", import.meta.url));
 const sourcePackage = JSON.parse(archivedBytes);
 const testReferenceIds = JSON.parse(readFileSync(new URL("../../src/data/content/packages/act-01-test-catalog.json", import.meta.url)));
 const targetPackage = createPresentationPackage(sourcePackage);

@@ -1,6 +1,6 @@
 > **[STATUS AS OF 2026-10-29: PARTIALLY ACTIVE — UX/UI & 4 SLICES ONLY / LORE SUSPENDED BY ADR-P0-032]**
 > คงไว้เฉพาะ **มาตรฐาน UX/UI (แยก Ambient Meters, Silent Save, Inline Choices), Save Format 2, และการแบ่งงาน 4 Value Slices**
-> ส่วน **สัจจะการเกิดเป็นตุ๊กตาถักไหมพรม/กำมะหยี่ตั้งแต่ต้น ถูกสั่งระงับ (SUSPENDED)** โดยตาม [ADR-P0-032](./ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md) เจ้ากบเกิดเป็นกบสองขามีชีวิตในโลกแฟนตาซีสิ่งมีชีวิตใต้ชายคา แล้วค่อยกลายเป็นตุ๊กตาให้เด็กหญิงเปื๊อกในฉากจบ
+> ส่วน **สัจจะการเกิดเป็นตุ๊กตาถักไหมพรม/กำมะหยี่ตั้งแต่ต้น ถูกสั่งระงับ (SUSPENDED)** โดยตาม [ADR-P0-032](./ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md) เจ้ากบเกิดเป็นกบสองขามีชีวิตในโลกแฟนตาซีสิ่งมีชีวิตใต้ชายคา แล้วค่อยกลายเป็นตุ๊กตาให้เด็กหญิงเปี๊ยกในฉากจบ
 
 # ADR-P0-022: Visual Novel Design System Overhaul, 45cm Living Keepsake Lore, and Streamlined Sprint 5 Value Slices
 

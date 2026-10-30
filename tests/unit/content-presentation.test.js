@@ -8,7 +8,7 @@ import { assertRendererViewModel, createRendererPort, RENDERER_PORT_OPERATIONS }
 import { createPresentationPackage } from "../fixtures/presentation/presentation-package.js";
 import { testReferenceIds, engine, start, walk } from "../helpers/act1-session.js";
 
-const source = JSON.parse(readFileSync(new URL("../fixtures/presentation/migration/act-01-2.0.0.json", import.meta.url)));
+const source = JSON.parse(readFileSync(new URL("../../src/data/content/compatibility/act-01-2.0.0.json", import.meta.url)));
 const fixture = createPresentationPackage(source);
 const loaded = await loadGameContent({ content: fixture, testReferenceIds });
 assert.equal(loaded.valid, true, JSON.stringify(loaded.errors));

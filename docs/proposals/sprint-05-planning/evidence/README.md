@@ -14,7 +14,7 @@ Baseline: `d1af29314d4497e2c37727282a5c7fc3e31333eb`, 2026-10-17. Scope: plannin
 |---|---|
 | [planning-verification.json](planning-verification.json) | Actual commands, results, artifact digests, document checks and unrun gates |
 | [baseline-unit.tap.gz](baseline-unit.tap.gz) | Complete fresh `node --test tests/unit/*.test.js` output: 1,060 pass, no failure/cancel/skip/todo |
-| [ending-trajectories.json](ending-trajectories.json) | Fresh `node tests/design/ending-trajectories.mjs` report: 1,096 trajectories in eight contexts and eight named witnesses, using existing Core transactions |
+| [ending-trajectories.json](../../../../tests/e2e/evidence/sprint-04/slice-04/adr-021/ending-trajectories.json) | Fresh `node tests/design/ending-trajectories.mjs` report: 1,096 trajectories in eight contexts and eight named witnesses, using existing Core transactions |
 | [source-inventory.json](source-inventory.json) | All 81 tracked baseline Markdown documents under `docs/`, 11,082 lines, headings/requirement IDs/SHA-256; checked against baseline Git blobs |
 
 The source inventory represents the baseline before this planning delivery, so it intentionally excludes new S5 files and retains the old hashes of updated portal/index files. It is an inventory and navigation aid, not a statement that every historical claim is current or human-approved.

@@ -29,7 +29,7 @@ const check = (data, expected) => {
   const valid = ajv.validate(`https://t3thr.github.io/JaoKob/specs/schemas/${prefix}content-package.schema.json`, data);
   assert.equal(valid, expected, ajv.errorsText()); cases += 1;
 };
-const old = await readJson(new URL("../fixtures/presentation/migration/act-01-2.0.0.json", import.meta.url));
+const old = await readJson(new URL("../../src/data/content/compatibility/act-01-2.0.0.json", import.meta.url));
 check(old, true);
 const fixture = await readJson(new URL("../fixtures/presentation/schema/valid-v1.2-package.json", import.meta.url));
 check(fixture, true);

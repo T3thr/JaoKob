@@ -24,7 +24,6 @@ docs/
 │   ├── HANDOFF.md                    # บริบทการตัดสินใจและแผนต่อที่ยังเป็นข้อเสนอ
 │   ├── progress.md                   # บันทึกลำดับงานเก่าและจุดส่งต่อ
 │   ├── package.json / package-lock.json
-│   ├── .gitignore
 │   ├── scripts/                      # Blender generators, helpers, verifier, server
 │   ├── model/                        # editable .blend และ web .glb ของสองวัย
 │   ├── textures/                     # yarn color/normal tiles ที่ใช้ร่วมกัน
@@ -53,7 +52,7 @@ docs/
 | [progress](progress.md) | เกิดอะไรขึ้นตามเวลา | เติมเหตุการณ์ใหม่ ไม่ตีความตัวเลขเก่าเป็นสถานะปัจจุบัน |
 | [package.json](package.json) | คำสั่ง npm และ dependency ของ Spike | ตอนนี้มีเพียง `preview`, `validate`; อย่าเดาชื่อ test script |
 | [package-lock.json](package-lock.json) | dependency integrity/version | ใช้ `npm ci` สำหรับติดตั้งตาม lock |
-| [.gitignore](.gitignore) | สิ่งที่ไม่ควร track | ตรวจ staging เพิ่ม เพราะ symlink `node_modules` เคยปรากฏเป็น untracked |
+| [.gitignore ที่รากโครงการ](../../../.gitignore) | สิ่งที่ไม่ควร track (`__pycache__/`, `*.blend1` และ `node_modules/` ย้ายไปรวมที่รากใน CR-20261031-0420) | ตรวจ staging เพิ่ม เพราะ symlink `node_modules` เคยปรากฏเป็น untracked |
 
 Versions ที่ baseline ใช้: Blender **5.2.2 LTS ARM64**, `@google/model-viewer` **4.4.0**, `gltf-validator` **2.0.0-dev.3.10**; ไม่ใช่คำกล่าวว่าเป็นเวอร์ชันล่าสุดในอนาคต Blender4 compatibility ยังไม่มีผลทดสอบ
 

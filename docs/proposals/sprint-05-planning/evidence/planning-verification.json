@@ -29,7 +29,7 @@
     "edges": 20,
     "contexts": 8,
     "trajectoryCount": 1096,
-    "report": "ending-trajectories.json",
+    "report": "../../../../tests/e2e/evidence/sprint-04/slice-04/adr-021/ending-trajectories.json",
     "limitation": "Design begins at Act 4; no production Act 1-to-5 playthrough or human-choice probability is proved.",
     "namedWitnesses": 8
   },
@@ -45,7 +45,7 @@
       "bytes": 127495,
       "sha256": "d7a3f07c989d9402ee8796a08c52005f92c24dcd3c096f9d774bc5e66fca63aa"
     },
-    "ending-trajectories.json": {
+    "../../../../tests/e2e/evidence/sprint-04/slice-04/adr-021/ending-trajectories.json": {
       "bytes": 22336,
       "sha256": "ace96872a0d7261fdbd5be52cb6326b85aa8de94ba02bdfc963048153bf109fd"
     },
@@ -123,7 +123,7 @@
       "docs/proposals/sprint-05-planning/01-readiness-assessment.md",
       "docs/proposals/sprint-05-planning/evidence/README.md",
       "docs/proposals/sprint-05-planning/evidence/baseline-unit.tap.gz",
-      "docs/proposals/sprint-05-planning/evidence/ending-trajectories.json",
+      "tests/e2e/evidence/sprint-04/slice-04/adr-021/ending-trajectories.json",
       "docs/proposals/sprint-05-planning/evidence/planning-verification.json",
       "docs/proposals/sprint-05-planning/evidence/source-inventory.json",
       "docs/rfc/CR-0006-sprint-05-complete-story-and-package-boundaries.md",

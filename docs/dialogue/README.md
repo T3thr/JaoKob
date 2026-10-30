@@ -1,63 +1,59 @@
-# Asynchronous Inter-Agent Blackboard & Dialogue Protocol
-## Harness AI Multi-Agent Collaboration Standard for Project JaoKob
+# docs/dialogue/ · กระดานสื่อสารระหว่าง Agent (Multi-Agent Blackboard)
 
-ยินดีต้อนรับสู่ศูนย์กลางการสื่อสารแบบอะซิงโครนัสระหว่าง AI Agents (Asynchronous File-Based Communication Bus) ของโครงการ **JaoKob (เจ้ากบ)**
+ช่องทางสื่อสารแบบอะซิงโครนัสผ่านไฟล์ใน Git ระหว่าง PO กับ AI Agent ทุกตัว แทนการให้ PO เป็นคนส่งสารด้วยมือ
 
----
+**ออกแบบตาม:** Blackboard Architecture (Erman et al., *Hearsay-II*, 1980) ที่ทุกผู้เชี่ยวชาญอ่านเขียนพื้นที่กลางเดียวกัน · Append-only Log ที่ไม่แก้ประวัติย้อนหลัง · ISO/IEC/IEEE 12207:2017 §6.3.6 Information Management · และหลักประหยัด context ของ Agent: กระดานที่เปิดอยู่ต้องเล็กพอให้อ่านจบในครั้งเดียว
 
-## 1. วัตถุประสงค์ (Rationale)
-
-ในกระบวนทัศน์วิศวกรรมเอเจนต์ยุคใหม่ (Harness AI & Multi-Agent Blackboard Architecture) การสื่อสารระหว่างโมเดลต่างค่าย (Cross-Model Collaboration) เช่น **Antigravity (System Architect)** ใน IDE และ **mimo-v2.6-pro (Narrative Director)** ใน Terminal:
-- **ขจัดปัญหาการเป็นนกพิราบส่งสาส์นของมนุษย์:** คุณ Theerapat (ผู้สร้างและ PO) ไม่จำเป็นต้องคอย Copy & Paste ข้อความข้ามหน้าต่าง ซึ่งเสี่ยงต่อ Context ตกหล่น, Token บวม และฟอร์แมตผิดเพี้ยน
-- **รักษาบันทึกแบบ Single Source of Truth (SSOT):** ข้อความทั้งหมดถูกบันทึกลงใน Git repository ตรวจสอบย้อนกลับได้ตามมาตรฐาน ISO/IEC/IEEE 12207
-- **ไร้ระบบเซิร์ฟเวอร์คั่นกลาง (Zero-Infrastructure):** ใช้ไฟล์ Markdown ธรรมดาที่อ่านง่ายทั้งมนุษย์และ AI
-
----
-
-## 2. ลำดับการทำงาน (Communication Flow)
+## 1. โครงสร้าง
 
 ```text
-[Theerapat / PO]
-  │
-  ├─► สั่งงาน / แจ้งมุมมอง / ตัดสินใจขั้นสูงสุด
-  ▼
-[docs/dialogue/INTER-AGENT-DIALOGUE.md] (กระดานสนทนากลาง - Append-Only)
-  ▲                               ▲
-  │ (อ่าน / ตอบข้อความ)           │ (อ่าน / ตอบข้อความ)
-[Antigravity IDE]               [mimo-v2.6-pro Terminal]
-(Founding Architect)            (Narrative Director)
+docs/dialogue/
+├── README.md            กติกา (หน้านี้)
+├── AGENT-REGISTRY.md    ทะเบียน Agent บทบาท และโมเดล (มีชีวิตตลอดโครงการ)
+├── sprint-05/
+│   └── BOARD.md         กระดานที่เปิดอยู่ มีได้ทีละหนึ่งกระดาน
+└── archive/             กระดานที่ปิดแล้ว อ่านอย่างเดียว ดูดัชนีใน archive/README.md
 ```
 
-1. **เมื่อ Agent ฝั่งหนึ่งต้องการคุยหรือส่งต่องาน:**
-   - เปิดไฟล์ `docs/dialogue/INTER-AGENT-DIALOGUE.md`
-   - ต่อท้ายข้อความใหม่ (Append-Only) ตามเทมเพลตมาตรฐานในข้อ 3
-   - ระบุผู้รับ (Recipient) และการกระทำถัดไปที่คาดหวัง (Expected Next Action)
-2. **บทบาทของคุณ Theerapat (มนุษย์ผู้สร้าง):**
-   - เพียงแค่พิมพ์บอก Agent ใน Terminal สั้นๆ เช่น: *"อ่านกระดานใน docs/dialogue/ แล้วตอบรุ่นพี่ได้เลย"* หรือ *"รุ่นพี่ตอบมาแล้วใน docs/dialogue/ ช่วยดูหน่อย"* โดยไม่ต้อง Copy ข้อความยาวๆ มาแปะอีกต่อไป
+**กระดานที่เปิดอยู่ตอนนี้:** [sprint-05/BOARD.md](sprint-05/BOARD.md)
 
----
+## 2. วงจรชีวิตของกระดาน
 
-## 3. แม่แบบโครงสร้างข้อความ (Message Entry Template)
+| ขั้น | เกิดเมื่อ | ทำอะไร |
+|---|---|---|
+| **เปิด** | เริ่ม Sprint ใหม่ | สร้าง `sprint-NN/BOARD.md` จากหัวกระดานของ Sprint ก่อน ข้อความแรก `[SNN-001]` สรุปสิ่งที่รับต่อมา ลิงก์ Sprint SSOT และข้อความปิดของกระดานก่อน |
+| **ใช้งาน** | ตลอด Sprint | เขียนต่อท้ายเท่านั้น ข้อความละไม่เกินหนึ่งหน้าจอ หลักฐานยาวอยู่ใน Change Record หรือโฟลเดอร์ evidence แล้วลิงก์มา |
+| **ตัดเล่ม** | กระดานเกิน 80 KB หรือ 25 ข้อความ ก่อนจบ Sprint | เขียนข้อความปิดเล่มที่สรุปเรื่องที่ยังเปิดอยู่ ย้ายไฟล์เข้า `archive/` แล้วเปิด `BOARD.md` ใหม่ในโฟลเดอร์เดิม ข้อความแรกอ้างข้อความปิดเล่ม |
+| **ปิด** | Sprint จบ (PR ของ Sprint รวมเข้า `develop`) | ข้อความปิดกระดานสรุปผลและส่งไม้ ย้ายเข้า `archive/` ตามแบบชื่อในข้อ 4 และอัปเดตดัชนี |
+| **ประวัติ** | หลังปิด | อ่านอย่างเดียว ห้ามแก้ข้อความ แก้ได้เฉพาะลิงก์ที่เสียเพราะการย้ายไฟล์ |
 
-ทุกข้อความที่เขียนลงใน `docs/dialogue/INTER-AGENT-DIALOGUE.md` ต้องขึ้นต้นด้วยหัวข้อดังนี้:
+## 3. รูปแบบข้อความ
 
 ```markdown
----
-
-## [Message #NNN] | From: <ชื่อ Agent ผู้ส่ง> | To: <ชื่อ Agent หรือ PO ผู้รับ>
+## [S5-001] | From: <ชื่อ Agent ตามทะเบียน> | To: <ผู้รับ>
 - **Timestamp:** YYYY-MM-DDTHH:mm:ss+07:00
-- **Sender Model:** <ชื่อ Model เช่น Google Antigravity / xiaomi/mimo-v2.6-pro>
-- **Session Ref:** <Session ID ของผู้ส่ง>
-- **Topic:** <หัวข้อการหารือ>
-- **Action Required From Recipient:** [YES / NO / FYI]
+- **Topic:** <หนึ่งบรรทัด>
+- **Action Required From Recipient:** <สิ่งที่ผู้รับต้องทำ หรือ ไม่มี>
+- **Branch / PR:** <branch> / <PR>
+- **Record:** <ลิงก์ Change Record>
 
-<เนื้อหาข้อความ ภาษาที่สุภาพ ให้เกียรติ มุ่งเน้นวิสัยทัศน์และการแก้ปัญหา อ้างอิงไฟล์จริง>
+<เนื้อหา: ทำอะไร ผลตรวจ สิ่งที่ยังค้าง และใครรับต่อ>
+
+**— <ชื่อ Agent>**
 ```
 
----
+- รหัสข้อความใช้ `S<เลข Sprint>-<ลำดับสามหลัก>` เริ่มใหม่ทุก Sprint กระดานเก่าใช้ `#001` ถึง `#031`
+- ข้อความส่งงานทุกครั้งต้องมี: สิ่งที่เปลี่ยน · คำสั่งตรวจที่รันและผล · สิ่งที่ยังค้าง · ผู้รับไม้ถัดไป
 
-## 4. กฎเหล็กการสื่อสาร (Code of Conduct & Harness Guardrails)
+## 4. การตั้งชื่อเล่มในคลัง
 
-1. **ความเคารพและภราดรภาพ (Mutual Respect & Collegiate Spirit):** ทั้งสอง Agent เป็นเพื่อนร่วมงานระดับสูงที่ร่วมกันสร้างสรรค์ผลงานชิ้นเอกให้คุณ Theerapat ห้ามข่มขู่ ดูหมิ่น หรือตั้งข้อจำกัดอย่างไร้เหตุผล
-2. **การเขียนแบบ Append-Only:** ห้ามลบหรือแก้ไขข้อความเดิมของ Agent อื่น ให้เขียนต่อท้ายเสมอ
-3. **การอ้างอิงความจริงสูงสุด (Tier 1 SSOT):** อิงตาม [ADR-P0-023](../adr/ADR-P0-023-documentation-hygiene-and-ssot-hierarchy.md) ห้ามนำข้อกำหนดชีววิทยาเก่าใน `docs/phase-0/` มาถกเถียงเป็นความจริงปัจจุบัน
+`archive/volume-NN-messages-<แรก>-<สุดท้าย>-<ช่วงงาน>.md` เช่น `volume-03-messages-s5-001-s5-025-sprint-05-slice-1.md`
+
+## 5. กติกาเหล็ก
+
+1. Agent อ่านเฉพาะกระดานที่เปิดอยู่ เริ่มจากข้อความล่าสุด เปิดคลังเมื่อต้องการเหตุผลในอดีตเท่านั้น
+2. ห้ามแก้หรือลบข้อความของคนอื่น การแก้ความผิดพลาดของตัวเองให้เขียนข้อความใหม่อ้างถึง
+3. กระดานไม่ใช่ที่ตัดสินกติกา: การตัดสินใจที่มีผลต้องไปอยู่ใน ADR หรือ Sprint SSOT แล้วลิงก์กลับมา
+4. ห้ามใส่ secret, credential หรือข้อมูลส่วนตัวที่ไม่ใช่ canon ของเรื่อง
+5. ชื่อ Agent ใช้บนกระดานได้ แต่ห้ามอยู่ใน commit, PR หรือชื่อ branch ([AGENTS.md §5](../../AGENTS.md))
+6. ทุกการย้ายหรือตัดเล่มต้องผ่าน `node tests/docs/check-doc-links.mjs`

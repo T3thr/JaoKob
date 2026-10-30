@@ -6,7 +6,7 @@
 | Date / task | 2026-10-16, Asia/Bangkok / Sprint 4 T8, Slice 4, intended PR #16 |
 | Authority | คำสั่ง PO รอบแก้ PR #16, CR-0005 D2/D4/D5/D6 และ ADR-P0-021 D1–D6; แก้จาก3164601 บน branch/PR เดิม |
 | Status | S5 implementation handoff; บทตัวอย่างและผลใหม่ที่ติด `draft` รอ human editorial/Game Design review ไม่ใช่ประกาศ Canon ใหม่ |
-| Baseline | [Narrative Bible](../../phase-0/02-narrative-bible.md), [GDD](../../phase-0/01-game-design-document.md), [SSOT T8-AC-01..08](../../sprints/sprint-04-ssot.md#42-task-details-and-specifications), [Act 1 contract](../../design-system/act1-narrative-contract.md) |
+| Baseline | [Narrative Bible](../../archive/phase-0/02-narrative-bible.md), [GDD](../../archive/phase-0/01-game-design-document.md), [SSOT T8-AC-01..08](../../sprints/sprint-04-ssot.md#42-task-details-and-specifications), [Act 1 contract](../../design-system/act1-narrative-contract.md) |
 
 Trace: ADR-P0-021 D1–D6; NAR-ACT-001..011, NAR-THM-001..005, NAR-MOT-001..006, NAR-CON-001..010, NAR-CHR-001/005, NAR-VOI-001..004, NAR-DLG-001..005, NAR-TONE-001; GDD-DEC-A2/A3/A4/A5, GDD-BOND-001..006, GDD-CHO-007, GDD-BAL-001..009, GDD-END-001..006, GDD-SAFE-005; FR-CNT-001/002, FR-SAV-001/005/006/007; TC-S4-MAP-001/EMOTION-001/CALLBACK-001/FAIR-001/GIFT-001.
 

@@ -50,7 +50,7 @@ met in this supplementary profile; the approved physical-device gate remains ope
 
 ## Visual inspection
 
-The agent inspected [mobile decision](./390x844-decision.png),
+The agent inspected [mobile decision](../benchmark/ui/390-decision.png),
 [desktop reading](./1440x900-reading.png) and
 [320-pixel 200% text](./320x568-text200.png): decoded art appears, Thai text and
 three choices follow vertical flow, and the Bond chip shows its locked state.

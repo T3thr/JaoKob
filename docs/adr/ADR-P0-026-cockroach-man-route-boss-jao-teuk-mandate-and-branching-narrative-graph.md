@@ -1,5 +1,5 @@
 > **[STATUS AS OF 2026-10-29: PARTIALLY ACTIVE — CHARACTERS RETAINED / PLOT UPDATED BY ADR-P0-032]**
-> คงไว้เฉพาะการมีตัวละคร **แมลงสาบแมน** (ก้อนเงาแก๊ก) และ **เจ้าเตื๊อก** ส่วนบทบาทและเส้นเรื่องให้ปรับตาม [ADR-P0-032](./ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md) (เจ้าเตื๊อกเชื่อมโยงกับเด็กหญิงเปื๊อกโดยตรง)
+> คงไว้เฉพาะการมีตัวละคร **แมลงสาบแมน** (ก้อนเงาแก๊ก) และ **เจ้าเตื๊อก** ส่วนบทบาทและเส้นเรื่องให้ปรับตาม [ADR-P0-032](./ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md) (เจ้าเตื๊อกเชื่อมโยงกับเด็กหญิงเปี๊ยกโดยตรง)
 
 # ADR-P0-026: Cockroach Man Route Boss, Jao Teuk Human Bond Mandate, and Visual Novel Branching Graph Specification
 
@@ -11,7 +11,7 @@ Date: 2026-10-18. Authority: **PO Directive (Theerapat) & Lead System Architect 
 
 ## 1. Context & Motivation
 
-สืบเนื่องจากการตรวจสอบเอกสารพิมพ์เขียว Act 1 Blueprint rev.0.3 ([JKB-ND-A1-BLUEPRINT](../design-system/act1-living-keepsake-rewrite-blueprint.md)) และ Act 2 Blueprint rev.0.2 ([JKB-ND-A2-BLUEPRINT](../design-system/act2-living-keepsake-rewrite-blueprint.md)) ที่ส่งมอบโดย Executive Narrative Director (mimo-v2.6-pro) ใน Message #010 บนกระดานสนทนา [INTER-AGENT-DIALOGUE.md](../dialogue/INTER-AGENT-DIALOGUE.md)
+สืบเนื่องจากการตรวจสอบเอกสารพิมพ์เขียว Act 1 Blueprint rev.0.3 ([JKB-ND-A1-BLUEPRINT](../design-system/act1-living-keepsake-rewrite-blueprint.md)) และ Act 2 Blueprint rev.0.2 ([JKB-ND-A2-BLUEPRINT](../design-system/act2-living-keepsake-rewrite-blueprint.md)) ที่ส่งมอบโดย Executive Narrative Director (mimo-v2.6-pro) ใน Message #010 บนกระดานสนทนา [INTER-AGENT-DIALOGUE.md](../dialogue/archive/volume-01-messages-001-020-foundation-to-sprint-04.md)
 
 ที่ประชุมผู้บริหารโครงการโดย Project Owner (Theerapat) และ Lead System Architect (Antigravity) มีมติ **"ยังไม่อนุมัติให้ผ่าน"** เนื่องจากพบข้อบกพร่องเชิงโครงสร้างที่สำคัญยิ่ง 6 ประการ:
 

@@ -1,3 +1,13 @@
+# =====================================================================================
+# JaoKob · .gitignore
+# Part A is active now. Part B is the production blueprint: every rule is commented out
+# on purpose so agents and security tools can still read these files during Sprint 5.
+# =====================================================================================
+
+# ---------------------------------------------------------------------
+# Part A · Active rules (development hygiene)
+# ---------------------------------------------------------------------
+
 # Operating-system metadata
 .DS_Store
 **/.DS_Store
@@ -13,3 +23,81 @@ coverage/
 _site/
 output/playwright/
 *.log
+
+# Python bytecode from local verification scripts, and Blender auto-backups
+__pycache__/
+*.pyc
+*.blend1
+
+# Local agent worktrees and personal agent settings (never part of the project)
+.claude/worktrees/
+.claude/settings.local.json
+
+# ---------------------------------------------------------------------
+# Part B · Production release blueprint (ALL COMMENTED, CR-20261031-0420)
+# ---------------------------------------------------------------------
+#
+# When to use: on the PO's release sign-off day, before the repository is shown publicly
+# as the finished game.
+#
+# The playable game itself is already safe: GitHub Pages ships only the explicit allowlist in
+# specs/releases/*.json (index.html, src/, assets/). These rules are about what the public can
+# browse in the repository.
+#
+# How to apply (three steps; uncommenting alone is not enough):
+#   1. Uncomment the blocks you want below.
+#   2. Untrack what is already committed while keeping your local copies, for example:
+#        git rm -r --cached docs/dialogue docs/design-system/ux-mockups
+#   3. Commit on develop, review, then merge to main.
+# Files stay in the Git history after this. Removing them from history is a separate,
+# destructive decision (history rewrite and force push) that needs explicit PO approval.
+#
+# Keep public in every case: README.md, LICENSE files, index.html, src/, the shipped assets/,
+# specs/, tests/unit/ and the credits or licence text that the shipped assets require.
+
+# --- B1 · Story spoilers: the full five-act script, every branch and all three endings -------
+# The game is a gift; anyone reading these files before playing would know every ending.
+# docs/design-system/five-act-narrative-gameplay-master-plan.md
+# docs/design-system/act*-living-keepsake-rewrite-blueprint.md
+# docs/design-system/new-five-act-story-and-mechanics-proposal.md
+# docs/archive/design-system-pre-adr032/
+
+# --- B2 · Multi-agent collaboration records ---------------------------------------------------
+# Internal conversations between AI agents and the PO; working notes, not product.
+# docs/dialogue/
+# .agents/
+
+# --- B3 · Raw AI generation records and image-prompt pipelines ---------------------------------
+# Raw prompts, generation logs and job lists. Before enabling, publish a short credits or licence
+# summary for every shipped asset, because assets/provenance/ is also the licensing evidence.
+# assets/provenance/*.json
+# docs/design-system/asset-prompts/
+
+# --- B4 · Unapproved image candidates -----------------------------------------------------------
+# Every versions/vN/ folder holds candidates; the approved file is promoted to the canonical path
+# without a version number. Check that nothing in specs/releases/ points into versions/ first.
+# assets/images/**/versions/
+# assets/images/asset-manifest-v*.json
+
+# --- B5 · Internal review pages, mockups and verification harnesses ----------------------------
+# docs/design-system/ux-mockups/
+# docs/design-system/evidence/*.html
+# docs/design-system/evidence/*-verification.json
+# docs/design-system/evidence/*-doc-checks.json
+# docs/design-system/evidence/*-browser-review.json
+# docs/design-system/evidence/*-unit-summary.txt
+
+# --- B6 · Research spikes, 3D source models and raw inbox --------------------------------------
+# docs/proposals/3d-keepsake-spike/
+# docs/raw/
+# *.blend
+# *.glb
+
+# --- B7 · Browser test evidence (screenshots and state dumps) -----------------------------------
+# tests/e2e/evidence/
+
+# --- B8 · Planning history -----------------------------------------------------------------------
+# Optional: keep these public if the repository should show how the game was built.
+# docs/archive/
+# docs/proposals/
+# docs/rfc/

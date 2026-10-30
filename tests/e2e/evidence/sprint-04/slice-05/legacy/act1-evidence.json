@@ -160,10 +160,10 @@
     "unavailable negative browser smoke"
   ],
   "screenshots": [
-    "act1-title-keyboard.png",
-    "act1-storm.png",
+    "../../slice-03/legacy/act1-title-keyboard.png",
+    "../../slice-03/legacy/act1-storm.png",
     "act1-choice-confirmation.png",
-    "act1-rest.png",
+    "../../slice-03/legacy/act1-rest.png",
     "act1-mobile-320-text200.png"
   ],
   "performance": {

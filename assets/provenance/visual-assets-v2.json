@@ -1487,7 +1487,7 @@
       "outputPath": "assets/images/characters/peuak/versions/v2/bedside-frightened-blanket-left.webp",
       "masterPath": "assets/images/characters/peuak/versions/v2/bedside-frightened-blanket-left.png",
       "change": {
-        "from": "เปื๊อก — หวาดกลัวใต้ผ้าห่ม · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "from": "เปี๊ยก — หวาดกลัวใต้ผ้าห่ม · ภาพเต็มตัว/ท่านั่งในชุด v1",
         "to": "จากหญิงหน้าวัยเด็กนั่งลอย เป็นหญิงสาววัยเดียวกับเตื๊อก ครึ่งอกใต้ผ้าห่ม",
         "reason": "ADR-032 D2/D7 ให้เตื๊อก–เปี๊ยกเป็นหนุ่มสาววัยเดียวกัน และใช้มุมโน้มตัวครึ่งอก",
         "requirements": [
@@ -2031,7 +2031,7 @@
       "outputPath": "assets/images/characters/peuak/versions/v2/warm-sunlight-hug-left.webp",
       "masterPath": "assets/images/characters/peuak/versions/v2/warm-sunlight-hug-left.png",
       "change": {
-        "from": "เปื๊อก — กอดตุ๊กตารับแสงเช้า · ภาพเต็มตัว/ท่านั่งในชุด v1",
+        "from": "เปี๊ยก — กอดตุ๊กตารับแสงเช้า · ภาพเต็มตัว/ท่านั่งในชุด v1",
         "to": "จากกอดตุ๊กตาโครเชต์ เป็นหญิงสาววัยเดียวกับเตื๊อกกอดกำมะหยี่หนึ่งตัว เฉพาะ E-HOME",
         "reason": "ADR-032 D1/D2 กำหนดตุ๊กตากำมะหยี่เฉพาะ E-HOME และเปี๊ยกเป็นคนรักวัยเดียวกับเตื๊อก",
         "requirements": [
@@ -2351,7 +2351,7 @@
       "outputPath": "assets/images/characters/peuak/versions/v2/bedside-frightened-blanket-right.webp",
       "masterPath": "assets/images/characters/peuak/versions/v2/bedside-frightened-blanket-right.png",
       "change": {
-        "from": "เปื๊อก — หวาดกลัวใต้ผ้าห่ม",
+        "from": "เปี๊ยก — หวาดกลัวใต้ผ้าห่ม",
         "to": "เพิ่มทิศหันตรงข้ามที่เจนใหม่ รักษาซ้ายขวาทางกายวิภาคและตัวอักษร ไม่ใช้ mirror",
         "reason": "ADR-032 D7 ต้องมีทิศหันเข้าคู่สนทนาโดยไม่ mirror รอยแผล ก้าม หรือข้อความ",
         "requirements": [

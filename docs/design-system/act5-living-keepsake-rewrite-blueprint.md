@@ -311,7 +311,7 @@
 
 ## 5. เวลาเล่น
 
-วัดด้วย `node docs/design-system/evidence/five-act-runtime-ledger.mjs` ผลล่าสุดบันทึกใน [CR-20261031-0252](../changelog/2026-10/2026-10-29-1911-five-act-v2-interactive-design.md)
+วัดด้วย `node docs/design-system/evidence/five-act-runtime-ledger.mjs` ผลล่าสุดบันทึกใน [CR-20261031-0252](../changelog/2026-10/2026-10-31-0252-five-act-v2-ux-closeout.md)
 
 ## 6. รายการตรวจ
 

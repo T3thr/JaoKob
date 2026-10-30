@@ -13,7 +13,7 @@ Date: 2026-10-18. Authority: **Tripartite Consensus — Project Owner (Theerapat
 
 สืบเนื่องจากการตรวจสอบอย่างละเอียดรอบด้านต่อพิมพ์เขียว Act 1 Blueprint rev.0.4 ([JKB-ND-A1-BLUEPRINT](../design-system/act1-living-keepsake-rewrite-blueprint.md)) และ Act 2 Blueprint rev.0.3 ([JKB-ND-A2-BLUEPRINT](../design-system/act2-living-keepsake-rewrite-blueprint.md)) ผ่านการระดมสมองของ 3 ฝ่าย ได้แก่:
 1. **Project Owner (Theerapat):** ผู้ถือสัจจะความตั้งใจดั้งเดิมและของขวัญแด่คนรัก
-2. **Senior Narrative Reviewer (Gemini 4 Argon):** ผู้วิเคราะห์เชิงโครงสร้างใน [external-gemini-4-argon-chat-analysis.md](../dialogue/external-gemini-4-argon-chat-analysis.md)
+2. **Senior Narrative Reviewer (Gemini 4 Argon):** ผู้วิเคราะห์เชิงโครงสร้างใน external-gemini-4-argon-chat-analysis.md (ไฟล์นี้ไม่เคยถูกเก็บใน repository)
 3. **Lead System Architect (Antigravity):** ผู้กำกับความสมบูรณ์เชิงสถาปัตยกรรมและกลไกเกม
 
 พบจุดบกพร่องเชิงโครงสร้างที่ต้องได้รับการแก้ไขและยกระดับเป็นลายลักษณ์อักษร 5 ประการ:

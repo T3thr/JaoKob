@@ -1,0 +1,278 @@
+{
+  "purpose": "Byte-identical evidence files removed in CR-20261031-0420. Each removed capture had exactly the same bytes as its canonical file; references were pointed at the canonical file. Paths are relative to this folder.",
+  "record": "CR-20261031-0420",
+  "removedCount": 45,
+  "bytesSaved": 13954947,
+  "aliases": [
+    {
+      "removed": "sprint-03/visual-novel/390x844-decision.png",
+      "canonical": "sprint-03/benchmark/ui/390-decision.png",
+      "sha256": "c57ac19fdc52177b4e0d32523412649d23ba835eb9b663897e9ce8df3cc60ea5",
+      "bytes": 286373
+    },
+    {
+      "removed": "sprint-03/visual-novel/audio-unsupported-reflection.png",
+      "canonical": "sprint-03/visual-novel/audio-blocked-reflection.png",
+      "sha256": "836a5cce9c1d5453411f8e60ff69c3543ea4607f8e8909e5504080278cd98efd",
+      "bytes": 1564280
+    },
+    {
+      "removed": "sprint-03/web-game/state-1.json",
+      "canonical": "sprint-03/web-game/state-0.json",
+      "sha256": "7d62b307a6aff5a97f7c997265775deab7a8c91a83c4611c1e72ac35e2949397",
+      "bytes": 585
+    },
+    {
+      "removed": "sprint-03/web-game/state-2.json",
+      "canonical": "sprint-03/web-game/state-0.json",
+      "sha256": "7d62b307a6aff5a97f7c997265775deab7a8c91a83c4611c1e72ac35e2949397",
+      "bytes": 585
+    },
+    {
+      "removed": "sprint-04/slice-02/legacy-schema-reference.json",
+      "canonical": "sprint-03/benchmark/schema-reference.txt",
+      "sha256": "136ee36cbff6a388e0e3dd83a5be008ccb109976f6dcf94f23cfcfc592db1bb4",
+      "bytes": 140
+    },
+    {
+      "removed": "sprint-04/slice-02/legacy/act1-title-keyboard.png",
+      "canonical": "sprint-04/slice-01/legacy-routes/act1-title-keyboard.png",
+      "sha256": "f7086dd6392678e70e117494df9dbd4aa83b4d4d527db148cb051d9101864156",
+      "bytes": 1595031
+    },
+    {
+      "removed": "sprint-04/slice-02/web-game/shot-1.png",
+      "canonical": "sprint-04/slice-02/web-game/shot-0.png",
+      "sha256": "e72175ac5354c378365b60dad9913cef75e5311858398a1dbe1d38dfd4df3386",
+      "bytes": 55244
+    },
+    {
+      "removed": "sprint-04/slice-02/web-game/state-1.json",
+      "canonical": "sprint-04/slice-02/web-game/state-0.json",
+      "sha256": "458fc69d973961ac9834575017f48f93edf50c9c9d3c43e7578a2d145c59b2de",
+      "bytes": 214
+    },
+    {
+      "removed": "sprint-04/slice-03/web-game/shot-1.png",
+      "canonical": "sprint-04/slice-03/web-game/shot-0.png",
+      "sha256": "345847b79c2926f404a8748c2d9c3df09e38d1d8e82cd068a830ed5862d18bb7",
+      "bytes": 309276
+    },
+    {
+      "removed": "sprint-04/slice-03/web-game/state-1.json",
+      "canonical": "sprint-04/slice-03/web-game/state-0.json",
+      "sha256": "7bb14ad9e757cc4286fe6fac0c9a09082929752d27ddcdc03d9a0936c27b2dc0",
+      "bytes": 109
+    },
+    {
+      "removed": "sprint-04/slice-04/320-released-pouch.png",
+      "canonical": "sprint-04/slice-04/320-empty-pouch.png",
+      "sha256": "da4aaa6d479f7fc30cccf4fdfdd9e5c6946d8e78ba53c93470ed3f982b93fdab",
+      "bytes": 54586
+    },
+    {
+      "removed": "sprint-04/slice-04/adr-021/320-empty-pouch.png",
+      "canonical": "sprint-04/slice-04/320-empty-pouch.png",
+      "sha256": "da4aaa6d479f7fc30cccf4fdfdd9e5c6946d8e78ba53c93470ed3f982b93fdab",
+      "bytes": 54586
+    },
+    {
+      "removed": "sprint-04/slice-04/adr-021/320-released-pouch.png",
+      "canonical": "sprint-04/slice-04/320-empty-pouch.png",
+      "sha256": "da4aaa6d479f7fc30cccf4fdfdd9e5c6946d8e78ba53c93470ed3f982b93fdab",
+      "bytes": 54586
+    },
+    {
+      "removed": "sprint-04/slice-04/adr-021/320x568-four-items.png",
+      "canonical": "sprint-04/slice-04/320x568-four-items.png",
+      "sha256": "0dce2a8c6ba954631cdc89522695718f91e9a1f76a6e848b80d4f942b5e1d39b",
+      "bytes": 103231
+    },
+    {
+      "removed": "sprint-04/slice-04/adr-021/390-complete-journey.png",
+      "canonical": "sprint-04/slice-04/390-complete-journey.png",
+      "sha256": "6c0e6ac63cf0f73788d1895bcc3aa99e71a4cbd0203f5ab6d6d1ea7743191b41",
+      "bytes": 220099
+    },
+    {
+      "removed": "sprint-04/slice-04/adr-021/390x844-four-items.png",
+      "canonical": "sprint-04/slice-04/390x844-four-items.png",
+      "sha256": "dd2a42ffdabc80d05d50a88b94397915eb1d6efc82687601a227c257db29a5b6",
+      "bytes": 83277
+    },
+    {
+      "removed": "sprint-04/slice-04/adr-021/844x390-four-items.png",
+      "canonical": "sprint-04/slice-04/844x390-four-items.png",
+      "sha256": "4ba07f2b933acc7353b50aa223561edfae871a7239990c749435ea0fb9385052",
+      "bytes": 86791
+    },
+    {
+      "removed": "sprint-04/slice-04/adr-021/web-game/state-1.json",
+      "canonical": "sprint-04/slice-04/adr-021/web-game/state-0.json",
+      "sha256": "5ebeb1cdb64e690b861046a59810dd1319bf8780da9abcb7e7270badbe3a0ef8",
+      "bytes": 654
+    },
+    {
+      "removed": "sprint-04/slice-04/legacy-schema-reference.json",
+      "canonical": "sprint-03/benchmark/schema-reference.txt",
+      "sha256": "136ee36cbff6a388e0e3dd83a5be008ccb109976f6dcf94f23cfcfc592db1bb4",
+      "bytes": 140
+    },
+    {
+      "removed": "sprint-04/slice-04/legacy/act1-choice-confirmation.png",
+      "canonical": "sprint-04/slice-03/legacy/act1-choice-confirmation.png",
+      "sha256": "a7edf74f4d7e070209f7fd68c449d73ebd536035d89f62262e7ea680178e4604",
+      "bytes": 440367
+    },
+    {
+      "removed": "sprint-04/slice-04/legacy/act1-rest.png",
+      "canonical": "sprint-04/slice-03/legacy/act1-rest.png",
+      "sha256": "21e3de60e6b7d41332268db3268c7f33439b2aeb9ddbdad6e46295cb903cce28",
+      "bytes": 729463
+    },
+    {
+      "removed": "sprint-04/slice-04/legacy/act1-storm.png",
+      "canonical": "sprint-04/slice-03/legacy/act1-storm.png",
+      "sha256": "59abe44a2426dc4fbf7fb60f0125a46d238de4efc1deaccad82578aa5abd3b64",
+      "bytes": 752348
+    },
+    {
+      "removed": "sprint-04/slice-04/legacy/act1-title-keyboard.png",
+      "canonical": "sprint-04/slice-03/legacy/act1-title-keyboard.png",
+      "sha256": "dc8140cb182f270467ca8ee0530ae8a6c16b04c103d81f719242814023be20e1",
+      "bytes": 1591109
+    },
+    {
+      "removed": "sprint-04/slice-04/schema-reference.json",
+      "canonical": "sprint-04/slice-04/adr-021/schema-reference.json",
+      "sha256": "bf9b01517d7a5a155fd1051f38568cafbe885a1e43f4cd552333030271eed97f",
+      "bytes": 258
+    },
+    {
+      "removed": "sprint-04/slice-04/web-game/shot-0.png",
+      "canonical": "sprint-04/slice-04/adr-021/web-game/shot-0.png",
+      "sha256": "e06f26276e17f0bda43e444691e15fdb758447e740ebe26e0d8e4ef97e18070b",
+      "bytes": 521123
+    },
+    {
+      "removed": "sprint-04/slice-04/web-game/state-0.json",
+      "canonical": "sprint-04/slice-04/adr-021/web-game/state-0.json",
+      "sha256": "5ebeb1cdb64e690b861046a59810dd1319bf8780da9abcb7e7270badbe3a0ef8",
+      "bytes": 654
+    },
+    {
+      "removed": "sprint-04/slice-04/web-game/state-1.json",
+      "canonical": "sprint-04/slice-04/adr-021/web-game/state-0.json",
+      "sha256": "5ebeb1cdb64e690b861046a59810dd1319bf8780da9abcb7e7270badbe3a0ef8",
+      "bytes": 654
+    },
+    {
+      "removed": "sprint-04/slice-05/action-client/shot-1.png",
+      "canonical": "sprint-04/slice-05/action-client/shot-0.png",
+      "sha256": "3ced885a57ec6e06cabd9029723f26849757196a8a27870734bca4b4fa64d28c",
+      "bytes": 506048
+    },
+    {
+      "removed": "sprint-04/slice-05/action-client/shot-2.png",
+      "canonical": "sprint-04/slice-05/action-client/shot-0.png",
+      "sha256": "3ced885a57ec6e06cabd9029723f26849757196a8a27870734bca4b4fa64d28c",
+      "bytes": 506048
+    },
+    {
+      "removed": "sprint-04/slice-05/action-client/state-1.json",
+      "canonical": "sprint-04/slice-05/action-client/state-0.json",
+      "sha256": "c831007cfa3e2bbe511ce1cebfa1d84b8d76b5c0f737cfcca96149748e7848f9",
+      "bytes": 1224
+    },
+    {
+      "removed": "sprint-04/slice-05/action-client/state-2.json",
+      "canonical": "sprint-04/slice-05/action-client/state-0.json",
+      "sha256": "c831007cfa3e2bbe511ce1cebfa1d84b8d76b5c0f737cfcca96149748e7848f9",
+      "bytes": 1224
+    },
+    {
+      "removed": "sprint-04/slice-05/current/320-empty-comfort.png",
+      "canonical": "sprint-04/slice-04/adr-021/320-empty-comfort.png",
+      "sha256": "39926702d39912355ca2f579aab4c6074deacef1e53e4e84e8a30234f4fc565f",
+      "bytes": 126510
+    },
+    {
+      "removed": "sprint-04/slice-05/current/320-empty-pouch.png",
+      "canonical": "sprint-04/slice-04/320-empty-pouch.png",
+      "sha256": "da4aaa6d479f7fc30cccf4fdfdd9e5c6946d8e78ba53c93470ed3f982b93fdab",
+      "bytes": 54586
+    },
+    {
+      "removed": "sprint-04/slice-05/current/320-released-comfort.png",
+      "canonical": "sprint-04/slice-04/adr-021/320-released-comfort.png",
+      "sha256": "9b58abfd06fc38777cf851738c0371b8ecd48823398cd557c1e6e02e69d798a8",
+      "bytes": 125909
+    },
+    {
+      "removed": "sprint-04/slice-05/current/320-released-pouch.png",
+      "canonical": "sprint-04/slice-04/320-empty-pouch.png",
+      "sha256": "da4aaa6d479f7fc30cccf4fdfdd9e5c6946d8e78ba53c93470ed3f982b93fdab",
+      "bytes": 54586
+    },
+    {
+      "removed": "sprint-04/slice-05/current/320-secret-forced.png",
+      "canonical": "sprint-04/slice-04/adr-021/320-secret-forced.png",
+      "sha256": "cf5aca1ce8d30e8cd76adab380f3357f64efc903d40a494e895fb5336f7392a2",
+      "bytes": 38164
+    },
+    {
+      "removed": "sprint-04/slice-05/current/320-secret-high.png",
+      "canonical": "sprint-04/slice-04/adr-021/320-secret-high.png",
+      "sha256": "da712202c0fb0612052289ab362e4cd11475e0ceb72ee70a74c8b82130d31f08",
+      "bytes": 150945
+    },
+    {
+      "removed": "sprint-04/slice-05/current/320-secret-text200.png",
+      "canonical": "sprint-04/slice-04/adr-021/320-secret-text200.png",
+      "sha256": "21ec036062a39e409e243036772880cf7cb9a4762ce91c33bd507b59d6b9a558",
+      "bytes": 117162
+    },
+    {
+      "removed": "sprint-04/slice-05/current/390-complete-journey.png",
+      "canonical": "sprint-04/slice-04/390-complete-journey.png",
+      "sha256": "6c0e6ac63cf0f73788d1895bcc3aa99e71a4cbd0203f5ab6d6d1ea7743191b41",
+      "bytes": 220099
+    },
+    {
+      "removed": "sprint-04/slice-05/current/390-journey-history.png",
+      "canonical": "sprint-04/slice-04/adr-021/390-journey-history.png",
+      "sha256": "f9bb8a4fcf05082068de663c92b0c4af3ca39dcf2c0d4630085cbbc62c6a1d18",
+      "bytes": 132860
+    },
+    {
+      "removed": "sprint-04/slice-05/final/artifact-subpath.png",
+      "canonical": "sprint-04/slice-05/final/artifact-root.png",
+      "sha256": "71e2c691204b6adeeef2b33e7a2a4c4e30902be28b71dc0fafb5544161acea82",
+      "bytes": 318563
+    },
+    {
+      "removed": "sprint-04/slice-05/legacy/act1-rest.png",
+      "canonical": "sprint-04/slice-03/legacy/act1-rest.png",
+      "sha256": "21e3de60e6b7d41332268db3268c7f33439b2aeb9ddbdad6e46295cb903cce28",
+      "bytes": 729463
+    },
+    {
+      "removed": "sprint-04/slice-05/legacy/act1-storm.png",
+      "canonical": "sprint-04/slice-03/legacy/act1-storm.png",
+      "sha256": "59abe44a2426dc4fbf7fb60f0125a46d238de4efc1deaccad82578aa5abd3b64",
+      "bytes": 752348
+    },
+    {
+      "removed": "sprint-04/slice-05/legacy/act1-title-keyboard.png",
+      "canonical": "sprint-04/slice-03/legacy/act1-title-keyboard.png",
+      "sha256": "dc8140cb182f270467ca8ee0530ae8a6c16b04c103d81f719242814023be20e1",
+      "bytes": 1591109
+    },
+    {
+      "removed": "sprint-04/slice-05/ending-trajectories.json",
+      "canonical": "sprint-04/slice-04/adr-021/ending-trajectories.json",
+      "sha256": "ace96872a0d7261fdbd5be52cb6326b85aa8de94ba02bdfc963048153bf109fd",
+      "bytes": 22336
+    }
+  ]
+}

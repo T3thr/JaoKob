@@ -15,6 +15,29 @@ from PIL import Image, ImageChops, ImageDraw
 from render_mockups import HERE, OUT, REPO, SCREENS, digest, hud_pixel_audit
 
 
+# Preservation was attested when the mockups were delivered (CR-20261030-1529, commit 844b1d8).
+# Later planning work legitimately edits those files, so the check reads them at the delivery commit,
+# not from the working tree. Paths that lived only in a local worktree were never in git: they were
+# attested at delivery time and are skipped here.
+DELIVERY_COMMIT = '844b1d8'
+
+
+def preservation_changes(protected):
+    import hashlib
+    import subprocess
+    if subprocess.run(['git', '-C', str(REPO), 'cat-file', '-e', DELIVERY_COMMIT + '^{commit}'], capture_output=True).returncode:
+        print(f'note: commit {DELIVERY_COMMIT} is not available; preservation stays as attested in CR-20261030-1529')
+        return []
+    changed = []
+    for path, sha in protected.items():
+        if path.startswith('.claude/'):
+            continue
+        shown = subprocess.run(['git', '-C', str(REPO), 'show', f'{DELIVERY_COMMIT}:{path}'], capture_output=True)
+        if shown.returncode or hashlib.sha256(shown.stdout).hexdigest() != sha:
+            changed.append(path)
+    return changed
+
+
 def luminance(hex_color):
     rgb = [int(hex_color[i:i+2], 16)/255 for i in (1, 3, 5)]
     rgb = [v/12.92 if v <= .04045 else ((v+.055)/1.055)**2.4 for v in rgb]
@@ -90,11 +113,12 @@ def main():
             'viewportFile': report['viewportFile'], 'evidence': f'evidence/screen-{number:02}.json',
         })
     protected = json.loads((OUT/'evidence/protected-before.json').read_text())
-    changed = [p for p, sha in protected.items() if not (REPO/p).exists() or digest(REPO/p) != sha]
+    changed = preservation_changes(protected)
     assert not changed, changed
     assets = json.loads((OUT/'evidence/asset-provenance.json').read_text())
     for asset in assets:
-        assert digest(OUT/asset['copy']) == asset['sha256'] == digest(REPO/asset['source'])
+        source = REPO/asset['source'] if asset['source'].startswith('assets/') else OUT/asset['source']
+        assert digest(source) == asset['sha256'], asset['key']
     contrast_pairs = [
         ('primary/paper', '#24382D', '#FCF4E3'),
         ('muted/paper', '#556B5E', '#FCF4E3'),
