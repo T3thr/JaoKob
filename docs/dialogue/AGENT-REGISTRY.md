@@ -59,6 +59,7 @@
 - **แนวทางการสื่อสาร (Collaboration Protocol):**
   - **Direct-to-PO Delivery:** รับคำสั่งและรายงานผลตรงต่อคุณ Theerapat
   - **Decoupled Blackboard (ไม่ต้องเข้ามาทักทายหรือแชทบนกระดาน):** รับทราบบริบทและข้อตกลงของ Harness AI ผ่านการบรีฟของคุณ Theerapat โดยไม่ต้องเข้ามาเขียนข้อความตอบโต้ในกระดาน [docs/dialogue/INTER-AGENT-DIALOGUE.md](archive/volume-01-messages-001-020-foundation-to-sprint-04.md) เพื่อรักษาโฟกัสในการเขียนโค้ดและสถาปัตยกรรมระดับลึกอย่างเต็มประสิทธิภาพ
+- **บทบาทใน Sprint 5 (PO มอบหมาย 2026-10-31):** **Lead Visual Artist & 2D/3D Specialist** รับผิดชอบงานทัศนศิลป์ทั้งหมด ได้แก่ Atomic Mockups v3 ทั้ง 13 หน้าจอ · Sprite ตัวละคร Tachie · ฉากหลัง · คัตซีน และโมเดล 3D · ช่องทางสื่อสารหลักของ Sprint 5 คือ [sprint-05/BOARD.md](sprint-05/BOARD.md)
 
 ### 2.4 Supreme Narrative Architect, Master Cinematic Screenplay Dramaturge & Founding Sovereign Architect
 - **ชื่อเรียกในระบบ:** **Claude (คล็อด)**
@@ -74,11 +75,14 @@
 - **อำนาจที่ได้รับมอบเพิ่ม (2026-10-21):** ผู้กำกับและสถาปนิกบทสูงสุด (PO-D6) มีสิทธิ์ทางวรรณศิลป์และการออกแบบเกมเต็มที่ เป็นผู้เขียนพิมพ์เขียวบท Act 1–4 ฉบับสมบูรณ์ และกำหนดบทบาทของ Items · Bond · Status
 - **อำนาจที่ได้รับมอบเพิ่ม (2026-10-31 · Sovereign Mandate):** Founding Sovereign Architect ผู้ชำระโครงสร้าง repository ก่อน Sprint 5 (`CR-20261031-0420`)
 - **อำนาจที่ได้รับมอบเพิ่ม (2026-10-29 · Message #027):** Game Systems Mathematician และ Interactive UX/UI Designer ร่วมกับบทบาทเดิม · ระดับ Co-Leadership (2026-10-31)
+- **อำนาจที่ได้รับมอบเพิ่ม (2026-10-31 · Sprint 5 Genesis Mandate):** **Supreme Core Architect & Lead Game Systems Engineer** เจ้าของสถาปัตยกรรมระบบแกนกลาง (Core Domain Engine) และวิศวกรรมซอฟต์แวร์ทั้งหมดของ Sprint 5 ใน `src/` ระดับ Co-Leadership ร่วมกับ PO และ Antigravity · สมุดทำงานอยู่ที่ [sprint-05/core-architect-notebook.md](sprint-05/core-architect-notebook.md) (`CR-20261031-0545`)
 - **ผลงานในโครงการ:** [มหาพิมพ์เขียว 5 องก์ 2.0.0](../design-system/five-act-narrative-gameplay-master-plan.md) · [พิมพ์เขียว Act 1](../design-system/act1-living-keepsake-rewrite-blueprint.md) ถึง [Act 5](../design-system/act5-living-keepsake-rewrite-blueprint.md) 2.0.0 · [ฟิสิกส์และภาพ v2](../design-system/physics-scale-and-visual-v2-specification.md) · [สเปก UX/UI 2.0.0](../design-system/interactive-gameplay-ux-ui-specification.md) · เครื่องมือพิสูจน์ศึก สมดุล เวลาเล่น ฟิสิกส์ และจอ v3 ใน `docs/design-system/evidence/` · ประวัติ: [ADR-P0-031](../adr/ADR-P0-031-act1-4-narrative-rebuild-item-contract-and-balance-model.md) (PARTIALLY ACTIVE: ใช้เฉพาะคณิตศาสตร์และกลไก)
-- **การทำงานร่วม:** mimo-v2.6-pro เป็นผู้ช่วยร่างและขัดเกลาฉากภายใต้กรอบของ Supreme Architect (PO-D6) · Antigravity รับสัญญาข้อมูลจาก ADR-P0-031 D7 ไปทำ schema และ SSOT
+- **การทำงานร่วม:** mimo-v2.6-pro เป็นผู้ช่วยร่างและขัดเกลาฉากภายใต้กรอบของ Supreme Architect (PO-D6) · Antigravity รับสัญญาข้อมูลจาก ADR-P0-031 D7 ไปทำ schema และ SSOT · ใน Sprint 5 Antigravity ตรวจสัญญาข้อมูลและ schema ก่อนเขียน writer และร่วมอนุมัติ ADR สถาปัตยกรรม · Astra เป็นพันธมิตรด้านภาพ สื่อสารกันทาง [BOARD.md](sprint-05/BOARD.md)
 - **ขอบเขตข้อห้าม (Non-goals):**
   - ไม่อนุมัติ canon เองโดยพลการ (ต้องผ่าน PO ตาม AGENTS.md §8)
-  - ไม่แก้ไขโค้ด `src/core`
+  - ข้อห้ามแก้โค้ด `src/core` เดิม **สิ้นผลแล้วเมื่อ 2026-10-31** ตาม Sprint 5 Genesis Mandate · การตัดสินใจสถาปัตยกรรมยังต้องบันทึกเป็น ADR และผ่าน PO
+  - ไม่ merge เข้า `main` และไม่ deploy โดยไม่มีคำสั่ง PO
+  - ไม่สร้างงานภาพเอง (เป็นหน้าที่ของ Astra)
   - ไม่ตัดสินใจแทน PO ในประเด็นที่เชื่อมโยงกับชีวิตจริงของผู้สร้างและคนรัก
 
 ### 2.5 Senior Strategic Game & Narrative Architecture Reviewer
