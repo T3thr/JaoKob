@@ -1,0 +1,34 @@
+[
+  {
+    "key": "mode4-stitch-mobile",
+    "source": "exec-ad6a38f8-96b5-4ad9-97ab-f046edba53db.png",
+    "prompt": "Use case: ui-mockup. Create ONE finished premium JaoKob gameplay DEVICE BROWSER MOCKUP image. Image1 defines physical DEVICE FRAME ONLY: preserve its straight-on hardware, screen-dominant framing, dark studio background, bezel and browser realism; REPLACE ALL OLD GAME CONTENT. Other refs define exact current v2 character identity and cinematic handcrafted 3D game look. Draw all Thai text directly in image, crisp Sarabun-like typography, correct diacritics, comfortably large. Warm paper #fcf4e3, ink #293d32, dark moss frosted glass, cotton stitching, woven reed and aged brass. No old HP/Sanity/Bond Locked, no old 80/100 numerals. No minimap, boss HP bars, damage numbers, red hearts, or plush toys. Only one blue-shirt living frog. Keep faces unobscured. Tall portrait9:16 high resolution, full physical iPhone16Pro titanium frame on black background, Dynamic Island and9:41 visible, Safari bottom address bar t3thr.github.io/JaoKob/ with real navigation/share/bookmark/tab icons and home indicator. Device fills90% width, upright not tilted, all UI above Safari. GAME: full-screen MACRO2small green frog hands sewing onto sky-blue cotton t-shirt hem with SMALL white THREE-PRONGED embroidered star (exactly3spokes, NOT5pointed star). SMALL brass4-hole button engraved ต.♡ป. beside star;2broken white thread ends. Right frog hand holds tiny steel sewing needle threaded white cotton, left steadies shirt. Warm lamp light; no frog face, no human hands. Ref2frog identity and shirt,ref3exact button,ref4macro composition. THREE small GOLD glowing guide dots around button stitching holes, thin curved WHITE dashed cotton path joins them, first short stitch completed. Minimalist cream paper hint lower screen above Safari, EXACT ลากตามจุดเพื่อเย็บกระดุม (1 / 3 ฝีเข็ม) . Two lines if needed, crisp readable Thai. Only small cog top right, no HUD, timer or failure words. Cotton fibers, satin-green fingers, aged brass; no invented alphabet on button.",
+    "references": [
+      "docs/proposals/phase-02-visual-novel-architecture/jaokob-visual-target-mobile-decision-state.png",
+      "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.png",
+      "assets/images/keepsakes/v2/versions/v2/item-teuk-peuak-button.png",
+      ".claude/worktrees/jaokob-narrative-design-b649d8/docs/design-system/ux-mockups/v1/plates/plate-mode4-stitch-closeup.png"
+    ],
+    "dimensions": [
+      941,
+      1672
+    ],
+    "sha256": "6c699afb04e8179bba23fec817ea5fc5246019af8b66670e9834d4e89b449276"
+  },
+  {
+    "key": "mode4-tap-or-whistle-desktop",
+    "source": "exec-e4a91c44-f64f-4ed7-bfbe-155f9d387dbe.png",
+    "prompt": "Use case: ui-mockup. Create ONE finished premium JaoKob gameplay DEVICE BROWSER MOCKUP image. Image1 defines physical DEVICE FRAME ONLY: preserve its straight-on hardware, screen-dominant framing, dark studio background, bezel and browser realism; REPLACE ALL OLD GAME CONTENT. Other refs define exact current v2 character identity and cinematic handcrafted 3D game look. Draw all Thai text directly in image, crisp Sarabun-like typography, correct diacritics, comfortably large. Warm paper #fcf4e3, ink #293d32, dark moss frosted glass, cotton stitching, woven reed and aged brass. No old HP/Sanity/Bond Locked, no old 80/100 numerals. No minimap, boss HP bars, damage numbers, red hearts, or plush toys. Only one blue-shirt living frog. Keep faces unobscured. Wide landscape 16:9 high resolution, full physical MacBook Pro on black background, keyboard lip visible, Google Chrome browser with macOS menu, tab JaoKob, address https://t3thr.github.io/JaoKob/. Device fills94% width, no props. GAME: full-screen cinematic closeup tiny green living frog hand emerging from sky-blue short sleeve gently tapping rainwet wooden canal pavilion railing. Behind at right young Thai man Teuk kneels watching warmly, wet dark-blue rain jacket, face clear but softly out of focus; winding lantern upper left, heavy storm outside. Ref2frog skin hand,ref3human identity,ref4macrocomposition. On railing EXACTLY THREE concentric GOLD light touch ripples expanding across wet wood and raindrops; white-gold glint under fingertips. Bottom center compact cream paper hint EXACT แตะสามจังหวะ · กบ – กับ – กิบ . No dialogue panel, action grid, countdown or failure state, only tiny forest-green settings cog top right. Image fills game area, subtle handcrafted touch affordance, not arcade.",
+    "references": [
+      "docs/proposals/phase-02-visual-novel-architecture/jaokob-visual-target-desktop-reading-state.png",
+      "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.png",
+      "assets/images/characters/jao-teuk/versions/v2/storm-kneeling-mission-left.png",
+      ".claude/worktrees/jaokob-narrative-design-b649d8/docs/design-system/ux-mockups/v1/plates/plate-mode4-tap-rail.png"
+    ],
+    "dimensions": [
+      1584,
+      993
+    ],
+    "sha256": "399d07f87090a401aa12153ae6d648fbceef947a805a2cb464ba605c1d173b69"
+  }
+]

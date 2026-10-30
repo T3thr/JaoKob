@@ -1,0 +1,36 @@
+[
+  {
+    "key": "mode1-vn-desktop",
+    "source": "exec-cc381a2e-6f4f-4266-8a18-d4b74855d660.png",
+    "prompt": "Use case: ui-mockup. Create ONE finished premium JaoKob gameplay DEVICE BROWSER MOCKUP image, not a wireframe, not a collage. Image 1 is the approved DEVICE/CHROME FRAME reference: preserve its front-on full visible hardware, dark studio background, bezel, browser realism, screen-dominant framing. REPLACE ALL OLD GAME CONTENT from image 1. Other images define the actual current v2 character identity, blue cotton shirt, natural warm handcrafted cinematic 3D materials, and locations. Precisely draw crisp Thai text directly into pixels, Sarabun-like clean Thai typography, generous leading and correct diacritics. Paper #fcf4e3, ink #293d32, moss glass HUD, fine cotton stitching, woven reed and aged brass. Minimal premium controls, no clutter. No HP/Sanity English, no 80/100, no Locked Bond from old reference. No minimap, damage numbers, boss HP bars, no red hearts, no plush toys. Keep all HUD and cards clear of character faces. Only one blue-shirt protagonist. Exact text and screen hierarchy below.  Output wide landscape 16:9 high resolution. A physical MacBook Pro, keyboard lip visible, Google Chrome with macOS menu, tab JaoKob and address https://t3thr.github.io/JaoKob/. Device fills 94% canvas width, flat straight-on screen, no hands or desk props.  Compact top frosted forest-green HUD: three rows กาย ●●●●○, ใจ ●●●○○, แรง ●●●○○ with lotus leaf / three-pronged star / frog leg icons, 3 braided companion cords with actual knots, 4-cell woven reed pouch button and small settings cog. No raw meter numerals.  GAME: stormy wooden canal pavilion night, frog on elevated wooden rail left looking RIGHT at kneeling young adult Thai man Teuk in dark blue wet rain jacket on RIGHT looking left, holding flashlight. Match references 2–5. Eyelines level, faces clearly visible, warm winding lantern and rain outside, distant flood. Strong foreground dialogue card across bottom center about 50% screen width and 23% height, translucent botanical corner impressions and little sewn edge. Speaker badge เตื๊อก. EXACT dialogue in large readable Thai: เอ็งเข้าใจที่ข้าพูดใช่ไหม ถ้าใช่... เคาะราวไม้สามที . Tiny ▽ lower right. ONLY reading-state dialogue, no choice buttons. Calm touching interaction. Frog blue shirt with white THREE-PRONGED star near lower hem; NO sewn brass button yet in this act.",
+    "references": [
+      "docs/proposals/phase-02-visual-novel-architecture/jaokob-visual-target-desktop-reading-state.png",
+      "assets/images/backgrounds/act-03/versions/v1/bg-act3-wayside-shelter-teuk.png",
+      "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.png",
+      "assets/images/characters/jao-teuk/versions/v2/storm-kneeling-mission-left.png",
+      "assets/images/cg/act-03/versions/v2/cg-act3-teuk-guardian-oath.png"
+    ],
+    "dimensions": [
+      1585,
+      992
+    ],
+    "sha256": "166ac351a852738af297d2085ddeaba4ad06e77a2860c83ddd1681116935f989"
+  },
+  {
+    "key": "mode1-choice-mobile",
+    "source": "exec-682da49a-c1b3-491b-8415-1ef9ae9bbbb8.png",
+    "prompt": "Use case: ui-mockup. Create ONE finished premium JaoKob gameplay DEVICE BROWSER MOCKUP image, not a wireframe, not a collage. Image 1 is the approved DEVICE/CHROME FRAME reference: preserve its front-on full visible hardware, dark studio background, bezel, browser realism, screen-dominant framing. REPLACE ALL OLD GAME CONTENT from image 1. Other images define the actual current v2 character identity, blue cotton shirt, natural warm handcrafted cinematic 3D materials, and locations. Precisely draw crisp Thai text directly into pixels, Sarabun-like clean Thai typography, generous leading and correct diacritics. Paper #fcf4e3, ink #293d32, moss glass HUD, fine cotton stitching, woven reed and aged brass. Minimal premium controls, no clutter. No HP/Sanity English, no 80/100, no Locked Bond from old reference. No minimap, damage numbers, boss HP bars, no red hearts, no plush toys. Keep all HUD and cards clear of character faces. Only one blue-shirt protagonist. Exact text and screen hierarchy below.  Output tall portrait 9:16 high resolution. A physical iPhone 16 Pro, full titanium frame and Dynamic Island visible with 9:41 status, Mobile Safari bottom address bar t3thr.github.io/JaoKob/ and real back/share/bookmark/tab icons, home indicator. Device fills 90% width, small black studio margins, straight-on not tilted. All game content above Safari toolbar.  Compact top frosted forest-green HUD: three rows กาย ●●●●○, ใจ ●●●○○, แรง ●●●○○ with lotus leaf / three-pronged star / frog leg icons, 3 braided companion cords with actual knots, 4-cell woven reed pouch button and small settings cog. No raw meter numerals.  GAME: Act2 whirlpool iron grate rescue inside wet storm drain, exact orange hermit crab P'Kam in dented pale blue floral candy tin, large LEFT claw extended, stuck against whirlpool grate; living frog in blue shirt above on concrete edge reaching to save him. Use rescue CG for identity and action, show full readable event in UPPER MIDDLE screen, no duplicated sprites. Bottom 40% game viewport: short cream paper narration EXACT กระป๋องลูกอมของพี่ก้ามติดซี่ตะแกรงน้ำวน ต้องรีบตัดสินใจ... . Under it EXACTLY THREE broad generous tactile cards vertically stacked, all visible above Safari without scrollbar. Card1 gold dashed sewn border and actual bark wristguard item icon, Thai two lines ท่าผสาน: ใช้สนับข้อมืองัดเฟืองเหล็ก then [ สายใยพี่ก้าม ]. Card2 rich leaf-green, frog-jump icon, white text ดีดตัวผ่าลม: กระโจนคว้าก้ามซ้าย then [ ทักษะพี่น้อง ]. Card3 indigo-blue, footprint icon, white text ยืนหยัดเอง: ยันขอบปูนดึงเต็มแรง then [ ใช้แรง ● ]. Correct left-claw rescue, tiny white three-pronged star on blue shirt, no sewn button. Large readable buttons with refined handcrafted leaf corner motifs.",
+    "references": [
+      "docs/proposals/phase-02-visual-novel-architecture/jaokob-visual-target-mobile-decision-state.png",
+      "assets/images/cg/act-02/versions/v2/cg-act2-pkam-whirlpool-rescue.png",
+      "assets/images/characters/jao-kob/versions/v2/adult-determined-right.png",
+      "assets/images/characters/p-kam/versions/v2/neutral-guarded-left.png",
+      "assets/images/keepsakes/v2/versions/v1/item-kab-bark-guard.png"
+    ],
+    "dimensions": [
+      941,
+      1672
+    ],
+    "sha256": "7322d1d3fb67848d258ff8ce7991cea4bd83be102dfc02a02994b58cc69c865c"
+  }
+]

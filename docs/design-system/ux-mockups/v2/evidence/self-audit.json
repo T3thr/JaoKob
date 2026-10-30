@@ -1,0 +1,102 @@
+{
+  "contract": "JKB-DS-UX-ATOMIC-05 1.0.0",
+  "status": "passed-for-prototype-review",
+  "gates": [
+    {
+      "id": "SA-01",
+      "check": "One pixel-identical HUD master across all ten screens",
+      "pass": true,
+      "evidence": "hud-pixel-audit.json"
+    },
+    {
+      "id": "SA-02",
+      "check": "One SVG icon set: three-pronged star, three webbed toes, three knotted cords, four pouch cells",
+      "pass": true,
+      "method": "Shared SVG source + visual inspection of all ten PNGs"
+    },
+    {
+      "id": "SA-03",
+      "check": "No human backpack, human footprint, real cockroach anatomy, duplicated dolls or coin in ending cards",
+      "pass": true,
+      "method": "Canonical asset whitelist; zero images inside ending cards; visual inspection"
+    },
+    {
+      "id": "SA-04",
+      "check": "Thai strings exactly match the Atomic 05 table",
+      "pass": true,
+      "evidence": "thai-copy-audit.json"
+    },
+    {
+      "id": "SA-05",
+      "check": "All Tachie eyes in 52–68% from bottom; zero UI/face overlaps",
+      "pass": true,
+      "evidence": "screen-01.json through screen-10.json"
+    },
+    {
+      "id": "SA-06",
+      "check": "One paper/card component system on desktop and mobile; equal ending card sizes",
+      "pass": true,
+      "method": "Same component functions and CSS; computed styles and exact bounds verified"
+    }
+  ],
+  "renderChecks": {
+    "screens": 10,
+    "horizontalOverflow": false,
+    "brokenImages": 0,
+    "textClipping": 0,
+    "cardContentOverflow": 0,
+    "undersizedTargets": 0,
+    "loadedSarabunFaces": true,
+    "viewportDpr": 2,
+    "losslessWebpPixelParity": true,
+    "viewportInsertedWithoutResampling": true,
+    "deviceShellPixelsIdenticalPerDevice": true
+  },
+  "contrastChecks": [
+    {
+      "pair": "primary/paper",
+      "foreground": "#24382D",
+      "background": "#FCF4E3",
+      "ratio": 11.431
+    },
+    {
+      "pair": "muted/paper",
+      "foreground": "#556B5E",
+      "background": "#FCF4E3",
+      "ratio": 5.256
+    },
+    {
+      "pair": "intent",
+      "foreground": "#FCF4E3",
+      "background": "#5E3F94",
+      "ratio": 7.339
+    },
+    {
+      "pair": "counter tag",
+      "foreground": "#24382D",
+      "background": "#E7A93B",
+      "ratio": 6.039
+    },
+    {
+      "pair": "repeat tag",
+      "foreground": "#0E1D14",
+      "background": "#6E87AC",
+      "ratio": 4.752
+    }
+  ],
+  "preservation": {
+    "checkedFiles": 120,
+    "changedFiles": [],
+    "unmodifiedCanonicalAssetCopies": 21
+  },
+  "visualInspection": {
+    "allTenFinalDevicePngsOpened": true,
+    "reviewer": "Codex assistant",
+    "humanApproval": "pending PO"
+  },
+  "notPerformed": [
+    "Physical iPhone Safari or MacBook interaction test",
+    "Full WCAG/assistive-technology conformance",
+    "Full-game keyboard journey, state/core/save or release tests"
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "screen": 1,
+  "viewport": {
+    "width": 1440,
+    "height": 900,
+    "dpr": 2
+  },
+  "fontReady": true,
+  "fontFaces": [
+    {
+      "family": "Sarabun",
+      "status": "loaded"
+    },
+    {
+      "family": "Sarabun",
+      "status": "loaded"
+    }
+  ],
+  "horizontalOverflow": false,
+  "brokenImages": [],
+  "faceBand": {
+    "top": 288,
+    "bottom": 432
+  },
+  "faces": [
+    {
+      "asset": "kob",
+      "eyeY": 345,
+      "eyeInBand": true,
+      "face": {
+        "x": 275.1953125,
+        "y": 269,
+        "width": 280,
+        "height": 192,
+        "right": 555.1953125,
+        "bottom": 461
+      },
+      "overlaps": []
+    },
+    {
+      "asset": "teuk",
+      "eyeY": 344.9984375,
+      "eyeInBand": true,
+      "face": {
+        "x": 854.296875,
+        "y": 173.4484375,
+        "width": 292,
+        "height": 313.9,
+        "right": 1146.296875,
+        "bottom": 487.3484375
+      },
+      "overlaps": []
+    }
+  ],
+  "uiBandIntrusions": [],
+  "hud": {
+    "x": 24,
+    "y": 24,
+    "width": 358,
+    "height": 64,
+    "right": 382,
+    "bottom": 88
+  },
+  "targets": [
+    {
+      "label": "กระเป๋าสานกกสี่ช่อง",
+      "minimum": 44,
+      "x": 274.4296875,
+      "y": 34,
+      "width": 44,
+      "height": 44,
+      "right": 318.4296875,
+      "bottom": 78
+    },
+    {
+      "label": "ตั้งค่า",
+      "minimum": 44,
+      "x": 327,
+      "y": 34,
+      "width": 44,
+      "height": 44,
+      "right": 371,
+      "bottom": 78
+    },
+    {
+      "label": "อ่านต่อ",
+      "minimum": 44,
+      "x": 1043,
+      "y": 821,
+      "width": 44,
+      "height": 44,
+      "right": 1087,
+      "bottom": 865
+    }
+  ],
+  "undersizedTargets": [],
+  "strings": [
+    "เตื๊อก",
+    "เอ็งเข้าใจที่ข้าพูดใช่ไหม ถ้าใช่ เคาะราวไม้สามที"
+  ],
+  "textClipping": [],
+  "contentOverflow": [],
+  "components": [
+    {
+      "name": "TopHudCapsule",
+      "x": 24,
+      "y": 24,
+      "width": 358,
+      "height": 64,
+      "right": 382,
+      "bottom": 88,
+      "style": {
+        "background": "rgb(32, 54, 42)",
+        "border": "rgb(36, 56, 45)",
+        "radius": "999px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    },
+    {
+      "name": "VnTachieStage",
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 900,
+      "right": 1440,
+      "bottom": 900,
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(36, 56, 45)",
+        "radius": "0px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    },
+    {
+      "name": "SaaDialogueCard",
+      "x": 336,
+      "y": 640,
+      "width": 768,
+      "height": 236,
+      "right": 1104,
+      "bottom": 876,
+      "style": {
+        "background": "rgb(252, 244, 227)",
+        "border": "rgb(214, 198, 165)",
+        "radius": "18px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    }
+  ],
+  "images": [
+    {
+      "key": "shelter",
+      "path": "assets/shelter.png"
+    },
+    {
+      "key": "kob",
+      "path": "assets/kob.png"
+    },
+    {
+      "key": "teuk",
+      "path": "assets/teuk.png"
+    },
+    {
+      "key": "teuk",
+      "path": "assets/teuk.png"
+    }
+  ],
+  "destinyImageCount": 0,
+  "viewportFile": "viewports/mode1-vn-desktop.png",
+  "problems": {},
+  "deviceDimensions": [
+    3458,
+    2424
+  ]
+}

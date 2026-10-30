@@ -1,0 +1,239 @@
+{
+  "screen": 2,
+  "viewport": {
+    "width": 390,
+    "height": 844,
+    "dpr": 2
+  },
+  "fontReady": true,
+  "fontFaces": [
+    {
+      "family": "Sarabun",
+      "status": "loaded"
+    },
+    {
+      "family": "Sarabun",
+      "status": "loaded"
+    }
+  ],
+  "horizontalOverflow": false,
+  "brokenImages": [],
+  "faceBand": {
+    "top": 270.08,
+    "bottom": 405.12
+  },
+  "faces": [
+    {
+      "asset": "kam-shield",
+      "eyeY": 345,
+      "eyeInBand": true,
+      "face": {
+        "x": 73.1953125,
+        "y": 309,
+        "width": 174,
+        "height": 102.00000000000001,
+        "right": 247.1953125,
+        "bottom": 411
+      },
+      "overlaps": []
+    },
+    {
+      "asset": "kob-left",
+      "eyeY": 344.99375,
+      "eyeInBand": true,
+      "face": {
+        "x": 189.596875,
+        "y": 290.84375,
+        "width": 199.5,
+        "height": 136.79999999999998,
+        "right": 389.096875,
+        "bottom": 427.64374999999995
+      },
+      "overlaps": []
+    }
+  ],
+  "uiBandIntrusions": [],
+  "hud": {
+    "x": 16,
+    "y": 16,
+    "width": 358,
+    "height": 64,
+    "right": 374,
+    "bottom": 80
+  },
+  "targets": [
+    {
+      "label": "กระเป๋าสานกกสี่ช่อง",
+      "minimum": 44,
+      "x": 266.4296875,
+      "y": 26,
+      "width": 44,
+      "height": 44,
+      "right": 310.4296875,
+      "bottom": 70
+    },
+    {
+      "label": "ตั้งค่า",
+      "minimum": 44,
+      "x": 319,
+      "y": 26,
+      "width": 44,
+      "height": 44,
+      "right": 363,
+      "bottom": 70
+    },
+    {
+      "label": "ใช้สนับข้อมืองัดเฟืองเหล็ก",
+      "minimum": 56,
+      "x": 16,
+      "y": 540,
+      "width": 358,
+      "height": 88,
+      "right": 374,
+      "bottom": 628
+    },
+    {
+      "label": "ดีดตัวผ่าลม กระโจนคว้าก้ามซ้าย",
+      "minimum": 56,
+      "x": 16,
+      "y": 636,
+      "width": 358,
+      "height": 88,
+      "right": 374,
+      "bottom": 724
+    },
+    {
+      "label": "ยืนหยัดเอง ยันขอบปูนดึงเต็มแรง",
+      "minimum": 56,
+      "x": 16,
+      "y": 732,
+      "width": 358,
+      "height": 88,
+      "right": 374,
+      "bottom": 820
+    }
+  ],
+  "undersizedTargets": [],
+  "strings": [
+    "กระป๋องลูกอมของพี่ก้ามติดซี่ตะแกรงน้ำวน ต้องรีบตัดสินใจ",
+    "ใช้สนับข้อมืองัดเฟืองเหล็ก",
+    "[ท่าผสาน · พี่ก้าม]",
+    "ดีดตัวผ่าลม กระโจนคว้าก้ามซ้าย",
+    "[ทักษะพี่น้อง]",
+    "ยืนหยัดเอง ยันขอบปูนดึงเต็มแรง",
+    "[แรง −●]"
+  ],
+  "textClipping": [],
+  "contentOverflow": [],
+  "components": [
+    {
+      "name": "TopHudCapsule",
+      "x": 16,
+      "y": 16,
+      "width": 358,
+      "height": 64,
+      "right": 374,
+      "bottom": 80,
+      "style": {
+        "background": "rgb(32, 54, 42)",
+        "border": "rgb(36, 56, 45)",
+        "radius": "999px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    },
+    {
+      "name": "VnTachieStage",
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 844,
+      "right": 390,
+      "bottom": 844,
+      "style": {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "rgb(36, 56, 45)",
+        "radius": "0px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 16,
+      "y": 540,
+      "width": 358,
+      "height": 88,
+      "right": 374,
+      "bottom": 628,
+      "style": {
+        "background": "rgb(255, 248, 230)",
+        "border": "rgb(154, 107, 18)",
+        "radius": "14px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 16,
+      "y": 636,
+      "width": 358,
+      "height": 88,
+      "right": 374,
+      "bottom": 724,
+      "style": {
+        "background": "rgb(252, 244, 227)",
+        "border": "rgb(214, 198, 165) rgb(214, 198, 165) rgb(214, 198, 165) rgb(78, 140, 87)",
+        "radius": "14px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 16,
+      "y": 732,
+      "width": 358,
+      "height": 88,
+      "right": 374,
+      "bottom": 820,
+      "style": {
+        "background": "rgb(252, 244, 227)",
+        "border": "rgb(214, 198, 165) rgb(214, 198, 165) rgb(214, 198, 165) rgb(74, 111, 165)",
+        "radius": "14px",
+        "font": "Sarabun, Thonburi, sans-serif",
+        "color": "rgb(36, 56, 45)"
+      }
+    }
+  ],
+  "images": [
+    {
+      "key": "whirlpool",
+      "path": "assets/whirlpool.png"
+    },
+    {
+      "key": "kam-shield",
+      "path": "assets/kam-shield.png"
+    },
+    {
+      "key": "kob-left",
+      "path": "assets/kob-left.png"
+    },
+    {
+      "key": "guard",
+      "path": "assets/guard.png"
+    },
+    {
+      "key": "kam",
+      "path": "assets/kam.png"
+    }
+  ],
+  "destinyImageCount": 0,
+  "viewportFile": "viewports/mode1-choice-mobile.png",
+  "problems": {},
+  "deviceDimensions": [
+    1070,
+    2168
+  ]
+}

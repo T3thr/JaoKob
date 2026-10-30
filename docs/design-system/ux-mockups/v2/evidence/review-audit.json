@@ -1,0 +1,116 @@
+{
+  "offlineFileUrl": true,
+  "statesChecked": [
+    {
+      "mode": 1,
+      "device": "both",
+      "images": 4,
+      "horizontalOverflow": false,
+      "tab": 0
+    },
+    {
+      "mode": 1,
+      "device": "desktop",
+      "images": 2,
+      "horizontalOverflow": false,
+      "tab": 0
+    },
+    {
+      "mode": 1,
+      "device": "mobile",
+      "images": 2,
+      "horizontalOverflow": false,
+      "tab": 0
+    },
+    {
+      "mode": 2,
+      "device": "both",
+      "images": 4,
+      "horizontalOverflow": false,
+      "tab": 1
+    },
+    {
+      "mode": 2,
+      "device": "desktop",
+      "images": 2,
+      "horizontalOverflow": false,
+      "tab": 1
+    },
+    {
+      "mode": 2,
+      "device": "mobile",
+      "images": 2,
+      "horizontalOverflow": false,
+      "tab": 1
+    },
+    {
+      "mode": 3,
+      "device": "both",
+      "images": 4,
+      "horizontalOverflow": false,
+      "tab": 2
+    },
+    {
+      "mode": 3,
+      "device": "desktop",
+      "images": 2,
+      "horizontalOverflow": false,
+      "tab": 2
+    },
+    {
+      "mode": 3,
+      "device": "mobile",
+      "images": 2,
+      "horizontalOverflow": false,
+      "tab": 2
+    },
+    {
+      "mode": 4,
+      "device": "both",
+      "images": 4,
+      "horizontalOverflow": false,
+      "tab": 3
+    },
+    {
+      "mode": 4,
+      "device": "desktop",
+      "images": 2,
+      "horizontalOverflow": false,
+      "tab": 3
+    },
+    {
+      "mode": 4,
+      "device": "mobile",
+      "images": 2,
+      "horizontalOverflow": false,
+      "tab": 3
+    },
+    {
+      "mode": 5,
+      "device": "both",
+      "images": 4,
+      "horizontalOverflow": false,
+      "tab": 4
+    },
+    {
+      "mode": 5,
+      "device": "desktop",
+      "images": 2,
+      "horizontalOverflow": false,
+      "tab": 4
+    },
+    {
+      "mode": 5,
+      "device": "mobile",
+      "images": 2,
+      "horizontalOverflow": false,
+      "tab": 4
+    }
+  ],
+  "arrowKeyNavigation": true,
+  "faceGuideToggle": true,
+  "targetGuideToggle": true,
+  "horizontalOverflowDesktop": false,
+  "horizontalOverflowMobile": false,
+  "brokenImages": 0
+}

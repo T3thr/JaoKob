@@ -1,0 +1,233 @@
+[
+  {
+    "key": "kob",
+    "source": "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.png",
+    "copy": "harness/assets/kob.png",
+    "sha256": "a57bd6c49b7ed4b5f7f7e631139b211ebc3e659d1d198fff2e9068d126922c41",
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "hasAlpha": true
+  },
+  {
+    "key": "kob-left",
+    "source": "assets/images/characters/jao-kob/versions/v2/adult-neutral-left.png",
+    "copy": "harness/assets/kob-left.png",
+    "sha256": "1cbffdfd859c5b7fd295a2ffea3984c2ca524b3cd85f219df398ea0d2bca4a3d",
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "hasAlpha": true
+  },
+  {
+    "key": "kob-determined",
+    "source": "assets/images/characters/jao-kob/versions/v2/adult-determined-right.png",
+    "copy": "harness/assets/kob-determined.png",
+    "sha256": "0e22b5f0d8f16bb49cf000b965ff3aba4e554b1f174c8154c540ae84282a2c14",
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "hasAlpha": true
+  },
+  {
+    "key": "kam",
+    "source": "assets/images/characters/p-kam/versions/v2/neutral-guarded-left.png",
+    "copy": "harness/assets/kam.png",
+    "sha256": "e0907bdd1b50773a0ea012ce6a98760ef9e03fbefea7b4134450e75e528be422",
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "hasAlpha": true
+  },
+  {
+    "key": "kam-shield",
+    "source": "assets/images/characters/p-kam/versions/v2/allied-shield-right.png",
+    "copy": "harness/assets/kam-shield.png",
+    "sha256": "955b8ea3bb43a41344d83e838d319eba2d9dfbe7b37c80759f8ad885363cf8d2",
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "hasAlpha": true
+  },
+  {
+    "key": "fiw",
+    "source": "assets/images/characters/jao-fiw/versions/v2/neutral-lively-left.png",
+    "copy": "harness/assets/fiw.png",
+    "sha256": "e6ef7e3ebe91b735a422bae48842dea2cf644386f80f34fd57b2223b1a31945b",
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "hasAlpha": true
+  },
+  {
+    "key": "kab",
+    "source": "assets/images/characters/jao-kab/versions/v2/neutral-proud-left.png",
+    "copy": "harness/assets/kab.png",
+    "sha256": "edbd2b3a48d6265c607e8dcbddbb963cbf073b94699716efb4157b53b9c22c03",
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "hasAlpha": true
+  },
+  {
+    "key": "kib",
+    "source": "assets/images/characters/jao-kib/versions/v2/neutral-cheerful-left.png",
+    "copy": "harness/assets/kib.png",
+    "sha256": "45d264fadf5ff47c064e150633bcf50f9fd930045540ff2990ad632251880f96",
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "hasAlpha": true
+  },
+  {
+    "key": "teuk",
+    "source": "assets/images/characters/jao-teuk/versions/v2/storm-kneeling-mission-left.png",
+    "copy": "harness/assets/teuk.png",
+    "sha256": "b54a351b9db79252b9772402fb892c41c93a21ad1a1912c6ad9c1b7eb24084ef",
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "hasAlpha": true
+  },
+  {
+    "key": "villain",
+    "source": "assets/images/characters/cockroach-man/versions/v2/shadow-cloak-boast-left.png",
+    "copy": "harness/assets/villain.png",
+    "sha256": "a6b2e15eadacccced85978a706bdb6ce0c6a2ce7b090c28e3b0aacd60f085b99",
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "hasAlpha": true
+  },
+  {
+    "key": "guard",
+    "source": "assets/images/keepsakes/v2/versions/v1/item-kab-bark-guard.png",
+    "copy": "harness/assets/guard.png",
+    "sha256": "4037e9ff32ff5c14c7c1e110381a57cc0cd337d336aa86876b405b30ed346566",
+    "dimensions": [
+      512,
+      512
+    ],
+    "hasAlpha": true
+  },
+  {
+    "key": "button",
+    "source": "assets/images/keepsakes/v2/versions/v2/item-teuk-peuak-button.png",
+    "copy": "harness/assets/button.png",
+    "sha256": "f16a3206cc82e10da1e8296d2b9ddb660c654b7764d192ba92abf1220a699568",
+    "dimensions": [
+      512,
+      512
+    ],
+    "hasAlpha": true
+  },
+  {
+    "key": "ribbon",
+    "source": "assets/images/keepsakes/v2/versions/v1/item-fiw-sun-ribbon.png",
+    "copy": "harness/assets/ribbon.png",
+    "sha256": "7a12e4f82a8768d5b7e08d08736da23518df147e9193f38de9193746fc670e09",
+    "dimensions": [
+      512,
+      512
+    ],
+    "hasAlpha": true
+  },
+  {
+    "key": "seeds",
+    "source": "assets/images/keepsakes/v2/versions/v2/item-kib-glowing-seeds.png",
+    "copy": "harness/assets/seeds.png",
+    "sha256": "b73a411b0cfd067d871c70f96d43cc329a3d6d1e4f1c71db3d4d2c3eb2f07ba7",
+    "dimensions": [
+      512,
+      512
+    ],
+    "hasAlpha": true
+  },
+  {
+    "key": "shelter",
+    "source": "assets/images/backgrounds/act-03/versions/v1/bg-act3-wayside-shelter-teuk.png",
+    "copy": "harness/assets/shelter.png",
+    "sha256": "d015ff961a67644de0953bdcc38b2747c6915fbe51901f1ed1773331318e93ab",
+    "dimensions": [
+      1600,
+      900
+    ],
+    "hasAlpha": false
+  },
+  {
+    "key": "whirlpool",
+    "source": "assets/images/backgrounds/act-02/versions/v1/bg-act2-whirlpool-grate.png",
+    "copy": "harness/assets/whirlpool.png",
+    "sha256": "6d1e062f8a244edebf5693d186ca687a7cfd2b03cf2f42487547e55d72290a6d",
+    "dimensions": [
+      1600,
+      900
+    ],
+    "hasAlpha": false
+  },
+  {
+    "key": "dawn",
+    "source": "assets/images/backgrounds/act-05/versions/v1/bg-act5-bedroom-golden-dawn.png",
+    "copy": "harness/assets/dawn.png",
+    "sha256": "71ad83b8fd602b2d50d6145e09a56497ae8d5b8d1fbeebfda18e42108e1fbac4",
+    "dimensions": [
+      1600,
+      900
+    ],
+    "hasAlpha": false
+  },
+  {
+    "key": "kob-button",
+    "source": ".claude/worktrees/jaokob-narrative-design-b649d8/docs/design-system/ux-mockups/v1/plates/char-jao-kob-adult-button-right.png",
+    "copy": "harness/assets/kob-button.png",
+    "sha256": "1639409d1a46cc4a3a6f61b08525be92f4a313c6c708bc5dd01310ba1487bc0f",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "hasAlpha": true
+  },
+  {
+    "key": "r5",
+    "source": ".claude/worktrees/jaokob-narrative-design-b649d8/docs/design-system/ux-mockups/v1/plates/plate-r5-shadow-stage.png",
+    "copy": "harness/assets/r5.png",
+    "sha256": "83272fc4c4b2796230c3ad597cba7d1aa305156c41c33831ca1485ea28966df0",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "hasAlpha": false
+  },
+  {
+    "key": "stitch",
+    "source": ".claude/worktrees/jaokob-narrative-design-b649d8/docs/design-system/ux-mockups/v1/plates/plate-mode4-stitch-closeup.png",
+    "copy": "harness/assets/stitch.png",
+    "sha256": "3793c3118d89d29c7be4f1bea78e58c3156020669d40e70e255e630cd1037e60",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "hasAlpha": false
+  },
+  {
+    "key": "tap",
+    "source": ".claude/worktrees/jaokob-narrative-design-b649d8/docs/design-system/ux-mockups/v1/plates/plate-mode4-tap-rail.png",
+    "copy": "harness/assets/tap.png",
+    "sha256": "073cd36a6c898da05dc31eb08dcb15ed65ea4c712ab3c29c09a2227239d0fdec",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "hasAlpha": false
+  }
+]
