@@ -25,3 +25,4 @@
 
 - `node --test 'tests/unit/**/*.test.js'`: **1,060 / 1,060 passing (0 failed)**
 - Documentation & ADR status cross-reference check: **PASS (`ADR-P0-032 v2.0` + `ADR-P0-033 v1.0` aligned across `docs/adr/README.md` and `new-five-act-story-and-mechanics-proposal.md`)**
+
