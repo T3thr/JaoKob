@@ -1,3 +1,11 @@
+// SUPERSEDED · หลักฐานประวัติของ ADR-P0-031 ยุคก่อน ADR-P0-032 อ้างเรื่องและกติกาที่ระงับแล้ว ห้ามใช้ออกแบบต่อ
+// เครื่องมือปัจจุบัน: five-act-balance-model.mjs · five-act-runtime-ledger.mjs · tactical-clash-simulator.mjs
+// ผลเดิมรันซ้ำได้โดย checkout commit 0f97a48 · แฟล็ก --historical บังคับรันบนพิมพ์เขียวปัจจุบัน ซึ่งจะไม่ผ่านเพราะเรื่องเปลี่ยนแล้ว
+if (!process.argv.includes('--historical')) {
+  console.log('SUPERSEDED: เครื่องมือนี้เป็นหลักฐานของ ADR-P0-031 ให้ใช้ five-act-balance-model.mjs และ five-act-runtime-ledger.mjs แทน (ผลเดิมรันซ้ำได้โดย checkout commit 0f97a48)');
+  process.exit(0);
+}
+
 // JaoKob Act 1–4 balance model (design evidence for ADR-P0-031; not production code).
 // Usage:  node docs/design-system/evidence/act1-4-balance-model.mjs [--grace-detail]
 // Enumerates every metric-relevant choice in Acts 1–4, applies clamps, rest floors,

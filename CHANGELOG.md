@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- **CR-20261031-0252 (Five-act v2.0, physics, UX/UI 2.0 and planning closeout):** Rebuilt the five-act master plan and all five act blueprints for ADR-P0-032 v2.0 and ADR-P0-033, added the 45 cm physics and light-geometry spec (Act 2 and Act 5 live shadow tables, v3 art direction) and UX/UI spec 2.0 (three-beat clash, segmented 16-action tray, equation-true ending strands, v2 mockup audit and 13-screen v3 brief). Six Node proof tools pass (clash 12/12, balance model, runtime 20/20 at 44.4–45.9 min, physics 52/52, v3 screen states 5/5); 1,060 unit tests pass; documentation only, production WBS remains 0/20. [Delivery record](docs/changelog/2026-10/2026-10-31-0252-five-act-v2-ux-closeout.md)
+
 - **CR-20261030-1529 (Atomic UX mockups v2):** Delivered ten device mockups from shared CSS/SVG masters, real Tachie/items and Sarabun, with an offline v1 → v2 review. Ten viewports, Thai source-table parity, HUD pixel identity and preservation checks pass; PO visual review pending. [Delivery record](docs/changelog/2026-10/2026-10-30-1529-atomic-ux-mockups-v2.md)
 
 - **CR-20261030-0149 (ADR-P0-032 visual prototypes v2):** Regenerated 53 images for canon `291e077`, retained 17 v1 images, and added per-image before/after notes plus Tachie stage previews. All 106 new image files validate; 107 v1 files remain byte-identical and 1,060 unit tests pass. PO art review pending; runtime unchanged. [Delivery record](docs/changelog/2026-10/2026-10-30-0149-adr032-visual-assets-v2.md)
