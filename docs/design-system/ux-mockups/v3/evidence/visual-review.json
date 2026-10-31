@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-31",
+  "method": "Agent visual inspection of all thirteen final viewport images, detailed changed-screen views, final contact sheets, representative framed WebP and both gallery viewport captures. This is not PO acceptance.",
+  "screens": [
+    {
+      "id": 1,
+      "viewportSha256": "134efcc37cf850c00a620c9578465f71a083c9c6a5f0e29e612341066c1dc7e9",
+      "observations": "Rail visible beneath both frog feet; kneeling human and flashlight beam; distant windows dark."
+    },
+    {
+      "id": 2,
+      "viewportSha256": "83cf454eafcdd7743bdda9439b1865208655e4f80147927991eab9bcfee8596f",
+      "observations": "Five exact choices visible; Thai tone marks clear; costs and combo tags separate."
+    },
+    {
+      "id": 3,
+      "viewportSha256": "f9f0c2c16285affa48bac3997582293a220928cd458f8a23edb3d4e330e86708",
+      "observations": "Light 4; shade taller than frog; no cape or early finisher; family tab and territory items visible."
+    },
+    {
+      "id": 4,
+      "viewportSha256": "c29c1043a220f18d30f976e8142aa5f507e00d3c8aee96c50c183651fe20e4d0",
+      "observations": "Light 6; frog shadow taller; sleeping woman and removed lamp shade visible; five repeat tags; finisher available without cape."
+    },
+    {
+      "id": 5,
+      "viewportSha256": "4a16973332675087019b8c57f6061d26d845414169fd051da2f930fdda32533a",
+      "observations": "Eight camp cards; bark splint visible; empty crab claw; two remaining lantern ticks."
+    },
+    {
+      "id": 6,
+      "viewportSha256": "5062d06224a4553b5833525d833a6ebf903279043b566de88319df48f214eda1",
+      "observations": "Eight 72 px cards; sacrifice and selected tags separated; no label/subtitle overlap."
+    },
+    {
+      "id": 7,
+      "viewportSha256": "decb42e7208113d7fb6c7627350d1b1d953cb1f75b4ad9d5c96fca65a55b7da6",
+      "observations": "One white stitch and two gold circles visible around the brass button; embroidered three-prong star retained."
+    },
+    {
+      "id": 8,
+      "viewportSha256": "c4a5b05ffe52bbbfdad2c7e3b152fb19717f721b2cde0dc1daba9b40572412d9",
+      "observations": "Wet rail and frog fingers; one lantern; flashlight; no distant lit windows."
+    },
+    {
+      "id": 9,
+      "viewportSha256": "14432d6ca6ef4487d4919b3d839adb62c565e5b14ecc86f69e22ec2d9e4206b1",
+      "observations": "Sleeping woman and hand visible; frog on central table; four friends at window; distinct ending strands."
+    },
+    {
+      "id": 10,
+      "viewportSha256": "aa210cc54336d16e190fd3ba44a18188723d4b5f78cfe922ddac3a881bc1a1e2",
+      "observations": "Three equal ending rows; home and pond open; dawn reason visible."
+    },
+    {
+      "id": 11,
+      "viewportSha256": "ea34dd42c6f4f1b4508681581aec98dfdba93afa7aacc1fcc2d642a72cd720d2",
+      "observations": "Frog on wet banyan branch; flashlight glyph; five pouch/combo cards visible; tab indicators present."
+    },
+    {
+      "id": 12,
+      "viewportSha256": "c416e6f28c725ddc36bb712a91e99a5e7c1e09298489aa10500f709917441eec",
+      "observations": "Complete frog silhouette and full-body sprite; larger opposing shadow; three family repeat warnings and two counter combos."
+    },
+    {
+      "id": 13,
+      "viewportSha256": "a6729921f75e74d22f06c3194dd7623698b2fa0938f5375bf2d4101eabafb1b8",
+      "observations": "Fourth pond strand and exact fallback line visible; first failing home/dawn conditions present."
+    }
+  ],
+  "poVisualAcceptance": "pending"
+}

@@ -1,0 +1,1045 @@
+{
+  "schema": "jaokob-review-manifest-v3",
+  "record": "CR-20261031-1326",
+  "baseline": "e1705ad",
+  "integrationBase": "f012dfb",
+  "status": "Prototype delivery; PO visual acceptance and runtime integration remain separate.",
+  "renderer": "Native macOS Chrome DevTools emulation at DPR 2; Pillow device-frame composition.",
+  "review": "docs/design-system/evidence/ux-mockups-v3-review.html",
+  "entries": [
+    {
+      "id": 1,
+      "stem": "mode1-vn-desktop",
+      "mode": "vn",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 2
+      },
+      "png": {
+        "path": "docs/design-system/ux-mockups/v3/mode1-vn-desktop.png",
+        "sha256": "557d62d58f3c76fa826c9b2af805c62b7f746e685de442f78d3927dc71aa1b8f",
+        "bytes": 4210791,
+        "dimensions": [
+          3458,
+          2424
+        ]
+      },
+      "webp": {
+        "path": "docs/design-system/ux-mockups/v3/mode1-vn-desktop.webp",
+        "sha256": "2043de07823d5a2007cc898f5257ce49e14082bca2a1e9302e059115a55f6dfd",
+        "bytes": 571222,
+        "dimensions": [
+          3458,
+          2424
+        ]
+      },
+      "viewportPng": {
+        "path": "docs/design-system/ux-mockups/v3/viewports/mode1-vn-desktop.png",
+        "sha256": "134efcc37cf850c00a620c9578465f71a083c9c6a5f0e29e612341066c1dc7e9",
+        "bytes": 3108060,
+        "dimensions": [
+          2880,
+          1800
+        ]
+      },
+      "physics": null
+    },
+    {
+      "id": 2,
+      "stem": "mode1-choice-mobile",
+      "mode": "choice",
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "dpr": 2
+      },
+      "png": {
+        "path": "docs/design-system/ux-mockups/v3/mode1-choice-mobile.png",
+        "sha256": "4a7cc2af04fed3631ae0c00dbcdb3b1ca92e2c2b71288893f4fe9061aca8a843",
+        "bytes": 1907607,
+        "dimensions": [
+          1070,
+          2168
+        ]
+      },
+      "webp": {
+        "path": "docs/design-system/ux-mockups/v3/mode1-choice-mobile.webp",
+        "sha256": "7bb987faff4deef6ae9f93c11915110ca3f4896f0b82245d070b3d7e43c7ff54",
+        "bytes": 339266,
+        "dimensions": [
+          1070,
+          2168
+        ]
+      },
+      "viewportPng": {
+        "path": "docs/design-system/ux-mockups/v3/viewports/mode1-choice-mobile.png",
+        "sha256": "83cf454eafcdd7743bdda9439b1865208655e4f80147927991eab9bcfee8596f",
+        "bytes": 1196358,
+        "dimensions": [
+          780,
+          1688
+        ]
+      },
+      "physics": null
+    },
+    {
+      "id": 3,
+      "stem": "mode2-clash-r5-mobile",
+      "mode": "clash",
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "dpr": 2
+      },
+      "png": {
+        "path": "docs/design-system/ux-mockups/v3/mode2-clash-r5-mobile.png",
+        "sha256": "14f8f97d4db5ccf9d0090f13094fd1205936d009a5b9a25c7a2015de3abcf185",
+        "bytes": 1637018,
+        "dimensions": [
+          1070,
+          2168
+        ]
+      },
+      "webp": {
+        "path": "docs/design-system/ux-mockups/v3/mode2-clash-r5-mobile.webp",
+        "sha256": "8572d931fe4a6560358946f8480f224ad880af77037d59406e1dee98b933f0bc",
+        "bytes": 259966,
+        "dimensions": [
+          1070,
+          2168
+        ]
+      },
+      "viewportPng": {
+        "path": "docs/design-system/ux-mockups/v3/viewports/mode2-clash-r5-mobile.png",
+        "sha256": "f9f0c2c16285affa48bac3997582293a220928cd458f8a23edb3d4e330e86708",
+        "bytes": 927304,
+        "dimensions": [
+          780,
+          1688
+        ]
+      },
+      "physics": {
+        "wallM": 2.8,
+        "lightToWallM": 2.4,
+        "frogDistanceM": 0.6699999999999999,
+        "shadeDistanceM": 0.36,
+        "frogHeightM": 1.611940298507463,
+        "shadeHeightM": 2,
+        "sourceWidthM": 0.006,
+        "crisp": true,
+        "cape": false
+      }
+    },
+    {
+      "id": 4,
+      "stem": "mode2-clash-r5-desktop",
+      "mode": "clash",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 2
+      },
+      "png": {
+        "path": "docs/design-system/ux-mockups/v3/mode2-clash-r5-desktop.png",
+        "sha256": "9cd58ae66682bb0a54b6314550fb34872c1ec4f87f20b6c3533bd53495cffd0e",
+        "bytes": 5074580,
+        "dimensions": [
+          3458,
+          2424
+        ]
+      },
+      "webp": {
+        "path": "docs/design-system/ux-mockups/v3/mode2-clash-r5-desktop.webp",
+        "sha256": "ee18f8c9b12954f849b0eeb0dd1830790b826e3a860cd5869e8ee846c6f49f99",
+        "bytes": 752614,
+        "dimensions": [
+          3458,
+          2424
+        ]
+      },
+      "viewportPng": {
+        "path": "docs/design-system/ux-mockups/v3/viewports/mode2-clash-r5-desktop.png",
+        "sha256": "c29c1043a220f18d30f976e8142aa5f507e00d3c8aee96c50c183651fe20e4d0",
+        "bytes": 4016011,
+        "dimensions": [
+          2880,
+          1800
+        ]
+      },
+      "physics": {
+        "wallM": 2.8,
+        "lightToWallM": 2.4,
+        "frogDistanceM": 0.5299999999999999,
+        "shadeDistanceM": 0.44,
+        "frogHeightM": 2.037735849056604,
+        "shadeHeightM": 1.6363636363636362,
+        "sourceWidthM": 0.006,
+        "crisp": true,
+        "cape": false
+      }
+    },
+    {
+      "id": 5,
+      "stem": "mode3-camp-c3-desktop",
+      "mode": "camp",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 2
+      },
+      "png": {
+        "path": "docs/design-system/ux-mockups/v3/mode3-camp-c3-desktop.png",
+        "sha256": "8aecf06fe9984d27244ab76cbec835f0d0e688f3e400ecb9a5e342437af08093",
+        "bytes": 5225415,
+        "dimensions": [
+          3458,
+          2424
+        ]
+      },
+      "webp": {
+        "path": "docs/design-system/ux-mockups/v3/mode3-camp-c3-desktop.webp",
+        "sha256": "5c57fd4644b31a5d948aa421f16657a4b16a9fa75bfaaa968e7e6ea75a2d08d7",
+        "bytes": 836602,
+        "dimensions": [
+          3458,
+          2424
+        ]
+      },
+      "viewportPng": {
+        "path": "docs/design-system/ux-mockups/v3/viewports/mode3-camp-c3-desktop.png",
+        "sha256": "4a16973332675087019b8c57f6061d26d845414169fd051da2f930fdda32533a",
+        "bytes": 4159810,
+        "dimensions": [
+          2880,
+          1800
+        ]
+      },
+      "physics": null
+    },
+    {
+      "id": 6,
+      "stem": "mode3-camp-c3-mobile",
+      "mode": "camp",
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "dpr": 2
+      },
+      "png": {
+        "path": "docs/design-system/ux-mockups/v3/mode3-camp-c3-mobile.png",
+        "sha256": "c3f9b580eac288cb9222d1fa5bdc960d170a2e8ca255dd6524ca226a0e4d3b6e",
+        "bytes": 1790132,
+        "dimensions": [
+          1070,
+          2168
+        ]
+      },
+      "webp": {
+        "path": "docs/design-system/ux-mockups/v3/mode3-camp-c3-mobile.webp",
+        "sha256": "e2fa2fd79b614e90f18eefc9a6e9e228a8bb4ff051a29d6a48725bda98390f7d",
+        "bytes": 311406,
+        "dimensions": [
+          1070,
+          2168
+        ]
+      },
+      "viewportPng": {
+        "path": "docs/design-system/ux-mockups/v3/viewports/mode3-camp-c3-mobile.png",
+        "sha256": "5062d06224a4553b5833525d833a6ebf903279043b566de88319df48f214eda1",
+        "bytes": 1075609,
+        "dimensions": [
+          780,
+          1688
+        ]
+      },
+      "physics": null
+    },
+    {
+      "id": 7,
+      "stem": "mode4-stitch-mobile",
+      "mode": "stitch",
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "dpr": 2
+      },
+      "png": {
+        "path": "docs/design-system/ux-mockups/v3/mode4-stitch-mobile.png",
+        "sha256": "a0ae210549cb19598efa15bf1462d802877377505b1a8d7eafc527efaccc4a63",
+        "bytes": 2007906,
+        "dimensions": [
+          1070,
+          2168
+        ]
+      },
+      "webp": {
+        "path": "docs/design-system/ux-mockups/v3/mode4-stitch-mobile.webp",
+        "sha256": "e1d697714f75fb03ddc3097df7b43737e79a751f95121eaf10cbd50e013f4e50",
+        "bytes": 235176,
+        "dimensions": [
+          1070,
+          2168
+        ]
+      },
+      "viewportPng": {
+        "path": "docs/design-system/ux-mockups/v3/viewports/mode4-stitch-mobile.png",
+        "sha256": "decb42e7208113d7fb6c7627350d1b1d953cb1f75b4ad9d5c96fca65a55b7da6",
+        "bytes": 1261954,
+        "dimensions": [
+          780,
+          1688
+        ]
+      },
+      "physics": null
+    },
+    {
+      "id": 8,
+      "stem": "mode4-tap-rail-desktop",
+      "mode": "tap",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 2
+      },
+      "png": {
+        "path": "docs/design-system/ux-mockups/v3/mode4-tap-rail-desktop.png",
+        "sha256": "3f613454ce0b99c5b940db3852f39a0e79b25ae27a54d726d93bbfec3f67b566",
+        "bytes": 5471047,
+        "dimensions": [
+          3458,
+          2424
+        ]
+      },
+      "webp": {
+        "path": "docs/design-system/ux-mockups/v3/mode4-tap-rail-desktop.webp",
+        "sha256": "9f9f8ddd5906853da645e8c91ef9904680e98333d50d5250b64042a2c2f4aa3b",
+        "bytes": 566698,
+        "dimensions": [
+          3458,
+          2424
+        ]
+      },
+      "viewportPng": {
+        "path": "docs/design-system/ux-mockups/v3/viewports/mode4-tap-rail-desktop.png",
+        "sha256": "c4a5b05ffe52bbbfdad2c7e3b152fb19717f721b2cde0dc1daba9b40572412d9",
+        "bytes": 4413172,
+        "dimensions": [
+          2880,
+          1800
+        ]
+      },
+      "physics": null
+    },
+    {
+      "id": 9,
+      "stem": "mode5-endings-desktop",
+      "mode": "endings",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 2
+      },
+      "png": {
+        "path": "docs/design-system/ux-mockups/v3/mode5-endings-desktop.png",
+        "sha256": "818e5b9e3cc7aa1d347884c91d01c6baed359f3e2c5cd4464e88947f8e1d45c9",
+        "bytes": 5889845,
+        "dimensions": [
+          3458,
+          2424
+        ]
+      },
+      "webp": {
+        "path": "docs/design-system/ux-mockups/v3/mode5-endings-desktop.webp",
+        "sha256": "3bc2acd2b517b32dc1f078f2adf57c395370fb299db7d424303ab186008aea94",
+        "bytes": 901986,
+        "dimensions": [
+          3458,
+          2424
+        ]
+      },
+      "viewportPng": {
+        "path": "docs/design-system/ux-mockups/v3/viewports/mode5-endings-desktop.png",
+        "sha256": "14432d6ca6ef4487d4919b3d839adb62c565e5b14ecc86f69e22ec2d9e4206b1",
+        "bytes": 4854400,
+        "dimensions": [
+          2880,
+          1800
+        ]
+      },
+      "physics": null
+    },
+    {
+      "id": 10,
+      "stem": "mode5-endings-mobile",
+      "mode": "endings",
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "dpr": 2
+      },
+      "png": {
+        "path": "docs/design-system/ux-mockups/v3/mode5-endings-mobile.png",
+        "sha256": "5c3505e96efed4260d58253403acbad2d5c51587d6746f2cf3dcedeaefc04738",
+        "bytes": 1802256,
+        "dimensions": [
+          1070,
+          2168
+        ]
+      },
+      "webp": {
+        "path": "docs/design-system/ux-mockups/v3/mode5-endings-mobile.webp",
+        "sha256": "e20ea7d6972235cb4daf01d951b22f0d0ed992e3d2ac47ff77030b8b2dbbf5e8",
+        "bytes": 299474,
+        "dimensions": [
+          1070,
+          2168
+        ]
+      },
+      "viewportPng": {
+        "path": "docs/design-system/ux-mockups/v3/viewports/mode5-endings-mobile.png",
+        "sha256": "aa210cc54336d16e190fd3ba44a18188723d4b5f78cfe922ddac3a881bc1a1e2",
+        "bytes": 1101444,
+        "dimensions": [
+          780,
+          1688
+        ]
+      },
+      "physics": null
+    },
+    {
+      "id": 11,
+      "stem": "mode2-clash-r4a-tray-mobile",
+      "mode": "clash",
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "dpr": 2
+      },
+      "png": {
+        "path": "docs/design-system/ux-mockups/v3/mode2-clash-r4a-tray-mobile.png",
+        "sha256": "1071c5d2f944918dda5ee5c26efbc3ca9fb5d5368c135c5339609c4888344121",
+        "bytes": 1756337,
+        "dimensions": [
+          1070,
+          2168
+        ]
+      },
+      "webp": {
+        "path": "docs/design-system/ux-mockups/v3/mode2-clash-r4a-tray-mobile.webp",
+        "sha256": "f40481ad67f70ed72751229c9ce3cbcd73b88993262c3c47968d47fd4ef811a7",
+        "bytes": 298684,
+        "dimensions": [
+          1070,
+          2168
+        ]
+      },
+      "viewportPng": {
+        "path": "docs/design-system/ux-mockups/v3/viewports/mode2-clash-r4a-tray-mobile.png",
+        "sha256": "ea34dd42c6f4f1b4508681581aec98dfdba93afa7aacc1fcc2d642a72cd720d2",
+        "bytes": 1025468,
+        "dimensions": [
+          780,
+          1688
+        ]
+      },
+      "physics": null
+    },
+    {
+      "id": 12,
+      "stem": "mode2-clash-r2-desktop",
+      "mode": "clash",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 2
+      },
+      "png": {
+        "path": "docs/design-system/ux-mockups/v3/mode2-clash-r2-desktop.png",
+        "sha256": "e13497699dbf9084340868985e373822513ff5315701fbff9609f88cd799fee8",
+        "bytes": 5746084,
+        "dimensions": [
+          3458,
+          2424
+        ]
+      },
+      "webp": {
+        "path": "docs/design-system/ux-mockups/v3/mode2-clash-r2-desktop.webp",
+        "sha256": "1d685939ca19d0be185bb21d0f19f8bf0d5f97798a7b0e02ef3cb6e1a3e92af8",
+        "bytes": 898890,
+        "dimensions": [
+          3458,
+          2424
+        ]
+      },
+      "viewportPng": {
+        "path": "docs/design-system/ux-mockups/v3/viewports/mode2-clash-r2-desktop.png",
+        "sha256": "c416e6f28c725ddc36bb712a91e99a5e7c1e09298489aa10500f709917441eec",
+        "bytes": 4673575,
+        "dimensions": [
+          2880,
+          1800
+        ]
+      },
+      "physics": {
+        "wallM": 2.4,
+        "lightToWallM": 2.7,
+        "frogDistanceM": 0.9999999999999999,
+        "shadeDistanceM": 0.45999999999999996,
+        "frogHeightM": 1.2150000000000003,
+        "shadeHeightM": 1.4673913043478264,
+        "crisp": true,
+        "cape": false
+      }
+    },
+    {
+      "id": 13,
+      "stem": "mode5-endings-fallback-mobile",
+      "mode": "endings",
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "dpr": 2
+      },
+      "png": {
+        "path": "docs/design-system/ux-mockups/v3/mode5-endings-fallback-mobile.png",
+        "sha256": "fdef8daac0a246ebe83db00258f36fc7badf4ea76d7fa509ea331c22468377ea",
+        "bytes": 1813704,
+        "dimensions": [
+          1070,
+          2168
+        ]
+      },
+      "webp": {
+        "path": "docs/design-system/ux-mockups/v3/mode5-endings-fallback-mobile.webp",
+        "sha256": "27dca9200f26450fc0c2ed28ccaeb462634459c0f70bac2041f2ff943c11ed30",
+        "bytes": 304434,
+        "dimensions": [
+          1070,
+          2168
+        ]
+      },
+      "viewportPng": {
+        "path": "docs/design-system/ux-mockups/v3/viewports/mode5-endings-fallback-mobile.png",
+        "sha256": "a6729921f75e74d22f06c3194dd7623698b2fa0938f5375bf2d4101eabafb1b8",
+        "bytes": 1113763,
+        "dimensions": [
+          780,
+          1688
+        ]
+      },
+      "physics": null
+    }
+  ],
+  "sourcesUsedInPlace": [
+    {
+      "path": "assets/fonts/OFL-Sarabun.txt",
+      "sha256": "751218ccf5c0bfcd7cbaee3cdcd60a4e8703676bf6c3f56ebf26dc1343b1fe9f",
+      "bytes": 4386
+    },
+    {
+      "path": "assets/fonts/sarabun-latin.woff2",
+      "sha256": "5223475551bd30c4be72545051a47896f2d05e84169c5ee8e7ff7d46d2aa4308",
+      "bytes": 11440
+    },
+    {
+      "path": "assets/fonts/sarabun-thai.woff2",
+      "sha256": "445226dce39d9c8d957ac4e8b0a12fb64c1715e74522fecea0bd6007dc4a6b25",
+      "bytes": 9880
+    },
+    {
+      "path": "assets/images/backgrounds/act-02/versions/v1/bg-act2-whirlpool-grate.png",
+      "sha256": "6d1e062f8a244edebf5693d186ca687a7cfd2b03cf2f42487547e55d72290a6d",
+      "bytes": 2308479,
+      "dimensions": [
+        1600,
+        900
+      ]
+    },
+    {
+      "path": "assets/images/characters/cockroach-man/versions/v2/shadow-cloak-boast-left.png",
+      "sha256": "a6b2e15eadacccced85978a706bdb6ce0c6a2ce7b090c28e3b0aacd60f085b99",
+      "bytes": 1715302,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/images/characters/cockroach-man/versions/v2/stolen-button-boast-left.png",
+      "sha256": "8b23b6f39b8296ba42327809cee907fd2a634104f89e8cda982c1990176ac303",
+      "bytes": 1710397,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/images/characters/jao-fiw/versions/v2/neutral-lively-left.png",
+      "sha256": "e6ef7e3ebe91b735a422bae48842dea2cf644386f80f34fd57b2223b1a31945b",
+      "bytes": 1355799,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/images/characters/jao-kab/versions/v2/neutral-proud-left.png",
+      "sha256": "edbd2b3a48d6265c607e8dcbddbb963cbf073b94699716efb4157b53b9c22c03",
+      "bytes": 1190479,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/images/characters/jao-kib/versions/v2/neutral-cheerful-left.png",
+      "sha256": "45d264fadf5ff47c064e150633bcf50f9fd930045540ff2990ad632251880f96",
+      "bytes": 884845,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/images/characters/jao-kob/versions/v2/adult-neutral-left.png",
+      "sha256": "1cbffdfd859c5b7fd295a2ffea3984c2ca524b3cd85f219df398ea0d2bca4a3d",
+      "bytes": 971394,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.png",
+      "sha256": "a57bd6c49b7ed4b5f7f7e631139b211ebc3e659d1d198fff2e9068d126922c41",
+      "bytes": 1001296,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/images/characters/jao-teuk/versions/v2/storm-kneeling-mission-left.png",
+      "sha256": "b54a351b9db79252b9772402fb892c41c93a21ad1a1912c6ad9c1b7eb24084ef",
+      "bytes": 1542267,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/images/characters/p-kam/versions/v2/neutral-guarded-left.png",
+      "sha256": "e0907bdd1b50773a0ea012ce6a98760ef9e03fbefea7b4134450e75e528be422",
+      "bytes": 1654192,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/images/keepsakes/v2/versions/v1/item-fiw-sun-ribbon.png",
+      "sha256": "7a12e4f82a8768d5b7e08d08736da23518df147e9193f38de9193746fc670e09",
+      "bytes": 206800,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "assets/images/keepsakes/v2/versions/v1/item-kab-bark-guard.png",
+      "sha256": "4037e9ff32ff5c14c7c1e110381a57cc0cd337d336aa86876b405b30ed346566",
+      "bytes": 285560,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "assets/images/keepsakes/v2/versions/v1/item-pkam-tin-gear.png",
+      "sha256": "d7dfec7e55312ce27da78ea7bd434c3510af0016c6120e85d81d33db3adb8fe3",
+      "bytes": 323483,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "assets/images/keepsakes/v2/versions/v2/item-kib-glowing-seeds.png",
+      "sha256": "b73a411b0cfd067d871c70f96d43cc329a3d6d1e4f1c71db3d4d2c3eb2f07ba7",
+      "bytes": 198844,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "assets/images/keepsakes/v2/versions/v2/item-teuk-peuak-button.png",
+      "sha256": "f16a3206cc82e10da1e8296d2b9ddb660c654b7764d192ba92abf1220a699568",
+      "bytes": 394525,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "docs/design-system/evidence/five-act-balance-model.mjs",
+      "sha256": "a8a9f41864fb83756802af4c935648ea6d6f6df7410d10302656c6825348a23e",
+      "bytes": 42048
+    },
+    {
+      "path": "docs/design-system/evidence/tactical-clash-engine.mjs",
+      "sha256": "2b3eed551f9d58d4e2c858dd191071b55e1bbf196ebc1156ee083f45b5d257c8",
+      "bytes": 21104
+    },
+    {
+      "path": "docs/design-system/ux-mockups/v2/frames/frame-iphone-safari.png",
+      "sha256": "10b384357ed79b8325d862929649738dbe8c8b4bcbd69b11cc228ca0bbc97f33",
+      "bytes": 889808,
+      "dimensions": [
+        1070,
+        2168
+      ]
+    },
+    {
+      "path": "docs/design-system/ux-mockups/v2/frames/frame-macbook-chrome.png",
+      "sha256": "1bbc7e6428b84a051507c3a238a06877af89d93e0a5ac8c71d7853c2feb296a8",
+      "bytes": 1527919,
+      "dimensions": [
+        3458,
+        2424
+      ]
+    },
+    {
+      "path": "docs/design-system/ux-mockups/v2/frames/frame-manifest.json",
+      "sha256": "b70ece568b9d84d81274dba6de8054831966dc75ba17c36156fa804ef0f61408",
+      "bytes": 1343
+    },
+    {
+      "path": "docs/design-system/ux-mockups/v2/harness/assets/stitch.png",
+      "sha256": "3793c3118d89d29c7be4f1bea78e58c3156020669d40e70e255e630cd1037e60",
+      "bytes": 2591919,
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "docs/design-system/ux-mockups/v2/harness/lotus-watermark.svg",
+      "sha256": "6d391fcc44af8a78e9f3a76c810009e5601923051baeabb5ae0c7c893d11da63",
+      "bytes": 416
+    },
+    {
+      "path": "docs/design-system/ux-mockups/v2/harness/render_mockups.py",
+      "sha256": "6bea3e84b21ba16c3d2d82e53a7222648be5f45eb28757561b5701fdf411676c",
+      "bytes": 14161
+    },
+    {
+      "path": "docs/design-system/ux-mockups/v2/harness/ux-components.css",
+      "sha256": "ba9ed67d9d87dd4ae880587708f9e89a65cbb2c0fc913e1b574f1e812b7c2837",
+      "bytes": 19416
+    }
+  ],
+  "newArtwork": [
+    {
+      "path": "docs/design-system/ux-mockups/v3/plates/r5-bedroom.png",
+      "sha256": "17c8b41f29d452f7868b4ef2af3e71d1c3821f86587f9fe86e19c0592dab18f5",
+      "bytes": 2185293,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "provider": "Built-in image_gen",
+      "modelVersion": "Not exposed by tool",
+      "finalInvocationId": "67f2afe6-6b42-44fc-b5d3-f71e20a807d8",
+      "promptFile": "evidence/image-prompts.json",
+      "promptKeys": [
+        "prompts.r5",
+        "prompts.r5Correction"
+      ],
+      "referenceAssets": [
+        {
+          "path": "assets/images/backgrounds/act-05/versions/v2/bg-act5-bedside-table-night.png",
+          "sha256": "5df32d147f750172e2e7dea8df5b10a63588454e638ccdc5466d2fefa1f1b1b3",
+          "bytes": 1837975,
+          "dimensions": [
+            1600,
+            900
+          ]
+        },
+        {
+          "path": "assets/images/cg/act-05/versions/v2/cg-act5-ending-edawn-two-worlds.png",
+          "sha256": "72c879468cdd6e09d4d65b7e943f306c82bc8dcf311d14c084b0e805eacadc62",
+          "bytes": 2500301,
+          "dimensions": [
+            1600,
+            900
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/design-system/ux-mockups/v3/plates/dawn-bedroom.png",
+      "sha256": "c0b6a5efe7d275db3ecb375c291c08ae9f4ad005b321e3c300ca891bca6fdf1f",
+      "bytes": 2544318,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "provider": "Built-in image_gen",
+      "modelVersion": "Not exposed by tool",
+      "finalInvocationId": "add90dc4-60fc-484c-8821-abbb6e86a7bf",
+      "promptFile": "evidence/image-prompts.json",
+      "promptKeys": [
+        "prompts.dawn"
+      ],
+      "referenceAssets": [
+        {
+          "path": "docs/design-system/ux-mockups/v3/plates/r5-bedroom.png",
+          "sha256": "17c8b41f29d452f7868b4ef2af3e71d1c3821f86587f9fe86e19c0592dab18f5",
+          "bytes": 2185293,
+          "dimensions": [
+            1536,
+            1024
+          ]
+        },
+        {
+          "path": "assets/images/cg/act-05/versions/v2/cg-act5-ending-edawn-two-worlds.png",
+          "sha256": "72c879468cdd6e09d4d65b7e943f306c82bc8dcf311d14c084b0e805eacadc62",
+          "bytes": 2500301,
+          "dimensions": [
+            1600,
+            900
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/design-system/ux-mockups/v3/plates/tap-blackout.png",
+      "sha256": "9ea1adc58d4b64a7ec387e3d0f2c41fe12291c56b861d938baba4bc56e3e157b",
+      "bytes": 2150612,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "provider": "Built-in image_gen",
+      "modelVersion": "Not exposed by tool",
+      "finalInvocationId": "f580d9d6-0104-4cb3-be16-ef38e03ed734",
+      "promptFile": "evidence/image-prompts.json",
+      "promptKeys": [
+        "prompts.tap"
+      ],
+      "referenceAssets": [
+        {
+          "path": "docs/design-system/ux-mockups/v2/harness/assets/tap.png",
+          "sha256": "073cd36a6c898da05dc31eb08dcb15ed65ea4c712ab3c29c09a2227239d0fdec",
+          "bytes": 2201125,
+          "dimensions": [
+            1672,
+            941
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/design-system/ux-mockups/v3/plates/camp-splint.png",
+      "sha256": "c34aba202e3abf41978a29ad420980f61de2eee75612dc3f82f160ef9ef30039",
+      "bytes": 2577769,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "provider": "Built-in image_gen",
+      "modelVersion": "Not exposed by tool",
+      "finalInvocationId": "33abc7fe-91eb-4b89-845a-fb6e6e9e8084",
+      "promptFile": "evidence/image-prompts.json",
+      "promptKeys": [
+        "prompts.camp"
+      ],
+      "referenceAssets": [
+        {
+          "path": "assets/images/characters/jao-teuk/versions/v2/storm-kneeling-mission-left.png",
+          "sha256": "b54a351b9db79252b9772402fb892c41c93a21ad1a1912c6ad9c1b7eb24084ef",
+          "bytes": 1542267,
+          "dimensions": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "path": "docs/design-system/ux-mockups/v3/plates/tap-blackout.png",
+          "sha256": "9ea1adc58d4b64a7ec387e3d0f2c41fe12291c56b861d938baba4bc56e3e157b",
+          "bytes": 2150612,
+          "dimensions": [
+            1536,
+            1024
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/design-system/ux-mockups/v3/plates/vn-rail.png",
+      "sha256": "dd8de8265e516700c6b7ebdbf5351a3417776b9a9ddeea16b1fe797768153aba",
+      "bytes": 2174096,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "provider": "Built-in image_gen",
+      "modelVersion": "Not exposed by tool",
+      "finalInvocationId": "b395ebe5-8913-43b4-9f7f-1db59babf953",
+      "promptFile": "evidence/image-prompts.json",
+      "promptKeys": [
+        "prompts.vn",
+        "vnStagingCorrection",
+        "vnBlackoutCorrection"
+      ],
+      "referenceAssets": [
+        {
+          "path": "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.png",
+          "sha256": "a57bd6c49b7ed4b5f7f7e631139b211ebc3e659d1d198fff2e9068d126922c41",
+          "bytes": 1001296,
+          "dimensions": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "path": "assets/images/characters/jao-teuk/versions/v2/storm-kneeling-mission-left.png",
+          "sha256": "b54a351b9db79252b9772402fb892c41c93a21ad1a1912c6ad9c1b7eb24084ef",
+          "bytes": 1542267,
+          "dimensions": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "path": "docs/design-system/ux-mockups/v3/plates/tap-blackout.png",
+          "sha256": "9ea1adc58d4b64a7ec387e3d0f2c41fe12291c56b861d938baba4bc56e3e157b",
+          "bytes": 2150612,
+          "dimensions": [
+            1536,
+            1024
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/design-system/ux-mockups/v3/plates/kam-empty-claw.png",
+      "sha256": "215662276716cf06577f9aa57bba976f5107ec6749d934224def5d00502bd079",
+      "bytes": 2067676,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "provider": "Built-in image_gen",
+      "modelVersion": "Not exposed by tool",
+      "finalInvocationId": "7de843e2-551f-45e9-843a-8d9e29f97ef1",
+      "promptFile": "evidence/image-prompts.json",
+      "promptKeys": [
+        "prompts.kam"
+      ],
+      "referenceAssets": [
+        {
+          "path": "assets/images/characters/p-kam/versions/v2/neutral-guarded-left.png",
+          "sha256": "e0907bdd1b50773a0ea012ce6a98760ef9e03fbefea7b4134450e75e528be422",
+          "bytes": 1654192,
+          "dimensions": [
+            1024,
+            1024
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/design-system/ux-mockups/v3/plates/r2-sluice.png",
+      "sha256": "a4e9a8b87b2f64550a24e611d70e0bb4b4d365942497a3da9b0cda216117a796",
+      "bytes": 2556677,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "provider": "Built-in image_gen",
+      "modelVersion": "Not exposed by tool",
+      "finalInvocationId": "0b089c53-2c93-4023-9fe4-77faa13bf84d",
+      "promptFile": "evidence/image-prompts.json",
+      "promptKeys": [
+        "prompts.r2"
+      ],
+      "referenceAssets": [
+        {
+          "path": "assets/images/backgrounds/act-02/versions/v1/bg-act2-shadow-sluice-chamber.png",
+          "sha256": "e87483a53cd642d7572f44c1c1c1ed4b94f6d053266e6e12ba02f6a7fd41fbf5",
+          "bytes": 2275306,
+          "dimensions": [
+            1600,
+            900
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/design-system/ux-mockups/v3/plates/r4-banyan.png",
+      "sha256": "69cc58ad791064a3e2e4bdc700e1d4a69175ea85e79d03a80c52824c83058d98",
+      "bytes": 2366318,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "provider": "Built-in image_gen",
+      "modelVersion": "Not exposed by tool",
+      "finalInvocationId": "fe3246bf-6075-4c2e-b5db-89c108ef94a8",
+      "promptFile": "evidence/image-prompts.json",
+      "promptKeys": [
+        "prompts.r4"
+      ],
+      "referenceAssets": [
+        {
+          "path": "assets/images/backgrounds/act-04/versions/v1/bg-act4-parapet-storm-abyss.png",
+          "sha256": "78285fae2ad58a83c0ea701d881d45512c70811f0c647995b888a19f89fd2791",
+          "bytes": 2231787,
+          "dimensions": [
+            1600,
+            900
+          ]
+        }
+      ]
+    },
+    {
+      "path": "docs/design-system/ux-mockups/v3/plates/kob-standing.png",
+      "sha256": "2a753e8d88970abed2e61c4f79237e4cc505724d43f8ce2f7ce89c120fbb96b0",
+      "bytes": 1856048,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "provider": "Built-in image_gen",
+      "modelVersion": "Not exposed by tool",
+      "finalInvocationId": "1a3c67c3-3728-4bd7-a11e-5c14baf125c8",
+      "promptFile": "evidence/image-prompts.json",
+      "promptKeys": [
+        "standingSpritePrompt"
+      ],
+      "referenceAssets": [
+        {
+          "path": "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.png",
+          "sha256": "a57bd6c49b7ed4b5f7f7e631139b211ebc3e659d1d198fff2e9068d126922c41",
+          "bytes": 1001296,
+          "dimensions": [
+            1024,
+            1024
+          ]
+        }
+      ]
+    }
+  ],
+  "rights": "New artwork derives from existing project references. No externally downloaded artwork or new runtime dependency. Existing Sarabun OFL is retained in place.",
+  "decisions": [
+    {
+      "id": "R5-P6-DISTANCE",
+      "authority": "PO reply in current task, 2026-10-31",
+      "decision": "Use the physics table formula and distances. At light 6, frog 0.53 m, shade 0.44 m; larger frog body explains the taller shadow.",
+      "specConflictRetained": "UX screen 4 prose says the frog is closer; source specifications were not edited."
+    }
+  ]
+}

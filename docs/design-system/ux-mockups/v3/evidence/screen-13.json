@@ -1,0 +1,194 @@
+{
+  "screen": 13,
+  "stem": "mode5-endings-fallback-mobile",
+  "viewport": {
+    "width": 390,
+    "height": 844,
+    "dpr": 2
+  },
+  "fontReady": true,
+  "fontFaces": [
+    {
+      "family": "Sarabun",
+      "status": "loaded"
+    },
+    {
+      "family": "Sarabun",
+      "status": "loaded"
+    }
+  ],
+  "textOverlaps": [],
+  "brokenImages": [],
+  "horizontalOverflow": false,
+  "targets": [
+    {
+      "label": "อยู่ตรงนี้ เป็นผู้พิทักษ์ข้างหมอนเธอ",
+      "minimum": 44,
+      "x": 16,
+      "y": 454,
+      "width": 358,
+      "height": 120,
+      "right": 374,
+      "bottom": 574
+    },
+    {
+      "label": "กลับบ้านที่บึงน้ำใส",
+      "minimum": 44,
+      "x": 16,
+      "y": 582,
+      "width": 358,
+      "height": 120,
+      "right": 374,
+      "bottom": 702
+    },
+    {
+      "label": "เป็นผู้พิทักษ์ของทั้งสองรุ่งอรุณ",
+      "minimum": 44,
+      "x": 16,
+      "y": 710,
+      "width": 358,
+      "height": 120,
+      "right": 374,
+      "bottom": 830
+    },
+    {
+      "label": "กระเป๋าสานกกสี่ช่อง",
+      "minimum": 44,
+      "x": 266.4296875,
+      "y": 26,
+      "width": 44,
+      "height": 44,
+      "right": 310.4296875,
+      "bottom": 70
+    },
+    {
+      "label": "ตั้งค่า",
+      "minimum": 44,
+      "x": 319,
+      "y": 26,
+      "width": 44,
+      "height": 44,
+      "right": 363,
+      "bottom": 70
+    }
+  ],
+  "undersizedTargets": [],
+  "textClipping": [],
+  "contentOverflow": [],
+  "faceBand": {
+    "top": 270.08,
+    "bottom": 405.12
+  },
+  "uiBandIntrusions": [],
+  "hud": {
+    "x": 16,
+    "y": 16,
+    "width": 358,
+    "height": 64,
+    "right": 374,
+    "bottom": 80
+  },
+  "allActions": [],
+  "visibleActions": [],
+  "counterActions": [],
+  "repeatActions": [],
+  "state": {
+    "home": false,
+    "pond": true,
+    "dawn": false,
+    "fallback": true
+  },
+  "shadowElements": [],
+  "strings": [
+    "ทางเลือกในแสงแรก",
+    "อยู่ตรงนี้ เป็นผู้พิทักษ์ข้างหมอนเธอ",
+    "ใจของเขายังสั่นเกินกว่าจะมอบให้ใคร",
+    "กลับบ้านที่บึงน้ำใส",
+    "พี่กับจะแบกกลับเอง",
+    "เป็นผู้พิทักษ์ของทั้งสองรุ่งอรุณ",
+    "เสียงของบ้านในตัวเขายังเบาเกินไป"
+  ],
+  "images": [
+    {
+      "key": "dawn",
+      "path": "../plates/dawn-bedroom.png"
+    },
+    {
+      "key": "standing",
+      "path": "../plates/kob-standing.png"
+    },
+    {
+      "key": "button",
+      "path": "../../../../../assets/images/keepsakes/v2/versions/v2/item-teuk-peuak-button.png"
+    },
+    {
+      "key": "kab",
+      "path": "../../../../../assets/images/characters/jao-kab/versions/v2/neutral-proud-left.png"
+    },
+    {
+      "key": "kib",
+      "path": "../../../../../assets/images/characters/jao-kib/versions/v2/neutral-cheerful-left.png"
+    },
+    {
+      "key": "kam-empty",
+      "path": "../plates/kam-empty-claw.png"
+    },
+    {
+      "key": "fiw",
+      "path": "../../../../../assets/images/characters/jao-fiw/versions/v2/neutral-lively-left.png"
+    }
+  ],
+  "componentBounds": [
+    {
+      "name": "VnTachieStage",
+      "x": 134.6953125,
+      "y": 270.5234375,
+      "width": 105,
+      "height": 157.5,
+      "right": 239.6953125,
+      "bottom": 428.0234375
+    },
+    {
+      "name": "ThreeStrandDestinyCard",
+      "x": 16,
+      "y": 454,
+      "width": 358,
+      "height": 120,
+      "right": 374,
+      "bottom": 574
+    },
+    {
+      "name": "ThreeStrandDestinyCard",
+      "x": 16,
+      "y": 582,
+      "width": 358,
+      "height": 120,
+      "right": 374,
+      "bottom": 702
+    },
+    {
+      "name": "ThreeStrandDestinyCard",
+      "x": 16,
+      "y": 710,
+      "width": 358,
+      "height": 120,
+      "right": 374,
+      "bottom": 830
+    },
+    {
+      "name": "TopHudCapsule",
+      "x": 16,
+      "y": 16,
+      "width": 358,
+      "height": 64,
+      "right": 374,
+      "bottom": 80
+    }
+  ],
+  "viewportFile": "viewports/mode5-endings-fallback-mobile.png",
+  "problems": {},
+  "deviceDimensions": [
+    1070,
+    2168
+  ]
+}

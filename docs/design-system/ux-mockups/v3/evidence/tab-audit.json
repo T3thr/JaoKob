@@ -1,0 +1,61 @@
+[
+  {
+    "screen": 3,
+    "groups": {
+      "family": [
+        "strike",
+        "guard",
+        "rest",
+        "rain",
+        "wind",
+        "eye",
+        "s_kab",
+        "s_kib"
+      ],
+      "friends": [
+        "strike",
+        "guard",
+        "rest",
+        "a_pkam",
+        "a_fiw"
+      ]
+    },
+    "layoutShift": 0,
+    "keyboardArrowRight": true
+  },
+  {
+    "screen": 11,
+    "groups": {
+      "family": [
+        "strike",
+        "guard",
+        "rest",
+        "rain",
+        "wind",
+        "eye",
+        "s_kab",
+        "s_kib"
+      ],
+      "friends": [
+        "strike",
+        "guard",
+        "rest",
+        "a_pkam",
+        "a_fiw",
+        "a_teuk"
+      ],
+      "pouch": [
+        "strike",
+        "guard",
+        "rest",
+        "seeds",
+        "gear",
+        "button",
+        "ribbon",
+        "ribbon_fiw"
+      ]
+    },
+    "layoutShift": 0,
+    "keyboardArrowRight": true
+  }
+]

@@ -1,0 +1,192 @@
+{
+  "screen": 9,
+  "stem": "mode5-endings-desktop",
+  "viewport": {
+    "width": 1440,
+    "height": 900,
+    "dpr": 2
+  },
+  "fontReady": true,
+  "fontFaces": [
+    {
+      "family": "Sarabun",
+      "status": "loaded"
+    },
+    {
+      "family": "Sarabun",
+      "status": "loaded"
+    }
+  ],
+  "textOverlaps": [],
+  "brokenImages": [],
+  "horizontalOverflow": false,
+  "targets": [
+    {
+      "label": "อยู่ตรงนี้ เป็นผู้พิทักษ์ข้างหมอนเธอ",
+      "minimum": 44,
+      "x": 130,
+      "y": 638,
+      "width": 382.6640625,
+      "height": 238,
+      "right": 512.6640625,
+      "bottom": 876
+    },
+    {
+      "label": "กลับบ้านที่บึงน้ำใส",
+      "minimum": 44,
+      "x": 528.6640625,
+      "y": 638,
+      "width": 382.6640625,
+      "height": 238,
+      "right": 911.328125,
+      "bottom": 876
+    },
+    {
+      "label": "เป็นผู้พิทักษ์ของทั้งสองรุ่งอรุณ",
+      "minimum": 44,
+      "x": 927.328125,
+      "y": 638,
+      "width": 382.6640625,
+      "height": 238,
+      "right": 1309.9921875,
+      "bottom": 876
+    },
+    {
+      "label": "กระเป๋าสานกกสี่ช่อง",
+      "minimum": 44,
+      "x": 274.4296875,
+      "y": 34,
+      "width": 44,
+      "height": 44,
+      "right": 318.4296875,
+      "bottom": 78
+    },
+    {
+      "label": "ตั้งค่า",
+      "minimum": 44,
+      "x": 327,
+      "y": 34,
+      "width": 44,
+      "height": 44,
+      "right": 371,
+      "bottom": 78
+    }
+  ],
+  "undersizedTargets": [],
+  "textClipping": [],
+  "contentOverflow": [],
+  "faceBand": {
+    "top": 288,
+    "bottom": 432
+  },
+  "uiBandIntrusions": [],
+  "hud": {
+    "x": 24,
+    "y": 24,
+    "width": 358,
+    "height": 64,
+    "right": 382,
+    "bottom": 88
+  },
+  "allActions": [],
+  "visibleActions": [],
+  "counterActions": [],
+  "repeatActions": [],
+  "state": {
+    "home": true,
+    "pond": true,
+    "dawn": false,
+    "fallback": false
+  },
+  "shadowElements": [],
+  "strings": [
+    "ทางเลือกในแสงแรก",
+    "อยู่ตรงนี้ เป็นผู้พิทักษ์ข้างหมอนเธอ",
+    "กลับบ้านที่บึงน้ำใส",
+    "เป็นผู้พิทักษ์ของทั้งสองรุ่งอรุณ",
+    "เขายังไม่เคยยืนด้วยลำแข้งของตัวเองมากพอ"
+  ],
+  "images": [
+    {
+      "key": "dawn",
+      "path": "../plates/dawn-bedroom.png"
+    },
+    {
+      "key": "standing",
+      "path": "../plates/kob-standing.png"
+    },
+    {
+      "key": "button",
+      "path": "../../../../../assets/images/keepsakes/v2/versions/v2/item-teuk-peuak-button.png"
+    },
+    {
+      "key": "kab",
+      "path": "../../../../../assets/images/characters/jao-kab/versions/v2/neutral-proud-left.png"
+    },
+    {
+      "key": "kib",
+      "path": "../../../../../assets/images/characters/jao-kib/versions/v2/neutral-cheerful-left.png"
+    },
+    {
+      "key": "kam-empty",
+      "path": "../plates/kam-empty-claw.png"
+    },
+    {
+      "key": "fiw",
+      "path": "../../../../../assets/images/characters/jao-fiw/versions/v2/neutral-lively-left.png"
+    }
+  ],
+  "componentBounds": [
+    {
+      "name": "VnTachieStage",
+      "x": 630,
+      "y": 279.8984375,
+      "width": 180,
+      "height": 270,
+      "right": 810,
+      "bottom": 549.8984375
+    },
+    {
+      "name": "ThreeStrandDestinyCard",
+      "x": 130,
+      "y": 638,
+      "width": 382.6640625,
+      "height": 238,
+      "right": 512.6640625,
+      "bottom": 876
+    },
+    {
+      "name": "ThreeStrandDestinyCard",
+      "x": 528.6640625,
+      "y": 638,
+      "width": 382.6640625,
+      "height": 238,
+      "right": 911.328125,
+      "bottom": 876
+    },
+    {
+      "name": "ThreeStrandDestinyCard",
+      "x": 927.328125,
+      "y": 638,
+      "width": 382.6640625,
+      "height": 238,
+      "right": 1309.9921875,
+      "bottom": 876
+    },
+    {
+      "name": "TopHudCapsule",
+      "x": 24,
+      "y": 24,
+      "width": 358,
+      "height": 64,
+      "right": 382,
+      "bottom": 88
+    }
+  ],
+  "viewportFile": "viewports/mode5-endings-desktop.png",
+  "problems": {},
+  "deviceDimensions": [
+    3458,
+    2424
+  ]
+}

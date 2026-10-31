@@ -1,0 +1,704 @@
+{
+  "screen": 11,
+  "stem": "mode2-clash-r4a-tray-mobile",
+  "viewport": {
+    "width": 390,
+    "height": 844,
+    "dpr": 2
+  },
+  "fontReady": true,
+  "fontFaces": [
+    {
+      "family": "Sarabun",
+      "status": "loaded"
+    },
+    {
+      "family": "Sarabun",
+      "status": "loaded"
+    }
+  ],
+  "textOverlaps": [],
+  "brokenImages": [],
+  "horizontalOverflow": false,
+  "targets": [
+    {
+      "label": "ไต่ขึ้นตามกิ่งไทร",
+      "minimum": 56,
+      "x": 16,
+      "y": 464,
+      "width": 114,
+      "height": 64,
+      "right": 130,
+      "bottom": 528
+    },
+    {
+      "label": "เกาะแน่นกับเชือก",
+      "minimum": 56,
+      "x": 138,
+      "y": 464,
+      "width": 114,
+      "height": 64,
+      "right": 252,
+      "bottom": 528
+    },
+    {
+      "label": "พักบนง่ามไม้",
+      "minimum": 56,
+      "x": 260,
+      "y": 464,
+      "width": 114,
+      "height": 64,
+      "right": 374,
+      "bottom": 528
+    },
+    {
+      "label": "ครอบครัว",
+      "minimum": 44,
+      "x": 17,
+      "y": 537,
+      "width": 118.6640625,
+      "height": 44,
+      "right": 135.6640625,
+      "bottom": 581
+    },
+    {
+      "label": "สหาย",
+      "minimum": 44,
+      "x": 135.6640625,
+      "y": 537,
+      "width": 118.6640625,
+      "height": 44,
+      "right": 254.328125,
+      "bottom": 581
+    },
+    {
+      "label": "ของ·ผสาน",
+      "minimum": 44,
+      "x": 254.328125,
+      "y": 537,
+      "width": 118.6640625,
+      "height": 44,
+      "right": 372.9921875,
+      "bottom": 581
+    },
+    {
+      "label": "เมล็ดต้อยติ่ง",
+      "minimum": 56,
+      "x": 16,
+      "y": 588,
+      "width": 175,
+      "height": 64,
+      "right": 191,
+      "bottom": 652
+    },
+    {
+      "label": "เฟืองสังกะสี",
+      "minimum": 56,
+      "x": 199,
+      "y": 588,
+      "width": 175,
+      "height": 64,
+      "right": 374,
+      "bottom": 652
+    },
+    {
+      "label": "กระดุมทองเหลือง",
+      "minimum": 56,
+      "x": 16,
+      "y": 660,
+      "width": 175,
+      "height": 64,
+      "right": 191,
+      "bottom": 724
+    },
+    {
+      "label": "ริบบิ้นกลิ่นแดด",
+      "minimum": 56,
+      "x": 199,
+      "y": 660,
+      "width": 175,
+      "height": 64,
+      "right": 374,
+      "bottom": 724
+    },
+    {
+      "label": "ผ้าพันคอนำลม",
+      "minimum": 56,
+      "x": 16,
+      "y": 732,
+      "width": 175,
+      "height": 64,
+      "right": 191,
+      "bottom": 796
+    },
+    {
+      "label": "กระเป๋าสานกกสี่ช่อง",
+      "minimum": 44,
+      "x": 266.4296875,
+      "y": 26,
+      "width": 44,
+      "height": 44,
+      "right": 310.4296875,
+      "bottom": 70
+    },
+    {
+      "label": "ตั้งค่า",
+      "minimum": 44,
+      "x": 319,
+      "y": 26,
+      "width": 44,
+      "height": 44,
+      "right": 363,
+      "bottom": 70
+    }
+  ],
+  "undersizedTargets": [],
+  "textClipping": [],
+  "contentOverflow": [],
+  "faceBand": {
+    "top": 270.08,
+    "bottom": 405.12
+  },
+  "uiBandIntrusions": [],
+  "hud": {
+    "x": 16,
+    "y": 16,
+    "width": 358,
+    "height": 64,
+    "right": 374,
+    "bottom": 80
+  },
+  "activeTab": "pouch",
+  "allActions": [
+    "strike",
+    "guard",
+    "rest",
+    "rain",
+    "wind",
+    "eye",
+    "seeds",
+    "gear",
+    "button",
+    "ribbon",
+    "a_pkam",
+    "a_fiw",
+    "a_teuk",
+    "s_kab",
+    "s_kib",
+    "ribbon_fiw"
+  ],
+  "visibleActions": [
+    "strike",
+    "guard",
+    "rest",
+    "seeds",
+    "gear",
+    "button",
+    "ribbon",
+    "ribbon_fiw"
+  ],
+  "counterActions": [
+    "strike",
+    "guard",
+    "wind",
+    "s_kib",
+    "a_pkam",
+    "seeds"
+  ],
+  "repeatActions": [],
+  "state": {
+    "state": {
+      "round": "R4A",
+      "t": 1,
+      "P": 4,
+      "hp": 5,
+      "mind": 4,
+      "sta": 4,
+      "fsu": 3,
+      "streak": 0,
+      "bk": 3,
+      "bf": 3,
+      "bt": 3,
+      "items": [
+        "button",
+        "ribbon",
+        "seeds",
+        "gear"
+      ],
+      "major": null,
+      "ready": [],
+      "used": [],
+      "dim": false,
+      "charged": false,
+      "weak": false,
+      "regroup": false,
+      "grace": false,
+      "gritUsed": false,
+      "homesick": 0,
+      "ended": false,
+      "outcome": null,
+      "peace": {
+        "kab": false,
+        "kib": false
+      },
+      "territory": {
+        "dimOff": false,
+        "growHalf": false,
+        "gatherOff": false,
+        "whisperOff": false
+      },
+      "log": []
+    },
+    "round": "R4A",
+    "beat": "choose",
+    "turn": 1,
+    "turns": 4,
+    "light": 4,
+    "intent": "แมลงสาบแมนเตรียมใช้ · เงาขยาย",
+    "intentId": "grow",
+    "cards": [
+      {
+        "id": "strike",
+        "label": "ไต่ขึ้นตามกิ่งไทร",
+        "group": "basic",
+        "icon": "advance",
+        "friend": null,
+        "counter": true,
+        "repeat": false,
+        "combo": false,
+        "finisher": false,
+        "cost": "แรง ●●",
+        "repeatCost": "",
+        "gain": 2
+      },
+      {
+        "id": "guard",
+        "label": "เกาะแน่นกับเชือก",
+        "group": "basic",
+        "icon": "shield",
+        "friend": null,
+        "counter": true,
+        "repeat": false,
+        "combo": false,
+        "finisher": false,
+        "cost": "แรง ●",
+        "repeatCost": "",
+        "gain": 0
+      },
+      {
+        "id": "rest",
+        "label": "พักบนง่ามไม้",
+        "group": "basic",
+        "icon": "wind",
+        "friend": null,
+        "counter": false,
+        "repeat": false,
+        "combo": false,
+        "finisher": false,
+        "cost": "",
+        "repeatCost": "",
+        "gain": 0
+      },
+      {
+        "id": "rain",
+        "label": "ตั้งสติฟังฝน",
+        "group": "family",
+        "icon": "drop",
+        "friend": null,
+        "counter": false,
+        "repeat": false,
+        "combo": false,
+        "finisher": false,
+        "cost": "",
+        "repeatCost": "",
+        "gain": 1
+      },
+      {
+        "id": "wind",
+        "label": "ดีดตัวผ่าลม",
+        "group": "family",
+        "icon": "jump",
+        "friend": null,
+        "counter": true,
+        "repeat": false,
+        "combo": false,
+        "finisher": false,
+        "cost": "",
+        "repeatCost": "",
+        "gain": 2
+      },
+      {
+        "id": "eye",
+        "label": "ตาส่องเงามืด",
+        "group": "family",
+        "icon": "eye",
+        "friend": null,
+        "counter": false,
+        "repeat": false,
+        "combo": false,
+        "finisher": false,
+        "cost": "",
+        "repeatCost": "",
+        "gain": 1
+      },
+      {
+        "id": "seeds",
+        "label": "เมล็ดต้อยติ่ง",
+        "group": "pouch",
+        "icon": "seeds",
+        "friend": null,
+        "counter": true,
+        "repeat": false,
+        "combo": false,
+        "finisher": false,
+        "cost": "",
+        "repeatCost": "",
+        "gain": 2
+      },
+      {
+        "id": "gear",
+        "label": "เฟืองสังกะสี",
+        "group": "pouch",
+        "icon": "gear-item",
+        "friend": null,
+        "counter": false,
+        "repeat": false,
+        "combo": false,
+        "finisher": false,
+        "cost": "",
+        "repeatCost": "",
+        "gain": 2
+      },
+      {
+        "id": "button",
+        "label": "กระดุมทองเหลือง",
+        "group": "pouch",
+        "icon": "button",
+        "friend": null,
+        "counter": false,
+        "repeat": false,
+        "combo": false,
+        "finisher": false,
+        "cost": "",
+        "repeatCost": "",
+        "gain": 2
+      },
+      {
+        "id": "ribbon",
+        "label": "ริบบิ้นกลิ่นแดด",
+        "group": "pouch",
+        "icon": "ribbon",
+        "friend": null,
+        "counter": false,
+        "repeat": false,
+        "combo": false,
+        "finisher": false,
+        "cost": "",
+        "repeatCost": "",
+        "gain": 1
+      },
+      {
+        "id": "a_pkam",
+        "label": "โล่กระป๋องเหล็กคู่ใจ",
+        "group": "friends",
+        "icon": "kam-empty",
+        "friend": null,
+        "counter": true,
+        "repeat": false,
+        "combo": false,
+        "finisher": false,
+        "cost": "",
+        "repeatCost": "",
+        "gain": 1
+      },
+      {
+        "id": "a_fiw",
+        "label": "โฉบคว้ากลางเวหา",
+        "group": "friends",
+        "icon": "fiw",
+        "friend": null,
+        "counter": false,
+        "repeat": false,
+        "combo": false,
+        "finisher": false,
+        "cost": "",
+        "repeatCost": "",
+        "gain": 2
+      },
+      {
+        "id": "a_teuk",
+        "label": "ลำแสงสัญญาจากนอกรั้ว",
+        "group": "friends",
+        "icon": "teuk",
+        "friend": null,
+        "counter": false,
+        "repeat": false,
+        "combo": false,
+        "finisher": false,
+        "cost": "",
+        "repeatCost": "",
+        "gain": 3
+      },
+      {
+        "id": "s_kab",
+        "label": "สปริงพี่ใหญ่",
+        "group": "family",
+        "icon": "kab",
+        "friend": null,
+        "counter": false,
+        "repeat": false,
+        "combo": false,
+        "finisher": false,
+        "cost": "",
+        "repeatCost": "",
+        "gain": 2
+      },
+      {
+        "id": "s_kib",
+        "label": "ห่าเมล็ดเรือง",
+        "group": "family",
+        "icon": "kib",
+        "friend": null,
+        "counter": true,
+        "repeat": false,
+        "combo": false,
+        "finisher": false,
+        "cost": "",
+        "repeatCost": "",
+        "gain": 2
+      },
+      {
+        "id": "ribbon_fiw",
+        "label": "ผ้าพันคอนำลม",
+        "group": "pouch",
+        "icon": "ribbon",
+        "friend": "fiw",
+        "counter": false,
+        "repeat": false,
+        "combo": true,
+        "finisher": false,
+        "cost": "",
+        "repeatCost": "",
+        "gain": 3
+      }
+    ],
+    "shadow": null,
+    "tab": "pouch",
+    "preview": null,
+    "territory": []
+  },
+  "shadowElements": [],
+  "strings": [
+    "แมลงสาบแมนเตรียมใช้ · เงาขยาย",
+    "ไต่ขึ้นตามกิ่งไทร",
+    "แก้ทาง",
+    "แรง ●●",
+    "เกาะแน่นกับเชือก",
+    "แก้ทาง",
+    "แรง ●",
+    "พักบนง่ามไม้",
+    "",
+    "เมล็ดต้อยติ่ง",
+    "แก้ทาง",
+    "เฟืองสังกะสี",
+    "",
+    "กระดุมทองเหลือง",
+    "",
+    "ริบบิ้นกลิ่นแดด",
+    "",
+    "ผ้าพันคอนำลม",
+    "ท่าผสาน · เจ้าฟิ้ว"
+  ],
+  "images": [
+    {
+      "key": "r4",
+      "path": "../plates/r4-banyan.png"
+    },
+    {
+      "key": "standing",
+      "path": "../plates/kob-standing.png"
+    },
+    {
+      "key": "villain",
+      "path": "../../../../../assets/images/characters/cockroach-man/versions/v2/shadow-cloak-boast-left.png"
+    },
+    {
+      "key": "kab",
+      "path": "../../../../../assets/images/characters/jao-kab/versions/v2/neutral-proud-left.png"
+    },
+    {
+      "key": "kib",
+      "path": "../../../../../assets/images/characters/jao-kib/versions/v2/neutral-cheerful-left.png"
+    },
+    {
+      "key": "kam-empty",
+      "path": "../plates/kam-empty-claw.png"
+    },
+    {
+      "key": "fiw",
+      "path": "../../../../../assets/images/characters/jao-fiw/versions/v2/neutral-lively-left.png"
+    },
+    {
+      "key": "teuk",
+      "path": "../../../../../assets/images/characters/jao-teuk/versions/v2/storm-kneeling-mission-left.png"
+    },
+    {
+      "key": "seeds",
+      "path": "../../../../../assets/images/keepsakes/v2/versions/v2/item-kib-glowing-seeds.png"
+    },
+    {
+      "key": "gear-item",
+      "path": "../../../../../assets/images/keepsakes/v2/versions/v1/item-pkam-tin-gear.png"
+    },
+    {
+      "key": "button",
+      "path": "../../../../../assets/images/keepsakes/v2/versions/v2/item-teuk-peuak-button.png"
+    },
+    {
+      "key": "ribbon",
+      "path": "../../../../../assets/images/keepsakes/v2/versions/v1/item-fiw-sun-ribbon.png"
+    },
+    {
+      "key": "ribbon",
+      "path": "../../../../../assets/images/keepsakes/v2/versions/v1/item-fiw-sun-ribbon.png"
+    },
+    {
+      "key": "fiw",
+      "path": "../../../../../assets/images/characters/jao-fiw/versions/v2/neutral-lively-left.png"
+    }
+  ],
+  "componentBounds": [
+    {
+      "name": "VnTachieStage",
+      "x": 86.59375,
+      "y": 262.0546875,
+      "width": 92,
+      "height": 138,
+      "right": 178.59375,
+      "bottom": 400.0546875
+    },
+    {
+      "name": "VnTachieStage",
+      "x": 246.3984375,
+      "y": 304,
+      "width": 100,
+      "height": 100,
+      "right": 346.3984375,
+      "bottom": 404
+    },
+    {
+      "name": "ClashIntentAndGauge",
+      "x": 16,
+      "y": 88,
+      "width": 358,
+      "height": 44,
+      "right": 374,
+      "bottom": 132
+    },
+    {
+      "name": "ClashIntentAndGauge",
+      "x": 16,
+      "y": 412,
+      "width": 358,
+      "height": 44,
+      "right": 374,
+      "bottom": 456
+    },
+    {
+      "name": "ClashActionTray",
+      "x": 16,
+      "y": 464,
+      "width": 358,
+      "height": 332,
+      "right": 374,
+      "bottom": 796
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 16,
+      "y": 464,
+      "width": 114,
+      "height": 64,
+      "right": 130,
+      "bottom": 528
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 138,
+      "y": 464,
+      "width": 114,
+      "height": 64,
+      "right": 252,
+      "bottom": 528
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 260,
+      "y": 464,
+      "width": 114,
+      "height": 64,
+      "right": 374,
+      "bottom": 528
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 16,
+      "y": 588,
+      "width": 175,
+      "height": 64,
+      "right": 191,
+      "bottom": 652
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 199,
+      "y": 588,
+      "width": 175,
+      "height": 64,
+      "right": 374,
+      "bottom": 652
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 16,
+      "y": 660,
+      "width": 175,
+      "height": 64,
+      "right": 191,
+      "bottom": 724
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 199,
+      "y": 660,
+      "width": 175,
+      "height": 64,
+      "right": 374,
+      "bottom": 724
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 16,
+      "y": 732,
+      "width": 175,
+      "height": 64,
+      "right": 191,
+      "bottom": 796
+    },
+    {
+      "name": "TopHudCapsule",
+      "x": 16,
+      "y": 16,
+      "width": 358,
+      "height": 64,
+      "right": 374,
+      "bottom": 80
+    }
+  ],
+  "viewportFile": "viewports/mode2-clash-r4a-tray-mobile.png",
+  "problems": {},
+  "deviceDimensions": [
+    1070,
+    2168
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "screen": 2,
+  "stem": "mode1-choice-mobile",
+  "viewport": {
+    "width": 390,
+    "height": 844,
+    "dpr": 2
+  },
+  "fontReady": true,
+  "fontFaces": [
+    {
+      "family": "Sarabun",
+      "status": "loaded"
+    },
+    {
+      "family": "Sarabun",
+      "status": "loaded"
+    }
+  ],
+  "textOverlaps": [],
+  "brokenImages": [],
+  "horizontalOverflow": false,
+  "targets": [
+    {
+      "label": "ก · ท่าผสาน · สนับข้อมือเปลือกไม้งัดฟันเฟือง แล้วดึงก้ามพี่ก้ามขึ้นมา",
+      "minimum": 56,
+      "x": 16,
+      "y": 412,
+      "width": 358,
+      "height": 72,
+      "right": 374,
+      "bottom": 484
+    },
+    {
+      "label": "ข · ดีดตัวผ่าลม · พุ่งข้ามกระแสไปคว้าก้าม",
+      "minimum": 56,
+      "x": 16,
+      "y": 492,
+      "width": 358,
+      "height": 72,
+      "right": 374,
+      "bottom": 564
+    },
+    {
+      "label": "ค · ตาส่องเงามืด · หาคันโยกหยุดเฟือง",
+      "minimum": 56,
+      "x": 16,
+      "y": 572,
+      "width": 358,
+      "height": 72,
+      "right": 374,
+      "bottom": 644
+    },
+    {
+      "label": "ง · ยืนหยัดเอง · ลงน้ำดึงกระป๋องออกด้วยแรงตัวเอง",
+      "minimum": 56,
+      "x": 16,
+      "y": 652,
+      "width": 358,
+      "height": 72,
+      "right": 374,
+      "bottom": 724
+    },
+    {
+      "label": "จ · ฝืนเอา · กระโจนลงไปทั้งตัว",
+      "minimum": 56,
+      "x": 16,
+      "y": 732,
+      "width": 358,
+      "height": 72,
+      "right": 374,
+      "bottom": 804
+    },
+    {
+      "label": "กระเป๋าสานกกสี่ช่อง",
+      "minimum": 44,
+      "x": 266.4296875,
+      "y": 26,
+      "width": 44,
+      "height": 44,
+      "right": 310.4296875,
+      "bottom": 70
+    },
+    {
+      "label": "ตั้งค่า",
+      "minimum": 44,
+      "x": 319,
+      "y": 26,
+      "width": 44,
+      "height": 44,
+      "right": 363,
+      "bottom": 70
+    }
+  ],
+  "undersizedTargets": [],
+  "textClipping": [],
+  "contentOverflow": [],
+  "faceBand": {
+    "top": 270.08,
+    "bottom": 405.12
+  },
+  "uiBandIntrusions": [],
+  "hud": {
+    "x": 16,
+    "y": 16,
+    "width": 358,
+    "height": 64,
+    "right": 374,
+    "bottom": 80
+  },
+  "allActions": [],
+  "visibleActions": [
+    "choice-0",
+    "choice-1",
+    "choice-2",
+    "choice-3",
+    "choice-4"
+  ],
+  "counterActions": [],
+  "repeatActions": [],
+  "state": null,
+  "shadowElements": [],
+  "strings": [
+    "ก · ท่าผสาน · สนับข้อมือเปลือกไม้งัดฟันเฟือง แล้วดึงก้ามพี่ก้ามขึ้นมา",
+    "ท่าผสาน · พี่ก้าม",
+    "ข · ดีดตัวผ่าลม · พุ่งข้ามกระแสไปคว้าก้าม",
+    "ทักษะครอบครัว",
+    "ค · ตาส่องเงามืด · หาคันโยกหยุดเฟือง",
+    "ทักษะครอบครัว",
+    "ง · ยืนหยัดเอง · ลงน้ำดึงกระป๋องออกด้วยแรงตัวเอง",
+    "ยืนหยัดเอง",
+    "แรง ●●",
+    "จ · ฝืนเอา · กระโจนลงไปทั้งตัว",
+    "ฝืนเอา",
+    "กาย ● แรง ●●"
+  ],
+  "images": [
+    {
+      "key": "whirlpool",
+      "path": "../../../../../assets/images/backgrounds/act-02/versions/v1/bg-act2-whirlpool-grate.png"
+    },
+    {
+      "key": "kam",
+      "path": "../../../../../assets/images/characters/p-kam/versions/v2/neutral-guarded-left.png"
+    },
+    {
+      "key": "kob-left",
+      "path": "../../../../../assets/images/characters/jao-kob/versions/v2/adult-neutral-left.png"
+    },
+    {
+      "key": "guard",
+      "path": "../../../../../assets/images/keepsakes/v2/versions/v1/item-kab-bark-guard.png"
+    },
+    {
+      "key": "kam",
+      "path": "../../../../../assets/images/characters/p-kam/versions/v2/neutral-guarded-left.png"
+    }
+  ],
+  "componentBounds": [
+    {
+      "name": "VnTachieStage",
+      "x": 10.296875,
+      "y": 266.296875,
+      "width": 190,
+      "height": 190,
+      "right": 200.296875,
+      "bottom": 456.296875
+    },
+    {
+      "name": "VnTachieStage",
+      "x": 199.59375,
+      "y": 280.2734375,
+      "width": 178,
+      "height": 178,
+      "right": 377.59375,
+      "bottom": 458.2734375
+    },
+    {
+      "name": "ChoiceStack",
+      "x": 16,
+      "y": 412,
+      "width": 358,
+      "height": 392,
+      "right": 374,
+      "bottom": 804
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 16,
+      "y": 412,
+      "width": 358,
+      "height": 72,
+      "right": 374,
+      "bottom": 484
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 16,
+      "y": 492,
+      "width": 358,
+      "height": 72,
+      "right": 374,
+      "bottom": 564
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 16,
+      "y": 572,
+      "width": 358,
+      "height": 72,
+      "right": 374,
+      "bottom": 644
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 16,
+      "y": 652,
+      "width": 358,
+      "height": 72,
+      "right": 374,
+      "bottom": 724
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 16,
+      "y": 732,
+      "width": 358,
+      "height": 72,
+      "right": 374,
+      "bottom": 804
+    },
+    {
+      "name": "TopHudCapsule",
+      "x": 16,
+      "y": 16,
+      "width": 358,
+      "height": 64,
+      "right": 374,
+      "bottom": 80
+    }
+  ],
+  "viewportFile": "viewports/mode1-choice-mobile.png",
+  "problems": {},
+  "deviceDimensions": [
+    1070,
+    2168
+  ]
+}

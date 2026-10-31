@@ -1,0 +1,71 @@
+{
+  "method": "Same canonical shell and common-state pixels. Delivered screenshots retain true per-screen meters/bonds and 40% micro-action HUD opacity. Transparent corner pixels excluded.",
+  "allIdentical": true,
+  "screens": [
+    {
+      "screen": 1,
+      "sha256Pixels": "d559ae58f6cfe03736b541804f42ed8340be16c191247cff067c0aeecdd577c0",
+      "sameAsMaster": true
+    },
+    {
+      "screen": 2,
+      "sha256Pixels": "d559ae58f6cfe03736b541804f42ed8340be16c191247cff067c0aeecdd577c0",
+      "sameAsMaster": true
+    },
+    {
+      "screen": 3,
+      "sha256Pixels": "d559ae58f6cfe03736b541804f42ed8340be16c191247cff067c0aeecdd577c0",
+      "sameAsMaster": true
+    },
+    {
+      "screen": 4,
+      "sha256Pixels": "d559ae58f6cfe03736b541804f42ed8340be16c191247cff067c0aeecdd577c0",
+      "sameAsMaster": true
+    },
+    {
+      "screen": 5,
+      "sha256Pixels": "d559ae58f6cfe03736b541804f42ed8340be16c191247cff067c0aeecdd577c0",
+      "sameAsMaster": true
+    },
+    {
+      "screen": 6,
+      "sha256Pixels": "d559ae58f6cfe03736b541804f42ed8340be16c191247cff067c0aeecdd577c0",
+      "sameAsMaster": true
+    },
+    {
+      "screen": 7,
+      "sha256Pixels": "d559ae58f6cfe03736b541804f42ed8340be16c191247cff067c0aeecdd577c0",
+      "sameAsMaster": true
+    },
+    {
+      "screen": 8,
+      "sha256Pixels": "d559ae58f6cfe03736b541804f42ed8340be16c191247cff067c0aeecdd577c0",
+      "sameAsMaster": true
+    },
+    {
+      "screen": 9,
+      "sha256Pixels": "d559ae58f6cfe03736b541804f42ed8340be16c191247cff067c0aeecdd577c0",
+      "sameAsMaster": true
+    },
+    {
+      "screen": 10,
+      "sha256Pixels": "d559ae58f6cfe03736b541804f42ed8340be16c191247cff067c0aeecdd577c0",
+      "sameAsMaster": true
+    },
+    {
+      "screen": 11,
+      "sha256Pixels": "d559ae58f6cfe03736b541804f42ed8340be16c191247cff067c0aeecdd577c0",
+      "sameAsMaster": true
+    },
+    {
+      "screen": 12,
+      "sha256Pixels": "d559ae58f6cfe03736b541804f42ed8340be16c191247cff067c0aeecdd577c0",
+      "sameAsMaster": true
+    },
+    {
+      "screen": 13,
+      "sha256Pixels": "d559ae58f6cfe03736b541804f42ed8340be16c191247cff067c0aeecdd577c0",
+      "sameAsMaster": true
+    }
+  ]
+}

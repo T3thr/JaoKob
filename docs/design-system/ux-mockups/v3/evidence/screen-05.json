@@ -1,0 +1,351 @@
+{
+  "screen": 5,
+  "stem": "mode3-camp-c3-desktop",
+  "viewport": {
+    "width": 1440,
+    "height": 900,
+    "dpr": 2
+  },
+  "fontReady": true,
+  "fontFaces": [
+    {
+      "family": "Sarabun",
+      "status": "loaded"
+    },
+    {
+      "family": "Sarabun",
+      "status": "loaded"
+    }
+  ],
+  "textOverlaps": [],
+  "brokenImages": [],
+  "horizontalOverflow": false,
+  "targets": [
+    {
+      "label": "ดามข้อเท้าด้วยสนับข้อมือ",
+      "minimum": 56,
+      "x": 80,
+      "y": 670,
+      "width": 314,
+      "height": 64,
+      "right": 394,
+      "bottom": 734
+    },
+    {
+      "label": "ช่วยพันข้อเท้าด้วยผ้า",
+      "minimum": 56,
+      "x": 402,
+      "y": 670,
+      "width": 314,
+      "height": 64,
+      "right": 716,
+      "bottom": 734
+    },
+    {
+      "label": "คุยกับเตื๊อก",
+      "minimum": 56,
+      "x": 724,
+      "y": 670,
+      "width": 314,
+      "height": 64,
+      "right": 1038,
+      "bottom": 734
+    },
+    {
+      "label": "คุยกับพี่ก้าม",
+      "minimum": 56,
+      "x": 1046,
+      "y": 670,
+      "width": 314,
+      "height": 64,
+      "right": 1360,
+      "bottom": 734
+    },
+    {
+      "label": "คุยกับเจ้าฟิ้ว",
+      "minimum": 56,
+      "x": 80,
+      "y": 742,
+      "width": 314,
+      "height": 64,
+      "right": 394,
+      "bottom": 806
+    },
+    {
+      "label": "จับแมลงกิน",
+      "minimum": 56,
+      "x": 402,
+      "y": 742,
+      "width": 314,
+      "height": 64,
+      "right": 716,
+      "bottom": 806
+    },
+    {
+      "label": "ทำแผล",
+      "minimum": 56,
+      "x": 724,
+      "y": 742,
+      "width": 314,
+      "height": 64,
+      "right": 1038,
+      "bottom": 806
+    },
+    {
+      "label": "เตรียมของให้พร้อม",
+      "minimum": 56,
+      "x": 1046,
+      "y": 742,
+      "width": 314,
+      "height": 64,
+      "right": 1360,
+      "bottom": 806
+    },
+    {
+      "label": "ออกเดินทางต่อ",
+      "minimum": 44,
+      "x": 1120,
+      "y": 818,
+      "width": 240,
+      "height": 44,
+      "right": 1360,
+      "bottom": 862
+    },
+    {
+      "label": "กระเป๋าสานกกสี่ช่อง",
+      "minimum": 44,
+      "x": 274.4296875,
+      "y": 34,
+      "width": 44,
+      "height": 44,
+      "right": 318.4296875,
+      "bottom": 78
+    },
+    {
+      "label": "ตั้งค่า",
+      "minimum": 44,
+      "x": 327,
+      "y": 34,
+      "width": 44,
+      "height": 44,
+      "right": 371,
+      "bottom": 78
+    }
+  ],
+  "undersizedTargets": [],
+  "textClipping": [],
+  "contentOverflow": [],
+  "faceBand": {
+    "top": 288,
+    "bottom": 432
+  },
+  "uiBandIntrusions": [],
+  "hud": {
+    "x": 24,
+    "y": 24,
+    "width": 358,
+    "height": 64,
+    "right": 382,
+    "bottom": 88
+  },
+  "allActions": [],
+  "visibleActions": [
+    "camp-0",
+    "camp-1",
+    "camp-2",
+    "camp-3",
+    "camp-4",
+    "camp-5",
+    "camp-6",
+    "camp-7"
+  ],
+  "counterActions": [],
+  "repeatActions": [],
+  "state": null,
+  "shadowElements": [],
+  "strings": [
+    "ดามข้อเท้าด้วยสนับข้อมือ",
+    "สายใยเตื๊อก +",
+    "สละสนับข้อมือเลือกแล้ว",
+    "ช่วยพันข้อเท้าด้วยผ้า",
+    "ดามแล้ว",
+    "",
+    "คุยกับเตื๊อก",
+    "สายใยเตื๊อก +",
+    "",
+    "คุยกับพี่ก้าม",
+    "สายใยพี่ก้าม +",
+    "",
+    "คุยกับเจ้าฟิ้ว",
+    "สายใยเจ้าฟิ้ว +",
+    "",
+    "จับแมลงกิน",
+    "แรง ●●",
+    "",
+    "ทำแผล",
+    "กาย ●",
+    "",
+    "เตรียมของให้พร้อม",
+    "พร้อมผสาน",
+    ""
+  ],
+  "images": [
+    {
+      "key": "camp",
+      "path": "../plates/camp-splint.png"
+    },
+    {
+      "key": "kob",
+      "path": "../../../../../assets/images/characters/jao-kob/versions/v2/adult-neutral-right.png"
+    },
+    {
+      "key": "kam-empty",
+      "path": "../plates/kam-empty-claw.png"
+    },
+    {
+      "key": "fiw",
+      "path": "../../../../../assets/images/characters/jao-fiw/versions/v2/neutral-lively-left.png"
+    },
+    {
+      "key": "guard",
+      "path": "../../../../../assets/images/keepsakes/v2/versions/v1/item-kab-bark-guard.png"
+    },
+    {
+      "key": "teuk",
+      "path": "../../../../../assets/images/characters/jao-teuk/versions/v2/storm-kneeling-mission-left.png"
+    },
+    {
+      "key": "kam-empty",
+      "path": "../plates/kam-empty-claw.png"
+    },
+    {
+      "key": "fiw",
+      "path": "../../../../../assets/images/characters/jao-fiw/versions/v2/neutral-lively-left.png"
+    }
+  ],
+  "componentBounds": [
+    {
+      "name": "VnTachieStage",
+      "x": 242.59375,
+      "y": 256,
+      "width": 350,
+      "height": 350,
+      "right": 592.59375,
+      "bottom": 606
+    },
+    {
+      "name": "VnTachieStage",
+      "x": 52.1953125,
+      "y": 283.59375,
+      "width": 270,
+      "height": 270,
+      "right": 322.1953125,
+      "bottom": 553.59375
+    },
+    {
+      "name": "VnTachieStage",
+      "x": 570.59375,
+      "y": 272.796875,
+      "width": 270,
+      "height": 270,
+      "right": 840.59375,
+      "bottom": 542.796875
+    },
+    {
+      "name": "CampDropTimer",
+      "x": 1175.9453125,
+      "y": 24,
+      "width": 236.0546875,
+      "height": 56,
+      "right": 1412,
+      "bottom": 80
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 80,
+      "y": 670,
+      "width": 314,
+      "height": 64,
+      "right": 394,
+      "bottom": 734
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 402,
+      "y": 670,
+      "width": 314,
+      "height": 64,
+      "right": 716,
+      "bottom": 734
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 724,
+      "y": 670,
+      "width": 314,
+      "height": 64,
+      "right": 1038,
+      "bottom": 734
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 1046,
+      "y": 670,
+      "width": 314,
+      "height": 64,
+      "right": 1360,
+      "bottom": 734
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 80,
+      "y": 742,
+      "width": 314,
+      "height": 64,
+      "right": 394,
+      "bottom": 806
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 402,
+      "y": 742,
+      "width": 314,
+      "height": 64,
+      "right": 716,
+      "bottom": 806
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 724,
+      "y": 742,
+      "width": 314,
+      "height": 64,
+      "right": 1038,
+      "bottom": 806
+    },
+    {
+      "name": "TactileActionCard",
+      "x": 1046,
+      "y": 742,
+      "width": 314,
+      "height": 64,
+      "right": 1360,
+      "bottom": 806
+    },
+    {
+      "name": "TopHudCapsule",
+      "x": 24,
+      "y": 24,
+      "width": 358,
+      "height": 64,
+      "right": 382,
+      "bottom": 88
+    }
+  ],
+  "viewportFile": "viewports/mode3-camp-c3-desktop.png",
+  "problems": {},
+  "deviceDimensions": [
+    3458,
+    2424
+  ]
+}

@@ -1,0 +1,1342 @@
+[
+  {
+    "id": 1,
+    "stem": "mode1-vn-desktop",
+    "mode": "vn",
+    "mobile": false,
+    "state": {
+      "hp": 4,
+      "mind": 3,
+      "sta": 4,
+      "bk": 2,
+      "bf": 2,
+      "bt": 2,
+      "items": [
+        "button",
+        "seeds",
+        "gear"
+      ]
+    },
+    "clash": null,
+    "ending": null
+  },
+  {
+    "id": 2,
+    "stem": "mode1-choice-mobile",
+    "mode": "choice",
+    "mobile": true,
+    "state": {
+      "hp": 4,
+      "mind": 3,
+      "sta": 4,
+      "bk": 1,
+      "bf": 2,
+      "bt": 2,
+      "items": [
+        "seeds",
+        "guard"
+      ]
+    },
+    "clash": null,
+    "ending": null
+  },
+  {
+    "id": 3,
+    "stem": "mode2-clash-r5-mobile",
+    "mode": "clash",
+    "mobile": true,
+    "state": {
+      "round": "R5",
+      "t": 1,
+      "P": 4,
+      "hp": 5,
+      "mind": 4,
+      "sta": 4,
+      "fsu": 3,
+      "streak": 0,
+      "bk": 3,
+      "bf": 3,
+      "bt": 3,
+      "items": [
+        "button",
+        "seeds",
+        "guard",
+        "gear"
+      ],
+      "major": null,
+      "ready": [],
+      "used": [],
+      "dim": false,
+      "charged": false,
+      "weak": false,
+      "regroup": false,
+      "grace": false,
+      "gritUsed": false,
+      "homesick": 0,
+      "ended": false,
+      "outcome": null,
+      "peace": {
+        "kab": false,
+        "kib": false
+      },
+      "territory": {
+        "dimOff": true,
+        "growHalf": true,
+        "gatherOff": true,
+        "whisperOff": false
+      },
+      "log": []
+    },
+    "clash": {
+      "state": {
+        "round": "R5",
+        "t": 1,
+        "P": 4,
+        "hp": 5,
+        "mind": 4,
+        "sta": 4,
+        "fsu": 3,
+        "streak": 0,
+        "bk": 3,
+        "bf": 3,
+        "bt": 3,
+        "items": [
+          "button",
+          "seeds",
+          "guard",
+          "gear"
+        ],
+        "major": null,
+        "ready": [],
+        "used": [],
+        "dim": false,
+        "charged": false,
+        "weak": false,
+        "regroup": false,
+        "grace": false,
+        "gritUsed": false,
+        "homesick": 0,
+        "ended": false,
+        "outcome": null,
+        "peace": {
+          "kab": false,
+          "kib": false
+        },
+        "territory": {
+          "dimOff": true,
+          "growHalf": true,
+          "gatherOff": true,
+          "whisperOff": false
+        },
+        "log": []
+      },
+      "round": "R5",
+      "beat": "choose",
+      "turn": 1,
+      "turns": 4,
+      "light": 4,
+      "intent": "แมลงสาบแมนเตรียมใช้ · กระซิบฝันร้าย",
+      "intentId": "whisper",
+      "cards": [
+        {
+          "id": "strike",
+          "label": "ก้าวชิดโคม",
+          "group": "basic",
+          "icon": "advance",
+          "friend": null,
+          "counter": false,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "แรง ●●",
+          "repeatCost": "",
+          "gain": 2
+        },
+        {
+          "id": "guard",
+          "label": "ยืนนิ่งกลางลำแสง",
+          "group": "basic",
+          "icon": "shield",
+          "friend": null,
+          "counter": true,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "แรง ●",
+          "repeatCost": "",
+          "gain": 0
+        },
+        {
+          "id": "rest",
+          "label": "สูดลมหลังฐานโคม",
+          "group": "basic",
+          "icon": "wind",
+          "friend": null,
+          "counter": false,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 0
+        },
+        {
+          "id": "rain",
+          "label": "ตั้งสติฟังฝน",
+          "group": "family",
+          "icon": "drop",
+          "friend": null,
+          "counter": true,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 1
+        },
+        {
+          "id": "wind",
+          "label": "ดีดตัวผ่าลม",
+          "group": "family",
+          "icon": "jump",
+          "friend": null,
+          "counter": false,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 2
+        },
+        {
+          "id": "eye",
+          "label": "ตาส่องเงามืด",
+          "group": "family",
+          "icon": "eye",
+          "friend": null,
+          "counter": false,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 1
+        },
+        {
+          "id": "a_pkam",
+          "label": "โล่กระป๋องเหล็กคู่ใจ",
+          "group": "friends",
+          "icon": "kam-empty",
+          "friend": null,
+          "counter": true,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 1
+        },
+        {
+          "id": "a_fiw",
+          "label": "โฉบคว้ากลางเวหา",
+          "group": "friends",
+          "icon": "fiw",
+          "friend": null,
+          "counter": false,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 2
+        },
+        {
+          "id": "s_kab",
+          "label": "สปริงพี่ใหญ่",
+          "group": "family",
+          "icon": "kab",
+          "friend": null,
+          "counter": false,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 2
+        },
+        {
+          "id": "s_kib",
+          "label": "ห่าเมล็ดเรือง",
+          "group": "family",
+          "icon": "kib",
+          "friend": null,
+          "counter": false,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 2
+        }
+      ],
+      "shadow": {
+        "wallM": 2.8,
+        "lightToWallM": 2.4,
+        "frogDistanceM": 0.6699999999999999,
+        "shadeDistanceM": 0.36,
+        "frogHeightM": 1.611940298507463,
+        "shadeHeightM": 2,
+        "sourceWidthM": 0.006,
+        "crisp": true,
+        "cape": false
+      },
+      "tab": "family",
+      "preview": null,
+      "territory": [
+        "gear",
+        "seeds",
+        "guard"
+      ]
+    },
+    "ending": null
+  },
+  {
+    "id": 4,
+    "stem": "mode2-clash-r5-desktop",
+    "mode": "clash",
+    "mobile": false,
+    "state": {
+      "round": "R5",
+      "t": 3,
+      "P": 6,
+      "hp": 5,
+      "mind": 4,
+      "sta": 4,
+      "fsu": 4,
+      "streak": 1,
+      "bk": 3,
+      "bf": 3,
+      "bt": 3,
+      "items": [
+        "button",
+        "seeds",
+        "guard",
+        "gear"
+      ],
+      "major": null,
+      "ready": [],
+      "used": [
+        "a_pkam"
+      ],
+      "dim": false,
+      "charged": false,
+      "weak": false,
+      "regroup": false,
+      "grace": false,
+      "gritUsed": false,
+      "homesick": 0,
+      "ended": false,
+      "outcome": null,
+      "peace": {
+        "kab": false,
+        "kib": false
+      },
+      "territory": {
+        "dimOff": true,
+        "growHalf": true,
+        "gatherOff": true,
+        "whisperOff": false
+      },
+      "log": [
+        "whisper:a_pkam",
+        "none:rain"
+      ]
+    },
+    "clash": {
+      "state": {
+        "round": "R5",
+        "t": 3,
+        "P": 6,
+        "hp": 5,
+        "mind": 4,
+        "sta": 4,
+        "fsu": 4,
+        "streak": 1,
+        "bk": 3,
+        "bf": 3,
+        "bt": 3,
+        "items": [
+          "button",
+          "seeds",
+          "guard",
+          "gear"
+        ],
+        "major": null,
+        "ready": [],
+        "used": [
+          "a_pkam"
+        ],
+        "dim": false,
+        "charged": false,
+        "weak": false,
+        "regroup": false,
+        "grace": false,
+        "gritUsed": false,
+        "homesick": 0,
+        "ended": false,
+        "outcome": null,
+        "peace": {
+          "kab": false,
+          "kib": false
+        },
+        "territory": {
+          "dimOff": true,
+          "growHalf": true,
+          "gatherOff": true,
+          "whisperOff": false
+        },
+        "log": [
+          "whisper:a_pkam",
+          "none:rain"
+        ]
+      },
+      "round": "R5",
+      "beat": "choose",
+      "turn": 3,
+      "turns": 4,
+      "light": 6,
+      "intent": "แมลงสาบแมนเตรียมใช้ · เงาขยาย",
+      "intentId": "grow",
+      "cards": [
+        {
+          "id": "strike",
+          "label": "ก้าวชิดโคม",
+          "group": "basic",
+          "icon": "advance",
+          "friend": null,
+          "counter": true,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "แรง ●●",
+          "repeatCost": "",
+          "gain": 2
+        },
+        {
+          "id": "guard",
+          "label": "ยืนนิ่งกลางลำแสง",
+          "group": "basic",
+          "icon": "shield",
+          "friend": null,
+          "counter": true,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "แรง ●",
+          "repeatCost": "",
+          "gain": 0
+        },
+        {
+          "id": "rest",
+          "label": "สูดลมหลังฐานโคม",
+          "group": "basic",
+          "icon": "wind",
+          "friend": null,
+          "counter": false,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 0
+        },
+        {
+          "id": "rain",
+          "label": "ตั้งสติฟังฝน",
+          "group": "family",
+          "icon": "drop",
+          "friend": null,
+          "counter": false,
+          "repeat": true,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "ใจ ● แรง ●",
+          "gain": 1
+        },
+        {
+          "id": "wind",
+          "label": "ดีดตัวผ่าลม",
+          "group": "family",
+          "icon": "jump",
+          "friend": null,
+          "counter": true,
+          "repeat": true,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "ใจ ● แรง ●",
+          "gain": 2
+        },
+        {
+          "id": "eye",
+          "label": "ตาส่องเงามืด",
+          "group": "family",
+          "icon": "eye",
+          "friend": null,
+          "counter": false,
+          "repeat": true,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "ใจ ● แรง ●",
+          "gain": 1
+        },
+        {
+          "id": "a_fiw",
+          "label": "โฉบคว้ากลางเวหา",
+          "group": "friends",
+          "icon": "fiw",
+          "friend": null,
+          "counter": false,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 2
+        },
+        {
+          "id": "s_kab",
+          "label": "สปริงพี่ใหญ่",
+          "group": "family",
+          "icon": "kab",
+          "friend": null,
+          "counter": false,
+          "repeat": true,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "ใจ ● แรง ●",
+          "gain": 2
+        },
+        {
+          "id": "s_kib",
+          "label": "ห่าเมล็ดเรือง",
+          "group": "family",
+          "icon": "kib",
+          "friend": null,
+          "counter": true,
+          "repeat": true,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "ใจ ● แรง ●",
+          "gain": 2
+        },
+        {
+          "id": "hem",
+          "label": "ชูชายเสื้อรับแสง",
+          "group": "basic",
+          "icon": "hem",
+          "friend": null,
+          "counter": false,
+          "repeat": false,
+          "combo": false,
+          "finisher": true,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 3
+        }
+      ],
+      "shadow": {
+        "wallM": 2.8,
+        "lightToWallM": 2.4,
+        "frogDistanceM": 0.5299999999999999,
+        "shadeDistanceM": 0.44,
+        "frogHeightM": 2.037735849056604,
+        "shadeHeightM": 1.6363636363636362,
+        "sourceWidthM": 0.006,
+        "crisp": true,
+        "cape": false
+      },
+      "tab": "family",
+      "preview": "สูดความมืด",
+      "territory": [
+        "gear",
+        "seeds",
+        "guard"
+      ]
+    },
+    "ending": null
+  },
+  {
+    "id": 5,
+    "stem": "mode3-camp-c3-desktop",
+    "mode": "camp",
+    "mobile": false,
+    "state": {
+      "hp": 4,
+      "mind": 3,
+      "sta": 4,
+      "bk": 2,
+      "bf": 2,
+      "bt": 2,
+      "items": [
+        "button",
+        "seeds",
+        "gear"
+      ]
+    },
+    "clash": null,
+    "ending": null
+  },
+  {
+    "id": 6,
+    "stem": "mode3-camp-c3-mobile",
+    "mode": "camp",
+    "mobile": true,
+    "state": {
+      "hp": 4,
+      "mind": 3,
+      "sta": 4,
+      "bk": 2,
+      "bf": 2,
+      "bt": 2,
+      "items": [
+        "button",
+        "seeds",
+        "gear"
+      ]
+    },
+    "clash": null,
+    "ending": null
+  },
+  {
+    "id": 7,
+    "stem": "mode4-stitch-mobile",
+    "mode": "stitch",
+    "mobile": true,
+    "state": {
+      "hp": 4,
+      "mind": 3,
+      "sta": 4,
+      "bk": 2,
+      "bf": 2,
+      "bt": 2,
+      "items": [
+        "button",
+        "seeds",
+        "gear"
+      ]
+    },
+    "clash": null,
+    "ending": null
+  },
+  {
+    "id": 8,
+    "stem": "mode4-tap-rail-desktop",
+    "mode": "tap",
+    "mobile": false,
+    "state": {
+      "hp": 4,
+      "mind": 3,
+      "sta": 4,
+      "bk": 2,
+      "bf": 2,
+      "bt": 2,
+      "items": [
+        "button",
+        "seeds",
+        "gear"
+      ]
+    },
+    "clash": null,
+    "ending": null
+  },
+  {
+    "id": 9,
+    "stem": "mode5-endings-desktop",
+    "mode": "endings",
+    "mobile": false,
+    "state": {
+      "hp": 3,
+      "mind": 3,
+      "sta": 3,
+      "bk": 3,
+      "bf": 2,
+      "bt": 2,
+      "fsu": 3,
+      "sr": 3,
+      "items": [
+        "button",
+        "ribbon",
+        "seeds",
+        "gear"
+      ]
+    },
+    "clash": null,
+    "ending": {
+      "home": true,
+      "pond": true,
+      "dawn": false,
+      "fallback": false
+    }
+  },
+  {
+    "id": 10,
+    "stem": "mode5-endings-mobile",
+    "mode": "endings",
+    "mobile": true,
+    "state": {
+      "hp": 3,
+      "mind": 3,
+      "sta": 3,
+      "bk": 3,
+      "bf": 2,
+      "bt": 2,
+      "fsu": 3,
+      "sr": 3,
+      "items": [
+        "button",
+        "ribbon",
+        "seeds",
+        "gear"
+      ]
+    },
+    "clash": null,
+    "ending": {
+      "home": true,
+      "pond": true,
+      "dawn": false,
+      "fallback": false
+    }
+  },
+  {
+    "id": 11,
+    "stem": "mode2-clash-r4a-tray-mobile",
+    "mode": "clash",
+    "mobile": true,
+    "state": {
+      "round": "R4A",
+      "t": 1,
+      "P": 4,
+      "hp": 5,
+      "mind": 4,
+      "sta": 4,
+      "fsu": 3,
+      "streak": 0,
+      "bk": 3,
+      "bf": 3,
+      "bt": 3,
+      "items": [
+        "button",
+        "ribbon",
+        "seeds",
+        "gear"
+      ],
+      "major": null,
+      "ready": [],
+      "used": [],
+      "dim": false,
+      "charged": false,
+      "weak": false,
+      "regroup": false,
+      "grace": false,
+      "gritUsed": false,
+      "homesick": 0,
+      "ended": false,
+      "outcome": null,
+      "peace": {
+        "kab": false,
+        "kib": false
+      },
+      "territory": {
+        "dimOff": false,
+        "growHalf": false,
+        "gatherOff": false,
+        "whisperOff": false
+      },
+      "log": []
+    },
+    "clash": {
+      "state": {
+        "round": "R4A",
+        "t": 1,
+        "P": 4,
+        "hp": 5,
+        "mind": 4,
+        "sta": 4,
+        "fsu": 3,
+        "streak": 0,
+        "bk": 3,
+        "bf": 3,
+        "bt": 3,
+        "items": [
+          "button",
+          "ribbon",
+          "seeds",
+          "gear"
+        ],
+        "major": null,
+        "ready": [],
+        "used": [],
+        "dim": false,
+        "charged": false,
+        "weak": false,
+        "regroup": false,
+        "grace": false,
+        "gritUsed": false,
+        "homesick": 0,
+        "ended": false,
+        "outcome": null,
+        "peace": {
+          "kab": false,
+          "kib": false
+        },
+        "territory": {
+          "dimOff": false,
+          "growHalf": false,
+          "gatherOff": false,
+          "whisperOff": false
+        },
+        "log": []
+      },
+      "round": "R4A",
+      "beat": "choose",
+      "turn": 1,
+      "turns": 4,
+      "light": 4,
+      "intent": "แมลงสาบแมนเตรียมใช้ · เงาขยาย",
+      "intentId": "grow",
+      "cards": [
+        {
+          "id": "strike",
+          "label": "ไต่ขึ้นตามกิ่งไทร",
+          "group": "basic",
+          "icon": "advance",
+          "friend": null,
+          "counter": true,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "แรง ●●",
+          "repeatCost": "",
+          "gain": 2
+        },
+        {
+          "id": "guard",
+          "label": "เกาะแน่นกับเชือก",
+          "group": "basic",
+          "icon": "shield",
+          "friend": null,
+          "counter": true,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "แรง ●",
+          "repeatCost": "",
+          "gain": 0
+        },
+        {
+          "id": "rest",
+          "label": "พักบนง่ามไม้",
+          "group": "basic",
+          "icon": "wind",
+          "friend": null,
+          "counter": false,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 0
+        },
+        {
+          "id": "rain",
+          "label": "ตั้งสติฟังฝน",
+          "group": "family",
+          "icon": "drop",
+          "friend": null,
+          "counter": false,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 1
+        },
+        {
+          "id": "wind",
+          "label": "ดีดตัวผ่าลม",
+          "group": "family",
+          "icon": "jump",
+          "friend": null,
+          "counter": true,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 2
+        },
+        {
+          "id": "eye",
+          "label": "ตาส่องเงามืด",
+          "group": "family",
+          "icon": "eye",
+          "friend": null,
+          "counter": false,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 1
+        },
+        {
+          "id": "seeds",
+          "label": "เมล็ดต้อยติ่ง",
+          "group": "pouch",
+          "icon": "seeds",
+          "friend": null,
+          "counter": true,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 2
+        },
+        {
+          "id": "gear",
+          "label": "เฟืองสังกะสี",
+          "group": "pouch",
+          "icon": "gear-item",
+          "friend": null,
+          "counter": false,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 2
+        },
+        {
+          "id": "button",
+          "label": "กระดุมทองเหลือง",
+          "group": "pouch",
+          "icon": "button",
+          "friend": null,
+          "counter": false,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 2
+        },
+        {
+          "id": "ribbon",
+          "label": "ริบบิ้นกลิ่นแดด",
+          "group": "pouch",
+          "icon": "ribbon",
+          "friend": null,
+          "counter": false,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 1
+        },
+        {
+          "id": "a_pkam",
+          "label": "โล่กระป๋องเหล็กคู่ใจ",
+          "group": "friends",
+          "icon": "kam-empty",
+          "friend": null,
+          "counter": true,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 1
+        },
+        {
+          "id": "a_fiw",
+          "label": "โฉบคว้ากลางเวหา",
+          "group": "friends",
+          "icon": "fiw",
+          "friend": null,
+          "counter": false,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 2
+        },
+        {
+          "id": "a_teuk",
+          "label": "ลำแสงสัญญาจากนอกรั้ว",
+          "group": "friends",
+          "icon": "teuk",
+          "friend": null,
+          "counter": false,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 3
+        },
+        {
+          "id": "s_kab",
+          "label": "สปริงพี่ใหญ่",
+          "group": "family",
+          "icon": "kab",
+          "friend": null,
+          "counter": false,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 2
+        },
+        {
+          "id": "s_kib",
+          "label": "ห่าเมล็ดเรือง",
+          "group": "family",
+          "icon": "kib",
+          "friend": null,
+          "counter": true,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 2
+        },
+        {
+          "id": "ribbon_fiw",
+          "label": "ผ้าพันคอนำลม",
+          "group": "pouch",
+          "icon": "ribbon",
+          "friend": "fiw",
+          "counter": false,
+          "repeat": false,
+          "combo": true,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 3
+        }
+      ],
+      "shadow": null,
+      "tab": "pouch",
+      "preview": null,
+      "territory": []
+    },
+    "ending": null
+  },
+  {
+    "id": 12,
+    "stem": "mode2-clash-r2-desktop",
+    "mode": "clash",
+    "mobile": false,
+    "state": {
+      "round": "R2",
+      "t": 2,
+      "P": 4,
+      "hp": 5,
+      "mind": 4,
+      "sta": 4,
+      "fsu": 1,
+      "streak": 1,
+      "bk": 2,
+      "bf": 1,
+      "bt": 0,
+      "items": [
+        "seeds",
+        "guard",
+        "gear"
+      ],
+      "major": null,
+      "ready": [],
+      "used": [],
+      "dim": false,
+      "charged": false,
+      "weak": false,
+      "regroup": false,
+      "grace": false,
+      "gritUsed": false,
+      "homesick": 0,
+      "ended": false,
+      "outcome": null,
+      "peace": {
+        "kab": false,
+        "kib": false
+      },
+      "territory": {
+        "dimOff": false,
+        "growHalf": false,
+        "gatherOff": false,
+        "whisperOff": false
+      },
+      "log": [
+        "taunt:rain"
+      ]
+    },
+    "clash": {
+      "state": {
+        "round": "R2",
+        "t": 2,
+        "P": 4,
+        "hp": 5,
+        "mind": 4,
+        "sta": 4,
+        "fsu": 1,
+        "streak": 1,
+        "bk": 2,
+        "bf": 1,
+        "bt": 0,
+        "items": [
+          "seeds",
+          "guard",
+          "gear"
+        ],
+        "major": null,
+        "ready": [],
+        "used": [],
+        "dim": false,
+        "charged": false,
+        "weak": false,
+        "regroup": false,
+        "grace": false,
+        "gritUsed": false,
+        "homesick": 0,
+        "ended": false,
+        "outcome": null,
+        "peace": {
+          "kab": false,
+          "kib": false
+        },
+        "territory": {
+          "dimOff": false,
+          "growHalf": false,
+          "gatherOff": false,
+          "whisperOff": false
+        },
+        "log": [
+          "taunt:rain"
+        ]
+      },
+      "round": "R2",
+      "beat": "choose",
+      "turn": 2,
+      "turns": 4,
+      "light": 4,
+      "intent": "แมลงสาบแมนเตรียมใช้ · เงาขยาย",
+      "intentId": "grow",
+      "cards": [
+        {
+          "id": "strike",
+          "label": "บุกขึ้นกองกระป๋อง",
+          "group": "basic",
+          "icon": "advance",
+          "friend": null,
+          "counter": true,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "แรง ●●",
+          "repeatCost": "",
+          "gain": 2
+        },
+        {
+          "id": "guard",
+          "label": "หลบหลังเฟืองยักษ์",
+          "group": "basic",
+          "icon": "shield",
+          "friend": null,
+          "counter": true,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "แรง ●",
+          "repeatCost": "",
+          "gain": 0
+        },
+        {
+          "id": "rest",
+          "label": "พิงท่อเหล็กหอบหายใจ",
+          "group": "basic",
+          "icon": "wind",
+          "friend": null,
+          "counter": false,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 0
+        },
+        {
+          "id": "rain",
+          "label": "ตั้งสติฟังฝน",
+          "group": "family",
+          "icon": "drop",
+          "friend": null,
+          "counter": false,
+          "repeat": true,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "ใจ ● แรง ●",
+          "gain": 1
+        },
+        {
+          "id": "wind",
+          "label": "ดีดตัวผ่าลม",
+          "group": "family",
+          "icon": "jump",
+          "friend": null,
+          "counter": true,
+          "repeat": true,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "ใจ ● แรง ●",
+          "gain": 2
+        },
+        {
+          "id": "eye",
+          "label": "ตาส่องเงามืด",
+          "group": "family",
+          "icon": "eye",
+          "friend": null,
+          "counter": false,
+          "repeat": true,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "ใจ ● แรง ●",
+          "gain": 1
+        },
+        {
+          "id": "seeds",
+          "label": "เมล็ดต้อยติ่ง",
+          "group": "pouch",
+          "icon": "seeds",
+          "friend": null,
+          "counter": true,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 2
+        },
+        {
+          "id": "guardItem",
+          "label": "สนับข้อมือ",
+          "group": "pouch",
+          "icon": "guard",
+          "friend": null,
+          "counter": false,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 1
+        },
+        {
+          "id": "gear",
+          "label": "เฟืองสังกะสี",
+          "group": "pouch",
+          "icon": "gear-item",
+          "friend": null,
+          "counter": false,
+          "repeat": false,
+          "combo": false,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 2
+        },
+        {
+          "id": "gear_pkam",
+          "label": "ล็อกสลิงถ่วงประตูน้ำ",
+          "group": "pouch",
+          "icon": "gear-item",
+          "friend": "kam-empty",
+          "counter": true,
+          "repeat": false,
+          "combo": true,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 3
+        },
+        {
+          "id": "seeds_fiw",
+          "label": "ไฟเมล็ดนำร่อง",
+          "group": "pouch",
+          "icon": "seeds",
+          "friend": "fiw",
+          "counter": true,
+          "repeat": false,
+          "combo": true,
+          "finisher": false,
+          "cost": "",
+          "repeatCost": "",
+          "gain": 3
+        }
+      ],
+      "shadow": {
+        "wallM": 2.4,
+        "lightToWallM": 2.7,
+        "frogDistanceM": 0.9999999999999999,
+        "shadeDistanceM": 0.45999999999999996,
+        "frogHeightM": 1.2150000000000003,
+        "shadeHeightM": 1.4673913043478264,
+        "crisp": true,
+        "cape": false
+      },
+      "tab": "family",
+      "preview": null,
+      "territory": []
+    },
+    "ending": null
+  },
+  {
+    "id": 13,
+    "stem": "mode5-endings-fallback-mobile",
+    "mode": "endings",
+    "mobile": true,
+    "state": {
+      "hp": 1,
+      "mind": 1,
+      "sta": 1,
+      "bk": 0,
+      "bf": 0,
+      "bt": 0,
+      "fsu": 0,
+      "sr": 0,
+      "items": [
+        "button"
+      ]
+    },
+    "clash": null,
+    "ending": {
+      "home": false,
+      "pond": true,
+      "dawn": false,
+      "fallback": true
+    }
+  }
+]

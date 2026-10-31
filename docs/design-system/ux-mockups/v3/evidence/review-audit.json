@@ -1,0 +1,712 @@
+{
+  "offlineFileUrl": true,
+  "statesChecked": [
+    {
+      "mode": "v3",
+      "deviceFrame": true,
+      "screen": 1,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/mode1-vn-desktop.png"
+    },
+    {
+      "mode": "v3",
+      "deviceFrame": false,
+      "screen": 1,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode1-vn-desktop.png"
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": true,
+      "screen": 1,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v2/mode1-vn-desktop.png"
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": false,
+      "screen": 1,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v2/viewports/mode1-vn-desktop.png"
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": true,
+      "screen": 1,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode1-vn-desktop.png"
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": false,
+      "screen": 1,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode1-vn-desktop.png"
+    },
+    {
+      "mode": "v3",
+      "deviceFrame": true,
+      "screen": 2,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/mode1-choice-mobile.png"
+    },
+    {
+      "mode": "v3",
+      "deviceFrame": false,
+      "screen": 2,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode1-choice-mobile.png"
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": true,
+      "screen": 2,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v2/mode1-choice-mobile.png"
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": false,
+      "screen": 2,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v2/viewports/mode1-choice-mobile.png"
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": true,
+      "screen": 2,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode1-choice-mobile.png"
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": false,
+      "screen": 2,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode1-choice-mobile.png"
+    },
+    {
+      "mode": "v3",
+      "deviceFrame": true,
+      "screen": 3,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/mode2-clash-r5-mobile.png"
+    },
+    {
+      "mode": "v3",
+      "deviceFrame": false,
+      "screen": 3,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode2-clash-r5-mobile.png"
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": true,
+      "screen": 3,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v2/mode2-clash-r5-mobile.png"
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": false,
+      "screen": 3,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v2/viewports/mode2-clash-r5-mobile.png"
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": true,
+      "screen": 3,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode2-clash-r5-mobile.png"
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": false,
+      "screen": 3,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode2-clash-r5-mobile.png"
+    },
+    {
+      "mode": "v3",
+      "deviceFrame": true,
+      "screen": 4,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/mode2-clash-r5-desktop.png"
+    },
+    {
+      "mode": "v3",
+      "deviceFrame": false,
+      "screen": 4,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode2-clash-r5-desktop.png"
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": true,
+      "screen": 4,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v2/mode2-clash-r5-desktop.png"
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": false,
+      "screen": 4,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v2/viewports/mode2-clash-r5-desktop.png"
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": true,
+      "screen": 4,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode2-clash-r5-desktop.png"
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": false,
+      "screen": 4,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode2-clash-r5-desktop.png"
+    },
+    {
+      "mode": "v3",
+      "deviceFrame": true,
+      "screen": 5,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/mode3-camp-c3-desktop.png"
+    },
+    {
+      "mode": "v3",
+      "deviceFrame": false,
+      "screen": 5,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode3-camp-c3-desktop.png"
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": true,
+      "screen": 5,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v2/mode3-camp-c3-desktop.png"
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": false,
+      "screen": 5,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v2/viewports/mode3-camp-c3-desktop.png"
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": true,
+      "screen": 5,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode3-camp-c3-desktop.png"
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": false,
+      "screen": 5,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode3-camp-c3-desktop.png"
+    },
+    {
+      "mode": "v3",
+      "deviceFrame": true,
+      "screen": 6,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/mode3-camp-c3-mobile.png"
+    },
+    {
+      "mode": "v3",
+      "deviceFrame": false,
+      "screen": 6,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode3-camp-c3-mobile.png"
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": true,
+      "screen": 6,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v2/mode3-camp-c3-mobile.png"
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": false,
+      "screen": 6,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v2/viewports/mode3-camp-c3-mobile.png"
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": true,
+      "screen": 6,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode3-camp-c3-mobile.png"
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": false,
+      "screen": 6,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode3-camp-c3-mobile.png"
+    },
+    {
+      "mode": "v3",
+      "deviceFrame": true,
+      "screen": 7,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/mode4-stitch-mobile.png"
+    },
+    {
+      "mode": "v3",
+      "deviceFrame": false,
+      "screen": 7,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode4-stitch-mobile.png"
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": true,
+      "screen": 7,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v2/mode4-stitch-mobile.png"
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": false,
+      "screen": 7,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v2/viewports/mode4-stitch-mobile.png"
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": true,
+      "screen": 7,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode4-stitch-mobile.png"
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": false,
+      "screen": 7,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode4-stitch-mobile.png"
+    },
+    {
+      "mode": "v3",
+      "deviceFrame": true,
+      "screen": 8,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/mode4-tap-rail-desktop.png"
+    },
+    {
+      "mode": "v3",
+      "deviceFrame": false,
+      "screen": 8,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode4-tap-rail-desktop.png"
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": true,
+      "screen": 8,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v2/mode4-tap-rail-desktop.png"
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": false,
+      "screen": 8,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v2/viewports/mode4-tap-rail-desktop.png"
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": true,
+      "screen": 8,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode4-tap-rail-desktop.png"
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": false,
+      "screen": 8,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode4-tap-rail-desktop.png"
+    },
+    {
+      "mode": "v3",
+      "deviceFrame": true,
+      "screen": 9,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/mode5-endings-desktop.png"
+    },
+    {
+      "mode": "v3",
+      "deviceFrame": false,
+      "screen": 9,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode5-endings-desktop.png"
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": true,
+      "screen": 9,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v2/mode5-endings-desktop.png"
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": false,
+      "screen": 9,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v2/viewports/mode5-endings-desktop.png"
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": true,
+      "screen": 9,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode5-endings-desktop.png"
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": false,
+      "screen": 9,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode5-endings-desktop.png"
+    },
+    {
+      "mode": "v3",
+      "deviceFrame": true,
+      "screen": 10,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/mode5-endings-mobile.png"
+    },
+    {
+      "mode": "v3",
+      "deviceFrame": false,
+      "screen": 10,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode5-endings-mobile.png"
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": true,
+      "screen": 10,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v2/mode5-endings-mobile.png"
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": false,
+      "screen": 10,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v2/viewports/mode5-endings-mobile.png"
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": true,
+      "screen": 10,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode5-endings-mobile.png"
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": false,
+      "screen": 10,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode5-endings-mobile.png"
+    },
+    {
+      "mode": "v3",
+      "deviceFrame": true,
+      "screen": 11,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/mode2-clash-r4a-tray-mobile.png"
+    },
+    {
+      "mode": "v3",
+      "deviceFrame": false,
+      "screen": 11,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode2-clash-r4a-tray-mobile.png"
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": true,
+      "screen": 11,
+      "hidden": true,
+      "guides": false,
+      "overflow": false,
+      "source": null
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": false,
+      "screen": 11,
+      "hidden": true,
+      "guides": false,
+      "overflow": false,
+      "source": null
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": true,
+      "screen": 11,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode2-clash-r4a-tray-mobile.png"
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": false,
+      "screen": 11,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode2-clash-r4a-tray-mobile.png"
+    },
+    {
+      "mode": "v3",
+      "deviceFrame": true,
+      "screen": 12,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/mode2-clash-r2-desktop.png"
+    },
+    {
+      "mode": "v3",
+      "deviceFrame": false,
+      "screen": 12,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode2-clash-r2-desktop.png"
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": true,
+      "screen": 12,
+      "hidden": true,
+      "guides": false,
+      "overflow": false,
+      "source": null
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": false,
+      "screen": 12,
+      "hidden": true,
+      "guides": false,
+      "overflow": false,
+      "source": null
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": true,
+      "screen": 12,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode2-clash-r2-desktop.png"
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": false,
+      "screen": 12,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode2-clash-r2-desktop.png"
+    },
+    {
+      "mode": "v3",
+      "deviceFrame": true,
+      "screen": 13,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/mode5-endings-fallback-mobile.png"
+    },
+    {
+      "mode": "v3",
+      "deviceFrame": false,
+      "screen": 13,
+      "hidden": false,
+      "guides": false,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode5-endings-fallback-mobile.png"
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": true,
+      "screen": 13,
+      "hidden": true,
+      "guides": false,
+      "overflow": false,
+      "source": null
+    },
+    {
+      "mode": "v2",
+      "deviceFrame": false,
+      "screen": 13,
+      "hidden": true,
+      "guides": false,
+      "overflow": false,
+      "source": null
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": true,
+      "screen": 13,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode5-endings-fallback-mobile.png"
+    },
+    {
+      "mode": "blueprint",
+      "deviceFrame": false,
+      "screen": 13,
+      "hidden": false,
+      "guides": true,
+      "overflow": false,
+      "source": "../ux-mockups/v3/viewports/mode5-endings-fallback-mobile.png"
+    }
+  ],
+  "statesPassed": 78,
+  "keyboardActivation": true,
+  "horizontalOverflowDesktop": false,
+  "horizontalOverflowMobile": false,
+  "brokenGalleryImages": 0
+}

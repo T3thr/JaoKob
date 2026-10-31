@@ -1,0 +1,131 @@
+{
+  "screen": 7,
+  "stem": "mode4-stitch-mobile",
+  "viewport": {
+    "width": 390,
+    "height": 844,
+    "dpr": 2
+  },
+  "fontReady": true,
+  "fontFaces": [
+    {
+      "family": "Sarabun",
+      "status": "loaded"
+    },
+    {
+      "family": "Sarabun",
+      "status": "loaded"
+    }
+  ],
+  "textOverlaps": [],
+  "brokenImages": [],
+  "horizontalOverflow": false,
+  "targets": [
+    {
+      "label": "ลากตามจุดเพื่อเย็บกระดุม",
+      "minimum": 44,
+      "x": 202,
+      "y": 407,
+      "width": 44,
+      "height": 44,
+      "right": 246,
+      "bottom": 451
+    },
+    {
+      "label": "ลากตามจุดเพื่อเย็บกระดุม",
+      "minimum": 44,
+      "x": 184,
+      "y": 452,
+      "width": 44,
+      "height": 44,
+      "right": 228,
+      "bottom": 496
+    },
+    {
+      "label": "กระเป๋าสานกกสี่ช่อง",
+      "minimum": 44,
+      "x": 266.4296875,
+      "y": 26,
+      "width": 44,
+      "height": 44,
+      "right": 310.4296875,
+      "bottom": 70
+    },
+    {
+      "label": "ตั้งค่า",
+      "minimum": 44,
+      "x": 319,
+      "y": 26,
+      "width": 44,
+      "height": 44,
+      "right": 363,
+      "bottom": 70
+    }
+  ],
+  "undersizedTargets": [],
+  "textClipping": [],
+  "contentOverflow": [],
+  "faceBand": {
+    "top": 270.08,
+    "bottom": 405.12
+  },
+  "uiBandIntrusions": [],
+  "hud": {
+    "x": 16,
+    "y": 16,
+    "width": 358,
+    "height": 64,
+    "right": 374,
+    "bottom": 80
+  },
+  "allActions": [],
+  "visibleActions": [],
+  "counterActions": [],
+  "repeatActions": [],
+  "state": null,
+  "shadowElements": [],
+  "strings": [
+    "ลากตามจุดเพื่อเย็บกระดุม"
+  ],
+  "images": [
+    {
+      "key": "stitch",
+      "path": "../../v2/harness/assets/stitch.png"
+    }
+  ],
+  "componentBounds": [
+    {
+      "name": "MicroPrompt",
+      "x": 202,
+      "y": 407,
+      "width": 44,
+      "height": 44,
+      "right": 246,
+      "bottom": 451
+    },
+    {
+      "name": "MicroPrompt",
+      "x": 184,
+      "y": 452,
+      "width": 44,
+      "height": 44,
+      "right": 228,
+      "bottom": 496
+    },
+    {
+      "name": "TopHudCapsule",
+      "x": 16,
+      "y": 16,
+      "width": 358,
+      "height": 64,
+      "right": 374,
+      "bottom": 80
+    }
+  ],
+  "viewportFile": "viewports/mode4-stitch-mobile.png",
+  "problems": {},
+  "deviceDimensions": [
+    1070,
+    2168
+  ]
+}

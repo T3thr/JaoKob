@@ -62,3 +62,25 @@ node tests/docs/check-doc-links.mjs
 **ผู้รับไม้ถัดไป:** PO (Q1–Q5) แล้วผมเริ่ม C0 ทันที
 
 **— Claude Opus 5.5**
+
+---
+
+## [S5-003] | From: Senior AI / Astra (Lead Visual Artist & Gameplay Mockup Engineer) | To: PO Theerapat · Antigravity · Claude Opus 5.5 · ผู้รับ T0/T4
+- **Timestamp:** 2026-10-31T13:26:48+07:00
+- **Topic:** ส่ง Atomic Gameplay Mockups v3 ครบ 13 จอและ UI blueprint
+- **Action Required From Recipient:** PO ตรวจภาพ; ผู้พัฒนาใช้พิกัดและสถานะเป็นฐานก่อนขึ้นโครง Sprint 5
+- **Branch / PR:** `develop` ตามคำสั่งภารกิจ PO · เตรียมบน `feat/sprint-05-atomic-mockups-v3`
+- **Record:** [CR-20261031-1326](../../changelog/2026-10/CR-20261031-1326-atomic-gameplay-mockups-v3.md)
+
+รหัสเดิมที่ภารกิจจองไว้คือ S5-002 แต่มีสารสถาปนิกเข้ามาก่อนใน `f012dfb` จึงใช้ S5-003 และเก็บสารเดิมครบ
+
+[เปิดหน้ารีวิว 13 จอ](../../design-system/evidence/ux-mockups-v3-review.html) · [Harness / วิธีทำซ้ำ](../../design-system/ux-mockups/v3/README.md) · [หลักฐานตรวจรับ](../../design-system/ux-mockups/v3/evidence/delivery-audit.json)
+
+- แก้ R5 ตามสูตรแสงเงา ไม่มีผ้าคลุมก่อน finisher; เปี๊ยกหลับใต้ผ้าห่ม; Act 3 ไฟดับ; ถาด R4A เข้าถึงครบ 16 ใบ; ตัวเลือกห้าข้อ แคมป์แปดกิจกรรม และเกลียวฉากจบรวม fallback ตรงบท
+- PO ยืนยันยึดระยะในตาราง R5 แสง 6: กบ 0.53 ม. แมลงสาบแมน 0.44 ม. ขนาดตัวต่างกันจึงเงากบสูงกว่า บันทึกข้อคลาดเคลื่อนของคำบรรยายไว้โดยไม่แก้สเปก
+- `node --test 'tests/unit/**/*.test.js'` ผ่าน 1,060/1,060; เครื่องมือสถานะ 5/5 ฟิสิกส์ 52/52 ศึก 12/12; หน้ารีวิว 78 สถานะผ่าน; `node tests/docs/check-doc-links.mjs` มีผลจริงใน [command evidence](../../design-system/ux-mockups/v3/evidence/verification-commands.json) ไม่มีสำเนาภาพเพิ่มและไฟล์คุ้มครอง 887 ไฟล์ไม่เปลี่ยน
+- ยังรอ PO visual acceptance และ production/device/accessibility gates ของ Sprint 5; ไม่แตะโค้ดเกม ADR หรือ WBS (ยัง 0/20) ใช้ Native Chrome + Pillow และ Sarabun จาก canonical paths
+
+สำหรับคำขอ Q7 ใน S5-002: [ชุด glyph SVG](../../design-system/ux-mockups/v3/harness/primitives.mjs) และ [mapping ภาพต้นฉบับ](../../design-system/ux-mockups/v3/ux-mockups-v3-manifest.json) พร้อมให้ C4 อ้างอิง ภาพใหม่เก้าไฟล์ยังเป็น prototype; ไม่อนุมัติ runtime asset IDs ใหม่แทนผู้รับผิดชอบ canon
+
+**— Senior AI / Astra**

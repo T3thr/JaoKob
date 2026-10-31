@@ -1,0 +1,426 @@
+{
+  "method": "Exact strings extracted from authoritative narrative or UX spec; never use the renderer as the expected copy.",
+  "sourceHashes": {
+    "interactive-gameplay-ux-ui-specification.md": "93c4fc060e96d43f991628b77eca4f1e6861d9f5583efaaaed98d5462157c4d0",
+    "act2-living-keepsake-rewrite-blueprint.md": "a7fa752c955fdc448fa6bb180d73ed7079616f051f4101d07df93c23d022088b",
+    "act3-living-keepsake-rewrite-blueprint.md": "0db90427b466885847faf33373a49a7669d32c6da1ae83ea336c954f29530979",
+    "act4-living-keepsake-rewrite-blueprint.md": "e0fa9d639665b558ac4a8f046d13fd9b275565339b1714597cfbdcf21e127744",
+    "act5-living-keepsake-rewrite-blueprint.md": "b32f4f4a1a2e9547a251ff33cf5bc524bcbeac1e38a792d19eedd75e79c0e924",
+    "physics-scale-and-visual-v2-specification.md": "878c12dd8be7365292c1236151c83365a483cdc2b92887fca92c029fe428907e"
+  },
+  "receipts": [
+    {
+      "text": "ก · ท่าผสาน · สนับข้อมือเปลือกไม้งัดฟันเฟือง แล้วดึงก้ามพี่ก้ามขึ้นมา",
+      "source": "act2-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ข · ดีดตัวผ่าลม · พุ่งข้ามกระแสไปคว้าก้าม",
+      "source": "act2-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ค · ตาส่องเงามืด · หาคันโยกหยุดเฟือง",
+      "source": "act2-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ง · ยืนหยัดเอง · ลงน้ำดึงกระป๋องออกด้วยแรงตัวเอง",
+      "source": "act2-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "จ · ฝืนเอา · กระโจนลงไปทั้งตัว",
+      "source": "act2-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ดามข้อเท้าด้วยสนับข้อมือ",
+      "source": "act3-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ช่วยพันข้อเท้าด้วยผ้า",
+      "source": "act3-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "คุยกับเตื๊อก",
+      "source": "act3-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "คุยกับพี่ก้าม",
+      "source": "act3-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "คุยกับเจ้าฟิ้ว",
+      "source": "act3-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "จับแมลงกิน",
+      "source": "act3-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ทำแผล",
+      "source": "act3-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "เตรียมของให้พร้อม",
+      "source": "act3-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "อยู่ตรงนี้ เป็นผู้พิทักษ์ข้างหมอนเธอ",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "กลับบ้านที่บึงน้ำใส",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "เป็นผู้พิทักษ์ของทั้งสองรุ่งอรุณ",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ก้าวชิดโคม",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ยืนนิ่งกลางลำแสง",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "สูดลมหลังฐานโคม",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ตั้งสติฟังฝน",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ดีดตัวผ่าลม",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ตาส่องเงามืด",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "โล่กระป๋องเหล็กคู่ใจ",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "โฉบคว้ากลางเวหา",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "สปริงพี่ใหญ่",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ห่าเมล็ดเรือง",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "แมลงสาบแมนเตรียมใช้ · กระซิบฝันร้าย",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "ก้าวชิดโคม",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ยืนนิ่งกลางลำแสง",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "สูดลมหลังฐานโคม",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ตั้งสติฟังฝน",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ดีดตัวผ่าลม",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ตาส่องเงามืด",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "โฉบคว้ากลางเวหา",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "สปริงพี่ใหญ่",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ห่าเมล็ดเรือง",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ชูชายเสื้อรับแสง",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "แมลงสาบแมนเตรียมใช้ · เงาขยาย",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "สูดความมืด",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "ไต่ขึ้นตามกิ่งไทร",
+      "source": "act4-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "เกาะแน่นกับเชือก",
+      "source": "act4-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "พักบนง่ามไม้",
+      "source": "act4-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ตั้งสติฟังฝน",
+      "source": "act4-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ดีดตัวผ่าลม",
+      "source": "act4-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ตาส่องเงามืด",
+      "source": "act4-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "เมล็ดต้อยติ่ง",
+      "source": "act4-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "เฟืองสังกะสี",
+      "source": "act4-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "กระดุมทองเหลือง",
+      "source": "act4-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ริบบิ้นกลิ่นแดด",
+      "source": "act4-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "โล่กระป๋องเหล็กคู่ใจ",
+      "source": "act4-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "โฉบคว้ากลางเวหา",
+      "source": "act4-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ลำแสงสัญญาจากนอกรั้ว",
+      "source": "act4-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "สปริงพี่ใหญ่",
+      "source": "act4-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ห่าเมล็ดเรือง",
+      "source": "act4-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ผ้าพันคอนำลม",
+      "source": "act4-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "แมลงสาบแมนเตรียมใช้ · เงาขยาย",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "บุกขึ้นกองกระป๋อง",
+      "source": "act2-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "หลบหลังเฟืองยักษ์",
+      "source": "act2-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "พิงท่อเหล็กหอบหายใจ",
+      "source": "act2-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ตั้งสติฟังฝน",
+      "source": "act2-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ดีดตัวผ่าลม",
+      "source": "act2-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ตาส่องเงามืด",
+      "source": "act2-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "เมล็ดต้อยติ่ง",
+      "source": "act2-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "สนับข้อมือ",
+      "source": "act2-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "เฟืองสังกะสี",
+      "source": "act2-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ล็อกสลิงถ่วงประตูน้ำ",
+      "source": "act2-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ไฟเมล็ดนำร่อง",
+      "source": "act2-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "แมลงสาบแมนเตรียมใช้ · เงาขยาย",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "กาย",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "ใจ",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "แรง",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "แก้ทาง",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "ซ้ำ",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "เลือกแล้ว",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "ออกเดินทางต่อ",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "ครอบครัว",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "สหาย",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "ของ·ผสาน",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "ทักษะครอบครัว",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "ยืนหยัดเอง",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "ฝืนเอา",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "ท่าปิดศึก",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "ท่าผสาน · พี่ก้าม",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "ท่าผสาน · เจ้าฟิ้ว",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "ตะเกียงเหลือสองรอบ",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "สละสนับข้อมือ",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "ดามแล้ว",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "ลากตามจุดเพื่อเย็บกระดุม",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "เคาะราวไม้สามครั้ง",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "ทางเลือกในแสงแรก",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "พี่กับจะแบกกลับเอง",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "ไม่มีผล",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "เมล็ด: เหลือครึ่ง",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "เฟือง · เมล็ด · สนับ",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "ของทุกชิ้นวางเป็นอาณาเขตแล้ว",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "หัวใจ · คำสัญญา",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "ขาที่พากลับ · รากเหง้า",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "ใจและขา · ทุกสายใย · สองโลก",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "เตื๊อก",
+      "source": "interactive-gameplay-ux-ui-specification.md"
+    },
+    {
+      "text": "เอ็งเข้าใจที่ข้าพูดใช่ไหม ถ้าใช่ เคาะราวไม้สามที",
+      "source": "act3-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "เขายังไม่เคยยืนด้วยลำแข้งของตัวเองมากพอ",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "ใจของเขายังสั่นเกินกว่าจะมอบให้ใคร",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    },
+    {
+      "text": "เสียงของบ้านในตัวเขายังเบาเกินไป",
+      "source": "act5-living-keepsake-rewrite-blueprint.md"
+    }
+  ],
+  "passed": true
+}

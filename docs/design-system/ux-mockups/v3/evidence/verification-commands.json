@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-31",
+  "timezone": "Asia/Bangkok",
+  "commands": [
+    {
+      "command": "node --test 'tests/unit/**/*.test.js'",
+      "exitCode": 0,
+      "summary": {
+        "tests": 1060,
+        "pass": 1060,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      }
+    },
+    {
+      "command": "node docs/design-system/evidence/ux-v3-screen-states-check.mjs",
+      "exitCode": 0,
+      "passedAssertions": 5,
+      "lastLine": "ผลรวม: ผ่านทุกข้อ"
+    },
+    {
+      "command": "node docs/design-system/evidence/physics-scale-optics-check.mjs",
+      "exitCode": 0,
+      "passedAssertions": 52,
+      "lastLine": "ผลรวม: ผ่านทุกข้อ"
+    },
+    {
+      "command": "node docs/design-system/evidence/tactical-clash-simulator.mjs",
+      "exitCode": 0,
+      "passedAssertions": 12,
+      "lastLine": "ผลรวม: ผ่านทุกข้อ"
+    },
+    {
+      "command": "node tests/docs/check-doc-links.mjs",
+      "exitCode": 0,
+      "linksChecked": 2345,
+      "brokenLinks": 0,
+      "trackedFilesIncludeV3": true
+    }
+  ],
+  "integrationBase": "f012dfb",
+  "reverifiedAfterIntegration": true
+}

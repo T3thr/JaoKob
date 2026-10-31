@@ -1,0 +1,13 @@
+{
+  "integrationBase": "f012dfb7e428a876318e243471c811b2116be7ee",
+  "remoteFilesUnchanged": {
+    "docs/changelog/2026-10/2026-10-31-0545-core-architect-onboarding-and-slice-1-plan.md": "61199c3edbacc9eaea8e6f371ea3f676187ef9f2d59b7c68584787134d558268",
+    "docs/dialogue/AGENT-REGISTRY.md": "a9fc5f95a19e307b2daef183d13e9866f90ff920d58d1b90b57fc978a59b4d22",
+    "docs/dialogue/README.md": "d8bfc04393ebcaba84e17dfe452eee1c056c08aa63d55d4912adf340ab3eacb1",
+    "docs/dialogue/sprint-05/README.md": "47592f756b52edad363926eaec0fbd66ba119061183368ee27c4719d1f6c3215",
+    "docs/dialogue/sprint-05/core-architect-notebook.md": "27c06b485ed3d5e7414298fd75012f82effcd4b28c2244171fbbbcf62398d001"
+  },
+  "remoteBoardPrefixUnchanged": true,
+  "uniqueBoardIds": true,
+  "remoteRegistrationsPreserved": true
+}
