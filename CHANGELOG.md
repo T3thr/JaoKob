@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- **CR-20261031-1500 (Slice 1 checkpoint C0):** Rebaselined the Sprint 5 SSOT to 0.3.0 on ADR-P0-032 v2.0, ADR-P0-033 and the PO decisions of 2026-10-31 (full four-slice scope, nine canon items, legacy save deprecation, five act-start snapshots, interactive glassmorphism web prototype); proposed ADR-P0-034 for the five-act Journey runtime, Save 2 journey profile, read-only legacy namespace and blueprint-compiled content; rebuilt the traceability matrix and recorded the approvals in the master plan. Documentation only; production WBS remains 0/20. [Delivery record](docs/changelog/2026-10/2026-10-31-1500-slice-1-c0-ssot-0-3-0-and-adr-034.md)
+
 - **CR-20261031-1326 (Atomic Gameplay Mockups v3):** Delivered thirteen PNG/WebP gameplay blueprints and an offline comparison/coordinate review. Corrected R5 optical shadows, sleeping เปี๊ยก, Act 3 blackout, 16-card segmented tray, camp and ending states; canonical assets reused without copies. 1,060 unit tests pass; production WBS remains 0/20. [Delivery record](docs/changelog/2026-10/CR-20261031-1326-atomic-gameplay-mockups-v3.md)
 
 - **CR-20261031-0545 (Core Architect onboarding and Slice 1 plan):** Re-verified the baseline (1,060 unit tests, every doc link, five evidence tools) and opened the core architect notebook in `docs/dialogue/sprint-05/` with the technical delta, a draft Slice 1 plan (C0–C5), a 15-item risk register and open questions; posted board message S5-002 and recorded the new Sprint 5 roles in the agent registry. Documentation only; production WBS remains 0/20. [Delivery record](docs/changelog/2026-10/2026-10-31-0545-core-architect-onboarding-and-slice-1-plan.md)

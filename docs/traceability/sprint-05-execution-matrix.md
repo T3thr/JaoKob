@@ -1,54 +1,107 @@
 # Sprint 5 Execution Traceability Matrix
 
-Version 0.2.0, 2026-10-18. Authority: [ADR-P0-022](../adr/ADR-P0-022-visual-novel-ergonomics-living-keepsake-lore-and-sprint-streamlining.md) and current PO directive. [SSOT](../sprints/sprint-05-ssot.md) owns WBS/DoR/DoD; [remediation contract](../proposals/sprint-05-planning/02-adr022-remediation-contract.md) defines the acceptance behavior. Planning delivery is [Draft PR #18](https://github.com/T3thr/JaoKob/pull/18). PR19–22 are the requested future sequence, not created PR links or completed work.
+Version **0.3.0**, 2026-10-31 (Asia/Bangkok). Authority: มติ PO 2026-10-31 · [ADR-P0-032 v2.0](../adr/ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md) · [ADR-P0-033](../adr/ADR-P0-033-interactive-tactical-adventure-gameplay-and-dynamic-stage-revolution.md) · [ADR-P0-034](../adr/ADR-P0-034-five-act-journey-runtime-save2-journey-profile-and-blueprint-compiled-content.md) (proposed) · [Sprint 5 SSOT 0.3.0](../sprints/sprint-05-ssot.md) ซึ่งเป็นเจ้าของ WBS DoR และ DoD · ฉบับ 0.2.0 ยุค ADR-P0-022 อยู่ใน git ที่ `8643a30`
 
-## 1. Critical review findings to required evidence
+ทุกแถวมีสถานะ **วางแผนแล้ว รอหลักฐาน** จนกว่าหลักฐานที่ระบุจะมีอยู่บน build จริง · รหัสเทสต์ที่ยังไม่มี runner เป็นการตรวจที่วางแผนไว้ ไม่ใช่การตรวจที่ผ่านแล้ว · S1–S4 คือ execution PR สี่ตัว เลข PR จริงลงเมื่อเปิด
 
-`R22-*` are local finding labels for this review, not new approved product Requirement IDs. Every row is **planned remediation / actual acceptance pending** until the stated evidence exists on a revised build.
+## 1. ข้อตัดสินใจ → งาน → หลักฐาน
 
-| Finding | Authority / requirement | Tasks / planned PR | Changed artifacts planned | Required evidence / owner |
-|---|---|---|---|---|
-| R22-01: incoherent design, spacing, icons and affordance | ADR22 D2; FR-UI-001/003/007; FR-ACC-001..004 | T0/T4/T5, PR19 | Design spec, tokens/layout/components and dependent styles, renderer/icons/localization | `TC-S5-VN-001`, `TC-S5-PRESENTATION-001`, `TC-S5-A11Y-001`: real responsive compositions, pointer/default/focus states, Thai expansion and human comfort; UI/Accessibility/PO |
-| R22-02: unnatural Thai prose | ADR22 D4; NAR-VOI-001..004; NAR-CON-010 | T6/T7, PR20; T8–T13, PR21; T18, PR22 | New Act1–5 prose/dialogue/choice intent, editorial record | `TC-S5-THAI-001`, `TC-S5-CLOSURE-001`: full-path read-aloud/on-device review, natural intention/cause, duplicate/meta-talk lint and documented revisions; Narrative/PO |
-| R22-03: crowded HUD and difficult touch controls | ADR22 D3; FR-UI-005; NFR-US-005/006 | T4/T5, PR19; T17/T18, PR22 | Ambient meter region, separate system command region, responsive safe-area layout | `TC-S5-HUD-001`, `TC-S5-DEVICE-001`: ≥44×44 targets, gaps/no overlap, no Bond disclosure before gate, physical touch and comfort review; UI/QA |
-| R22-04: biological opening and inconsistent body/scale | ADR22 D1; NAR-CAN-002; NAR-CON-001/003/008 | T0, PR19; T6/T7, PR20; T8–T15, PR21/22 | Revised lore/IDs, body-stage art, world-scale boards, callback registry, adult embroidery | `TC-S5-LORE-001`, `TC-S5-SCALE-001`, `TC-S5-GIFT-ART-001`: crochet→adult45cm blue shirt before storm, scale references and all-ending identity continuity; Narrative/Art/Game Design |
-| R22-05: inner choice scrolling and cramped utilities | ADR22 D2/D3; FR-UI-003; FR-ACC-001..004 | T4/T5, PR19; T18, PR22 | Choice layout/pagination; Log/Pouch/Settings spacing/focus | `TC-S5-VN-001`, `TC-S5-UX-001`, `TC-S5-A11Y-001`: no nested choice scrollbar/clipping, all eligible actions reachable, utility reading comfort at expanded text; UI/Accessibility |
-| R22-06: saved-success dot on every advance | ADR22 D2; FR-SAV-002/003; NFR-RL-003 | T3/T4, PR19 | Save-status projection/rendering, pseudo-elements/animation and attention messages | `TC-S5-SILENT-001`, `TC-S5-SAVE-001`: no visible/live success signal, actual save/reload, accessible quota/protection failure; Application/QA |
-| R22-07: stiff visual staging and missing cinematic moments | ADR22 D4; GDD-AV-001..004; FR-UI-004 | T0/T1/T5, PR19; T7, PR20; T9/T11/T13, PR21 | Staging metadata, body portraits, growth/storm/city/girl/ending boards and illustrations | `TC-S5-CINEMATIC-001`, `TC-S5-MEDIA-001`: emotional beat and scale review, full text/still/audio-off fallback, semantic reload and once-only effects; Art/Narrative/QA |
-| R22-08: narrative confirmation popup breaks flow | ADR22 D5; FR-UI-002/006; FR-ACC-001/003 | T4/T5, PR19 | Inline armed choice/revision/cancel state, localized cue, keyboard/touch semantics | `TC-S5-INLINE-001`: no narrative dialog, no effect on arm, deliberate one-time commit, preference/cancel/stale/rapid-input proof; UI/Application/QA |
+### 1.1 ADR-P0-032 v2.0 · canon
 
-## 2. Inherited system and delivery requirements
-
-| Requirement / invariant | Tasks / planned PR | Artifacts / design | Verification |
-|---|---|---|---|
-| ADR22 D6: four value slices | T0 and every task, PR19–22 | SSOT matrix, per-PR internal checkpoints and audits | `TC-S5-REQ-001`: exactly S1/T0–5, S2/T6–7, S3/T8–13, S4/T14–19; no untraced fifth execution PR |
-| ADR22 Save2 consequence; FR-SAV-001..009; NFR-MA-006 | T0/T1/T3, PR19; T13, PR21; T19, PR22 | New separately identified Save2 profile, exact legacy schemas/archives, real replay and guarded writer | `TC-S5-SCHEMA-001`, `TC-S5-SAVE-001`, `TC-S5-SAVE-002`, `TC-S5-REPLAY-001`: no forced old-save reset, new-reader compatibility, old-application byte protection, ≤250KB |
-| Protected canonical package; FR-CNT-001..005; NFR-MA-004/006 | T0/T1/T3, PR19; T19, PR22 | Host-owned core descriptor, bounded registry/capabilities, identity-bound session/cache/media, S6 fixture | `TC-S5-PACKAGE-001`: same-version different packages isolated; reserved ID/overwrite/delete/shadow rejected; no Editor built |
-| FR-STA-001..006; FR-ENG-001..009; TR-001..020 | T2/T3/T5, PR19; T8–T13, PR21 | Pure orchestration/transactions, crisis/Assist/Bond/ending/replay and real controls | `TC-S5-STATE-001`, `TC-S5-ENDING-001`: allowed/guarded/forbidden transitions, atomicity, no replay-on-read or farmable repair |
-| ADR-P0-020; six encountered objects/four held slots; NAR-CON-002/010 | T6–T13, PR20/21 | Revised setup/payoff matrix and actual held/acquired/released/remembered/refused/unseen variants | `TC-S5-CALLBACK-001`: truthful physical use/defaults, no item-exclusive recovery/HOME, full/cancel/replace/refuse witnesses |
-| NAR-CON-003; NAR-BRN-001..004; GDD-BAL-001..009 | T6/T8/T9, PR20/21 | Reeds/drain, before-A3-003 convergence, reachable recovery and checkpoint policy | `TC-S5-CONVERGENCE-001`, `TC-S5-BALANCE-001`: state-aware all-path witnesses, preserved route effects, no low-meter deadlock |
-| GDD-END-001..006; NAR-END-001/002; ADR21 fairness retained | T2, PR19; T10–T13, PR21 | Three resolver IDs/thresholds and equally complete living-keepsake epilogues | `TC-S5-ENDING-001`, `TC-S5-CLOSURE-001`, `TC-S5-E2E-001`: eight design witnesses plus actual revised full journeys, no item/settings bias |
-| FR-UI-004; FR-SET-001..004; FR-LOC-001..003 | T0/T5, PR19; T7/T13/T18, PR20–22 | Control/cutscene/settings disposition, complete Thai system strings and semantic text receipts | `TC-S5-UX-001`, `TC-S5-PRESENTATION-001`, `TC-S5-CINEMATIC-001`: real available controls, no inert button or silent scope waiver |
-| NFR-PE-001..005; NFR-RL-001..005 | T1/T3/T4 and each content/media task; T17/T18, PR22 | Bounded catalog/save/replay/cache, staged persistence, optional media | `TC-S5-PERF-001`, `TC-S5-MEDIA-001`: measured budgets/faults and counterexamples, recorded host/network/device |
-| ADR22 D6; FR-CNT-006; FR-ACC-001..004 | T14–T18, PR22 | Reviewed original art/export/poster, pinned same-origin viewer, focus/fallback/disposal | `TC-S5-ASSET-001`, `TC-S5-GIFT-ART-001`, `TC-S5-GIFT-001`, `TC-S5-DEVICE-001`, `TC-S5-A11Y-001`: real iOS/Android/AT, no early downloads, lifecycle/resource proof |
-| NFR-SE-001..006; NFR-PO-002; FR-SAV-006 | T19, PR22 | Restricted static candidate/root+subpath, release inventory, Save2 rollback and core freeze | `TC-S5-RELEASE-001`: no private source/secret/telemetry/CDN, exact hashes, raw new-profile preservation; separate deployment permission |
-| Human comfort/Thai and critical-feedback resolution | Every slice; final T18, PR22 | Build-linked reviewer records with scene/settings/viewport/finding/resolution | `TC-S5-ACCEPT-001`: every required review recorded; no automatic acceptance from count, lint, screenshot or plan |
-
-## 3. Task allocation and old-plan disposition
-
-| Existing task IDs | Previous planning allocation | Current allocation / changed scope |
+| ข้อตัดสินใจ | งาน | หลักฐาน |
 |---|---|---|
-| T0–T5 | S1–S3 contracts/runtime/presentation | S1 / PR19; T0/T3 now Save2 profiles and explicit lore archives; T4/T5 overhaul instead of speculative polish |
-| T6–T7 | S4 Act2 | S2 / PR20; includes new Act1 crochet origin/growth/storm and Act2, with complete media/read-through |
-| T8–T13 | S5–S7 Acts3–5 | S3 / PR21; world scale/cinematics updated, per-act review checkpoints retained inside one PR |
-| T14–T19 | S8–S10 gift/qualification | S4 / PR22; production art/viewer, actual devices and final qualification in one value slice |
+| D1 เจ้ากบมีชีวิตตัวเดียว · ไม่มีตุ๊กตาตัวที่สอง · กำมะหยี่เฉพาะ E-HOME | T6 · T8 · T10 · T12 · T14 | `TC-S5-LORE-001` · `TC-S5-GIFT-ART-001` |
+| D2 เตื๊อกกับเปี๊ยก · `ต.♡ป.` ความหมายเดียว · บทของเตื๊อกใน Act 3–5 | T6–T12 | `TC-S5-LORE-001` · `TC-S5-THAI-001` |
+| D3 ทะเบียนตัวละคร ไม่มีตัวละครสมมติเพิ่ม | T6–T12 | `TC-S5-LORE-001` |
+| D4 ทางแยกจริง Act 2 สาย A/B · Act 4 แผน A/B | T6 · T10 | `TC-S5-CONVERGENCE-001` · `TC-S5-BALANCE-001` |
+| D5 ทักษะสามชื่อ · สี่สายใยและคำเรียก · โหยหาบ้าน · ฉากจบสมมาตร | T2 · T6–T12 | `TC-S5-STATE-001` · `TC-S5-ENDING-001` · `TC-S5-THAI-001` |
+| D6 กระเป๋าสี่ช่อง · ของหกชิ้น · ท่าผสาน · ไม่มีระบบฝากสหาย | T2 · T6–T12 | `TC-S5-STATE-001` · `TC-S5-CALLBACK-001` |
+| D7 มาตรฐาน Tachie · ระดับตา · สองสเกล · แสงกึ่งกลาง | T4 · T7 · T9 · T11 | `TC-S5-VN-001` · `TC-S5-SCALE-001` |
+| D8 ความต่อเนื่องของภาพ (ผ้าคลุมหลังท่าปิดศึก · แมลงสาบแมนไร้กระดุมหลัง Act 2 · กำมะหยี่ไม่ใช่โครเชต์) | T7 · T9 · T11 · T13 · T14 | `TC-S5-CINEMATIC-001` · `TC-S5-LORE-001` |
 
-The old Save3 recommendation, ten-PR sequence, automatic biological→new-lore bridge and natural-frog-only ending invariant are retired. Prior documents/reports remain historical evidence, not active alternate requirements.
+### 1.2 ADR-P0-033 · เกมเพลย์ คณิตศาสตร์ ฟิสิกส์ UX
 
-## 4. Evidence and review record rules
+| ข้อตัดสินใจ | งาน | หลักฐาน |
+|---|---|---|
+| D0 ห้ามลากลำแสงหาของ · ห้ามแผนที่และหมุด | T4 · T5 · งานเนื้อหาทุกงาน | `TC-S5-UX-001` · `TC-S5-REQ-001` |
+| D1 ศึกแสงปะทะเงา | T2 · T5 · T8 · T10 · T12 | `TC-S5-CLASH-001` · `TC-S5-TRAY-001` · `TC-S5-STATE-001` |
+| D2 พลังงานตามทางเลือกและแคมป์ | T2 · T5 | `TC-S5-STATE-001` · `TC-S5-UX-001` |
+| D3 เวทีมีชีวิตและเงาตามฟิสิกส์ | T5 · T7 · T9 · T11 | `TC-S5-STAGE-001` · `TC-S5-A11Y-001` |
+| D4 สัมผัสโต้ตอบสั้น | T2 · T5 | `TC-S5-UX-001` · `TC-S5-A11Y-001` |
+| D5 คณิตศาสตร์ ฟิสิกส์ และ UX ที่พิสูจน์ได้ | T2 · T4 · T5 · T7 | `TC-S5-BALANCE-001` · `TC-S5-SCALE-001` · `TC-S5-VN-001` |
 
-For each implementation PR record: requirement/finding → changed file or scene → test/inspection ID → exact command or human procedure → build/package/profile → result → evidence link → reviewer disposition. A future TC ID is a planned check until a runner/procedure actually exists.
+### 1.3 ADR-P0-034 · สถาปัตยกรรม (proposed)
 
-Record superseded assertion names and ADR22 replacements for saved-dot visibility, choice modal, biological protagonist and hidden stage-click behavior. Preserve old evidence and all still-valid domain/save/legacy assertions. Exact legacy story tests continue against their archive; new-lore tests use the new package. Do not demand the obsolete behavior to keep a baseline count unchanged.
+| ข้อตัดสินใจ | งาน | หลักฐาน |
+|---|---|---|
+| D1 Journey runtime และการปลด runtime เดิม | T2 · T5 | `TC-S5-REQ-001` · `TC-S5-PACKAGE-001` |
+| D2 kernel และ shell · Core ไม่มีการสุ่มและนาฬิกา | T2 | `TC-S5-STATE-001` · `TC-S5-PACKAGE-001` |
+| D3 สถานะการเดินทางแยกจากการเผชิญหน้า | T2 · T3 | `TC-S5-STATE-001` · `TC-S5-SAVE-001` |
+| D4 คำศัพท์ effect และ condition แบบปิด | T1 · T2 | `TC-S5-SCHEMA-001` · `TC-S5-CONTENT-001` |
+| D5 กติกาศึกแหล่งเดียวและ parity gate | T2 | `TC-S5-CLASH-001` · `TC-S5-BALANCE-001` |
+| D6 เนื้อหาคอมไพล์จากพิมพ์เขียว | T1 · T5 · T6–T12 | `TC-S5-CONTENT-001` |
+| D7 Save 2 journey profile · snapshot ห้าองก์ | T1 · T3 · T13 | `TC-S5-SCHEMA-001` · `TC-S5-SAVE-001` · `TC-S5-SAVE-002` · `TC-S5-REPLAY-001` |
+| D8 namespace เดิมเป็นคลังเซฟเก่าแบบอ่านอย่างเดียว | T3 · T19 | `TC-S5-LEGACY-001` |
+| D9 play-mode และ view model | T2 · T5 | `TC-S5-STATE-001` · `TC-S5-PRESENTATION-001` · `TC-S5-TRAY-001` |
+| D10 Interactive Web Prototype · วัสดุกระจกฝ้า · กำแพงกันสปอยล์ | T4 · T5 | `TC-S5-PROTO-001` · `TC-S5-VN-001` · `TC-S5-HUD-001` · `TC-S5-A11Y-001` |
 
-Human evidence includes role, date, build, scene/beat, viewport/device/settings, observation, severity, screenshot reference if available, revision and acceptance. Do not invent a reviewer, attach the wrong screenshots or mark prior critical findings resolved without a tested new build. Original 2026-10-17 unit/design evidence is retained; fresh planning checks are in [ADR22 replanning verification](../proposals/sprint-05-planning/evidence/adr022-replanning-verification.json).
+### 1.4 ADR ที่คงไว้และมติ PO
+
+| แหล่ง | งาน | หลักฐาน |
+|---|---|---|
+| ADR-P0-022 D2 ระบบออกแบบใหม่ · D3 แยก HUD กับเครื่องมือ · บันทึกเงียบ · D5 ยืนยันแบบ inline · D6 สี่ slices · Save Format 2 | T4 · T5 · T3 · ทุก PR | `TC-S5-VN-001` · `TC-S5-HUD-001` · `TC-S5-SILENT-001` · `TC-S5-INLINE-001` · `TC-S5-REQ-001` |
+| ADR-P0-019 เป้ากด ≥ 44 · ไม่มีตัวเลขในกล่องบทพูด · ไม่มีแถบเลื่อนซ้อน | T4 · T5 | `TC-S5-VN-001` · `TC-S5-HUD-001` |
+| ADR-P0-020 กลไกกระเป๋า | T2 · T3 | `TC-S5-STATE-001` · `TC-S5-CALLBACK-001` |
+| ADR-P0-025 ท่ามาตรฐานและ emote หัวใจ | T7 · T14 · T16 | `TC-S5-LORE-001` · `TC-S5-GIFT-ART-001` |
+| ADR-P0-016 viewer ที่เปิดเมื่อเลือก | T16 · T17 | `TC-S5-GIFT-001` |
+| ADR-P0-014 Resume ที่ idempotent และความยินยอม | T3 | `TC-S5-SAVE-001` |
+| ADR-P0-013 validator ของโครงการ | T1 | `TC-S5-SCHEMA-001` |
+| มติ PO Q1 ขอบเขตเต็ม · Q2 เก้าข้อ | ทุกงาน · T2 · T6–T12 | `TC-S5-REQ-001` · `TC-S5-ENDING-001` · `TC-S5-STATE-001` |
+| มติ PO Q3 เลิกเล่นต่อเซฟเก่า · Q5 snapshot ห้าองก์ | T3 · T13 | `TC-S5-LEGACY-001` · `TC-S5-REPLAY-001` |
+| มติ PO ต้นแบบเว็บที่เล่นได้จริง | T4 · T5 | `TC-S5-PROTO-001` |
+| มติ PO R5 ยึดตารางฟิสิกส์ | T5 · T12 · T13 | `TC-S5-STAGE-001` · `TC-S5-SCALE-001` |
+
+## 2. ข้อค้นพบวิกฤตที่ยังต้องปิด (จากฉบับ 0.2.0)
+
+ป้าย `R22-*` เป็นป้ายของการวิจารณ์ครั้งนั้น ไม่ใช่ Requirement ID ใหม่ · ปิดได้เมื่อ build ที่แก้แล้วผ่านหลักฐานที่ระบุเท่านั้น
+
+| ข้อค้นพบ | สถานะของความหมาย | งาน | หลักฐาน |
+|---|---|---|---|
+| R22-01 ดีไซน์ ระยะ ไอคอน และ affordance ไม่เป็นระบบ | ยังมีผล | T4 · T5 | `TC-S5-VN-001` · `TC-S5-PRESENTATION-001` · `TC-S5-A11Y-001` |
+| R22-02 ภาษาไทยไม่เป็นธรรมชาติ | ยังมีผล | T6–T13 · T18 | `TC-S5-THAI-001` · `TC-S5-CLOSURE-001` |
+| R22-03 HUD อัดและกดยาก | ยังมีผล | T4 · T5 · T17 · T18 | `TC-S5-HUD-001` · `TC-S5-DEVICE-001` |
+| R22-04 ตัวตนและสเกลไม่สอดคล้อง | ความหมายเปลี่ยนตาม ADR-P0-032 v2.0 (กบมีชีวิต 45 ซม. ไม่ใช่ตุ๊กตาตั้งแต่เกิด) | T6–T15 | `TC-S5-LORE-001` · `TC-S5-SCALE-001` · `TC-S5-GIFT-ART-001` |
+| R22-05 ตัวเลือกมีแถบเลื่อนซ้อนและแผงอึดอัด | ยังมีผล | T4 · T5 · T18 | `TC-S5-VN-001` · `TC-S5-UX-001` · `TC-S5-A11Y-001` |
+| R22-06 จุดบันทึกกะพริบทุกครั้ง | ยังมีผล | T3 · T4 | `TC-S5-SILENT-001` · `TC-S5-SAVE-001` |
+| R22-07 ภาพแข็งและไม่มีจังหวะภาพยนตร์ | ยังมีผล และรวมเวทีมีชีวิตของ ADR-P0-033 D3 | T5 · T7 · T9 · T11 · T13 | `TC-S5-CINEMATIC-001` · `TC-S5-STAGE-001` · `TC-S5-MEDIA-001` |
+| R22-08 popup ยืนยันทางเลือกทำลายอารมณ์ | ยังมีผล | T4 · T5 | `TC-S5-INLINE-001` |
+
+## 3. งบคุณภาพ (กุญแจย้อนรอยเดิมที่ยังใช้)
+
+นิยามเดิมของรหัสเหล่านี้อยู่ใน Tier 4 แล้ว เกณฑ์ที่วัดได้เขียนไว้ใน [SSOT §6](../sprints/sprint-05-ssot.md)
+
+| กุญแจ | ความหมายที่ใช้ใน Sprint 5 | งาน | หลักฐาน |
+|---|---|---|---|
+| NFR-PE-001..005 | ขนาด เวลาโหลด และเวลาตอบสนอง | ทุกงานที่กระทบ · T17 · T18 | `TC-S5-PERF-001` |
+| NFR-RL-001..005 | เซฟไม่หาย กู้คืนได้ สื่อเสียแล้วยังเล่นได้ | T3 · T7 · T17 | `TC-S5-SAVE-002` · `TC-S5-MEDIA-001` |
+| NFR-SE-001..006 · NFR-PO-002 | artifact แบบ static ไม่มี secret telemetry หรือ CDN · ทำงานทั้ง root และ subpath | T19 | `TC-S5-RELEASE-001` |
+| NFR-US-005/006 | ความสบายตาและการกดบนอุปกรณ์จริง | T5 · T17 · T18 | `TC-S5-UX-001` · `TC-S5-DEVICE-001` · `TC-S5-ACCEPT-001` |
+
+## 4. การจัดสรรงานและสิ่งที่ปลดระวาง
+
+| งาน | Slice | ขอบเขตใน 0.3.0 |
+|---|---|---|
+| T0–T5 | S1 | rebaseline · schema 3.0.0 และ compiler · engine ห้าองก์ · Save 2 journey profile · ระบบออกแบบใหม่ · ห้าโหมด · Act 1 ต้นแบบ · ปลด runtime เดิม |
+| T6–T7 | S2 | รับรอง Act 1 · Act 2 สองสาย · สื่อ Act 1–2 และเวทีเงาสด R2 |
+| T8–T13 | S3 | Act 3–5 · สามฉากจบ · เล่นซ้ำห้าองก์ · checkpoint รายองก์ใน PR เดียว |
+| T14–T19 | S4 | ตุ๊กตากำมะหยี่ 3D · viewer · อุปกรณ์จริง · ตรวจรับรวม · release candidate |
+
+ปลดระวางแล้ว: Save 3 · ลำดับสิบ PR · สะพานเชื่อมเรื่องเดิมสู่เรื่องใหม่ · การเล่นต่อเซฟเก่า · ตุ๊กตามีชีวิตตั้งแต่เกิด · resolver Bond 0–100 · crisis และ Game Over · จุดบรรจบ A3-003 · เอกสารและรายงานเดิมยังเป็นหลักฐานทางประวัติ ไม่ใช่ข้อกำหนดทางเลือก
+
+## 5. กติกาการบันทึกหลักฐาน
+
+ทุก execution PR บันทึก: ข้อตัดสินใจหรือข้อค้นพบ → ไฟล์หรือฉากที่เปลี่ยน → รหัสการตรวจ → คำสั่งหรือขั้นตอนของมนุษย์ที่ใช้จริง → build แพ็กเกจ และ profile → ผล → ลิงก์หลักฐาน → การตัดสินของผู้ตรวจ
+
+ก่อนลบหรือเปลี่ยนเทสต์เดิม ให้ลงทะเบียน assertion ที่ถูกแทนที่ (ไฟล์ทะเบียนสร้างตอนเริ่ม C1 และลิงก์จากหน้านี้) โดยระบุ authority และเทสต์ทดแทนทุกข้อ · invariant ของโดเมน เซฟ และโครงสร้างพื้นฐานที่ยังถูกต้องต้องมีเทสต์ต่อ · ห้ามบังคับให้คงพฤติกรรมที่ถูกปฏิเสธแล้วเพียงเพื่อให้จำนวนเทสต์เท่าเดิม
+
+หลักฐานจากมนุษย์ระบุบทบาท วันที่ build ฉากหรือจังหวะ viewport อุปกรณ์และการตั้งค่า สิ่งที่เห็น ความรุนแรง ภาพอ้างอิงถ้ามี การแก้ และการรับรอง · ห้ามสร้างผู้ตรวจขึ้นเอง แนบภาพผิด หรือปิดข้อค้นพบวิกฤตโดยไม่มี build ที่แก้และทดสอบแล้ว

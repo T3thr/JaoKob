@@ -1,287 +1,323 @@
-# Sprint 5 Execution SSOT: เจ้ากบมีชีวิตและการเดินทางกลับสู่ความอบอุ่น
+# Sprint 5 Execution SSOT: เจ้ากบกับเสื้อสีฟ้า · การเดินทางห้าองก์ในคืนพายุ
 
 | Document control | Value |
 |---|---|
 | Sprint / ID | `SPRINT-05` / `JKB-SPRINT-05-SSOT` |
-| Version / date | **0.2.0 / 2026-10-18, Asia/Bangkok** |
-| Status | **ADR-P0-022 direction adopted; ready to begin Slice 1 contracts/design work; implementation 0/20 tasks, 0/4 execution PRs** |
-| Authority | Current PO directive and [Accepted ADR-P0-022](../adr/ADR-P0-022-visual-novel-ergonomics-living-keepsake-lore-and-sprint-streamlining.md), D1–D6 and Save Format 2 consequence |
-| Baseline | Runtime `develop@d1af293`; planning revision starts at `c99e745`; Sprint 4 PR #17 integrated at `4c0bd28` |
-| Branch / planning PR | `feat/sprint-05-planning-ssot`; [Draft PR #18](https://github.com/T3thr/JaoKob/pull/18) → `develop`; contributor `T3thr <t.theerapat33@gmail.com>` |
-| Related documents | [Assessment](../proposals/sprint-05-planning/01-readiness-assessment.md), [remediation contract](../proposals/sprint-05-planning/02-adr022-remediation-contract.md), [CR-0006](../rfc/CR-0006-sprint-05-complete-story-and-package-boundaries.md), [trace matrix](../traceability/sprint-05-execution-matrix.md) |
-| Evidence | [Original baseline](../proposals/sprint-05-planning/evidence/planning-verification.json), [ADR22 revision checks](../proposals/sprint-05-planning/evidence/adr022-replanning-verification.json) |
+| Version / date | **0.3.0 / 2026-10-31, Asia/Bangkok** |
+| Status | **Rebaselined ตาม ADR-P0-032 v2.0 · ADR-P0-033 · มติ PO 2026-10-31 · ADR-P0-034 อยู่ในสถานะ PROPOSED · Slice 1 checkpoint C0 ส่งมอบแล้ว · implementation 0/20 tasks · 0/4 execution PRs** |
+| Authority | มติ PO 2026-10-31 (§1.2) · [ADR-P0-032 v2.0](../adr/ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md) · [ADR-P0-033](../adr/ADR-P0-033-interactive-tactical-adventure-gameplay-and-dynamic-stage-revolution.md) · [ADR-P0-022](../adr/ADR-P0-022-visual-novel-ergonomics-living-keepsake-lore-and-sprint-streamlining.md) เฉพาะ UI · Save Format 2 · 4 slices · [ADR-P0-034](../adr/ADR-P0-034-five-act-journey-runtime-save2-journey-profile-and-blueprint-compiled-content.md) (proposed) |
+| Baseline | `develop@8643a30` · โค้ด runtime ไม่เปลี่ยนตั้งแต่ปิด Sprint 4 ที่ `d1af293` (Act 1 เรื่องเดิม) · Planning ปิดที่ `524e9a5` ([PR #18](https://github.com/T3thr/JaoKob/pull/18)) |
+| Branch / PR | `feat/sprint-05-slice-01-foundations` (PO อนุญาต 2026-10-31) → `develop` · เลข PR จริงจะเป็น #20 ขึ้นไป · contributor `T3thr <t.theerapat33@gmail.com>` |
+| Design contracts | [มหาพิมพ์เขียว 2.0.0](../design-system/five-act-narrative-gameplay-master-plan.md) (มติ §10 อนุมัติครบ 2026-10-31) · พิมพ์เขียว [Act 1](../design-system/act1-living-keepsake-rewrite-blueprint.md)–[Act 5](../design-system/act5-living-keepsake-rewrite-blueprint.md) · [UX/UI 2.0.0](../design-system/interactive-gameplay-ux-ui-specification.md) · [ฟิสิกส์และภาพ v2](../design-system/physics-scale-and-visual-v2-specification.md) · [Mockups v3](../design-system/ux-mockups/v3/README.md) · [Atomic 05](../design-system/asset-prompts/05-UX-UI-ATOMIC-COMPONENT-WORKFLOW.md) |
+| Trace / board | [Traceability 0.3.0](../traceability/sprint-05-execution-matrix.md) · [Sprint 5 Board](../dialogue/sprint-05/BOARD.md) · [สมุดสถาปนิก](../dialogue/sprint-05/core-architect-notebook.md) |
+| Previous version | 0.2.0 (2026-10-18 ยุค ADR-P0-022) อยู่ใน git ที่ `8643a30` · ถูกแทนที่ตามตาราง §1.1 |
 
-ADR22 supersedes the conflicting biological-body, UI confirmation/save-dot and ten-PR/Save-3 directions of the earlier plan. Its decisions are already authorized; no renewed approval of them is a prerequisite to begin Slice 1. The detailed technical contracts, authored scripts and evidence are work products and merge gates inside the four slices. This session revises the blueprint only.
+---
 
 ## 1. Outcome, scope and authority
 
-ส่งมอบ Visual Novel ภาษาไทยที่เจ้ากบเป็นตุ๊กตามีชีวิตตั้งแต่ต้น ผู้เล่นรู้จักร่างถักวัยเด็ก ผูกพันกับครอบครัว เห็นเขาเติบโตเป็นร่างกำมะหยี่สวมเสื้อฟ้าสูงประมาณ 45 ซม. **ก่อนพายุ** แล้วเดินทางผ่านโลกมนุษย์จนถึงสามฉากจบที่มีคุณค่าเท่าเทียมกัน อินเทอร์เฟซต้องอ่านสบายและแสดงเจตนาการกระทำชัดเจน ผ่านการอ่านและใช้งานจริงโดยมนุษย์
+ส่งมอบเกมผจญภัยเชิงกลยุทธ์ภาษาไทย (Interactive Tactical Story Adventure) ห้าองก์ในคืนพายุคืนเดียว เจ้ากบเป็นกบสองขามีชีวิต สวมเสื้อยืดสีฟ้าคอกลมที่เปี๊ยกกับเตื๊อกเย็บไว้ ออกเดินทางจากบึงน้ำใสถึงห้องนอนของเปี๊ยก ผ่านศึกแสงปะทะเงา แคมป์หลบฝน สัมผัสโต้ตอบ และเวทีที่ฝน ไฟดับ และเงาเปลี่ยนตามฟิสิกส์จริง จบด้วยสามฉากจบที่มีคุณค่าเท่ากัน ปาฏิหาริย์ตุ๊กตากำมะหยี่เกิดเฉพาะใน E-HOME เล่นได้จริงบนมือถือและเดสก์ท็อป และผ่านการอ่านและเล่นจริงโดยมนุษย์
 
-| มิติ | Deliverable | Acceptance |
+| มิติ | สิ่งที่ส่งมอบ | เกณฑ์รับ |
 |---|---|---|
-| Lore / narrative | Act 1 ใหม่และ Act 2–5 ตามตุ๊กตามีชีวิต, ภาษาไทยเป็นธรรมชาติ, physical scale และ closure | ไม่มีบท/ภาพลูกอ๊อดใน default ใหม่; ร่างโตปรากฏก่อนพายุ; human continuity/Thai review |
-| VN design | New tokens/layout/components, ambient meters แยก tools, spacious utilities, silent success, inline choices | ทุก control ใช้ได้จริง; targets ≥44×44 px; ไม่มี choice scrollbar/save success artifact/narrative-choice popup |
-| Cinematic media | Growth/storm/city/girl/ending boards, full-screen illustrated beats และ complete text fallback | ปิดเสียง ลด motion หรือภาพเสียยังอ่านและเลือกได้; media ไม่ขยับ state เอง |
-| Runtime / Save | Five-act capability, crisis/Assist/ending/replay, **Save Format 2** และ exact legacy continuation | strict profile/identity admission, actual chapter snapshots, raw-record protection and rollback |
-| Keepsake / devices | Adult embroidered heart, childhood/adult 3D after HOME, safe fallback | art approval, bounded lifecycle, physical iOS/Android and AT acceptance |
-| Sprint 6 seam | Reserved immutable default core package, namespace/session/media identity | future extensions cannot overwrite/delete/shadow core; no Editor implemented in S5 |
+| Canon และบท | ห้าองก์ตามพิมพ์เขียว 2.0.0 · คัมภีร์เสียงตัวละคร · บัญชีลวดลาย · ไม่มีปมค้าง | กฎ ADR-P0-032 D1–D8 ผ่านทุกข้อ · ภาษาไทยธรรมชาติผ่านการอ่านโดยมนุษย์ |
+| เกมเพลย์ | ศึก 6 ยก · สี่กุญแจ · แคมป์ 4 ครั้ง · สัมผัส 6 แบบ · สายใยสามเส้นที่เปลี่ยนคำเรียก · ท่าผสาน · ฉากจบสมมาตร | ตัวเลขตรงมหาพิมพ์เขียว §2 · เครื่องมือพิสูจน์ผ่านบนเนื้อหาจริง |
+| UX/UI | Interactive Web Prototype ที่เป็น production UI · ห้าโหมดตาม UX 2.0.0 · วัสดุกระจกฝ้าบน token Atomic 05 | เกณฑ์ UX §9 · เป้ากด ≥ 44×44 · ไม่มีแถบเลื่อนซ้อน · layout shift 0 |
+| Runtime และ Save | Journey runtime ใน `src/core` · Save Format 2 journey profile · snapshot ห้าองก์ · เซฟเก่าอยู่ที่เดิมแบบอ่านอย่างเดียว | ADR-P0-034 D1–D9 · ไม่เกิน 250 KB · โหลดใหม่กลางศึกแล้วเล่นต่อได้ตรงจังหวะ |
+| เนื้อหา | แพ็กเกจ `story.jaokob.core` ที่คอมไพล์จากพิมพ์เขียวและสเปกกลไก | drift gate ผ่าน · ข้อความทุกบรรทัดมี receipt |
+| สื่อ | ฉาก Tachie CG เสียง และเวทีมีชีวิตจาก asset ที่ได้รับอนุมัติ | ปิดเสียง ลดการเคลื่อนไหว หรือภาพเสีย ยังเล่นจบได้ |
+| ของที่ระลึก 3D | ตุ๊กตากำมะหยี่ของ E-HOME ใน viewer ที่เปิดเมื่อผู้เล่นเลือก | ภาพ poster ครบเมื่อไม่มี 3D · ไม่โหลดก่อนผู้เล่นเลือก · ผ่านอุปกรณ์จริง |
+| ช่องต่อ Sprint 6 | `story.jaokob.core` สงวนไว้ · namespace ของเซฟผูก package id | ส่วนขยายในอนาคตเขียนทับหรือบังแพ็กเกจหลักไม่ได้ |
 
-Non-goals: Web Story Editor, Story Slots UI/import/storage, new endings, Save Format 3, backend/login/monetization/telemetry, invented personal biography or new magical powers. Deployment remains a separately authorized operation. The full-release requirement audit, including remaining cutscene/settings controls and duration, stays in T0/T5/T18; no silent waiver.
+**Non-goals:** Web Story Editor · Story Slots · ฉากจบใหม่ · Save Format 3 · การเล่นต่อเซฟเรื่องเดิม (มติ Q3) · backend · login · monetization · telemetry · framework หรือ runtime dependency ใหม่ที่ไม่มี RFC และ ADR · ระบบที่ ADR-P0-033 D0 ห้าม (ลากลำแสงหาของ · แผนที่หรือหมุดตำแหน่งตัวละคร) · ชื่อภาพยนตร์ แอนิเมชัน หรือผู้กำกับในโลกจริง · ตุ๊กตาตัวที่สองหรือพื้นผิวโครเชต์ในเรื่อง CG และ Sprite · deployment ที่ไม่ได้รับอนุญาตแยกต่างหาก
 
-### 1.1 Precedence and current facts
+### 1.1 Precedence และสิ่งที่ถูกแทนที่
 
-[Remediation contract §1](../proposals/sprint-05-planning/02-adr022-remediation-contract.md#1-authority-evidence-and-precedence) maps each override. ADR19/20/21 still govern unaffected boundaries, four-slot pouch, safe prose, respectful relationship and ending fairness. ADR22 replaces biological morphology and the requirement to depict a natural frog as a different being from the keepsake. Historical ADRs, released content and evidence keep their original bytes; T0 updates forward-facing baseline text.
+เมื่อแหล่งใน Sprint 5 ขัดกัน ให้ยึดตามลำดับนี้ แล้วเปิด CR ตาม [AGENTS.md §6](../../AGENTS.md) แทนการเลือกความหมายเอง:
 
-- The existing game is still the S4 Act 1: content 3.0.0, package/tree schema 2, Save 2; 28 nodes / 47 edges / 70 dialogue records / 5 items / 3 moments. No revised visual/lore acceptance is claimed.
-- `prepareRuntimeContent` admits one tree, ≤256 nodes, `act === 1` and three node types. Orchestration rejects crisis, requires saved Bond 0 and no unlocked endings. Bootstrap has no full-game Retry/Ending/Replay flow; Story Assist is not exposed in Settings.
-- Session/media identity is contentVersion-based. Pouch policy has Act 1 bindings. Later-life art cannot depend only on the speaking character. The presentation catalog has a 64,000-byte bound; final graph/media costs need measurement.
-- Existing Save 2 schema and runtime validator reject unknown fields. [Three-case probe](../proposals/sprint-05-planning/evidence/save2-current-validator-probe.json) verifies the current limitation, not a future extension implementation.
-- The 2026-10-17 baseline of 1,060 passing tests and 1,096 design trajectories remains historical evidence. It does not refute the PO's critical visual/Thai review or certify a full-game journey.
+1. มติ PO ที่บันทึกใน §1.2
+2. ADR-P0-032 v2.0 (canon) และ ADR-P0-033 (เกมเพลย์ คณิตศาสตร์ ฟิสิกส์ UX)
+3. ADR-P0-034 หลังลงนาม · ก่อนลงนาม D1–D10 เป็นฐานออกแบบของการเตรียม C1 แต่ยังไม่ merge schema หรือ writer ของเซฟ
+4. SSOT ฉบับนี้
+5. สัญญาออกแบบ Tier 2 (มหาพิมพ์เขียว · พิมพ์เขียวรายองก์ · UX 2.0.0 · ฟิสิกส์ v2 · Mockups v3 · Atomic 05)
+6. เอกสาร planning ใน `docs/proposals/sprint-05-planning/` และ CR-0006 เฉพาะส่วนที่ตารางนี้ไม่ได้แทนที่
 
-## 2. Living keepsake, closure and sensory direction
-
-### 2.1 Revised story spine
-
-Scene labels below are design anchors. New runtime IDs are registered where the rewrite changes a published meaning; archived IDs are not recycled. The [S4 Act 2–5 map](../proposals/sprint-04-overhaul/05-act-2-5-map-and-endings.md) remains a mechanics/topology source only where compatible with ADR22. Its biological growth, tiny-scale shelter and natural-frog wording are superseded.
-
-| Stage / anchors | Purpose and agency | Scale / sensory / acceptance |
+| เอกสารเดิม | ส่วนที่ถูกแทนที่ | ส่วนที่ยังใช้ |
 |---|---|---|
-| A1 opening / family | Crochet child is already alive; distinct mother/sibling gestures establish warmth, humor and trust | Yarn/cloth/voice and comfortable shared space; no tail/gill/tadpole behavior; family-body details are authored explicitly |
-| A1 growth before storm | Show childhood → adult velour body with blue shirt; retain recognizable identity and family bond | Readable illustrated transition; adult about 45 cm before separation; no unexplained growth moved to Act 2 |
-| A1 storm / A1-007 rest | The storm separates a capable but vulnerable being; show force, footing and blocked return | Nest/environment fit the body; movement uses arms/legs; no tiny shell shelter or copied tail imagery |
-| A2-001..007 | Learn current footing and route cues; choose reeds/drain; encounter yarn at A2-006 on both routes | Drain clearance fits the adult body; yarn/cloth links material memory; one fixed-return optional moment |
-| A3-001..010 | Route-specific city approach, converge **before A3-003**, then traffic/curb/shelter/recovery | World reference, pose, clearance and safe route on every key board; no insect-sized tunnels, palm-sized hiding or repeated pain montage |
-| A4-001..008 | Observe varied human actions; first clear girl at A4-004; mutual learning through approach/retreat | Eyeline/hand/container at 45 cm scale; girl notices a mistaken distance and adjusts; exit remains open |
-| A5-001..006 | Return of rain with learned cues; shelter, compassion, safe help and once-only repair | Cloth/shelter fit the body; body warmth and agency remain; crisis is resolved before an ending |
-| A5-007 / three endpoints | DAWN: choose an independent place; NEARBY: choose a workable distance; HOME: choose closeness with freedom | Same living keepsake identity in all three; no implied death, capture, inferior self-reliance or compulsory gift view |
+| SSOT 0.2.0 | เรื่องตุ๊กตามีชีวิตตั้งแต่เกิดและร่างถักสู่ร่างโต · ของชุด `item_dew_stone` เดิม · Bond 0–100 และฉากจบ DAWN/NEARBY/HOME · crisis · Assist · Retry · Game Over · จุดบรรจบ A3-003 · ตุ๊กตาถักใน T6 · เวลาเล่น 2.5–4 ชั่วโมง · แถวเซฟเก่า · snapshot เฉพาะ Act 4/5 | สี่ slices · ID งาน T0–T19 · สัดส่วน 6/2/6/6 · เกณฑ์ UI ของ ADR-P0-022 · งบประสิทธิภาพ · ผังจอ เบราว์เซอร์ และอุปกรณ์ |
+| [Remediation contract](../proposals/sprint-05-planning/02-adr022-remediation-contract.md) | §2 ตารางเรื่องและสเกลยุคตุ๊กตา (ใช้ฟิสิกส์ v2 และพิมพ์เขียวแทน) · §4 ข้อ 2 และ 4 · §4.1 | §3.1–§3.3 สัญญา UI · §4 ข้อ 1, 3, 5, 6 ในฐานะหลักการ · §5 วินัย checkpoint ภายใน PR |
+| [CR-0006](../rfc/CR-0006-sprint-05-complete-story-and-package-boundaries.md) | แถวการเล่นต่อเซฟเก่าใน §3 · เนื้อหาเรื่องใน §4 | §2 ตัวตนแพ็กเกจและการคุ้มครองแพ็กเกจหลัก |
+| Traceability 0.2.0 | ทั้งฉบับ | แทนด้วย [0.3.0](../traceability/sprint-05-execution-matrix.md) |
 
-The convergence combines story location, not state: route flags, pouch history and metric consequences survive. Enumerate every continuing reeds/drain path, including moment read/skip/refuse/full replacement, through A3-003. Fixed-return moments do not add a hidden return stack or meter reward.
+Requirement ID ของ Phase 0 (`FR-*` `NFR-*` `GDD-*` `NAR-*`) อยู่ใน Tier 4 แล้ว ฉบับนี้ใช้ต่อเฉพาะเป็นกุญแจย้อนรอยของงบคุณภาพที่ยังมีความหมาย โดยเขียนเกณฑ์ที่วัดได้ไว้ใน §6 · พฤติกรรมใหม่ย้อนรอยไปที่ข้อตัดสินใจของ ADR (`ADR-P0-032 Dn` · `ADR-P0-033 Dn` · `ADR-P0-034 Dn`) และหมวดของมหาพิมพ์เขียว
 
-### 2.2 Setup-to-payoff ledger
+### 1.2 มติ PO วันที่ 2026-10-31
 
-| Thread | New Act 1 setup and later payoff | Closure / gate |
+| # | มติ | ผล |
 |---|---|---|
-| Mother and water | Re-author guidance through an action a limbed child can experience; later use observation of current, footing and safe edges | Every ending shows an independent decision informed by care; do not quote a line that exists only in the old tadpole story |
-| Family and humor | Distinct gestures, habits and timing; preserve individuality while replacing tails/tiny-shell staging | A remembered rhythm or shared space helps in A3/A4; no invented death or reunion to force closure |
-| Separation and home | Storm has visible physical causes and a blocked return; reaching a new shelter does not erase the old bond | Three complete epilogues carry memory without ranking how much love each route deserves |
-| Objects and absence | Five objects are handled at a plausible hand/body scale; collect/refuse/release remain valid | No collect-all or item-exclusive HOME/recovery; absence never creates shame or a thinner ending |
-| Red yarn | A2-006 material encounter links to cloth and the human world | Never assert the girl owned it; holding it does not gate the embroidered heart or HOME |
+| Q1 | 1 พฤศจิกายน 2026 คือวันเริ่ม Implementation อย่างเป็นทางการ ทำครบ 4 slices 20 งานด้วยมาตรฐานสูงสุดและไร้หนี้เทคนิค | ขอบเขตเต็มตาม §4 · ไม่มีการตัดเส้นทาง |
+| Q2 | อนุมัติทั้ง 9 ข้อใน [มหาพิมพ์เขียว §10](../design-system/five-act-narrative-gameplay-master-plan.md) ตามถ้อยคำในตารางนั้น | มหาพิมพ์เขียว 2.0.0 ไม่มีข้อที่รอ PO ตัดสินเหลือ และเป็นสัญญาออกแบบที่ใช้ implement · ตัวเลขถูกตรึงสำหรับ T2 การแก้ต้องผ่าน PO · บทรายฉากยังต้องผ่านการตรวจโดยมนุษย์ใน T6–T13 |
+| Q3 | เลิกการเล่นต่อจากเซฟเก่า ทุกคนเริ่ม New Game บน Save Format 2 ที่สะอาด และเก็บ raw save เก่าไว้ | ADR-P0-034 D8 |
+| Q4 | อนุญาต branch `feat/sprint-05-slice-01-foundations` | branch ของ Slice 1 |
+| Q5 | snapshot ต้นองก์ครบห้าองก์ ให้ย้อนกลับไปเล่นองก์ที่ประทับใจได้ | ADR-P0-034 D7 ข้อ 4 |
+| UX | C4–C5 เป็น Interactive HTML5/CSS3 Web Prototype บนเบราว์เซอร์จริง คมชัด มีวัสดุ glassmorphism นุ่มนวล โต้ตอบได้จริง ให้ PO ทดสอบและให้แฟนเล่นได้ | ADR-P0-034 D10 · T4 · T5 |
+| R5 | ยึดสูตรและระยะในตารางฟิสิกส์ เหนือคำบรรยายจอ 4 ของสเปก UX (บันทึกใน CR-20261031-1326) | ฟิสิกส์ v2 §6 เป็นแหล่งของความสูงเงา |
 
-| Item | Payoff anchors retained for re-authoring | Truthful variant requirement |
+เก้าข้อที่อนุมัติ: มนุษย์ได้ยินภาษากบเป็นเสียงอ๊บ · ริบบิ้นเหลืองคือโบว์ผูกผมของเปี๊ยก · `familySkillUses` และ `selfReliance` นับตั้งแต่ Act 2 · ทักษะที่ใช้ซ้ำในศึกได้แสงน้อยลงสองช่องต่อครั้งที่ซ้ำ · Safety Fallback ของ E-POND ให้พี่กับแบกน้องกลับบึง · ฉากจบที่ล็อกแสดงเป็นด้ายจางพร้อมประโยคในเรื่อง · แยก CG-04A กับ CG-04B · เตื๊อกวัดแพทเทิร์นตุ๊กตาไว้ 45 ซม. · สะกด `เปี๊ยก` แบบเดียวทั้งโครงการ
+
+### 1.3 ข้อเท็จจริงปัจจุบัน (วัด 2026-10-31)
+
+- เกมที่เล่นได้ยังเป็น Act 1 เรื่องเดิมของ Sprint 4: schema 2.0.0 · content 3.0.0 · 1 tree · 28 โหนด (cutscene 18 · exploration 3 · decision 7) · 47 เส้นเชื่อม · มาตรวัด 0–100 · crisis นำไปสู่ Game Over · ห้ามใช้เป็นฐานของเรื่องใหม่ (ADR-P0-023)
+- `prepareRuntimeContent` รับเฉพาะ act 1 สามชนิดโหนดและ tree เดียว · session และ media ระบุตัวตนด้วย contentVersion · กติกาศึกยังอยู่ใน `docs/design-system/evidence/`
+- unit 1,060/1,060 ผ่าน (มีความคาดหวังเก่าที่ถูกแทนที่แล้วปนอยู่) · ลิงก์เอกสารผ่านทั้งหมด · เครื่องมือพิสูจน์ห้าตัวผ่าน (แบบจำลองสมดุล 205 วินาที · 73 โหนด · 25,182 จุดเข้าศึก)
+- `main` ยังอยู่ที่ `d3c4c05` ไม่เคย release · [PR #19](https://github.com/T3thr/JaoKob/pull/19) ถูกใช้แล้วกับงาน asset
+- งานออกแบบพร้อมครบ: มหาพิมพ์เขียวและพิมพ์เขียวห้าองก์ · UX 2.0.0 · ฟิสิกส์ v2 · ภาพต้นแบบ v2 · Mockups v3 13 จอพร้อมพิกัด handoff และชุด glyph SVG
+- ช่องว่าง: ยังไม่มี journey runtime · schema 3.0.0 · compiler · Ajv ในเครื่อง cloud (`JKB_AJV_PATH`) · ตารางนัดอุปกรณ์จริงและ AT
+
+---
+
+## 2. Canon and gameplay contract
+
+ตัวเลขและบทอยู่ใน Tier 2 ที่เดียว หมวดนี้คือ invariant ที่ใช้ตรวจรับ
+
+### 2.1 Canon invariants (`TC-S5-LORE-001`)
+
+1. เจ้ากบเป็นกบสองขามีชีวิตตัวเดียว ลูกคนกลางของครอบครัวกบ สวมเสื้อยืดสีฟ้าคอกลมตัวเดียวในเรื่อง (ดาวสามแฉกปักด้ายขาว · กระดุมทองเหลือง `ต.♡ป.`) · ระหว่างเล่นมือเปล่า ไม่ถือหัวใจสีแดง (ADR-P0-025)
+2. ไม่มีตุ๊กตาตัวที่สอง หุ่นผ้า หรือพื้นผิวโครเชต์ในเรื่อง ฉาก CG หรือ Sprite · ปาฏิหาริย์ตุ๊กตากำมะหยี่นุ่มเรียบเกิดเฉพาะ E-HOME · ใน E-POND และ E-DAWN เจ้ากบยังมีชีวิตในเสื้อสีฟ้า
+3. เตื๊อกเป็นมนุษย์ชายหนุ่มคนรักวัยเดียวกับเปี๊ยก แทนตัว "ข้า" เรียกเจ้ากบ "เอ็ง" · ห้ามเป็นสัตว์ · ห้ามมีญาติหรือตัวละครสมมตินอกทะเบียน ADR-P0-032 D3
+4. `ต.♡ป.` หมายถึง เตื๊อก ♡ เปี๊ยก เท่านั้น · กระดุมเป็นหัวใจภารกิจ สละไม่ได้ และเย็บคืนชายเสื้อที่ A5-03 ทุกเส้นทาง
+5. แมลงสาบแมนเป็นภูตเงาผ้าคลุม ห้ามสรีระแมลง · มีกระดุมบนอกเฉพาะ Act 1–2
+6. สเกล 45 ซม. และฟิสิกส์ตาม [ฟิสิกส์ v2](../design-system/physics-scale-and-visual-v2-specification.md) (`TC-S5-SCALE-001`) · ความสูงเงา = ความสูงวัตถุ × ระยะแสงถึงผนัง ÷ ระยะวัตถุถึงแสง
+7. ข้อความทุกคำบนจอมาจากพิมพ์เขียวรายองก์ ชั้นภาพและโค้ดห้ามแต่งข้อความใหม่ (`TC-S5-CONTENT-001`)
+
+### 2.2 Gameplay invariants (`TC-S5-STATE-001` · `TC-S5-CLASH-001`)
+
+อ้างอิงหมวดของ [มหาพิมพ์เขียว](../design-system/five-act-narrative-gameplay-master-plan.md)
+
+| ระบบ | Invariant | หมวด |
 |---|---|---|
-| `item_dew_stone` | A3-005/008 | Held: present touch/light; released: actual memory; unseen: current environmental light |
-| `item_leaf` | A3-009, A4-007, A5-003 | Physical sharing requires historical flag **and held**; specify any release atomically; no leaf from an empty pouch |
-| `item_lotus_shell` | A3-009 | Hand-held rhythm/curve, not a shelter for 45 cm bodies; memory/default must match new setup |
-| `item_rain_petal` | A3-007, A4-007 | Texture/scent only when supported by actual history; current rain supplies an unseen default |
-| `item_river_shell` | A3-007, A4-007 | Distinct from lotus shell; family-memory setup is rewritten, not copied from tails inside a giant shell |
-| `item_red_yarn` | A2-006; A3-007/009, A4-005 | Held/released/refused/unseen separately authored; six registered items still use four held slots |
+| ค่าสถานะ | กาย ใจ แรง เป็นจำนวนเต็ม 0–5 · อันตรายในเรื่องและการโจมตีลดได้ต่ำสุดเหลือ 1 · ฝืนเอาเป็นทางเดียวที่ถึง 0 แล้วเกิด Grace คืนค่าเป็นอย่างน้อย 2 · Rest Floor ท้าย Act 1–4 · ไม่มี Game Over | §2.1 |
+| ด่าน | ทุกด่านมีทางที่ไม่ใช้แรงอย่างน้อยหนึ่งทาง และมีฝืนเอาเป็นทางสุดท้ายเสมอ | §2.2 |
+| ทักษะครอบครัว | ใช้ฟรี · ใช้หรือขอพี่น้องช่วยติดกันสองครั้ง (นับข้ามด่านกับเทิร์นศึก) เกิดอาการโหยหาบ้าน ใจ −1 แรง −1 · ในศึกแสงที่ได้ลดสองช่องต่อครั้งที่ซ้ำ · Act 1 ไม่ลงโทษและไม่นับ | §2.3 · มติ Q2 |
+| สายใย | พี่ก้าม เจ้าฟิ้ว เจ้าเตื๊อก 0–4 ไม่ลด · คำเรียกและน้ำเสียงเปลี่ยนตามระดับ · ระดับ ≥ 3 ปลดท่าประสานครั้งเดียวต่อศึก · สายใยครอบครัวเต็มหลังจบ Act 1 | §2.5 |
+| กระเป๋า | สี่ช่องตาม ADR-P0-020 · ของหกชิ้น · รับแลกสละพร้อมผู้รับ · ปฏิเสธเป็นความทรงจำ · ไม่มีระบบฝากสหาย | §2.6 |
+| ศึก | แนวแสง 0–10 · เห็นเจตนาก่อนทุกเทิร์น · ชนะขาด · ยันไว้ได้ (≥ 7) · เฉียด · ตั้งหลักสู้ใหม่ครั้งแรกที่แสงถึง 0 · ทุกผลเดินเรื่องต่อ · ไม่สุ่ม ไม่จับเวลา | §2.8 |
+| แคมป์ | งบหยดน้ำ 2–3 · กิจกรรมเลือกซ้ำไม่ได้ · การ์ดที่ขัดกันเลือกได้ใบเดียว · พร้อมผสานให้แสง +1 ในการใช้ครั้งแรกของศึกถัดไป | §2.9 |
+| สัมผัสโต้ตอบ | 3–8 วินาที ไม่มีการตกรอบ ไม่เปลี่ยนค่าสถานะ มีตั้งค่าให้ทำอัตโนมัติ | §2.11 |
+| เวที | ฟ้าแลบถึงฟ้าร้องตามระยะจริง · ไฟเมืองดับตามองก์ · R2 และ R5 ใช้เวทีเงาสด · เคารพ reduced motion และ Reduced Intensity (`TC-S5-STAGE-001`) | §2.12 |
+| ข้อห้าม | ไม่มีการลากลำแสงหาของ · ไม่มีแผนที่ หมุด หรือเรดาร์ | ADR-P0-033 D0 |
 
-Every callback has a default. Not-held is not equivalent to released. Variant priority/tie-breaks are registered and tested before authors depend on them; do not remove the current ambiguity guard without a replacement. Only one prose block per voiced slot is selected. Exact duplicate authored prose/results and Thai emoji/em/en dashes are rejected; human review evaluates repetition and naturalness beyond exact matches.
+### 2.3 Structure and duration
 
-### 2.3 Ending and balance invariants
+- โครงตาม [มหาพิมพ์เขียว §3](../design-system/five-act-narrative-gameplay-master-plan.md): Act 2 แยกสาย A (พี่ก้ามนำ) กับสาย B (เจ้าฟิ้วนำ) แล้วบรรจบที่ A2-07 · Act 4 แยกแผน A กับแผน B แล้วบรรจบที่ A4-10 · สถานะ ธง และของจากแต่ละสายไม่หายเมื่อบรรจบ (`TC-S5-CONVERGENCE-001`)
+- เวลาเล่น 8–10 นาทีต่อองก์ รวม 42–48 นาทีที่อัตราอ่านปกติ ตาม [five-act-runtime-ledger](../design-system/evidence/five-act-runtime-ledger.mjs) · T18 วัดจากการอ่านจริงของมนุษย์ ห้ามเติมบทเพื่อให้ถึงเวลา
 
-Keep the same resolver: HP/พลังใจ must be positive; HOME requires Bond ≥60, compassion and accepted safe help; NEARBY requires Bond ≥30 when HOME is not eligible; DAWN is Bond <30. Crisis takes priority. No pouch, secret, suffering, audio or accessibility-setting bonus changes ending identity at the same eligible metrics/flags.
+### 2.4 Endings (`TC-S5-ENDING-001`)
 
-| Existing design witness | Bond after A4-004/005/006/008/A5-003/005/006 | Ending |
-|---|---|---|
-| Self-reliant | 0 → 0 → 0 → 0 → 0 → 0 → 0 | DAWN |
-| Cautious then independent | 5 → 5 → 15 → 15 → 15 → 15 → 15 | DAWN |
-| Water then distance | 0 → 20 → 20 → 20 → 20 → 20 → 20 | DAWN |
-| Nearby threshold | 0 → 20 → 20 → 30 → 30 → 30 → 30 | NEARBY |
-| Cautious / voice / cloth | 5 → 15 → 25 → 35 → 50 → 70 → 70 | HOME |
-| Early acceptance / voice / cloth | 15 → 35 → 35 → 45 → 60 → 80 → 80 | HOME |
-| Repair accepted | 5 → 15 → 25 → 35 → 50 → 60 → 80 | HOME |
-| Repair declined | 5 → 15 → 25 → 35 → 50 → 60 → 60 | NEARBY |
+- สมการตาม [มหาพิมพ์เขียว §2.13](../design-system/five-act-narrative-gameplay-master-plan.md): E-HOME สายคำสัญญามนุษย์ · E-POND สายรากเหง้า · E-DAWN สมดุลสูงสุด · Safety Fallback เปิด E-POND เมื่อไม่มีฉากจบอื่นเปิด จึงมีอย่างน้อยหนึ่งฉากจบเสมอ
+- ฉากจบที่ล็อกเป็นด้ายจางพร้อมประโยคในเรื่อง ไม่มีตัวเลข · การตั้งค่า เสียง และ accessibility ไม่เปลี่ยนว่าฉากจบใดเปิด
+- ทั้งสามฉากจบสมบูรณ์เท่ากันและไม่มีอันดับ · กระดุม นกหวีด ริบบิ้น และของที่สละทุกชิ้นกลับถึงเจ้าของตอนเช้า (มหาพิมพ์เขียว §6)
 
-These witnesses begin at Act 4, HP80/พลังใจ70/Bond0. The 1,096 design trajectories cover eight contexts; one empty-pouch context has HOME36/NEARBY57/DAWN21 paths. Those are reachability counts, not player probabilities or proof of the GDD first-play HOME target. Slice 3 must replay their intent through the actual revised Act 1–5 and record resulting earlier-state differences.
-
-Preserve no Bond before A4-004, cautious compensation +10 once at A4-006, and repair +20 once under its admitted conditions. Check 0/1, 29/30, 49/50, 59/60, 79/80/100 boundaries, flags and accepted/declined repair through Resume/Retry/replay. No repair farming. Recovery must be available without an item/Bond: low meters below30 recover within two main Decisions, unavoidable loss ≤15 per meter between checkpoints. Draft A3 +10/+10 recovery and the HP>20 food-wait guard need T0/T8 balance/scale alignment before authoring; do not delete guards to make a route pass.
-
-Damage needs a visible cue, an accepted action, a coherent physical/mental consequence and an available response. Reading, inspecting and media arrival do not damage the character. Measure the GDD checkpoint 8–15 minute and full-story 2.5–4 hour targets with real reading; do not pad prose to meet a timer or certify duration from automated clicks.
-
-### 2.4 Cinematic beats and HOME
-
-Required cinematic boards cover warmth/growth, storm separation, city threshold, girl encounter and each ending decision. Record camera, body stage/scale, light/material, Thai text, player control, semantic resume point, one-time effects and still/text fallback. No timed reading or mandatory motion/audio. See [remediation contract §3.4](../proposals/sprint-05-planning/02-adr022-remediation-contract.md#34-thai-and-cinematic-beats).
-
-HOME: accepted safe help → living keepsake chooses a place and can leave → childhood memory image → return to present adult action → adult blue-shirt/red-heart gift image → present life/relationship closure → localized gift invitation → optional 2D/3D. It has been a living keepsake throughout; no natural animal is turned into fabric. Childhood heart accessory and adult embroidery are different art details. DAWN/NEARBY retain equally complete living epilogues without requiring the gift viewer.
-
-Poster and text remain complete when 3D is unavailable. Load approved same-origin vendor/GLB only after deliberate HOME opt-in. No auto-spin, early download, decoder CDN or state/save side effect. Test import/hash/decode/network failure, no WebGL/context loss, close/switch during load, stale callbacks, repeated open/close and resource plateau. Source art, runtime lifecycle and physical-device acceptance are separate checks inside Slice 4.
+---
 
 ## 3. Architecture and compatibility
 
-### 3.1 Protected default story and clean presentation boundary
+### 3.1 Journey runtime (ADR-P0-034 D1–D6 · D9)
 
 ```mermaid
 flowchart LR
-  Registry["Bundled protected core + future extension descriptors"] --> Data["Data validates identity, graph, references and capabilities"]
-  Data --> Catalog["Immutable package-bound catalog"]
-  Catalog --> Core["Pure Core: transaction, crisis, ending, replay"]
-  Core --> VM["Data: localized projection and staging metadata"]
-  VM --> UI["UI: VN layout, inline intent, pages, media"]
-  UI --> Root["Bootstrap: serialize intent and bind ports"]
+  Sources["พิมพ์เขียวรายองก์ + สเปกกลไก"] --> Compiler["Compiler ตอนพัฒนา + drift gate"]
+  Compiler --> Package["แพ็กเกจ story.jaokob.core"]
+  Package --> Data["Data: ตรวจ schema · อ้างอิง · ความสามารถ"]
+  Data --> Catalog["Catalog ที่ไม่เปลี่ยนค่า"]
+  Catalog --> Core["Core: journey-session · clash · encounters · play-mode"]
+  Core --> VM["View model ที่คำนวณกติกาแล้ว"]
+  VM --> UI["UI: Interactive Web Prototype"]
+  UI --> Root["Bootstrap: แปลงการกดเป็นคำสั่ง"]
   Root --> Core
-  Root --> Save["Data: Save 2 profile, exact identity, guarded persistence"]
+  Root --> Save["Data: Save 2 journey profile"]
 ```
 
-This is data flow, not permission for Core to import Data/UI. Bootstrap remains the only concrete composition root. UI changes typography, spacing, crop, focus and page layout without writing Domain state, parsing content or touching LocalStorage. Story results must match under equivalent semantic commands with alternative presentation.
+นี่คือทิศของข้อมูล ไม่ใช่การอนุญาตให้ Core import Data หรือ UI · bootstrap เป็น composition root เดียว · runtime เดิมแช่แข็งแล้ว และถูกลบเมื่อทางเข้าเริ่มของเกมเปลี่ยนเป็น Journey (C5) พร้อมทะเบียน assertion ที่ถูกแทนที่
 
-Use one logical canonical package, proposed ID `story.jaokob.core`, with explicit package identity, contentVersion, schema/profile identity, component digests and capabilities. Separate act files are parts of one story, not Story Slots. Validate the bounded story catalog before activation; media is demand-loaded. Two fixture packages at the same version must not collide in registry/session/media/cache or save admission.
+### 3.2 Save Format 2 journey profile และเซฟเก่า (ADR-P0-034 D7–D8)
 
-Bundled default identity is host-owned and read-only to future Editor APIs. Extensions cannot patch, delete, shadow or replace it. Publish the revised lore as a new reviewed package version with new IDs where meanings changed; keep exact historical archives. Final canonical freeze is a manifest/digest release boundary, not a promise that a device owner cannot delete files. No Editor/import UI, dynamic code, remote schema or arbitrary path/dependency is introduced now.
-
-### 3.2 Save Format 2, profiles and real replay
-
-**Keep `saveFormatVersion: 2`; the Save 3 proposal is retired.** The recommended design adds a bounded optional extension via a new separately versioned Save-2 schema profile while preserving published schema2 bytes. New readers accept unextended legacy records through the original validator. The extension binds package identity and at most the registered pre-Act4/pre-Act5 snapshots; exact keys/$id/limits are fixed in T0/T1 before writer implementation. Absence never invents snapshots.
-
-[Remediation contract §4](../proposals/sprint-05-planning/02-adr022-remediation-contract.md#4-save-format-2-and-package-compatibility-design) defines profile selection, integrity, size, field bounds, lifecycle and rollback proof. A same format number does not imply old readers accept new fields. Do not edit old schemas in place, widen unknown-field acceptance, hide data in flags/history or introduce a sidecar/slot system as a shortcut.
-
-| Saved input | Admission / continuation |
+| สิ่งที่พบในเครื่อง | พฤติกรรม |
 |---|---|
-| Save1/content2.0 | Existing proved2.0→2.1 then Save1→2 chain, exact archive |
-| Save1/2 content2.1 or Save2 content3 | Exact archived story and independent checkpoint; Resume is read-only; old valid saves need no forced reset/profile conversion |
-| Biological Act1 complete | **No automatic bridge into rewritten lore.** Explicit New Game with protected replacement consent starts the living-keepsake story; no invented family/item history |
-| New core Save2 profile | Validate package/version/profile, active state, checkpoint, replay snapshots and historical completion separately; staged commit and raw/race guards remain |
-| Interim new-lore version → later version | Exact archive or independently proved unchanged boundary; map every stored cursor and snapshot, not just current node |
-| Future/unknown/corrupt/missing package or mixed generation | Preserve raw canonical/staging/backup; typed recovery or memory-only play; no silent downgrade/replacement |
+| เซฟ `journey-1` ของ `story.jaokob.core` เวอร์ชันที่รู้จัก | ตรวจแล้วเล่นต่อที่ cursor เชิงความหมาย · Resume ไม่เขียนจนกว่าผู้เล่นจะ commit การกระทำถัดไป |
+| เซฟ `journey-1` ของเวอร์ชันหรือแพ็กเกจที่ไม่รู้จัก หรือ profile จากอนาคต | เก็บไบต์ไว้ไม่แตะ · เสนอเล่นในหน่วยความจำ · ไม่เขียนทับเงียบ |
+| เซฟ journey ที่เสีย | กู้จาก staging หรือ backup ตามกลไกเดิม · กู้ไม่ได้ให้เก็บ raw และขอความยินยอมก่อนเริ่มใหม่ |
+| ข้อมูลใน namespace เดิม (`jaokob:save:*` · `jaokob:settings` · `jaokob:preferences`) | ไม่อ่านเพื่อเล่น ไม่เขียน ไม่ย้าย ไม่ลบ · แจ้งหนึ่งบรรทัดครั้งเดียว · เริ่ม New Game ได้ทันที (`TC-S5-LEGACY-001`) |
+| ไม่มีข้อมูล | New Game |
 
-Replay restores actual captured causal state and RNG, preserves latest settings and separately retained completion history, and never turns historical viewed IDs into current items/flags. The session-only Log remains 50 dialogue + 50 actions; it is not a replay journal. Entire Save2 including extensions stays ≤250KB UTF-8. Full-profile reading/writing activates only after new-reader and old-application refusal/write-protection proofs. Failure blocks that writer, not unrelated UI work, and is fixed within PR #19.
+บันทึกเงียบทุกครั้งที่ commit รวมทุกเทิร์นศึกและกิจกรรมแคมป์ · snapshot ต้น Act 1–5 สำหรับเล่นซ้ำ · `completion` แยกจากเส้นเวลาและไม่ถูกย้อน · ไม่มี RNG · ขนาดรวมไม่เกิน 250 KB · schema ที่ตีพิมพ์แล้วห้ามแก้ไบต์
 
-### 3.3 Required UI behavior
+### 3.3 UI contract (ADR-P0-022 D2–D5 · ADR-P0-019 · UX 2.0.0 · ADR-P0-034 D10)
 
-| Contract | Observable acceptance |
+| สัญญา | เกณฑ์ที่สังเกตได้ |
 |---|---|
-| Tokens/layout/components overhaul | Annotated responsive design, Thai diacritic clearance, coherent spacing/type/layers; longest prose/choices fit without crowding |
-| Ambient meters / tools | Separate regions; tools ≥44×44 CSS px with comfortable spacing; no overlap or hidden Bond disclosure |
-| Affordance | Enabled controls pointer + hover/focus-visible/active; prose/background default cursor and inert; contextual keyboard and explicit advance |
-| Choice layout | Natural height or explicit presentation pagination; no inner-card scrollbar or missing eligible choice; reflow does not change cursor/eligibility |
-| Silent success | No saved dot/pseudo-element/animation/label/space or recurring success announcement; saving/reload still works; failures stay accessible |
-| Inline confirmation | First activation arms exact high-impact action/revision when preference enabled; later deliberate activation commits once; cancel/disarm/stale and rapid input tested; no narrative-choice modal |
-| Utilities / cinematics | Spacious Log/Pouch/Settings with focus/escape/return; intentional Log scrolling allowed; still/text cutscene fallback and no media-triggered effects |
+| ระบบออกแบบ | token Atomic 05 · วัสดุกระจกฝ้าสำหรับ HUD แผงซ้อน และป้ายเจตนา · ตัวอักษรบนกระจก ≥ 4.5 : 1 กับฉากหลังที่แย่ที่สุด · พื้นทึบสำรองเมื่อไม่มี `backdrop-filter` หรือตั้ง `prefers-reduced-transparency` หรือ forced-colors · การ์ดกระดาษสาทึบเพื่อการอ่าน |
+| HUD และเครื่องมือ | HUD ชุดเดียวทุกโหมดตาม Atomic 05: เม็ดสถานะ · ด้ายสายใยสามเส้น · กระเป๋า 2×2 · ตั้งค่า · เป้ากด ≥ 44×44 · ไม่มีตัวเลขในกล่องบทพูด |
+| Affordance | ปุ่มที่กดได้มี pointer และสถานะ hover · focus-visible · active · บทและฉากหลังเป็น default cursor |
+| การตัดสินใจ | ไม่เกินห้าการ์ดตามบท ไม่มีแถบเลื่อนซ้อน · ยืนยันแบบ inline ผูก revision · ไม่มี modal ยืนยันทางเลือก (`TC-S5-INLINE-001`) |
+| บันทึกเงียบ | ไม่มีจุด ป้าย หรือเสียงเมื่อบันทึกสำเร็จ · ความล้มเหลวยังแจ้งได้ (`TC-S5-SILENT-001`) |
+| ศึก | สามจังหวะต่อเทิร์น · ถาด 16 การ์ดเป็นท่าหลักหนึ่งแถวกับสามแท็บ · ไม่สลับแท็บแทนผู้เล่น (`TC-S5-TRAY-001`) |
+| แคมป์ · สัมผัส · รับของ · ฉากจบ | ตาม UX §4–§7 · การสละของเขียนเป็นคำบนการ์ดเสมอ |
+| แถบใบหน้า | ช่วง 52–68% จากขอบล่างจอว่างทุกโหมด · ตัวอักษร 150–200% ไหลเป็นคอลัมน์เดียวและเลื่อนทั้งหน้า |
+| ตั้งค่า | ป้ายแก้ทาง (ปิดได้) · สัมผัสโต้ตอบอัตโนมัติ · ความเข้มแสง · ขนาดตัวอักษร 100–200% ตาม UX §1.9 · การยืนยันแบบ inline |
+| Accessibility | คีย์บอร์ดเล่นจบได้ · ARIA tabs และ roving tabindex · ประกาศเจตนาและผลครั้งเดียวต่อเหตุการณ์ (`TC-S5-A11Y-001`) |
+| กำแพงกันสปอยล์ | ทางเข้าผู้เล่นมีเนื้อหาเฉพาะถึงขอบองก์ที่ promote แล้ว · harness ตรวจงานของ PO อยู่นอก release allowlist (`TC-S5-PROTO-001`) |
 
-[Detailed interaction state table](../proposals/sprint-05-planning/02-adr022-remediation-contract.md#33-inline-choice-confirmation) covers focus versus activation, double input, overlay/session changes and the existing confirmation preference. Destructive save replacement remains separately consented. Snapshot cursor is semantic, not a CSS page number; History receives only actually displayed text. Real VN feedback is now authoritative through ADR22; record resolution on actual builds rather than waiting for another generic feedback ADR.
+### 3.4 Content pipeline (ADR-P0-034 D6)
+
+compiler อ่านพิมพ์เขียวรายองก์และสเปกกลไก แล้วสร้างแพ็กเกจกับข้อความ · ผลเหมือนเดิมทุกครั้งและ commit ไว้ จึงไม่มี build step ตอนเล่น · drift gate อยู่ในชุด unit · แบบจำลองสมดุลอ่านสเปกกลไกชุดเดียวกัน · ตำแหน่งไฟล์และ grammar กำหนดใน T1
+
+### 3.5 Sprint 6 seam
+
+`story.jaokob.core` สงวนไว้ให้ host และอ่านอย่างเดียวสำหรับ API ในอนาคต · namespace ของเซฟผูก package id · Sprint 5 ไม่สร้าง Editor ไม่ import แพ็กเกจจากผู้ใช้ และไม่ใช้ schema จากระยะไกล
+
+---
 
 ## 4. Master Delivery Matrix and WBS
 
-### 4.1 Four Value Slices
+### 4.1 Four value slices
 
-**Exactly four execution PRs under ADR22 D6, plus planning Draft PR #18.** PR #19–22 below are the PO-designated delivery sequence; none is opened or counted complete by this plan. Link their actual GitHub URLs when created.
+ADR-P0-022 D6 ยังมีผล: **execution PR สี่ตัวเท่านั้น** · ลงเลข PR จริงเมื่อเปิด (#20 ขึ้นไป) · ห้ามมี PR ที่ห้าแบบเงียบ
 
-| Slice / planned PR / branch | Tasks | Visible value and merge gate | Dependency |
+| Slice / branch | Tasks | คุณค่าที่เห็นได้และ merge gate | ต้องมีก่อน |
 |---|---|---|---|
-| **S1 / PR #19** `feat/sprint-05-slice-01-foundations` | **T0–T5** | **Design System Overhaul & Runtime Foundations:** modern VN, separate HUD/tools, silent success, inline choices, five-act capability and Save2 compatibility/replay foundation | ADR22 accepted; first internal checkpoint is T0 contracts/design specification |
-| **S2 / PR #20** `feat/sprint-05-slice-02-living-origin` | **T6–T7** | **Act 1 Living Keepsake Origin & Act 2 Launch:** childhood → adult45cm → storm, warm Thai, revised art, reeds/drain/yarn and playable handoff | S1 contracts/runtime/design and human comfort review |
-| **S3 / PR #21** `feat/sprint-05-slice-03-full-journey` | **T8–T13** | **Acts 3–5 Full Journey, Cinematic Beats & 3 Endings:** city convergence, girl, rain/repair, all endings and actual replay | S2 accepted new-lore starting state and scale sheet |
-| **S4 / PR #22** `feat/sprint-05-slice-04-grand-keepsake` | **T14–T19** | **Grand Keepsake 3D Integration & Device Acceptance:** embroidered adult heart, safe HOME viewer, physical iOS/Android, final acceptance/rollback/core freeze | S3 full story; source-art preparation can begin after S1 identity/staging contract |
+| **S1** `feat/sprint-05-slice-01-foundations` | **T0–T5** | **Foundations & Interactive Web Prototype:** journey runtime ห้าองก์ · schema 3.0.0 · Save 2 journey profile · UI ใหม่ห้าโหมด · Act 1 ต้นแบบที่ PO และแฟนเล่นได้จริง · ปลด runtime เดิม | ADR-P0-034 ลงนามก่อน C1 |
+| **S2** `feat/sprint-05-slice-02-living-origin` | **T6–T7** | **Act 1 Certified & Act 2 Dual Routes:** Act 1 ผ่านการรับรอง · Act 2 สาย A และ B · ศึก R2 บนเวทีเงาสด · CG-01 · CG-02 | S1 merge |
+| **S3** `feat/sprint-05-slice-03-full-journey` | **T8–T13** | **Acts 3–5, Endings & Replay:** เตื๊อก · ไฟดับ · ห้าฮีโร่ · อัศวินเงา · สามฉากจบ · เล่นซ้ำห้าองก์ | S2 merge |
+| **S4** `feat/sprint-05-slice-04-grand-keepsake` | **T14–T19** | **Velour Keepsake 3D, Devices & Release Candidate:** viewer ของ E-HOME · อุปกรณ์จริง · ตรวจรับรวม · release candidate | S3 ครบเรื่อง (งานศิลป์ 3D เริ่มเตรียมได้หลัง S1) |
 
-Within-PR review checkpoints are in the remediation contract §5. They are ordered commits/evidence sections, not extra execution PRs. S1 defaults to exact existing content while capabilities are tested with fixtures; this temporary baseline is not certified as new lore. S2 promotes the reviewed new-lore Act1/2 package with an acknowledged rest boundary. S3 promotes the full story. S4 adds optional gift media and final acceptance. No slice-rest becomes a fourth ending; every promotion names exact archives and rollback behavior.
+### 4.2 Slice 1 checkpoints
 
-### 4.2 Task-level DoR, DoD and trace
+| # | Task | ส่งมอบ | ผ่านเมื่อ |
+|---|---|---|---|
+| C0 | T0 | SSOT 0.3.0 · ADR-P0-034 (proposed) · traceability 0.3.0 · บันทึกมติ PO | **ส่งมอบแล้ว 2026-10-31** · รอ ADR-P0-034 ลงนาม |
+| C1 | T1 | schema 3.0.0 · fixture · compiler และ drift gate · สเปกกลไกของ Act 1 · ทะเบียน assertion ที่ถูกแทนที่ | `TC-S5-SCHEMA-001` · `TC-S5-CONTENT-001` · `TC-S5-PACKAGE-001` |
+| C2 | T2 | journey domain · clash kernel/shell · encounters · journey-session · play-mode · evidence เรียกใช้ core | `TC-S5-CLASH-001` · `TC-S5-TRAY-001` · `TC-S5-STATE-001` · `TC-S5-ENDING-001` |
+| C3 | T3 | journey save · composite identity · snapshot ห้าองก์ · namespace เดิมอ่านอย่างเดียว | `TC-S5-SAVE-001` · `TC-S5-SAVE-002` · `TC-S5-REPLAY-001` · `TC-S5-LEGACY-001` |
+| C4 | T4 | ระบบออกแบบ วัสดุกระจกฝ้า HUD และชิ้นส่วนร่วม | `TC-S5-VN-001` · `TC-S5-HUD-001` · `TC-S5-SILENT-001` · `TC-S5-A11Y-001` |
+| C5 | T5 | ห้าโหมด · Act 1 ต้นแบบ · harness 13 จอ · ทางเข้าเริ่มเป็น Journey · ลบ runtime เดิม · E2E | `TC-S5-INLINE-001` · `TC-S5-UX-001` · `TC-S5-PRESENTATION-001` · `TC-S5-PROTO-001` |
 
-Files below are current modules or planned artifact locations, not promises that new runners already exist. Every task has an owner and uses the common gates in §5. The task IDs remain T0–T19; their allocation is now 6/2/6/6 across four slices.
+C4 เริ่มคู่ขนานกับ C2–C3 ได้เพราะ UI รับ view model ตามสัญญา UX §1.8 · checkpoint เป็นลำดับ commit และหลักฐานใน PR เดียว ไม่ใช่ PR เพิ่ม
 
-- [ ] **T0 / S1: Binding design and compatibility specification.** Owner Architect/UI/Narrative. DoR: ADR22 and inspected references/source available, as recorded here. DoD: forward GDD/Narrative/SRS/architecture/design alignment; Save2 profile/legacy/new-lore matrix, node/variant/recovery policy, new control/cinematic behavior and explicit remaining release controls fixed before affected code. Files: `docs/phase-0/`, `docs/design-system/`, CR-0006, schema design. Trace: ADR-P0-022 D1–D6, FR-CNT-004, NFR-MA-006; `TC-S5-REQ-001`.
-- [ ] **T1 / S1: Versioned contracts and fixture admission.** Owner Data/Architect. DoR: T0 field/identity bounds. DoD: package/content/presentation and new Save2-profile schemas with discriminator, bounded snapshots and independent positive/negative fixtures; published schema bytes unchanged; two-package collision/reserved-default proof. Files: `specs/schemas/`, catalog, `tests/fixtures/`. Trace: ADR22 Consequences, FR-CNT-001..005, FR-SAV-001/005/008; `TC-S5-PACKAGE-001`, `TC-S5-SCHEMA-001`.
-- [ ] **T2 / S1: Five-act deterministic runtime.** Owner Core. DoR: T0/T1 approved invariants and capability fixtures. DoD: later acts/node types, HP-first crisis, Assist/recovery, actual Bond gate, once-only repair, ending/replay operations and exact rejection semantics; no DOM/Browser imports. Files: content orchestration, choice transaction, state machine/ports and tests. Trace: FR-STA-002/003/006, FR-ENG-001..008, TR-001..020; `TC-S5-STATE-001`, `TC-S5-ENDING-001`.
-- [ ] **T3 / S1: Save2, sessions and canonical package protection.** Owner Data/Application. DoR: T1/T2, legacy fixtures and new-profile acceptance policy. DoD: composite identity across session/media/cache/save, actual bounded replay snapshots, same-format profile guards, no Resume writes, quota/race/unknown/rollback proof; exact old lore archive and no guessed bridge. Files: content-runtime, content-sessions, pouch policy, persistence/validation/bootstrap. Trace: ADR22 Consequences, FR-SAV-001..009, ADR-P0-014/020; `TC-S5-SAVE-001`, `TC-S5-SAVE-002`, `TC-S5-REPLAY-001`, `TC-S5-PACKAGE-001`.
-- [ ] **T4 / S1: Modern VN design system and HUD.** Owner UI/Accessibility. DoR: T0 responsive/staging design; existing renderer/History contracts. DoD: tokens/layout/components and dependent modal styles redesigned; ambient meters separate from tools, correct cursors/states, targets≥44×44, comfortable typography/padding, no choice scrollbar, silent successful saving with real reload proof. Files: UI styles/components/renderer, localization and browser evidence. Trace: ADR22 D2/D3, FR-UI-001/003/005/007, FR-ACC-001..004; `TC-S5-VN-001`, `TC-S5-HUD-001`, `TC-S5-SILENT-001`, `TC-S5-A11Y-001`.
-- [ ] **T5 / S1: Inline choices and full player flows.** Owner UI/Application/QA. DoR: T0 interaction table and T2 operations. DoD: no narrative-choice popup, revision-bound arm/confirm/cancel and rapid-input tests, exact saved preference semantics, crisis/Retry/Assist/ending/replay controls and approved cutscene controls; real comfort review and feedback-resolution baseline. Files: bootstrap, projection, renderer, utility dialogs, messages, E2E. Trace: ADR22 D5, FR-UI-004/006, FR-SET-001/002; `TC-S5-INLINE-001`, `TC-S5-UX-001`, `TC-S5-PRESENTATION-001`.
-- [ ] **T6 / S2: Living origin and Act 2 narrative.** Owner Narrative/Game Design. DoR: T0 lore/scale sheet, new runtime ID registry and per-scene scripts. DoD: new Act1 living-keepsake childhood→adult45cm blue shirt→storm; distinctive family and warm Thai; Act2 seven anchors, both routes/yarn, coherent six-item callbacks and fixed-return moments; no old-story memories imported. Files: new versioned Act1/Act2 data, registry/localization/witnesses. Trace: ADR22 D1/D4, NAR-CAN-002, NAR-CON-001..010, ADR-P0-020/021; `TC-S5-LORE-001`, `TC-S5-SCALE-001`, `TC-S5-THAI-001`, `TC-S5-ACT2-001`.
-- [ ] **T7 / S2: Origin/Act2 media and actual read-through.** Owner Art/Audio/QA. DoR: T6 boards and asset rights. DoD: both body stages, growth/storm illustrated beats, reeds/drain/yarn art and measured scale; muted/reduced-motion/fault/reload/root/subpath paths; full Act1→2 human Thai/comfort acceptance. Files: assets/provenance, staging catalog, browser/review evidence. Trace: ADR22 D1/D4, GDD-AV-001..004, FR-CNT-006; `TC-S5-CINEMATIC-001`, `TC-S5-MEDIA-001`, `TC-S5-ACT2-001`.
-- [ ] **T8 / S3: Act3 graph, survival and convergence.** Owner Narrative/Game Design/Core integration. DoR: T6 reachable starting states and approved recovery/scale rules. DoD: ten anchors, every continuing route before A3-003, route consequences retained, safe low-meter continuation without item/Bond, no repeated recovery farming. Files: Act3 data/registry/graph witnesses. Trace: NAR-BRN-001..004, NAR-CON-003, GDD-BAL-001..009; `TC-S5-CONVERGENCE-001`, `TC-S5-BALANCE-001`.
-- [ ] **T9 / S3: City staging and crisis acceptance.** Owner Art/Audio/Accessibility/QA. DoR: T8 cue/pose/clearance/recovery sheet. DoD: curbs, wheels, shoes, drains and shelter fit45cm; readable cinematic city beats, coherent effects/body/rest, actual Assist/Retry paths and accessible muted fallback. Files: city media/catalog/E2E. Trace: ADR22 D1/D4, NAR-SAFE-002/004/005/006, FR-ENG-005; `TC-S5-SCALE-001`, `TC-S5-CINEMATIC-001`, `TC-S5-STATE-001`.
-- [ ] **T10 / S3: Act4 mutual relationship.** Owner Narrative/Game Design. DoR: authored self-reliant/C routes and compensation policy. DoD: eight anchors, first clear girl at004, observable mistake and adjustment, compassion/caution/self-reliance all respected, truthful item/memory/default prose and open exit. Files: Act4 data/registry/localization. Trace: ADR22 D1/D4, ADR21 D1/D4, NAR-ACT-007/008; `TC-S5-ACT4-001`, `TC-S5-CALLBACK-001`, `TC-S5-THAI-001`.
-- [ ] **T11 / S3: Girl encounter cinematic and Bond visibility.** Owner Art/UI/Accessibility/QA. DoR: T10 storyboard/pose/eyeline. DoD: human hand/container/distance fit body; illustrated encounter has complete text fallback; numeric Bond only after gate in DOM/AX/toasts/Log; cautious-independent witness remains viable; human comfort review. Files: media/catalog/browser evidence. Trace: ADR22 D3/D4, FR-UI-005, FR-ACC-001..004; `TC-S5-ACT4-001`, `TC-S5-CINEMATIC-001`, `TC-S5-UX-001`.
-- [ ] **T12 / S3: Act5 and equal ending closure.** Owner Narrative/Game Design. DoR: final scripts, T2/T3 resolver/replay contracts. DoD: six anchors plus three endpoints, once-only repair, rain/shelter scale, valid physical leaf use, complete living-keepsake closure in each ending; no natural-animal transformation at HOME. Files: Act5/ending data/registry/trace. Trace: ADR22 D1/D4, GDD-END-001..006, NAR-END-001/002; `TC-S5-ENDING-001`, `TC-S5-CLOSURE-001`, `TC-S5-LORE-001`.
-- [ ] **T13 / S3: Full journey, ending beats and replay.** Owner Art/Audio/Application/QA. DoR: T12 and actual chapter snapshots. DoD: revised New Game→each ending in the real app, empty/full/released/refused histories, complete three-ending art/Thai, actual A4/A5 replay with current settings, reload/repair/completion idempotence and no saved-profile drift. Files: ending media/integration/E2E/review evidence. Trace: FR-ENG-006, FR-SAV-008, GDD-END-005, TR-019/020; `TC-S5-E2E-001`, `TC-S5-REPLAY-001`, `TC-S5-CINEMATIC-001`.
-- [ ] **T14 / S4: Embroidered adult and childhood source art.** Owner Art/PO. DoR: accepted body references and HOME boards. DoD: adult velour source with red embroidery on blue shirt, distinct childhood material/identity; front/side/back/detail approval, no clipping/floating or wound-like stitching. Files: versioned editable sources outside release artifact. Trace: ADR22 D1/D6, ADR21 D6 as revised; `TC-S5-GIFT-ART-001`.
-- [ ] **T15 / S4: Production exports, posters and rights.** Owner Art/QA. DoR: T14 art review. DoD: reproducible self-contained bounded GLBs, dimensions/normals/UV/material checks, validator results, SHA/provenance/Thai alt and complete2D posters; adult heart visible. Files: production assets/export records/provenance. Trace: FR-CNT-006, NFR-PE-004; `TC-S5-ASSET-001`, `TC-S5-GIFT-ART-001`.
-- [ ] **T16 / S4: Safe HOME viewer.** Owner UI/Architect. DoR: reviewed production dependency/version/license and T15. DoD: isolated deliberate opt-in, pinned same-origin loads, poster-first keyboard/touch/reset/close, no Core/Save coupling, late-result isolation, no pre-opt-in downloads/CDN. Files: viewer adapter/bootstrap/local vendor allowlist/localization. Trace: ADR22 D6, FR-ACC-001/003/004, NFR-MA-001; `TC-S5-GIFT-001`.
-- [ ] **T17 / S4: Viewer failures and physical devices.** Owner QA/Accessibility/Art. DoR: actual T16 adapter and available physical iOS/Android devices. DoD: failure/context-loss/close-switch/race/disposal/resource plateau; real mobile controls/focus/performance with OS/browser/device records; complete2D fallback and no story/save side effects. Files: device/AT/browser/performance evidence. Trace: ADR22 D6, NFR-RL-002/003, NFR-PE-001..005; `TC-S5-GIFT-001`, `TC-S5-DEVICE-001`, `TC-S5-PERF-001`.
-- [ ] **T18 / S4: Integrated technical and human acceptance.** Owner QA with Narrative/UI/PO. DoR: earlier slice evidence and resolved critical review findings. DoD: full §6 gates, all valid regression invariants and ADR22 replacement assertions, every-ending Thai/comfort review, real device/AT sign-off and explicit release capability/duration disposition. Files: regression/evidence/trace and approved fixes. Trace: ADR22 D2–D6, NFR-US-005/006, GDD-GOAL-001..006; `TC-S5-ACCEPT-001`, `TC-S5-E2E-001`.
-- [ ] **T19 / S4: Static candidate, rollback and S6 handoff.** Owner Architect/QA/DevOps. DoR: T18 plus release inventory. DoD: root/subpath allowlisted artifact, exact Save2 profile rollback, final canonical manifest/digest freeze and extension protection fixture, complete documentation/PR trace; deployment requires separate authorization. Files: release manifest/runner, runbook/SSOT/audit/S6 handoff. Trace: FR-SAV-006, NFR-PO-002, NFR-SE-005, ADR22 D6; `TC-S5-RELEASE-001`, `TC-S5-PACKAGE-001`.
+### 4.3 Tasks · DoR · DoD · trace
 
-The earlier 49–79 person-day estimate was for a different scope and is retired. Four PRs are not a four-step calendar promise. Re-estimate after the Slice1 design and Slice2 scripted reading sample, including human/art/device review time. Do not reduce acceptance to fit a smaller PR count.
+Owner ใช้บทบาทในโครงการ · ไฟล์ที่ระบุคือโมดูลปัจจุบันหรือที่ตั้งที่วางแผนไว้ ไม่ได้หมายความว่ามีอยู่แล้ว · ทุกงานใช้ gate ร่วมใน §5 และ §6
+
+- [ ] **T0 / S1: Binding rebaseline.** Owner Architect + PO. DoR: มติ PO 2026-10-31 · ADR-P0-032/033 · สัญญา Tier 2 ครบ. DoD: SSOT 0.3.0 · ADR-P0-034 ลงนาม · traceability 0.3.0 · สถานะอนุมัติในมหาพิมพ์เขียว · UX §1.8 เป็นสัญญา view model · รายการ control ใน §3.3 และวิธีวัดเวลาเล่นใน §2.3 · ทะเบียน assertion ที่ถูกแทนที่เริ่มต้นแล้ว. Files: `docs/sprints/` · `docs/adr/` · `docs/traceability/` · `docs/design-system/`. Trace: ADR-P0-034 · `TC-S5-REQ-001`. สถานะ: ส่งมอบใน C0 ยกเว้นการลงนามและทะเบียน assertion
+- [ ] **T1 / S1: Versioned contracts, compiler and fixtures.** Owner Architect/Data + Antigravity review. DoR: ADR-P0-034 ลงนาม. DoD: schema 3.0.0 ของ journey package (8 ชนิดโหนด · คำศัพท์ปิด · สเปกยกศึก ด่าน แคมป์ รับของ สัมผัส ฉากจบ · ทะเบียนของและธง · การจัดเวที · ข้อความพร้อม receipt) และ journey save profile · ปรับ catalog ของ validator · runner เทียบ Ajv · fixture บวกและลบรวมสองแพ็กเกจเวอร์ชันเดียวกัน · แพ็กเกจจิ๋วที่ครบทุกชนิดโหนดและทุกคำศัพท์ · compiler และ drift gate · สเปกกลไกของ Act 1 · ไบต์ schema ที่ตีพิมพ์แล้วไม่เปลี่ยน. Files: `specs/schemas/v3.0.0/` · `src/data/validation/` · `tools/content/` (ใหม่ พร้อม README) · `tests/fixtures/journey/` · `tests/unit/`. Trace: ADR-P0-034 D4/D6/D7 · ADR-P0-013. `TC-S5-SCHEMA-001` · `TC-S5-CONTENT-001` · `TC-S5-PACKAGE-001`
+- [ ] **T2 / S1: Five-act deterministic engine.** Owner Architect/Core. DoR: schema และ fixture ของ T1. DoD: journey domain (ค่าสถานะ · Soft Floor · ฝืนเอา · Grace · Rest Floor · โหยหาบ้าน · สายใยและระดับคำเรียก · ฉากจบและ Safety Fallback) · clash kernel และ shell ผ่าน parity gate และ capacity invariant · obstacle (สี่กุญแจ · บุกทวน · รอจังหวะ · ฝืนเอา) · camp · micro · pouch-offer (กระดุมล็อก) · journey-session แบบ atomic ผูก revision · play-mode · arch test ตรวจ `new Date(` และ `performance.now(` · เครื่องมือพิสูจน์ import จาก core และผ่าน · coverage ของ core ใหม่ ≥ 90% บรรทัด ≥ 85% branch. Files: `src/core/domain/journey/` · `src/core/domain/clash/` · `src/core/domain/encounters/` · `src/core/use-cases/` · `src/core/state-machine/` · `docs/design-system/evidence/` · `tests/unit/`. Trace: ADR-P0-033 D1–D5 · ADR-P0-034 D2–D5/D9 · มหาพิมพ์เขียว §2. `TC-S5-CLASH-001` · `TC-S5-TRAY-001` · `TC-S5-STATE-001` · `TC-S5-ENDING-001` · `TC-S5-BALANCE-001`
+- [ ] **T3 / S1: Save 2 journey profile, sessions and package protection.** Owner Architect/Data/QA. DoR: T1 · T2. DoD: validator ของ journey save และตาราง §3.2 · namespace และ key · identity ประกอบ package id + version + profile ทั้ง session media และ cache · บันทึกเงียบทุก commit รวม encounter · snapshot ต้นองก์ห้าจุดและการเล่นซ้ำ · `completion` แยก · ≤ 250 KB · quota · race · เสีย · ไม่รู้จัก · มาจากอนาคต · Resume ไม่เขียน · namespace เดิมเหมือนเดิมทุกไบต์ · ซ้อมย้อนกลับด้วย build ของ Sprint 4. Files: `src/data/persistence/` · `src/data/validation/` · `src/bootstrap/` · `tests/`. Trace: ADR-P0-034 D7/D8 · ADR-P0-014 · ADR-P0-022 Save Format 2. `TC-S5-SAVE-001` · `TC-S5-SAVE-002` · `TC-S5-REPLAY-001` · `TC-S5-LEGACY-001` · `TC-S5-PACKAGE-001`
+- [ ] **T4 / S1: Design system, glass material and HUD (prototype part 1).** Owner UI/Accessibility. DoR: สัญญา view model · พิกัด handoff ของ Mockups v3. DoD: token Atomic 05 และ token วัสดุกระจกพร้อมเกณฑ์คอนทราสต์และพื้นสำรอง · ชิ้นส่วน `TopHudCapsule` · `VnTachieStage` · `SaaDialogueCard` · `TactileActionCard` · `SceneTitleCard` · ไอคอน SVG · Safe DOM · บันทึกเงียบ · reduced motion · Reduced Intensity · reduced transparency · ตัวอักษร 200% · ภาพหน้าจอ 6 viewport · PO ตรวจเทียบ v3. Files: `src/ui/styles/` · `src/ui/journey/components/` · `src/data/localization/` · `tests/e2e/`. Trace: ADR-P0-019 · ADR-P0-022 D2/D3 · ADR-P0-034 D10 · UX §1 · Atomic 05. `TC-S5-VN-001` · `TC-S5-HUD-001` · `TC-S5-SILENT-001` · `TC-S5-A11Y-001`
+- [ ] **T5 / S1: Five modes, Act 1 prototype and player flows (prototype part 2).** Owner UI/Application/QA + PO. DoR: T2 · T3 · T4. DoD: การตัดสินใจแบบ inline · ศึกสามจังหวะกับ `ClashIntentAndGauge` · `ClashActionTray` แบบแท็บ · เวทีเงาสดหรือรัศมีแสง · แคมป์ · สัมผัส · รับของ · ฉากจบสามเกลียว · ตั้งค่าตาม §3.3 · แพ็กเกจ Act 1 ที่คอมไพล์จากพิมพ์เขียวเป็นต้นแบบ (ยังไม่รับรอง) · ทางเข้าผู้เล่นที่กันสปอยล์ · harness ของ PO ที่สร้าง 13 จอของ v3 จากสถานะ engine · ทางเข้าเริ่มเป็น Journey · ลบ runtime เนื้อหา และเทสต์เดิมพร้อมทะเบียน · E2E ทุกโหมด คีย์บอร์ดล้วน ลดการเคลื่อนไหว โหลดใหม่กลางศึก root และ subpath · บันทึกการเล่นจริงของ PO. Files: `src/ui/journey/` · `src/bootstrap/` · `index.html` · `src/data/content/` · `docs/design-system/evidence/` · `tests/e2e/`. Trace: ADR-P0-022 D5 · ADR-P0-033 D1–D4 · ADR-P0-034 D1/D9/D10 · UX §2–§7. `TC-S5-INLINE-001` · `TC-S5-UX-001` · `TC-S5-PRESENTATION-001` · `TC-S5-PROTO-001`
+- [ ] **T6 / S2: Act 1 certification and Act 2 dual routes.** Owner Narrative/Game Design + PO. DoR: S1 merge · รูปแบบสเปกกลไก. DoD: Act 1 ผ่านการอ่านภาษาไทยและสเกลโดยมนุษย์พร้อมแก้ไข · Act 2 สาย A (A2A-01..06) สาย B (A2B-01..06) และช่วงบรรจบ A2-07..A2-12 (C2 · MA-2 · R2 · กระดุม) คอมไพล์จากพิมพ์เขียว · คำเรียกตามระดับสายใยตรงคัมภีร์เสียง · แบบจำลองสมดุลและ runtime ledger ผ่านบนแพ็กเกจ · ไม่มีเรื่องเดิมรั่วเข้ามา. Trace: ADR-P0-032 D1–D6 · มหาพิมพ์เขียว §2–§5. `TC-S5-LORE-001` · `TC-S5-THAI-001` · `TC-S5-CONVERGENCE-001` · `TC-S5-BALANCE-001` · `TC-S5-CALLBACK-001`
+- [ ] **T7 / S2: Act 1–2 media, live stage and read-through.** Owner Art/Audio/QA. DoR: T6 · สิทธิ์ asset · PO ตรวจภาพ v2/v3. DoD: asset ที่ promote พร้อม provenance (ฉาก Tachie CG-01 CG-02 ของสะสม) · เวทีฝนและไฟดับ · เงาสด R2 ตามตารางฟิสิกส์ · เสียงที่ฟ้าร้องตามหลังฟ้าแลบตามระยะ · ปิดเสียง ลดการเคลื่อนไหว และภาพเสียยังเล่นได้ · อ่านจริง Act 1–2 โดยมนุษย์ 8–10 นาทีต่อองก์. Trace: ADR-P0-032 D7/D8 · ADR-P0-033 D3 · ฟิสิกส์ v2 §5–§8. `TC-S5-CINEMATIC-001` · `TC-S5-MEDIA-001` · `TC-S5-STAGE-001` · `TC-S5-SCALE-001`
+- [ ] **T8 / S3: Act 3 graph and Teuk's promise.** Owner Narrative/Game Design. DoR: สถานะปลาย Act 2 ที่ไปถึงได้. DoD: A3-01..A3-14 ทางเลือกช่วยเด็กชายต้นและลุงยาม · การช่วยเหลือซึ่งกันและกันกับเตื๊อกและ MA-3 · R3 · C3 (ดามข้อเท้าหรือพันข้อเท้าเลือกได้ทางเดียว) · การรับนกหวีดพร้อมผู้รับของที่สละ · เตื๊อกอยู่ร่วมด่านเฉพาะ Act 3. Trace: ADR-P0-032 D2/D4/D6. `TC-S5-LORE-001` · `TC-S5-CALLBACK-001` · `TC-S5-BALANCE-001` · `TC-S5-THAI-001`
+- [ ] **T9 / S3: Act 3 staging and media.** Owner Art/Audio/Accessibility/QA. DoR: T8. DoD: ถนนไฟดับ น้ำท่วม ระดับตาที่ราวศาลา CG-03 ลำไฟฉายตามฟิสิกส์ และทางสำรองเมื่อสื่อเสีย. Trace: ADR-P0-033 D3 · ฟิสิกส์ v2 §8.7. `TC-S5-SCALE-001` · `TC-S5-CINEMATIC-001` · `TC-S5-STAGE-001`
+- [ ] **T10 / S3: Act 4 siblings and assault plans.** Owner Narrative/Game Design. DoR: T8. DoD: A4-01..A4-11 คำตอบถึงพี่น้องสามทาง · C4 · การรับริบบิ้น · แผน A/B กับ R4A/R4B · MA-4 นกหวีดหรือแสงสะท้อนกระดุม · บรรจบ A4-10. Trace: ADR-P0-032 D2/D4/D6 · ADR-P0-033 D1/D4. `TC-S5-CONVERGENCE-001` · `TC-S5-CALLBACK-001` · `TC-S5-BALANCE-001` · `TC-S5-THAI-001`
+- [ ] **T11 / S3: Act 4 media and the full tray.** Owner Art/UI/Accessibility/QA. DoR: T10. DoD: CG-04A และ CG-04B (แมลงสาบแมนไม่มีกระดุม) · ลำไฟฉายเตื๊อกจากนอกรั้ว · พายุเหนือหัว · ถาด 16 การ์ดในสถานะจริง · PO ทดลองความสบายตา. Trace: ADR-P0-032 D8 · UX §3.3. `TC-S5-CINEMATIC-001` · `TC-S5-TRAY-001` · `TC-S5-UX-001`
+- [ ] **T12 / S3: Act 5 and three endings.** Owner Narrative/Game Design. DoR: บทสุดท้าย · resolver ของ T2. DoD: A5-01..A5-11 อาณาเขต · MA-5 เย็บกระดุม · R5 กับท่าปิดศึกและผ้าคลุมหลังท่าปิดศึกเท่านั้น · หน้าจอตัดสินใจพร้อมเกลียวและประโยคล็อก · E-HOME E-POND E-DAWN และ MA-6 · Safety Fallback · ไม่มีปมค้างตามมหาพิมพ์เขียว §6. Trace: ADR-P0-032 D1/D5/D8. `TC-S5-ENDING-001` · `TC-S5-CLOSURE-001` · `TC-S5-LORE-001`
+- [ ] **T13 / S3: Full journey, ending media and replay.** Owner Art/Audio/Application/QA. DoR: T12. DoD: New Game ถึงทุกฉากจบในแอปจริง · ทุกประวัติกระเป๋า · CG-05A/B/C (และ CG-05D ที่เสนอไว้ เมื่อ PO อนุมัติ) · เล่นซ้ำจากต้นทั้งห้าองก์ด้วยการตั้งค่าปัจจุบัน · `completion` ไม่ซ้ำและไม่ย้อน · โหลดใหม่ได้ทุกจังหวะ. Trace: ADR-P0-034 D7. `TC-S5-E2E-001` · `TC-S5-REPLAY-001` · `TC-S5-CINEMATIC-001`
+- [ ] **T14 / S4: Velour keepsake source art.** Owner Art/PO. DoR: ภาพอ้างอิงที่ยอมรับ. DoD: ตุ๊กตากำมะหยี่ของ E-HOME ตาม ADR-P0-032 D1.3/D8.3 (เสื้อฟ้า · ดาวสามแฉก · กระดุม `ต.♡ป.`) · ท่ามาตรฐานมือเปล่าและท่ากอดหัวใจเป็น emote ตาม ADR-P0-025 · การใช้โมเดลวัยเด็กหรือพื้นผิวโครเชต์ต้องมีมติ PO ก่อน · ภาพหน้า ข้าง หลัง และรายละเอียดผ่านการอนุมัติ. `TC-S5-GIFT-ART-001`
+- [ ] **T15 / S4: Production exports, posters and rights.** Owner Art/QA. DoR: T14. DoD: GLB ทำซ้ำได้และมีขอบเขต · validator · SHA และ provenance · alt ภาษาไทย · poster 2D ครบ. `TC-S5-ASSET-001` · `TC-S5-GIFT-ART-001`
+- [ ] **T16 / S4: Safe HOME viewer.** Owner UI/Architect. DoR: RFC และ ADR ของ dependency ตาม AGENTS.md §9 และ ADR-P0-016. DoD: เปิดได้หลัง E-HOME เมื่อผู้เล่นเลือกเท่านั้น · vendor แบบ same-origin ที่ตรึงเวอร์ชัน · ไม่มี CDN · poster มาก่อน · คีย์บอร์ด สัมผัส รีเซ็ต และปิด · ไม่ผูกกับ core หรือเซฟ · ผลที่มาช้าไม่ทำอะไร · ไม่ดาวน์โหลดก่อนผู้เล่นเลือก. `TC-S5-GIFT-001`
+- [ ] **T17 / S4: Viewer failures and physical devices.** Owner QA/Accessibility/Art. DoR: T16 · อุปกรณ์ iOS และ Android จริง. DoD: ล้มเหลว · context loss · race · การคืนทรัพยากร · ทรัพยากรไม่โตต่อเนื่อง · บันทึกอุปกรณ์ OS เบราว์เซอร์ · AT · ทางสำรอง 2D. `TC-S5-GIFT-001` · `TC-S5-DEVICE-001` · `TC-S5-PERF-001`
+- [ ] **T18 / S4: Integrated technical and human acceptance.** Owner QA + Narrative/UI/PO. DoR: หลักฐานของทุก slice. DoD: gate ใน §6 ครบ · อ่านภาษาไทยและความสบายตาทุกฉากจบ · วัดเวลาเล่นจากการอ่านจริง · สรุปสถานะ control ของ release. `TC-S5-ACCEPT-001` · `TC-S5-E2E-001`
+- [ ] **T19 / S4: Static release candidate, rollback and Sprint 6 handoff.** Owner Architect/QA/DevOps. DoR: T18. DoD: artifact ที่ allowlist ใหม่ (ไม่รวม docs tests และ harness) ทำงานทั้ง root และ subpath · ซ้อมย้อนกลับของ journey save · พิสูจน์ว่า namespace เดิมไม่ถูกแตะ · ตรึง manifest และ digest ของแพ็กเกจหลัก · ส่งต่อ Sprint 6 · deployment ต้องได้รับอนุญาตแยก. `TC-S5-RELEASE-001` · `TC-S5-PACKAGE-001`
+
+สี่ PR ไม่ใช่สัญญาปฏิทิน · ประเมินขนาดใหม่หลัง C2 และหลังการอ่านตัวอย่างจริงของ S2 · ห้ามลดเกณฑ์รับเพื่อให้พอดีจำนวน PR
+
+---
 
 ## 5. Definition of Ready and Done
 
-### 5.1 Planning revision / Slice 1 entry
+### 5.1 Slice 1 entry
 
-- [x] PO/ADR22 authority, existing branch/PR and strict identity verified; supplied ADR preserved unchanged.
-- [x] Four-slice matrix, WBS, trace, living-keepsake continuity, UI interaction and Save2 compatibility direction documented.
-- [x] Source findings and three model renders inspected; existing Save2 unknown-field limitation demonstrated.
-- [x] New audit/evidence and CR-0006 revision distinguish accepted direction, implementation design and unperformed acceptance.
-- [ ] Slice1 T0–T5 implemented and reviewed. This checkbox remains open in a documentation delivery.
-
-Slice1 can begin with T0 and the T4 design specification. No generic “wait for another PO decision/feedback ADR” blocks the accepted overhaul. Each dependent source change begins after its own contract is concrete and testable.
+- [x] มติ PO 2026-10-31 บันทึกใน §1.2 · ตัวตน Git `T3thr <t.theerapat33@gmail.com>`
+- [x] แตก branch `feat/sprint-05-slice-01-foundations` จาก `develop@8643a30`
+- [x] SSOT 0.3.0 · traceability 0.3.0 · สถานะอนุมัติในมหาพิมพ์เขียว · ร่าง ADR-P0-034 (C0)
+- [ ] ADR-P0-034 ลงนามโดย PO และ Antigravity (gate ของการ merge schema และ writer ใน C1)
+- [ ] Antigravity ตรวจสัญญาข้อมูล (มหาพิมพ์เขียว §9 · ADR-P0-034 D3/D4/D7)
+- [ ] สร้างทะเบียน assertion ที่ถูกแทนที่ก่อนลบเทสต์เดิมใด ๆ
+- [ ] Slice 1 T0–T5 implement และผ่านการตรวจ
 
 ### 5.2 Common DoR
 
-- [ ] Approved requirement/ADR section, observable success/failure AC and owner are identified; T0 may author the detailed contract under ADR22 before it exists.
-- [ ] Per-scene purpose, body stage/scale, IDs, effects/guards/targets/callback defaults and media/localization sheet are ready before that scene is implemented.
-- [ ] Changed profile/package versions, old/new reader acceptance, exact archives and rollback fixtures are specified before persistence writes or promotion.
-- [ ] UI interaction states, responsive design, accessible names/focus, overflow and screenshot/review matrix are concrete before component changes.
-- [ ] Asset provenance and reviewer/device availability are scheduled; production dependency is reviewed before importing it.
+- [ ] ระบุข้อตัดสินใจของ ADR เกณฑ์รับที่สังเกตได้ทั้งกรณีสำเร็จและล้มเหลว และผู้รับผิดชอบ
+- [ ] ก่อนลงมือแต่ละฉาก มีแผ่นข้อมูลฉาก: ID · โหมด · เวที · สเกลร่างกาย · effect · ของและค่าเริ่มของ callback · receipt ของข้อความ
+- [ ] ก่อนเขียนเซฟหรือ promote มีเวอร์ชันของ schema และ profile · ตาราง admission · fixture ของการย้อนกลับ
+- [ ] ก่อนทำชิ้นส่วน UI มีสถานะ ผังตอบสนอง ชื่อที่เข้าถึงได้ โฟกัส การล้น และตารางภาพหน้าจอ
+- [ ] นัด provenance ผู้ตรวจ และอุปกรณ์ไว้แล้ว · dependency ผ่านการตรวจก่อน import
 
 ### 5.3 Common DoD
 
-- [ ] Required AC and fault cases pass; source/schema/normative text and trace agree; no unresolved critical finding for this slice.
-- [ ] Valid old invariants remain tested; every superseded assertion names ADR22 authority and a new replacement check; no unrelated skips or weakened guards.
-- [ ] Actual changed screens and Thai paths receive human comfort/editorial acceptance; screenshots/CLS/lint alone are insufficient.
-- [ ] Save2/identity/rollback and media fallbacks pass where affected; explicit “not run” record for checks deferred to the named later slice.
-- [ ] Change Record, CHANGELOG, §7 and Requirement→Artifact→Test→Evidence→PR links complete; reviewer acceptance is separate from authorship.
-- [ ] Sprint Done requires 20 tasks, **four merged execution PRs**, full device/AT/human/release-candidate gates. No automatic merge or deployment.
+- [ ] เกณฑ์รับและกรณีผิดพลาดผ่าน · source schema ข้อกำหนด และ trace ตรงกัน · ไม่มีข้อค้นพบระดับวิกฤตค้าง
+- [ ] invariant เดิมที่ยังถูกยังมีเทสต์ · assertion ที่ลบหรือเปลี่ยนทุกข้ออยู่ในทะเบียนพร้อม authority และเทสต์ทดแทน · ไม่ skip และไม่ลด guard ที่ไม่เกี่ยว
+- [ ] จอและเส้นทางภาษาไทยที่เปลี่ยนผ่านการตรวจความสบายตาและบรรณาธิการโดยมนุษย์ · ภาพหน้าจอ CLS หรือ lint อย่างเดียวไม่พอ
+- [ ] เซฟ identity การย้อนกลับ และทางสำรองของสื่อผ่านในส่วนที่กระทบ · การตรวจที่เลื่อนไปมีบันทึก "ไม่ได้รัน" พร้อม slice ที่รับไป
+- [ ] Change Record · CHANGELOG · §7 · ลิงก์ Requirement → Artifact → Test → Evidence → PR ครบ · การรับรองแยกจากผู้เขียน
+- [ ] Sprint Done ต้องครบ 20 งาน · execution PR สี่ตัวที่ merge แล้ว · gate อุปกรณ์ AT มนุษย์ และ release candidate · ไม่ merge หรือ deploy อัตโนมัติ
+
+---
 
 ## 6. Quality gates and traceability
 
-The [execution trace matrix](../traceability/sprint-05-execution-matrix.md) maps all eight critical findings and inherited requirements to tasks and planned PRs. Feedback status is “planned remediation” until a real revised build supplies evidence.
+[Traceability 0.3.0](../traceability/sprint-05-execution-matrix.md) โยงข้อตัดสินใจทุกข้อกับงาน เทสต์ และหลักฐาน · รหัสเทสต์ที่ยังไม่มี runner เป็นการตรวจที่วางแผนไว้จนกว่าจะส่ง runner จริง
 
-| Gate / verification ID | Required proof | Slice |
+| Gate / verification ID | หลักฐานที่ต้องมี | Slice |
 |---|---|---|
-| REQ / `TC-S5-REQ-001` | ADR22 overrides, current terminology/links/IDs, four-PR coverage, updated normative text | S1 and every PR |
-| PACKAGE / `TC-S5-PACKAGE-001` | Pure Core boundaries, reserved default, no shadow/delete/override, same-version two-package separation, reference/capability failures | S1, S4 |
-| SCHEMA / `TC-S5-SCHEMA-001` | Independent Draft2020-12 parity; immutable published schemas; old/new Save2 profile positive/negative/unknown/oversize fixtures | S1 |
-| STATE / `TC-S5-STATE-001` | TR-001..020 allowed/guarded/forbidden, atomicity, HP-first/Assist/Bond/once-only policies; core line≥90%/branch≥85% when measured | S1, S3 |
-| SAVE / `TC-S5-SAVE-001`, `TC-S5-SAVE-002` | Legacy/current/profile admission, no Resume writes, quota/race/raw slots, new→old rejection without overwrite, no biological→keepsake guessed bridge | S1, S4 |
-| REPLAY / `TC-S5-REPLAY-001` | Actual independent chapter snapshots, current settings, historic completion separation, no synthesized items/repair farming, ≤250KB total | S1 fixtures, S3 actual |
-| VN / `TC-S5-VN-001`, `TC-S5-HUD-001` | New type/spacing/states, pointer/default accuracy, separate meters/tools≥44×44, utility comfort, no choice inner-scroll/clipping | S1 and later screens |
-| SILENT / `TC-S5-SILENT-001` | No visual/audible success artifact on choice/advance/settings/reload; real saved state survives; failure notice remains | S1 |
-| INLINE / `TC-S5-INLINE-001` | No narrative popup; arm/confirm/cancel, no effects before commit, preference semantics, revision and double/rapid/repeated-key guards | S1 |
-| PRESENTATION / `TC-S5-PRESENTATION-001`, `TC-S5-UX-001` | Equivalent story under presentation changes, accurate text receipts, no media/state coupling, real controls and feedback resolution | S1–S4 |
-| A11Y / `TC-S5-A11Y-001` | Keyboard/focus/escape, semantic inline state, 200%text/400%zoom/reflow, Thai spacing, AA contrast, forced colors, reduced motion/no auditory-only cue | Every slice; AT S4 |
-| LORE / `TC-S5-LORE-001`, `TC-S5-SCALE-001` | Childhood→adult45cm before storm, limbs/blue shirt, correct world clearance/eyeline, no biological callback leakage | S2, S3, S4 art |
-| THAI/CLOSURE / `TC-S5-THAI-001`, `TC-S5-CALLBACK-001`, `TC-S5-CLOSURE-001` | Natural Thai, distinct motivation/family voices, six truthful item histories/defaults, no duplicate prose/results/dashes/emoji, equal endings; human rubric≥4/5 each axis | S2/S3; final S4 |
-| CINEMATIC / `TC-S5-CINEMATIC-001` | Required boards/illustrated beats, still/text/audio-off parity, semantic reload/skip, exactly-once effects | S2/S3 |
-| GRAPH/BALANCE / `TC-S5-CONVERGENCE-001`, `TC-S5-BALANCE-001` | State-aware reachable paths through A3-003, no orphan/deadlock/false ending, safe recovery/checkpoints and counterexample traces | S2/S3 |
-| ENDING / `TC-S5-ENDING-001` | Resolver truth table, eight retained design witnesses and actual new-lore journeys; no item/settings bias | S1 fixtures, S3 actual |
-| MEDIA/IP / `TC-S5-MEDIA-001`, `TC-S5-ASSET-001`, `TC-S5-GIFT-ART-001` | Licensed/original assets, hashes/alt/paths, staging/scale, failure fallback, visible adult embroidery and model export QA | S2–S4 |
-| GIFT/DEVICE / `TC-S5-GIFT-001`, `TC-S5-DEVICE-001` | Deliberate HOME-only opt-in, no early vendor/GLB traffic, failure/race/disposal/resource plateau, physical iOS/Android and AT | S4 |
-| PERF / `TC-S5-PERF-001` | Initial≤2MB compressed, shell+criticalJSON≤500KB, cold≤3s/warm≤1.5s p75, input≤100ms p95, Save≤250KB, images32MiB/audio16MiB, History50+50≤8MiB | Each affected PR + S4 |
-| E2E / `TC-S5-ACT2-001`, `TC-S5-ACT4-001`, `TC-S5-E2E-001` | Exact archived paths retained, new-lore full journeys all endings/item histories/Assist/Retry/replay/reload/root+subpath; no fixture-only completion claim | S2/S3/S4 |
-| ACCEPT/RELEASE / `TC-S5-ACCEPT-001`, `TC-S5-RELEASE-001` | Human comfort/Thai and resolved critical feedback, physical devices/AT, static allowlist/secret/network checks, Save2 rollback, core freeze | Every slice sign-off + S4 final |
+| REQ / `TC-S5-REQ-001` | ตาราง precedence และสิ่งที่ถูกแทนที่สอดคล้อง · ID และลิงก์ถูก · ครอบคลุมสี่ PR | S1 และทุก PR |
+| SCHEMA / `TC-S5-SCHEMA-001` | schema 3.0.0 ทั้งบวก ลบ ไม่รู้จัก และเกินขนาด · เทียบ Ajv · schema ที่ตีพิมพ์แล้วไม่เปลี่ยน | S1 |
+| CONTENT / `TC-S5-CONTENT-001` | drift gate ของ compiler · receipt ทุกบรรทัด · คำศัพท์ที่ไม่รู้จักถูกปฏิเสธ | S1–S3 |
+| PACKAGE / `TC-S5-PACKAGE-001` | ขอบเขต Core · `story.jaokob.core` สงวนไว้ · สองแพ็กเกจเวอร์ชันเดียวกันไม่ชนกัน · การอ้างอิงและความสามารถที่ผิดถูกปฏิเสธ | S1 · S4 |
+| CLASH / `TC-S5-CLASH-001` | parity กับ engine เดิมทุกลำดับการกดจาก 18 จุดเข้าศึก · ปฏิเสธด้วย error code · ผลลัพธ์ถูก freeze | S1 |
+| TRAY / `TC-S5-TRAY-001` | ความจุสี่กลุ่มในทุกตำแหน่งศึกที่เกิดได้ · กติกาแท็บ UX §3.3 · แบบแผนคีย์บอร์ด | S1 · S3 |
+| STATE / `TC-S5-STATE-001` | invariant §2.2 · การเปลี่ยนโหมดของ play-mode · transaction แบบ atomic · coverage ของ core ใหม่ ≥ 90% บรรทัด ≥ 85% branch | S1 · S3 |
+| ENDING / `TC-S5-ENDING-001` | ตารางความจริงของ §2.4 · Safety Fallback · การตั้งค่าไม่เปลี่ยนฉากจบ · การเล่นจำลอง 14 แบบรันบน core | S1 fixture · S3 จริง |
+| BALANCE / `TC-S5-BALANCE-001` | แบบจำลองสมดุลและ runtime ledger ผ่านบนสเปกกลไกของแพ็กเกจ | S1 Act 1 · S2 · S3 |
+| SAVE / `TC-S5-SAVE-001` · `TC-S5-SAVE-002` | ตาราง §3.2 · บันทึกเงียบทุก commit · โหลดใหม่กลางศึกตรงจังหวะ · quota race เสีย อนาคต · Resume ไม่เขียน · ≤ 250 KB | S1 · S4 |
+| REPLAY / `TC-S5-REPLAY-001` | snapshot ห้าองก์ · เล่นซ้ำด้วยการตั้งค่าปัจจุบัน · `completion` ไม่ถูกย้อน | S1 fixture · S3 จริง |
+| LEGACY / `TC-S5-LEGACY-001` | namespace เดิมเหมือนเดิมทุกไบต์หลังเล่น Journey · แจ้งครั้งเดียว · build เก่ายังเปิดเซฟเดิมได้ | S1 · S4 |
+| VN / `TC-S5-VN-001` · HUD / `TC-S5-HUD-001` | token · วัสดุกระจก · เกณฑ์คอนทราสต์และพื้นสำรอง · HUD ตาม Atomic 05 · เป้ากด ≥ 44 · ไม่มีแถบเลื่อนซ้อน · แถบใบหน้าว่าง | S1 และจอถัดไป |
+| SILENT / `TC-S5-SILENT-001` | ไม่มีสัญญาณบันทึกสำเร็จ · บันทึกจริง · ความล้มเหลวยังแจ้ง | S1 |
+| INLINE / `TC-S5-INLINE-001` | arm · commit · ยกเลิก · กันกดรัวและ revision เก่า · ไม่มี modal ของทางเลือก | S1 |
+| PRESENTATION / `TC-S5-PRESENTATION-001` · UX / `TC-S5-UX-001` | เรื่องเหมือนเดิมเมื่อเปลี่ยนการแสดงผล · receipt ของข้อความที่แสดงจริง · สื่อไม่เปลี่ยนสถานะ · control จริงทุกปุ่ม | S1–S4 |
+| PROTO / `TC-S5-PROTO-001` | PO เล่น Act 1 ต้นแบบจบในเบราว์เซอร์จริง · harness สร้าง 13 จอ v3 จากสถานะ engine · กำแพงกันสปอยล์ทำงาน | S1 |
+| A11Y / `TC-S5-A11Y-001` | เล่นจบด้วยคีย์บอร์ด · โฟกัสและ Escape · ARIA tabs · ประกาศครั้งเดียว · ตัวอักษร 200% · ซูม 400% · reflow · คอนทราสต์ AA · forced colors · reduced motion · intensity · transparency | ทุก slice · AT ใน S4 |
+| LORE / `TC-S5-LORE-001` · SCALE / `TC-S5-SCALE-001` | invariant §2.1 · ฟิสิกส์ 45 ซม. · ระดับตา · ความต่อเนื่องของพร็อพ | S1–S4 |
+| THAI / `TC-S5-THAI-001` · CALLBACK / `TC-S5-CALLBACK-001` · CLOSURE / `TC-S5-CLOSURE-001` | ภาษาไทยธรรมชาติตามคัมภีร์เสียงและคำเรียก · ข้อความของของตรงประวัติจริง · ไม่มีปมค้าง · ไม่มีบทซ้ำ ขีดยาว หรือ emoji · คะแนนผู้อ่าน ≥ 4/5 ทุกแกน | S2 · S3 · สรุป S4 |
+| CONVERGENCE / `TC-S5-CONVERGENCE-001` | การบรรจบของ Act 2 และ Act 4 รักษาสถานะ · ไม่มีโหนดกำพร้าหรือทางตัน | S2 · S3 |
+| STAGE / `TC-S5-STAGE-001` · CINEMATIC / `TC-S5-CINEMATIC-001` | อากาศ ไฟดับ ฟ้าร้องตามระยะ · เงาสดจากตารางฟิสิกส์ · CG · ภาพนิ่ง ข้อความ และปิดเสียงเท่ากัน · effect เกิดครั้งเดียว | S2 · S3 |
+| MEDIA / `TC-S5-MEDIA-001` · ASSET / `TC-S5-ASSET-001` · GIFT-ART / `TC-S5-GIFT-ART-001` | asset มีสิทธิ์หรือสร้างเอง · hash alt และ path · ทางสำรอง · QA ของโมเดลตุ๊กตา | S2–S4 |
+| GIFT / `TC-S5-GIFT-001` · DEVICE / `TC-S5-DEVICE-001` | เปิดหลัง E-HOME เมื่อผู้เล่นเลือก · ไม่มี traffic ก่อนเลือก · ล้มเหลว race คืนทรัพยากร · iOS Android และ AT จริง | S4 |
+| PERF / `TC-S5-PERF-001` | ขนาดเริ่มต้น ≤ 2 MB บีบอัด · shell + JSON สำคัญ ≤ 500 KB · cold ≤ 3 วินาที warm ≤ 1.5 วินาที (p75) · input ≤ 100 ms (p95) · เซฟ ≤ 250 KB · ภาพ 32 MiB · เสียง 16 MiB · ประวัติ 50 + 50 ≤ 8 MiB | ทุก PR ที่กระทบ · S4 |
+| E2E / `TC-S5-E2E-001` | New Game ถึงทุกฉากจบในแอปจริง · ทุกประวัติกระเป๋า · root และ subpath | S3 · S4 |
+| ACCEPT / `TC-S5-ACCEPT-001` · RELEASE / `TC-S5-RELEASE-001` | บันทึกการรับรองโดยมนุษย์ · ตรวจ allowlist secret และ network · ย้อนกลับ · ตรึงแพ็กเกจหลัก | ทุก slice · S4 |
 
-Viewport matrix: 320×568, 390×844, 768×1024, 844×390, 1440×900, 2560×1440, plus longest Thai, text expansion, keyboard and safe areas. Test Chromium/Firefox/WebKit and physical iOS/Android; record actual devices/OS/browser versions. Device emulation is not physical-device acceptance. Record reference hardware/network/CPU with 20 cold +20 warm, ≥100 actions across ≥5 runs and 3×30s frame samples; rAF alone does not prove painted frames or GPU health.
+รหัส `TC-S5-ACT2-001` และ `TC-S5-ACT4-001` ของ 0.2.0 รวมเข้า `TC-S5-CONVERGENCE-001` กับ `TC-S5-E2E-001`
 
-The 1,060 baseline cases include obsolete UI/lore expectations. Zero regression retains valid requirements and replaces superseded expectations with traced tests; it does not require reproducing rejected behavior. Keep the original reports and document every changed assertion. Machine checks cannot certify reading comfort, natural Thai or universal absence of defects.
+ตารางจอ: 320×568 · 390×844 · 768×1024 · 844×390 · 1440×900 · 2560×1440 พร้อมข้อความไทยที่ยาวที่สุด ตัวอักษรขยาย คีย์บอร์ด และ safe area · ทดสอบ Chromium Firefox WebKit และ iOS Android จริง บันทึกรุ่นอุปกรณ์ OS และเบราว์เซอร์ · การจำลองอุปกรณ์ไม่ใช่การรับรองบนอุปกรณ์จริง · วัดประสิทธิภาพ 20 cold + 20 warm · ≥ 100 การกระทำใน ≥ 5 รอบ · เก็บเฟรม 3 × 30 วินาที
 
-### 6.1 Existing commands and evidence status
-
-Existing commands, **run on 2026-10-17 and not rerun for this documentation-only revision**:
+### 6.1 Commands and evidence status
 
 ```sh
-node --test tests/unit/*.test.js
-node tests/design/ending-trajectories.mjs
+node --test 'tests/unit/**/*.test.js'
+node tests/docs/check-doc-links.mjs
 ```
 
-The original evidence contains 1,060/1,060 passes and 1,096 design trajectories. This revision verifies unchanged runtime/test/schema/asset bytes, document consistency and the current Save2 validator probe. No new UI, lore, extended Save2 or 3D implementation is certified.
+สองคำสั่งนี้ต้องผ่านก่อนทุก commit · เครื่องมือพิสูจน์ใน [evidence/](../design-system/evidence/README.md) เป็น design gate ที่รันเมื่อกติกา บท หรือสเปกกลไกเปลี่ยน · runner ของ schema ใน `tests/schema/` ต้องใช้ `JKB_AJV_PATH` · runner ใน `tests/e2e/` รับ `JKB_PLAYWRIGHT_PATH` และ `JKB_EVIDENCE_DIR` และเครื่อง cloud มี Chromium กับ Playwright พร้อมใช้ · `vn-runtime-ergonomics.mjs` ผูกกับผลของ Sprint 4 และจะถูกปลดพร้อม runtime เดิม · ตัวตรวจ release ยังตรึง allowlist ของ Sprint 4 (`bc167d3`) T19 ต้องเพิ่ม allowlist ใหม่ · ห้ามสร้างชื่อคำสั่งจากการเดา เช่น `npm test`
 
-Independent schema runners exist at `tests/schema/closeout-reference.mjs` and `tests/schema/narrative-reference.mjs` and require `JKB_AJV_PATH`. Browser runners `act1-playthrough.mjs`, `narrative-slice.mjs`, `keepsake-pouch.mjs`, `session-history.mjs` under `tests/e2e/` accept `JKB_PLAYWRIGHT_PATH` and `JKB_EVIDENCE_DIR`; choose a fresh directory. `vn-runtime-ergonomics.mjs` hardcodes S4 output and needs version/output refactoring before reuse. None was rerun here. New TC IDs are planned checks until their actual runners are delivered; do not invent `npm test`.
-
-The current static checker pins S4 manifest/rollback `bc167d3` and excludes GLB/vendor. T16/T19 must add version-specific allowlists/checks without exposing spike/docs/tests or weakening the old evidence. Runtime dependencies and optional3D budgets require production review, not automatic adoption of the spike.
+---
 
 ## 7. Audit, readiness and remaining gates
 
 | Record | Status |
 |---|---|
+| [CR-20261031-1500](../changelog/2026-10/2026-10-31-1500-slice-1-c0-ssot-0-3-0-and-adr-034.md) | Slice 1 checkpoint C0 on `feat/sprint-05-slice-01-foundations`: this SSOT 0.3.0 rebaselined to ADR-P0-032 v2.0, ADR-P0-033 and the PO decisions of 2026-10-31 (Q1–Q5, nine canon items, interactive web prototype); [ADR-P0-034](../adr/ADR-P0-034-five-act-journey-runtime-save2-journey-profile-and-blueprint-compiled-content.md) proposed; [traceability 0.3.0](../traceability/sprint-05-execution-matrix.md); master plan approval recorded. Documentation only; production WBS remains 0/20. |
 | [CR-20261031-1326](../changelog/2026-10/CR-20261031-1326-atomic-gameplay-mockups-v3.md) | Atomic gameplay mockups v3: 13 PNG/WebP screen pairs, exact Chrome viewport captures, [offline review and UI coordinates](../design-system/evidence/ux-mockups-v3-review.html), source-traced Thai and engine states. R5 formula/distance clarification confirmed by PO; no pre-finisher cape, sleeping เปี๊ยก, blackout, 16-action tabs, eight camp cards and ending fallback corrected. 1,060 unit tests, 78 review states and artifact verification pass; no byte-identical duplicates. PO visual acceptance remains open; design input for T0/T4 only, production WBS remains 0/20. |
 | [CR-20261031-0545](../changelog/2026-10/2026-10-31-0545-core-architect-onboarding-and-slice-1-plan.md) | Core Architect onboarding under the PO Sprint 5 Genesis Mandate: baseline re-verified (1,060 unit tests, all doc links, five evidence tools), [core architect notebook](../dialogue/sprint-05/core-architect-notebook.md) with technical delta, draft Slice 1 plan C0–C5 and risk register, board message S5-002, agent registry roles updated. Documentation only; this SSOT 0.2.0 conflicts with ADR-P0-032 v2.0/033 and needs the 0.3.0 rebaseline in T0. Production WBS remains 0/20. |
 | [CR-20261031-0420](../changelog/2026-10/2026-10-31-0420-grand-repository-reconstruction-and-zero-debt-ssot.md) | Zero-debt repository after PR #18: no byte-identical duplicates, Tier 4 under [docs/archive/](../archive/README.md), README in every main folder, [documentation portal](../README.md) rewritten, [Sprint 5 Board](../dialogue/sprint-05/BOARD.md) opened, production `.gitignore` blueprint commented out, zero broken links (`node tests/docs/check-doc-links.mjs`). 1,060 unit tests and all evidence tools pass; production WBS remains 0/20. |
@@ -304,13 +340,14 @@ The current static checker pins S4 manifest/rollback `bc167d3` and excludes GLB/
 
 | Item | Disposition / owner / gate |
 |---|---|
-| ADR22 D1–D6, Save2 and four slices | **Decided**; implementation follows these directions; no reapproval request |
-| Save2 profile exact schema/limits and old-reader protection | T0/T1/T3 contract and executable compatibility proof before new writer activation; Architect/Data/QA |
-| Revised world and callback registry | T0/T6/T8 scripts and scale boards replace old biological assumptions; Narrative/Game Design/Art review before content promotion |
-| Critical VN/Thai review | Accepted input with remediation planned; actual revised screens/prose require human acceptance each slice, not a future generic ADR |
-| Large PR #21 | Ordered Act3→Act4→Act5→full-path checkpoints and evidence; four-PR constraint remains; no silent fifth QA PR |
-| Grand Keepsake production dependency | Version/license/lifecycle/export budgets reviewed in T14–T17; current spike is reference, not production proof |
-| Full-release controls/duration | T0/T5 enumerate requirements; T18 records implemented controls and measured reading duration or an explicit owner-approved scope amendment |
-| Physical devices/AT/release | Schedule early; T17/T18/T19 require actual evidence. If unavailable, that acceptance remains open; no emulation substitution |
+| มติ PO 2026-10-31 (Q1–Q5 · เก้าข้อ · ต้นแบบเว็บ) | **ตัดสินแล้ว** บันทึกใน §1.2 · ไม่ต้องขออนุมัติซ้ำ |
+| ADR-P0-034 | PROPOSED · PO และ Antigravity ลงนามก่อน merge schema และ writer ใน C1 · Architect |
+| สัญญาข้อมูล | Antigravity ตรวจมหาพิมพ์เขียว §9 กับ ADR-P0-034 D3/D4/D7 ระหว่างเตรียม C1 |
+| ทะเบียน assertion ที่ถูกแทนที่ | สร้างตอนเริ่ม C1 ก่อนลบเทสต์เดิม · ทุกการลบมี authority และเทสต์ทดแทน · Architect/QA |
+| Act 1 ต้นแบบกับการรับรอง | ต้นแบบใน S1 ยังไม่ถือเป็นการรับรอง · T6 รับรองด้วยการอ่านภาษาไทยและสเกลโดยมนุษย์ · Narrative/PO |
+| PR ขนาดใหญ่ของ S3 | checkpoint ตามลำดับ Act 3 → Act 4 → Act 5 → เส้นทางเต็ม · คงสี่ PR · ไม่มี PR ที่ห้าแบบเงียบ |
+| dependency ของ 3D viewer | RFC และ ADR ก่อน T16 ตาม AGENTS.md §9 และ ADR-P0-016 |
+| โมเดล 3D วัยเด็กหรือพื้นผิวโครเชต์ | ต้องมีมติ PO ก่อน T14 (ADR-P0-032 D1.2/D8.3) |
+| อุปกรณ์จริงและ AT | นัดตั้งแต่ตอนนี้ · T17/T18 ต้องมีหลักฐานจริง · ไม่ใช้การจำลองแทน |
 
-Planning migration: none. Rollback this revision through a reviewed documentation revert; runtime/save data are untouched. S1 begins with contracts/design under ADR22, then the dependent runtime/UI work. The current task updates and pushes PR #18 only; it does not start an execution PR, merge or deploy.
+Migration ของฉบับนี้: ไม่มี · ย้อนกลับด้วยการ revert commit ของ C0 ที่ผ่านการตรวจ · runtime schema และเซฟไม่ถูกแตะ · งานถัดไปคือ C1 หลัง ADR-P0-034 ลงนาม

@@ -1,5 +1,5 @@
 # ทะเบียนสถานะพระราชบัญญัติสถาปัตยกรรมและเนื้อเรื่อง (ADR Status Registry)
-## โครงการ JaoKob (เจ้ากบ) — อัปเดตล่าสุด: 2026-10-29
+## โครงการ JaoKob (เจ้ากบ) — อัปเดตล่าสุด: 2026-10-31
 
 เอกสารนี้เป็น **ดัชนีควบคุมสูงสุดของโฟลเดอร์ `docs/adr/`** เพื่อให้ AI Agents ทุกตัวในเครือข่าย (`Antigravity`, `Claude Opus 5.5`, `mimo-v2.6-pro`, `Senior AI / GPT-6 Astra`, `Gemini 4 Argon`) ทราบอย่างชัดเจนว่า **ADR ฉบับใดมีผลบังคับใช้ (ACTIVE)** และ **ADR ฉบับใดถูกระงับหรือยกเลิกแล้ว (SUSPENDED / SUPERSEDED)**
 
@@ -33,7 +33,7 @@
 |---|---|---|---|
 | **[ADR-P0-031](./ADR-P0-031-act1-4-narrative-rebuild-item-contract-and-balance-model.md)** | **ใช้เฉพาะคณิตศาสตร์และกลไกระบบ:** Status `HP / ใจ / STA`, จุดพักยกพื้น (Rest Floor), กฎสี่กุญแจ (The Four Keys), Grace Beat, Bond แยกรายเพื่อน และเครื่องมือวัดเวลาอ่าน (8–10 นาที/องก์) | **ระงับเนื้อเรื่องเดิมและโมเดลฉากจบไม่ผูกเงื่อนไข:** ยกเลิกบทด้ายแดง, พี่บัว/พี่แหน, คุณยาย, กบปูนปั้น, รายการไอเทมผูกด้ายแดง และปรับสู่โมเดลเงื่อนไขปลดล็อก 3 ฉากจบแบบสมมาตร (`Status + Bond + Item`) ตาม ADR-P0-032 D5.4 | **PARTIALLY ACTIVE (Math & Schema D7 Only)** |
 | **[ADR-P0-026](./ADR-P0-026-cockroach-man-route-boss-jao-teuk-mandate-and-branching-narrative-graph.md)** | **คงตัวละครบังคับ:** **แมลงสาบแมน** (ก้อนเงาผ้าคลุมดำ) และ **เจ้าเตื๊อก** พร้อมโครงสร้างกราฟทางแยกที่มีความหมาย | **ระงับโครงฉากเดิม:** ปรับบทบาทเจ้าเตื๊อกเป็นพระเอกมนุษย์คนรักของเปี๊ยกผู้มอบภารกิจผู้พิทักษ์ และยกระดับแมลงสาบแมนเป็นคู่ปรับตลอดกาลครบ 5 ยกตาม ADR-P0-032 และ ADR-P0-033 | **PARTIALLY ACTIVE** |
-| **[ADR-P0-022](./ADR-P0-022-visual-novel-ergonomics-living-keepsake-lore-and-sprint-streamlining.md)** | **ใช้เฉพาะ UX/UI & Sprint Plan:** แยก Ambient Meters ออกจาก Tools, Silent Save, Inline Confirmation, Save Format 2 และการแบ่งงาน 4 Value Slices | **ระงับสัจจะตุ๊กตาตั้งแต่เกิด:** เจ้ากบเกิดเป็นกบสองขามีชีวิต แล้วค่อยกลายร่างเป็นตุ๊กตากำมะหยี่ให้เปี๊ยกเฉพาะในฉากจบ `E-HOME` ตาม ADR-P0-032 | **PARTIALLY ACTIVE (UI & Slices Only)** |
+| **[ADR-P0-022](./ADR-P0-022-visual-novel-ergonomics-living-keepsake-lore-and-sprint-streamlining.md)** | **ใช้เฉพาะ UX/UI & Sprint Plan:** แยก Ambient Meters ออกจาก Tools, Silent Save, Inline Confirmation, Save Format 2 และการแบ่งงาน 4 Value Slices · การเล่นต่อเซฟเก่าแบบตรงตัวสิ้นผลตามมติ PO 2026-10-31 (บันทึกใน ADR-P0-034) | **ระงับสัจจะตุ๊กตาตั้งแต่เกิด:** เจ้ากบเกิดเป็นกบสองขามีชีวิต แล้วค่อยกลายร่างเป็นตุ๊กตากำมะหยี่ให้เปี๊ยกเฉพาะในฉากจบ `E-HOME` ตาม ADR-P0-032 | **PARTIALLY ACTIVE (UI & Slices Only)** |
 | **[ADR-P0-021](./ADR-P0-021-narrative-resonance-authentic-adventure-and-branching-integrity.md)** | **ใช้เฉพาะมาตรฐานวรรณศิลป์ Anti-Slop:** ห้ามผู้บรรยายสั่งสอนผู้เล่น ห้ามบล็อกข้อความซ้ำข้ามเส้นทาง | **ระงับข้อห้ามกลายเป็นตุ๊กตาและปรับสมดุลเงื่อนไขฉากจบ:** อนุญาตปาฏิหาริย์ตุ๊กตากำมะหยี่เฉพาะใน `E-HOME` และใช้เงื่อนไขสมมาตร `Status + Bond + Item` ปลดล็อกทั้ง 3 ฉากจบตาม ADR-P0-032 D5.4 | **PARTIALLY ACTIVE** |
 
 ---
@@ -49,3 +49,11 @@
 | **[ADR-P0-024](./ADR-P0-024-living-keepsake-transmutation-narrative-sovereignty-and-origin-canon.md)** | ยกเลิกพล็อตด้ายแดงและโครงเรื่องเดิมทั้งหมด | [ADR-P0-032](./ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md) | **SUSPENDED** |
 | **[ADR-P0-018](./ADR-P0-018-visual-novel-design-system-and-anti-slop-standards.md)** | ถูกแทนที่ด้วยมาตรฐาน Runtime Ergonomics ที่สมบูรณ์กว่า | [ADR-P0-019](./ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md) | **SUPERSEDED** |
 | **[ADR-P0-017](./ADR-P0-017-childhood-accessory-export.md)** | ถูกแทนที่ด้วยกฎการแยกท่าถือหัวใจออกจากท่ามาตรฐาน | [ADR-P0-025](./ADR-P0-025-childhood-keepsake-default-stance-and-heart-emote-decoupling.md) | **SUPERSEDED** |
+
+---
+
+## 4. ร่างที่รอลงนาม (PROPOSED — ยังไม่ใช่กฎหมายจนกว่าจะลงนาม)
+
+| รหัส ADR | ชื่อเอกสาร | ขอบเขต | สถานะ |
+|---|---|---|---|
+| **[ADR-P0-034](./ADR-P0-034-five-act-journey-runtime-save2-journey-profile-and-blueprint-compiled-content.md)** | Five-Act Journey Runtime, Save Format 2 Journey Profile, Legacy Save Deprecation and Blueprint-Compiled Content | **สถาปัตยกรรมรันไทม์ห้าองก์:** runtime ใหม่แทนของเดิม (`D1`) · kernel และ shell ใน `src/core` ไม่มีการสุ่ม (`D2`) · แยกสถานะการเดินทางกับการเผชิญหน้า (`D3`) · คำศัพท์ effect แบบปิด (`D4`) · กติกาศึกแหล่งเดียวพร้อม parity gate (`D5`) · เนื้อหาคอมไพล์จากพิมพ์เขียว (`D6`) · Save 2 journey profile และ snapshot ห้าองก์ (`D7`) · namespace เดิมเป็นคลังเซฟเก่าแบบอ่านอย่างเดียว (`D8`) · เครื่องสถานะโหมดและ view model (`D9`) · Interactive Web Prototype และวัสดุกระจกฝ้า (`D10`) · มติ PO 2026-10-31 ที่ ADR นี้บันทึกมีผลแล้ว | **PROPOSED v0.1 · รอ PO และ Antigravity ลงนามก่อน Slice 1 checkpoint C1** |
