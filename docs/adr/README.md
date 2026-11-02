@@ -1,5 +1,5 @@
 # ทะเบียนสถานะพระราชบัญญัติสถาปัตยกรรมและเนื้อเรื่อง (ADR Status Registry)
-## โครงการ JaoKob (เจ้ากบ) — อัปเดตล่าสุด: 2026-10-31
+## โครงการ JaoKob (เจ้ากบ) — อัปเดตล่าสุด: 2026-11-02
 
 เอกสารนี้เป็น **ดัชนีควบคุมสูงสุดของโฟลเดอร์ `docs/adr/`** เพื่อให้ AI Agents ทุกตัวในเครือข่าย (`Antigravity`, `Claude Opus 5.5`, `mimo-v2.6-pro`, `Senior AI / GPT-6 Astra`, `Gemini 4 Argon`) ทราบอย่างชัดเจนว่า **ADR ฉบับใดมีผลบังคับใช้ (ACTIVE)** และ **ADR ฉบับใดถูกระงับหรือยกเลิกแล้ว (SUSPENDED / SUPERSEDED)**
 
@@ -14,6 +14,7 @@
 
 | รหัส ADR | ชื่อเอกสาร | ขอบเขตที่บังคับใช้ | สถานะ |
 |---|---|---|---|
+| **[ADR-P0-034](./ADR-P0-034-five-act-journey-runtime-save2-journey-profile-and-blueprint-compiled-content.md)** | Five-Act Journey Runtime, Save Format 2 Journey Profile, Legacy Save Deprecation and Blueprint-Compiled Content | **สถาปัตยกรรมรันไทม์ห้าองก์:** runtime ใหม่แทนของเดิม (`D1`) · kernel และ shell ใน `src/core` ไม่มีการสุ่ม (`D2`) · แยกสถานะการเดินทางกับการเผชิญหน้า (`D3`) · คำศัพท์ effect แบบปิด (`D4`) · กติกาศึกแหล่งเดียวพร้อม parity gate (`D5`) · เนื้อหาคอมไพล์จากพิมพ์เขียว (`D6`) · Save 2 journey profile และ snapshot ห้าองก์ (`D7`) · namespace เดิมเป็นคลังเซฟเก่าแบบอ่านอย่างเดียว (`D8`) · เครื่องสถานะโหมดและ view model (`D9`) · Interactive Web Prototype และวัสดุกระจกฝ้า (`D10`) · มติ PO 2026-10-31 ที่ ADR นี้บันทึกมีผลแล้ว | **ACTIVE v1.0 (Architecture · PO ลงนาม 2026-11-02 · Antigravity ตรวจ schema ระหว่าง C1)** |
 | **[ADR-P0-033 (v1.0)](./ADR-P0-033-interactive-tactical-adventure-gameplay-and-dynamic-stage-revolution.md)** | **Interactive Tactical Story Adventure Revolution — Light vs. Shadow Clash, Choice Energy & Shelter Camp, Dynamic Reactive Stage, Tactile Micro-Actions, and UX/UI Design Mandate** | **กฎหมายสูงสุดด้านรูปแบบการเล่นโต้ตอบ คณิตศาสตร์ ฟิสิกส์ และ UX/UI:** อนุมัติ 4 เสาหลัก (`D1` ศึกดวลกลยุทธ์แสงปะทะเงา `Light vs. Shadow Tactical Clash`, `D2` สมการพลังงานทางเลือกและแคมป์พักหลบฝน `Shelter Camp`, `D3` ฉากหลังไดนามิก สภาพอากาศ และเวทีขยายเงาตามหลักฟิสิกส์จริง, `D4` สัมผัสโต้ตอบสั้น ๆ `Tactile Micro-Actions`), สั่งห้ามระบบลากลำแสงหาของและระบบแผนที่/หมุดตัวละครคู่ขนาน (`D0`), และบังคับสเปกฟิสิกส์สเกล 45 ซม. + คณิตศาสตร์ไร้ทางตัน + พิมพ์เขียว UX/UI พร้อมเจนภาพต้นแบบ (`D5`) | **ACTIVE v1.0 (Supreme Gameplay & UX/UI)** |
 | **[ADR-P0-032 (v2.0)](./ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md)** | **Living Fantasy Canon, Jao Teuk & Peuak Authentic Lore, Velour Plush Ending, Four-Bond & Family Skill System, Multiple-Narrative Graph, and VN Portrait Standard** | **กฎหมายสูงสุดด้านเนื้อเรื่อง ระบบสายใย/ไอเทม และภาพตัวละคร VN (ฉบับ 2.0):** เจ้ากบมีชีวิตตัวเดียว (ห้ามมีตุ๊กตาโครเชต์/ตุ๊กตาตัวที่สองในห้องเปี๊ยก · กลายร่างเป็นตุ๊กตากำมะหยี่ `Smooth Velour Plush` เฉพาะใน `E-HOME`), **เจ้าเตื๊อก** คือชายหนุ่มคนรักวัยเดียวกับ **เปี๊ยก** (ห้ามเป็นสุนัข/ห้ามสร้างญาติสมมติอย่างพี่ตฤณ · มีบทหลักตั้งแต่ต้นเรื่องและ Act 3–5), โครงสร้าง **Multiple Narrative Routes** จริง, ระบบ **4 สายใยมีชีวิต** (เปลี่ยนสรรพนามไดนามิก) + **3 ทักษะติดตัวภาษาไทยธรรมชาติ** (`ตั้งสติฟังฝน`, `ดีดตัวผ่าลม`, `ตาส่องเงามืด`), ระบบหลัก **`Item × Bond Combo`** (ส่วนฝากเพื่อนถือแนวหลังเป็น Optional), **เงื่อนไขปลดล็อกทั้ง 3 ฉากจบแบบสมมาตร (`Status + Bond + Item`)**, และมาตรฐานภาพตัวละครครึ่งตัว `VN Tachie` v2 (คงผ้าคลุมเงาแฟนตาซีใน `CG-05A`) | **ACTIVE v2.0 (Supreme Canon)** |
 | **[ADR-P0-025](./ADR-P0-025-childhood-keepsake-default-stance-and-heart-emote-decoupling.md)** | Childhood & Adult Default Seated Stance and Heart-Holding Emote Decoupling | **กฎโมเดล 3D และภาพตัวละคร:** ระหว่างเล่นเกมต้องใช้ท่ามาตรฐาน **ไม่ถือหัวใจสีแดง** (ท่าถือหัวใจใช้เฉพาะเป็น Emote พิเศษหลังจบเกมเท่านั้น) | **ACTIVE** |
@@ -52,8 +53,6 @@
 
 ---
 
-## 4. ร่างที่รอลงนาม (PROPOSED — ยังไม่ใช่กฎหมายจนกว่าจะลงนาม)
+## 4. ร่างที่รอลงนาม (PROPOSED)
 
-| รหัส ADR | ชื่อเอกสาร | ขอบเขต | สถานะ |
-|---|---|---|---|
-| **[ADR-P0-034](./ADR-P0-034-five-act-journey-runtime-save2-journey-profile-and-blueprint-compiled-content.md)** | Five-Act Journey Runtime, Save Format 2 Journey Profile, Legacy Save Deprecation and Blueprint-Compiled Content | **สถาปัตยกรรมรันไทม์ห้าองก์:** runtime ใหม่แทนของเดิม (`D1`) · kernel และ shell ใน `src/core` ไม่มีการสุ่ม (`D2`) · แยกสถานะการเดินทางกับการเผชิญหน้า (`D3`) · คำศัพท์ effect แบบปิด (`D4`) · กติกาศึกแหล่งเดียวพร้อม parity gate (`D5`) · เนื้อหาคอมไพล์จากพิมพ์เขียว (`D6`) · Save 2 journey profile และ snapshot ห้าองก์ (`D7`) · namespace เดิมเป็นคลังเซฟเก่าแบบอ่านอย่างเดียว (`D8`) · เครื่องสถานะโหมดและ view model (`D9`) · Interactive Web Prototype และวัสดุกระจกฝ้า (`D10`) · มติ PO 2026-10-31 ที่ ADR นี้บันทึกมีผลแล้ว | **PROPOSED v0.1 · รอ PO และ Antigravity ลงนามก่อน Slice 1 checkpoint C1** |
+ไม่มีร่างที่รอลงนามในขณะนี้ · ADR-P0-034 ลงนามแล้วเมื่อ 2026-11-02 และย้ายไป §1

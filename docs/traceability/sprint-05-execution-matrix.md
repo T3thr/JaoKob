@@ -1,6 +1,6 @@
 # Sprint 5 Execution Traceability Matrix
 
-Version **0.3.0**, 2026-10-31 (Asia/Bangkok). Authority: มติ PO 2026-10-31 · [ADR-P0-032 v2.0](../adr/ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md) · [ADR-P0-033](../adr/ADR-P0-033-interactive-tactical-adventure-gameplay-and-dynamic-stage-revolution.md) · [ADR-P0-034](../adr/ADR-P0-034-five-act-journey-runtime-save2-journey-profile-and-blueprint-compiled-content.md) (proposed) · [Sprint 5 SSOT 0.3.0](../sprints/sprint-05-ssot.md) ซึ่งเป็นเจ้าของ WBS DoR และ DoD · ฉบับ 0.2.0 ยุค ADR-P0-022 อยู่ใน git ที่ `8643a30`
+Version **0.3.0**, 2026-10-31 (Asia/Bangkok). Authority: มติ PO 2026-10-31 · [ADR-P0-032 v2.0](../adr/ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md) · [ADR-P0-033](../adr/ADR-P0-033-interactive-tactical-adventure-gameplay-and-dynamic-stage-revolution.md) · [ADR-P0-034](../adr/ADR-P0-034-five-act-journey-runtime-save2-journey-profile-and-blueprint-compiled-content.md) (ลงนาม 2026-11-02) · [Sprint 5 SSOT 0.3.0](../sprints/sprint-05-ssot.md) ซึ่งเป็นเจ้าของ WBS DoR และ DoD · ฉบับ 0.2.0 ยุค ADR-P0-022 อยู่ใน git ที่ `8643a30`
 
 ทุกแถวมีสถานะ **วางแผนแล้ว รอหลักฐาน** จนกว่าหลักฐานที่ระบุจะมีอยู่บน build จริง · รหัสเทสต์ที่ยังไม่มี runner เป็นการตรวจที่วางแผนไว้ ไม่ใช่การตรวจที่ผ่านแล้ว · S1–S4 คือ execution PR สี่ตัว เลข PR จริงลงเมื่อเปิด
 
@@ -30,7 +30,7 @@ Version **0.3.0**, 2026-10-31 (Asia/Bangkok). Authority: มติ PO 2026-10-31
 | D4 สัมผัสโต้ตอบสั้น | T2 · T5 | `TC-S5-UX-001` · `TC-S5-A11Y-001` |
 | D5 คณิตศาสตร์ ฟิสิกส์ และ UX ที่พิสูจน์ได้ | T2 · T4 · T5 · T7 | `TC-S5-BALANCE-001` · `TC-S5-SCALE-001` · `TC-S5-VN-001` |
 
-### 1.3 ADR-P0-034 · สถาปัตยกรรม (proposed)
+### 1.3 ADR-P0-034 · สถาปัตยกรรม (ลงนาม 2026-11-02)
 
 | ข้อตัดสินใจ | งาน | หลักฐาน |
 |---|---|---|

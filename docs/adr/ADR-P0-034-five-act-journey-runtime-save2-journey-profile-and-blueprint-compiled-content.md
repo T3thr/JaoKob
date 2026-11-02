@@ -1,12 +1,12 @@
 # ADR-P0-034: Five-Act Journey Runtime, Save Format 2 Journey Profile, Legacy Save Deprecation and Blueprint-Compiled Content
 # พระราชบัญญัติสถาปัตยกรรมรันไทม์การเดินทางห้าองก์ · Save Format 2 Journey Profile · การเลิกเล่นต่อเซฟเก่า และเนื้อหาที่คอมไพล์จากพิมพ์เขียว
 
-> **[STATUS AS OF 2026-10-31: PROPOSED — รอ PO และ Antigravity ลงนาม]**
-> มติ PO วันที่ 2026-10-31 (Q1–Q5 ใน [สมุดสถาปนิก §6](../dialogue/sprint-05/core-architect-notebook.md)) มีผลแล้วในฐานะคำสั่งของ Final Authority · ADR นี้บันทึกผลทางสถาปัตยกรรมของมติเหล่านั้นและรายละเอียดทางเทคนิคที่ต้องได้รับการลงนาม ก่อนเริ่ม checkpoint C1 ของ Slice 1
+> **[STATUS AS OF 2026-11-02: ACCEPTED v1.0 — PO ลงนาม 2026-11-02 · Antigravity ตรวจ schema ระหว่าง C1]**
+> มติ PO วันที่ 2026-10-31 (Q1–Q5 ใน [สมุดสถาปนิก §6](../dialogue/sprint-05/core-architect-notebook.md)) มีผลในฐานะคำสั่งของ Final Authority · PO ลงนามรับรอง ADR นี้เมื่อ 2026-11-02 และสั่งเริ่ม checkpoint C1 ทันที · Antigravity ตรวจ schema และสัญญาข้อมูลระหว่าง C1 และต้องเห็นชอบก่อน merge writer ของเซฟตาม D7
 
 | Metadata | Value |
 |---|---|
-| **Status** | **PROPOSED · Version 0.1 (2026-10-31)** |
+| **Status** | **ACCEPTED · Version 1.0 (2026-11-02)** · ร่าง 0.1 วันที่ 2026-10-31 |
 | **Date** | 2026-10-31, Asia/Bangkok |
 | **Proposed by** | Claude Opus 5.5 · Supreme Core Architect & Lead Game Systems Engineer |
 | **Approvers** | Theerapat (`T3thr` · Creator & PO · Final Authority) · Antigravity (Lead System Architect · ตรวจ schema และสัญญาข้อมูล) |
@@ -171,6 +171,6 @@ payload:
 
 **เสนอโดย:** Claude Opus 5.5 · Supreme Core Architect & Lead Game Systems Engineer (2026-10-31)
 
-**ลงนามรับรอง (รอ):**
-- [ ] **Theerapat (`T3thr`)** · Creator & Product Owner
-- [ ] **Antigravity** · Founding Technical Partner & Lead System Architect
+**ลงนามรับรอง:**
+- [x] **Theerapat (`T3thr`)** · Creator & Product Owner · 2026-11-02 · ตอบรับว่า "ลงนาม และเริ่ม C1 เลย" ในการสนทนากับสถาปนิก ([CR-20261102-1000](../changelog/2026-11/2026-11-02-1000-adr-034-accepted-and-c1-start.md))
+- [ ] **Antigravity** · Founding Technical Partner & Lead System Architect · ตรวจ schema และสัญญาข้อมูลระหว่าง C1 · ต้องเห็นชอบก่อน merge writer ของเซฟ

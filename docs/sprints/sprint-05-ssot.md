@@ -3,9 +3,9 @@
 | Document control | Value |
 |---|---|
 | Sprint / ID | `SPRINT-05` / `JKB-SPRINT-05-SSOT` |
-| Version / date | **0.3.0 / 2026-10-31, Asia/Bangkok** |
-| Status | **Rebaselined ตาม ADR-P0-032 v2.0 · ADR-P0-033 · มติ PO 2026-10-31 · ADR-P0-034 อยู่ในสถานะ PROPOSED · Slice 1 checkpoint C0 ส่งมอบแล้ว · implementation 0/20 tasks · 0/4 execution PRs** |
-| Authority | มติ PO 2026-10-31 (§1.2) · [ADR-P0-032 v2.0](../adr/ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md) · [ADR-P0-033](../adr/ADR-P0-033-interactive-tactical-adventure-gameplay-and-dynamic-stage-revolution.md) · [ADR-P0-022](../adr/ADR-P0-022-visual-novel-ergonomics-living-keepsake-lore-and-sprint-streamlining.md) เฉพาะ UI · Save Format 2 · 4 slices · [ADR-P0-034](../adr/ADR-P0-034-five-act-journey-runtime-save2-journey-profile-and-blueprint-compiled-content.md) (proposed) |
+| Version / date | **0.3.0 / 2026-10-31, Asia/Bangkok** · ปรับสถานะ 2026-11-02 |
+| Status | **Rebaselined ตาม ADR-P0-032 v2.0 · ADR-P0-033 · มติ PO 2026-10-31 · ADR-P0-034 ลงนามแล้ว 2026-11-02 · Slice 1 checkpoint C0 ปิดแล้ว · C1 กำลังทำ · implementation 0/20 tasks · 0/4 execution PRs** |
+| Authority | มติ PO 2026-10-31 (§1.2) · [ADR-P0-032 v2.0](../adr/ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md) · [ADR-P0-033](../adr/ADR-P0-033-interactive-tactical-adventure-gameplay-and-dynamic-stage-revolution.md) · [ADR-P0-022](../adr/ADR-P0-022-visual-novel-ergonomics-living-keepsake-lore-and-sprint-streamlining.md) เฉพาะ UI · Save Format 2 · 4 slices · [ADR-P0-034](../adr/ADR-P0-034-five-act-journey-runtime-save2-journey-profile-and-blueprint-compiled-content.md) (ลงนาม 2026-11-02) |
 | Baseline | `develop@8643a30` · โค้ด runtime ไม่เปลี่ยนตั้งแต่ปิด Sprint 4 ที่ `d1af293` (Act 1 เรื่องเดิม) · Planning ปิดที่ `524e9a5` ([PR #18](https://github.com/T3thr/JaoKob/pull/18)) |
 | Branch / PR | `feat/sprint-05-slice-01-foundations` (PO อนุญาต 2026-10-31) → `develop` · เลข PR จริงจะเป็น #20 ขึ้นไป · contributor `T3thr <t.theerapat33@gmail.com>` |
 | Design contracts | [มหาพิมพ์เขียว 2.0.0](../design-system/five-act-narrative-gameplay-master-plan.md) (มติ §10 อนุมัติครบ 2026-10-31) · พิมพ์เขียว [Act 1](../design-system/act1-living-keepsake-rewrite-blueprint.md)–[Act 5](../design-system/act5-living-keepsake-rewrite-blueprint.md) · [UX/UI 2.0.0](../design-system/interactive-gameplay-ux-ui-specification.md) · [ฟิสิกส์และภาพ v2](../design-system/physics-scale-and-visual-v2-specification.md) · [Mockups v3](../design-system/ux-mockups/v3/README.md) · [Atomic 05](../design-system/asset-prompts/05-UX-UI-ATOMIC-COMPONENT-WORKFLOW.md) |
@@ -37,7 +37,7 @@
 
 1. มติ PO ที่บันทึกใน §1.2
 2. ADR-P0-032 v2.0 (canon) และ ADR-P0-033 (เกมเพลย์ คณิตศาสตร์ ฟิสิกส์ UX)
-3. ADR-P0-034 หลังลงนาม · ก่อนลงนาม D1–D10 เป็นฐานออกแบบของการเตรียม C1 แต่ยังไม่ merge schema หรือ writer ของเซฟ
+3. ADR-P0-034 (ลงนามโดย PO 2026-11-02) · writer ของเซฟต้องผ่านการตรวจ schema ของ Antigravity ก่อน merge
 4. SSOT ฉบับนี้
 5. สัญญาออกแบบ Tier 2 (มหาพิมพ์เขียว · พิมพ์เขียวรายองก์ · UX 2.0.0 · ฟิสิกส์ v2 · Mockups v3 · Atomic 05)
 6. เอกสาร planning ใน `docs/proposals/sprint-05-planning/` และ CR-0006 เฉพาะส่วนที่ตารางนี้ไม่ได้แทนที่
@@ -51,7 +51,7 @@
 
 Requirement ID ของ Phase 0 (`FR-*` `NFR-*` `GDD-*` `NAR-*`) อยู่ใน Tier 4 แล้ว ฉบับนี้ใช้ต่อเฉพาะเป็นกุญแจย้อนรอยของงบคุณภาพที่ยังมีความหมาย โดยเขียนเกณฑ์ที่วัดได้ไว้ใน §6 · พฤติกรรมใหม่ย้อนรอยไปที่ข้อตัดสินใจของ ADR (`ADR-P0-032 Dn` · `ADR-P0-033 Dn` · `ADR-P0-034 Dn`) และหมวดของมหาพิมพ์เขียว
 
-### 1.2 มติ PO วันที่ 2026-10-31
+### 1.2 มติ PO (2026-10-31 และ 2026-11-02)
 
 | # | มติ | ผล |
 |---|---|---|
@@ -62,6 +62,8 @@ Requirement ID ของ Phase 0 (`FR-*` `NFR-*` `GDD-*` `NAR-*`) อยู่�
 | Q5 | snapshot ต้นองก์ครบห้าองก์ ให้ย้อนกลับไปเล่นองก์ที่ประทับใจได้ | ADR-P0-034 D7 ข้อ 4 |
 | UX | C4–C5 เป็น Interactive HTML5/CSS3 Web Prototype บนเบราว์เซอร์จริง คมชัด มีวัสดุ glassmorphism นุ่มนวล โต้ตอบได้จริง ให้ PO ทดสอบและให้แฟนเล่นได้ | ADR-P0-034 D10 · T4 · T5 |
 | R5 | ยึดสูตรและระยะในตารางฟิสิกส์ เหนือคำบรรยายจอ 4 ของสเปก UX (บันทึกใน CR-20261031-1326) | ฟิสิกส์ v2 §6 เป็นแหล่งของความสูงเงา |
+| ADR (2026-11-02) | ลงนาม ADR-P0-034 ในฐานะ Final Authority และเริ่ม C1 ทันที | Antigravity ตรวจ schema ระหว่าง C1 ก่อน merge writer ของเซฟ |
+| develop (2026-11-02) | เลื่อน `develop` ไปที่ commit เอกสารของ C0 | ทุก Agent อ่าน SSOT 0.3.0 บน `develop` ได้ทันที · PR ของ Slice 1 เหลือ C1–C5 |
 
 เก้าข้อที่อนุมัติ: มนุษย์ได้ยินภาษากบเป็นเสียงอ๊บ · ริบบิ้นเหลืองคือโบว์ผูกผมของเปี๊ยก · `familySkillUses` และ `selfReliance` นับตั้งแต่ Act 2 · ทักษะที่ใช้ซ้ำในศึกได้แสงน้อยลงสองช่องต่อครั้งที่ซ้ำ · Safety Fallback ของ E-POND ให้พี่กับแบกน้องกลับบึง · ฉากจบที่ล็อกแสดงเป็นด้ายจางพร้อมประโยคในเรื่อง · แยก CG-04A กับ CG-04B · เตื๊อกวัดแพทเทิร์นตุ๊กตาไว้ 45 ซม. · สะกด `เปี๊ยก` แบบเดียวทั้งโครงการ
 
@@ -186,7 +188,7 @@ ADR-P0-022 D6 ยังมีผล: **execution PR สี่ตัวเท่�
 
 | Slice / branch | Tasks | คุณค่าที่เห็นได้และ merge gate | ต้องมีก่อน |
 |---|---|---|---|
-| **S1** `feat/sprint-05-slice-01-foundations` | **T0–T5** | **Foundations & Interactive Web Prototype:** journey runtime ห้าองก์ · schema 3.0.0 · Save 2 journey profile · UI ใหม่ห้าโหมด · Act 1 ต้นแบบที่ PO และแฟนเล่นได้จริง · ปลด runtime เดิม | ADR-P0-034 ลงนามก่อน C1 |
+| **S1** `feat/sprint-05-slice-01-foundations` | **T0–T5** | **Foundations & Interactive Web Prototype:** journey runtime ห้าองก์ · schema 3.0.0 · Save 2 journey profile · UI ใหม่ห้าโหมด · Act 1 ต้นแบบที่ PO และแฟนเล่นได้จริง · ปลด runtime เดิม | ADR-P0-034 ลงนามแล้ว 2026-11-02 |
 | **S2** `feat/sprint-05-slice-02-living-origin` | **T6–T7** | **Act 1 Certified & Act 2 Dual Routes:** Act 1 ผ่านการรับรอง · Act 2 สาย A และ B · ศึก R2 บนเวทีเงาสด · CG-01 · CG-02 | S1 merge |
 | **S3** `feat/sprint-05-slice-03-full-journey` | **T8–T13** | **Acts 3–5, Endings & Replay:** เตื๊อก · ไฟดับ · ห้าฮีโร่ · อัศวินเงา · สามฉากจบ · เล่นซ้ำห้าองก์ | S2 merge |
 | **S4** `feat/sprint-05-slice-04-grand-keepsake` | **T14–T19** | **Velour Keepsake 3D, Devices & Release Candidate:** viewer ของ E-HOME · อุปกรณ์จริง · ตรวจรับรวม · release candidate | S3 ครบเรื่อง (งานศิลป์ 3D เริ่มเตรียมได้หลัง S1) |
@@ -195,7 +197,7 @@ ADR-P0-022 D6 ยังมีผล: **execution PR สี่ตัวเท่�
 
 | # | Task | ส่งมอบ | ผ่านเมื่อ |
 |---|---|---|---|
-| C0 | T0 | SSOT 0.3.0 · ADR-P0-034 (proposed) · traceability 0.3.0 · บันทึกมติ PO | **ส่งมอบแล้ว 2026-10-31** · รอ ADR-P0-034 ลงนาม |
+| C0 | T0 | SSOT 0.3.0 · ADR-P0-034 (proposed) · traceability 0.3.0 · บันทึกมติ PO | **ปิดแล้ว** · ส่งมอบ 2026-10-31 · ADR-P0-034 ลงนาม 2026-11-02 · เอกสารเข้า `develop` แล้ว |
 | C1 | T1 | schema 3.0.0 · fixture · compiler และ drift gate · สเปกกลไกของ Act 1 · ทะเบียน assertion ที่ถูกแทนที่ | `TC-S5-SCHEMA-001` · `TC-S5-CONTENT-001` · `TC-S5-PACKAGE-001` |
 | C2 | T2 | journey domain · clash kernel/shell · encounters · journey-session · play-mode · evidence เรียกใช้ core | `TC-S5-CLASH-001` · `TC-S5-TRAY-001` · `TC-S5-STATE-001` · `TC-S5-ENDING-001` |
 | C3 | T3 | journey save · composite identity · snapshot ห้าองก์ · namespace เดิมอ่านอย่างเดียว | `TC-S5-SAVE-001` · `TC-S5-SAVE-002` · `TC-S5-REPLAY-001` · `TC-S5-LEGACY-001` |
@@ -208,7 +210,7 @@ C4 เริ่มคู่ขนานกับ C2–C3 ได้เพรา�
 
 Owner ใช้บทบาทในโครงการ · ไฟล์ที่ระบุคือโมดูลปัจจุบันหรือที่ตั้งที่วางแผนไว้ ไม่ได้หมายความว่ามีอยู่แล้ว · ทุกงานใช้ gate ร่วมใน §5 และ §6
 
-- [ ] **T0 / S1: Binding rebaseline.** Owner Architect + PO. DoR: มติ PO 2026-10-31 · ADR-P0-032/033 · สัญญา Tier 2 ครบ. DoD: SSOT 0.3.0 · ADR-P0-034 ลงนาม · traceability 0.3.0 · สถานะอนุมัติในมหาพิมพ์เขียว · UX §1.8 เป็นสัญญา view model · รายการ control ใน §3.3 และวิธีวัดเวลาเล่นใน §2.3 · ทะเบียน assertion ที่ถูกแทนที่เริ่มต้นแล้ว. Files: `docs/sprints/` · `docs/adr/` · `docs/traceability/` · `docs/design-system/`. Trace: ADR-P0-034 · `TC-S5-REQ-001`. สถานะ: ส่งมอบใน C0 ยกเว้นการลงนามและทะเบียน assertion
+- [ ] **T0 / S1: Binding rebaseline.** Owner Architect + PO. DoR: มติ PO 2026-10-31 · ADR-P0-032/033 · สัญญา Tier 2 ครบ. DoD: SSOT 0.3.0 · ADR-P0-034 ลงนาม · traceability 0.3.0 · สถานะอนุมัติในมหาพิมพ์เขียว · UX §1.8 เป็นสัญญา view model · รายการ control ใน §3.3 และวิธีวัดเวลาเล่นใน §2.3 · ทะเบียน assertion ที่ถูกแทนที่เริ่มต้นแล้ว. Files: `docs/sprints/` · `docs/adr/` · `docs/traceability/` · `docs/design-system/`. Trace: ADR-P0-034 · `TC-S5-REQ-001`. สถานะ: ส่งมอบครบยกเว้นทะเบียน assertion ที่เริ่มใน C1
 - [ ] **T1 / S1: Versioned contracts, compiler and fixtures.** Owner Architect/Data + Antigravity review. DoR: ADR-P0-034 ลงนาม. DoD: schema 3.0.0 ของ journey package (8 ชนิดโหนด · คำศัพท์ปิด · สเปกยกศึก ด่าน แคมป์ รับของ สัมผัส ฉากจบ · ทะเบียนของและธง · การจัดเวที · ข้อความพร้อม receipt) และ journey save profile · ปรับ catalog ของ validator · runner เทียบ Ajv · fixture บวกและลบรวมสองแพ็กเกจเวอร์ชันเดียวกัน · แพ็กเกจจิ๋วที่ครบทุกชนิดโหนดและทุกคำศัพท์ · compiler และ drift gate · สเปกกลไกของ Act 1 · ไบต์ schema ที่ตีพิมพ์แล้วไม่เปลี่ยน. Files: `specs/schemas/v3.0.0/` · `src/data/validation/` · `tools/content/` (ใหม่ พร้อม README) · `tests/fixtures/journey/` · `tests/unit/`. Trace: ADR-P0-034 D4/D6/D7 · ADR-P0-013. `TC-S5-SCHEMA-001` · `TC-S5-CONTENT-001` · `TC-S5-PACKAGE-001`
 - [ ] **T2 / S1: Five-act deterministic engine.** Owner Architect/Core. DoR: schema และ fixture ของ T1. DoD: journey domain (ค่าสถานะ · Soft Floor · ฝืนเอา · Grace · Rest Floor · โหยหาบ้าน · สายใยและระดับคำเรียก · ฉากจบและ Safety Fallback) · clash kernel และ shell ผ่าน parity gate และ capacity invariant · obstacle (สี่กุญแจ · บุกทวน · รอจังหวะ · ฝืนเอา) · camp · micro · pouch-offer (กระดุมล็อก) · journey-session แบบ atomic ผูก revision · play-mode · arch test ตรวจ `new Date(` และ `performance.now(` · เครื่องมือพิสูจน์ import จาก core และผ่าน · coverage ของ core ใหม่ ≥ 90% บรรทัด ≥ 85% branch. Files: `src/core/domain/journey/` · `src/core/domain/clash/` · `src/core/domain/encounters/` · `src/core/use-cases/` · `src/core/state-machine/` · `docs/design-system/evidence/` · `tests/unit/`. Trace: ADR-P0-033 D1–D5 · ADR-P0-034 D2–D5/D9 · มหาพิมพ์เขียว §2. `TC-S5-CLASH-001` · `TC-S5-TRAY-001` · `TC-S5-STATE-001` · `TC-S5-ENDING-001` · `TC-S5-BALANCE-001`
 - [ ] **T3 / S1: Save 2 journey profile, sessions and package protection.** Owner Architect/Data/QA. DoR: T1 · T2. DoD: validator ของ journey save และตาราง §3.2 · namespace และ key · identity ประกอบ package id + version + profile ทั้ง session media และ cache · บันทึกเงียบทุก commit รวม encounter · snapshot ต้นองก์ห้าจุดและการเล่นซ้ำ · `completion` แยก · ≤ 250 KB · quota · race · เสีย · ไม่รู้จัก · มาจากอนาคต · Resume ไม่เขียน · namespace เดิมเหมือนเดิมทุกไบต์ · ซ้อมย้อนกลับด้วย build ของ Sprint 4. Files: `src/data/persistence/` · `src/data/validation/` · `src/bootstrap/` · `tests/`. Trace: ADR-P0-034 D7/D8 · ADR-P0-014 · ADR-P0-022 Save Format 2. `TC-S5-SAVE-001` · `TC-S5-SAVE-002` · `TC-S5-REPLAY-001` · `TC-S5-LEGACY-001` · `TC-S5-PACKAGE-001`
@@ -240,7 +242,7 @@ Owner ใช้บทบาทในโครงการ · ไฟล์ที�
 - [x] มติ PO 2026-10-31 บันทึกใน §1.2 · ตัวตน Git `T3thr <t.theerapat33@gmail.com>`
 - [x] แตก branch `feat/sprint-05-slice-01-foundations` จาก `develop@8643a30`
 - [x] SSOT 0.3.0 · traceability 0.3.0 · สถานะอนุมัติในมหาพิมพ์เขียว · ร่าง ADR-P0-034 (C0)
-- [ ] ADR-P0-034 ลงนามโดย PO และ Antigravity (gate ของการ merge schema และ writer ใน C1)
+- [x] ADR-P0-034 ลงนามโดย PO (2026-11-02) · Antigravity ตรวจ schema ระหว่าง C1 ก่อน merge writer ของเซฟ
 - [ ] Antigravity ตรวจสัญญาข้อมูล (มหาพิมพ์เขียว §9 · ADR-P0-034 D3/D4/D7)
 - [ ] สร้างทะเบียน assertion ที่ถูกแทนที่ก่อนลบเทสต์เดิมใด ๆ
 - [ ] Slice 1 T0–T5 implement และผ่านการตรวจ
@@ -317,6 +319,7 @@ node tests/docs/check-doc-links.mjs
 
 | Record | Status |
 |---|---|
+| [CR-20261102-1000](../changelog/2026-11/2026-11-02-1000-adr-034-accepted-and-c1-start.md) | PO signed [ADR-P0-034](../adr/ADR-P0-034-five-act-journey-runtime-save2-journey-profile-and-blueprint-compiled-content.md) (ACCEPTED v1.0) and ordered C1 to start; `develop` fast-forwarded to the C0 documentation commits so every agent reads SSOT 0.3.0. Antigravity schema review remains a gate before the save writer merges. Documentation only; production WBS remains 0/20. |
 | [CR-20261031-1500](../changelog/2026-10/2026-10-31-1500-slice-1-c0-ssot-0-3-0-and-adr-034.md) | Slice 1 checkpoint C0 on `feat/sprint-05-slice-01-foundations`: this SSOT 0.3.0 rebaselined to ADR-P0-032 v2.0, ADR-P0-033 and the PO decisions of 2026-10-31 (Q1–Q5, nine canon items, interactive web prototype); [ADR-P0-034](../adr/ADR-P0-034-five-act-journey-runtime-save2-journey-profile-and-blueprint-compiled-content.md) proposed; [traceability 0.3.0](../traceability/sprint-05-execution-matrix.md); master plan approval recorded. Documentation only; production WBS remains 0/20. |
 | [CR-20261031-1326](../changelog/2026-10/CR-20261031-1326-atomic-gameplay-mockups-v3.md) | Atomic gameplay mockups v3: 13 PNG/WebP screen pairs, exact Chrome viewport captures, [offline review and UI coordinates](../design-system/evidence/ux-mockups-v3-review.html), source-traced Thai and engine states. R5 formula/distance clarification confirmed by PO; no pre-finisher cape, sleeping เปี๊ยก, blackout, 16-action tabs, eight camp cards and ending fallback corrected. 1,060 unit tests, 78 review states and artifact verification pass; no byte-identical duplicates. PO visual acceptance remains open; design input for T0/T4 only, production WBS remains 0/20. |
 | [CR-20261031-0545](../changelog/2026-10/2026-10-31-0545-core-architect-onboarding-and-slice-1-plan.md) | Core Architect onboarding under the PO Sprint 5 Genesis Mandate: baseline re-verified (1,060 unit tests, all doc links, five evidence tools), [core architect notebook](../dialogue/sprint-05/core-architect-notebook.md) with technical delta, draft Slice 1 plan C0–C5 and risk register, board message S5-002, agent registry roles updated. Documentation only; this SSOT 0.2.0 conflicts with ADR-P0-032 v2.0/033 and needs the 0.3.0 rebaseline in T0. Production WBS remains 0/20. |
@@ -341,7 +344,7 @@ node tests/docs/check-doc-links.mjs
 | Item | Disposition / owner / gate |
 |---|---|
 | มติ PO 2026-10-31 (Q1–Q5 · เก้าข้อ · ต้นแบบเว็บ) | **ตัดสินแล้ว** บันทึกใน §1.2 · ไม่ต้องขออนุมัติซ้ำ |
-| ADR-P0-034 | PROPOSED · PO และ Antigravity ลงนามก่อน merge schema และ writer ใน C1 · Architect |
+| ADR-P0-034 | **ลงนามแล้ว 2026-11-02** · Antigravity ตรวจ schema ก่อน merge writer ของเซฟ · Architect |
 | สัญญาข้อมูล | Antigravity ตรวจมหาพิมพ์เขียว §9 กับ ADR-P0-034 D3/D4/D7 ระหว่างเตรียม C1 |
 | ทะเบียน assertion ที่ถูกแทนที่ | สร้างตอนเริ่ม C1 ก่อนลบเทสต์เดิม · ทุกการลบมี authority และเทสต์ทดแทน · Architect/QA |
 | Act 1 ต้นแบบกับการรับรอง | ต้นแบบใน S1 ยังไม่ถือเป็นการรับรอง · T6 รับรองด้วยการอ่านภาษาไทยและสเกลโดยมนุษย์ · Narrative/PO |
@@ -350,4 +353,4 @@ node tests/docs/check-doc-links.mjs
 | โมเดล 3D วัยเด็กหรือพื้นผิวโครเชต์ | ต้องมีมติ PO ก่อน T14 (ADR-P0-032 D1.2/D8.3) |
 | อุปกรณ์จริงและ AT | นัดตั้งแต่ตอนนี้ · T17/T18 ต้องมีหลักฐานจริง · ไม่ใช้การจำลองแทน |
 
-Migration ของฉบับนี้: ไม่มี · ย้อนกลับด้วยการ revert commit ของ C0 ที่ผ่านการตรวจ · runtime schema และเซฟไม่ถูกแตะ · งานถัดไปคือ C1 หลัง ADR-P0-034 ลงนาม
+Migration ของฉบับนี้: ไม่มี · ย้อนกลับด้วยการ revert commit ของ C0 ที่ผ่านการตรวจ · runtime schema และเซฟไม่ถูกแตะ · C1 เริ่ม 2026-11-02
