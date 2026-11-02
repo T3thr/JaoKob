@@ -24,8 +24,13 @@
 | `schemas/v2.0.0/narrative-tree.schema.json` | Tree2 with one explicit pouchEffect per choice/interaction |
 | `schemas/v2.0.0/content-package.schema.json` | Package2 registers stable keepsake IDs and fixed-return2–4-beat Secret Moments; current content3 |
 | `schemas/presentation-catalog.schema.json` | Additive catalog1: version-bound Thai intent/icon/paper skin, item images and portrait/landscape crops; no gameplay conditions/effects |
+| `schemas/v3.0.0/journey-common.schema.json` | ADR-P0-034: นิยามร่วมของ Journey · คำศัพท์ effect และ condition แบบปิด · ค่าสถานะ 0–5 · สายใย 0–4 · เวที · กระเป๋าสี่ช่อง · **อยู่ระหว่างพัฒนาจนตรึงที่ T19** |
+| `schemas/v3.0.0/journey-package.schema.json` | แพ็กเกจห้าองก์ แปดชนิดโหนด (`vn` `choice` `obstacle` `camp` `clash` `micro` `pouch` `ending`) · ด่านต้องมีทางฝืนเอา · ยกศึกอ้างคำศัพท์ของ Core เท่านั้น |
+| `schemas/v3.0.0/journey-save.schema.json` | Save Format 2 · profile `journey-1` · ผูกตัวตนแพ็กเกจ · สถานะศึกและแคมป์ · snapshot ต้นองก์ ≤ 5 · ไม่มี RNG · เซฟที่ใหญ่ที่สุดที่ schema ยอมไม่เกิน 250 KB |
 
 ชื่อจริงของไฟล์ให้ยึดตามไฟล์ใน `schemas/` หากต่างจาก catalog นี้ และต้องอัปเดต catalog ใน change เดียวกัน
+
+**Journey schema 3.0.0 (ADR-P0-034):** runtime อ่านจาก [journey-schema-catalog.js](../src/data/validation/journey-schema-catalog.js) ซึ่งสร้างด้วย `node tools/schema/build-journey-catalog.mjs` (ตรวจด้วย `--check`) · `tests/unit/journey-schema.test.js` ตรวจว่า catalog ตรงไฟล์ต้นทาง ครอบคลุมคำศัพท์ทุกคำ และปฏิเสธกรณีผิดทุกกรณี · ตรวจอิสระด้วย `JKB_AJV_PATH=/absolute/path/to/ajv/dist/2020.js node tests/schema/journey-reference.mjs` · catalog เดิมของ runtime เดิมแยกกันเพื่อปลดได้ใน C5
 
 Canonical `$id` ใช้ namespace `https://t3thr.github.io/JaoKob/specs/schemas/` เพื่อเป็น stable identifier ของ schema การ validate ในเครื่องต้องใช้ local catalog mapping และไม่ควรต้อง fetch schema ผ่าน network
 

@@ -127,3 +127,23 @@ node tests/docs/check-doc-links.mjs
 **ผู้รับไม้ถัดไป:** ผม (C1) · Antigravity (ตรวจ schema เมื่อร่างพร้อม จะแจ้งบนกระดาน)
 
 **— Claude Opus 5.5**
+
+---
+
+## [S5-006] | From: Claude Opus 5.5 (Supreme Core Architect & Lead Game Systems Engineer) | To: Antigravity · PO Theerapat
+- **Timestamp:** 2026-11-02T10:15:00+07:00
+- **Topic:** ร่าง schema 3.0.0 พร้อมให้ตรวจ (gate ก่อน merge writer ของเซฟ)
+- **Action Required From Recipient:** Antigravity ตรวจ `specs/schemas/v3.0.0/` สามไฟล์ แล้วตอบบนกระดานว่าเห็นชอบหรือขอแก้ข้อใด · PO ไม่มีงานค้าง
+- **Branch / PR:** `feat/sprint-05-slice-01-foundations` / ยังไม่เปิด PR
+- **Record:** [CR-20261102-1015](../../changelog/2026-11/2026-11-02-1015-c1-schema-3-0-0-and-superseded-register.md)
+
+**ขอให้ตรวจ**
+- `journey-common.schema.json`: effect 13 คำ · condition 11 ชนิด · ค่าสถานะ 0–5 · สายใย `pkam` `fiw` `teuk` 0–4 (สายใยครอบครัวคำนวณ ไม่บันทึก)
+- `journey-package.schema.json`: แปดชนิดโหนดแบบ object ปิด · ด่านต้องมีทางฝืนเอา · ยกศึกอ้างเจตนาและการกระทำของ Core เท่านั้น
+- `journey-save.schema.json`: Save Format 2 · profile `journey-1` · ผูก package id เวอร์ชัน digest · ไม่มี RNG · snapshot ต้นองก์ ≤ 5
+
+**หลักฐาน:** unit 1,148/1,148 · Ajv 8.17.1 ให้ผลตรงกับ validator ของโครงการทั้ง 82 กรณี · เซฟที่ใหญ่ที่สุดที่ schema ยอม 166,483 ไบต์ ไม่เกิน 250 KB · catalog สร้างด้วยเครื่องมือและตรวจ drift ได้
+
+**ผู้รับไม้ถัดไป:** Antigravity (ตรวจ schema) · ผมทำ compiler ของพิมพ์เขียวต่อใน C1 ระหว่างรอ
+
+**— Claude Opus 5.5**

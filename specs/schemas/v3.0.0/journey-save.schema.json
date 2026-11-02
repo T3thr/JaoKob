@@ -1,0 +1,593 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://t3thr.github.io/JaoKob/specs/schemas/v3.0.0/journey-save.schema.json",
+  "title": "JaoKob Save Format 2 · Journey Profile",
+  "description": "เซฟของ Journey runtime ตาม ADR-P0-034 D7 · saveFormatVersion ยังเป็น 2 และแยกด้วย profile · เขียนเฉพาะ namespace ใหม่ (D7 ข้อ 5) · ความสอดคล้องกับแพ็กเกจและกติกาเชิงความหมายตรวจโดย Data และ Core",
+  "type": "object",
+  "required": [
+    "saveFormatVersion",
+    "profile",
+    "package",
+    "contentVersion",
+    "revision",
+    "createdAt",
+    "savedAt",
+    "reason",
+    "settings",
+    "payload"
+  ],
+  "properties": {
+    "saveFormatVersion": {
+      "const": 2
+    },
+    "profile": {
+      "const": "journey-1"
+    },
+    "package": {
+      "type": "object",
+      "required": [
+        "id",
+        "contentVersion",
+        "digest"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "journey-common.schema.json#/$defs/packageId"
+        },
+        "contentVersion": {
+          "$ref": "journey-common.schema.json#/$defs/semanticVersion"
+        },
+        "digest": {
+          "$ref": "journey-common.schema.json#/$defs/digest"
+        }
+      },
+      "additionalProperties": false
+    },
+    "contentVersion": {
+      "$ref": "journey-common.schema.json#/$defs/semanticVersion"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "createdAt": {
+      "$ref": "journey-common.schema.json#/$defs/dateTime"
+    },
+    "savedAt": {
+      "$ref": "journey-common.schema.json#/$defs/dateTime"
+    },
+    "reason": {
+      "enum": [
+        "new-game",
+        "action-committed",
+        "settings-changed",
+        "lifecycle-suspend",
+        "replay-started"
+      ]
+    },
+    "settings": {
+      "$ref": "#/$defs/settings"
+    },
+    "payload": {
+      "$ref": "#/$defs/payload"
+    },
+    "integrity": {
+      "type": "object",
+      "description": "ผลตรวจความเสียหายเชิงอุบัติเหตุ ไม่ใช่ลายมือชื่อเพื่อความมั่นคงปลอดภัย",
+      "required": [
+        "algorithm",
+        "canonicalization",
+        "digest"
+      ],
+      "properties": {
+        "algorithm": {
+          "const": "sha-256"
+        },
+        "canonicalization": {
+          "const": "jaokob-canonical-json-v1"
+        },
+        "digest": {
+          "$ref": "journey-common.schema.json#/$defs/digest"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "volume": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "settings": {
+      "type": "object",
+      "required": [
+        "locale",
+        "textSpeed",
+        "fontScale",
+        "typewriterEffect",
+        "autoAdvance",
+        "reducedMotion",
+        "reducedIntensity",
+        "highContrast",
+        "confirmHighImpactChoices",
+        "counterTags",
+        "autoMicro",
+        "masterVolume",
+        "musicVolume",
+        "ambienceVolume",
+        "effectsVolume",
+        "reducedIntensityAudio"
+      ],
+      "properties": {
+        "locale": {
+          "type": "string",
+          "maxLength": 35,
+          "pattern": "^[a-z]{2,3}(?:-[A-Z][a-z]{3})?(?:-(?:[A-Z]{2}|[0-9]{3}))?$"
+        },
+        "textSpeed": {
+          "enum": [
+            "slow",
+            "normal",
+            "fast",
+            "instant"
+          ]
+        },
+        "fontScale": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 2
+        },
+        "typewriterEffect": {
+          "type": "boolean"
+        },
+        "autoAdvance": {
+          "type": "boolean"
+        },
+        "reducedMotion": {
+          "type": "boolean"
+        },
+        "reducedIntensity": {
+          "type": "boolean"
+        },
+        "highContrast": {
+          "type": "boolean"
+        },
+        "confirmHighImpactChoices": {
+          "type": "boolean"
+        },
+        "counterTags": {
+          "type": "boolean"
+        },
+        "autoMicro": {
+          "type": "boolean"
+        },
+        "masterVolume": {
+          "$ref": "#/$defs/volume"
+        },
+        "musicVolume": {
+          "$ref": "#/$defs/volume"
+        },
+        "ambienceVolume": {
+          "$ref": "#/$defs/volume"
+        },
+        "effectsVolume": {
+          "$ref": "#/$defs/volume"
+        },
+        "reducedIntensityAudio": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "counters": {
+      "type": "object",
+      "required": [
+        "familySkillUses",
+        "selfReliance",
+        "homeStreak",
+        "homesickCount",
+        "tempo"
+      ],
+      "properties": {
+        "familySkillUses": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 99
+        },
+        "selfReliance": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 99
+        },
+        "homeStreak": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 99
+        },
+        "homesickCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 99
+        },
+        "tempo": {
+          "type": "integer",
+          "minimum": -1,
+          "maximum": 2
+        }
+      },
+      "additionalProperties": false
+    },
+    "journeyState": {
+      "type": "object",
+      "required": [
+        "act",
+        "meters",
+        "bonds",
+        "counters",
+        "route",
+        "plan",
+        "major",
+        "pouch",
+        "ready",
+        "flags"
+      ],
+      "properties": {
+        "act": {
+          "$ref": "journey-common.schema.json#/$defs/act"
+        },
+        "meters": {
+          "$ref": "journey-common.schema.json#/$defs/meters"
+        },
+        "bonds": {
+          "$ref": "journey-common.schema.json#/$defs/bonds"
+        },
+        "counters": {
+          "$ref": "#/$defs/counters"
+        },
+        "route": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "journey-common.schema.json#/$defs/branch"
+            }
+          ]
+        },
+        "plan": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "journey-common.schema.json#/$defs/branch"
+            }
+          ]
+        },
+        "major": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "journey-common.schema.json#/$defs/skill"
+            }
+          ]
+        },
+        "pouch": {
+          "$ref": "journey-common.schema.json#/$defs/pouch"
+        },
+        "ready": {
+          "type": "array",
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "journey-common.schema.json#/$defs/itemRef"
+          }
+        },
+        "flags": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "journey-common.schema.json#/$defs/flagRef"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "cursor": {
+      "type": "object",
+      "required": [
+        "node",
+        "beat",
+        "line"
+      ],
+      "properties": {
+        "node": {
+          "$ref": "journey-common.schema.json#/$defs/nodeRef"
+        },
+        "beat": {
+          "enum": [
+            "vn",
+            "decision",
+            "clash-intro",
+            "clash-intent",
+            "clash-choose",
+            "clash-resolve",
+            "clash-outcome",
+            "camp",
+            "micro",
+            "pouch-swap",
+            "ending-resonance",
+            "complete"
+          ]
+        },
+        "line": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 64
+        }
+      },
+      "additionalProperties": false
+    },
+    "clashEncounter": {
+      "type": "object",
+      "required": [
+        "kind",
+        "round",
+        "turn",
+        "light",
+        "used",
+        "dim",
+        "charged",
+        "weak",
+        "regroup",
+        "grace",
+        "gritUsed",
+        "homesick",
+        "lastAction",
+        "outcome"
+      ],
+      "properties": {
+        "kind": {
+          "const": "clash"
+        },
+        "round": {
+          "$ref": "journey-common.schema.json#/$defs/roundRef"
+        },
+        "turn": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4
+        },
+        "light": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "used": {
+          "type": "array",
+          "maxItems": 24,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^(?:item:item_[a-z0-9]+(?:_[a-z0-9]+)*|a_pkam|a_fiw|a_teuk|s_kab|s_kib|hem)$"
+          }
+        },
+        "dim": {
+          "type": "boolean"
+        },
+        "charged": {
+          "type": "boolean"
+        },
+        "weak": {
+          "type": "boolean"
+        },
+        "regroup": {
+          "type": "boolean"
+        },
+        "grace": {
+          "type": "boolean"
+        },
+        "gritUsed": {
+          "type": "boolean"
+        },
+        "homesick": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 8
+        },
+        "lastAction": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "journey-common.schema.json#/$defs/clashAction"
+            }
+          ]
+        },
+        "outcome": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "enum": [
+                "decisive",
+                "hold",
+                "narrow"
+              ]
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "campEncounter": {
+      "type": "object",
+      "required": [
+        "kind",
+        "camp",
+        "dropsLeft",
+        "chosen"
+      ],
+      "properties": {
+        "kind": {
+          "const": "camp"
+        },
+        "camp": {
+          "type": "string",
+          "pattern": "^C[1-4]$"
+        },
+        "dropsLeft": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "chosen": {
+          "type": "array",
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "journey-common.schema.json#/$defs/identifier"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "actStart": {
+      "type": "object",
+      "required": [
+        "act",
+        "node",
+        "capturedAt",
+        "journey"
+      ],
+      "properties": {
+        "act": {
+          "$ref": "journey-common.schema.json#/$defs/act"
+        },
+        "node": {
+          "$ref": "journey-common.schema.json#/$defs/nodeRef"
+        },
+        "capturedAt": {
+          "$ref": "journey-common.schema.json#/$defs/dateTime"
+        },
+        "journey": {
+          "$ref": "#/$defs/journeyState"
+        }
+      },
+      "additionalProperties": false
+    },
+    "historyEntry": {
+      "type": "object",
+      "required": [
+        "sequence",
+        "node",
+        "action",
+        "committedAt"
+      ],
+      "properties": {
+        "sequence": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "node": {
+          "$ref": "journey-common.schema.json#/$defs/nodeRef"
+        },
+        "action": {
+          "$ref": "journey-common.schema.json#/$defs/identifier"
+        },
+        "committedAt": {
+          "$ref": "journey-common.schema.json#/$defs/dateTime"
+        }
+      },
+      "additionalProperties": false
+    },
+    "payload": {
+      "type": "object",
+      "required": [
+        "sessionId",
+        "startedAt",
+        "playTimeMs",
+        "cursor",
+        "journey",
+        "encounter",
+        "actStarts",
+        "completion",
+        "history"
+      ],
+      "properties": {
+        "sessionId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "startedAt": {
+          "$ref": "journey-common.schema.json#/$defs/dateTime"
+        },
+        "playTimeMs": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "cursor": {
+          "$ref": "#/$defs/cursor"
+        },
+        "journey": {
+          "$ref": "#/$defs/journeyState"
+        },
+        "encounter": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/clashEncounter"
+            },
+            {
+              "$ref": "#/$defs/campEncounter"
+            }
+          ]
+        },
+        "actStarts": {
+          "type": "array",
+          "maxItems": 5,
+          "items": {
+            "$ref": "#/$defs/actStart"
+          }
+        },
+        "completion": {
+          "type": "object",
+          "required": [
+            "endingsSeen"
+          ],
+          "properties": {
+            "endingsSeen": {
+              "type": "array",
+              "maxItems": 3,
+              "uniqueItems": true,
+              "items": {
+                "$ref": "journey-common.schema.json#/$defs/endingId"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "history": {
+          "type": "array",
+          "maxItems": 200,
+          "items": {
+            "$ref": "#/$defs/historyEntry"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

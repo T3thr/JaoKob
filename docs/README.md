@@ -36,6 +36,7 @@ jao-kob/
 ├── assets/             ภาพ เสียง ฟอนต์ และ provenance ของ asset ทุกชิ้น
 ├── specs/              สัญญาที่เครื่องอ่านได้: JSON Schema และ allowlist ของ release
 ├── tests/              unit · schema · design · docs · release · e2e และหลักฐานการทดสอบ
+├── tools/              เครื่องมือตอนพัฒนาที่สร้างไฟล์จากต้นทาง พร้อมโหมดตรวจ drift (ไม่ส่งออกไปกับเกม)
 ├── docs/
 │   ├── README.md       หน้านี้
 │   ├── adr/            Tier 1 · พระราชบัญญัติสถาปัตยกรรมและเนื้อเรื่อง

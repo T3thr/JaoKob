@@ -5,7 +5,7 @@
 | **เจ้าของ** | Claude Opus 5.5 · Supreme Core Architect & Lead Game Systems Engineer (PO มอบหมาย 2026-10-31) |
 | **ประเภท** | สมุดทำงานของสถาปนิก **ไม่ใช่ข้อกำหนด** ข้อตัดสินใจที่มีผลต้องย้ายไป ADR หรือ [Sprint 5 SSOT](../../sprints/sprint-05-ssot.md) แล้วเหลือแค่ลิงก์ที่นี่ ตาม [กติกากระดาน §5 ข้อ 3](../README.md) |
 | **ฐานที่ตรวจล่าสุด** | `feat/sprint-05-slice-01-foundations` แตกจาก `develop@8643a30` · 2026-11-02 · `develop` เลื่อนไปที่ commit เอกสารของ C0 แล้ว |
-| **บันทึก** | [CR-20261031-0545](../../changelog/2026-10/2026-10-31-0545-core-architect-onboarding-and-slice-1-plan.md) เปิดสมุด · [CR-20261031-1500](../../changelog/2026-10/2026-10-31-1500-slice-1-c0-ssot-0-3-0-and-adr-034.md) checkpoint C0 · [CR-20261102-1000](../../changelog/2026-11/2026-11-02-1000-adr-034-accepted-and-c1-start.md) ลงนาม ADR และเริ่ม C1 |
+| **บันทึก** | [CR-20261031-0545](../../changelog/2026-10/2026-10-31-0545-core-architect-onboarding-and-slice-1-plan.md) เปิดสมุด · [CR-20261031-1500](../../changelog/2026-10/2026-10-31-1500-slice-1-c0-ssot-0-3-0-and-adr-034.md) checkpoint C0 · [CR-20261102-1000](../../changelog/2026-11/2026-11-02-1000-adr-034-accepted-and-c1-start.md) ลงนาม ADR และเริ่ม C1 · [CR-20261102-1015](../../changelog/2026-11/2026-11-02-1015-c1-schema-3-0-0-and-superseded-register.md) C1 ช่วงแรก |
 
 ## 0. วิธีใช้
 
@@ -19,10 +19,10 @@
 
 | เรื่อง | ค่า | วัดอย่างไร |
 |---|---|---|
-| Checkpoint | **C0 ปิดแล้ว** (ADR-P0-034 ลงนาม 2026-11-02) · **C1 กำลังทำ** | [SSOT 0.3.0 §4.2](../../sprints/sprint-05-ssot.md) |
+| Checkpoint | **C0 ปิดแล้ว** · **C1 กำลังทำ**: schema 3.0.0 · catalog · fixture · Ajv parity · ทะเบียน assertion เสร็จแล้ว · เหลือ compiler และสเปกกลไกของ Act 1 | [SSOT 0.3.0 §4.2](../../sprints/sprint-05-ssot.md) |
 | ประวัติ | `main` ยังอยู่ที่ `d3c4c05` ไม่เคย release · PR #19 ถูกใช้แล้ว PR ของ Slice 1 จะเป็น #20 ขึ้นไป | `git log` · GitHub |
-| Runtime | Node 22.22.0 · Chromium + Playwright มีในเครื่อง cloud · ไม่มี Ajv (`JKB_AJV_PATH`) | ตรวจในเครื่อง |
-| Unit | 1,060/1,060 ผ่าน · 44 วินาที | `node --test 'tests/unit/**/*.test.js'` |
+| Runtime | Node 22.22.0 · Chromium + Playwright มีในเครื่อง cloud · Ajv 8.17.1 ติดตั้งใน scratchpad ของ session ได้ด้วย `npm install` (ไม่ใช่ dependency ของโครงการ) | ตรวจในเครื่อง |
+| Unit | 1,148/1,148 ผ่าน (เดิม 1,060 + journey schema 86 + architecture 2) | `node --test 'tests/unit/**/*.test.js'` |
 | เครื่องมือพิสูจน์ | 5/5 ผ่าน · balance model 205 วินาที (73 โหนด · 25,182 จุดเข้าศึก) | `docs/design-system/evidence/*.mjs` |
 | เนื้อหาปัจจุบัน | Act 1 เรื่องเดิม · schema 2.0.0 · content 3.0.0 · 28 โหนด · โค้ด `src/` ไม่เปลี่ยนตั้งแต่ `d1af293` (มีแค่ README) | อ่านแพ็กเกจ · `git diff` |
 | ขอบเขต Core | TC-S4-ARCH-001 ตรวจ `Math.random(` และ `Date.now(` แล้ว ยังไม่ครอบ `new Date(` และ `performance.now(` | อ่านเทสต์ |
@@ -42,11 +42,14 @@
 
 **C1 (เริ่ม 2026-11-02)**
 
-1. สร้างทะเบียน assertion ที่ถูกแทนที่: จัดเทสต์ 40 ไฟล์เป็นสามกลุ่ม (โครงสร้างพื้นฐานที่ใช้ต่อ · runtime เดิมที่จะลบใน C5 · ความคาดหวังเก่าที่ต้องมีเทสต์ทดแทน) แล้วลิงก์จาก traceability §5
+1. ~~ทะเบียน assertion ที่ถูกแทนที่~~ ทำแล้ว: [sprint-05-superseded-assertions.md](../../traceability/sprint-05-superseded-assertions.md)
 2. ร่าง grammar ของ compiler จากรูปแบบพิมพ์เขียวที่ `five-act-runtime-ledger.mjs` อ่านได้อยู่แล้ว (`### ID · ชื่อ` · บรรทัด metadata แบบ backtick · บรรทัด `>` พร้อมแท็ก `{o:…}` `{t1}` `{resp}` · ตัวเลือก `1. **ก · …**` · กิจกรรม `- **…**`)
 3. ร่างสเปกกลไกของ Act 1 จาก `ACT1` ใน `five-act-balance-model.mjs` (A1-03 วิชาเอก · A1-04 ตั้งค่า 5/4/5 · A1-06 ด่าน · R1 · C1 · A1-11 ของสองชิ้น · A1-13 เลือกสาย · Rest Floor ท้ายองก์)
-4. ร่าง schema 3.0.0 สองไฟล์ (journey package · journey save profile) แล้วส่ง Antigravity ตรวจก่อนเขียน writer
-5. ตั้งชื่อโฟลเดอร์ `tools/content/` พร้อม README และเพิ่มในแผนที่ของ [docs/README.md](../../README.md)
+4. ~~schema 3.0.0~~ ทำแล้ว (common · package · save) · ส่ง Antigravity ตรวจใน S5-006
+5. ~~`tools/` พร้อม README และแผนที่~~ ทำแล้ว · compiler จะอยู่ที่ `tools/content/`
+6. fixture สองแพ็กเกจเวอร์ชันเดียวกัน (ทำพร้อม admission ใน T2/T3)
+
+**ข้อจำกัดที่พบใน validator เดิม:** `type` แบบ array ใช้ไม่ได้ (ต้องใช้ `oneOf` กับ null) · `format` รองรับแค่ `uri` (วันที่ใช้ `pattern`) · union ที่ไม่มี branch ผ่านจะรายงาน path ที่ระดับ union
 
 **การตีความที่ต้องยืนยันใน T4 (ไม่ใช่คำถามถึง PO):** กรอบภาพ Tachie ใช้ครึ่งตัวเป็นค่าเริ่ม (ADR-P0-032 D7.1) ส่วนฉากสองสเกลให้เจ้ากบยืนบนพร็อพโดยเห็นขอบพร็อพใต้เท้าได้ (D7.2 · UX §2.1 · §8.2 จอ 1) และแถบใบหน้ายังเป็นกฎเหนือสุด · PO ตรวจเทียบกับภาพ v3 ตอนรับ C4
 
