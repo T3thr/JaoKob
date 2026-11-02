@@ -4,6 +4,7 @@
  * Every shared case must give the same verdict in Ajv and in the project validator.
  */
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 import { JOURNEY_SCHEMA_CATALOG } from "../../src/data/validation/journey-schema-catalog.js";
 import { createContentSchemaValidator } from "../../src/data/validation/content-schema-validator.js";
@@ -30,6 +31,7 @@ function agree(name, value, schemaId, expected) {
 agree("mini journey", loadMiniJourney(), PACKAGE_SCHEMA_ID, true);
 agree("journey save", loadJourneySave(), SAVE_SCHEMA_ID, true);
 agree("worst-case save", worstCaseSave(), SAVE_SCHEMA_ID, true);
+agree("compiled story.jaokob.core", JSON.parse(readFileSync(new URL("../../src/data/content/journey/story-jaokob-core.json", import.meta.url), "utf8")), PACKAGE_SCHEMA_ID, true);
 for (const [name, mutate] of packageCases) { const value = loadMiniJourney(); mutate(value); agree(`package: ${name}`, value, PACKAGE_SCHEMA_ID, false); }
 for (const [name, mutate] of saveCases) { const value = loadJourneySave(); mutate(value); agree(`save: ${name}`, value, SAVE_SCHEMA_ID, false); }
 console.log(`journey reference: ${Object.keys(JOURNEY_SCHEMA_CATALOG).length} schemas · ${cases} cases agree between Ajv and the project validator`);

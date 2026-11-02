@@ -23,6 +23,7 @@
 | โฟลเดอร์ | เนื้อหา | ผู้ดูแล |
 |---|---|---|
 | [evidence/](evidence/) | เครื่องมือพิสูจน์ (Node.js) และหน้าตรวจรับภาพ | ดู [evidence/README.md](evidence/README.md) |
+| [mechanics/](mechanics/) | สเปกกลไกรายองก์ในคำศัพท์ปิดของ schema 3.0.0 ที่ compiler ใช้คู่กับพิมพ์เขียว | ดู [mechanics/README.md](mechanics/README.md) |
 | [asset-prompts/](asset-prompts/) | สัญญาและพรอมป์ต์สร้างภาพ เริ่มที่ [00-ASTRA-WORKFLOW-AND-OUTPUT-CONTRACT.md](asset-prompts/00-ASTRA-WORKFLOW-AND-OUTPUT-CONTRACT.md) | Astra (เปลี่ยนสัญญาผ่าน PO) |
 | [ux-mockups/](ux-mockups/) | ภาพต้นแบบหน้าจอราย version (v1 วาดทั้งภาพ · v2 ใช้ harness ชุดเดียว) | Astra |
 

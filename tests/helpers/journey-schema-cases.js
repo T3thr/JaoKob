@@ -67,6 +67,10 @@ export const packageCases = [
   ["ending lock with unknown reason", (p) => { node(p, "n11").endings[0].locks[0].reason = "luck"; }],
   ["ending node outside act five", (p) => { node(p, "n11").act = 4; }],
   ["unknown ending id", (p) => { node(p, "n12").completes = "e-city"; }],
+  ["lexicon intent outside the seven intents", (p) => { p.lexicon.intents.roar = "lex.intent.grow"; }],
+  ["lexicon action outside the core vocabulary", (p) => { p.lexicon.actions.fireball = "lex.action.strike"; }],
+  ["boundary in act six", (p) => { p.boundaries[0].act = 6; }],
+  ["package without a lexicon", (p) => { delete p.lexicon; }],
 ];
 
 export const saveCases = [

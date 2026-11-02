@@ -196,6 +196,49 @@
       "finisherFrom": 3
     }
   ],
+  "lexicon": {
+    "intents": {
+      "grow": "lex.intent.grow",
+      "lash": "lex.intent.lash",
+      "taunt": "lex.intent.taunt",
+      "whisper": "lex.intent.whisper",
+      "dim": "lex.intent.dim",
+      "illusion": "lex.intent.illusion",
+      "gather": "lex.intent.gather"
+    },
+    "actions": {
+      "strike": "lex.action.strike",
+      "grit": "lex.action.grit",
+      "guard": "lex.action.guard",
+      "rest": "lex.action.rest",
+      "rain": "lex.action.rain",
+      "wind": "lex.action.wind",
+      "eye": "lex.action.eye",
+      "seeds": "lex.action.seeds",
+      "guardItem": "lex.action.guarditem",
+      "gear": "lex.action.gear",
+      "button": "lex.action.button",
+      "ribbon": "lex.action.ribbon",
+      "a_pkam": "lex.action.a_pkam",
+      "a_fiw": "lex.action.a_fiw",
+      "a_teuk": "lex.action.a_teuk",
+      "s_kab": "lex.action.s_kab",
+      "s_kib": "lex.action.s_kib",
+      "gear_pkam": "lex.action.gear_pkam",
+      "seeds_fiw": "lex.action.seeds_fiw",
+      "button_teuk": "lex.action.button_teuk",
+      "whistle_teuk": "lex.action.whistle_teuk",
+      "ribbon_fiw": "lex.action.ribbon_fiw",
+      "gear_pkam_b": "lex.action.gear_pkam_b",
+      "hem": "lex.action.hem"
+    }
+  },
+  "boundaries": [
+    {
+      "node": "n15",
+      "act": 5
+    }
+  ],
   "texts": [
     {
       "id": "n01.l1",
@@ -511,6 +554,161 @@
       "id": "n14.l1",
       "speaker": "narrator",
       "body": "สามเคาะที่หน้าต่าง"
+    },
+    {
+      "id": "lex.intent.grow",
+      "speaker": "narrator",
+      "body": "เงาขยาย"
+    },
+    {
+      "id": "lex.intent.lash",
+      "speaker": "narrator",
+      "body": "ฟาดผ้าคลุม"
+    },
+    {
+      "id": "lex.intent.taunt",
+      "speaker": "narrator",
+      "body": "กระซิบขู่"
+    },
+    {
+      "id": "lex.intent.whisper",
+      "speaker": "narrator",
+      "body": "กระซิบฝันร้าย"
+    },
+    {
+      "id": "lex.intent.dim",
+      "speaker": "narrator",
+      "body": "ดับแสง"
+    },
+    {
+      "id": "lex.intent.illusion",
+      "speaker": "narrator",
+      "body": "เงาลวง"
+    },
+    {
+      "id": "lex.intent.gather",
+      "speaker": "narrator",
+      "body": "สูดความมืด"
+    },
+    {
+      "id": "lex.action.strike",
+      "speaker": "narrator",
+      "body": "รุก"
+    },
+    {
+      "id": "lex.action.grit",
+      "speaker": "narrator",
+      "body": "ฝืนรุก"
+    },
+    {
+      "id": "lex.action.guard",
+      "speaker": "narrator",
+      "body": "ตั้งรับ"
+    },
+    {
+      "id": "lex.action.rest",
+      "speaker": "narrator",
+      "body": "สูดหายใจ"
+    },
+    {
+      "id": "lex.action.rain",
+      "speaker": "narrator",
+      "body": "ตั้งสติฟังฝน"
+    },
+    {
+      "id": "lex.action.wind",
+      "speaker": "narrator",
+      "body": "ดีดตัวผ่าลม"
+    },
+    {
+      "id": "lex.action.eye",
+      "speaker": "narrator",
+      "body": "ตาส่องเงามืด"
+    },
+    {
+      "id": "lex.action.seeds",
+      "speaker": "narrator",
+      "body": "เมล็ดต้อยติ่งเรืองแสง"
+    },
+    {
+      "id": "lex.action.guarditem",
+      "speaker": "narrator",
+      "body": "สนับข้อมือเปลือกไม้"
+    },
+    {
+      "id": "lex.action.gear",
+      "speaker": "narrator",
+      "body": "เฟืองสังกะสีไขลาน"
+    },
+    {
+      "id": "lex.action.button",
+      "speaker": "narrator",
+      "body": "กระดุมทองเหลือง ต.♡ป."
+    },
+    {
+      "id": "lex.action.ribbon",
+      "speaker": "narrator",
+      "body": "ริบบิ้นเหลืองกลิ่นแดด"
+    },
+    {
+      "id": "lex.action.a_pkam",
+      "speaker": "narrator",
+      "body": "โล่กระป๋องเหล็กคู่ใจ"
+    },
+    {
+      "id": "lex.action.a_fiw",
+      "speaker": "narrator",
+      "body": "โฉบคว้ากลางเวหา"
+    },
+    {
+      "id": "lex.action.a_teuk",
+      "speaker": "narrator",
+      "body": "ลำแสงสัญญาจากนอกรั้ว"
+    },
+    {
+      "id": "lex.action.s_kab",
+      "speaker": "narrator",
+      "body": "สปริงพี่ใหญ่"
+    },
+    {
+      "id": "lex.action.s_kib",
+      "speaker": "narrator",
+      "body": "ห่าเมล็ดเรือง"
+    },
+    {
+      "id": "lex.action.gear_pkam",
+      "speaker": "narrator",
+      "body": "ล็อกสลิงถ่วงประตูน้ำ"
+    },
+    {
+      "id": "lex.action.seeds_fiw",
+      "speaker": "narrator",
+      "body": "ไฟเมล็ดนำร่อง"
+    },
+    {
+      "id": "lex.action.button_teuk",
+      "speaker": "narrator",
+      "body": "ลำแสงสะท้อนกระดุมคู่"
+    },
+    {
+      "id": "lex.action.whistle_teuk",
+      "speaker": "narrator",
+      "body": "นกหวีดเรียกลำแสง"
+    },
+    {
+      "id": "lex.action.ribbon_fiw",
+      "speaker": "narrator",
+      "body": "ผ้าพันคอนำลม"
+    },
+    {
+      "id": "lex.action.gear_pkam_b",
+      "speaker": "narrator",
+      "body": "ล็อกท่อรางน้ำ"
+    },
+    {
+      "id": "lex.action.hem",
+      "speaker": "narrator",
+      "body": "ชูชายเสื้อรับแสง"
     }
   ],
   "nodes": [

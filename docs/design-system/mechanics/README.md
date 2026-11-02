@@ -1,0 +1,24 @@
+# docs/design-system/mechanics/ · สเปกกลไกของแพ็กเกจเรื่อง (Tier 2)
+
+สเปกกลไกคือแหล่งเขียน "กติกา" ของแต่ละโหนดในคำศัพท์ปิดของ [schema 3.0.0](../../../specs/schemas/v3.0.0/journey-common.schema.json) ส่วน "ถ้อยคำ" อยู่ในพิมพ์เขียวรายองก์ compiler รวมสองแหล่งเป็นแพ็กเกจของเกม ([ADR-P0-034 D4 D6](../../adr/ADR-P0-034-five-act-journey-runtime-save2-journey-profile-and-blueprint-compiled-content.md))
+
+| ไฟล์ | เนื้อหา | ผู้ดูแล |
+|---|---|---|
+| [story.json](story.json) | ตัวตนแพ็กเกจ · จุดเริ่ม · รายการองก์ที่คอมไพล์ · ป้ายผู้พูดในบทกับรหัสตัวละคร · ทะเบียนของหกชิ้น · ยกศึกทั้งหก (ต้องเท่ากับ engine ที่พิสูจน์แล้ว) · ชื่อไทยมาตรฐานของเจตนาและการกระทำ | Core Architect · ตัวเลขผ่าน PO |
+| [act1.json](act1.json) | กลไกรายโหนดของ Act 1 ตามแบบจำลองสมดุล (`ACT1` ใน [five-act-balance-model.mjs](../evidence/five-act-balance-model.mjs)) | Core Architect · Narrative ตรวจ |
+| [compile-report.json](compile-report.json) | ผลที่ compiler สร้าง: ภาพที่ยังไม่มีใน manifest v2 และบรรทัดที่บทยังขาด **ห้ามแก้มือ** | สร้างอัตโนมัติ |
+
+**วิธีคอมไพล์และตรวจ**
+
+```bash
+node tools/content/compile-journey.mjs
+node tools/content/compile-journey.mjs --check
+```
+
+**กติกาเหล็ก**
+
+1. ข้อความบนจอทุกคำมาจากพิมพ์เขียว สเปกนี้ห้ามมีบทหรือคำบรรยาย ยกเว้นคำใบ้ของสัมผัสโต้ตอบที่ compiler ตรวจว่าคัดมาจากย่อหน้า `**MA-n:**` ของบท
+2. ทุกตัวเลือกในพิมพ์เขียวต้องมีรายการในสเปกตามแท็กของบรรทัดตอบสนอง และทุกรายการในสเปกต้องมีตัวเลือกในพิมพ์เขียว ไม่งั้น compile ไม่ผ่าน
+3. ลำดับโหนดในสเปกต้องตรงพิมพ์เขียว และตรงลำดับของแบบจำลองสมดุล (`tests/unit/journey-content.test.js`)
+4. ยกศึกและชื่อมาตรฐานต้องเท่ากับ [tactical-clash-engine.mjs](../evidence/tactical-clash-engine.mjs) จนกว่า T2 ย้ายกติกาเข้า `src/core`
+5. แก้สเปกหรือพิมพ์เขียวแล้วต้องคอมไพล์ใหม่ และรันเครื่องมือพิสูจน์ใน [evidence/](../evidence/README.md) ที่เกี่ยวข้อง

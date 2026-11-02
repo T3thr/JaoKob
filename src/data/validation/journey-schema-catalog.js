@@ -779,6 +779,8 @@ export const JOURNEY_SCHEMA_CATALOG = deepFreeze({
       "items",
       "flags",
       "rounds",
+      "lexicon",
+      "boundaries",
       "texts",
       "nodes"
     ],
@@ -940,6 +942,50 @@ export const JOURNEY_SCHEMA_CATALOG = deepFreeze({
         "maxItems": 8,
         "items": {
           "$ref": "#/$defs/round"
+        }
+      },
+      "lexicon": {
+        "type": "object",
+        "description": "ชื่อไทยมาตรฐานของเจตนาและการกระทำในศึก · โหนดศึกใช้ labels ของตัวเองแทนเมื่อพิมพ์เขียวตั้งชื่อตามฉาก",
+        "required": [
+          "intents",
+          "actions"
+        ],
+        "properties": {
+          "intents": {
+            "type": "object",
+            "patternProperties": {
+              "^(?:grow|lash|taunt|whisper|dim|illusion|gather)$": {
+                "$ref": "journey-common.schema.json#/$defs/textRef"
+              }
+            },
+            "additionalProperties": false
+          },
+          "actions": {
+            "$ref": "#/$defs/actionText"
+          }
+        },
+        "additionalProperties": false
+      },
+      "boundaries": {
+        "type": "array",
+        "description": "ทางเข้าของเนื้อหาที่ยังไม่ promote · เมื่อผู้เล่นมาถึง runtime แสดงข้อความของระบบและคง cursor ไว้ที่จุดนี้ให้แพ็กเกจรุ่นถัดไปเล่นต่อได้",
+        "maxItems": 8,
+        "items": {
+          "type": "object",
+          "required": [
+            "node",
+            "act"
+          ],
+          "properties": {
+            "node": {
+              "$ref": "journey-common.schema.json#/$defs/identifier"
+            },
+            "act": {
+              "$ref": "journey-common.schema.json#/$defs/act"
+            }
+          },
+          "additionalProperties": false
         }
       },
       "texts": {
