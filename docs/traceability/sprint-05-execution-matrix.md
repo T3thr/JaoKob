@@ -1,6 +1,6 @@
 # Sprint 5 Execution Traceability Matrix
 
-Version **0.3.0**, 2026-10-31 (Asia/Bangkok). Authority: มติ PO 2026-10-31 · [ADR-P0-032 v2.0](../adr/ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md) · [ADR-P0-033](../adr/ADR-P0-033-interactive-tactical-adventure-gameplay-and-dynamic-stage-revolution.md) · [ADR-P0-034](../adr/ADR-P0-034-five-act-journey-runtime-save2-journey-profile-and-blueprint-compiled-content.md) (ลงนาม 2026-11-02) · [Sprint 5 SSOT 0.3.0](../sprints/sprint-05-ssot.md) ซึ่งเป็นเจ้าของ WBS DoR และ DoD · ฉบับ 0.2.0 ยุค ADR-P0-022 อยู่ใน git ที่ `8643a30`
+Version **0.3.1**, 2026-11-04 (Asia/Bangkok) · 0.3.0 วันที่ 2026-10-31 · 0.3.1 เพิ่ม §6 runner ที่ส่งแล้ว. Authority: มติ PO 2026-10-31 · [ADR-P0-032 v2.0](../adr/ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md) · [ADR-P0-033](../adr/ADR-P0-033-interactive-tactical-adventure-gameplay-and-dynamic-stage-revolution.md) · [ADR-P0-034](../adr/ADR-P0-034-five-act-journey-runtime-save2-journey-profile-and-blueprint-compiled-content.md) (ลงนามครบ 2026-11-04) · [Sprint 5 SSOT 0.3.0](../sprints/sprint-05-ssot.md) ซึ่งเป็นเจ้าของ WBS DoR และ DoD · ฉบับ 0.2.0 ยุค ADR-P0-022 อยู่ใน git ที่ `8643a30`
 
 ทุกแถวมีสถานะ **วางแผนแล้ว รอหลักฐาน** จนกว่าหลักฐานที่ระบุจะมีอยู่บน build จริง · รหัสเทสต์ที่ยังไม่มี runner เป็นการตรวจที่วางแผนไว้ ไม่ใช่การตรวจที่ผ่านแล้ว · S1–S4 คือ execution PR สี่ตัว เลข PR จริงลงเมื่อเปิด
 
@@ -30,7 +30,7 @@ Version **0.3.0**, 2026-10-31 (Asia/Bangkok). Authority: มติ PO 2026-10-31
 | D4 สัมผัสโต้ตอบสั้น | T2 · T5 | `TC-S5-UX-001` · `TC-S5-A11Y-001` |
 | D5 คณิตศาสตร์ ฟิสิกส์ และ UX ที่พิสูจน์ได้ | T2 · T4 · T5 · T7 | `TC-S5-BALANCE-001` · `TC-S5-SCALE-001` · `TC-S5-VN-001` |
 
-### 1.3 ADR-P0-034 · สถาปัตยกรรม (ลงนาม 2026-11-02)
+### 1.3 ADR-P0-034 · สถาปัตยกรรม (ลงนามครบ 2026-11-04)
 
 | ข้อตัดสินใจ | งาน | หลักฐาน |
 |---|---|---|
@@ -105,3 +105,16 @@ Version **0.3.0**, 2026-10-31 (Asia/Bangkok). Authority: มติ PO 2026-10-31
 ก่อนลบหรือเปลี่ยนเทสต์เดิม ให้ลงทะเบียนใน [ทะเบียน assertion ที่ถูกแทนที่](sprint-05-superseded-assertions.md) โดยระบุ authority และเทสต์ทดแทนทุกข้อ · invariant ของโดเมน เซฟ และโครงสร้างพื้นฐานที่ยังถูกต้องต้องมีเทสต์ต่อ · ห้ามบังคับให้คงพฤติกรรมที่ถูกปฏิเสธแล้วเพียงเพื่อให้จำนวนเทสต์เท่าเดิม
 
 หลักฐานจากมนุษย์ระบุบทบาท วันที่ build ฉากหรือจังหวะ viewport อุปกรณ์และการตั้งค่า สิ่งที่เห็น ความรุนแรง ภาพอ้างอิงถ้ามี การแก้ และการรับรอง · ห้ามสร้างผู้ตรวจขึ้นเอง แนบภาพผิด หรือปิดข้อค้นพบวิกฤตโดยไม่มี build ที่แก้และทดสอบแล้ว
+
+## 6. Runner ที่ส่งแล้ว
+
+รหัสที่มี runner แล้วยังเป็น "วางแผนแล้ว รอหลักฐาน" ในส่วนที่ต้องใช้ build จริง อุปกรณ์ หรือคน · ตารางนี้บอกเฉพาะส่วนที่ตรวจด้วยเครื่องได้แล้ว
+
+| รหัส | runner | ครอบคลุมแล้ว | บันทึก |
+|---|---|---|---|
+| `TC-S5-SCHEMA-001` | `tests/unit/journey-schema.test.js` · `tests/schema/journey-reference.mjs` | schema 3.0.0 บวกและลบ · เทียบ Ajv · catalog ตรงต้นทาง | CR-20261102-1015 |
+| `TC-S5-CONTENT-001` | `tests/unit/journey-content.test.js` | drift gate · ใบเสร็จทุกบรรทัด · compiler ล้มเมื่อเจอสิ่งที่ไม่รู้จัก · ภาพสำรองแบบ alias | CR-20261102-1025 · CR-20261104-0340 |
+| `TC-S5-PACKAGE-001` | `tests/unit/architecture.test.js` | Core ไม่ import tools · ไม่อ่านนาฬิกา | CR-20261102-1015 |
+| `TC-S5-CLASH-001` | `tests/unit/journey-clash.test.js` · `tools/clash/clash-parity.mjs` | parity ทุกลำดับการกดจาก 18 จุดเข้าศึก · error code ของ shell · ผลลัพธ์ freeze · เซฟของศึกผ่าน schema | CR-20261104-0400 |
+| `TC-S5-TRAY-001` | `tests/unit/journey-clash.test.js` | ความจุสี่กลุ่มทุกตำแหน่งที่เกิดได้และทุกชุดของในกระเป๋า · ป้ายแก้ทางและซ้ำของจอ v3 | CR-20261104-0400 (กติกาแท็บและคีย์บอร์ดรอ T5) |
+| `TC-S5-STATE-001` | `tests/unit/journey-rules.test.js` | ค่าสถานะ Soft Floor ฝืนเอา Grace Rest Floor โหยหาบ้าน ระดับคำเรียก ตัวตรวจ JourneyState | CR-20261104-0400 (session และ play-mode ตามมาใน C2) |

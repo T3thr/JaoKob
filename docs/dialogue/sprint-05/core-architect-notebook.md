@@ -5,7 +5,7 @@
 | **เจ้าของ** | Claude · Supreme Core Architect & Lead Game Systems Engineer (PO มอบหมาย 2026-10-31) |
 | **ประเภท** | สมุดทำงานของสถาปนิก **ไม่ใช่ข้อกำหนด** ข้อตัดสินใจที่มีผลต้องย้ายไป ADR หรือ [Sprint 5 SSOT](../../sprints/sprint-05-ssot.md) แล้วเหลือแค่ลิงก์ที่นี่ ตาม [กติกากระดาน §5 ข้อ 3](../README.md) |
 | **ฐานที่ตรวจล่าสุด** | `feat/sprint-05-slice-01-foundations` แตกจาก `develop@8643a30` · 2026-11-04 · `develop` เลื่อนไปที่ commit เอกสารของ C0 แล้ว |
-| **บันทึก** | [CR-20261031-0545](../../changelog/2026-10/2026-10-31-0545-core-architect-onboarding-and-slice-1-plan.md) เปิดสมุด · [CR-20261031-1500](../../changelog/2026-10/2026-10-31-1500-slice-1-c0-ssot-0-3-0-and-adr-034.md) checkpoint C0 · [CR-20261102-1000](../../changelog/2026-11/2026-11-02-1000-adr-034-accepted-and-c1-start.md) ลงนาม ADR และเริ่ม C1 · [CR-20261102-1015](../../changelog/2026-11/2026-11-02-1015-c1-schema-3-0-0-and-superseded-register.md) C1 ช่วงแรก · [CR-20261102-1025](../../changelog/2026-11/2026-11-02-1025-c1-blueprint-compiler-and-act1-prototype-package.md) C1 ช่วงสอง · [CR-20261104-0340](../../changelog/2026-11/2026-11-04-0340-c2-start-po-decisions-asset-aliases-and-r1-grit-line.md) มติ 2026-11-04 และเริ่ม C2 |
+| **บันทึก** | [CR-20261031-0545](../../changelog/2026-10/2026-10-31-0545-core-architect-onboarding-and-slice-1-plan.md) เปิดสมุด · [CR-20261031-1500](../../changelog/2026-10/2026-10-31-1500-slice-1-c0-ssot-0-3-0-and-adr-034.md) checkpoint C0 · [CR-20261102-1000](../../changelog/2026-11/2026-11-02-1000-adr-034-accepted-and-c1-start.md) ลงนาม ADR และเริ่ม C1 · [CR-20261102-1015](../../changelog/2026-11/2026-11-02-1015-c1-schema-3-0-0-and-superseded-register.md) C1 ช่วงแรก · [CR-20261102-1025](../../changelog/2026-11/2026-11-02-1025-c1-blueprint-compiler-and-act1-prototype-package.md) C1 ช่วงสอง · [CR-20261104-0340](../../changelog/2026-11/2026-11-04-0340-c2-start-po-decisions-asset-aliases-and-r1-grit-line.md) มติ 2026-11-04 และเริ่ม C2 · [CR-20261104-0400](../../changelog/2026-11/2026-11-04-0400-c2-clash-kernel-shell-and-parity-gate.md) clash kernel และ parity gate |
 
 ## 0. วิธีใช้
 
@@ -25,7 +25,8 @@
 | Unit | 1,148/1,148 ผ่าน (เดิม 1,060 + journey schema 86 + architecture 2) | `node --test 'tests/unit/**/*.test.js'` |
 | เครื่องมือพิสูจน์ | 5/5 ผ่าน · balance model 205 วินาที (73 โหนด · 25,182 จุดเข้าศึก) | `docs/design-system/evidence/*.mjs` |
 | เนื้อหาปัจจุบัน | Act 1 เรื่องเดิม · schema 2.0.0 · content 3.0.0 · 28 โหนด · โค้ด `src/` ไม่เปลี่ยนตั้งแต่ `d1af293` (มีแค่ README) | อ่านแพ็กเกจ · `git diff` |
-| ขอบเขต Core | TC-S4-ARCH-001 ตรวจ `Math.random(` และ `Date.now(` แล้ว ยังไม่ครอบ `new Date(` และ `performance.now(` | อ่านเทสต์ |
+| ขอบเขต Core | TC-S4-ARCH-001 ตรวจ `Math.random(` และ `Date.now(` · TC-S5-STATE-001 ใน `architecture.test.js` ตรวจ `new Date(` และ `performance.now(` (C1) | อ่านเทสต์ |
+| Core ใหม่ (C2) | `src/core/domain/clash/` ผ่าน parity 286,174 ตำแหน่งในไม่ถึง 1 วินาที · `src/core/domain/journey/` กติกาค่าสถานะร่วม · coverage บรรทัด 100% branch ≥ 98.5% | `node tools/clash/clash-parity.mjs --check` |
 | Design input | Mockups v3 13 จอ · พิกัด handoff · glyph SVG ([S5-003](BOARD.md)) | [v3 README](../../design-system/ux-mockups/v3/README.md) |
 
 ---
@@ -88,6 +89,9 @@
 - ใน `step` อาการโหยหาบ้านทำให้แสงที่ได้ลด `2 × streak` · Act 1 นับ streak แต่ไม่ลงโทษและไม่นับ fsu
 - `copy()` คัดลอกตื้น (`items` `ready` `territory` `peace` ใช้ร่วมกัน) ปลอดภัยเพราะ `step` ไม่แก้ค่า แต่ runtime ต้อง freeze
 - balance model ส่ง `fsu: 0` เข้าศึกแล้วบวก `end.fsu` กลับ และล้าง `tempo` กับ `ready` หลังศึก · core ต้องทำผ่าน `exitClash` ที่ประกาศชัด
+- **C2 (ทำแล้ว):** kernel ใช้ `outcome !== null` แทน `ended` · ไม่มี `notIn: ['R5']` (กติกาอาณาเขตครอบอยู่แล้ว) · ผลเฉียดของ Act 5 ใช้เลของก์ · สูดความมืดเทิร์นสุดท้าย −3 ไม่คูณสอง (ไม่มียกจริงที่เกิด จึงปักด้วยเทสต์ยกสังเคราะห์)
+- **ข้อค้นพบในแบบจำลองสมดุล:** `min(streak, 1)` ตอนเข้าศึกลดโทษของการใช้ทักษะครอบครัวครั้งที่สามติดกัน · `min(streak, 2)` ตรงกติกาจริง (ซ้ำสองครั้งขึ้นไปได้แสงเป็นศูนย์เสมอ) ผ่านทุกข้อพิสูจน์ ช่วงค่าเท่าเดิม · ใช้ตอนย้ายแบบจำลองมาใช้ Core
+- **รอ S2/S3:** effect แบบมีเงื่อนไขและ `tempo` ยังไม่อยู่ในคำศัพท์ 3.0.0 แต่ Act 2–5 ต้องใช้ (A3-04 · A3-13 intel · A4-01 · A4-08 · A5-05) · การเปิดแท็บของถาดแบบ "ปรากฏแล้วอยู่ตลอดเกม" (UX §3.3 ข้อ 3) ต้องมีสถานะที่บันทึกได้หรือกติกาที่คำนวณได้ ตัดสินใน T8
 - ระบบเดิมที่ใช้ต่อได้: flag policy (marker · counter · monotonic) ใน `choice-transaction.js` · โดเมนกระเป๋า `keepsake-pouch.js` (capacity 4 · held · acquired · released · remembered · memory) · transaction แบบ staged/canonical/backup ใน `local-storage-adapter.js` · validator JSON Schema 2020-12 ของโครงการ
 - key เดิมของ LocalStorage: `jaokob:save:canonical` · `jaokob:save:staging` · `jaokob:save:backup` · `jaokob:settings` · `jaokob:preferences` (กลายเป็นคลังเซฟเก่าตาม ADR-034 D8)
 

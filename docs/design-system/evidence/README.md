@@ -7,7 +7,7 @@
 | เครื่องมือ | พิสูจน์ | เวลา |
 |---|---|---|
 | [tactical-clash-engine.mjs](tactical-clash-engine.mjs) | กติกาศึกแสงปะทะเงาแบบ deterministic (ต้นแบบของ `src/core` ใน Sprint 5) | - |
-| [tactical-clash-simulator.mjs](tactical-clash-simulator.mjs) | แจกแจงทุกลำดับการกดของทุกยก: ไม่มี Game Over · ชนะขาดได้ทุกจุดเข้าศึก · ผู้อ่านเจตนาดีกว่ากดรุกอย่างเดียว | ไม่ถึง 1 วินาที |
+| [tactical-clash-simulator.mjs](tactical-clash-simulator.mjs) | แจกแจงทุกลำดับการกดของทุกยก: ไม่มี Game Over · ชนะขาดได้ทุกจุดเข้าศึก · ผู้อ่านเจตนาดีกว่ากดรุกอย่างเดียว · ส่งออก `ENTRIES` (18 จุดเข้าศึก) ให้ parity gate ของ [clash-parity.mjs](../../../tools/clash/clash-parity.mjs) | ไม่ถึง 1 วินาที |
 | [five-act-balance-model.mjs](five-act-balance-model.mjs) | แจกแจงทุกทางเลือกทั้งห้าองก์: ไม่มีทางตัน · ฉากจบทั้งสามเปิดได้ · การเล่นจำลอง 14 แบบ | ราว 95 วินาที |
 | [five-act-runtime-ledger.mjs](five-act-runtime-ledger.mjs) | เวลาเล่นทุกเส้นทาง 8–10 นาทีต่อองก์ จากบทจริง | ไม่ถึง 1 วินาที |
 | [physics-scale-optics-check.mjs](physics-scale-optics-check.mjs) | ฟิสิกส์ 52 ข้อที่บทและภาพอ้าง | ไม่ถึง 1 วินาที |

@@ -7,6 +7,7 @@
 | เครื่องมือ | ทำอะไร | ผลลัพธ์ | ตรวจ drift | ผู้ดูแล |
 |---|---|---|---|---|
 | [schema/build-journey-catalog.mjs](schema/build-journey-catalog.mjs) | ฝัง schema ใน `specs/schemas/v3.0.0/` เป็นโมดูล JS ที่ freeze แล้ว | `src/data/validation/journey-schema-catalog.js` | `--check` · `tests/unit/journey-schema.test.js` | Core Architect |
+| [clash/clash-parity.mjs](clash/clash-parity.mjs) | เดินทุกลำดับการกดจาก 18 จุดเข้าศึกของ simulator แล้ว hash ทุกตำแหน่ง เทียบ kernel ของ Core หรือโมดูลแบบ engine เดิมกับ trace ที่บันทึกจาก engine ที่พิสูจน์แล้ว (parity gate ของ ADR-P0-034 D5.2) | `tests/fixtures/journey/clash-parity-golden.json` | `--check` · `tests/unit/journey-clash.test.js` | Core Architect |
 | [content/compile-journey.mjs](content/compile-journey.mjs) | รวมพิมพ์เขียวรายองก์กับสเปกกลไกเป็นแพ็กเกจ ตรวจ schema และการอ้างอิงทุกตัว ปฏิเสธผู้พูด แท็ก โหมด หรือตัวเลือกที่ไม่ตรง | `src/data/content/journey/` · `docs/design-system/mechanics/compile-report.json` | `--check` · `tests/unit/journey-content.test.js` | Core Architect |
 
 **กติกาเหล็ก**
