@@ -117,4 +117,6 @@ Version **0.3.1**, 2026-11-04 (Asia/Bangkok) · 0.3.0 วันที่ 2026-10
 | `TC-S5-PACKAGE-001` | `tests/unit/architecture.test.js` | Core ไม่ import tools · ไม่อ่านนาฬิกา | CR-20261102-1015 |
 | `TC-S5-CLASH-001` | `tests/unit/journey-clash.test.js` · `tools/clash/clash-parity.mjs` | parity ทุกลำดับการกดจาก 18 จุดเข้าศึก · error code ของ shell · ผลลัพธ์ freeze · เซฟของศึกผ่าน schema | CR-20261104-0400 |
 | `TC-S5-TRAY-001` | `tests/unit/journey-clash.test.js` | ความจุสี่กลุ่มทุกตำแหน่งที่เกิดได้และทุกชุดของในกระเป๋า · ป้ายแก้ทางและซ้ำของจอ v3 | CR-20261104-0400 (กติกาแท็บและคีย์บอร์ดรอ T5) |
-| `TC-S5-STATE-001` | `tests/unit/journey-rules.test.js` | ค่าสถานะ Soft Floor ฝืนเอา Grace Rest Floor โหยหาบ้าน ระดับคำเรียก ตัวตรวจ JourneyState | CR-20261104-0400 (session และ play-mode ตามมาใน C2) |
+| `TC-S5-STATE-001` | `tests/unit/journey-rules.test.js` · `journey-encounters.test.js` · `journey-session.test.js` | ค่าสถานะ Soft Floor ฝืนเอา Grace Rest Floor โหยหาบ้าน ระดับคำเรียก · ด่าน แคมป์ รับของ สัมผัส · คำสั่งแบบ atomic ผูก revision · play-mode · Act 1 ต้นแบบเล่นได้ครบ · coverage ของ Core ใหม่ | CR-20261104-0400 · CR-20261104-0420 |
+| `TC-S5-ENDING-001` | `tests/unit/journey-encounters.test.js` · `journey-session.test.js` | ตารางความจริงเทียบแบบจำลองสมดุล · Safety Fallback · ประโยคล็อก · journey เท่านั้นที่ตัดสิน | CR-20261104-0420 (การเล่นจำลอง 14 แบบบน Core ตามมาในช่วงย้ายแบบจำลอง) |
+| `TC-S5-REPLAY-001` | `tests/unit/journey-session.test.js` | snapshot ห้าองก์บนแพ็กเกจจิ๋ว · เล่นซ้ำแล้ว `completion` ไม่ถูกย้อน | CR-20261104-0420 (เซฟจริงใน C3) |

@@ -16,4 +16,4 @@
 1. ทิศทาง dependency ชี้เข้าหา `core/` เสมอ
 2. ไม่มี framework ไม่มี build step ไม่มี dependency ภายนอกใน runtime
 3. ทุกการเปลี่ยนแปลงมี unit test ใน [tests/unit/](../tests/unit/) และอ้าง Requirement ID จาก [Sprint SSOT](../docs/sprints/sprint-05-ssot.md)
-4. กติกาเกมใหม่ของ Sprint 5 (ศึกแสงปะทะเงา แคมป์ สายใย ฉากจบ) ต้องตรงกับ [tactical-clash-engine.mjs](../docs/design-system/evidence/tactical-clash-engine.mjs) และ [มหาพิมพ์เขียว §2](../docs/design-system/five-act-narrative-gameplay-master-plan.md) ซึ่งเป็นต้นแบบที่พิสูจน์แล้ว
+4. กติกาเกมของ Sprint 5 (ศึกแสงปะทะเงา ด่าน แคมป์ สายใย ฉากจบ) อยู่ใน [core/](core/README.md) ตาม [มหาพิมพ์เขียว §2](../docs/design-system/five-act-narrative-gameplay-master-plan.md) · kernel ของศึกผ่าน parity gate กับ engine ที่พิสูจน์แล้วทุกลำดับการกด ([clash-parity.mjs](../tools/clash/clash-parity.mjs))
