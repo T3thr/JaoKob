@@ -57,10 +57,25 @@ test("TC-S5-CONTENT-001 Act 1 nodes follow the balance model order exactly", () 
   assert.deepEqual(pkg.nodes.filter((n) => n.act === 1).map((n) => n.id.toUpperCase()), NODE_IDS.act1);
 });
 
-test("TC-S5-CONTENT-001 Act 1 prototype ends at the two Act 2 entry boundaries and reports its open findings", () => {
+test("TC-S5-CONTENT-001 Act 1 prototype ends at the two Act 2 entry boundaries with no open findings", () => {
   assert.deepEqual(pkg.boundaries, [{ node: "a2a-01", act: 2 }, { node: "a2b-01", act: 2 }]);
-  assert.deepEqual(compiled.report.warnings.map((w) => w.kind), ["clash-response-missing"]);
-  assert.ok(compiled.report.assetsMissingFromManifestV2.length > 0);
+  assert.deepEqual(compiled.report.warnings, []);
+  assert.deepEqual(compiled.report.assetsMissingFromManifestV2, []);
+  assert.ok(pkg.texts.some((t) => t.id === "a1-08.p.grit"), "R1 answers ฝืนรุก (PO decision 2026-11-04)");
+});
+
+test("TC-S5-CONTENT-001 interim asset aliases are exactly the four the PO allowed and point at delivered images", async () => {
+  const { manifest } = await loadSources();
+  const known = new Set(Object.values(manifest.categories).flat().map((a) => a.assetId));
+  assert.deepEqual(compiled.report.assetAliases.map(({ design, uses }) => [design, uses]), [
+    ["cg_act1_three_siblings_weir", "cg_act1_three_siblings_blue_shirt"],
+    ["char_cockroach_man_boast_button", "char_cockroach_man_shadow_boast"],
+    ["char_jao_kab_child_neutral", "char_jao_kab_neutral_proud"],
+    ["char_jao_kib_child_neutral", "char_jao_kib_neutral_cheerful"],
+  ]);
+  const staged = pkg.nodes.flatMap((n) => [n.stage.bg, n.stage.cg, ...n.stage.slots.map((s) => s.asset)].filter(Boolean));
+  for (const id of staged) assert.ok(known.has(id), `${id} is staged but not in manifest v2`);
+  for (const { design } of compiled.report.assetAliases) assert.ok(!staged.includes(design), `${design} must be aliased in the package`);
 });
 
 // ---------------------------------------------------------------------------------------
@@ -69,9 +84,10 @@ test("TC-S5-CONTENT-001 Act 1 prototype ends at the two Act 2 entry boundaries a
 const base = await loadSources();
 const blueprintText = await base.blueprint("act1-living-keepsake-rewrite-blueprint.md");
 const act1 = await base.mechanics("act1.json");
-async function compileWith({ blueprint = blueprintText, mechanics = act1, story = base.story } = {}) {
-  return compileJourney({ ...base, story, blueprint: async () => blueprint, mechanics: async () => mechanics });
+async function compileWith({ blueprint = blueprintText, mechanics = act1, story = base.story, manifest = base.manifest } = {}) {
+  return compileJourney({ ...base, story, manifest, blueprint: async () => blueprint, mechanics: async () => mechanics });
 }
+const withStory = (mutate) => { const st = structuredClone(base.story); mutate(st); return st; };
 const mutatedSpec = (mutate) => { const spec = structuredClone(act1); mutate(spec); return spec; };
 
 const failures = [
@@ -86,6 +102,9 @@ const failures = [
   ["a micro hint that is not quoted from the blueprint", { mechanics: mutatedSpec((s) => { s.nodes["A1-12"].micro.hint = "เคาะเร็ว ๆ"; }) }, /must be quoted/],
   ["next into a compiled act that does not exist", { mechanics: mutatedSpec((s) => { s.nodes["A1-05"].next = "A1-99"; }) }, /does not exist/],
   ["mechanics nodes out of blueprint order", { mechanics: mutatedSpec((s) => { const n = s.nodes; const { "A1-01": first, ...rest } = n; s.nodes = { ...rest, "A1-01": first }; }) }, /node ids differ/],
+  ["an alias kept after the real asset reached manifest v2", { manifest: (() => { const m = structuredClone(base.manifest); m.categories.cinematicCGs.push({ assetId: "cg_act1_three_siblings_weir" }); return m; })() }, /remove its alias/],
+  ["an alias that points at an image manifest v2 does not hold", { story: withStory((st) => { st.assetAliases.char_jao_kab_child_neutral = "char_jao_kab_child_missing"; }) }, /is not in manifest v2/],
+  ["an alias no compiled node uses", { story: withStory((st) => { st.assetAliases.bg_act2_unused = "bg_act1_willow_roots"; }) }, /not used by any compiled node/],
   ["a round that disagrees with the clash metadata", { story: (() => { const st = structuredClone(base.story); st.rounds.find((r) => r.id === "R1").turns = 4; st.rounds.find((r) => r.id === "R1").intents.push("grow"); return st; })() }, /must match the mechanics round/],
 ];
 for (const [name, input, pattern] of failures) {

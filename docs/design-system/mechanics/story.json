@@ -29,6 +29,12 @@
     { "id": "item_teuk_whistle_charm", "side": "promise", "locked": false, "name": "นกหวีดทองเหลือง ต.♡ป.", "icon": "item_teuk_whistle_charm" },
     { "id": "item_fiw_sun_ribbon", "side": "promise", "locked": false, "name": "ริบบิ้นเหลืองกลิ่นแดด", "icon": "item_fiw_sun_ribbon" }
   ],
+  "assetAliases": {
+    "cg_act1_three_siblings_weir": "cg_act1_three_siblings_blue_shirt",
+    "char_cockroach_man_boast_button": "char_cockroach_man_shadow_boast",
+    "char_jao_kab_child_neutral": "char_jao_kab_neutral_proud",
+    "char_jao_kib_child_neutral": "char_jao_kib_neutral_cheerful"
+  },
   "rounds": [
     { "id": "R1", "act": 1, "turns": 3, "p0": 5, "intents": ["grow", "lash", "taunt"], "allies": [], "siblings": ["kab", "kib"], "combos": [], "light": false, "events": [], "territory": false },
     { "id": "R2", "act": 2, "turns": 4, "p0": 3, "intents": ["taunt", "grow", "lash", "gather"], "allies": ["pkam", "fiw"], "siblings": [], "combos": ["gear_pkam", "seeds_fiw"], "light": true, "events": [{ "turn": 3, "light": 1, "id": "code_rope" }], "territory": false },

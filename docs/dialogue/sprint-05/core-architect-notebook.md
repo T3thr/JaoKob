@@ -2,10 +2,10 @@
 
 | ข้อมูล | ค่า |
 |---|---|
-| **เจ้าของ** | Claude Opus 5.5 · Supreme Core Architect & Lead Game Systems Engineer (PO มอบหมาย 2026-10-31) |
+| **เจ้าของ** | Claude · Supreme Core Architect & Lead Game Systems Engineer (PO มอบหมาย 2026-10-31) |
 | **ประเภท** | สมุดทำงานของสถาปนิก **ไม่ใช่ข้อกำหนด** ข้อตัดสินใจที่มีผลต้องย้ายไป ADR หรือ [Sprint 5 SSOT](../../sprints/sprint-05-ssot.md) แล้วเหลือแค่ลิงก์ที่นี่ ตาม [กติกากระดาน §5 ข้อ 3](../README.md) |
-| **ฐานที่ตรวจล่าสุด** | `feat/sprint-05-slice-01-foundations` แตกจาก `develop@8643a30` · 2026-11-02 · `develop` เลื่อนไปที่ commit เอกสารของ C0 แล้ว |
-| **บันทึก** | [CR-20261031-0545](../../changelog/2026-10/2026-10-31-0545-core-architect-onboarding-and-slice-1-plan.md) เปิดสมุด · [CR-20261031-1500](../../changelog/2026-10/2026-10-31-1500-slice-1-c0-ssot-0-3-0-and-adr-034.md) checkpoint C0 · [CR-20261102-1000](../../changelog/2026-11/2026-11-02-1000-adr-034-accepted-and-c1-start.md) ลงนาม ADR และเริ่ม C1 · [CR-20261102-1015](../../changelog/2026-11/2026-11-02-1015-c1-schema-3-0-0-and-superseded-register.md) C1 ช่วงแรก · [CR-20261102-1025](../../changelog/2026-11/2026-11-02-1025-c1-blueprint-compiler-and-act1-prototype-package.md) C1 ช่วงสอง |
+| **ฐานที่ตรวจล่าสุด** | `feat/sprint-05-slice-01-foundations` แตกจาก `develop@8643a30` · 2026-11-04 · `develop` เลื่อนไปที่ commit เอกสารของ C0 แล้ว |
+| **บันทึก** | [CR-20261031-0545](../../changelog/2026-10/2026-10-31-0545-core-architect-onboarding-and-slice-1-plan.md) เปิดสมุด · [CR-20261031-1500](../../changelog/2026-10/2026-10-31-1500-slice-1-c0-ssot-0-3-0-and-adr-034.md) checkpoint C0 · [CR-20261102-1000](../../changelog/2026-11/2026-11-02-1000-adr-034-accepted-and-c1-start.md) ลงนาม ADR และเริ่ม C1 · [CR-20261102-1015](../../changelog/2026-11/2026-11-02-1015-c1-schema-3-0-0-and-superseded-register.md) C1 ช่วงแรก · [CR-20261102-1025](../../changelog/2026-11/2026-11-02-1025-c1-blueprint-compiler-and-act1-prototype-package.md) C1 ช่วงสอง · [CR-20261104-0340](../../changelog/2026-11/2026-11-04-0340-c2-start-po-decisions-asset-aliases-and-r1-grit-line.md) มติ 2026-11-04 และเริ่ม C2 |
 
 ## 0. วิธีใช้
 
@@ -19,7 +19,7 @@
 
 | เรื่อง | ค่า | วัดอย่างไร |
 |---|---|---|
-| Checkpoint | **C0 ปิดแล้ว** · **C1 ทำครบ** (schema · catalog · fixture · Ajv parity · ทะเบียน · compiler · แพ็กเกจ Act 1) · รอ Antigravity ตรวจ schema · การพิสูจน์สองแพ็กเกจย้ายไปทำพร้อม identity ใน C3 | [SSOT 0.3.0 §4.2](../../sprints/sprint-05-ssot.md) |
+| Checkpoint | **C0 ปิดแล้ว** · **C1 ปิดแล้ว** (Antigravity เห็นชอบ schema 2026-11-04) · การพิสูจน์สองแพ็กเกจย้ายไปทำพร้อม identity ใน C3 · **C2 เริ่ม 2026-11-04** | [SSOT 0.3.0 §4.2](../../sprints/sprint-05-ssot.md) |
 | ประวัติ | `main` ยังอยู่ที่ `d3c4c05` ไม่เคย release · PR #19 ถูกใช้แล้ว PR ของ Slice 1 จะเป็น #20 ขึ้นไป | `git log` · GitHub |
 | Runtime | Node 22.22.0 · Chromium + Playwright มีในเครื่อง cloud · Ajv 8.17.1 ติดตั้งใน scratchpad ของ session ได้ด้วย `npm install` (ไม่ใช่ dependency ของโครงการ) | ตรวจในเครื่อง |
 | Unit | 1,148/1,148 ผ่าน (เดิม 1,060 + journey schema 86 + architecture 2) | `node --test 'tests/unit/**/*.test.js'` |
@@ -76,8 +76,8 @@
 | R15 | อุปกรณ์จริงและ AT ต้องใช้คน | ขอ PO นัดรุ่นเครื่องตั้งแต่ S1 (Q10) | เปิด |
 | R16 | C1 ติดรอการลงนาม ADR-P0-034 | PO ลงนาม 2026-11-02 · Antigravity ตรวจ schema ก่อน merge writer ของเซฟ | ปิด |
 | R17 | Slice 1 ใหญ่ขึ้นเพราะรวม Act 1 ต้นแบบและการลบ runtime เดิม | C4 คู่ขนาน C2–C3 · ประเมินใหม่หลัง C2 | เปิด |
-| R19 | ภาพ 4 ID ที่พิมพ์เขียว Act 1 อ้างยังไม่มีใน manifest v2 (ดู compile-report) | asset resolver ของ C4 ต้องมีทางสำรองของภาพ · PO และ Astra ตัดสินว่าสร้างหรือเทียบชื่อใน T7 | เปิด |
-| R20 | R1 ไม่มีบรรทัดตอบสนองของ `ฝืนรุก` | เติมบทใน T6 ผ่านการตรวจภาษาไทย · ระหว่างนี้ UI แสดงเฉพาะผลของเทิร์น | เปิด |
+| R19 | ภาพ 4 ID ที่พิมพ์เขียว Act 1 อ้างยังไม่มีใน manifest v2 (ดู compile-report) | **มติ PO 2026-11-04:** alias ไปยังภาพที่มีอยู่ (`assetAliases` ใน story.json) · Astra วาดภาพจริงใน Slice 2 · compiler ล้มเมื่อภาพจริงเข้า manifest แต่ alias ยังอยู่ | ปิดชั่วคราว · ติดตามใน S2 |
+| R20 | R1 ไม่มีบรรทัดตอบสนองของ `ฝืนรุก` | **มติ PO 2026-11-04:** บรรทัดสำรองในพิมพ์เขียว Act 1 2.0.1 · เกลาใน T6 | ปิด |
 | R18 | ชื่อไฟล์ Change Record ของ Astra (`CR-20261031-1326-…`) ไม่ตรงรูปแบบ `YYYY-MM-DD-HHmm-<slug>` | แก้พร้อมลิงก์ตอนตัดเล่มกระดาน (ห้ามแก้สารของคนอื่นบนกระดานที่เปิดอยู่) | เปิด |
 
 ---
@@ -98,7 +98,7 @@
 | # | ถึง | คำถาม | สถานะ |
 |---|---|---|---|
 | Q1–Q5 | PO | วันที่ · เก้าข้อ · เซฟเก่า · branch · snapshot | **ตอบแล้ว 2026-10-31** บันทึกใน [SSOT §1.2](../../sprints/sprint-05-ssot.md) |
-| Q6 | Antigravity | ตรวจสัญญาข้อมูล (มหาพิมพ์เขียว §9 · ADR-034 D3/D4/D7) และร่วมลงนาม ADR-P0-034 | เปิด |
+| Q6 | Antigravity | ตรวจสัญญาข้อมูล (มหาพิมพ์เขียว §9 · ADR-034 D3/D4/D7) และร่วมลงนาม ADR-P0-034 | **ตอบแล้ว 2026-11-04** (แจ้งผ่าน PO): เห็นชอบ schema 3.0.0 100% · merge writer ของเซฟได้ · ปลด DoR ของ T1 |
 | Q7 | Astra | ไอคอนและ asset ID | **ตอบแล้ว** ใน S5-003: glyph SVG และ manifest พร้อม · ID ใหม่ยังไม่อนุมัติ |
 | Q8 | PO | ลงนาม ADR-P0-034 | **ตอบแล้ว 2026-11-02**: ลงนามและเริ่ม C1 · ให้เลื่อน `develop` ไปที่ C0 |
 | Q9 | PO | ให้แฟนเล่น Act 1 ต้นแบบตอนจบ S1 เลย หรือรอ Act 1 ที่รับรองแล้วใน S2 | เปิด · ข้อเสนอ: PO เล่นก่อน แล้วตัดสินเอง |
@@ -117,3 +117,4 @@
 | 2026-10-31 | เซฟเก่า: แยก namespace แทนการคัดลอกไปคลังใหม่ | ADR-P0-034 D8 |
 | 2026-10-31 | กำแพงกันสปอยล์: ทางเข้าผู้เล่นมีแค่องก์ที่ promote แล้ว · 13 จอของ v3 อยู่ใน harness ของ PO | ADR-P0-034 D10 |
 | 2026-11-02 | PO ลงนาม ADR-P0-034 และสั่งเริ่ม C1 · เลื่อน `develop` ไปที่ commit เอกสารของ C0 | ทำแล้ว · CR-20261102-1000 |
+| 2026-11-04 | Antigravity เห็นชอบ schema · alias ภาพสี่ชิ้น · บรรทัดสำรองของ `ฝืนรุก` · สั่งเริ่ม C2 | ทำแล้ว · CR-20261104-0340 · SSOT §1.2 |

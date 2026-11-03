@@ -200,7 +200,9 @@ function stageOf(ctx, blueprint, node, spec, where) {
   }
   const silence = node.meta.silence?.match(/^(\d+(?:\.\d+)?)s$/) ?? fail(where, 'silence must look like "2s"');
   stage.silenceMs = Math.round(Number(silence[1]) * 1000);
-  for (const asset of [stage.bg, stage.cg, ...stage.slots.map((s) => s.asset)].filter(Boolean)) ctx.asset(asset, where);
+  stage.bg = ctx.asset(stage.bg, where);
+  if (stage.cg) stage.cg = ctx.asset(stage.cg, where);
+  stage.slots = stage.slots.map((s) => ({ ...s, asset: ctx.asset(s.asset, where) }));
   return stage;
 }
 
@@ -301,6 +303,14 @@ export async function compileJourney(sources) {
   const receipts = {};
   const warnings = [];
   const missingAssets = new Set();
+  // PO decision 2026-11-04: an asset the blueprint names but manifest v2 does not hold yet may
+  // point at an existing image until Astra delivers it. Aliases fail closed in both directions.
+  const aliases = new Map(Object.entries(story.assetAliases ?? {}));
+  const aliasUses = new Map();
+  for (const [design, existing] of aliases) {
+    if (known.has(design)) fail('mechanics/story.json', `asset ${design} is in manifest v2 now; remove its alias`);
+    if (!known.has(existing)) fail('mechanics/story.json', `alias target ${existing} for ${design} is not in manifest v2`);
+  }
   const boundaries = new Map();
   const compiledIds = new Set();
   const acts = [];
@@ -318,7 +328,13 @@ export async function compileJourney(sources) {
       receipts[id] = { file, line };
       return id;
     },
-    asset(id) { if (!known.has(id)) missingAssets.add(id); },
+    asset(id, where) {
+      if (known.has(id)) return id;
+      if (!aliases.has(id)) { missingAssets.add(id); return id; }
+      const node = where.split(' ').pop().toLowerCase();
+      aliasUses.set(id, [...new Set([...(aliasUses.get(id) ?? []), node])]);
+      return aliases.get(id);
+    },
     round(id, where) { return story.rounds.find((r) => r.id === id) ?? fail(where, `unknown round ${id}`); },
     actionByName(name) { return actionNames.get(name) ?? null; },
     condition(tag, where) {
@@ -355,6 +371,7 @@ export async function compileJourney(sources) {
     boundaries.set(nodeId(target), act);
   }
   if (!compiledIds.has(nodeId(story.start.node))) fail('mechanics/story.json', 'start node is not compiled');
+  for (const design of aliases.keys()) if (!aliasUses.has(design)) fail('mechanics/story.json', `alias for ${design} is not used by any compiled node`);
 
   const lexiconTexts = [];
   const lexicon = { intents: {}, actions: {} };
@@ -404,6 +421,7 @@ export async function compileJourney(sources) {
     texts: pkg.texts.length,
     boundaries: pkg.boundaries.map((b) => b.node),
     assetsMissingFromManifestV2: [...missingAssets].sort(),
+    assetAliases: [...aliases].map(([design, uses]) => ({ design, uses, nodes: aliasUses.get(design) })),
     warnings,
   };
   return { package: pkg, receipts, report };

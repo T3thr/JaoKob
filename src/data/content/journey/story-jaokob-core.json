@@ -745,6 +745,11 @@
       "body": "เจ้ากบหอบหายใจหลังกอกก นับหนึ่งถึงสามแล้วกลับออกไป"
     },
     {
+      "id": "a1-08.p.grit",
+      "speaker": "narrator",
+      "body": "ขาแทบไม่เหลือแรงแล้ว แต่เจ้ากบกัดฟันพุ่งฝ่าละอองน้ำเข้าไปอีกครั้ง"
+    },
+    {
       "id": "a1-08.p.rain",
       "speaker": "narrator",
       "body": "เขาฟังฝนแทนเสียงขู่ เสียงของมันเล็กลงทันที"
@@ -1056,7 +1061,7 @@
         "slots": [
           {
             "slot": "left",
-            "asset": "char_jao_kab_child_neutral",
+            "asset": "char_jao_kab_neutral_proud",
             "facing": "right"
           },
           {
@@ -1066,7 +1071,7 @@
           },
           {
             "slot": "right",
-            "asset": "char_jao_kib_child_neutral",
+            "asset": "char_jao_kib_neutral_cheerful",
             "facing": "left"
           }
         ],
@@ -1502,7 +1507,7 @@
           },
           {
             "slot": "right",
-            "asset": "char_cockroach_man_boast_button",
+            "asset": "char_cockroach_man_shadow_boast",
             "facing": "left"
           }
         ],
@@ -1555,7 +1560,7 @@
       "title": "ศึกแรกริมฝาย",
       "stage": {
         "bg": "bg_act1_overflow_weir",
-        "cg": "cg_act1_three_siblings_weir",
+        "cg": "cg_act1_three_siblings_blue_shirt",
         "slots": [
           {
             "slot": "left",
@@ -1564,7 +1569,7 @@
           },
           {
             "slot": "right",
-            "asset": "char_cockroach_man_boast_button",
+            "asset": "char_cockroach_man_shadow_boast",
             "facing": "left"
           }
         ],
@@ -1611,6 +1616,7 @@
         "strike": "a1-08.p.strike",
         "guard": "a1-08.p.guard",
         "rest": "a1-08.p.rest",
+        "grit": "a1-08.p.grit",
         "rain": "a1-08.p.rain",
         "wind": "a1-08.p.wind",
         "eye": "a1-08.p.eye",

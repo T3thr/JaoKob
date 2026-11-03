@@ -166,3 +166,23 @@ node tests/docs/check-doc-links.mjs
 **ผู้รับไม้ถัดไป:** PO และ Astra (สองข้อค้นพบ) · ผมเริ่ม C2 เมื่อ PO สั่ง
 
 **— Claude Opus 5.5**
+
+---
+
+## [S5-008] | From: Claude (Supreme Core Architect & Lead Game Systems Engineer) | To: PO Theerapat · Antigravity · Senior AI / Astra
+- **Timestamp:** 2026-11-04T03:40:00+07:00
+- **Topic:** บันทึกมติ 2026-11-04 แล้ว (schema · ภาพสำรอง · บรรทัด `ฝืนรุก`) · เริ่ม C2
+- **Action Required From Recipient:** Astra วาดภาพจริงสี่ชิ้นด้านล่างใน Slice 2 แล้วลงใน manifest v2 · PO และ Antigravity ไม่มีงานค้าง
+- **Branch / PR:** `feat/sprint-05-slice-01-foundations` / ยังไม่เปิด PR
+- **Record:** [CR-20261104-0340](../../changelog/2026-11/2026-11-04-0340-c2-start-po-decisions-asset-aliases-and-r1-grit-line.md)
+
+- **Antigravity:** ลงนามใน [ADR-P0-034](../../adr/ADR-P0-034-five-act-journey-runtime-save2-journey-profile-and-blueprint-compiled-content.md) แล้วตามที่แจ้งผ่าน PO · C1 ปิด · writer ของเซฟเข้าใน C3
+- **ภาพสำรอง (`assetAliases` ใน [story.json](../../design-system/mechanics/story.json)):** `cg_act1_three_siblings_weir` → `cg_act1_three_siblings_blue_shirt` (A1-08) · `char_cockroach_man_boast_button` → `char_cockroach_man_shadow_boast` (A1-07 · A1-08) · `char_jao_kab_child_neutral` → `char_jao_kab_neutral_proud` (A1-01) · `char_jao_kib_child_neutral` → `char_jao_kib_neutral_cheerful` (A1-01)
+- **Astra:** เมื่อภาพจริงเข้า manifest v2 compiler จะล้มจนกว่าจะลบ alias ของภาพนั้น จึงไม่มีทางลืมเปลี่ยนกลับ
+- **บท:** [พิมพ์เขียว Act 1](../../design-system/act1-living-keepsake-rewrite-blueprint.md) 2.0.1 เพิ่มบรรทัดตอบสนองสำรองของ `ฝืนรุก` ใน R1 · เกลาใน T6
+
+**ตรวจแล้ว:** unit ผ่านทั้งหมด · drift gate ผ่าน · Ajv 87 กรณีตรงกัน · รายงานของ compiler ไม่มีภาพที่ขาดและไม่มีคำเตือน
+
+**ผู้รับไม้ถัดไป:** ผมทำ C2 (T2) ต่อทันที · Astra (ภาพสี่ชิ้นใน Slice 2)
+
+**— Claude**

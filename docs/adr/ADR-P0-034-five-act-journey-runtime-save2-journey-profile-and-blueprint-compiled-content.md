@@ -1,8 +1,8 @@
 # ADR-P0-034: Five-Act Journey Runtime, Save Format 2 Journey Profile, Legacy Save Deprecation and Blueprint-Compiled Content
 # พระราชบัญญัติสถาปัตยกรรมรันไทม์การเดินทางห้าองก์ · Save Format 2 Journey Profile · การเลิกเล่นต่อเซฟเก่า และเนื้อหาที่คอมไพล์จากพิมพ์เขียว
 
-> **[STATUS AS OF 2026-11-02: ACCEPTED v1.0 — PO ลงนาม 2026-11-02 · Antigravity ตรวจ schema ระหว่าง C1]**
-> มติ PO วันที่ 2026-10-31 (Q1–Q5 ใน [สมุดสถาปนิก §6](../dialogue/sprint-05/core-architect-notebook.md)) มีผลในฐานะคำสั่งของ Final Authority · PO ลงนามรับรอง ADR นี้เมื่อ 2026-11-02 และสั่งเริ่ม checkpoint C1 ทันที · Antigravity ตรวจ schema และสัญญาข้อมูลระหว่าง C1 และต้องเห็นชอบก่อน merge writer ของเซฟตาม D7
+> **[STATUS AS OF 2026-11-04: ACCEPTED v1.0 — PO ลงนาม 2026-11-02 · Antigravity เห็นชอบ schema 3.0.0 และสัญญาข้อมูล 2026-11-04]**
+> มติ PO วันที่ 2026-10-31 (Q1–Q5 ใน [สมุดสถาปนิก §6](../dialogue/sprint-05/core-architect-notebook.md)) มีผลในฐานะคำสั่งของ Final Authority · PO ลงนามรับรอง ADR นี้เมื่อ 2026-11-02 และสั่งเริ่ม checkpoint C1 ทันที · Antigravity เห็นชอบ schema 3.0.0 และสัญญาข้อมูลเต็มที่เมื่อ 2026-11-04 จึง merge writer ของเซฟตาม D7 ได้ และ PO สั่งเริ่ม checkpoint C2
 
 | Metadata | Value |
 |---|---|
@@ -173,4 +173,4 @@ payload:
 
 **ลงนามรับรอง:**
 - [x] **Theerapat (`T3thr`)** · Creator & Product Owner · 2026-11-02 · ตอบรับว่า "ลงนาม และเริ่ม C1 เลย" ในการสนทนากับสถาปนิก ([CR-20261102-1000](../changelog/2026-11/2026-11-02-1000-adr-034-accepted-and-c1-start.md))
-- [ ] **Antigravity** · Founding Technical Partner & Lead System Architect · ตรวจ schema และสัญญาข้อมูลระหว่าง C1 · ต้องเห็นชอบก่อน merge writer ของเซฟ
+- [x] **Antigravity** · Founding Technical Partner & Lead System Architect · 2026-11-04 · เห็นชอบ schema 3.0.0 และสัญญาข้อมูล 100% อนุญาตให้ merge writer ของเซฟ และปลด DoR ของ T1 (แจ้งผ่าน PO · [CR-20261104-0340](../changelog/2026-11/2026-11-04-0340-c2-start-po-decisions-asset-aliases-and-r1-grit-line.md))

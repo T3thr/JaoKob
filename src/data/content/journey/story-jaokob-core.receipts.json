@@ -315,25 +315,29 @@
     "file": "act1-living-keepsake-rewrite-blueprint.md",
     "line": 177
   },
-  "a1-08.p.rain": {
+  "a1-08.p.grit": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
     "line": 178
   },
-  "a1-08.p.wind": {
+  "a1-08.p.rain": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
     "line": 179
   },
-  "a1-08.p.eye": {
+  "a1-08.p.wind": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
     "line": 180
   },
-  "a1-08.p.s_kab": {
+  "a1-08.p.eye": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
     "line": 181
   },
-  "a1-08.p.s_kib": {
+  "a1-08.p.s_kab": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
     "line": 182
+  },
+  "a1-08.p.s_kib": {
+    "file": "act1-living-keepsake-rewrite-blueprint.md",
+    "line": 183
   },
   "a1-08.l1": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
@@ -381,179 +385,179 @@
   },
   "a1-09.l1": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 186
+    "line": 189
   },
   "a1-09.l2": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 187
+    "line": 190
   },
   "a1-09.l3": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 188
+    "line": 191
   },
   "a1-09.l4": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 189
+    "line": 192
   },
   "a1-09.l5": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 190
+    "line": 193
   },
   "a1-09.l6": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 191
+    "line": 194
   },
   "a1-09.l7": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 192
+    "line": 195
   },
   "a1-09.l8": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 193
+    "line": 196
   },
   "a1-09.l9": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 194
+    "line": 197
   },
   "a1-09.l10": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 195
+    "line": 198
   },
   "a1-09.l11": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 196
+    "line": 199
   },
   "a1-10.l1": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 200
+    "line": 203
   },
   "a1-10.l2": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 201
+    "line": 204
   },
   "a1-10.l3": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 202
+    "line": 205
   },
   "a1-10.a1": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 204
+    "line": 207
   },
   "a1-10.a1.r1": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 205
+    "line": 208
   },
   "a1-10.a2": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 206
+    "line": 209
   },
   "a1-10.a2.r1": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 207
+    "line": 210
   },
   "a1-10.a3": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 208
+    "line": 211
   },
   "a1-10.a3.r1": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 209
+    "line": 212
   },
   "a1-10.a4": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 210
+    "line": 213
   },
   "a1-10.a4.r1": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 211
+    "line": 214
   },
   "a1-11.l1": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 215
+    "line": 218
   },
   "a1-11.l2": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 216
+    "line": 219
   },
   "a1-11.l3": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 217
+    "line": 220
   },
   "a1-11.l4": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 218
+    "line": 221
   },
   "a1-11.l5": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 219
+    "line": 222
   },
   "a1-11.l6": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 220
+    "line": 223
   },
   "a1-11.l7": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 221
+    "line": 224
   },
   "a1-11.l8": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 222
+    "line": 225
   },
   "a1-12.l1": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 226
+    "line": 229
   },
   "a1-12.l2": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 227
+    "line": 230
   },
   "a1-12.l3": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 228
+    "line": 231
   },
   "a1-12.l4": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 229
+    "line": 232
   },
   "a1-12.l5": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 230
+    "line": 233
   },
   "a1-12.l6": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 231
+    "line": 234
   },
   "a1-12.h": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 233
+    "line": 236
   },
   "a1-13.l1": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 237
+    "line": 240
   },
   "a1-13.l2": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 238
+    "line": 241
   },
   "a1-13.l3": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 239
+    "line": 242
   },
   "a1-13.o1": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 240
+    "line": 243
   },
   "a1-13.o1.r1": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 241
+    "line": 244
   },
   "a1-13.o2": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 242
+    "line": 245
   },
   "a1-13.o2.r1": {
     "file": "act1-living-keepsake-rewrite-blueprint.md",
-    "line": 243
+    "line": 246
   },
   "lex.intent.grow": {
     "file": "mechanics/story.json",
