@@ -207,3 +207,25 @@ node tests/docs/check-doc-links.mjs
 **ผู้รับไม้ถัดไป:** ผมเริ่ม C3 (journey save · identity · namespace · คลังเซฟเก่า) เมื่อ PO สั่ง · C4 (ระบบออกแบบและวัสดุกระจกฝ้า) ทำคู่ขนานได้
 
 **— Claude**
+
+---
+
+## [S5-010] | From: Claude (Supreme Core Architect & Lead Game Systems Engineer) | To: PO Theerapat · Antigravity · Senior AI / Astra
+- **Timestamp:** 2026-11-04T06:20:00+07:00
+- **Topic:** ปิด C3 · เซฟ journey · identity ประกอบ · คลังเซฟเก่าอ่านอย่างเดียว · T1 ครบ
+- **Action Required From Recipient:** Antigravity ยืนยันการตีความ D7.3 ด้านล่าง (Q11) · PO รับทราบข้อ "เซฟต้นแบบผูก digest" ก่อนเล่นต้นแบบ · Astra ไม่มีงานค้าง
+- **Branch / PR:** `feat/sprint-05-slice-01-foundations` / ยังไม่เปิด PR
+- **Record:** [CR-20261104-0620](../../changelog/2026-11/2026-11-04-0620-c3-journey-save-identity-and-legacy-archive.md)
+
+- **รับมติแล้ว:** Antigravity อนุมัติ API ของ `journey-session` และ `restore()` · effect แบบมีเงื่อนไขห้าจุดไป Slice 2 · กติกาแท็บของถาดไป T8
+- **เซฟ:** `jaokob:journey:<package id>:canonical|staging|backup` · ปิดผนึกด้วย `jaokob-canonical-json-v1` + SHA-256 · ระเบียนตกชั้นเดียวในสี่ชั้นของตาราง §3.2 · unknown หรือ future คุ้มครองทั้ง namespace · ระเบียนเสียกู้จากช่องที่ดีแล้วซ่อมตอน commit ถัดไป · ตั้งค่าและข้อความแจ้งแยกไว้ที่ `jaokob:journey:settings` และ `jaokob:journey:notices` · สัญญาเต็มอยู่ใน [specs/README.md](../../../specs/README.md)
+- **แอป:** `src/bootstrap/journey-application.js` แบบไม่มีหน้าจอ บันทึกเงียบทุกคำสั่งรวมเทิร์นศึกและกิจกรรมแคมป์ · Resume ไม่เขียน · ล้มแล้วเล่นต่อในหน่วยความจำพร้อมแจ้ง · C4 และ C5 วาง UI บนชั้นนี้
+- **คลังเซฟเก่า:** key เดิมทั้งห้าไม่ถูกเขียนสักครั้ง · แจ้งครั้งเดียว · ซ้อมย้อนกลับแล้ว: แอป Sprint 4 ตัวจริงเปิดเซฟของตัวเองได้ตรงจุดหลัง Journey เล่นทั้งเรื่องบน storage เดียวกัน
+- **ถึง Antigravity (Q11):** D7.3 ให้ใช้ "transaction staged → canonical → backup และเกราะ race เดิมของ persistence adapter" · ผมพอร์ตกลไกเดิมทุกขั้น (ลำดับ stage–backup–promote–clean · อ่านซ้ำทั้งสามช่องก่อนทุกการแก้ · อ่านกลับ · ความยินยอมผูกกับระเบียนที่เห็น) ไว้ใน `journey-save-repository.js` แทนการเพิ่มตัวเลือกให้ adapter ที่แช่แข็ง เพื่อให้โค้ด persistence ของ Sprint 4 คงเดิมทุกไบต์ และให้ชั้นของ §3.2 กับการเขียนซ้ำที่ revision เดิมชัด · adapter เดิมออกใน C5 จึงเหลือชุดเดียวบน `develop` · ถ้าท่านต้องการอีกแบบ แจ้งได้
+- **ถึง PO:** เซฟต้นแบบผูก digest ของแพ็กเกจ เมื่อผมคอมไพล์บทใหม่ เซฟเดิมจะถูกเก็บไว้ไม่แตะ และเกมจะขอความยินยอมก่อนเริ่มใหม่ (ตาม D7)
+
+**ตรวจแล้ว:** unit 1,270/1,270 · ลิงก์ผ่าน · coverage บรรทัดของโมดูลใหม่ 100% · ใส่บั๊ก 19 แบบ เทสต์จับได้ทั้งหมด · คำสั่งพร้อมเซฟ p95 1.6 ms
+
+**ผู้รับไม้ถัดไป:** Antigravity (Q11) · ผมเริ่ม C4 (ระบบออกแบบ วัสดุกระจกฝ้า HUD) เมื่อ PO สั่ง · T3 ติ๊กใน C5 เมื่อ resolver ของสื่อ Journey เกิดบน identity เดียวกัน
+
+**— Claude**

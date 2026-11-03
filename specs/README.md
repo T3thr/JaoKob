@@ -32,6 +32,19 @@
 
 **Journey schema 3.0.0 (ADR-P0-034):** runtime อ่านจาก [journey-schema-catalog.js](../src/data/validation/journey-schema-catalog.js) ซึ่งสร้างด้วย `node tools/schema/build-journey-catalog.mjs` (ตรวจด้วย `--check`) · `tests/unit/journey-schema.test.js` ตรวจว่า catalog ตรงไฟล์ต้นทาง ครอบคลุมคำศัพท์ทุกคำ และปฏิเสธกรณีผิดทุกกรณี · ตรวจอิสระด้วย `JKB_AJV_PATH=/absolute/path/to/ajv/dist/2020.js node tests/schema/journey-reference.mjs` · catalog เดิมของ runtime เดิมแยกกันเพื่อปลดได้ใน C5
 
+**Journey save storage (ADR-P0-034 D7 · กำหนดใน T3 · CR-20261104-0620):**
+
+| สัญญา | ค่า |
+|---|---|
+| Slot ของเซฟต่อแพ็กเกจ | `jaokob:journey:<package id>:canonical` · `:staging` · `:backup` · เขียนผ่าน [journey-save-repository.js](../src/data/persistence/journey-save-repository.js) เท่านั้น |
+| ระเบียนของเครื่อง | `jaokob:journey:settings` = `{"version":1,"settings":…}` (รูปของ `#/$defs/settings` ในเซฟ) · `jaokob:journey:notices` = `{"version":1,"seen":[…]}` · version ที่ใหม่กว่าไม่ถูกเขียนทับ |
+| `jaokob-canonical-json-v1` | JSON ล้วน (null · boolean · ตัวเลขจำกัด · string · array · object ธรรมดา) · key ของ object เรียงตาม UTF-16 code unit · ไม่มีช่องว่าง · ค่าและ key เขียนด้วย `JSON.stringify` ของ ECMAScript · ค่าที่ไม่ใช่ JSON ทำให้ล้ม |
+| digest ของแพ็กเกจ (`package.digest`) | SHA-256 ของ UTF-8 ของรูป canonical ของแพ็กเกจทั้งก้อน เป็นเลขฐานสิบหกตัวเล็ก 64 ตัว · เซฟต้องตรง id contentVersion และ digest ของแพ็กเกจที่กำลังเล่น |
+| `integrity` ของเซฟ | `{"algorithm":"sha-256","canonicalization":"jaokob-canonical-json-v1","digest":…}` · digest คิดจากเซฟทั้งก้อนที่ไม่มี `integrity` · ใช้ตรวจความเสียหาย ไม่ใช่ลายมือชื่อ · เซฟที่ไม่มี block นี้ยังรับได้ (schema ไม่บังคับ) |
+| ชั้นของระเบียน | valid · unknown (journey-1 ของแพ็กเกจ เวอร์ชัน หรือ build อื่น และรูปเซฟที่ไม่ใช่ของ Journey) · future (saveFormatVersion > 2 หรือ `journey-N` ที่ N > 1) · corrupt (อ่านไม่ได้ เกิน 250 KB หรือผิด schema integrity และความหมาย) · ตรวจตัวตนก่อน schema |
+
+Namespace เดิม (`jaokob:save:*` · `jaokob:settings` · `jaokob:preferences`) เป็นคลังเซฟเก่าแบบอ่านอย่างเดียว ([legacy-archive.js](../src/data/persistence/legacy-archive.js)) · `tests/unit/architecture.test.js` ตรวจว่าโค้ด Journey ไม่เอ่ยถึง key เหล่านี้
+
 Canonical `$id` ใช้ namespace `https://t3thr.github.io/JaoKob/specs/schemas/` เพื่อเป็น stable identifier ของ schema การ validate ในเครื่องต้องใช้ local catalog mapping และไม่ควรต้อง fetch schema ผ่าน network
 
 ## Slice 2 save compatibility (historical ADR-P0-020 / PR #14)

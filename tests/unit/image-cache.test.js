@@ -87,3 +87,13 @@ test("TC-S3-ASSET-001: disposal keeps active lease alive until caller releases",
   cache.dispose(); assert.equal(revoked.length, 0); assert.equal(cache.stats().bytes, 400);
   a.release(); assert.equal(revoked.length, 1); assert.equal(cache.stats().bytes, 0);
 });
+test("TC-S5-PACKAGE-001: two packages of the same version never share a decoded image (ADR-P0-034 D7 identity)", async () => {
+  const { cache, reads } = setup();
+  const core = await cache.acquire({ identity: "journey:story.jaokob.core@0.1.0", assetId: "a", contentVersion: "0.1.0" });
+  const mini = await cache.acquire({ identity: "journey:story.fixture.mini@0.1.0", assetId: "a", contentVersion: "0.1.0" });
+  assert.notEqual(core.url, mini.url); assert.equal(reads.length, 2); assert.equal(cache.stats().entries, 2);
+  const again = await cache.acquire({ identity: "journey:story.jaokob.core@0.1.0", assetId: "a" });
+  assert.equal(again.url, core.url); assert.equal(reads.length, 2);
+  for (const reference of [{ assetId: "a" }, { identity: "", assetId: "a" }, { identity: 7, assetId: "a" }]) assert.equal(await cache.acquire(reference), null);
+  core.release(); mini.release(); again.release(); cache.dispose();
+});

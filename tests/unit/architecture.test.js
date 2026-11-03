@@ -27,3 +27,14 @@ test("TC-S5-STATE-001 Core never reads a clock through new Date or performance.n
     assert.doesNotMatch(withoutComments(readFileSync(file, "utf8")), /\bnew Date\(|\bperformance\.now\(/, file);
   }
 });
+
+test("TC-S5-LEGACY-001 Journey code never names a legacy key, and the legacy archive has no way to write", () => {
+  const journey = files.filter((path) => /\/(?:journey-[a-z-]+|legacy-archive)\.js$/.test(path) && !path.endsWith("journey-schema-catalog.js"));
+  assert.ok(journey.length >= 11, journey.join("\n"));
+  for (const file of journey) {
+    const source = withoutComments(readFileSync(file, "utf8"));
+    if (file.endsWith("legacy-archive.js")) assert.doesNotMatch(source, /\bwriteKey\b|\bremoveKey\b|\.setItem\(|\.removeItem\(/, file);
+    else assert.doesNotMatch(source, /jaokob:(?:save:|settings\b|preferences\b)/, file);
+  }
+});
+

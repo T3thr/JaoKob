@@ -5,7 +5,7 @@
 | **ระดับ** | Tier 1 · ส่วนหนึ่งของ [Traceability 0.3.0 §5](sprint-05-execution-matrix.md) |
 | **กติกา** | [SSOT 0.3.0 §5.3](../sprints/sprint-05-ssot.md): ก่อนลบหรือเปลี่ยน assertion ใด ต้องลงทะเบียนพร้อม authority และเทสต์ทดแทน · ห้าม skip · ห้ามลด guard ที่ไม่เกี่ยว |
 | **ฐาน** | `feat/sprint-05-slice-01-foundations` · unit 1,148 ผ่าน (เดิม 1,060 ใน 40 ไฟล์ + `journey-schema.test.js` 86 + `architecture.test.js` 2) |
-| **สถานะ** | **ยังไม่ลบ assertion ใด** · การลบเกิดใน C5 เมื่อทางเข้าเริ่มเปลี่ยนเป็น Journey ([ADR-P0-034 D1](../adr/ADR-P0-034-five-act-journey-runtime-save2-journey-profile-and-blueprint-compiled-content.md)) |
+| **สถานะ** | **ยังไม่ลบ assertion ใด** · การลบเกิดใน C5 เมื่อทางเข้าเริ่มเปลี่ยนเป็น Journey ([ADR-P0-034 D1](../adr/ADR-P0-034-five-act-journey-runtime-save2-journey-profile-and-blueprint-compiled-content.md)) · C3 ([CR-20261104-0620](../changelog/2026-11/2026-11-04-0620-c3-journey-save-identity-and-legacy-archive.md)) ย้าย `persistence.test.js` จาก §1 ไป §3 เพราะ Journey ใช้ repository ของตัวเองบน namespace ใหม่ |
 | **ผู้ดูแล** | Architect และ QA · บันทึกเริ่มต้น [CR-20261102-1015](../changelog/2026-11/2026-11-02-1015-c1-schema-3-0-0-and-superseded-register.md) |
 
 จำนวนเทสต์ต่อไฟล์ในตารางเป็นการนับ `test(` แบบคงที่ ไฟล์ที่สร้างเทสต์ในลูปจะมีเทสต์จริงมากกว่านี้ · ตอนลบจริงใน C5 ให้แทนแถวไฟล์ด้วยรายชื่อเทสต์ทีละตัวที่ได้จากการรันจริง
@@ -16,11 +16,11 @@
 |---|---|---|
 | `asset-preloader.test.js` · `asset-resolver.test.js` · `image-cache.test.js` | โหลดและแคชภาพ | ใช้ต่อกับ asset ของ Journey |
 | `audio-adapter.test.js` · `ports.test.js` | AudioPort และ port ของ Core | ใช้ต่อ (ADR-P0-015) |
-| `persistence.test.js` | transaction staged → canonical → backup · race · quota · ความยินยอม | ใช้ต่อ · T3 เพิ่มกรณีของ journey namespace |
 | `session-history.test.js` | Log 50 บท + 50 การกระทำ | ใช้ต่อกับ Journey |
 | `keepsake-pouch.test.js` | โดเมนกระเป๋าสี่ช่อง (ADR-P0-020) | ใช้ต่อ · กฎของที่ล็อกอยู่ใน `effects.js` และ `pouch-offer.js` ของ Core ใหม่ เทสต์ใน `journey-encounters.test.js` (C2) |
 | `journey-schema.test.js` | schema 3.0.0 | ใหม่ใน C1 |
-| `architecture.test.js` | production ห้าม import จาก `tools/` · Core ห้าม `new Date(` และ `performance.now(` | ใหม่ใน C1 · รับ TC-S3-ARCH-001 และ TC-S4-ARCH-001 ใน C5 |
+| `architecture.test.js` | production ห้าม import จาก `tools/` · Core ห้าม `new Date(` และ `performance.now(` · โค้ด Journey ไม่เอ่ยถึง key เดิม | ใหม่ใน C1 · รับ TC-S3-ARCH-001 และ TC-S4-ARCH-001 ใน C5 · กฎ key เดิมเพิ่มใน C3 |
+| `journey-package.test.js` · `journey-save.test.js` · `journey-application.test.js` | การรับแพ็กเกจและ identity · เซฟ journey และ transaction · แอป Journey แบบไม่มีหน้าจอ | ใหม่ใน C3 · รับ invariant ของ `persistence.test.js` (§3) |
 
 ## 2. ต้องย้ายออกก่อนลบไฟล์เดิม
 
@@ -53,6 +53,8 @@
 | `pouch-schema.test.js` (3) | schema กระเป๋าของ Save 2 เดิม (หลังย้าย TC-S4-ARCH-001) | มติ PO Q3 | `TC-S5-SAVE-001` |
 | `ui-preferences.test.js` (7) | key `jaokob:preferences` ที่กลายเป็นคลังเซฟเก่า | ADR-P0-034 D8 | `TC-S5-LEGACY-001` |
 | `asset-manifest.test.js` (4) | manifest ที่ผูกกับเนื้อหาเดิม | ADR-P0-034 D6 | `TC-S5-MEDIA-001` (manifest ของ Journey) |
+| `persistence.test.js` (27) | transaction ของ namespace เดิม (`jaokob:save:*` · `jaokob:settings`) ซึ่ง Journey ไม่ใช้ | ADR-P0-034 D7.3 · D8 · กลไกเดียวกันพอร์ตไว้ใน `journey-save-repository.js` | `journey-save.test.js`: stage–backup–promote–clean · race กับแท็บอื่น · quota · เขียนหายและอ่านกลับไม่ตรง · ไม่มี storage · ความยินยอมผูกกับระเบียนที่เห็น · ระเบียนจากอนาคตไม่ถูกเขียนทับ (`TC-S5-SAVE-001` · `TC-S5-SAVE-002`) |
+| `journey-legacy-rehearsal.test.js` (1) | ซ้อมย้อนกลับกับแอป Sprint 4 ที่ยังอยู่ใน repository | ADR-P0-034 D1.3 · D8 | ไบต์ของ key เดิมใน `journey-application.test.js` (`TC-S5-LEGACY-001`) · ซ้อมกับ static build ของ Sprint 4 ใน T19 |
 
 ## 4. assertion ของ Slice 1 ที่เปลี่ยนใน C2
 

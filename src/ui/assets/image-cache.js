@@ -1,10 +1,13 @@
-/** Ref-counted decoded image LRU. Trace: CR-0003 D4, NFR-PE-005. */
+/** Ref-counted decoded image LRU. Trace: CR-0003 D4, NFR-PE-005, ADR-P0-034 D7 (identity). */
 export const IMAGE_BUDGET_BYTES = 32 * 1024 * 1024;
 
 /**
  * acquire returns a decoded image lease, or null on any failure. Every successful
  * caller must release its lease after removal from the stage. Retained images and
  * in-flight decodes count toward the same budget; only inactive entries are evicted.
+ * Entries are keyed by the reference's package identity (Journey: profile + package id +
+ * contentVersion) or, for the earlier runtime, its contentVersion, so two packages that
+ * share a version never share an image.
  */
 export function createImageCache({ readAsset, createImage = () => new Image(),
   createObjectURL = (blob) => URL.createObjectURL(blob), revokeObjectURL = (url) => URL.revokeObjectURL(url),
@@ -52,8 +55,9 @@ export function createImageCache({ readAsset, createImage = () => new Image(),
     } catch { if (entry && entries.get(key) === entry) remove(key, entry); return null; }
   }
   async function acquire(reference, { signal } = {}) {
-    if (disposed || signal?.aborted || !reference?.assetId || !reference?.contentVersion) return null;
-    const key = `${reference.contentVersion}:${reference.assetId}`;
+    const owner = reference?.identity ?? reference?.contentVersion;
+    if (disposed || signal?.aborted || !reference?.assetId || typeof owner !== "string" || owner === "") return null;
+    const key = `${owner}:${reference.assetId}`;
     let entry = entries.get(key);
     if (!entry || entry.decoding) {
       if (!pending.has(key)) {
