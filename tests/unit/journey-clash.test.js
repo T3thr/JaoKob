@@ -361,3 +361,14 @@ test("TC-S5-CLASH-001 the clash rules live in Core and are frozen", async () => 
   const kernel = await readFile(new URL("../../src/core/domain/clash/clash-kernel.js", import.meta.url), "utf8");
   assert.doesNotMatch(kernel, /['"]R5['"]|item_[a-z_]+['"]/, "the kernel names no round and no keepsake directly");
 });
+
+test("TC-S5-CLASH-001 the evidence tools adapt Core and hold no rule of their own (ADR-P0-034 D5.2)", async () => {
+  const read = (name) => readFile(new URL(`../../docs/design-system/evidence/${name}`, import.meta.url), "utf8");
+  const engine = await read("tactical-clash-engine.mjs");
+  const model = await read("five-act-balance-model.mjs");
+  const check = await read("ux-v3-screen-states-check.mjs");
+  for (const source of [engine, model, check]) assert.match(source, /from '\.\.\/\.\.\/\.\.\/src\/core\//);
+  assert.doesNotMatch(engine, /\bgain: \d|cancels: \[|negates: \[|P -= |cs\.P \+= /, "no action table or light arithmetic in the adapter");
+  assert.doesNotMatch(model, /function (family|own|gritFx|floor)\(|const (M|B) = \(v\)|softDec\(/, "no meter, homesick or grit rule in the model");
+  assert.doesNotMatch(check, /const answers = |isFamily = /, "the v3 check reads the tags from Core");
+});

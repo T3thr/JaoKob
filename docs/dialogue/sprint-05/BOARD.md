@@ -186,3 +186,24 @@ node tests/docs/check-doc-links.mjs
 **ผู้รับไม้ถัดไป:** ผมทำ C2 (T2) ต่อทันที · Astra (ภาพสี่ชิ้นใน Slice 2)
 
 **— Claude**
+
+---
+
+## [S5-009] | From: Claude (Supreme Core Architect & Lead Game Systems Engineer) | To: PO Theerapat · Antigravity · Senior AI / Astra
+- **Timestamp:** 2026-11-04T04:40:00+07:00
+- **Topic:** ปิด C2 · กติกาทั้งหมดอยู่ใน Core และผ่าน parity 100% · Act 1 ต้นแบบเล่นได้ครบบน Core
+- **Action Required From Recipient:** ไม่มีงานค้างจาก PO · Antigravity เชิญดู API ของ `journey-session` ก่อนผมทำ writer ของเซฟใน C3 · Astra รับทราบว่า harness v3 ยังสร้าง fixture ได้ไบต์ตรงเดิม และตัวตรวจส่งมอบกลับมาผ่าน
+- **Branch / PR:** `feat/sprint-05-slice-01-foundations` / ยังไม่เปิด PR
+- **Record:** [CR-20261104-0400](../../changelog/2026-11/2026-11-04-0400-c2-clash-kernel-shell-and-parity-gate.md) · [CR-20261104-0420](../../changelog/2026-11/2026-11-04-0420-c2-journey-domain-encounters-session-and-play-mode.md) · [CR-20261104-0440](../../changelog/2026-11/2026-11-04-0440-c2-evidence-on-core-and-balance-gate.md)
+
+- **ศึก:** kernel ใน `src/core/domain/clash/` เล่นซ้ำทุกลำดับการกดของ engine ที่พิสูจน์แล้วได้ทุกก้าว (260,936 ลำดับ · 286,174 ตำแหน่ง · ไม่ถึง 1 วินาที) · shell ปฏิเสธด้วย error code ที่คงที่และคืนค่าที่ freeze · ถาดสี่กลุ่มไม่ล้นในทุกตำแหน่งที่เกิดได้
+- **การเดินทาง:** ด่าน แคมป์ สัมผัส รับของ ฉากจบ และ `journey-session` ที่ทุกคำสั่งเป็น transaction เดียวผูก revision · แพ็กเกจ Act 1 ที่คอมไพล์เล่นจาก New Game ถึงทางเข้า Act 2 ได้ครบ 30 เส้นทาง · ทุก state ผ่าน schema ของเซฟและ restore คืนค่าเดิม
+- **หลักฐาน:** engine ใน evidence เหลือเป็น adapter · แบบจำลองสมดุลใช้กติกาของ Core และเล่น Act 1 จากแพ็กเกจ · การเล่นจำลอง 14 แบบได้ผลเท่าเดิมทุกตัวเลข · coverage ของ Core ใหม่ บรรทัด 100% branch 98%
+- **Antigravity:** `restore()` ตรวจความหมายของเซฟเทียบแพ็กเกจ (cursor จังหวะ encounter snapshot ประวัติ) · C3 จะวาง admission ของ data layer ไว้ก่อนหน้า แล้วจึง merge writer ตามที่ท่านอนุญาต
+- **ข้อค้นพบสำหรับ S2–S3:** effect แบบมีเงื่อนไขห้าจุด (A3-04 · A3-13 · A4-01 · A4-08 · A5-05) ยังไม่มีคำในคำศัพท์ 3.0.0 · การเปิดแท็บของถาดแบบปรากฏแล้วอยู่ตลอดเกมต้องตัดสินใน T8
+
+**ตรวจแล้ว:** unit ผ่านทั้งหมด · ลิงก์ผ่าน · เครื่องมือพิสูจน์ห้าตัวผ่าน · parity gate ผ่าน · ตัวตรวจส่งมอบ v3 ผ่าน
+
+**ผู้รับไม้ถัดไป:** ผมเริ่ม C3 (journey save · identity · namespace · คลังเซฟเก่า) เมื่อ PO สั่ง · C4 (ระบบออกแบบและวัสดุกระจกฝ้า) ทำคู่ขนานได้
+
+**— Claude**

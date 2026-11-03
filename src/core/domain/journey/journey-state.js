@@ -53,6 +53,17 @@ export function createJourneyState(start) {
   return state;
 }
 
+/**
+ * A new act begins (master plan §2.3): the act number moves on and the homesick streak
+ * starts over after the act-end rest. Mutates the draft.
+ *
+ * @param {object} draft A JourneyState draft. @param {number} act
+ */
+export function beginAct(draft, act) {
+  draft.act = act;
+  draft.counters.homeStreak = 0;
+}
+
 const isPlainObject = (value) => value !== null && typeof value === "object" && !Array.isArray(value)
   && (Object.getPrototypeOf(value) === Object.prototype || Object.getPrototypeOf(value) === null);
 const isInt = (value, min, max) => Number.isSafeInteger(value) && value >= min && value <= max;

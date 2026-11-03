@@ -38,7 +38,7 @@ import { affordable, applyEffects } from "../domain/journey/effects.js";
 import { ENDINGS, ENDING_REASONS, evaluateEndings } from "../domain/journey/endings.js";
 import { JOURNEY_ERROR_CODES as CODES, JourneyError, ensure } from "../domain/journey/journey-errors.js";
 import { BONDS, addressTier } from "../domain/journey/journey-rules.js";
-import { IDENTIFIER, assertJourneyState, createJourneyState } from "../domain/journey/journey-state.js";
+import { IDENTIFIER, assertJourneyState, beginAct, createJourneyState } from "../domain/journey/journey-state.js";
 import { cloneData, deepFreeze } from "../domain/journey/plain-data.js";
 import { BEAT_MODES, acceptedCommands } from "../state-machine/play-mode.js";
 
@@ -187,8 +187,7 @@ function isStop(cat, p) {
 }
 
 function startAct(p, act, node, now) {
-  p.journey.act = act;
-  p.journey.counters.homeStreak = 0;
+  beginAct(p.journey, act);
   if (!p.actStarts.some((s) => s.act === act)) p.actStarts.push({ act, node, capturedAt: now, journey: cloneData(p.journey) });
 }
 

@@ -8,7 +8,7 @@
 | **ผู้ออกแบบ** | Claude Opus 5.5 · Supreme Narrative Architect |
 | **กฎหมายที่ยึด** | [ADR-P0-032 v2.0](../adr/ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md) · [ADR-P0-033 v1.0](../adr/ADR-P0-033-interactive-tactical-adventure-gameplay-and-dynamic-stage-revolution.md) · [คัมภีร์ 5 องก์ v2.1](./new-five-act-story-and-mechanics-proposal.md) · [ADR-P0-020](../adr/ADR-P0-020-adventure-keepsake-pouch-and-item-system.md) · [ADR-P0-019](../adr/ADR-P0-019-visual-novel-runtime-ergonomics-and-design-system-mandate.md) · [ADR-P0-025](../adr/ADR-P0-025-childhood-keepsake-default-stance-and-heart-emote-decoupling.md) |
 | **เอกสารลูก** | [Act 1](./act1-living-keepsake-rewrite-blueprint.md) · [Act 2](./act2-living-keepsake-rewrite-blueprint.md) · [Act 3](./act3-living-keepsake-rewrite-blueprint.md) · [Act 4](./act4-living-keepsake-rewrite-blueprint.md) · [Act 5](./act5-living-keepsake-rewrite-blueprint.md) · [ฟิสิกส์และภาพ v2](./physics-scale-and-visual-v2-specification.md) · [UX/UI](./interactive-gameplay-ux-ui-specification.md) |
-| **หลักฐาน** | [tactical-clash-engine.mjs](./evidence/tactical-clash-engine.mjs) · [tactical-clash-simulator.mjs](./evidence/tactical-clash-simulator.mjs) · [five-act-balance-model.mjs](./evidence/five-act-balance-model.mjs) · [five-act-runtime-ledger.mjs](./evidence/five-act-runtime-ledger.mjs) · [physics-scale-optics-check.mjs](./evidence/physics-scale-optics-check.mjs) |
+| **หลักฐาน** | กติกาใน [Core](../../src/core/README.md) ตั้งแต่ C2 · [clash-parity.mjs](../../tools/clash/clash-parity.mjs) · [tactical-clash-engine.mjs](./evidence/tactical-clash-engine.mjs) (adapter) · [tactical-clash-simulator.mjs](./evidence/tactical-clash-simulator.mjs) · [five-act-balance-model.mjs](./evidence/five-act-balance-model.mjs) · [five-act-runtime-ledger.mjs](./evidence/five-act-runtime-ledger.mjs) · [physics-scale-optics-check.mjs](./evidence/physics-scale-optics-check.mjs) |
 | **บันทึกการเปลี่ยนแปลง** | `CR-20261031-0252` · สถานะอนุมัติ `CR-20261031-1500` |
 
 > ฉบับนี้เขียนใหม่ทั้งหมดบนฐาน `291e077` ไม่ได้นำเนื้อหาจากร่างก่อนหน้าหรือจากโฟลเดอร์ `archive-pre-adr032` และ `phase-0` มาใช้
@@ -73,7 +73,7 @@
 
 ## 2. สัญญาระบบเกม (Gameplay Contract)
 
-ตัวเลขทุกตัวในหมวดนี้ตรงกับ [tactical-clash-engine.mjs](./evidence/tactical-clash-engine.mjs) และ [five-act-balance-model.mjs](./evidence/five-act-balance-model.mjs) ถ้าแก้ตัวเลขในเอกสาร ต้องแก้ในโค้ดและรันพิสูจน์ใหม่เสมอ
+ตัวเลขทุกตัวในหมวดนี้อยู่ใน [Core](../../src/core/README.md) (`src/core/domain/`) ตั้งแต่ C2 ซึ่ง [parity gate](../../tools/clash/clash-parity.mjs) และ [five-act-balance-model.mjs](./evidence/five-act-balance-model.mjs) พิสูจน์ ถ้าแก้ตัวเลขในเอกสาร ต้องแก้ใน Core ผ่าน PO และรันพิสูจน์ใหม่เสมอ
 
 ### 2.1 ค่าสถานะ `กาย · ใจ · แรง` (จำนวนเต็ม 0–5)
 
@@ -361,6 +361,7 @@ Act 5  A5-01 → [A5-02] → (MA-5) → A5-04 → A5-05 → A5-06 → (R5) A5-07
 ## 8. หลักฐานพิสูจน์ (รันได้ทุกเครื่องด้วย Node.js 22)
 
 ```bash
+node tools/clash/clash-parity.mjs --check
 node docs/design-system/evidence/tactical-clash-simulator.mjs
 node docs/design-system/evidence/five-act-balance-model.mjs
 node docs/design-system/evidence/five-act-runtime-ledger.mjs
@@ -370,8 +371,9 @@ node docs/design-system/evidence/ux-v3-screen-states-check.mjs
 
 | เครื่องมือ | พิสูจน์ |
 |---|---|
+| `clash-parity` | kernel ของ Core ให้สถานะเหมือน engine ที่พิสูจน์แล้วทุกก้าว ในทุกลำดับการกดจาก 18 จุดเข้าศึก (260,936 ลำดับ) |
 | `tactical-clash-simulator` | แจกแจงทุกลำดับการกดของทั้ง 6 ยกจาก 3 สภาพ: ไม่มี Game Over · Grace เฉพาะเมื่อฝืนรุก · ชนะขาดได้จากทุกสภาพ · ผู้อ่านเจตนาดีกว่าการกดรุกอย่างเดียวทุกจุด · ไม่มีปุ่มเดียวที่กดซ้ำแล้วชนะขาดระหว่างการเดินทาง · ชนะขาดไม่เกิน 30% ของลำดับทั้งหมด |
-| `five-act-balance-model` | แจกแจงทุกทางเลือกทั้ง 5 องก์พร้อมผลศึกทุกแบบ: ไม่มีทางตัน · กระเป๋า ≤ 4 · กระดุมไม่หาย · พื้นพักท้ายองก์ · ทุกคู่สาย × แผนเปิดครบ 3 ฉากจบ · E-DAWN ได้โดยไม่ฝืนและไม่โหยหาบ้าน · ทุกวิชาเอกไปถึง E-DAWN · การเล่นจำลอง 14 แบบแสดงว่าเงื่อนไขทุกข้อของ E-DAWN จำเป็นจริง |
+| `five-act-balance-model` | ใช้กติกาของ Core และเล่น Act 1 จากแพ็กเกจที่คอมไพล์ · แจกแจงทุกทางเลือกทั้ง 5 องก์พร้อมผลศึกทุกแบบ: ไม่มีทางตัน · กระเป๋า ≤ 4 · กระดุมไม่หาย · พื้นพักท้ายองก์ · ทุกคู่สาย × แผนเปิดครบ 3 ฉากจบ · E-DAWN ได้โดยไม่ฝืนและไม่โหยหาบ้าน · ทุกวิชาเอกไปถึง E-DAWN · การเล่นจำลอง 14 แบบแสดงว่าเงื่อนไขทุกข้อของ E-DAWN จำเป็นจริง |
 | `five-act-runtime-ledger` | เวลาเล่นทุกเส้นทางอยู่ในช่วงเป้าหมายทุกองก์ และรหัสโหนดในบทตรงกับแบบจำลองทุกตัว |
 | `physics-scale-optics-check` | ตัวเลขฟิสิกส์ทุกข้อที่บทและภาพอ้างถึง |
 | `ux-v3-screen-states-check` | จอศึกของภาพต้นแบบ v3 ทุกจอเป็นสถานะที่ engine สร้างได้จริง ทั้งการ์ด ค่าแสง ป้ายแก้ทาง และป้ายซ้ำ |

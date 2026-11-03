@@ -10,7 +10,18 @@ import { methodCost, obstacleBlock, obstacleHomesick, resolveObstacle } from "..
 import { activityBlock, campFinished, openCamp, pickActivity, readyCandidates } from "../../src/core/domain/encounters/camp.js";
 import { offerBlock, offerChoices, offerDecided, resolveOffer } from "../../src/core/domain/encounters/pouch-offer.js";
 import { microValid, microView } from "../../src/core/domain/encounters/micro.js";
-import { endings as modelEndings } from "../../docs/design-system/evidence/five-act-balance-model.mjs";
+
+/** Master plan §2.13 transcribed literally: the oracle the Core endings must equal. */
+function specEndings({ hp, mind, sta, fsu, sr, pkam, fiw, teuk, items }) {
+  const has = (name) => items.includes(name);
+  const roots = has("seeds") || has("guard");
+  const promise = has("whistle") || has("ribbon");
+  const home = has("button") && (teuk >= 2 || promise) && mind >= 2;
+  const pond = (fsu >= 2 || roots) && hp >= 2 && sta >= 2;
+  const dawn = fsu >= 3 && sr >= 4 && mind >= 3 && sta >= 3 && pkam >= 2 && fiw >= 2 && teuk >= 2 && Math.max(pkam, fiw, teuk) >= 3 && roots && promise;
+  const fallback = !home && !pond && !dawn;
+  return { home, pond: pond || fallback, dawn, fallback };
+}
 
 /** Trace: TC-S5-STATE-001, TC-S5-ENDING-001, master plan §2.1–§2.13, ADR-P0-020, ADR-P0-034 D4. */
 const K = KEEPSAKES;
@@ -169,7 +180,7 @@ test("TC-S5-STATE-001 micro-actions have nothing to fail and change no meter", (
   for (const bad of [null, { ...micro, kind: "swipe" }, { ...micro, ma: "MA-7" }, { ...micro, durationMs: 9000 }, { ...micro, durationMs: 2999 }, { ...micro, hint: 1 }]) assert.equal(microValid(bad), false);
 });
 
-test("TC-S5-ENDING-001 the three endings and the Safety Fallback equal the balance model on every threshold", () => {
+test("TC-S5-ENDING-001 the three endings and the Safety Fallback equal master plan §2.13 on every threshold", () => {
   const short = { [K.seeds]: "seeds", [K.guard]: "guard", [K.gear]: "gear", [K.button]: "button", [K.whistle]: "whistle", [K.ribbon]: "ribbon" };
   const keepsakes = Object.values(K);
   let checked = 0;
@@ -181,7 +192,7 @@ test("TC-S5-ENDING-001 the three endings and the Safety Fallback equal the balan
       for (const pkam of [1, 2, 3]) for (const fiw of [1, 2, 3]) for (const teuk of [1, 2, 3]) {
         const j = journey({ act: 5, hp, mind, sta, fsu, sr, pkam, fiw, teuk, held });
         const ours = evaluateEndings(j);
-        const theirs = modelEndings({ hp, mind, sta, fsu, sr, bk: pkam, bf: fiw, bt: teuk, items: held.map((id) => short[id]) });
+        const theirs = specEndings({ hp, mind, sta, fsu, sr, pkam, fiw, teuk, items: held.map((id) => short[id]) });
         assert.deepEqual([ours.endings["e-home"].open, ours.endings["e-pond"].open, ours.endings["e-dawn"].open, ours.fallback], [theirs.home, theirs.pond, theirs.dawn, theirs.fallback]);
         for (const id of ENDINGS) assert.equal(ours.endings[id].missing.length === 0, ours.endings[id].open && !(id === "e-pond" && ours.fallback), "missing is empty only when the ending opens by itself");
         if (ours.fallback) fallbacks += 1;

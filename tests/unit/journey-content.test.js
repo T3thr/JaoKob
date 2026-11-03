@@ -2,7 +2,8 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { CompileError, compileJourney, loadSources, renderOutputs, OUTPUT_FILES, DESIGN_DIR } from "../../tools/content/compile-journey.mjs";
-import { INTENTS, ACTIONS, ROUNDS } from "../../docs/design-system/evidence/tactical-clash-engine.mjs";
+import { ACTION_IDS, INTENTS } from "../../src/core/domain/clash/clash-rules.js";
+import { assertRound } from "../../src/core/domain/clash/clash-engine.js";
 import { NODE_IDS } from "../../docs/design-system/evidence/five-act-balance-model.mjs";
 
 /** Trace: TC-S5-CONTENT-001, TC-S5-CLASH-001 (round tables), ADR-P0-034 D5/D6, UX §0 rule 7. */
@@ -34,27 +35,24 @@ test("TC-S5-CONTENT-001 every story text is quoted verbatim from the blueprint l
   assert.ok(checked > 100);
 });
 
-test("TC-S5-CONTENT-001 lexicon names equal the proved engine names", () => {
-  for (const [id, textId] of Object.entries(pkg.lexicon.intents)) assert.equal(textsById.get(textId).body, INTENTS[id].th, id);
-  for (const [id, textId] of Object.entries(pkg.lexicon.actions)) assert.equal(textsById.get(textId).body, ACTIONS[id].th, id);
-  assert.deepEqual(Object.keys(pkg.lexicon.intents).sort(), Object.keys(INTENTS).sort());
-  assert.deepEqual(Object.keys(pkg.lexicon.actions).sort(), Object.keys(ACTIONS).sort());
+test("TC-S5-CONTENT-001 the lexicon names every Core intent and action once, in Thai from the mechanics source", () => {
+  assert.deepEqual(Object.keys(pkg.lexicon.intents), [...INTENTS]);
+  assert.deepEqual(Object.keys(pkg.lexicon.actions), [...ACTION_IDS]);
+  for (const textId of [...Object.values(pkg.lexicon.intents), ...Object.values(pkg.lexicon.actions)]) assert.match(textsById.get(textId).body, /^[\u0E00-\u0E7F][\u0E00-\u0E7F .♡]*$/u, textId);
 });
 
-test("TC-S5-CLASH-001 every round in the mechanics spec equals the proved engine round", async () => {
+test("TC-S5-CLASH-001 the six rounds of the mechanics source are rounds Core can run (the parity trace pins their behaviour)", async () => {
   const { story } = await loadSources();
-  assert.deepEqual(story.rounds.map((r) => r.id).sort(), Object.keys(ROUNDS).sort());
-  for (const round of story.rounds) {
-    const engine = ROUNDS[round.id];
-    for (const key of ["act", "turns", "p0", "intents", "allies", "siblings", "combos", "light"]) assert.deepEqual(round[key], engine[key], `${round.id}.${key}`);
-    assert.equal(round.territory, Boolean(engine.territory), `${round.id}.territory`);
-    assert.equal(round.finisherFrom, engine.finisher ? engine.finisherFrom : undefined, `${round.id}.finisherFrom`);
-    assert.deepEqual(round.events, Object.entries(engine.events ?? {}).map(([turn, e]) => ({ turn: Number(turn), light: e.p, id: e.id })), `${round.id}.events`);
-  }
+  assert.deepEqual(story.rounds.map((r) => r.id), ["R1", "R2", "R3", "R4A", "R4B", "R5"]);
+  for (const round of story.rounds) assert.doesNotThrow(() => assertRound(round), round.id);
+  assert.deepEqual(pkg.rounds, story.rounds.filter((r) => r.id === "R1"), "the package carries the rounds its nodes use");
 });
 
-test("TC-S5-CONTENT-001 Act 1 nodes follow the balance model order exactly", () => {
-  assert.deepEqual(pkg.nodes.filter((n) => n.act === 1).map((n) => n.id.toUpperCase()), NODE_IDS.act1);
+test("TC-S5-BALANCE-001 the balance model plays Act 1 from the compiled package, in blueprint order", async () => {
+  const blueprint = await readFile(new URL("act1-living-keepsake-rewrite-blueprint.md", DESIGN_DIR), "utf8");
+  const headings = [...blueprint.matchAll(/^### (A1-\d{2}) · /gm)].map((m) => m[1]);
+  assert.deepEqual(pkg.nodes.filter((n) => n.act === 1).map((n) => n.id.toUpperCase()), headings);
+  assert.deepEqual(NODE_IDS.act1, headings);
 });
 
 test("TC-S5-CONTENT-001 Act 1 prototype ends at the two Act 2 entry boundaries with no open findings", () => {

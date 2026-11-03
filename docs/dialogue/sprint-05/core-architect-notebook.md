@@ -5,7 +5,7 @@
 | **เจ้าของ** | Claude · Supreme Core Architect & Lead Game Systems Engineer (PO มอบหมาย 2026-10-31) |
 | **ประเภท** | สมุดทำงานของสถาปนิก **ไม่ใช่ข้อกำหนด** ข้อตัดสินใจที่มีผลต้องย้ายไป ADR หรือ [Sprint 5 SSOT](../../sprints/sprint-05-ssot.md) แล้วเหลือแค่ลิงก์ที่นี่ ตาม [กติกากระดาน §5 ข้อ 3](../README.md) |
 | **ฐานที่ตรวจล่าสุด** | `feat/sprint-05-slice-01-foundations` แตกจาก `develop@8643a30` · 2026-11-04 · `develop` เลื่อนไปที่ commit เอกสารของ C0 แล้ว |
-| **บันทึก** | [CR-20261031-0545](../../changelog/2026-10/2026-10-31-0545-core-architect-onboarding-and-slice-1-plan.md) เปิดสมุด · [CR-20261031-1500](../../changelog/2026-10/2026-10-31-1500-slice-1-c0-ssot-0-3-0-and-adr-034.md) checkpoint C0 · [CR-20261102-1000](../../changelog/2026-11/2026-11-02-1000-adr-034-accepted-and-c1-start.md) ลงนาม ADR และเริ่ม C1 · [CR-20261102-1015](../../changelog/2026-11/2026-11-02-1015-c1-schema-3-0-0-and-superseded-register.md) C1 ช่วงแรก · [CR-20261102-1025](../../changelog/2026-11/2026-11-02-1025-c1-blueprint-compiler-and-act1-prototype-package.md) C1 ช่วงสอง · [CR-20261104-0340](../../changelog/2026-11/2026-11-04-0340-c2-start-po-decisions-asset-aliases-and-r1-grit-line.md) มติ 2026-11-04 และเริ่ม C2 · [CR-20261104-0400](../../changelog/2026-11/2026-11-04-0400-c2-clash-kernel-shell-and-parity-gate.md) clash kernel และ parity gate · [CR-20261104-0420](../../changelog/2026-11/2026-11-04-0420-c2-journey-domain-encounters-session-and-play-mode.md) journey session |
+| **บันทึก** | [CR-20261031-0545](../../changelog/2026-10/2026-10-31-0545-core-architect-onboarding-and-slice-1-plan.md) เปิดสมุด · [CR-20261031-1500](../../changelog/2026-10/2026-10-31-1500-slice-1-c0-ssot-0-3-0-and-adr-034.md) checkpoint C0 · [CR-20261102-1000](../../changelog/2026-11/2026-11-02-1000-adr-034-accepted-and-c1-start.md) ลงนาม ADR และเริ่ม C1 · [CR-20261102-1015](../../changelog/2026-11/2026-11-02-1015-c1-schema-3-0-0-and-superseded-register.md) C1 ช่วงแรก · [CR-20261102-1025](../../changelog/2026-11/2026-11-02-1025-c1-blueprint-compiler-and-act1-prototype-package.md) C1 ช่วงสอง · [CR-20261104-0340](../../changelog/2026-11/2026-11-04-0340-c2-start-po-decisions-asset-aliases-and-r1-grit-line.md) มติ 2026-11-04 และเริ่ม C2 · [CR-20261104-0400](../../changelog/2026-11/2026-11-04-0400-c2-clash-kernel-shell-and-parity-gate.md) clash kernel และ parity gate · [CR-20261104-0420](../../changelog/2026-11/2026-11-04-0420-c2-journey-domain-encounters-session-and-play-mode.md) journey session · [CR-20261104-0440](../../changelog/2026-11/2026-11-04-0440-c2-evidence-on-core-and-balance-gate.md) ปิด C2 |
 
 ## 0. วิธีใช้
 
@@ -19,14 +19,14 @@
 
 | เรื่อง | ค่า | วัดอย่างไร |
 |---|---|---|
-| Checkpoint | **C0 ปิดแล้ว** · **C1 ปิดแล้ว** (Antigravity เห็นชอบ schema 2026-11-04) · การพิสูจน์สองแพ็กเกจย้ายไปทำพร้อม identity ใน C3 · **C2 เริ่ม 2026-11-04** | [SSOT 0.3.0 §4.2](../../sprints/sprint-05-ssot.md) |
+| Checkpoint | **C0 · C1 · C2 ปิดแล้ว** (C2 ปิด 2026-11-04 · T0 และ T2 `[x]`) · การพิสูจน์สองแพ็กเกจย้ายไปทำพร้อม identity ใน C3 · **ถัดไป C3** (และ C4 คู่ขนานได้) | [SSOT 0.3.0 §4.2](../../sprints/sprint-05-ssot.md) |
 | ประวัติ | `main` ยังอยู่ที่ `d3c4c05` ไม่เคย release · PR #19 ถูกใช้แล้ว PR ของ Slice 1 จะเป็น #20 ขึ้นไป | `git log` · GitHub |
 | Runtime | Node 22.22.0 · Chromium + Playwright มีในเครื่อง cloud · Ajv 8.17.1 ติดตั้งใน scratchpad ของ session ได้ด้วย `npm install` (ไม่ใช่ dependency ของโครงการ) | ตรวจในเครื่อง |
 | Unit | 1,148/1,148 ผ่าน (เดิม 1,060 + journey schema 86 + architecture 2) | `node --test 'tests/unit/**/*.test.js'` |
-| เครื่องมือพิสูจน์ | 5/5 ผ่าน · balance model 205 วินาที (73 โหนด · 25,182 จุดเข้าศึก) | `docs/design-system/evidence/*.mjs` |
+| เครื่องมือพิสูจน์ | 5/5 ผ่าน และเรียกกติกาจาก Core ทั้งหมด · balance model 361 วินาที (73 โหนด · 25,337 จุดเข้าศึก · Act 1 จากแพ็กเกจ) · parity gate ไม่ถึง 1 วินาทีในชุด unit | `docs/design-system/evidence/*.mjs` · `tools/clash/clash-parity.mjs` |
 | เนื้อหาปัจจุบัน | Act 1 เรื่องเดิม · schema 2.0.0 · content 3.0.0 · 28 โหนด · โค้ด `src/` ไม่เปลี่ยนตั้งแต่ `d1af293` (มีแค่ README) | อ่านแพ็กเกจ · `git diff` |
 | ขอบเขต Core | TC-S4-ARCH-001 ตรวจ `Math.random(` และ `Date.now(` · TC-S5-STATE-001 ใน `architecture.test.js` ตรวจ `new Date(` และ `performance.now(` (C1) | อ่านเทสต์ |
-| Core ใหม่ (C2) | `src/core/domain/clash/` ผ่าน parity 286,174 ตำแหน่งในไม่ถึง 1 วินาที · journey domain encounters session play-mode เล่น Act 1 ต้นแบบได้ครบ 30 เส้นทาง · coverage บรรทัด 99.9% branch 97% | `node tools/clash/clash-parity.mjs --check` · `tests/unit/journey-*.test.js` |
+| Core ใหม่ (C2) | `src/core/domain/clash/` ผ่าน parity 286,174 ตำแหน่ง · journey domain encounters session play-mode เล่น Act 1 ต้นแบบได้ครบ 30 เส้นทาง · coverage บรรทัด 100% branch 98% (166 เทสต์) | `node tools/clash/clash-parity.mjs --check` · `tests/unit/journey-*.test.js` |
 | Design input | Mockups v3 13 จอ · พิกัด handoff · glyph SVG ([S5-003](BOARD.md)) | [v3 README](../../design-system/ux-mockups/v3/README.md) |
 
 ---
@@ -90,7 +90,8 @@
 - `copy()` คัดลอกตื้น (`items` `ready` `territory` `peace` ใช้ร่วมกัน) ปลอดภัยเพราะ `step` ไม่แก้ค่า แต่ runtime ต้อง freeze
 - balance model ส่ง `fsu: 0` เข้าศึกแล้วบวก `end.fsu` กลับ และล้าง `tempo` กับ `ready` หลังศึก · core ต้องทำผ่าน `exitClash` ที่ประกาศชัด
 - **C2 (ทำแล้ว):** kernel ใช้ `outcome !== null` แทน `ended` · ไม่มี `notIn: ['R5']` (กติกาอาณาเขตครอบอยู่แล้ว) · ผลเฉียดของ Act 5 ใช้เลของก์ · สูดความมืดเทิร์นสุดท้าย −3 ไม่คูณสอง (ไม่มียกจริงที่เกิด จึงปักด้วยเทสต์ยกสังเคราะห์)
-- **ข้อค้นพบในแบบจำลองสมดุล:** `min(streak, 1)` ตอนเข้าศึกลดโทษของการใช้ทักษะครอบครัวครั้งที่สามติดกัน · `min(streak, 2)` ตรงกติกาจริง (ซ้ำสองครั้งขึ้นไปได้แสงเป็นศูนย์เสมอ) ผ่านทุกข้อพิสูจน์ ช่วงค่าเท่าเดิม · ใช้ตอนย้ายแบบจำลองมาใช้ Core
+- **ข้อค้นพบในแบบจำลองสมดุล (แก้แล้วใน CR-20261104-0440):** `min(streak, 1)` ทั้งตอนเข้าศึก ตอนสำรวจศึก และใน frontier รวมการพึ่งบ้านครั้งที่สองกับสามเข้าด้วยกัน · ใช้ `min(streak, 2)` ซึ่งตรงกติกาจริง · ผลการเล่นจำลอง 14 แบบเท่าเดิมทุกตัว · ตรวจแล้วว่าเมื่อ engine เดิมใช้ตัวแยกเดียวกัน สถานะปลาย Act 1 ของสองรุ่นตรงกันพอดี
+- **ด่านสำรวจศึกแบบ best ไม่ใช่การพิสูจน์แบบ exact:** การตัดตำแหน่งที่ถูกครอบงำสมมติว่าค่าที่มากกว่าดีกว่าเสมอ แต่ Grace คืนค่าเป็นสองหลังฝืนรุก จึงอาจมีตำแหน่งที่ดีกว่าที่ถูกตัดไป · ข้อพิสูจน์แบบ "มีทาง" ยังถูกเพราะทุกสถานะที่เก็บไว้เกิดได้จริง · ข้อพิสูจน์ความปลอดภัยพึ่งโครงสร้างและการเล่นจำลองตามที่หัวไฟล์เขียนไว้
 - **การตัดสินใจของ session (C2):** effect ของโหนดลงผลเมื่ออ่านบทของโหนดจบ ไม่ใช่ตอนเข้าโหนด เพื่อให้ cursor ที่ขอบองก์รอก่อน effect ของโหนดที่ยังไม่ promote และการโหลดใหม่ระหว่างบทไม่ลงผลซ้ำ · ตัวเลือกที่ทำแล้วรู้จากรายการประวัติล่าสุดของโหนดนั้น · แคมป์รู้จาก `chosen` · ศึกรู้จาก `lastAction` · ขึ้นองก์ใหม่ล้างลำดับการพึ่งบ้านตามแบบจำลอง
 - **รอ S2/S3:** effect แบบมีเงื่อนไขและ `tempo` ยังไม่อยู่ในคำศัพท์ 3.0.0 แต่ Act 2–5 ต้องใช้ (A3-04 · A3-13 intel · A4-01 · A4-08 · A5-05) · การเปิดแท็บของถาดแบบ "ปรากฏแล้วอยู่ตลอดเกม" (UX §3.3 ข้อ 3) ต้องมีสถานะที่บันทึกได้หรือกติกาที่คำนวณได้ ตัดสินใน T8
 - ระบบเดิมที่ใช้ต่อได้: flag policy (marker · counter · monotonic) ใน `choice-transaction.js` · โดเมนกระเป๋า `keepsake-pouch.js` (capacity 4 · held · acquired · released · remembered · memory) · transaction แบบ staged/canonical/backup ใน `local-storage-adapter.js` · validator JSON Schema 2020-12 ของโครงการ
@@ -123,3 +124,4 @@
 | 2026-10-31 | กำแพงกันสปอยล์: ทางเข้าผู้เล่นมีแค่องก์ที่ promote แล้ว · 13 จอของ v3 อยู่ใน harness ของ PO | ADR-P0-034 D10 |
 | 2026-11-02 | PO ลงนาม ADR-P0-034 และสั่งเริ่ม C1 · เลื่อน `develop` ไปที่ commit เอกสารของ C0 | ทำแล้ว · CR-20261102-1000 |
 | 2026-11-04 | Antigravity เห็นชอบ schema · alias ภาพสี่ชิ้น · บรรทัดสำรองของ `ฝืนรุก` · สั่งเริ่ม C2 | ทำแล้ว · CR-20261104-0340 · SSOT §1.2 |
+| 2026-11-04 | C2: กติกาย้ายเข้า Core ผ่าน parity gate · journey session · เครื่องมือพิสูจน์เรียก Core · ตัวตรวจส่งมอบ v3 ตรวจที่ commit ส่งมอบ | ทำแล้ว · CR-20261104-0400 · 0420 · 0440 |

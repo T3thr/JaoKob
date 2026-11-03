@@ -18,7 +18,7 @@
 | `audio-adapter.test.js` · `ports.test.js` | AudioPort และ port ของ Core | ใช้ต่อ (ADR-P0-015) |
 | `persistence.test.js` | transaction staged → canonical → backup · race · quota · ความยินยอม | ใช้ต่อ · T3 เพิ่มกรณีของ journey namespace |
 | `session-history.test.js` | Log 50 บท + 50 การกระทำ | ใช้ต่อกับ Journey |
-| `keepsake-pouch.test.js` | โดเมนกระเป๋าสี่ช่อง (ADR-P0-020) | ใช้ต่อ · T2 เพิ่มกฎของที่ล็อก |
+| `keepsake-pouch.test.js` | โดเมนกระเป๋าสี่ช่อง (ADR-P0-020) | ใช้ต่อ · กฎของที่ล็อกอยู่ใน `effects.js` และ `pouch-offer.js` ของ Core ใหม่ เทสต์ใน `journey-encounters.test.js` (C2) |
 | `journey-schema.test.js` | schema 3.0.0 | ใหม่ใน C1 |
 | `architecture.test.js` | production ห้าม import จาก `tools/` · Core ห้าม `new Date(` และ `performance.now(` | ใหม่ใน C1 · รับ TC-S3-ARCH-001 และ TC-S4-ARCH-001 ใน C5 |
 
@@ -54,7 +54,18 @@
 | `ui-preferences.test.js` (7) | key `jaokob:preferences` ที่กลายเป็นคลังเซฟเก่า | ADR-P0-034 D8 | `TC-S5-LEGACY-001` |
 | `asset-manifest.test.js` (4) | manifest ที่ผูกกับเนื้อหาเดิม | ADR-P0-034 D6 | `TC-S5-MEDIA-001` (manifest ของ Journey) |
 
-## 4. บันทึกการลบ
+## 4. assertion ของ Slice 1 ที่เปลี่ยนใน C2
+
+engine ของ ADR-P0-033 กลายเป็น adapter ของ Core ตาม ADR-P0-034 D5.2 assertion ที่เคยเทียบกับ engine นั้นจึงเทียบกับตัวเองไปแล้ว ([CR-20261104-0440](../changelog/2026-11/2026-11-04-0440-c2-evidence-on-core-and-balance-gate.md))
+
+| assertion เดิม | ไฟล์ | เปลี่ยนเป็น | เทสต์ทดแทนที่เข้มกว่า |
+|---|---|---|---|
+| lexicon names equal the proved engine names | `journey-content.test.js` (C1) | lexicon ครบทุกเจตนาและการกระทำของ Core ครั้งเดียว เป็นภาษาไทย | trace ของ engine เดิมใน `clash-parity-golden.json` · `journey-clash.test.js` |
+| every round in the mechanics spec equals the proved engine round | `journey-content.test.js` (C1) | ยกทั้งหกผ่าน `assertRound` ของ Core · แพ็กเกจพกเฉพาะยกที่ใช้ | parity ทุกลำดับการกดจาก 18 จุดเข้าศึก (`journey-clash.test.js`) ตรึงพฤติกรรมของทุกยก |
+| Act 1 nodes follow the balance model order exactly | `journey-content.test.js` (C1) | แบบจำลองสมดุลเล่น Act 1 จากแพ็กเกจที่คอมไพล์ ตามลำดับหัวข้อของพิมพ์เขียว | `TC-S5-BALANCE-001` |
+| ตารางความจริงของฉากจบเทียบ `endings()` ของแบบจำลอง | `journey-encounters.test.js` (C2 ช่วงสอง) | เทียบสมการของมหาพิมพ์เขียว §2.13 ที่ถอดตรงตัวในเทสต์ | เทสต์เดิมทุกจุดตัดของเกณฑ์ |
+
+## 5. บันทึกการลบ
 
 | วันที่ | assertion | authority | เทสต์ทดแทน | commit |
 |---|---|---|---|---|

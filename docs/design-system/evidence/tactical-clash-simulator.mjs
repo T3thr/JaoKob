@@ -15,6 +15,7 @@
 // from these eighteen entry states on the Core kernel.
 
 import { pathToFileURL } from 'node:url';
+import { answersIntent } from '../../../src/core/domain/clash/clash-rules.js';
 import {
   ROUNDS, ACTIONS, INTENTS, enterClash, enumerate, listActions, step,
   playStrategy, mash, smart, P_WIN,
@@ -57,6 +58,11 @@ export const ENTRIES = {
   ],
 };
 const LABEL = ['พร้อม', 'กลาง', 'อ่อนล้า'];
+// Report titles of the rounds (the clash node headings of the act blueprints).
+const ROUND_TITLES = {
+  R1: 'ศึกแรกริมฝาย', R2: 'ศึกบัลลังก์เงา', R3: 'ศึกใต้ชายคาศาลา', R4A: 'ทะยานร่อนฝ่าสายฟ้า',
+  R4B: 'ป้อมปราการก้ามเหล็กและสปริงพี่ใหญ่', R5: 'ศึกอัศวินเงาข้างโคมไฟ',
+};
 
 function main() {
   let ok = true;
@@ -70,7 +76,7 @@ function main() {
   const summary = [];
   for (const [rid, entries] of Object.entries(ENTRIES)) {
     const r = ROUNDS[rid];
-    say(`ยก ${rid} · ${r.th} · ${r.turns} เทิร์น · เจตนาที่เห็นล่วงหน้า: ${r.intents.map((i) => INTENTS[i].th).join(' → ')}`);
+    say(`ยก ${rid} · ${ROUND_TITLES[rid]} · ${r.turns} เทิร์น · เจตนาที่เห็นล่วงหน้า: ${r.intents.map((i) => INTENTS[i].th).join(' → ')}`);
     entries.forEach((st, i) => {
       const e = enterClash(st, rid);
       const all = enumerate(e);
@@ -140,17 +146,8 @@ function main() {
   // Counter table for the HUD: for every intent, which actions answer it.
   say('');
   say('ตารางแก้ทาง (HUD แสดงป้าย "แก้ทาง" บนปุ่มที่ตอบเจตนาปัจจุบัน):');
-  const answers = {
-    grow: (a) => (a.cancels || []).includes('grow') || (a.halves || []).includes('grow'),
-    lash: (a) => (a.negates || []).includes('lash'),
-    taunt: (a) => (a.negates || []).includes('taunt'),
-    whisper: (a) => (a.negates || []).includes('whisper'),
-    dim: (a) => (a.cancels || []).includes('dim'),
-    illusion: (a) => !!a.reveals || (a.cancels || []).includes('illusion'),
-    gather: (a) => (a.cancels || []).includes('gather'),
-  };
-  for (const [intent, f] of Object.entries(answers)) {
-    const list = Object.entries(ACTIONS).filter(([, a]) => f(a)).map(([, a]) => a.th);
+  for (const intent of Object.keys(INTENTS)) {
+    const list = Object.keys(ACTIONS).filter((id) => answersIntent(id, intent)).map((id) => ACTIONS[id].th);
     say(`  ${INTENTS[intent].th}: ${list.join(' · ')}`);
   }
 
