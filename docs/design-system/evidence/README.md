@@ -16,6 +16,8 @@
 | [build-visual-assets-v2-review.py](build-visual-assets-v2-review.py) | สร้างหน้าตรวจรับภาพ v2 | - |
 | [act1-4-balance-model.mjs](act1-4-balance-model.mjs) · [act1-4-runtime-ledger.mjs](act1-4-runtime-ledger.mjs) | **SUPERSEDED** หลักฐานของ ADR-P0-031 รันแล้วแจ้งแค่ว่าถูกแทนที่ | - |
 
+**หน้าตรวจ C4 ของ PO (เกมจริงจาก `src/`):** [journey-review/index.html](journey-review/index.html) แสดงเกมในกรอบขนาดจอที่เลือกได้พร้อมเส้นแถบใบหน้า · [journey-review/play.html](journey-review/play.html) คือเกมเต็มหน้าต่างสำหรับเปิดบนโทรศัพท์ · เล่น Act 1 ต้นแบบบนแอป Journey จริงและบันทึกเงียบ · จังหวะที่เป็นงานของ C5 (ศึก แคมป์ สัมผัส) มีปุ่มส่งคำสั่งจริงของ engine · ไม่อยู่ใน release allowlist (ADR-P0-034 D10.4) · เปิดด้วย `node tools/dev/serve-review.mjs`
+
 หน้าตรวจรับและผลตรวจของ Astra: [visual-assets-v1-review.html](visual-assets-v1-review.html) · [visual-assets-v2-review.html](visual-assets-v2-review.html) · [ux-mockups-v2-review.html](ux-mockups-v2-review.html) พร้อมไฟล์ `*-verification.json` `*-doc-checks.json` `*-browser-review.json` และ `*-unit-summary.txt`
 
 ```bash

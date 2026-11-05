@@ -1,0 +1,122 @@
+/*
+ * Review chrome of the C4 review page only (not game UI, not shipped). Deliberately plain and
+ * labelled "หน้าตรวจ" so it is never mistaken for the game's own screens.
+ */
+
+html,
+body {
+  margin: 0;
+  min-block-size: 100%;
+  background: #12201a;
+  color: #fcf4e3;
+  font-family: "Sarabun", "Thonburi", "Leelawadee UI", sans-serif;
+}
+
+.jr-game { display: block; }
+
+.jr-panel {
+  position: fixed;
+  z-index: 80;
+  inset-inline: 16px;
+  inset-block-end: max(20px, env(safe-area-inset-bottom, 0px));
+  max-inline-size: 30rem;
+  margin-inline: auto;
+  padding: 16px 18px;
+  border: 1px dashed rgba(226, 194, 127, 0.7);
+  border-radius: 16px;
+  background: rgba(14, 26, 20, 0.94);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.jr-title {
+  inset-block: 50% auto;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+.jr-badge {
+  display: inline-block;
+  margin: 0 0 8px;
+  padding: 1px 10px;
+  border: 1px solid rgba(226, 194, 127, 0.6);
+  border-radius: 999px;
+  color: #e9cf8f;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+.jr-title__name { margin: 4px 0 0; font-size: 34px; font-weight: 400; line-height: 1.4; }
+.jr-title__sub { margin: 4px 0 14px; color: #cfd8cf; font-size: 14px; }
+.jr-pending__title { margin: 0; font-size: 18px; }
+.jr-pending__note { margin: 4px 0 12px; color: #cfd8cf; font-size: 14px; }
+.jr-pending__fine { margin: 10px 0 0; color: #9fb0a4; font-size: 12px; }
+
+.jr-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+
+.jr-button {
+  min-block-size: 44px;
+  padding: 6px 16px;
+  border: 1px solid rgba(214, 198, 165, 0.6);
+  border-radius: 12px;
+  background: rgba(252, 244, 227, 0.08);
+  color: #fcf4e3;
+  font: inherit;
+  cursor: pointer;
+}
+
+.jr-button:hover { background: rgba(252, 244, 227, 0.16); }
+.jr-button:focus-visible { outline: 3px solid #fcf4e3; outline-offset: 2px; }
+.jr-button--primary { background: #fcf4e3; color: #24382d; border-color: #fcf4e3; }
+.jr-button--primary:hover { background: #fff9ec; }
+.jr-button--warn { border-color: #e2a35a; color: #ffd9a3; }
+.jr-button--small { min-block-size: 36px; padding: 2px 10px; font-size: 13px; }
+
+.jr-consent { margin: 12px 0 0; color: #ffd9a3; font-size: 14px; }
+.jr-consent .jr-button { margin-block-start: 8px; }
+
+.jr-notices { margin: 0 0 12px; padding: 0; list-style: none; text-align: start; }
+.jr-notices li { display: flex; align-items: center; gap: 10px; margin-block-end: 8px; padding: 8px 10px; border-radius: 10px; background: rgba(252, 244, 227, 0.08); font-size: 14px; }
+.jr-notices li span { flex: 1; }
+
+.jr-error { inset-block: 16px auto; border-color: #e2a35a; color: #ffd9a3; }
+
+.jr-sheet {
+  inline-size: min(26rem, calc(100vw - 32px));
+  padding: 0;
+  border: 1px dashed rgba(226, 194, 127, 0.7);
+  border-radius: 16px;
+  background: #13241c;
+  color: #fcf4e3;
+}
+
+.jr-sheet::backdrop { background: rgba(4, 10, 7, 0.6); }
+.jr-sheet__body { display: flex; flex-direction: column; gap: 10px; padding: 18px; }
+.jr-sheet__heading { margin: 0; font-size: 20px; font-weight: 400; }
+.jr-field { display: flex; flex-wrap: wrap; gap: 12px; margin: 0; padding: 8px 12px 10px; border: 1px solid rgba(214, 198, 165, 0.35); border-radius: 12px; }
+.jr-field legend { padding-inline: 6px; color: #cfd8cf; font-size: 13px; }
+.jr-field label,
+.jr-check { display: flex; align-items: center; gap: 8px; min-block-size: 44px; font-size: 15px; }
+.jr-field input,
+.jr-check input { inline-size: 20px; block-size: 20px; accent-color: #4e8c57; }
+.jr-pouch-list { margin: 0; padding-inline-start: 20px; }
+
+/* Face band guide, toggled by the device frame (32–48 % from the top). */
+.jr-band-guide {
+  position: fixed;
+  z-index: 90;
+  inset-inline: 0;
+  inset-block-start: 32svh;
+  block-size: 16svh;
+  border-block: 2px dashed #5fe9c2;
+  background: rgba(95, 233, 194, 0.08);
+  pointer-events: none;
+  display: none;
+}
+
+html.jr-guides .jr-band-guide { display: block; }
+
+@media (min-width: 800px) {
+  .jr-panel:not(.jr-title) { inset-inline: auto 24px; inset-block-end: 24px; margin: 0; }
+}

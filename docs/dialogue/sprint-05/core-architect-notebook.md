@@ -5,7 +5,7 @@
 | **เจ้าของ** | Claude · Supreme Core Architect & Lead Game Systems Engineer (PO มอบหมาย 2026-10-31) |
 | **ประเภท** | สมุดทำงานของสถาปนิก **ไม่ใช่ข้อกำหนด** ข้อตัดสินใจที่มีผลต้องย้ายไป ADR หรือ [Sprint 5 SSOT](../../sprints/sprint-05-ssot.md) แล้วเหลือแค่ลิงก์ที่นี่ ตาม [กติกากระดาน §5 ข้อ 3](../README.md) |
 | **ฐานที่ตรวจล่าสุด** | `feat/sprint-05-slice-01-foundations` แตกจาก `develop@8643a30` · ตรวจซ้ำที่ `48d476d` และปิด C3 ที่ `1753764` วันที่ 2026-11-04 · ตรวจซ้ำที่ `1753764` และเริ่ม C4 วันที่ 2026-11-05 · `develop` อยู่ที่ commit เอกสารของ C0 (`0f3cd6d`) |
-| **บันทึก** | [CR-20261031-0545](../../changelog/2026-10/2026-10-31-0545-core-architect-onboarding-and-slice-1-plan.md) เปิดสมุด · [CR-20261031-1500](../../changelog/2026-10/2026-10-31-1500-slice-1-c0-ssot-0-3-0-and-adr-034.md) checkpoint C0 · [CR-20261102-1000](../../changelog/2026-11/2026-11-02-1000-adr-034-accepted-and-c1-start.md) ลงนาม ADR และเริ่ม C1 · [CR-20261102-1015](../../changelog/2026-11/2026-11-02-1015-c1-schema-3-0-0-and-superseded-register.md) C1 ช่วงแรก · [CR-20261102-1025](../../changelog/2026-11/2026-11-02-1025-c1-blueprint-compiler-and-act1-prototype-package.md) C1 ช่วงสอง · [CR-20261104-0340](../../changelog/2026-11/2026-11-04-0340-c2-start-po-decisions-asset-aliases-and-r1-grit-line.md) มติ 2026-11-04 และเริ่ม C2 · [CR-20261104-0400](../../changelog/2026-11/2026-11-04-0400-c2-clash-kernel-shell-and-parity-gate.md) clash kernel และ parity gate · [CR-20261104-0420](../../changelog/2026-11/2026-11-04-0420-c2-journey-domain-encounters-session-and-play-mode.md) journey session · [CR-20261104-0440](../../changelog/2026-11/2026-11-04-0440-c2-evidence-on-core-and-balance-gate.md) ปิด C2 · [CR-20261104-0620](../../changelog/2026-11/2026-11-04-0620-c3-journey-save-identity-and-legacy-archive.md) ปิด C3 · [CR-20261105-1430](../../changelog/2026-11/2026-11-05-1430-po-decisions-q11-prototype-digest-and-c4-start.md) มติ 2026-11-05 และเริ่ม C4 |
+| **บันทึก** | [CR-20261031-0545](../../changelog/2026-10/2026-10-31-0545-core-architect-onboarding-and-slice-1-plan.md) เปิดสมุด · [CR-20261031-1500](../../changelog/2026-10/2026-10-31-1500-slice-1-c0-ssot-0-3-0-and-adr-034.md) checkpoint C0 · [CR-20261102-1000](../../changelog/2026-11/2026-11-02-1000-adr-034-accepted-and-c1-start.md) ลงนาม ADR และเริ่ม C1 · [CR-20261102-1015](../../changelog/2026-11/2026-11-02-1015-c1-schema-3-0-0-and-superseded-register.md) C1 ช่วงแรก · [CR-20261102-1025](../../changelog/2026-11/2026-11-02-1025-c1-blueprint-compiler-and-act1-prototype-package.md) C1 ช่วงสอง · [CR-20261104-0340](../../changelog/2026-11/2026-11-04-0340-c2-start-po-decisions-asset-aliases-and-r1-grit-line.md) มติ 2026-11-04 และเริ่ม C2 · [CR-20261104-0400](../../changelog/2026-11/2026-11-04-0400-c2-clash-kernel-shell-and-parity-gate.md) clash kernel และ parity gate · [CR-20261104-0420](../../changelog/2026-11/2026-11-04-0420-c2-journey-domain-encounters-session-and-play-mode.md) journey session · [CR-20261104-0440](../../changelog/2026-11/2026-11-04-0440-c2-evidence-on-core-and-balance-gate.md) ปิด C2 · [CR-20261104-0620](../../changelog/2026-11/2026-11-04-0620-c3-journey-save-identity-and-legacy-archive.md) ปิด C3 · [CR-20261105-1430](../../changelog/2026-11/2026-11-05-1430-po-decisions-q11-prototype-digest-and-c4-start.md) มติ 2026-11-05 และเริ่ม C4 · [CR-20261105-1530](../../changelog/2026-11/2026-11-05-1530-c4-first-look-design-system-glass-hud-stage-and-review-page.md) C4 ชิ้นแรกส่ง PO ตรวจ |
 
 ## 0. วิธีใช้
 
@@ -19,16 +19,17 @@
 
 | เรื่อง | ค่า | วัดอย่างไร |
 |---|---|---|
-| Checkpoint | **C0 · C1 · C2 · C3 ปิดแล้ว** (C3 ปิด 2026-11-04 · T0 T1 T2 `[x]` · T3 ส่งมอบแล้วรอแค่ resolver ของสื่อ Journey ใน C5) · **C4 กำลังทำ** (เริ่ม 2026-11-05) | [SSOT 0.3.0 §4.2](../../sprints/sprint-05-ssot.md) |
+| Checkpoint | **C0 · C1 · C2 · C3 ปิดแล้ว** (C3 ปิด 2026-11-04 · T0 T1 T2 `[x]` · T3 ส่งมอบแล้วรอแค่ resolver ของสื่อ Journey ใน C5) · **C4 กำลังทำ** (เริ่ม 2026-11-05 · ชิ้นแรกส่ง PO ตรวจแล้ว · รอความเห็น) | [SSOT 0.3.0 §4.2](../../sprints/sprint-05-ssot.md) |
 | ประวัติ | `main` ยังอยู่ที่ `d3c4c05` ไม่เคย release · PR #19 ถูกใช้แล้ว PR ของ Slice 1 จะเป็น #20 ขึ้นไป | `git log` · GitHub |
 | Runtime | C4 รันบนเครื่อง cloud (Node 22.23.4 · Chromium + Playwright ติดตั้งไว้แล้ว · ต้องตั้ง `git config --local` เป็น T3thr ทุกครั้งที่เปิด session ใหม่) · C3 รันบนเครื่อง Mac ของ PO (Node 22.23.2) และ PO ยืนยัน 1,270/1,270 บนเครื่องหลัก · Ajv 8.17.1 ติดตั้งใน scratchpad ได้ด้วย `npm install` (ไม่ใช่ dependency ของโครงการ) | ตรวจในเครื่อง |
-| Unit | 1,270/1,270 ผ่าน (ปิด C2 ที่ 1,228 · C3 เพิ่ม 42) | `node --test 'tests/unit/**/*.test.js'` |
+| Unit | 1,302/1,302 ผ่าน (ปิด C2 ที่ 1,228 · C3 เพิ่ม 42 · C4 ชิ้นแรกเพิ่ม 32) | `node --test 'tests/unit/**/*.test.js'` |
 | เครื่องมือพิสูจน์ | 5/5 ผ่าน และเรียกกติกาจาก Core ทั้งหมด · balance model 361 วินาที (73 โหนด · 25,337 จุดเข้าศึก · Act 1 จากแพ็กเกจ) · parity gate ไม่ถึง 1 วินาทีในชุด unit | `docs/design-system/evidence/*.mjs` · `tools/clash/clash-parity.mjs` |
 | เนื้อหาปัจจุบัน | Act 1 เรื่องเดิม · schema 2.0.0 · content 3.0.0 · 28 โหนด · โค้ด `src/` ไม่เปลี่ยนตั้งแต่ `d1af293` (มีแค่ README) | อ่านแพ็กเกจ · `git diff` |
 | ขอบเขต Core | TC-S4-ARCH-001 ตรวจ `Math.random(` และ `Date.now(` · TC-S5-STATE-001 ใน `architecture.test.js` ตรวจ `new Date(` และ `performance.now(` (C1) | อ่านเทสต์ |
 | Core ใหม่ (C2) | `src/core/domain/clash/` ผ่าน parity 286,174 ตำแหน่ง · journey domain encounters session play-mode เล่น Act 1 ต้นแบบได้ครบ 30 เส้นทาง · coverage บรรทัด 100% branch 98% (166 เทสต์) | `node tools/clash/clash-parity.mjs --check` · `tests/unit/journey-*.test.js` |
 | ชั้นข้อมูล Journey (C3) | รับแพ็กเกจและ identity · เซฟปิดผนึกใน `jaokob:journey:<package>:*` · ตาราง §3.2 สี่ชั้น · แอป Journey แบบไม่มีหน้าจอ · coverage บรรทัด 100% · mutation 19/19 · คำสั่งพร้อมเซฟ p95 1.6 ms · ซ้อมย้อนกลับกับแอป Sprint 4 ผ่าน | `tests/unit/journey-{package,save,application,legacy-rehearsal}.test.js` |
 | Design input | Mockups v3 13 จอ · พิกัด handoff · glyph SVG ([S5-003](BOARD.md)) | [v3 README](../../design-system/ux-mockups/v3/README.md) |
+| หน้าจอ Journey (C4) | `src/ui/journey/` + `ui/styles/journey-*.css` + presentation และ media ใน `src/data` + `bootstrap/journey-shell.js` · หน้าตรวจของ PO เล่น Act 1 จบด้วยคำสั่งจริง · ตาอยู่บนเส้นตา 42% ทุก viewport · coverage บรรทัด 94–100% | `tests/unit/journey-{media,presentation,renderer,shell}.test.js` · [หน้าตรวจ](../../design-system/evidence/journey-review/index.html) |
 
 ---
 
@@ -58,7 +59,7 @@
 3. รับ view model จาก `journey-application.view()` ผ่าน projection ของชั้น data ที่แปลง text id และ asset id (UX §1.8) · ไม่มีกติกาใน UI · บันทึกเงียบ (แอปคืน `notice` เฉพาะตอนล้ม)
 4. ตารางจุดตาต่อภาพ Tachie 1024×1024 (R23) · เทสต์ยืนยันว่าตาอยู่ในแถบ 52–68% ทุก viewport
 5. หน้าตรวจ `docs/design-system/evidence/journey-review/` นอก release allowlist · เล่น Act 1 บนแอป Journey จริง · ศึก แคมป์ สัมผัส เป็นงาน C5 จึงพาข้ามด้วยคำสั่งจริงของ engine · ไม่มีโค้ดทิ้ง
-6. ชิ้นแรกที่ดูได้ → ภาพจาก Chromium + คำสั่งเปิดบน Mac → **หยุดรอความเห็น PO** ก่อนขยายต่อ
+6. ~~ชิ้นแรกที่ดูได้ → ภาพจาก Chromium + คำสั่งเปิดบน Mac~~ ส่งแล้ว (CR-20261105-1530) → **หยุดรอความเห็น PO** ก่อนขยายต่อ
 7. หลัง PO เห็นชอบทิศทาง: motion · intensity · transparency · forced colors · ตัวอักษร 150/200% (R11) · วัดคอนทราสต์บนพิกเซลจริงของฉาก · `TC-S5-SILENT-001` · e2e 6 viewport × 3 ขนาดตัวอักษร แล้วปิด C4
 
 **ต้องทำใน C5 เพราะ C3 (อย่าลืม)**
@@ -99,7 +100,8 @@
 | R18 | ชื่อไฟล์ Change Record ของ Astra (`CR-20261031-1326-…`) ไม่ตรงรูปแบบ `YYYY-MM-DD-HHmm-<slug>` | แก้พร้อมลิงก์ตอนตัดเล่มกระดาน (ห้ามแก้สารของคนอื่นบนกระดานที่เปิดอยู่) | เปิด |
 | R21 | เซฟต้นแบบผูก digest ของแพ็กเกจ · คอมไพล์บทใหม่แล้วเซฟเดิมกลายเป็น "build อื่น" ที่ถูกเก็บไว้และต้องยินยอมก่อนเริ่มใหม่ | ถูกต้องตาม D7 · แจ้ง PO ก่อนส่งต้นแบบแต่ละรอบ · พิจารณาให้ compiler เตือนเมื่อ digest เปลี่ยนแต่ contentVersion เท่าเดิม (T6) | เปิด · PO รับทราบและเห็นชอบ 2026-11-05 (SSOT §1.2) · คำเตือนของ compiler ยังรอ T6 |
 | R22 | การตีความ D7.3 (พอร์ตกลไก transaction และเกราะ race ของ adapter เดิมเข้า `journey-save-repository.js` แทนการเพิ่มตัวเลือกให้ adapter ที่แช่แข็ง) ยังไม่ผ่าน Antigravity | ถามใน S5-010 (Q11) · **Antigravity เห็นชอบ 2026-11-05** (SSOT §1.2) | ปิด |
-| R23 | ภาพ Tachie ที่มีจริงเป็น 1024×1024 ไม่ใช่ผ้าใบ 2:3 ของฟิสิกส์ v2 §8.1 ตำแหน่งตาจึงต่างกันทุกภาพ | ตารางจุดตาต่อภาพ (มติ C4 · SSOT §1.2) · เทสต์ทุก viewport · เมื่อ Astra ส่งภาพตามผ้าใบมาตรฐานค่อยลดเหลือค่าเดียว | เปิด |
+| R23 | ภาพ Tachie ที่มีจริงเป็น 1024×1024 ไม่ใช่ผ้าใบ 2:3 ของฟิสิกส์ v2 §8.1 ตำแหน่งตาจึงต่างกันทุกภาพ | ตารางจุดตาต่อภาพ (มติ C4) · วัดใหม่ครบ 40 ภาพใน manifest v2 (เดิมเป็นค่าประมาณ ผิดสุด 0.10) · เทสต์ทุก viewport | ลดลง · ภาพใหม่ต้องวัดด้วยวิธีเดียวกัน |
+| R24 | บทขอภาพหันซ้ายสองภาพที่ยังไม่มี (`char_jao_kib_tinker_seed_tube` A1-11 · `char_jao_kab_action_knuckle_tap` A1-12) และ manifest ไม่อนุญาตสะท้อนภาพ | แสดงภาพเดิมไม่สะท้อน · หน้าตรวจแสดงรายการ · แจ้ง Astra ใน S5-012 | เปิด · Slice 2 |
 
 ---
 
@@ -116,6 +118,7 @@
 - **รอ S2/S3:** effect แบบมีเงื่อนไขและ `tempo` ยังไม่อยู่ในคำศัพท์ 3.0.0 แต่ Act 2–5 ต้องใช้ (A3-04 · A3-13 intel · A4-01 · A4-08 · A5-05) · การเปิดแท็บของถาดแบบ "ปรากฏแล้วอยู่ตลอดเกม" (UX §3.3 ข้อ 3) ต้องมีสถานะที่บันทึกได้หรือกติกาที่คำนวณได้ ตัดสินใน T8
 - ระบบเดิมที่ใช้ต่อได้: flag policy (marker · counter · monotonic) ใน `choice-transaction.js` · โดเมนกระเป๋า `keepsake-pouch.js` (capacity 4 · held · acquired · released · remembered · memory) · transaction แบบ staged/canonical/backup ใน `local-storage-adapter.js` · validator JSON Schema 2020-12 ของโครงการ
 - key เดิมของ LocalStorage: `jaokob:save:canonical` · `jaokob:save:staging` · `jaokob:save:backup` · `jaokob:settings` · `jaokob:preferences` (กลายเป็นคลังเซฟเก่าตาม ADR-034 D8)
+- **การตัดสินใจของ session (C4 ชิ้นแรก):** เส้นตาอยู่ที่ 42% ของจอ (กลางแถบ 32–48% ค่อนลงให้ตัวละครเต็มเฟรมขึ้น) · ขนาดตัวละครตามจำนวนและแนวจอ · ศูนย์กลางยืนหน้าด้านข้าง ผู้พูดยืนหน้าสุด · เอวจางเข้าเวทีด้วย mask แทนการตัดแข็ง · fit หรือ flow ตัดสินด้วยการวัดใน fit layout เท่านั้น (ไม่ผูกกับขนาดตัวอักษรตรง ๆ) จึงไม่แกว่ง · ประกาศหนึ่งครั้งต่อ revision · Sarabun มีแค่ Regular จึงปิด font-synthesis · ป้ายชนิดใช้พื้นกระดาษเข้มเพื่อไม่ชิงความหมายของสีทอง `แก้ทาง` · ปุ่มลัดตัวเลขแสดงเฉพาะอุปกรณ์ที่มี pointer ละเอียด · หน้าตรวจใช้ iframe เดียวเพื่อไม่ให้สองสำเนาเขียนเซฟเดียวกัน
 - **การตัดสินใจของ session (C3):** revision คือชื่อของสถานะเรื่อง จึงเขียนเซฟซ้ำที่ revision เดิมได้เฉพาะ metadata (ตั้งค่า เวลา เหตุผล เวลาเล่นที่ไม่ลด) · ตั้งค่าและ suspend จึงไม่ต้องเพิ่ม revision และไม่ยกเลิกการ์ดที่ arm ไว้ (D9.3) · ระเบียนเสียไม่คุ้มครอง (กู้จากช่องที่ดีแล้วเขียนทับตอน commit ถัดไป) ส่วน unknown และ future คุ้มครองทั้ง namespace · SHA-256 เขียนเองแบบ synchronous เพราะ `crypto.subtle` ไม่มีใน context ที่ไม่ปลอดภัย (มือถือผ่าน LAN) · ตรวจตัวตนก่อน schema · ข้อความแจ้งเซฟสำเร็จไม่มี (แอปคืน `notice` เฉพาะตอนล้ม)
 
 ---
@@ -150,3 +153,4 @@
 | 2026-11-04 | PO เปิด session ใหม่ด้วยกฎบัตร continuity · Antigravity อนุมัติ API ของ journey-session และ `restore()` ให้ต่อกับ writer · effect มีเงื่อนไขไป Slice 2 · กติกาแท็บถาดไป T8 | รับทราบ · CR-20261104-0620 |
 | 2026-11-04 | สถาปนิกเลือก C3 ก่อน C4 · repository ของ Journey แยกจาก adapter ที่แช่แข็ง (R22) · namespace สุดท้าย · ปิด C3 · T1 `[x]` | ทำแล้ว · CR-20261104-0620 · SSOT §3.2 |
 | 2026-11-05 | Antigravity ตอบ Q11 (R22 ปิด) · PO เห็นชอบเซฟต้นแบบผูก digest · PO ยืนยัน C3 บนเครื่องหลัก · อนุมัติแผน C4 และการตีความสามข้อ | ทำแล้ว · CR-20261105-1430 · SSOT §1.2 |
+| 2026-11-05 | C4 ชิ้นแรก: ระบบออกแบบ กระจกฝ้า HUD เวที การ์ด และหน้าตรวจของ PO · วัดตารางจุดตาใน manifest v2 ใหม่ | ส่ง PO ตรวจ · CR-20261105-1530 |

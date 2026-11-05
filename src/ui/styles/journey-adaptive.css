@@ -1,0 +1,194 @@
+/*
+ * Journey adaptation: motion, reduced motion and Reduced Intensity, high contrast and forced
+ * colours, narrow and landscape phones, and the one-column flow for 150–200 % text or any
+ * dock that cannot fit below the face band (UX §1.5 · §1.6 · §1.9 · §9, ADR-P0-019).
+ *
+ * Motion runs only when both the system and the player allow it: the renderer writes
+ * `data-motion="reduced"` for the player's setting or the system preference, and the media
+ * query covers the first paint before any script runs.
+ * Trace: ADR-P0-034 D10, UX §1.5 · §1.6 · §9, TC-S5-A11Y-001, TC-S5-VN-001.
+ */
+
+/* ------------------------------------------------------------------ Motion */
+@media (prefers-reduced-motion: no-preference) {
+  .jk-journey[data-motion="full"] .jk-dialogue__text[data-reveal="a"] { animation: jk-line-a 320ms var(--ease-out) both; }
+  .jk-journey[data-motion="full"] .jk-dialogue__text[data-reveal="b"] { animation: jk-line-b 320ms var(--ease-out) both; }
+  .jk-journey[data-motion="full"] .jk-dialogue:not([hidden]),
+  .jk-journey[data-motion="full"] .jk-choices:not([hidden]) { animation: jk-rise var(--t-base) var(--ease-out) both; }
+  .jk-journey[data-motion="full"] .jk-choices:not([hidden]) > .jk-card { animation: jk-card-in 300ms var(--ease-out) both; }
+  .jk-journey[data-motion="full"] .jk-choices > .jk-card:nth-child(2) { animation-delay: 30ms; }
+  .jk-journey[data-motion="full"] .jk-choices > .jk-card:nth-child(3) { animation-delay: 60ms; }
+  .jk-journey[data-motion="full"] .jk-choices > .jk-card:nth-child(4) { animation-delay: 90ms; }
+  .jk-journey[data-motion="full"] .jk-choices > .jk-card:nth-child(5) { animation-delay: 120ms; }
+  .jk-journey[data-motion="full"] .jk-dialogue__next:not([hidden]) .jk-dialogue__next-icon { animation: jk-bob 1.9s var(--ease-soft) infinite; }
+  .jk-journey[data-motion="full"] .jk-toast { animation: jk-toast 2.8s var(--ease-soft) both; }
+  .jk-journey[data-motion="full"] .jk-scene-title { transform: translateY(6px); }
+  .jk-journey[data-motion="full"] .jk-scene-title[data-state="shown"] { transform: translateY(0); }
+}
+
+@keyframes jk-line-a { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+@keyframes jk-line-b { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+@keyframes jk-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes jk-card-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes jk-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
+@keyframes jk-toast {
+  0% { opacity: 0; transform: translateX(-8px); }
+  8% { opacity: 1; transform: none; }
+  86% { opacity: 1; transform: none; }
+  100% { opacity: 0; transform: translateY(-4px); }
+}
+
+/* The scene title fades in 0.4 s, holds, and fades out 0.6 s (UX §1.10) */
+.jk-scene-title {
+  transition: opacity 600ms var(--ease-soft), transform 600ms var(--ease-soft), visibility 0s linear 600ms;
+}
+
+.jk-scene-title[data-state="shown"] {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 400ms var(--ease-soft), transform 520ms var(--ease-out), visibility 0s;
+}
+
+/* Reduced motion: fades of 120 ms, nothing slides, nothing bobs (UX §1.5) */
+.jk-journey[data-motion="reduced"] .jk-actor,
+.jk-journey[data-motion="reduced"] .jk-actor[data-state] { transform: translate(-50%, 0); transition: opacity 120ms linear; }
+.jk-journey[data-motion="reduced"] .jk-stage__bg { transform: none; transition: opacity 120ms linear; }
+.jk-journey[data-motion="reduced"] .jk-scene-title,
+.jk-journey[data-motion="reduced"] .jk-scene-title[data-state="shown"] { transition-duration: 120ms; transition-delay: 0s; }
+.jk-journey[data-motion="reduced"] .jk-card { transition: background-color 120ms linear, outline-color 120ms linear; }
+.jk-journey[data-motion="reduced"] .jk-card:hover,
+.jk-journey[data-motion="reduced"] .jk-card:active { transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .jk-journey .jk-actor,
+  .jk-journey .jk-actor[data-state] { transform: translate(-50%, 0); transition: opacity 120ms linear; }
+  .jk-journey .jk-stage__bg { transform: none; transition: opacity 120ms linear; }
+  .jk-journey .jk-scene-title,
+  .jk-journey .jk-scene-title[data-state="shown"] { transition-duration: 120ms; transition-delay: 0s; transform: none; }
+  .jk-journey .jk-card:hover,
+  .jk-journey .jk-card:active { transform: none; }
+}
+
+/* Reduced Intensity: flashes become dimming and nothing shakes (C5 stage effects read this). */
+.jk-journey[data-intensity="reduced"] { --stage-flash: 0; --stage-shake: 0; }
+
+/* ----------------------------------------------------------- High contrast */
+.jk-journey[data-contrast="high"] {
+  --paper-border: #8d7a52;
+  --ink-muted: #3d5045;
+}
+
+.jk-journey[data-contrast="high"] .jk-card { border: 1.5px solid #6f6040; border-inline-start-width: 4px; }
+.jk-journey[data-contrast="high"] .jk-card[data-available="false"] { filter: none; color: #2f3d34; }
+.jk-journey[data-contrast="high"] .jk-stage__shade { background-color: rgba(8, 15, 11, 0.18); }
+.jk-journey[data-contrast="high"] .jk-dialogue[data-narration="true"] .jk-dialogue__text { color: var(--ink-primary); }
+
+@media (forced-colors: active) {
+  .jk-journey .jk-card,
+  .jk-journey .jk-dialogue,
+  .jk-journey .jk-notice { forced-color-adjust: auto; border: 2px solid CanvasText; }
+  .jk-journey .jk-card[data-available="false"] { border-style: dashed; }
+  .jk-journey .jk-card[data-armed="true"] { outline: 3px solid Highlight; }
+  .jk-journey .jk-tag { background: Canvas; color: CanvasText; border-color: CanvasText; }
+  .jk-journey .jk-pip { forced-color-adjust: none; background: CanvasText; border-color: CanvasText; }
+  .jk-journey .jk-pip--spent { background: Canvas; }
+  .jk-journey .jk-stage__shade { display: none; }
+}
+
+/* ------------------------------------------------------ Narrow phones (≤ 360) */
+@media (max-width: 380px) {
+  .jk-journey { --gutter: 12px; --hud-inset: 12px; }
+  .jk-hud__capsule { inline-size: calc(100vw - 24px); max-inline-size: 358px; gap: 2px; padding-inline: 8px 6px; }
+  .jk-meter { flex-basis: 42px; inline-size: 42px; }
+  .jk-meter__title { gap: 2px; font-size: 12px; }
+  .jk-meter__icon { flex-basis: 13px; inline-size: 13px; block-size: 13px; }
+  .jk-meter__pips { gap: 2px; }
+  .jk-pip { inline-size: 6px; block-size: 6px; }
+  .jk-bonds,
+  .jk-bonds__art { flex-basis: 33px; inline-size: 33px; }
+  .jk-dialogue { padding-inline: 18px 50px; }
+  .jk-scene-title { inset-block-start: 84px; inset-inline: 16px; }
+}
+
+/* ------------------------------------------- Landscape phones (short screens) */
+@media (max-height: 520px) and (orientation: landscape) {
+  .jk-journey {
+    --hud-inset: 12px;
+    --dock-bottom: max(10px, env(safe-area-inset-bottom, 0px));
+    --text-line: calc(17px * var(--jk-font-scale));
+    --text-card: calc(15px * var(--jk-font-scale));
+    --gutter: max(16px, env(safe-area-inset-left, 0px));
+  }
+  .jk-hud-layer { flex-direction: row; align-items: center; gap: 10px; }
+  .jk-dock { inset-inline: max(var(--gutter), calc((100% - 46rem) / 2)); }
+  .jk-dialogue { min-block-size: 0; padding: 26px 56px 14px 20px; }
+  .jk-dialogue[data-narration="true"] { padding-block-start: 14px; }
+  .jk-choices { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: minmax(56px, auto); }
+  .jk-choices[data-count="1"] { grid-template-columns: minmax(0, 1fr); }
+  .jk-card { min-block-size: 56px; padding-block: 8px; }
+  .jk-scene-title { inset-block-start: 12px; inset-inline: auto 20px; text-align: end; }
+  .jk-scene-title__rule { margin-inline-start: auto; background: linear-gradient(270deg, #e2c27f, rgba(226, 194, 127, 0)); }
+  .jk-notice { inset-block-start: 84px; }
+}
+
+/* ------------------------- One-column flow (any dock that cannot fit below the band) */
+.jk-journey[data-overflow="true"] {
+  --flow-stage: clamp(230px, 46svh, 460px);
+  --eye-line: calc(var(--flow-stage) * 0.6);
+  display: flex;
+  flex-direction: column;
+  block-size: auto;
+  min-block-size: 100svh;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+.jk-journey[data-overflow="true"] .jk-stage {
+  position: relative;
+  inset: auto;
+  flex: 0 0 var(--flow-stage);
+  block-size: var(--flow-stage);
+}
+
+.jk-journey[data-overflow="true"] .jk-stage { --actor-size: min(var(--flow-stage), 62vw, 520px); }
+.jk-journey[data-overflow="true"] .jk-stage[data-count="3"] { --actor-size: min(calc(var(--flow-stage) * 0.92), 52vw, 480px); }
+.jk-journey[data-overflow="true"] .jk-stage:is([data-count="4"], [data-count="5"]) { --actor-size: min(calc(var(--flow-stage) * 0.84), 44vw, 440px); }
+
+.jk-journey[data-overflow="true"] .jk-stage__shade {
+  background:
+    linear-gradient(to bottom, rgba(10, 20, 15, 0.62) 0%, rgba(10, 20, 15, 0) 30%),
+    linear-gradient(to top, #12201a 0%, rgba(18, 32, 26, 0.6) 18%, rgba(18, 32, 26, 0) 40%);
+}
+
+.jk-journey[data-overflow="true"] .jk-dock {
+  position: relative;
+  inset: auto;
+  flex: 1 0 auto;
+  justify-content: flex-end;
+  inline-size: 100%;
+  max-inline-size: 52rem;
+  margin: 0 auto;
+  padding: 30px var(--gutter) calc(var(--dock-bottom) + 12px);
+}
+
+.jk-journey[data-overflow="true"] .jk-choices { inline-size: 100%; }
+
+/* Large text: the cost takes its own line under the label instead of overlapping it. */
+.jk-journey[data-text="large"] .jk-card { flex-wrap: wrap; row-gap: 2px; }
+.jk-journey[data-text="large"] .jk-card__cost { position: static; flex: 1 0 100%; text-align: end; line-height: 1.4; }
+.jk-journey[data-text="large"] .jk-card:has(.jk-card__cost:not([hidden])) .jk-card__body { padding-block-end: 0; }
+
+@media (orientation: portrait) {
+  .jk-journey[data-overflow="true"] .jk-choices { grid-template-columns: minmax(0, 1fr); }
+}
+
+.jk-journey[data-overflow="true"] .jk-scene-title {
+  inset-block-start: calc(var(--hud-inset) + 76px);
+}
+
+.jk-journey[data-overflow="true"] .jk-notice {
+  position: relative;
+  inset: auto;
+  order: 3;
+  margin: 0 var(--gutter) 16px;
+}

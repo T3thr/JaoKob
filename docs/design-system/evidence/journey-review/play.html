@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#12201a">
+  <title>เจ้ากบ · ต้นแบบ C4</title>
+  <link rel="preload" href="../../../../assets/fonts/sarabun-thai.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../../../src/ui/styles/journey-tokens.css">
+  <link rel="stylesheet" href="../../../../src/ui/styles/journey-screen.css">
+  <link rel="stylesheet" href="../../../../src/ui/styles/journey-adaptive.css">
+  <link rel="stylesheet" href="review.css">
+</head>
+<body class="jr-play">
+  <!-- The game screen: production modules from src/ (ADR-P0-034 D10). -->
+  <main id="game" class="jr-game" aria-label="เจ้ากบ"></main>
+
+  <!-- Review chrome only (PO review, outside the release allowlist). -->
+  <section id="jr-title" class="jr-panel jr-title" hidden aria-labelledby="jr-title-heading">
+    <p class="jr-badge">หน้าตรวจ C4 · ไม่ใช่หน้าจอของเกม</p>
+    <h1 id="jr-title-heading" class="jr-title__name">เจ้ากบ</h1>
+    <p class="jr-title__sub">Act 1 ต้นแบบที่คอมไพล์จากพิมพ์เขียว · ระบบออกแบบ กระจกฝ้า HUD และเวที</p>
+    <ul id="jr-notices" class="jr-notices"></ul>
+    <div class="jr-actions">
+      <button id="jr-continue" class="jr-button jr-button--primary" type="button" hidden>เล่นต่อจากที่บันทึกไว้</button>
+      <button id="jr-new" class="jr-button" type="button">เริ่มการเดินทาง</button>
+    </div>
+    <p id="jr-consent" class="jr-consent" hidden>มีการเดินทางที่บันทึกไว้ในเบราว์เซอร์นี้ เริ่มใหม่จะแทนที่ข้อมูลนั้น
+      <button id="jr-consent-yes" class="jr-button jr-button--warn" type="button">ยืนยันเริ่มใหม่</button>
+    </p>
+  </section>
+
+  <section id="jr-pending" class="jr-panel jr-pending" hidden aria-live="polite">
+    <p class="jr-badge">หน้าตรวจ C4 · งานของ C5</p>
+    <p id="jr-pending-title" class="jr-pending__title"></p>
+    <p id="jr-pending-note" class="jr-pending__note"></p>
+    <div class="jr-actions">
+      <button id="jr-step" class="jr-button jr-button--primary" type="button">ทำหนึ่งคำสั่ง (ตัวเลือกแรกที่ทำได้)</button>
+      <button id="jr-skip" class="jr-button" type="button">ข้ามทั้งฉาก</button>
+    </div>
+    <p class="jr-pending__fine">ปุ่มนี้ส่งคำสั่งจริงของ engine ผ่านแอป Journey และบันทึกเงียบเหมือนการเล่นจริง</p>
+  </section>
+
+  <section id="jr-end" class="jr-panel jr-pending" hidden>
+    <p class="jr-badge">หน้าตรวจ C4</p>
+    <p class="jr-pending__title">จบ Act 1 ต้นแบบ · ถึงทางเข้า Act 2</p>
+    <p class="jr-pending__note">เนื้อหาหลังจากนี้อยู่หลังกำแพงกันสปอยล์จนกว่าองก์ถัดไปจะ promote</p>
+    <div class="jr-actions">
+      <button id="jr-leave" class="jr-button jr-button--primary" type="button">กลับหน้าแรก</button>
+    </div>
+  </section>
+
+  <dialog id="jr-settings" class="jr-sheet" aria-labelledby="jr-settings-heading">
+    <form method="dialog" class="jr-sheet__body">
+      <p class="jr-badge">หน้าตรวจ C4 · แผงตั้งค่าจริงมาใน C5</p>
+      <h2 id="jr-settings-heading" class="jr-sheet__heading">ตั้งค่าที่ใช้ตรวจ C4</h2>
+      <fieldset class="jr-field">
+        <legend>ขนาดตัวอักษร</legend>
+        <label><input type="radio" name="fontScale" value="1"> 100%</label>
+        <label><input type="radio" name="fontScale" value="1.5"> 150%</label>
+        <label><input type="radio" name="fontScale" value="2"> 200%</label>
+      </fieldset>
+      <label class="jr-check"><input type="checkbox" name="reducedMotion"> ลดการเคลื่อนไหว</label>
+      <label class="jr-check"><input type="checkbox" name="reducedIntensity"> ลดความเข้มแสง (Reduced Intensity)</label>
+      <label class="jr-check"><input type="checkbox" name="highContrast"> คอนทราสต์สูง (พื้นทึบแทนกระจก)</label>
+      <label class="jr-check"><input type="checkbox" name="confirmHighImpactChoices"> ยืนยันทางเลือกสองจังหวะ</label>
+      <p class="jr-pending__fine">ค่าเหล่านี้บันทึกลงเครื่องจริงผ่านแอป Journey · ระบบยังอ่าน prefers-reduced-motion และ prefers-reduced-transparency ของเครื่องด้วย</p>
+      <button class="jr-button jr-button--primary" value="close">ปิด</button>
+    </form>
+  </dialog>
+
+  <dialog id="jr-pouch" class="jr-sheet" aria-labelledby="jr-pouch-heading">
+    <form method="dialog" class="jr-sheet__body">
+      <p class="jr-badge">หน้าตรวจ C4 · กระเป๋าจริงมาใน C5</p>
+      <h2 id="jr-pouch-heading" class="jr-sheet__heading">ในกระเป๋าสาน</h2>
+      <ul id="jr-pouch-list" class="jr-pouch-list"></ul>
+      <button class="jr-button jr-button--primary" value="close">ปิด</button>
+    </form>
+  </dialog>
+
+  <p id="jr-error" class="jr-panel jr-error" role="alert" hidden></p>
+  <div class="jr-band-guide" aria-hidden="true"></div>
+  <script type="module" src="play.js"></script>
+</body>
+</html>

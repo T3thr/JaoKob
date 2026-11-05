@@ -249,3 +249,23 @@ node tests/docs/check-doc-links.mjs
 **ผู้รับไม้ถัดไป:** ผมทำชิ้นแรกที่ดูได้ของ C4 ต่อทันที แล้วส่งภาพจาก Chromium พร้อมคำสั่งเปิดบน Mac ให้ PO ตรวจก่อนขยายต่อ
 
 **— Claude**
+
+---
+
+## [S5-012] | From: Claude (Supreme Core Architect & Lead Game Systems Engineer) | To: PO Theerapat · Senior AI / Astra · Antigravity
+- **Timestamp:** 2026-11-05T15:30:00+07:00
+- **Topic:** C4 ชิ้นแรกพร้อมให้ PO ตรวจบนเบราว์เซอร์จริง · token กระจกฝ้า กระดาษสา HUD เวที การ์ด และหน้าตรวจ
+- **Action Required From Recipient:** PO เปิดหน้าตรวจแล้วให้ความเห็น (ผมหยุดรอก่อนขยายต่อ) · Astra รับทราบภาพหันซ้ายสองภาพที่ยังไม่มี และตารางจุดตาที่วัดใหม่ใน manifest v2 · Antigravity ไม่มีงานค้าง
+- **Branch / PR:** `feat/sprint-05-slice-01-foundations` / ยังไม่เปิด PR
+- **Record:** [CR-20261105-1530](../../changelog/2026-11/2026-11-05-1530-c4-first-look-design-system-glass-hud-stage-and-review-page.md)
+
+- **เปิดดู:** `node tools/dev/serve-review.mjs` แล้วเปิด URL ที่พิมพ์ออกมา · [หน้าตรวจ](../../design-system/evidence/journey-review/index.html) เลือกขนาดจอได้หกแบบและติ๊กเส้นแถบใบหน้า · [เกมเต็มหน้าต่าง](../../design-system/evidence/journey-review/play.html) สำหรับโทรศัพท์ใน Wi-Fi เดียวกัน
+- **ที่ทำแล้ว:** ทุกอย่างในหน้าจอมาจาก `src/` บนแอป Journey ของ C3 · กระจกฝ้าเปลี่ยนเป็นพื้นทึบเองตามมติ C4 · ตัวละครวางด้วยจุดตาจนตาอยู่บนเส้น 42% ของจอทุก viewport · การ์ดตัวเลือกแทนกล่องบทพูดในที่เดิม · ตัวอักษร 150–200% ที่ไม่พอดีกลายเป็นคอลัมน์เดียวเลื่อนทั้งหน้า · ศึก แคมป์ สัมผัส ยังเป็นงาน C5 จึงมีปุ่มส่งคำสั่งจริงของ engine
+- **ถึง Astra:** `stage.eyeAnchorFromTop` ใน manifest v2 เดิมเป็นค่าประมาณ ผมวัดใหม่ทั้ง 40 ภาพ (เปลี่ยน 36 ภาพ) และปรับ `previewHeightFraction` ตามสูตรของ `verify-visual-assets-v2.py` · ไม่แตะไฟล์ภาพหรือ hash · บทขอภาพหันซ้ายที่ยังไม่มีสองภาพ: `char_jao_kib_tinker_seed_tube` (A1-11) และ `char_jao_kab_action_knuckle_tap` (A1-12) · เพิ่มใน Slice 2 พร้อมสี่ภาพที่ alias ไว้ได้
+- **ยังไม่ได้ตรวจ:** สายตา PO · Safari และเครื่องจริง · AT · คอนทราสต์บนพิกเซลจริง · runner ของ `tests/e2e/` · forced colors บนเบราว์เซอร์จริง
+
+**ตรวจแล้ว:** unit 1,302/1,302 · ลิงก์ผ่านทั้งหมด · Chromium หก viewport ไม่มีการเลื่อนแนวนอนและไม่มี error · เล่น Act 1 จนถึงทางเข้า Act 2 ผ่านหน้าตรวจ
+
+**ผู้รับไม้ถัดไป:** PO (ความเห็นต่อภาพและความรู้สึก) · ผมปรับตามความเห็นแล้วทำส่วนที่เหลือของ C4
+
+**— Claude**

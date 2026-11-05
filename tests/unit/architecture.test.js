@@ -38,3 +38,22 @@ test("TC-S5-LEGACY-001 Journey code never names a legacy key, and the legacy arc
   }
 });
 
+
+const journeyScreen = files.filter((path) => path.startsWith(resolve(root, "ui/journey") + "/"));
+const importsOf = (file) => [...readFileSync(file, "utf8").matchAll(/\b(?:import|export)\s[\s\S]*?\bfrom\s*["']([^"']+)["']/g)].map((match) => resolve(dirname(file), match[1]));
+
+test("TC-S5-A11Y-001 Journey screens write text through the DOM only, never as markup or storage", () => {
+  assert.ok(journeyScreen.length >= 9, journeyScreen.join("\n"));
+  for (const file of [...journeyScreen, resolve(root, "bootstrap/journey-shell.js")]) {
+    const source = withoutComments(readFileSync(file, "utf8"));
+    assert.doesNotMatch(source, /\.innerHTML\b|\.outerHTML\b|insertAdjacentHTML|document\.write\b|\beval\(|new Function\(/, file);
+    assert.doesNotMatch(source, /\blocalStorage\b|\bsessionStorage\b/, file);
+  }
+});
+
+test("TC-S5-VN-001 Journey screens import nothing outside src/ui/journey, so no rule can live in the UI", () => {
+  const own = resolve(root, "ui/journey") + "/";
+  for (const file of journeyScreen) for (const target of importsOf(file)) assert.ok(target.startsWith(own), `${file} imports ${target}`);
+  const presentation = resolve(root, "data/content/journey-presentation.js");
+  for (const target of importsOf(presentation)) assert.equal(target.startsWith(resolve(root, "ui") + "/") || target.startsWith(resolve(root, "bootstrap") + "/"), false, target);
+});

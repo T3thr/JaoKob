@@ -69,7 +69,7 @@ const SAVE_NOTICE = Object.freeze({
 export function createJourneyApplication(options = {}) {
   const { packageData, clock = () => new Date().toISOString(), sessionIdFactory = createSessionId } = options;
   const storageOptions = Object.hasOwn(options, "storage") ? { storage: options.storage } : {};
-  let identity = null, session = null, saves = null, settingsStore = null, noticesStore = null;
+  let identity = null, pkg = null, session = null, saves = null, settingsStore = null, noticesStore = null;
   let phase = "unbooted", state = null, settings = JOURNEY_DEFAULT_SETTINGS, title = null;
   let persistence = "memory", wroteSinceLoad = false, lastAt = null;
 
@@ -154,6 +154,7 @@ export function createJourneyApplication(options = {}) {
         return fail(error.code, { ...error.details });
       }
       identity = admitted.value.identity;
+      pkg = admitted.value.package;
       saves = createJourneySaveRepository({ ...storageOptions, identity, admit: (envelope) => Boolean(session.restore({ revision: envelope.revision, payload: envelope.payload })) });
       settingsStore = createJourneySettingsRepository(storageOptions);
       noticesStore = createJourneyNoticesRepository(storageOptions);
@@ -264,6 +265,12 @@ export function createJourneyApplication(options = {}) {
       if (!result.ok) return result;
       if (phase === "title") title = deepFreeze({ ...title, notices: title.notices.filter((notice) => notice !== id) });
       return ok({ acknowledged: id });
+    },
+
+    /** The admitted package and its identity, read by the presentation layer (C4). */
+    content() {
+      if (phase === "unbooted") return fail(E.NOT_BOOTED);
+      return ok({ identity, package: pkg });
     },
 
     view() {

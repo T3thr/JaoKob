@@ -1,0 +1,157 @@
+/**
+ * Journey shell: the screens composed on the headless Journey application (ADR-P0-034 D1/D9/D10).
+ *
+ *   application (C3)  → admits the package, runs the Core session, saves every commit silently
+ *   media index       → asset IDs to same-origin images, keyed by the package identity
+ *   presentation      → the play view in words, images and pips
+ *   renderer          → draws the model and sends the player's commands back here
+ *
+ * Every command goes through `perform`, bound to the revision the player saw, and the result
+ * is drawn again; a rejected command changes nothing. The page lifecycle suspends the clock
+ * and saves when hidden, and wakes it when shown again.
+ *
+ * C4 composes this for the PO review page (`docs/design-system/evidence/journey-review/`);
+ * C5 makes it the game's entry point and adds the title screen and the C5 panels.
+ * Trace: ADR-P0-034 D1/D7/D9/D10, SSOT §1.2 (C4) · §3.1 · §3.3, TC-S5-SILENT-001.
+ */
+
+import { createJourneyMediaIndex } from "../data/assets/journey-media.js";
+import { createJourneyPresentation } from "../data/content/journey-presentation.js";
+import { TH_JOURNEY } from "../data/localization/th-journey.js";
+import { createJourneyRenderer } from "../ui/journey/journey-renderer.js";
+import { createPlainImageLoader } from "../ui/journey/plain-image-loader.js";
+import { createJourneyApplication } from "./journey-application.js";
+
+export const JOURNEY_PACKAGE_PATH = "src/data/content/journey/story-jaokob-core.json";
+export const JOURNEY_MEDIA_MANIFEST_PATH = "assets/images/asset-manifest-v2.json";
+
+/** The application directory (two levels above this module), with its trailing slash. */
+export const journeyBaseUrl = () => new URL("../../", import.meta.url).href;
+
+/**
+ * Read the package and the media manifest from the application directory (same origin only).
+ * @param {{baseUrl?: string, fetch?: typeof fetch}} [options]
+ */
+export async function loadJourneyResources({ baseUrl = journeyBaseUrl(), fetch: fetcher = globalThis.fetch } = {}) {
+  const read = async (path) => {
+    const url = new URL(path, baseUrl);
+    const response = await fetcher(url.href, { credentials: "omit", mode: "same-origin", redirect: "error", cache: "no-cache" });
+    if (!response.ok) throw new Error(`JOURNEY_RESOURCE_${response.status}`);
+    return response.json();
+  };
+  const [packageData, manifest] = await Promise.all([read(JOURNEY_PACKAGE_PATH), read(JOURNEY_MEDIA_MANIFEST_PATH)]);
+  return { packageData, manifest, baseUrl };
+}
+
+/**
+ * @param {{document: Document, root: Element, packageData: unknown, manifest: unknown, baseUrl: string,
+ *   storage?: Storage, clock?: () => string, loadImage?: Function, onChange?: (snapshot: object) => void,
+ *   onPouch?: () => void, onSettings?: () => void}} options
+ */
+export function createJourneyShell(options) {
+  const { document, root, packageData, manifest, baseUrl } = options;
+  const onChange = options.onChange ?? (() => {});
+  const app = createJourneyApplication({
+    packageData,
+    ...(Object.hasOwn(options, "storage") ? { storage: options.storage } : {}),
+    ...(options.clock ? { clock: options.clock } : {}),
+  });
+  let media = null, presentation = null, renderer = null;
+  let phase = "unbooted", model = null, title = null, lastError = null;
+  const view = document.defaultView ?? null;
+
+  const snapshot = () => Object.freeze({ phase, model, title, error: lastError, status: app.status(), gaps: media?.gaps() ?? [] });
+
+  function showTitle(value) {
+    phase = "title";
+    model = null;
+    title = Object.freeze({
+      storage: value.storage,
+      continue: value.continue,
+      needsConsent: value.newGame.needsConsent,
+      offerMemory: value.offerMemory,
+      consentToken: value.consentToken,
+      notices: presentation.notices(value),
+      notice: value.notice === null || value.notice === undefined ? null : presentation.notices({ notices: [value.notice] })[0],
+    });
+    if (renderer !== null) renderer.element.hidden = true;
+  }
+
+  function showPlay(value) {
+    phase = "playing";
+    title = null;
+    model = presentation.present(value);
+    renderer.element.hidden = false;
+    renderer.render(model);
+  }
+
+  /** Draw an application result; a failure leaves the screen as it was. */
+  function accept(result) {
+    lastError = result.ok ? null : result.error;
+    if (result.ok && result.value?.phase === "playing") showPlay(result.value);
+    else if (result.ok && result.value?.phase === "title") showTitle(result.value);
+    onChange(snapshot());
+    return result;
+  }
+
+  function onVisibility() {
+    if (phase !== "playing") return;
+    if (document.visibilityState === "hidden") {
+      const result = app.suspend();
+      if (result.ok && result.value.notice !== null) accept({ ok: true, value: { ...app.view().value, notice: result.value.notice } });
+    } else {
+      app.wake();
+    }
+  }
+
+  function onPageHide() {
+    if (phase === "playing") app.suspend();
+  }
+
+  return Object.freeze({
+    /** Admit the package, build the screens and read the title. */
+    boot() {
+      const booted = app.boot();
+      if (!booted.ok) return accept(booted);
+      const { identity, package: pkg } = app.content().value;
+      media = createJourneyMediaIndex({ manifest, identity, baseUrl });
+      presentation = createJourneyPresentation({ pkg, media, messages: TH_JOURNEY });
+      renderer = createJourneyRenderer({
+        document,
+        root,
+        messages: TH_JOURNEY,
+        loadImage: options.loadImage ?? createPlainImageLoader(),
+        onCommand: (kind, args) => { accept(app.perform(kind, args)); },
+        onPouch: options.onPouch,
+        onSettings: options.onSettings,
+      });
+      renderer.element.hidden = true;
+      document.addEventListener("visibilitychange", onVisibility);
+      view?.addEventListener?.("pagehide", onPageHide);
+      return accept(booted);
+    },
+    newGame(args = {}) { return accept(app.newGame(args)); },
+    continue() { return accept(app.continue()); },
+    leave() { return accept(app.leave()); },
+    /** A command bound to the revision on screen unless `args.revision` says otherwise. */
+    perform(kind, args = {}) {
+      if (model === null) return accept(app.perform(kind, args));
+      return accept(app.perform(kind, { revision: model.revision, ...args }));
+    },
+    changeSettings(patch) { return accept(app.changeSettings(patch)); },
+    acknowledgeNotice(id) {
+      const result = app.acknowledgeNotice(id);
+      if (result.ok && phase === "title") accept(app.view());
+      return result;
+    },
+    /** The latest snapshot: phase, presentation model or title, last error, media gaps. */
+    snapshot,
+    /** The play view of the application (for the review page's engine skip). */
+    view() { return app.view(); },
+    dispose() {
+      document.removeEventListener("visibilitychange", onVisibility);
+      view?.removeEventListener?.("pagehide", onPageHide);
+      renderer?.dispose();
+    },
+  });
+}
