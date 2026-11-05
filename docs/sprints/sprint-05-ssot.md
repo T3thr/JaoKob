@@ -3,8 +3,8 @@
 | Document control | Value |
 |---|---|
 | Sprint / ID | `SPRINT-05` / `JKB-SPRINT-05-SSOT` |
-| Version / date | **0.3.0 / 2026-10-31, Asia/Bangkok** · ปรับสถานะ 2026-11-04 |
-| Status | **Rebaselined ตาม ADR-P0-032 v2.0 · ADR-P0-033 · มติ PO 2026-10-31 · ADR-P0-034 ลงนามครบ 2026-11-04 · Slice 1 checkpoint C0 · C1 · C2 · C3 ปิดแล้ว · ถัดไป C4 · implementation 3/20 tasks (T0 · T1 · T2) · 0/4 execution PRs** |
+| Version / date | **0.3.0 / 2026-10-31, Asia/Bangkok** · ปรับสถานะ 2026-11-05 |
+| Status | **Rebaselined ตาม ADR-P0-032 v2.0 · ADR-P0-033 · มติ PO 2026-10-31 · ADR-P0-034 ลงนามครบ 2026-11-04 · Slice 1 checkpoint C0 · C1 · C2 · C3 ปิดแล้ว · C4 กำลังทำ · implementation 3/20 tasks (T0 · T1 · T2) · 0/4 execution PRs** |
 | Authority | มติ PO 2026-10-31 (§1.2) · [ADR-P0-032 v2.0](../adr/ADR-P0-032-living-fantasy-canon-peuak-miracle-doll-and-vn-stage-blocking.md) · [ADR-P0-033](../adr/ADR-P0-033-interactive-tactical-adventure-gameplay-and-dynamic-stage-revolution.md) · [ADR-P0-022](../adr/ADR-P0-022-visual-novel-ergonomics-living-keepsake-lore-and-sprint-streamlining.md) เฉพาะ UI · Save Format 2 · 4 slices · [ADR-P0-034](../adr/ADR-P0-034-five-act-journey-runtime-save2-journey-profile-and-blueprint-compiled-content.md) (ลงนาม 2026-11-02) |
 | Baseline | `develop@8643a30` · โค้ด runtime ไม่เปลี่ยนตั้งแต่ปิด Sprint 4 ที่ `d1af293` (Act 1 เรื่องเดิม) · Planning ปิดที่ `524e9a5` ([PR #18](https://github.com/T3thr/JaoKob/pull/18)) |
 | Branch / PR | `feat/sprint-05-slice-01-foundations` (PO อนุญาต 2026-10-31) → `develop` · เลข PR จริงจะเป็น #20 ขึ้นไป · contributor `T3thr <t.theerapat33@gmail.com>` |
@@ -51,7 +51,7 @@
 
 Requirement ID ของ Phase 0 (`FR-*` `NFR-*` `GDD-*` `NAR-*`) อยู่ใน Tier 4 แล้ว ฉบับนี้ใช้ต่อเฉพาะเป็นกุญแจย้อนรอยของงบคุณภาพที่ยังมีความหมาย โดยเขียนเกณฑ์ที่วัดได้ไว้ใน §6 · พฤติกรรมใหม่ย้อนรอยไปที่ข้อตัดสินใจของ ADR (`ADR-P0-032 Dn` · `ADR-P0-033 Dn` · `ADR-P0-034 Dn`) และหมวดของมหาพิมพ์เขียว
 
-### 1.2 มติ PO (2026-10-31 · 2026-11-02 · 2026-11-04)
+### 1.2 มติ PO (2026-10-31 · 2026-11-02 · 2026-11-04 · 2026-11-05)
 
 | # | มติ | ผล |
 |---|---|---|
@@ -68,6 +68,10 @@ Requirement ID ของ Phase 0 (`FR-*` `NFR-*` `GDD-*` `NAR-*`) อยู่�
 | ภาพสำรอง (2026-11-04) | ภาพสี่ชิ้นที่ยังไม่มีใน manifest v2 ให้ alias ไปยังภาพที่มีอยู่แล้วไปก่อน Astra วาดภาพจริงใน Slice 2 | `assetAliases` ใน [story.json](../design-system/mechanics/story.json) · compiler ล้มเมื่อภาพจริงเข้า manifest แล้วแต่ alias ยังอยู่ |
 | ฝืนรุก R1 (2026-11-04) | ใส่บรรทัดตอบสนองสำรองที่เป็นธรรมชาติของ `ฝืนรุก` ใน R1 ไปก่อน แล้วเกลาสำนวนใน T6 | [พิมพ์เขียว Act 1](../design-system/act1-living-keepsake-rewrite-blueprint.md) 2.0.1 |
 | C2 (2026-11-04) | เริ่ม checkpoint C2 (T2) เต็มกำลังบน branch เดิม: พอร์ต journey engine และ tactical clash เข้า `src/core/domain` พร้อม parity 100% | §4.2 · §4.3 T2 |
+| Q11 (2026-11-05) | Antigravity เห็นชอบให้ transaction staged → canonical → backup และเกราะ race ของเซฟ Journey อยู่ใน `journey-save-repository.js` แยกจาก `local-storage-adapter.js` ของ Sprint 4 ที่แช่แข็งไว้ เพราะตรงกับ ADR-P0-034 D1.2 และ D7.3 และเมื่อถอด runtime เดิมใน C5 จะเหลือชุดเดียว | การตีความ D7.3 ของ C3 เป็นข้อยุติ · adapter เดิมไม่ถูกแก้จนถูกลบใน C5 |
+| เซฟต้นแบบ (2026-11-05) | PO รับทราบและเห็นชอบว่าเซฟของต้นแบบผูก digest ของแพ็กเกจตาม ADR-P0-034 D7 เมื่อคอมไพล์บทใหม่ เซฟเดิมถูกเก็บไว้ไม่แตะ และเกมขอความยินยอมก่อนเริ่มใหม่ | สถาปนิกแจ้ง PO ก่อนส่งต้นแบบแต่ละรอบ · คำเตือนของ compiler เมื่อ digest เปลี่ยนแต่ contentVersion เท่าเดิมพิจารณาใน T6 |
+| C3 บนเครื่อง PO (2026-11-05) | commit `1753764` อยู่บน `origin/feat/sprint-05-slice-01-foundations` แล้ว เครื่องหลักของ PO ซิงก์และรัน unit 1,270/1,270 ผ่าน | C3 ยืนยันบนเครื่องของ PO |
+| C4 (2026-11-05) | อนุมัติแผน C4 และการตีความสามข้อ: (1) ภาพ Tachie ที่มีจริงเป็น 1024×1024 ไม่ใช่ผ้าใบ 2:3 จึงใช้ตารางจุดตาต่อภาพเพื่อให้ตาอยู่ในแถบใบหน้า 52–68% ทุก viewport (2) วัสดุกระจกเปลี่ยนเป็นพื้นทึบด้วย `prefers-reduced-transparency` · `forced-colors` · ไม่มี `backdrop-filter` และ `highContrast` ที่มีในเซฟอยู่แล้ว ไม่เพิ่มช่องตั้งค่าใน schema (3) `index.html` คงเดิมจนถึง C5 · หน้าตรวจของจริงอยู่ที่ `docs/design-system/evidence/journey-review/` นอก release allowlist เล่น Act 1 บนแอป Journey จริง และพาข้ามศึก แคมป์ และสัมผัสด้วยคำสั่งจริงของ engine | T4 เริ่ม · PO ตรวจชิ้นแรกบนเบราว์เซอร์จริงก่อนขยายต่อ |
 
 เก้าข้อที่อนุมัติ: มนุษย์ได้ยินภาษากบเป็นเสียงอ๊บ · ริบบิ้นเหลืองคือโบว์ผูกผมของเปี๊ยก · `familySkillUses` และ `selfReliance` นับตั้งแต่ Act 2 · ทักษะที่ใช้ซ้ำในศึกได้แสงน้อยลงสองช่องต่อครั้งที่ซ้ำ · Safety Fallback ของ E-POND ให้พี่กับแบกน้องกลับบึง · ฉากจบที่ล็อกแสดงเป็นด้ายจางพร้อมประโยคในเรื่อง · แยก CG-04A กับ CG-04B · เตื๊อกวัดแพทเทิร์นตุ๊กตาไว้ 45 ซม. · สะกด `เปี๊ยก` แบบเดียวทั้งโครงการ
 
@@ -207,7 +211,7 @@ ADR-P0-022 D6 ยังมีผล: **execution PR สี่ตัวเท่�
 | C1 | T1 | schema 3.0.0 · fixture · compiler และ drift gate · สเปกกลไกของ Act 1 · ทะเบียน assertion ที่ถูกแทนที่ | **ปิดแล้ว** · Antigravity เห็นชอบ schema 2026-11-04 · `TC-S5-SCHEMA-001` · `TC-S5-CONTENT-001` · `TC-S5-PACKAGE-001` · การพิสูจน์สองแพ็กเกจเวอร์ชันเดียวกันต้องใช้ identity ของ T3 จึงย้ายไป C3 |
 | C2 | T2 | journey domain · clash kernel/shell · encounters · journey-session · play-mode · evidence เรียกใช้ core | **ปิดแล้ว** 2026-11-04 · `TC-S5-CLASH-001` · `TC-S5-TRAY-001` · `TC-S5-STATE-001` · `TC-S5-ENDING-001` · `TC-S5-BALANCE-001` (Act 1) |
 | C3 | T3 | journey save · composite identity · snapshot ห้าองก์ · namespace เดิมอ่านอย่างเดียว | **ปิดแล้ว** 2026-11-04 · `TC-S5-SAVE-001` · `TC-S5-SAVE-002` · `TC-S5-REPLAY-001` · `TC-S5-LEGACY-001` · `TC-S5-PACKAGE-001` (สองแพ็กเกจเวอร์ชันเดียวกัน ปิด T1) · resolver ของสื่อ Journey ผูก identity ใน C5 |
-| C4 | T4 | ระบบออกแบบ วัสดุกระจกฝ้า HUD และชิ้นส่วนร่วม | `TC-S5-VN-001` · `TC-S5-HUD-001` · `TC-S5-SILENT-001` · `TC-S5-A11Y-001` |
+| C4 | T4 | ระบบออกแบบ วัสดุกระจกฝ้า HUD และชิ้นส่วนร่วม | **กำลังทำ** เริ่ม 2026-11-05 · การตีความสามข้อตาม §1.2 · `TC-S5-VN-001` · `TC-S5-HUD-001` · `TC-S5-SILENT-001` · `TC-S5-A11Y-001` |
 | C5 | T5 | ห้าโหมด · Act 1 ต้นแบบ · harness 13 จอ · ทางเข้าเริ่มเป็น Journey · ลบ runtime เดิม · E2E | `TC-S5-INLINE-001` · `TC-S5-UX-001` · `TC-S5-PRESENTATION-001` · `TC-S5-PROTO-001` |
 
 C4 เริ่มคู่ขนานกับ C2–C3 ได้เพราะ UI รับ view model ตามสัญญา UX §1.8 · checkpoint เป็นลำดับ commit และหลักฐานใน PR เดียว ไม่ใช่ PR เพิ่ม
@@ -325,6 +329,7 @@ node tests/docs/check-doc-links.mjs
 
 | Record | Status |
 |---|---|
+| [CR-20261105-1430](../changelog/2026-11/2026-11-05-1430-po-decisions-q11-prototype-digest-and-c4-start.md) | PO decisions of 2026-11-05 recorded in §1.2: Antigravity confirmed that the Journey save transaction and race guards live in `journey-save-repository.js`, apart from the frozen Sprint 4 adapter (ADR-P0-034 D1.2/D7.3, R22 closed); PO accepted that prototype saves bind to the package digest (D7); `1753764` verified on the PO machine with 1,270/1,270 unit tests; C4 plan and its three interpretations approved (eye-anchor table, solid fallback without a new setting, review page outside the release allowlist). Documentation only; 1,270 unit tests and all doc links pass. T4 started. |
 | [CR-20261104-0620](../changelog/2026-11/2026-11-04-0620-c3-journey-save-identity-and-legacy-archive.md) | C3 closed, T1 done: the data layer admits journey packages with a composite identity and a canonical SHA-256 digest; saves seal with integrity in `jaokob:journey:<package>:*` slots with staged writes, race checks, consent-bound reset and the four record classes of §3.2; a headless Journey application saves every committed command silently, never writes on Resume and plays in memory when a record is protected or storage fails; the legacy namespace stays byte-identical and the real Sprint 4 app resumes its own save after a whole Journey ran on the same storage; two packages of version 0.1.0 never collide. T3 is delivered except the Journey media resolver, which is born on the same identity in C5. Production WBS 3/20 (T0 · T1 · T2). |
 | [CR-20261104-0440](../changelog/2026-11/2026-11-04-0440-c2-evidence-on-core-and-balance-gate.md) | C2 closed, T2 done: the evidence engine is an adapter over Core that still replays the original trace step for step; the balance model takes every rule from Core, plays Act 1 from the compiled package and runs the 14 probes on the Core clash shell with identical results; the simulator and the v3 screen check print the same reports; the v3 delivery verifier passes again by reading outside files at its delivery commit. New Core coverage 100% lines, 98% branches. Production WBS 2/20 (T0 · T2). |
 | [CR-20261104-0420](../changelog/2026-11/2026-11-04-0420-c2-journey-domain-encounters-session-and-play-mode.md) | C2 part 2 (T2 in progress): closed-vocabulary conditions and effects, the three endings with the Safety Fallback, obstacles, camps, micro-actions and pouch offers, the revision-bound journey session and the play-mode machine. The compiled Act 1 package plays from New Game to both Act 2 entries on 30 routes; every state is saveable and restorable; endings equal the balance model on every threshold. Core coverage 99.9% lines, 97% branches. Production WBS 1/20. |

@@ -229,3 +229,23 @@ node tests/docs/check-doc-links.mjs
 **ผู้รับไม้ถัดไป:** Antigravity (Q11) · ผมเริ่ม C4 (ระบบออกแบบ วัสดุกระจกฝ้า HUD) เมื่อ PO สั่ง · T3 ติ๊กใน C5 เมื่อ resolver ของสื่อ Journey เกิดบน identity เดียวกัน
 
 **— Claude**
+
+---
+
+## [S5-011] | From: Claude (Supreme Core Architect & Lead Game Systems Engineer) | To: PO Theerapat · Antigravity · Senior AI / Astra
+- **Timestamp:** 2026-11-05T14:30:00+07:00
+- **Topic:** บันทึกมติ 2026-11-05 แล้ว (Q11 · เซฟต้นแบบผูก digest · C3 บนเครื่อง PO) · PO อนุมัติแผน C4 · เริ่ม C4
+- **Action Required From Recipient:** ไม่มีงานค้างจาก Antigravity และ Astra · PO รอตรวจชิ้นแรกของ C4 บนเบราว์เซอร์ตามข้อความถัดไป
+- **Branch / PR:** `feat/sprint-05-slice-01-foundations` / ยังไม่เปิด PR
+- **Record:** [CR-20261105-1430](../../changelog/2026-11/2026-11-05-1430-po-decisions-q11-prototype-digest-and-c4-start.md)
+
+- **Antigravity (Q11):** เห็นชอบให้ transaction และเกราะ race ของเซฟ Journey อยู่ใน `journey-save-repository.js` แยกจาก adapter ของ Sprint 4 ที่แช่แข็ง ตาม ADR-P0-034 D1.2 และ D7.3 · R22 ปิด · ข้อยุติอยู่ใน [SSOT §1.2](../../sprints/sprint-05-ssot.md)
+- **PO:** เห็นชอบว่าเซฟต้นแบบผูก digest ของแพ็กเกจ (D7) · ซิงก์ `1753764` และรัน unit 1,270/1,270 ผ่านบนเครื่องหลัก
+- **C4 ที่ PO อนุมัติ:** ตารางจุดตาต่อภาพ Tachie 1024×1024 ให้ตาอยู่ในแถบ 52–68% ทุก viewport · กระจกฝ้าเปลี่ยนเป็นพื้นทึบด้วย `prefers-reduced-transparency` · `forced-colors` · `highContrast` ที่มีอยู่แล้ว ไม่เพิ่มช่องตั้งค่า · `index.html` คงเดิมจนถึง C5 · หน้าตรวจของจริงที่ `docs/design-system/evidence/journey-review/` เล่น Act 1 บนแอป Journey และพาข้ามศึก แคมป์ สัมผัส ด้วยคำสั่งจริงของ engine
+- **Astra:** C4 ใช้ glyph ของ v3 และพิกัด handoff ตามที่ส่งมอบใน S5-003 · ไม่ต้องทำอะไรเพิ่ม
+
+**ตรวจแล้ว:** unit 1,270/1,270 · ลิงก์ผ่านทั้งหมด · commit นี้เป็นเอกสารล้วน
+
+**ผู้รับไม้ถัดไป:** ผมทำชิ้นแรกที่ดูได้ของ C4 ต่อทันที แล้วส่งภาพจาก Chromium พร้อมคำสั่งเปิดบน Mac ให้ PO ตรวจก่อนขยายต่อ
+
+**— Claude**

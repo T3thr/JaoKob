@@ -4,8 +4,8 @@
 |---|---|
 | **เจ้าของ** | Claude · Supreme Core Architect & Lead Game Systems Engineer (PO มอบหมาย 2026-10-31) |
 | **ประเภท** | สมุดทำงานของสถาปนิก **ไม่ใช่ข้อกำหนด** ข้อตัดสินใจที่มีผลต้องย้ายไป ADR หรือ [Sprint 5 SSOT](../../sprints/sprint-05-ssot.md) แล้วเหลือแค่ลิงก์ที่นี่ ตาม [กติกากระดาน §5 ข้อ 3](../README.md) |
-| **ฐานที่ตรวจล่าสุด** | `feat/sprint-05-slice-01-foundations` แตกจาก `develop@8643a30` · ตรวจซ้ำที่ `48d476d` และปิด C3 วันที่ 2026-11-04 · `develop` อยู่ที่ commit เอกสารของ C0 (`0f3cd6d`) |
-| **บันทึก** | [CR-20261031-0545](../../changelog/2026-10/2026-10-31-0545-core-architect-onboarding-and-slice-1-plan.md) เปิดสมุด · [CR-20261031-1500](../../changelog/2026-10/2026-10-31-1500-slice-1-c0-ssot-0-3-0-and-adr-034.md) checkpoint C0 · [CR-20261102-1000](../../changelog/2026-11/2026-11-02-1000-adr-034-accepted-and-c1-start.md) ลงนาม ADR และเริ่ม C1 · [CR-20261102-1015](../../changelog/2026-11/2026-11-02-1015-c1-schema-3-0-0-and-superseded-register.md) C1 ช่วงแรก · [CR-20261102-1025](../../changelog/2026-11/2026-11-02-1025-c1-blueprint-compiler-and-act1-prototype-package.md) C1 ช่วงสอง · [CR-20261104-0340](../../changelog/2026-11/2026-11-04-0340-c2-start-po-decisions-asset-aliases-and-r1-grit-line.md) มติ 2026-11-04 และเริ่ม C2 · [CR-20261104-0400](../../changelog/2026-11/2026-11-04-0400-c2-clash-kernel-shell-and-parity-gate.md) clash kernel และ parity gate · [CR-20261104-0420](../../changelog/2026-11/2026-11-04-0420-c2-journey-domain-encounters-session-and-play-mode.md) journey session · [CR-20261104-0440](../../changelog/2026-11/2026-11-04-0440-c2-evidence-on-core-and-balance-gate.md) ปิด C2 · [CR-20261104-0620](../../changelog/2026-11/2026-11-04-0620-c3-journey-save-identity-and-legacy-archive.md) ปิด C3 |
+| **ฐานที่ตรวจล่าสุด** | `feat/sprint-05-slice-01-foundations` แตกจาก `develop@8643a30` · ตรวจซ้ำที่ `48d476d` และปิด C3 ที่ `1753764` วันที่ 2026-11-04 · ตรวจซ้ำที่ `1753764` และเริ่ม C4 วันที่ 2026-11-05 · `develop` อยู่ที่ commit เอกสารของ C0 (`0f3cd6d`) |
+| **บันทึก** | [CR-20261031-0545](../../changelog/2026-10/2026-10-31-0545-core-architect-onboarding-and-slice-1-plan.md) เปิดสมุด · [CR-20261031-1500](../../changelog/2026-10/2026-10-31-1500-slice-1-c0-ssot-0-3-0-and-adr-034.md) checkpoint C0 · [CR-20261102-1000](../../changelog/2026-11/2026-11-02-1000-adr-034-accepted-and-c1-start.md) ลงนาม ADR และเริ่ม C1 · [CR-20261102-1015](../../changelog/2026-11/2026-11-02-1015-c1-schema-3-0-0-and-superseded-register.md) C1 ช่วงแรก · [CR-20261102-1025](../../changelog/2026-11/2026-11-02-1025-c1-blueprint-compiler-and-act1-prototype-package.md) C1 ช่วงสอง · [CR-20261104-0340](../../changelog/2026-11/2026-11-04-0340-c2-start-po-decisions-asset-aliases-and-r1-grit-line.md) มติ 2026-11-04 และเริ่ม C2 · [CR-20261104-0400](../../changelog/2026-11/2026-11-04-0400-c2-clash-kernel-shell-and-parity-gate.md) clash kernel และ parity gate · [CR-20261104-0420](../../changelog/2026-11/2026-11-04-0420-c2-journey-domain-encounters-session-and-play-mode.md) journey session · [CR-20261104-0440](../../changelog/2026-11/2026-11-04-0440-c2-evidence-on-core-and-balance-gate.md) ปิด C2 · [CR-20261104-0620](../../changelog/2026-11/2026-11-04-0620-c3-journey-save-identity-and-legacy-archive.md) ปิด C3 · [CR-20261105-1430](../../changelog/2026-11/2026-11-05-1430-po-decisions-q11-prototype-digest-and-c4-start.md) มติ 2026-11-05 และเริ่ม C4 |
 
 ## 0. วิธีใช้
 
@@ -19,9 +19,9 @@
 
 | เรื่อง | ค่า | วัดอย่างไร |
 |---|---|---|
-| Checkpoint | **C0 · C1 · C2 · C3 ปิดแล้ว** (C3 ปิด 2026-11-04 · T0 T1 T2 `[x]` · T3 ส่งมอบแล้วรอแค่ resolver ของสื่อ Journey ใน C5) · **ถัดไป C4** | [SSOT 0.3.0 §4.2](../../sprints/sprint-05-ssot.md) |
+| Checkpoint | **C0 · C1 · C2 · C3 ปิดแล้ว** (C3 ปิด 2026-11-04 · T0 T1 T2 `[x]` · T3 ส่งมอบแล้วรอแค่ resolver ของสื่อ Journey ใน C5) · **C4 กำลังทำ** (เริ่ม 2026-11-05) | [SSOT 0.3.0 §4.2](../../sprints/sprint-05-ssot.md) |
 | ประวัติ | `main` ยังอยู่ที่ `d3c4c05` ไม่เคย release · PR #19 ถูกใช้แล้ว PR ของ Slice 1 จะเป็น #20 ขึ้นไป | `git log` · GitHub |
-| Runtime | C3 รันบนเครื่อง Mac ของ PO (Node 22.23.2 · worktree ของ desktop app) · รอบก่อนรันบนเครื่อง cloud (Node 22.22.0 · Chromium + Playwright) · Ajv 8.17.1 ติดตั้งใน scratchpad ได้ด้วย `npm install` (ไม่ใช่ dependency ของโครงการ) | ตรวจในเครื่อง |
+| Runtime | C4 รันบนเครื่อง cloud (Node 22.23.4 · Chromium + Playwright ติดตั้งไว้แล้ว · ต้องตั้ง `git config --local` เป็น T3thr ทุกครั้งที่เปิด session ใหม่) · C3 รันบนเครื่อง Mac ของ PO (Node 22.23.2) และ PO ยืนยัน 1,270/1,270 บนเครื่องหลัก · Ajv 8.17.1 ติดตั้งใน scratchpad ได้ด้วย `npm install` (ไม่ใช่ dependency ของโครงการ) | ตรวจในเครื่อง |
 | Unit | 1,270/1,270 ผ่าน (ปิด C2 ที่ 1,228 · C3 เพิ่ม 42) | `node --test 'tests/unit/**/*.test.js'` |
 | เครื่องมือพิสูจน์ | 5/5 ผ่าน และเรียกกติกาจาก Core ทั้งหมด · balance model 361 วินาที (73 โหนด · 25,337 จุดเข้าศึก · Act 1 จากแพ็กเกจ) · parity gate ไม่ถึง 1 วินาทีในชุด unit | `docs/design-system/evidence/*.mjs` · `tools/clash/clash-parity.mjs` |
 | เนื้อหาปัจจุบัน | Act 1 เรื่องเดิม · schema 2.0.0 · content 3.0.0 · 28 โหนด · โค้ด `src/` ไม่เปลี่ยนตั้งแต่ `d1af293` (มีแค่ README) | อ่านแพ็กเกจ · `git diff` |
@@ -51,12 +51,15 @@
 5. ~~`tools/` พร้อม README และแผนที่~~ ทำแล้ว · compiler จะอยู่ที่ `tools/content/`
 6. ~~fixture สองแพ็กเกจเวอร์ชันเดียวกัน~~ ทำแล้วใน C3: Act 1 กับแพ็กเกจจิ๋วเป็น 0.1.0 ทั้งคู่ (CR-20261104-0620)
 
-**C4 (ถัดไป · ต้องให้ PO ตรวจภาพเทียบ v3)**
+**C4 (เริ่ม 2026-11-05 · PO อนุมัติแผนและการตีความสามข้อ · ข้อยุติอยู่ใน SSOT §1.2)**
 
-1. token Atomic 05 + ชั้นวัสดุกระจกฝ้า · คอนทราสต์ ≥ 4.5 : 1 กับฉากหลังที่แย่ที่สุด · พื้นทึบเมื่อไม่มี `backdrop-filter` หรือ `prefers-reduced-transparency` หรือ forced-colors
-2. ชิ้นส่วน `TopHudCapsule` · `VnTachieStage` · `SaaDialogueCard` · `TactileActionCard` · `SceneTitleCard` · ไอคอนจาก glyph ของ v3 · ข้อความผ่าน localization ทั้งหมด
-3. รับ view model จาก `journey-application.view()` ตรง ๆ (UX §1.8) · ไม่มีกติกาใน UI · บันทึกเงียบ (แอปคืน `notice` เฉพาะตอนล้ม)
-4. ภาพหน้าจอ 6 viewport × ตัวอักษร 100/150/200% (R11) แล้วส่ง PO เทียบ v3
+1. token Atomic 05 + ชั้นวัสดุกระจกฝ้า · คอนทราสต์ ≥ 4.5 : 1 กับฉากหลังที่แย่ที่สุด · พื้นทึบเมื่อไม่มี `backdrop-filter` หรือ `prefers-reduced-transparency` หรือ forced-colors หรือเปิด `highContrast` (ไม่เพิ่มช่องตั้งค่าใน schema)
+2. ชิ้นส่วน `TopHudCapsule` · `VnTachieStage` · `SaaDialogueCard` · `TactileActionCard` · `SceneTitleCard` · ไอคอนจาก glyph ของ v3 (คัดลอกเข้า `src/ui/journey/` เพราะโค้ดจริงห้าม import จาก `docs/`) · ข้อความผ่าน localization ทั้งหมด
+3. รับ view model จาก `journey-application.view()` ผ่าน projection ของชั้น data ที่แปลง text id และ asset id (UX §1.8) · ไม่มีกติกาใน UI · บันทึกเงียบ (แอปคืน `notice` เฉพาะตอนล้ม)
+4. ตารางจุดตาต่อภาพ Tachie 1024×1024 (R23) · เทสต์ยืนยันว่าตาอยู่ในแถบ 52–68% ทุก viewport
+5. หน้าตรวจ `docs/design-system/evidence/journey-review/` นอก release allowlist · เล่น Act 1 บนแอป Journey จริง · ศึก แคมป์ สัมผัส เป็นงาน C5 จึงพาข้ามด้วยคำสั่งจริงของ engine · ไม่มีโค้ดทิ้ง
+6. ชิ้นแรกที่ดูได้ → ภาพจาก Chromium + คำสั่งเปิดบน Mac → **หยุดรอความเห็น PO** ก่อนขยายต่อ
+7. หลัง PO เห็นชอบทิศทาง: motion · intensity · transparency · forced colors · ตัวอักษร 150/200% (R11) · วัดคอนทราสต์บนพิกเซลจริงของฉาก · `TC-S5-SILENT-001` · e2e 6 viewport × 3 ขนาดตัวอักษร แล้วปิด C4
 
 **ต้องทำใน C5 เพราะ C3 (อย่าลืม)**
 
@@ -94,8 +97,9 @@
 | R19 | ภาพ 4 ID ที่พิมพ์เขียว Act 1 อ้างยังไม่มีใน manifest v2 (ดู compile-report) | **มติ PO 2026-11-04:** alias ไปยังภาพที่มีอยู่ (`assetAliases` ใน story.json) · Astra วาดภาพจริงใน Slice 2 · compiler ล้มเมื่อภาพจริงเข้า manifest แต่ alias ยังอยู่ | ปิดชั่วคราว · ติดตามใน S2 |
 | R20 | R1 ไม่มีบรรทัดตอบสนองของ `ฝืนรุก` | **มติ PO 2026-11-04:** บรรทัดสำรองในพิมพ์เขียว Act 1 2.0.1 · เกลาใน T6 | ปิด |
 | R18 | ชื่อไฟล์ Change Record ของ Astra (`CR-20261031-1326-…`) ไม่ตรงรูปแบบ `YYYY-MM-DD-HHmm-<slug>` | แก้พร้อมลิงก์ตอนตัดเล่มกระดาน (ห้ามแก้สารของคนอื่นบนกระดานที่เปิดอยู่) | เปิด |
-| R21 | เซฟต้นแบบผูก digest ของแพ็กเกจ · คอมไพล์บทใหม่แล้วเซฟเดิมกลายเป็น "build อื่น" ที่ถูกเก็บไว้และต้องยินยอมก่อนเริ่มใหม่ | ถูกต้องตาม D7 · แจ้ง PO ก่อนส่งต้นแบบแต่ละรอบ · พิจารณาให้ compiler เตือนเมื่อ digest เปลี่ยนแต่ contentVersion เท่าเดิม (T6) | เปิด |
-| R22 | การตีความ D7.3 (พอร์ตกลไก transaction และเกราะ race ของ adapter เดิมเข้า `journey-save-repository.js` แทนการเพิ่มตัวเลือกให้ adapter ที่แช่แข็ง) ยังไม่ผ่าน Antigravity | ถามใน S5-010 (Q11) · ทางเลือกเพิ่มตัวเลือกให้ adapter เดิมทำได้ในขอบเขตจำกัด | เปิด |
+| R21 | เซฟต้นแบบผูก digest ของแพ็กเกจ · คอมไพล์บทใหม่แล้วเซฟเดิมกลายเป็น "build อื่น" ที่ถูกเก็บไว้และต้องยินยอมก่อนเริ่มใหม่ | ถูกต้องตาม D7 · แจ้ง PO ก่อนส่งต้นแบบแต่ละรอบ · พิจารณาให้ compiler เตือนเมื่อ digest เปลี่ยนแต่ contentVersion เท่าเดิม (T6) | เปิด · PO รับทราบและเห็นชอบ 2026-11-05 (SSOT §1.2) · คำเตือนของ compiler ยังรอ T6 |
+| R22 | การตีความ D7.3 (พอร์ตกลไก transaction และเกราะ race ของ adapter เดิมเข้า `journey-save-repository.js` แทนการเพิ่มตัวเลือกให้ adapter ที่แช่แข็ง) ยังไม่ผ่าน Antigravity | ถามใน S5-010 (Q11) · **Antigravity เห็นชอบ 2026-11-05** (SSOT §1.2) | ปิด |
+| R23 | ภาพ Tachie ที่มีจริงเป็น 1024×1024 ไม่ใช่ผ้าใบ 2:3 ของฟิสิกส์ v2 §8.1 ตำแหน่งตาจึงต่างกันทุกภาพ | ตารางจุดตาต่อภาพ (มติ C4 · SSOT §1.2) · เทสต์ทุก viewport · เมื่อ Astra ส่งภาพตามผ้าใบมาตรฐานค่อยลดเหลือค่าเดียว | เปิด |
 
 ---
 
@@ -126,7 +130,7 @@
 | Q8 | PO | ลงนาม ADR-P0-034 | **ตอบแล้ว 2026-11-02**: ลงนามและเริ่ม C1 · ให้เลื่อน `develop` ไปที่ C0 |
 | Q9 | PO | ให้แฟนเล่น Act 1 ต้นแบบตอนจบ S1 เลย หรือรอ Act 1 ที่รับรองแล้วใน S2 | เปิด · ข้อเสนอ: PO เล่นก่อน แล้วตัดสินเอง |
 | Q10 | PO | รุ่น iPhone และ Android ที่ใช้ตรวจจริงใน S4 | เปิด · ถามล่วงหน้าเพื่อนัดเวลา |
-| Q11 | Antigravity | ยืนยันการตีความ ADR-034 D7.3 ของ C3 (R22) | เปิด · ถามใน [S5-010](BOARD.md) |
+| Q11 | Antigravity | ยืนยันการตีความ ADR-034 D7.3 ของ C3 (R22) | **ตอบแล้ว 2026-11-05** (แจ้งผ่าน PO): เห็นชอบ · บันทึกใน [SSOT §1.2](../../sprints/sprint-05-ssot.md) |
 
 ---
 
@@ -145,3 +149,4 @@
 | 2026-11-04 | C2: กติกาย้ายเข้า Core ผ่าน parity gate · journey session · เครื่องมือพิสูจน์เรียก Core · ตัวตรวจส่งมอบ v3 ตรวจที่ commit ส่งมอบ | ทำแล้ว · CR-20261104-0400 · 0420 · 0440 |
 | 2026-11-04 | PO เปิด session ใหม่ด้วยกฎบัตร continuity · Antigravity อนุมัติ API ของ journey-session และ `restore()` ให้ต่อกับ writer · effect มีเงื่อนไขไป Slice 2 · กติกาแท็บถาดไป T8 | รับทราบ · CR-20261104-0620 |
 | 2026-11-04 | สถาปนิกเลือก C3 ก่อน C4 · repository ของ Journey แยกจาก adapter ที่แช่แข็ง (R22) · namespace สุดท้าย · ปิด C3 · T1 `[x]` | ทำแล้ว · CR-20261104-0620 · SSOT §3.2 |
+| 2026-11-05 | Antigravity ตอบ Q11 (R22 ปิด) · PO เห็นชอบเซฟต้นแบบผูก digest · PO ยืนยัน C3 บนเครื่องหลัก · อนุมัติแผน C4 และการตีความสามข้อ | ทำแล้ว · CR-20261105-1430 · SSOT §1.2 |
