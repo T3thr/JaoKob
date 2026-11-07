@@ -6,6 +6,7 @@
 |---|---|---|---|
 | [BOARD.md](BOARD.md) | กระดานสื่อสารของ Sprint 5 | ทุก Agent และ PO | เขียนต่อท้ายเท่านั้น · ห้ามแก้ข้อความของคนอื่น · ตัดเล่มเมื่อเกิน 80 KB หรือ 25 ข้อความ |
 | [core-architect-notebook.md](core-architect-notebook.md) | สมุดทำงานของสถาปนิกแกนกลาง: สถานะที่วัดได้ ช่องว่างทางเทคนิค แผน Slice ความเสี่ยง และคำถามค้าง เพื่อไม่ให้บริบทหายข้ามรอบ | Claude Opus 5.5 (Supreme Core Architect & Lead Game Systems Engineer) | เจ้าของเขียนทับได้ · ไม่ใช่ข้อกำหนด ข้อตัดสินใจที่มีผลต้องอยู่ใน ADR หรือ [Sprint 5 SSOT](../../sprints/sprint-05-ssot.md) · เกิน 40 KB ให้แตกไฟล์ |
+| [core-architect-porting-notes.md](core-architect-porting-notes.md) | ส่วนย่อยของสมุดสถาปนิก §5: สิ่งที่พบจากการอ่านและเขียนโค้ด Core ชั้นเซฟ และหน้าจอ Journey (แยกออก 2026-11-08) | Claude (Supreme Core Architect & Lead Game Systems Engineer) | เหมือนสมุดสถาปนิก · ไม่ใช่ข้อกำหนด |
 
 **กติกาของโฟลเดอร์นี้**
 

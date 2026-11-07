@@ -85,7 +85,7 @@ test("TC-S5-A11Y-001 ▽, a tap on the stage and Space read on with the revision
 test("TC-S5-A11Y-001 a choice arms on the first press and commits on the second, bound to the revision; Escape disarms", () => {
   const { root, document, commands, until } = screen();
   const decision = until((m) => m.scene.nodeId === "a1-06" && m.mode === "DECISION");
-  const cards = byClass(root, "jk-card").filter((card) => !card.hidden);
+  const cards = byClass(oneByClass(root, "jk-choices"), "jk-card").filter((card) => !card.hidden);
   assert.equal(cards.length, 5);
   assert.equal(document.activeElement, cards[0], "focus moves to the first open card");
   assert.equal(oneByClass(root, "jk-dialogue").hidden, true, "the cards take the dialogue card's place");
@@ -105,7 +105,7 @@ test("TC-S5-A11Y-001 a choice arms on the first press and commits on the second,
 test("TC-S5-A11Y-001 with two-step confirmation off a single press commits; every card names its cost in words", () => {
   const { root, commands, until } = screen({ settings: { confirmHighImpactChoices: false } });
   until((m) => m.scene.nodeId === "a1-06" && m.mode === "DECISION");
-  const cards = byClass(root, "jk-card").filter((card) => !card.hidden);
+  const cards = byClass(oneByClass(root, "jk-choices"), "jk-card").filter((card) => !card.hidden);
   const described = cards.map((card) => nodes(root).find((node) => node.id === card.getAttribute("aria-describedby")).textContent);
   assert.match(described[3], /ใช้แรงหนึ่งเม็ด$/);
   assert.equal(byClass(cards[4], "jk-card__cost")[0].textContent, "กาย ●  แรง ●●");
@@ -174,10 +174,10 @@ test("TC-S5-HUD-001 the HUD capsule shows pips, strands and woven cells, with na
   assert.doesNotMatch(hud.textContent, /[0-9]/, "the capsule shows no number");
 });
 
-test("TC-S5-VN-001 C5 modes leave the dock empty and tell the host through data-pending", () => {
+test("TC-S5-VN-001 modes still to come in C5 leave the dock empty and tell the host through data-pending", () => {
   const { root, until } = screen();
-  until((m) => m.mode === "CLASH_CHOOSE");
-  assert.equal(root.getAttribute("data-pending"), "clash");
+  until((m) => m.mode === "CAMP");
+  assert.equal(root.getAttribute("data-pending"), "camp");
   assert.equal(oneByClass(root, "jk-dialogue").hidden, true);
   assert.equal(oneByClass(root, "jk-choices").hidden, true);
 });
@@ -201,4 +201,22 @@ test("TC-S5-VN-001 the plain loader decodes before handing the URL over and fail
   assert.equal(lease.url, descriptor.url);
   lease.release();
   await assert.rejects(createPlainImageLoader({ createImage: fake(512, 512) })(descriptor), /IMAGE_SIZE/);
+});
+
+test("TC-S5-INLINE-001 a clash card arms first, commits clashAct with the revision, and digits pick the basic row", () => {
+  const { root, document, commands, until } = screen();
+  const choose = until((m) => m.mode === "CLASH_CHOOSE");
+  assert.equal(root.getAttribute("data-clash"), "choose");
+  assert.equal(oneByClass(root, "jk-tray").hidden, false);
+  assert.equal(oneByClass(root, "jk-dialogue").hidden, true);
+  assert.equal(document.activeElement.getAttribute("data-key"), "strike", "focus moves to the first card of the tray");
+  const before = commands.length;
+  document.key("2");
+  assert.equal(commands.length, before, "first press arms");
+  document.key("2");
+  assert.deepEqual(commands.at(-1), { kind: "clashAct", args: { action: "guard", revision: choose.revision } });
+  assert.equal(root.getAttribute("data-clash"), "resolve");
+  assert.equal(document.activeElement, oneByClass(root, "jk-dialogue__next"));
+  assert.equal(oneByClass(root, "jk-intent").hidden, false);
+  assert.equal(oneByClass(root, "jk-gauge").hidden, false);
 });

@@ -7,6 +7,8 @@
  *     line inside the protected band (52–68 % from the bottom). CSS owns the geometry through
  *     `--x` and `--eye`; the waist sinks behind the lower dock.
  *   - The speaker is lit 100 %, the others 88 %; narration lights everyone.
+ *   - After a clash the node's CG covers the plate and the cast; during a clash a warm radius
+ *     around the frog follows the light (UX §3.6, rounds without a shadow wall).
  *   - A new plate or a new pose is decoded first and then cross-faded, so nothing pops in
  *     half-drawn; a stale load never resurrects an earlier scene; a failed image leaves the
  *     slot empty and the story goes on.
@@ -30,11 +32,32 @@ export function createVnTachieStage({ document, loadImage, schedule = (callback,
   plate.append(...layers);
   const shade = element(document, "div", "jk-stage__shade");
   const cast = element(document, "div", "jk-stage__cast");
-  root.append(plate, shade, cast);
+  const glow = element(document, "div", "jk-stage__glow");
+  const cg = element(document, "img", "jk-stage__cg", { alt: "", draggable: "false", decoding: "async", "data-shown": "false" });
+  root.append(plate, glow, cast, cg, shade);
 
   let disposed = false;
   let front = 0, backgroundKey = null, backgroundGeneration = 0;
   const leases = [null, null];
+  let cgKey = null, cgGeneration = 0, cgLease = null;
+
+  /** The scene's CG over the plate and the cast (after a clash), cross-faded like the plate. */
+  async function showCg(descriptor) {
+    const key = descriptor?.key ?? null;
+    if (key === cgKey) return;
+    cgKey = key;
+    const generation = ++cgGeneration;
+    if (descriptor === null || descriptor === undefined) { cg.setAttribute("data-shown", "false"); root.setAttribute("data-cg", "false"); return; }
+    let lease = null;
+    try { lease = await loadImage(descriptor); } catch { lease = null; }
+    if (disposed || generation !== cgGeneration) { lease?.release(); return; }
+    cgLease?.release();
+    cgLease = lease;
+    if (lease === null) return;
+    cg.setAttribute("src", lease.url);
+    cg.setAttribute("data-shown", "true");
+    root.setAttribute("data-cg", "true");
+  }
   const actors = new Map();
 
   async function showBackground(descriptor) {
@@ -96,6 +119,7 @@ export function createVnTachieStage({ document, loadImage, schedule = (callback,
     update(scene) {
       if (disposed) return;
       void showBackground(scene.background);
+      void showCg(scene.showCg === true ? scene.cg : null);
       const wanted = new Map(scene.actors.filter((actor) => actor.image !== null).map((actor) => [actor.key, actor]));
       for (const [slot, entry] of [...actors]) {
         const next = wanted.get(slot);
@@ -113,6 +137,8 @@ export function createVnTachieStage({ document, loadImage, schedule = (callback,
       disposed = true;
       backgroundGeneration += 1;
       leases.forEach((lease) => lease?.release());
+      cgGeneration += 1;
+      cgLease?.release();
       for (const entry of actors.values()) { entry.generation += 1; entry.lease?.release(); }
       actors.clear();
     },

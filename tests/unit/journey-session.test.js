@@ -187,10 +187,10 @@ test("TC-S5-STATE-001 the clash runs through intent, choose, resolve and outcome
   const resolved = act1.clashAct(choose, { revision: choose.revision, now: NOW, action: "s_kib" });
   assert.equal(act1.modeOf(resolved.state), "CLASH_RESOLVE");
   assert.equal(act1.view(resolved.state).line.text, "a1-08.p.s_kib");
-  assert.deepEqual(act1.view(resolved.state).clash.resolved, { turn: 1, action: "s_kib", intent: "grow", kind: "sibling" });
+  assert.deepEqual(act1.view(resolved.state).clash.resolved, { turn: 1, action: "s_kib", intent: "grow", kind: "sibling", answered: true });
   assert.equal(resolved.state.payload.history.at(-1).action, "s_kib");
   const intro = until(act1, planned(), "a1-08", "CLASH_INTRO");
-  assert.deepEqual(act1.view(intro).clash, { round: "R1", turns: 3, opening: true, light: 5 });
+  assert.deepEqual(act1.view(intro).clash, { round: "R1", turns: 3, opening: true, light: 5, gauge: { max: 10, holdAt: 7 }, lightSource: false });
 });
 
 test("TC-S5-STATE-001 camps spend drops, keep groups exclusive and only let the frog leave when done", () => {

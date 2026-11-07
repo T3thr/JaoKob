@@ -26,7 +26,7 @@
  * Trace: ADR-P0-034 D1–D3 · D7 · D9, master plan §2, UX §1.7–§1.8, TC-S5-STATE-001, TC-S5-REPLAY-001.
  */
 
-import { ACTIONS } from "../domain/clash/clash-rules.js";
+import { ACTIONS, HOLD_AT, LIGHT_MAX, NO_INTENT, answersIntent } from "../domain/clash/clash-rules.js";
 import { assertRound, closeClash, openClash, playClashTurn } from "../domain/clash/clash-engine.js";
 import { projectClash } from "../domain/clash/clash-tray.js";
 import { campFinished, activityBlock, openCamp, pickActivity, readyCandidates } from "../domain/encounters/camp.js";
@@ -575,12 +575,12 @@ export function createJourneySession(pkg) {
       }
       if (node.type === "clash" && p.encounter !== null) {
         const round = cat.rounds.get(node.round);
-        view.clash = { ...projectClash(round, j, p.encounter), labels: { ...pkg.lexicon.actions, ...node.labels }, intentLabel: pkg.lexicon.intents[round.intents[p.encounter.turn - 1]] };
+        view.clash = { ...projectClash(round, j, p.encounter), labels: { ...pkg.lexicon.actions, ...node.labels }, intentLabel: pkg.lexicon.intents[round.intents[p.encounter.turn - 1]], gauge: { max: LIGHT_MAX, holdAt: HOLD_AT }, lightSource: round.light === true };
         if (mode === "CLASH_RESOLVE") view.clash.resolved = resolvedTurn(round, p.encounter);
       }
       if (mode === "CLASH_INTRO") {
         const round = cat.rounds.get(node.round);
-        view.clash = { round: round.id, turns: round.turns, opening: true, light: openClash(round, j).light };
+        view.clash = { round: round.id, turns: round.turns, opening: true, light: openClash(round, j).light, gauge: { max: LIGHT_MAX, holdAt: HOLD_AT }, lightSource: round.light === true };
       }
       if (mode === "CAMP" || (node.type === "camp" && p.encounter !== null)) {
         view.camp = {
@@ -627,8 +627,12 @@ function spendCost(effects) {
   return cost;
 }
 
-/** The turn that just resolved, re-derived from the saved clash so a reload shows it again. */
+/**
+ * The turn that just resolved, re-derived from the saved clash so a reload shows it again.
+ * `answered`: the chosen card answered that turn's intent (the badge breaks with แก้ทางแล้ว).
+ */
 function resolvedTurn(round, encounter) {
   const turn = encounter.outcome === null ? encounter.turn - 1 : encounter.turn;
-  return { turn, action: encounter.lastAction, intent: round.intents[turn - 1], kind: ACTIONS[encounter.lastAction].kind };
+  const intent = round.intents[turn - 1];
+  return { turn, action: encounter.lastAction, intent, kind: ACTIONS[encounter.lastAction].kind, answered: intent !== NO_INTENT && answersIntent(encounter.lastAction, intent) };
 }

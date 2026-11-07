@@ -57,11 +57,11 @@ test("TC-S5-VN-001 every beat of Act 1 is shown in the package's own words, with
   assert.equal(seen.at(-1).model.pending, "boundary");
 });
 
-test("TC-S5-VN-001 modes the C4 screen does not draw are reported as pending, with no line on the card", () => {
+test("TC-S5-VN-001 modes still to come in C5 are reported as pending, with no line on the card", () => {
   const { seen } = playAll();
   const pendingOf = new Map();
   for (const { model } of seen) if (model.pending !== null) pendingOf.set(model.mode, model.pending);
-  assert.deepEqual(Object.fromEntries(pendingOf), { CLASH_CHOOSE: "clash", CAMP: "camp", MICRO: "micro", BOUNDARY: "boundary" });
+  assert.deepEqual(Object.fromEntries(pendingOf), { CAMP: "camp", MICRO: "micro", BOUNDARY: "boundary" });
   for (const { model } of seen) {
     if (["CLASH_CHOOSE", "CAMP", "MICRO", "BOUNDARY"].includes(model.mode)) assert.equal(model.line, null, model.mode);
     if (["VN", "CLASH_INTRO", "CLASH_INTENT", "CLASH_RESOLVE", "CLASH_OUTCOME"].includes(model.mode) && model.scene.title !== null) assert.equal(model.pending, null);
@@ -73,14 +73,14 @@ test("TC-S5-VN-001 the A1-06 obstacle shows five cards with fixed tag words, pip
   const model = seen.find(({ model: m }) => m.scene.nodeId === "a1-06" && m.mode === "DECISION").model;
   const options = model.decision.options;
   assert.equal(options.length, 5);
-  assert.deepEqual(options.map((o) => o.tag?.text ?? null), ["ทักษะครอบครัว", "ทักษะครอบครัว", "ทักษะครอบครัว", "ยืนหยัดเอง", "ฝืนเอา"]);
-  assert.deepEqual(options.map((o) => o.icon), ["drop", "jump", "eye", "foot", "foot"]);
+  assert.deepEqual(options.map((o) => o.tags[0]?.text ?? null), ["ทักษะครอบครัว", "ทักษะครอบครัว", "ทักษะครอบครัว", "ยืนหยัดเอง", "ฝืนเอา"]);
+  assert.deepEqual(options.map((o) => o.art.icon), ["drop", "jump", "eye", "foot", "foot"]);
   assert.deepEqual(options.map((o) => o.cost.map((c) => `${c.label}${c.pips}`).join("+")), ["", "", "", "แรง1", "กาย1+แรง2"]);
   assert.deepEqual(options.map((o) => o.shortcut), [1, 2, 3, 4, 5]);
-  assert.ok(options.every((o) => o.available && o.reason === null && o.repeat === false), "Act 1 counts no homesickness");
+  assert.ok(options.every((o) => o.available && o.reason === null && o.tags.length === 1), "Act 1 counts no homesickness");
   assert.equal(options[4].description, "จ · ฝืนเอา · พุ่งข้ามไปทั้งที่ยังไม่ได้ดู · ฝืนเอา · ใช้กายหนึ่งเม็ดและแรงสองเม็ด");
   const story = seen.find(({ model: m }) => m.scene.nodeId === "a1-03" && m.mode === "DECISION").model;
-  assert.ok(story.decision.options.every((o) => o.tag === null && o.icon === null && o.cost.length === 0), "story choices carry no method tag");
+  assert.ok(story.decision.options.every((o) => o.tags.length === 0 && o.art.icon === null && o.cost.length === 0), "story choices carry no method tag");
 });
 
 test("TC-S5-HUD-001 the HUD model holds pips, knots and woven cells with every count in words", () => {
@@ -134,4 +134,46 @@ test("TC-S5-A11Y-001 interface words exist for every notice the application can 
   for (const id of Object.values(JOURNEY_APP_NOTICES)) assert.ok(TH_JOURNEY.notices[id], id);
   assert.equal(thaiCount(4), "สี่");
   assert.equal(thaiCount(12), "12");
+});
+
+test("TC-S5-TRAY-001 the R1 clash is shown from Core's view: badge words, gauge, groups, counter tags and the resolve beat", () => {
+  const { seen } = playAll();
+  const clash = seen.filter(({ model }) => model.clash !== null).map(({ model }) => model);
+  assert.deepEqual([...new Set(clash.map((m) => m.clash.beat))], ["intro", "intent", "choose", "resolve", "outcome"]);
+  const choose = clash.find((m) => m.clash.beat === "choose").clash;
+  assert.equal(choose.intent.label, "แมลงสาบแมนเตรียมใช้ · เงาขยาย");
+  assert.deepEqual([choose.max, choose.holdAt, choose.light, choose.turn, choose.turns], [10, 7, 5, 1, 3]);
+  assert.deepEqual(choose.groups.map((g) => g.id), ["basic", "family"]);
+  assert.deepEqual(choose.groups[0].cards.map((c) => [c.label, c.shortcut, c.tags.map((t) => t.text).join("+")]), [["พุ่งชนกลางฝาย", 1, "แก้ทาง"], ["ตั้งหลักบนหินลอย", 2, "แก้ทาง"], ["หลบหลังกอกก", 3, ""]]);
+  assert.ok(choose.groups[1].cards.every((c) => c.shortcut === null));
+  assert.equal(choose.groups[1].cards.find((c) => c.key === "s_kab").art.face.assetId, "char_jao_kab_neutral_proud");
+  assert.equal(choose.description, "เจตนา เงาขยาย · การ์ดแก้ทางอยู่ในท่าหลักและครอบครัว");
+  const resolve = clash.find((m) => m.clash.beat === "resolve").clash;
+  assert.equal(resolve.resolved.turn, 1);
+  assert.equal(resolve.intent.name, "เงาขยาย", "the resolve beat shows the turn that just resolved");
+  const outcome = clash.find((m) => m.clash.beat === "outcome").clash.outcome;
+  assert.ok(["decisive", "hold", "narrow"].includes(outcome.kind));
+  assert.equal(outcome.text, TH_JOURNEY.clash.outcomes[outcome.kind]);
+  assert.doesNotMatch(Object.values(TH_JOURNEY.clash.outcomes).join(), /แพ้/, "no outcome says lost (UX §3.1)");
+  assert.ok(clash.every((m) => m.pending === null));
+});
+
+test("TC-S5-TRAY-001 the แก้ทาง tag follows the player's setting; ซ้ำ and costs never hide", () => {
+  const { app, presentation } = setup();
+  let result = app.newGame();
+  while (result.value.view.mode !== "CLASH_CHOOSE") {
+    const view = result.value.view;
+    const command = PLAN(view);
+    result = app.perform(command.kind, { ...(command.args ?? {}), revision: view.revision });
+  }
+  const off = presentation.present({ ...result.value, settings: { ...result.value.settings, counterTags: false } }).clash;
+  assert.ok(off.groups.every((g) => g.cards.every((c) => !c.tags.some((t) => t.kind === "counter"))));
+  assert.equal(off.groups[0].cards[0].cost.map((c) => c.pips).join(), "2");
+});
+
+test("TC-S5-VN-001 the CG of a clash node shows only after the clash, over its outro lines", () => {
+  const { seen } = playAll();
+  const a108 = seen.filter(({ model }) => model.scene.nodeId === "a1-08").map(({ model }) => model);
+  assert.ok(a108.filter((m) => m.mode === "VN").every((m) => m.scene.showCg === true && m.scene.cg.kind === "cg"));
+  assert.ok(a108.filter((m) => m.mode !== "VN").every((m) => m.scene.showCg === false));
 });

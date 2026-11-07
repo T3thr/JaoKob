@@ -106,7 +106,8 @@
 .jk-stage__cast {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 2;
+  transition: opacity var(--t-plate) var(--ease-soft);
 }
 
 .jk-stage[data-count="3"] { --actor-size: min(54svh, 52vw, 660px); }
@@ -166,7 +167,7 @@
 .jk-stage__shade {
   position: absolute;
   inset: 0;
-  z-index: 3;
+  z-index: 4;
   pointer-events: none;
   background:
     linear-gradient(to bottom, rgba(10, 20, 15, 0.62) 0%, rgba(10, 20, 15, 0.18) 13%, rgba(10, 20, 15, 0) 24%),
@@ -755,6 +756,167 @@
   font-size: calc(14px * var(--jk-font-scale));
 }
 
+/* ------------------------------------------------------------- Clash (C5a) */
+/* A warm radius around the frog follows the light; a cloak of dark eases off the edges as the
+ * light grows (UX §3.6, rounds without a shadow wall). The CG of a clash node comes after it. */
+.jk-stage__glow {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0;
+  background: radial-gradient(circle at var(--hero-x, 50%) var(--eye-line), rgb(255 206 120 / calc(0.14 + 0.3 * var(--light-level, 0))) 0, rgb(255 206 120 / 0) calc(12% + 36% * var(--light-level, 0)));
+  transition: opacity var(--t-plate) var(--ease-soft);
+  pointer-events: none;
+}
+
+.jk-journey[data-clash] .jk-stage__glow { opacity: 1; }
+.jk-journey[data-clash] .jk-stage__shade { box-shadow: inset 0 0 calc(80px + 220px * (1 - var(--light-level, 1))) rgb(12 6 22 / calc(0.72 - 0.5 * var(--light-level, 1))); transition: box-shadow 500ms var(--ease-out); }
+
+.jk-stage__cg {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--t-plate) var(--ease-soft);
+}
+
+.jk-stage__cg[data-shown="true"] { opacity: 1; }
+.jk-stage[data-cg="true"] .jk-stage__cast { opacity: 0; }
+
+/* Intent badge: violet glass under the HUD (phones) or between HUD and gear (wide screens). */
+.jk-clash-top {
+  position: absolute;
+  z-index: 25;
+  inset-block-start: calc(var(--hud-inset) + 72px);
+  inset-inline: var(--gutter);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+}
+
+.jk-intent {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2px 8px;
+  max-inline-size: 40rem;
+  min-block-size: 44px;
+  padding: 6px 16px;
+  border-radius: 22px;
+  font-size: calc(15px * min(var(--jk-font-scale), 1.5));
+  line-height: 1.45;
+  text-align: center;
+}
+
+.jk-intent.jk-glass {
+  background-color: rgb(78 52 126 / 0.88);
+  border-color: rgb(196 174 215 / 0.62);
+}
+
+.jk-journey[data-surface="solid"] .jk-intent.jk-glass { background-color: #4b3278; }
+@media (prefers-reduced-transparency: reduce) { .jk-intent.jk-glass { background-color: #4b3278; } }
+
+.jk-intent__icon { display: block; flex: 0 0 18px; inline-size: 18px; block-size: 18px; color: #d9c7f0; }
+.jk-intent__notes { color: #f2dfa6; font-size: 0.86em; }
+.jk-intent__answered { padding: 0 9px; border: 1px solid var(--ink-primary); border-radius: 999px; background: var(--tag-counter); color: var(--ink-primary); font-size: 0.82em; line-height: 1.6; }
+.jk-intent[data-state="answered"] .jk-intent__text { text-decoration: line-through 1.5px rgb(252 244 227 / 0.7); }
+.jk-intent[data-last="true"] { box-shadow: inset 0 1px 0 var(--glass-highlight), 0 0 0 2px rgb(196 174 215 / 0.35), var(--glass-shadow); }
+
+.jk-intent-preview { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; color: #ded5e9; font-size: 12px; opacity: 0.85; }
+.jk-intent-preview__chip { padding: 0 8px; border: 1px dashed rgb(222 213 233 / 0.6); border-radius: 999px; background: rgb(38 29 56 / 0.6); }
+
+/* Gauge: ten cells, the hold line, the source on the left and the sun on the right. */
+.jk-gauge {
+  position: absolute;
+  z-index: 1;
+  inset-block-start: 0;
+  inset-inline: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  pointer-events: none;
+}
+
+.jk-gauge__rail {
+  position: relative;
+  inline-size: min(100%, 40rem);
+  block-size: 30px;
+  padding: 6px 34px;
+  border-radius: 999px;
+}
+
+.jk-gauge__rail.jk-glass { background-color: rgb(38 29 56 / 0.9); border-color: rgb(182 165 141 / 0.7); }
+.jk-journey[data-surface="solid"] .jk-gauge__rail.jk-glass { background-color: var(--clash-dark); }
+@media (prefers-reduced-transparency: reduce) { .jk-gauge__rail.jk-glass { background-color: var(--clash-dark); } }
+
+.jk-gauge__cells { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 4px; block-size: 16px; }
+
+.jk-gauge__cell {
+  position: relative;
+  display: block;
+  border: 1px solid rgb(166 149 177 / 0.3);
+  border-radius: 3px;
+  background: repeating-linear-gradient(40deg, #5b4a6c 0 1px, #3c2d4b 2px 4px);
+  transition: background 500ms var(--ease-out), box-shadow 500ms var(--ease-out);
+}
+
+.jk-gauge__cell--light { background: repeating-linear-gradient(40deg, #f7d27a 0 1px, var(--clash-light) 2px 4px); box-shadow: 0 0 8px rgb(231 169 59 / 0.4); }
+.jk-gauge__cell[data-hold="true"]::after { content: ""; position: absolute; inset: -6px -4px -6px auto; border-inline-end: 2px dashed var(--paper-bg); }
+.jk-gauge__source,
+.jk-gauge__sun { position: absolute; inset-block-start: 5px; display: block; inline-size: 19px; block-size: 19px; color: var(--clash-light); }
+.jk-gauge__source { inset-inline-start: 8px; }
+.jk-gauge__sun { inset-inline-end: 8px; }
+.jk-gauge__drops { display: flex; gap: 6px; }
+.jk-gauge__drop { display: block; inline-size: 11px; block-size: 14px; color: #e4ebe6; filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.6)); }
+.jk-gauge__drop[data-state="used"] { color: var(--clash-light); fill: var(--clash-light); }
+.jk-gauge__drop[data-state="current"] { color: var(--clash-light); fill: rgb(231 169 59 / 0.35); }
+.jk-gauge__drop[data-state="future"] { opacity: 0.6; }
+
+/* Tray: a row of basic moves and the three groups as tabs over a 2 × 3 well (UX §3.3). */
+.jk-tray { display: flex; flex-direction: column; gap: 8px; }
+.jk-tray__group { min-inline-size: 0; }
+.jk-tray__heading { margin: 0 0 6px; color: var(--paper-bg); font-size: 13px; line-height: 1.5; text-shadow: 0 1px 3px rgb(0 0 0 / 0.6); }
+.jk-tray__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: minmax(64px, auto); gap: 8px; }
+.jk-tray__group[data-group="basic"] .jk-tray__grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); }
+.jk-tray__group[data-group="basic"] .jk-tray__heading { display: none; }
+.jk-tray[data-layout="tabs"] .jk-tray__group:not([data-group="basic"]) .jk-tray__grid { grid-template-rows: repeat(3, 64px); }
+.jk-tray[data-layout="tabs"] .jk-tray__group[data-group="basic"] .jk-card { gap: 4px; padding-inline: 10px 8px; }
+.jk-tray[data-layout="tabs"] .jk-tray__group[data-group="basic"] .jk-card__art { display: none; }
+.jk-tray .jk-card { min-block-size: 56px; padding-block: 8px; }
+.jk-tray .jk-card__label { line-height: 1.4; }
+
+.jk-tray__tabs { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); overflow: hidden; border: 1px solid #b7ad87; border-radius: 12px; background: #162a23; }
+.jk-journey .jk-tray__tab { position: relative; display: flex; align-items: center; justify-content: center; gap: 6px; min-block-size: 44px; padding: 4px 6px; border: 0; background: transparent; color: var(--paper-bg); font-size: 14px; }
+.jk-journey .jk-tray__tab[aria-selected="true"] { background: var(--paper-bg); color: var(--ink-primary); box-shadow: inset 0 -3px #ad8636; }
+.jk-tray__marks { display: inline-flex; align-items: center; gap: 3px; }
+.jk-tray__mark { display: block; }
+.jk-tray__mark[data-mark="counter"] { inline-size: 7px; block-size: 7px; border-radius: 50%; background: var(--tag-counter); box-shadow: 0 0 0 1px #f8e1a8; }
+.jk-tray__mark[data-mark="repeat"] { inline-size: 12px; block-size: 6px; border-block: 1.5px solid #aec5e4; border-radius: 6px; }
+.jk-tray__mark[data-mark="combo"] { inline-size: 14px; border-block-end: 2px dashed var(--tag-combo); }
+
+/* Clash cards: faces, keepsakes, the finisher and the clash tags. */
+.jk-card[data-kind="base"] { --stripe: var(--stripe-choice); }
+.jk-card[data-kind="family"] { --stripe: var(--stripe-family); }
+.jk-card[data-kind="assist"] { --stripe: var(--stripe-friend); }
+.jk-card[data-kind="item"] { --stripe: var(--tag-combo); }
+.jk-card[data-kind="finisher"] { --stripe: var(--tag-combo); background-color: #f9e5b2; background-image: var(--paper-fibre); }
+.jk-card__art[data-art="pair"] { position: relative; }
+.jk-card__face { position: relative; display: block; inline-size: 40px; block-size: 40px; overflow: hidden; border: 1px solid #b5a875; border-radius: 50%; background: #e7ddbf; }
+.jk-card__face-image { position: absolute; inset-inline-start: 50%; inset-block-start: calc(44% - var(--eye) * 250%); inline-size: 250%; max-inline-size: none; transform: translateX(-50%); }
+.jk-card__art[data-art="pair"] .jk-card__face { position: absolute; inset: auto -6px -4px auto; inline-size: 24px; block-size: 24px; border-color: var(--tag-combo); }
+.jk-tag[data-tag="finisher"] { background: #f2c86b; border-color: var(--tag-combo); }
+
+/* The gauge keeps its place in the dock for every beat; flow puts it above the content. */
+.jk-journey[data-overflow="true"] .jk-gauge { position: relative; inset: auto; margin-block-end: 12px; }
+
 /* ------------------------------------------------------- Tablets and wider */
 @media (min-width: 600px) {
   .jk-dock { inset-inline: max(var(--gutter), calc((100% - 48rem) / 2)); }
@@ -799,3 +961,24 @@
   .jk-scene-title__act { font-size: calc(14px * min(var(--jk-font-scale), 1.25)); }
   .jk-scene-title__name { font-size: calc(30px * min(var(--jk-font-scale), 1.25)); }
 }
+
+/* ------------------------------------------------------- Clash on wide screens */
+@media (min-width: 800px) and (min-height: 560px) {
+  .jk-clash-top { inset-block-start: 32px; inset-inline: calc(var(--hud-inset) + 380px) calc(var(--hud-inset) + 72px); }
+  .jk-intent { font-size: calc(17px * min(var(--jk-font-scale), 1.5)); min-block-size: 48px; padding-inline: 18px; border-radius: 24px; }
+  .jk-journey[data-clash] .jk-dock { inset-inline: max(24px, calc((100% - 1352px) / 2)); }
+  .jk-journey[data-clash] .jk-dialogue { inline-size: min(48rem, 100%); margin-inline: auto; }
+  .jk-gauge { inset-block: auto calc(216px + 16px); }
+  .jk-gauge__rail { block-size: 32px; }
+  .jk-tray[data-layout="columns"] { flex-direction: row; justify-content: center; align-items: flex-start; gap: 16px; block-size: 216px; }
+  .jk-tray[data-layout="columns"] .jk-tray__group { flex: 1 1 0; max-inline-size: 438px; }
+  .jk-tray[data-layout="columns"] .jk-tray__group[data-group="basic"] .jk-tray__heading { display: block; }
+  .jk-tray[data-layout="columns"] .jk-tray__group[data-group="basic"] .jk-tray__grid { grid-auto-flow: row; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .jk-tray[data-layout="columns"] .jk-tray__grid { grid-auto-rows: 56px; }
+  .jk-tray[data-layout="columns"] .jk-card { min-block-size: 56px; padding-block: 4px; }
+}
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .jk-clash-top { inset-block-start: 16px; inset-inline: calc(var(--hud-inset) + 316px) calc(var(--hud-inset) + 64px); }
+}
+

@@ -30,6 +30,22 @@ export const TH_JOURNEY = Object.freeze({
     finisher: "ท่าปิดศึก",
     ready: "พร้อมผสาน",
   }),
+  /** Tray groups (UX §3.3). */
+  groups: Object.freeze({ basic: "ท่าหลัก", family: "ครอบครัว", friends: "สหาย", pouch: "ของ·ผสาน" }),
+  /** Clash words: the badge follows v3 screens 3–4; outcomes never say "lost" (UX §3.1). */
+  clash: Object.freeze({
+    intent: (by, name) => `${by}เตรียมใช้ · ${name}`,
+    neutralized: "ไม่มีผล",
+    halved: "เหลือครึ่ง",
+    doubled: "แรงเป็นสองเท่า",
+    answered: "แก้ทางแล้ว",
+    tray: "การกระทำในเทิร์นนี้",
+    gauge: (light, max) => `แสง${thaiCount(light)}จาก${thaiCount(max)}`,
+    turn: (turn, turns) => `เทิร์นที่${thaiCount(turn)}จาก${thaiCount(turns)}`,
+    choose: (intent, groups) => (groups.length === 0 ? `เจตนา ${intent}` : `เจตนา ${intent} · การ์ดแก้ทางอยู่ใน${groups.join("และ")}`),
+    outcomes: Object.freeze({ decisive: "แสงเต็มดวง", hold: "ยันแสงไว้ได้", narrow: "แสงยังไม่ดับ" }),
+    preview: "เจตนาถัดไป",
+  }),
   reasons: Object.freeze({
     "item-missing": "ยังไม่มีของชิ้นนี้ในกระเป๋า",
     "bond-low": "สายใยยังไม่แน่นพอจะขอให้ช่วย",
