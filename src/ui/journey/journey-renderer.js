@@ -55,6 +55,8 @@ export function createJourneyRenderer(options) {
 
   const hudLayer = element(document, "div", "jk-hud-layer");
   hudLayer.append(hud.element, toasts.element);
+  const corner = element(document, "div", "jk-corner");
+  corner.append(hud.settingsButton);
   const dock = element(document, "section", "jk-dock", { "aria-label": messages.ui.game });
   const choices = element(document, "div", "jk-choices", { role: "group", "aria-label": messages.ui.decision, hidden: true, "data-count": "0" });
   const descriptions = element(document, "div", "jk-descriptions", { hidden: true });
@@ -78,7 +80,7 @@ export function createJourneyRenderer(options) {
 
   const stageDescription = element(document, "p", "jk-sr");
   const live = element(document, "p", "jk-sr", { "aria-live": "polite", "aria-atomic": "true" });
-  root.append(stage.element, hudLayer, sceneTitle.element, dock, notice, stageDescription, live);
+  root.append(stage.element, hudLayer, corner, sceneTitle.element, dock, notice, stageDescription, live);
   host.append(root);
 
   let model = null, armed = null, armedRevision = null, lastScene = null, lastAnnounced = null, lastMode = null, lastNotice = null, lastRevision = null, disposed = false;
@@ -168,8 +170,10 @@ export function createJourneyRenderer(options) {
     if (typeof root.getBoundingClientRect !== "function") return;
     root.setAttribute("data-overflow", "false");
     const frame = root.getBoundingClientRect();
-    const top = dock.getBoundingClientRect().top - frame.top;
-    root.setAttribute("data-overflow", top < frame.height * 0.48 + 8 ? "true" : "false");
+    const shown = [dialogue.element, choices].find((node) => !node.hidden);
+    if (shown === undefined) return;
+    const top = shown.getBoundingClientRect().top - frame.top;
+    root.setAttribute("data-overflow", top < frame.height * 0.48 + 7.5 ? "true" : "false");
   }
 
   function render(next) {
@@ -239,7 +243,7 @@ export function createJourneyRenderer(options) {
 
   function onStageClick(event) {
     const target = event.target;
-    if (hudLayer.contains?.(target) || dock.contains?.(target) || notice.contains?.(target)) return;
+    if (hudLayer.contains?.(target) || corner.contains?.(target) || dialogue.element.contains?.(target) || choices.contains?.(target) || notice.contains?.(target)) return;
     advance();
   }
 

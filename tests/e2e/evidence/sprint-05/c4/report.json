@@ -1,0 +1,1829 @@
+{
+  "runner": "tests/e2e/journey-c4-design-system.mjs",
+  "head": "f61314a68bd15ef964f0c8a3a4ee41a3ebd842cb",
+  "requirements": [
+    "TC-S5-VN-001",
+    "TC-S5-HUD-001",
+    "TC-S5-SILENT-001",
+    "TC-S5-A11Y-001"
+  ],
+  "layout": [
+    {
+      "tag": "320x568 text 100% three-on-stage",
+      "mode": "fit",
+      "eyes": [
+        239,
+        239,
+        239
+      ],
+      "band": [
+        182,
+        273
+      ],
+      "dockTop": 401,
+      "scrollWidth": 320
+    },
+    {
+      "tag": "320x568 text 100% five-choices",
+      "mode": "flow",
+      "eyes": [
+        157,
+        157
+      ],
+      "band": [
+        182,
+        273
+      ],
+      "dockTop": 291,
+      "scrollWidth": 320
+    },
+    {
+      "tag": "320x568 text 100% four-on-stage",
+      "mode": "fit",
+      "eyes": [
+        239,
+        239,
+        239,
+        239
+      ],
+      "band": [
+        182,
+        273
+      ],
+      "dockTop": 399,
+      "scrollWidth": 320
+    },
+    {
+      "tag": "320x568 text 150% three-on-stage",
+      "mode": "fit",
+      "eyes": [
+        239,
+        239,
+        239
+      ],
+      "band": [
+        182,
+        273
+      ],
+      "dockTop": 354,
+      "scrollWidth": 320
+    },
+    {
+      "tag": "320x568 text 150% five-choices",
+      "mode": "flow",
+      "eyes": [
+        157,
+        157
+      ],
+      "band": [
+        182,
+        273
+      ],
+      "dockTop": 291,
+      "scrollWidth": 320
+    },
+    {
+      "tag": "320x568 text 150% four-on-stage",
+      "mode": "fit",
+      "eyes": [
+        239,
+        239,
+        239,
+        239
+      ],
+      "band": [
+        182,
+        273
+      ],
+      "dockTop": 281,
+      "scrollWidth": 320
+    },
+    {
+      "tag": "320x568 text 200% three-on-stage",
+      "mode": "fit",
+      "eyes": [
+        239,
+        239,
+        239
+      ],
+      "band": [
+        182,
+        273
+      ],
+      "dockTop": 309,
+      "scrollWidth": 320
+    },
+    {
+      "tag": "320x568 text 200% five-choices",
+      "mode": "flow",
+      "eyes": [
+        157,
+        157
+      ],
+      "band": [
+        182,
+        273
+      ],
+      "dockTop": 291,
+      "scrollWidth": 320
+    },
+    {
+      "tag": "320x568 text 200% four-on-stage",
+      "mode": "fit",
+      "eyes": [
+        239,
+        239,
+        239,
+        239
+      ],
+      "band": [
+        182,
+        273
+      ],
+      "dockTop": 281,
+      "scrollWidth": 320
+    },
+    {
+      "tag": "390x844 text 100% three-on-stage",
+      "mode": "fit",
+      "eyes": [
+        354,
+        354,
+        354
+      ],
+      "band": [
+        270,
+        405
+      ],
+      "dockTop": 677,
+      "scrollWidth": 390
+    },
+    {
+      "tag": "390x844 text 100% five-choices",
+      "mode": "fit",
+      "eyes": [
+        354,
+        354
+      ],
+      "band": [
+        270,
+        405
+      ],
+      "dockTop": 453,
+      "scrollWidth": 390
+    },
+    {
+      "tag": "390x844 text 100% four-on-stage",
+      "mode": "fit",
+      "eyes": [
+        354,
+        354,
+        354,
+        354
+      ],
+      "band": [
+        270,
+        405
+      ],
+      "dockTop": 675,
+      "scrollWidth": 390
+    },
+    {
+      "tag": "390x844 text 150% three-on-stage",
+      "mode": "fit",
+      "eyes": [
+        354,
+        354,
+        354
+      ],
+      "band": [
+        270,
+        405
+      ],
+      "dockTop": 632,
+      "scrollWidth": 390
+    },
+    {
+      "tag": "390x844 text 150% five-choices",
+      "mode": "flow",
+      "eyes": [
+        233,
+        233
+      ],
+      "band": [
+        270,
+        405
+      ],
+      "dockTop": 418,
+      "scrollWidth": 390
+    },
+    {
+      "tag": "390x844 text 150% four-on-stage",
+      "mode": "fit",
+      "eyes": [
+        354,
+        354,
+        354,
+        354
+      ],
+      "band": [
+        270,
+        405
+      ],
+      "dockTop": 585,
+      "scrollWidth": 390
+    },
+    {
+      "tag": "390x844 text 200% three-on-stage",
+      "mode": "fit",
+      "eyes": [
+        354,
+        354,
+        354
+      ],
+      "band": [
+        270,
+        405
+      ],
+      "dockTop": 585,
+      "scrollWidth": 390
+    },
+    {
+      "tag": "390x844 text 200% five-choices",
+      "mode": "flow",
+      "eyes": [
+        233,
+        233
+      ],
+      "band": [
+        270,
+        405
+      ],
+      "dockTop": 418,
+      "scrollWidth": 390
+    },
+    {
+      "tag": "390x844 text 200% four-on-stage",
+      "mode": "fit",
+      "eyes": [
+        354,
+        354,
+        354,
+        354
+      ],
+      "band": [
+        270,
+        405
+      ],
+      "dockTop": 464,
+      "scrollWidth": 390
+    },
+    {
+      "tag": "844x390 text 100% three-on-stage",
+      "mode": "fit",
+      "eyes": [
+        164,
+        164,
+        164
+      ],
+      "band": [
+        125,
+        187
+      ],
+      "dockTop": 283,
+      "scrollWidth": 844
+    },
+    {
+      "tag": "844x390 text 100% five-choices",
+      "mode": "flow",
+      "eyes": [
+        138,
+        138
+      ],
+      "band": [
+        125,
+        187
+      ],
+      "dockTop": 260,
+      "scrollWidth": 844
+    },
+    {
+      "tag": "844x390 text 100% four-on-stage",
+      "mode": "fit",
+      "eyes": [
+        164,
+        164,
+        164,
+        164
+      ],
+      "band": [
+        125,
+        187
+      ],
+      "dockTop": 283,
+      "scrollWidth": 844
+    },
+    {
+      "tag": "844x390 text 150% three-on-stage",
+      "mode": "fit",
+      "eyes": [
+        164,
+        164,
+        164
+      ],
+      "band": [
+        125,
+        187
+      ],
+      "dockTop": 254,
+      "scrollWidth": 844
+    },
+    {
+      "tag": "844x390 text 150% five-choices",
+      "mode": "flow",
+      "eyes": [
+        138,
+        138
+      ],
+      "band": [
+        125,
+        187
+      ],
+      "dockTop": 260,
+      "scrollWidth": 844
+    },
+    {
+      "tag": "844x390 text 150% four-on-stage",
+      "mode": "fit",
+      "eyes": [
+        164,
+        164,
+        164,
+        164
+      ],
+      "band": [
+        125,
+        187
+      ],
+      "dockTop": 252,
+      "scrollWidth": 844
+    },
+    {
+      "tag": "844x390 text 200% three-on-stage",
+      "mode": "fit",
+      "eyes": [
+        164,
+        164,
+        164
+      ],
+      "band": [
+        125,
+        187
+      ],
+      "dockTop": 226,
+      "scrollWidth": 844
+    },
+    {
+      "tag": "844x390 text 200% five-choices",
+      "mode": "flow",
+      "eyes": [
+        138,
+        138
+      ],
+      "band": [
+        125,
+        187
+      ],
+      "dockTop": 260,
+      "scrollWidth": 844
+    },
+    {
+      "tag": "844x390 text 200% four-on-stage",
+      "mode": "fit",
+      "eyes": [
+        164,
+        164,
+        164,
+        164
+      ],
+      "band": [
+        125,
+        187
+      ],
+      "dockTop": 224,
+      "scrollWidth": 844
+    },
+    {
+      "tag": "768x1024 text 100% three-on-stage",
+      "mode": "fit",
+      "eyes": [
+        430,
+        430,
+        430
+      ],
+      "band": [
+        328,
+        492
+      ],
+      "dockTop": 857,
+      "scrollWidth": 768
+    },
+    {
+      "tag": "768x1024 text 100% five-choices",
+      "mode": "fit",
+      "eyes": [
+        430,
+        430
+      ],
+      "band": [
+        328,
+        492
+      ],
+      "dockTop": 652,
+      "scrollWidth": 768
+    },
+    {
+      "tag": "768x1024 text 100% four-on-stage",
+      "mode": "fit",
+      "eyes": [
+        430,
+        430,
+        430,
+        430
+      ],
+      "band": [
+        328,
+        492
+      ],
+      "dockTop": 857,
+      "scrollWidth": 768
+    },
+    {
+      "tag": "768x1024 text 150% three-on-stage",
+      "mode": "fit",
+      "eyes": [
+        430,
+        430,
+        430
+      ],
+      "band": [
+        328,
+        492
+      ],
+      "dockTop": 812,
+      "scrollWidth": 768
+    },
+    {
+      "tag": "768x1024 text 150% five-choices",
+      "mode": "fit",
+      "eyes": [
+        430,
+        430
+      ],
+      "band": [
+        328,
+        492
+      ],
+      "dockTop": 602,
+      "scrollWidth": 768
+    },
+    {
+      "tag": "768x1024 text 150% four-on-stage",
+      "mode": "fit",
+      "eyes": [
+        430,
+        430,
+        430,
+        430
+      ],
+      "band": [
+        328,
+        492
+      ],
+      "dockTop": 812,
+      "scrollWidth": 768
+    },
+    {
+      "tag": "768x1024 text 200% three-on-stage",
+      "mode": "fit",
+      "eyes": [
+        430,
+        430,
+        430
+      ],
+      "band": [
+        328,
+        492
+      ],
+      "dockTop": 767,
+      "scrollWidth": 768
+    },
+    {
+      "tag": "768x1024 text 200% five-choices",
+      "mode": "flow",
+      "eyes": [
+        276,
+        276
+      ],
+      "band": [
+        328,
+        492
+      ],
+      "dockTop": 542,
+      "scrollWidth": 768
+    },
+    {
+      "tag": "768x1024 text 200% four-on-stage",
+      "mode": "fit",
+      "eyes": [
+        430,
+        430,
+        430,
+        430
+      ],
+      "band": [
+        328,
+        492
+      ],
+      "dockTop": 765,
+      "scrollWidth": 768
+    },
+    {
+      "tag": "1440x900 text 100% three-on-stage",
+      "mode": "fit",
+      "eyes": [
+        378,
+        378,
+        378
+      ],
+      "band": [
+        288,
+        432
+      ],
+      "dockTop": 705,
+      "scrollWidth": 1440
+    },
+    {
+      "tag": "1440x900 text 100% five-choices",
+      "mode": "fit",
+      "eyes": [
+        378,
+        378
+      ],
+      "band": [
+        288,
+        432
+      ],
+      "dockTop": 520,
+      "scrollWidth": 1440
+    },
+    {
+      "tag": "1440x900 text 100% four-on-stage",
+      "mode": "fit",
+      "eyes": [
+        378,
+        378,
+        378,
+        378
+      ],
+      "band": [
+        288,
+        432
+      ],
+      "dockTop": 705,
+      "scrollWidth": 1440
+    },
+    {
+      "tag": "1440x900 text 150% three-on-stage",
+      "mode": "fit",
+      "eyes": [
+        378,
+        378,
+        378
+      ],
+      "band": [
+        288,
+        432
+      ],
+      "dockTop": 655,
+      "scrollWidth": 1440
+    },
+    {
+      "tag": "1440x900 text 150% five-choices",
+      "mode": "fit",
+      "eyes": [
+        378,
+        378
+      ],
+      "band": [
+        288,
+        432
+      ],
+      "dockTop": 470,
+      "scrollWidth": 1440
+    },
+    {
+      "tag": "1440x900 text 150% four-on-stage",
+      "mode": "fit",
+      "eyes": [
+        378,
+        378,
+        378,
+        378
+      ],
+      "band": [
+        288,
+        432
+      ],
+      "dockTop": 655,
+      "scrollWidth": 1440
+    },
+    {
+      "tag": "1440x900 text 200% three-on-stage",
+      "mode": "fit",
+      "eyes": [
+        378,
+        378,
+        378
+      ],
+      "band": [
+        288,
+        432
+      ],
+      "dockTop": 604,
+      "scrollWidth": 1440
+    },
+    {
+      "tag": "1440x900 text 200% five-choices",
+      "mode": "flow",
+      "eyes": [
+        248,
+        248
+      ],
+      "band": [
+        288,
+        432
+      ],
+      "dockTop": 444,
+      "scrollWidth": 1440
+    },
+    {
+      "tag": "1440x900 text 200% four-on-stage",
+      "mode": "fit",
+      "eyes": [
+        378,
+        378,
+        378,
+        378
+      ],
+      "band": [
+        288,
+        432
+      ],
+      "dockTop": 602,
+      "scrollWidth": 1440
+    },
+    {
+      "tag": "1920x1080 text 100% three-on-stage",
+      "mode": "fit",
+      "eyes": [
+        454,
+        454,
+        454
+      ],
+      "band": [
+        346,
+        518
+      ],
+      "dockTop": 885,
+      "scrollWidth": 1920
+    },
+    {
+      "tag": "1920x1080 text 100% five-choices",
+      "mode": "fit",
+      "eyes": [
+        454,
+        454
+      ],
+      "band": [
+        346,
+        518
+      ],
+      "dockTop": 700,
+      "scrollWidth": 1920
+    },
+    {
+      "tag": "1920x1080 text 100% four-on-stage",
+      "mode": "fit",
+      "eyes": [
+        454,
+        454,
+        454,
+        454
+      ],
+      "band": [
+        346,
+        518
+      ],
+      "dockTop": 885,
+      "scrollWidth": 1920
+    },
+    {
+      "tag": "1920x1080 text 150% three-on-stage",
+      "mode": "fit",
+      "eyes": [
+        454,
+        454,
+        454
+      ],
+      "band": [
+        346,
+        518
+      ],
+      "dockTop": 835,
+      "scrollWidth": 1920
+    },
+    {
+      "tag": "1920x1080 text 150% five-choices",
+      "mode": "fit",
+      "eyes": [
+        454,
+        454
+      ],
+      "band": [
+        346,
+        518
+      ],
+      "dockTop": 650,
+      "scrollWidth": 1920
+    },
+    {
+      "tag": "1920x1080 text 150% four-on-stage",
+      "mode": "fit",
+      "eyes": [
+        454,
+        454,
+        454,
+        454
+      ],
+      "band": [
+        346,
+        518
+      ],
+      "dockTop": 835,
+      "scrollWidth": 1920
+    },
+    {
+      "tag": "1920x1080 text 200% three-on-stage",
+      "mode": "fit",
+      "eyes": [
+        454,
+        454,
+        454
+      ],
+      "band": [
+        346,
+        518
+      ],
+      "dockTop": 784,
+      "scrollWidth": 1920
+    },
+    {
+      "tag": "1920x1080 text 200% five-choices",
+      "mode": "flow",
+      "eyes": [
+        276,
+        276
+      ],
+      "band": [
+        346,
+        518
+      ],
+      "dockTop": 574,
+      "scrollWidth": 1920
+    },
+    {
+      "tag": "1920x1080 text 200% four-on-stage",
+      "mode": "fit",
+      "eyes": [
+        454,
+        454,
+        454,
+        454
+      ],
+      "band": [
+        346,
+        518
+      ],
+      "dockTop": 782,
+      "scrollWidth": 1920
+    }
+  ],
+  "contrast": [
+    {
+      "viewport": "390x844",
+      "where": "a1-01 willow roots",
+      "kind": "HUD label 1",
+      "minimum": 4.5,
+      "clip": {
+        "x": 54.375,
+        "y": 32,
+        "width": 21.234375,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "กาย",
+      "worst": 11.91
+    },
+    {
+      "viewport": "390x844",
+      "where": "a1-01 willow roots",
+      "kind": "HUD label 2",
+      "minimum": 4.5,
+      "clip": {
+        "x": 114.921875,
+        "y": 32,
+        "width": 12.15625,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "ใจ",
+      "worst": 11.01
+    },
+    {
+      "viewport": "390x844",
+      "where": "a1-01 willow roots",
+      "kind": "HUD label 3",
+      "minimum": 4.5,
+      "clip": {
+        "x": 167.125,
+        "y": 32,
+        "width": 19.734375,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "แรง",
+      "worst": 11.62
+    },
+    {
+      "viewport": "390x844",
+      "where": "a1-01 willow roots",
+      "kind": "dialogue line",
+      "minimum": 7,
+      "clip": {
+        "x": 39,
+        "y": 711.28125,
+        "width": 243.4375,
+        "height": 53.234375
+      },
+      "color": [
+        36,
+        56,
+        45
+      ],
+      "text": "กิ๊บ-กิ๊บ! พี่ ๆ มีอะไรฟ",
+      "worst": 10.34
+    },
+    {
+      "viewport": "390x844",
+      "where": "a1-01 willow roots",
+      "kind": "speaker name",
+      "minimum": 7,
+      "clip": {
+        "x": 79,
+        "y": 666.078125,
+        "width": 19.546875,
+        "height": 21
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "กิบ",
+      "worst": 11.47
+    },
+    {
+      "viewport": "390x844",
+      "where": "a1-03 bamboo dusk",
+      "kind": "HUD label 1",
+      "minimum": 4.5,
+      "clip": {
+        "x": 54.375,
+        "y": 32,
+        "width": 21.234375,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "กาย",
+      "worst": 13
+    },
+    {
+      "viewport": "390x844",
+      "where": "a1-03 bamboo dusk",
+      "kind": "HUD label 2",
+      "minimum": 4.5,
+      "clip": {
+        "x": 114.921875,
+        "y": 32,
+        "width": 12.15625,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "ใจ",
+      "worst": 12.82
+    },
+    {
+      "viewport": "390x844",
+      "where": "a1-03 bamboo dusk",
+      "kind": "HUD label 3",
+      "minimum": 4.5,
+      "clip": {
+        "x": 167.125,
+        "y": 32,
+        "width": 19.734375,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "แรง",
+      "worst": 13.15
+    },
+    {
+      "viewport": "390x844",
+      "where": "a1-03 bamboo dusk",
+      "kind": "card label",
+      "minimum": 7,
+      "clip": {
+        "x": 34,
+        "y": 636.59375,
+        "width": 187.5,
+        "height": 21
+      },
+      "color": [
+        36,
+        56,
+        45
+      ],
+      "text": "ก · นั่งฟังฝนกับพ่อแม่ใต",
+      "worst": 10.86
+    },
+    {
+      "viewport": "390x844",
+      "where": "a1-06 overflow weir",
+      "kind": "HUD label 1",
+      "minimum": 4.5,
+      "clip": {
+        "x": 54.375,
+        "y": 32,
+        "width": 21.234375,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "กาย",
+      "worst": 12.39
+    },
+    {
+      "viewport": "390x844",
+      "where": "a1-06 overflow weir",
+      "kind": "HUD label 2",
+      "minimum": 4.5,
+      "clip": {
+        "x": 114.921875,
+        "y": 32,
+        "width": 12.15625,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "ใจ",
+      "worst": 12.39
+    },
+    {
+      "viewport": "390x844",
+      "where": "a1-06 overflow weir",
+      "kind": "HUD label 3",
+      "minimum": 4.5,
+      "clip": {
+        "x": 167.125,
+        "y": 32,
+        "width": 19.734375,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "แรง",
+      "worst": 12.39
+    },
+    {
+      "viewport": "390x844",
+      "where": "a1-06 overflow weir",
+      "kind": "card label",
+      "minimum": 7,
+      "clip": {
+        "x": 86,
+        "y": 465.8125,
+        "width": 255.296875,
+        "height": 45.796875
+      },
+      "color": [
+        36,
+        56,
+        45
+      ],
+      "text": "ก · ตั้งสติฟังฝน · ฟังว่",
+      "worst": 9.84
+    },
+    {
+      "viewport": "390x844",
+      "where": "a1-06 overflow weir",
+      "kind": "card tag",
+      "minimum": 4.5,
+      "clip": {
+        "x": 282.015625,
+        "y": 446.8125,
+        "width": 69.984375,
+        "height": 15
+      },
+      "color": [
+        36,
+        56,
+        45
+      ],
+      "text": "ทักษะครอบครัว",
+      "worst": 10.2
+    },
+    {
+      "viewport": "390x844",
+      "where": "a1-06 overflow weir",
+      "kind": "card cost",
+      "minimum": 4.5,
+      "clip": {
+        "x": 330.78125,
+        "y": 733,
+        "width": 28.21875,
+        "height": 15
+      },
+      "color": [
+        64,
+        87,
+        70
+      ],
+      "text": "แรง ●",
+      "worst": 6.12
+    },
+    {
+      "viewport": "390x844",
+      "where": "a1-07 overflow weir",
+      "kind": "HUD label 1",
+      "minimum": 4.5,
+      "clip": {
+        "x": 54.375,
+        "y": 32,
+        "width": 21.234375,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "กาย",
+      "worst": 12.39
+    },
+    {
+      "viewport": "390x844",
+      "where": "a1-07 overflow weir",
+      "kind": "HUD label 2",
+      "minimum": 4.5,
+      "clip": {
+        "x": 114.921875,
+        "y": 32,
+        "width": 12.15625,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "ใจ",
+      "worst": 12.39
+    },
+    {
+      "viewport": "390x844",
+      "where": "a1-07 overflow weir",
+      "kind": "HUD label 3",
+      "minimum": 4.5,
+      "clip": {
+        "x": 167.125,
+        "y": 32,
+        "width": 19.734375,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "แรง",
+      "worst": 12.39
+    },
+    {
+      "viewport": "390x844",
+      "where": "a1-07 overflow weir",
+      "kind": "dialogue line",
+      "minimum": 7,
+      "clip": {
+        "x": 39,
+        "y": 709.296875,
+        "width": 275.671875,
+        "height": 83.46875
+      },
+      "color": [
+        44,
+        65,
+        53
+      ],
+      "text": "ปากท่อคอนกรีตฝั่งเมืองพ่",
+      "worst": 8.9
+    },
+    {
+      "viewport": "390x844",
+      "where": "white plate",
+      "kind": "HUD label 1",
+      "minimum": 4.5,
+      "clip": {
+        "x": 54.375,
+        "y": 32,
+        "width": 21.234375,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "กาย",
+      "worst": 8.1
+    },
+    {
+      "viewport": "390x844",
+      "where": "white plate",
+      "kind": "HUD label 2",
+      "minimum": 4.5,
+      "clip": {
+        "x": 114.921875,
+        "y": 32,
+        "width": 12.15625,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "ใจ",
+      "worst": 8.1
+    },
+    {
+      "viewport": "390x844",
+      "where": "white plate",
+      "kind": "HUD label 3",
+      "minimum": 4.5,
+      "clip": {
+        "x": 167.125,
+        "y": 32,
+        "width": 19.734375,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "แรง",
+      "worst": 8.1
+    },
+    {
+      "viewport": "1440x900",
+      "where": "a1-01 willow roots",
+      "kind": "HUD label 1",
+      "minimum": 4.5,
+      "clip": {
+        "x": 66.375,
+        "y": 40,
+        "width": 21.234375,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "กาย",
+      "worst": 10.66
+    },
+    {
+      "viewport": "1440x900",
+      "where": "a1-01 willow roots",
+      "kind": "HUD label 2",
+      "minimum": 4.5,
+      "clip": {
+        "x": 133.921875,
+        "y": 40,
+        "width": 12.15625,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "ใจ",
+      "worst": 10.87
+    },
+    {
+      "viewport": "1440x900",
+      "where": "a1-01 willow roots",
+      "kind": "HUD label 3",
+      "minimum": 4.5,
+      "clip": {
+        "x": 193.125,
+        "y": 40,
+        "width": 19.734375,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "แรง",
+      "worst": 11.43
+    },
+    {
+      "viewport": "1440x900",
+      "where": "a1-01 willow roots",
+      "kind": "dialogue line",
+      "minimum": 7,
+      "clip": {
+        "x": 369,
+        "y": 745.203125,
+        "width": 326.875,
+        "height": 26
+      },
+      "color": [
+        36,
+        56,
+        45
+      ],
+      "text": "กิ๊บ-กิ๊บ! พี่ ๆ มีอะไรฟ",
+      "worst": 10.96
+    },
+    {
+      "viewport": "1440x900",
+      "where": "a1-01 willow roots",
+      "kind": "speaker name",
+      "minimum": 7,
+      "clip": {
+        "x": 407,
+        "y": 693.296875,
+        "width": 20.765625,
+        "height": 22
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "กิบ",
+      "worst": 11.47
+    },
+    {
+      "viewport": "1440x900",
+      "where": "a1-03 bamboo dusk",
+      "kind": "HUD label 1",
+      "minimum": 4.5,
+      "clip": {
+        "x": 66.375,
+        "y": 40,
+        "width": 21.234375,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "กาย",
+      "worst": 12.9
+    },
+    {
+      "viewport": "1440x900",
+      "where": "a1-03 bamboo dusk",
+      "kind": "HUD label 2",
+      "minimum": 4.5,
+      "clip": {
+        "x": 133.921875,
+        "y": 40,
+        "width": 12.15625,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "ใจ",
+      "worst": 12.88
+    },
+    {
+      "viewport": "1440x900",
+      "where": "a1-03 bamboo dusk",
+      "kind": "HUD label 3",
+      "minimum": 4.5,
+      "clip": {
+        "x": 193.125,
+        "y": 40,
+        "width": 19.734375,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "แรง",
+      "worst": 12.3
+    },
+    {
+      "viewport": "1440x900",
+      "where": "a1-03 bamboo dusk",
+      "kind": "card label",
+      "minimum": 7,
+      "clip": {
+        "x": 418,
+        "y": 684.828125,
+        "width": 199.21875,
+        "height": 22
+      },
+      "color": [
+        36,
+        56,
+        45
+      ],
+      "text": "ก · นั่งฟังฝนกับพ่อแม่ใต",
+      "worst": 10.86
+    },
+    {
+      "viewport": "1440x900",
+      "where": "a1-06 overflow weir",
+      "kind": "HUD label 1",
+      "minimum": 4.5,
+      "clip": {
+        "x": 66.375,
+        "y": 40,
+        "width": 21.234375,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "กาย",
+      "worst": 13.32
+    },
+    {
+      "viewport": "1440x900",
+      "where": "a1-06 overflow weir",
+      "kind": "HUD label 2",
+      "minimum": 4.5,
+      "clip": {
+        "x": 133.921875,
+        "y": 40,
+        "width": 12.15625,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "ใจ",
+      "worst": 13.16
+    },
+    {
+      "viewport": "1440x900",
+      "where": "a1-06 overflow weir",
+      "kind": "HUD label 3",
+      "minimum": 4.5,
+      "clip": {
+        "x": 193.125,
+        "y": 40,
+        "width": 19.734375,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "แรง",
+      "worst": 12.79
+    },
+    {
+      "viewport": "1440x900",
+      "where": "a1-06 overflow weir",
+      "kind": "card label",
+      "minimum": 7,
+      "clip": {
+        "x": 470,
+        "y": 540.828125,
+        "width": 302.359375,
+        "height": 22
+      },
+      "color": [
+        36,
+        56,
+        45
+      ],
+      "text": "ก · ตั้งสติฟังฝน · ฟังว่",
+      "worst": 10.86
+    },
+    {
+      "viewport": "1440x900",
+      "where": "a1-06 overflow weir",
+      "kind": "card tag",
+      "minimum": 4.5,
+      "clip": {
+        "x": 948.015625,
+        "y": 514,
+        "width": 69.984375,
+        "height": 15
+      },
+      "color": [
+        36,
+        56,
+        45
+      ],
+      "text": "ทักษะครอบครัว",
+      "worst": 10.2
+    },
+    {
+      "viewport": "1440x900",
+      "where": "a1-06 overflow weir",
+      "kind": "card cost",
+      "minimum": 4.5,
+      "clip": {
+        "x": 996.78125,
+        "y": 781,
+        "width": 28.21875,
+        "height": 15
+      },
+      "color": [
+        64,
+        87,
+        70
+      ],
+      "text": "แรง ●",
+      "worst": 6.18
+    },
+    {
+      "viewport": "1440x900",
+      "where": "a1-07 overflow weir",
+      "kind": "HUD label 1",
+      "minimum": 4.5,
+      "clip": {
+        "x": 66.375,
+        "y": 40,
+        "width": 21.234375,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "กาย",
+      "worst": 13.32
+    },
+    {
+      "viewport": "1440x900",
+      "where": "a1-07 overflow weir",
+      "kind": "HUD label 2",
+      "minimum": 4.5,
+      "clip": {
+        "x": 133.921875,
+        "y": 40,
+        "width": 12.15625,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "ใจ",
+      "worst": 13.16
+    },
+    {
+      "viewport": "1440x900",
+      "where": "a1-07 overflow weir",
+      "kind": "HUD label 3",
+      "minimum": 4.5,
+      "clip": {
+        "x": 193.125,
+        "y": 40,
+        "width": 19.734375,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "แรง",
+      "worst": 12.79
+    },
+    {
+      "viewport": "1440x900",
+      "where": "a1-07 overflow weir",
+      "kind": "dialogue line",
+      "minimum": 7,
+      "clip": {
+        "x": 369,
+        "y": 745.203125,
+        "width": 630.3125,
+        "height": 59.59375
+      },
+      "color": [
+        44,
+        65,
+        53
+      ],
+      "text": "ปากท่อคอนกรีตฝั่งเมืองพ่",
+      "worst": 9.59
+    },
+    {
+      "viewport": "1440x900",
+      "where": "white plate",
+      "kind": "HUD label 1",
+      "minimum": 4.5,
+      "clip": {
+        "x": 66.375,
+        "y": 40,
+        "width": 21.234375,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "กาย",
+      "worst": 8.1
+    },
+    {
+      "viewport": "1440x900",
+      "where": "white plate",
+      "kind": "HUD label 2",
+      "minimum": 4.5,
+      "clip": {
+        "x": 133.921875,
+        "y": 40,
+        "width": 12.15625,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "ใจ",
+      "worst": 8.1
+    },
+    {
+      "viewport": "1440x900",
+      "where": "white plate",
+      "kind": "HUD label 3",
+      "minimum": 4.5,
+      "clip": {
+        "x": 193.125,
+        "y": 40,
+        "width": 19.734375,
+        "height": 17
+      },
+      "color": [
+        252,
+        244,
+        227
+      ],
+      "text": "แรง",
+      "worst": 8.1
+    }
+  ],
+  "media": {
+    "fullMotion": {
+      "motion": "full",
+      "lineAnimation": "jk-line-b",
+      "actorTransition": "0.36s, 0.52s"
+    },
+    "reducedMotion": {
+      "motion": "reduced",
+      "lineAnimation": "none",
+      "actorTransition": "0.12s",
+      "nextAnimation": "none"
+    },
+    "glass": {
+      "backdrop": "blur(12px) saturate(1.35)",
+      "background": "rgba(23, 39, 30, 0.86)"
+    },
+    "reducedTransparency": {
+      "supported": true,
+      "backdrop": "none",
+      "background": "rgb(28, 47, 37)"
+    },
+    "highContrast": {
+      "backdrop": "none",
+      "background": "rgb(28, 47, 37)"
+    },
+    "forcedColors": {
+      "active": true,
+      "paperBackground": "rgb(255, 255, 255)",
+      "paperBorder": "2px",
+      "glassBackdrop": "none"
+    }
+  },
+  "keyboard": {
+    "presses": 24,
+    "decision": "a1-03",
+    "choseRevision": 25,
+    "afterRevision": 26,
+    "focus": "jk-dialogue__next"
+  },
+  "layoutShift": [
+    {
+      "during": "reading, a choice and thirty more lines",
+      "cumulative": 0.0011058228711205418,
+      "sources": [
+        {
+          "value": 0.00002052469135802469,
+          "nodes": [
+            "jk-dialogue__name"
+          ]
+        },
+        {
+          "value": 0.00002052469135802469,
+          "nodes": [
+            "jk-dialogue__name"
+          ]
+        },
+        {
+          "value": 0.00002052469135802469,
+          "nodes": [
+            "jk-dialogue__name"
+          ]
+        },
+        {
+          "value": 0.000021502057613168724,
+          "nodes": [
+            "jk-dialogue__name"
+          ]
+        },
+        {
+          "value": 0.0009557971509559327,
+          "nodes": [
+            "jk-choices",
+            "jk-card jk-paper",
+            "jk-card jk-paper"
+          ]
+        },
+        {
+          "value": 0.00006694958847736626,
+          "nodes": [
+            "jk-dialogue__name"
+          ]
+        }
+      ]
+    }
+  ],
+  "memory": [
+    {
+      "run": 1,
+      "heapBytes": 2771528,
+      "documents": 2,
+      "keydownListeners": 1,
+      "nodes": 240,
+      "actors": 0,
+      "toasts": 3,
+      "node": "a2a-01"
+    },
+    {
+      "run": 2,
+      "heapBytes": 2852416,
+      "documents": 2,
+      "keydownListeners": 1,
+      "nodes": 240,
+      "actors": 0,
+      "toasts": 3,
+      "node": "a2a-01"
+    },
+    {
+      "run": 3,
+      "heapBytes": 2927620,
+      "documents": 2,
+      "keydownListeners": 1,
+      "nodes": 240,
+      "actors": 0,
+      "toasts": 3,
+      "node": "a2a-01"
+    }
+  ],
+  "screenshots": [
+    "320x568-text100-three-on-stage.jpg",
+    "320x568-text100-five-choices.jpg",
+    "320x568-text150-five-choices.jpg",
+    "320x568-text200-five-choices.jpg",
+    "390x844-text100-three-on-stage.jpg",
+    "390x844-text100-five-choices.jpg",
+    "390x844-text150-five-choices.jpg",
+    "390x844-text200-five-choices.jpg",
+    "844x390-text100-three-on-stage.jpg",
+    "844x390-text100-five-choices.jpg",
+    "844x390-text150-five-choices.jpg",
+    "844x390-text200-five-choices.jpg",
+    "768x1024-text100-three-on-stage.jpg",
+    "768x1024-text100-five-choices.jpg",
+    "768x1024-text150-five-choices.jpg",
+    "768x1024-text200-five-choices.jpg",
+    "1440x900-text100-three-on-stage.jpg",
+    "1440x900-text100-five-choices.jpg",
+    "1440x900-text150-five-choices.jpg",
+    "1440x900-text200-five-choices.jpg",
+    "1920x1080-text100-three-on-stage.jpg",
+    "1920x1080-text100-five-choices.jpg",
+    "1920x1080-text150-five-choices.jpg",
+    "1920x1080-text200-five-choices.jpg",
+    "390x844-forced-colors.jpg"
+  ],
+  "failures": [],
+  "errors": [],
+  "notRun": [
+    "Safari/WebKit and Firefox",
+    "physical iPhone and Android",
+    "VoiceOver and NVDA listening",
+    "PO visual acceptance",
+    "a browser without backdrop-filter (covered by the @supports rule)"
+  ],
+  "browser": "153.0.8010.12",
+  "silentSave": {
+    "notice": false,
+    "keys": [
+      "jaokob:journey:story.jaokob.core:backup",
+      "jaokob:journey:story.jaokob.core:canonical"
+    ],
+    "live": "แมลงสาบแมน: เพราะคนที่ตั้งชื่อนี้ให้ข้า เขาหัวเราะตอนพูด แล้วแม่หนูนั่นก็หัวเราะตาม ข้าเกลียดเสียงหัวเราะนั่นที่สุด"
+  },
+  "summary": {
+    "layoutChecks": 54,
+    "contrastChecks": 44,
+    "worstDialogue": 8.9,
+    "worstHud": 8.1,
+    "failures": 0
+  }
+}

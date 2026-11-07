@@ -144,15 +144,16 @@
 .jk-actor[data-slot="center"] { z-index: 2; }
 .jk-actor[data-speaking="true"] { z-index: 3; }
 
-/* The waist fades into the lower stage instead of ending on a hard edge. */
+/* The waist fades into the lower stage instead of ending on a hard edge; the fade starts at
+ * 82 % so an actor in front stays opaque where it overlaps the one behind (PO 2026-11-07). */
 .jk-actor__image {
   display: block;
   inline-size: 100%;
   block-size: 100%;
   object-fit: contain;
   filter: drop-shadow(0 14px 16px rgba(4, 12, 9, 0.42));
-  -webkit-mask-image: linear-gradient(to bottom, #000 72%, rgba(0, 0, 0, 0) 98%);
-  mask-image: linear-gradient(to bottom, #000 72%, rgba(0, 0, 0, 0) 98%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 82%, rgba(0, 0, 0, 0) 98%);
+  mask-image: linear-gradient(to bottom, #000 82%, rgba(0, 0, 0, 0) 98%);
   transition: filter var(--t-base) var(--ease-soft);
   user-select: none;
 }
@@ -191,11 +192,9 @@
 .jk-hud__capsule {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 4px;
-  inline-size: 358px;
+  gap: 7px;
   block-size: 64px;
-  padding: 8px 9px 8px 12px;
+  padding: 8px 10px 8px 14px;
   border-radius: 999px;
 }
 
@@ -317,15 +316,33 @@
 .jk-hud__button:hover { background-color: rgba(252, 244, 227, 0.1); }
 .jk-hud__button:active { transform: scale(0.96); }
 
-.jk-hud__settings {
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(214, 198, 165, 0.24);
+/* The settings gear floats alone in the top-right corner (PO 2026-11-07), centred on the
+ * capsule's height so the two read as one line. */
+.jk-corner {
+  position: absolute;
+  z-index: 30;
+  inset-block-start: calc(var(--hud-inset) + 8px);
+  inset-inline-end: var(--hud-inset);
 }
 
-.jk-hud__gear {
+.jk-journey .jk-settings {
+  color: var(--paper-bg);
+  display: grid;
+  place-items: center;
+  inline-size: 48px;
+  block-size: 48px;
+  padding: 0;
+  border-radius: 50%;
+  transition: transform var(--t-fast) var(--ease-soft), background-color var(--t-fast) var(--ease-soft);
+}
+
+.jk-settings:hover { background-color: rgba(36, 60, 46, 0.9); }
+.jk-settings:active { transform: scale(0.96); }
+
+.jk-settings__gear {
   display: block;
-  inline-size: 23px;
-  block-size: 23px;
+  inline-size: 24px;
+  block-size: 24px;
 }
 
 .jk-pouch__art {
@@ -354,14 +371,17 @@
 .jk-pouch__cell--ready { fill: #f2c86b; stroke: #fff2c7; }
 
 /* Toasts beside the capsule (UX §1.4) */
+/* Toasts sit in three fixed slots: one that leaves never moves the others (layout shift 0). */
 .jk-toasts {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
+  position: relative;
+  inline-size: 0;
+  block-size: 0;
 }
 
 .jk-toast {
+  position: absolute;
+  inset-block-start: calc(var(--slot, 0) * 38px);
+  inset-inline-start: 0;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -433,25 +453,32 @@
 }
 
 /* -------------------------------------------------------------------- Dock */
+/* The dock is one fixed box from just below the face band to the bottom: its content sits at the
+ * bottom and swaps in place, so the dock itself never moves (layout shift 0, UX §1.7). Its empty
+ * upper part lets taps through to the stage. */
 .jk-dock {
   position: absolute;
   z-index: 10;
   inset-inline: var(--gutter);
-  inset-block-end: var(--dock-bottom);
+  inset-block: calc(var(--band-bottom) + var(--dock-gap)) var(--dock-bottom);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  pointer-events: none;
 }
+
+.jk-dock > * { pointer-events: auto; }
 
 /* Saa dialogue card (Atomic 05 §3.4) */
 .jk-dialogue {
-  min-block-size: 136px;
+  /* Three lines fit without growing, and narration keeps the same padding, so the card does not
+   * move between lines (layout shift 0, UX §1.7). */
+  min-block-size: calc(56px + 3 * 1.68 * var(--text-line));
   padding: 30px 56px 26px 22px;
   border-radius: 18px;
   cursor: default;
 }
 
-.jk-dialogue[data-narration="true"] { padding-block-start: 22px; }
 
 .jk-dialogue__speaker {
   position: absolute;
@@ -745,17 +772,17 @@
   }
 
   .jk-hud-layer { flex-direction: row; align-items: center; gap: 12px; }
+  .jk-hud__capsule { gap: 14px; padding-inline: 18px 14px; }
 
   .jk-dock {
     inset-inline: max(24px, calc((100% - 48rem) / 2));
   }
 
   .jk-dialogue {
-    min-block-size: 150px;
+    min-block-size: calc(66px + 3 * 1.68 * var(--text-line));
     padding: 36px 64px 30px 32px;
   }
 
-  .jk-dialogue[data-narration="true"] { padding-block-start: 28px; }
 
   .jk-dialogue__speaker { inset-inline-start: 26px; }
 

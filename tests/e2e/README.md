@@ -40,3 +40,14 @@ Evidence under `evidence/sprint-03/visual-novel/` records actual checks, raw per
 ## Current Sprint4 Slice5 integration
 
 New Game now loads content3; saved2.1 continues on its exact archived graph. `act1-playthrough.mjs` retains12golden journeys by seeding reviewed legacy saves through production Resume; it no longer treats New Game as legacy content. `narrative-slice.mjs` uses production content/catalog/registry defaults in a diagnostic-only host for6profiles/current story. `closeout-rehearsal.mjs` serves allowlisted staged artifacts, tests rollback/touch/audio/media and asserts20cold/20warm/input budgets with3×30s rAF measurements. See [consolidated Slice5 evidence and reproducible commands](evidence/sprint-04/slice-05/README.md). Historical Sprint3/Slice1–4 records remain historical. Final physical-device/AT/PO and merge/deployment acceptance is separate.
+
+## Sprint 5 · C4 Journey screens
+
+`journey-c4-design-system.mjs` serves the repository on a temporary loopback port and drives the PO review page (`docs/design-system/evidence/journey-review/play.html`), which runs the production Journey modules on the real application:
+
+```sh
+JKB_PLAYWRIGHT_PATH=/absolute/path/to/playwright/index.mjs node tests/e2e/journey-c4-design-system.mjs
+```
+
+It checks 6 viewports × text 100/150/200 % × three Act 1 states (layout, face band, nested and sideways scroll, targets), contrast on the real pixels behind each text with the text hidden (dialogue and cards ≥ 7 : 1, HUD ≥ 4.5 : 1, also over a white plate), reduced motion, reduced transparency through the CDP media feature, high contrast, forced colors, keyboard-only play, layout shift and memory across three whole plays. `JKB_EVIDENCE_DIR` overrides the output folder (default [evidence/sprint-05/c4](evidence/sprint-05/c4/report.json)). Safari, physical devices and screen-reader listening are not covered.
+

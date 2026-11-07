@@ -78,7 +78,7 @@ test("TC-S5-A11Y-001 ▽, a tap on the stage and Space read on with the revision
   oneByClass(root, "jk-dialogue__next").focus();
   document.key("Enter");
   assert.equal(commands.length, 3, "Enter on a focused button is the button's own click");
-  oneByClass(root, "jk-hud__settings").click();
+  oneByClass(root, "jk-settings").click();
   assert.equal(commands.length, 3, "the HUD never reads on");
 });
 

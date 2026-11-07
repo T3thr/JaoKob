@@ -19,10 +19,12 @@ export function createHudToasts({ document, schedule = (callback, ms) => globalT
   const root = element(document, "div", "jk-toasts", { "aria-hidden": "true" });
   const seen = new Set();
   const live = [];
+  const slots = new Map();
 
   function remove(node) {
     const index = live.indexOf(node);
     if (index >= 0) live.splice(index, 1);
+    slots.delete(node);
     node.remove?.();
   }
 
@@ -37,9 +39,13 @@ export function createHudToasts({ document, schedule = (callback, ms) => globalT
         const node = element(document, "div", "jk-toast jk-glass", { "data-kind": toast.kind, "data-direction": toast.direction ?? "up" });
         node.append(createIcon(document, toast.kind === "meter" ? (toast.direction === "down" ? "down" : "up") : "pouch", "jk-toast__icon"), element(document, "span", "jk-toast__text", {}, toast.text));
         if (toast.kind === "meter") node.setAttribute("data-meter", toast.meter);
+        while (live.length >= MAX_VISIBLE) remove(live[0]);
+        const taken = new Set(slots.values());
+        const slot = [0, 1, 2].find((index) => !taken.has(index));
+        node.style.setProperty("--slot", String(slot));
+        slots.set(node, slot);
         root.append(node);
         live.push(node);
-        while (live.length > MAX_VISIBLE) remove(live[0]);
         schedule(() => remove(node), TOAST_MS);
       }
     },

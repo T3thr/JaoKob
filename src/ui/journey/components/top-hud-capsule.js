@@ -1,12 +1,14 @@
 /**
- * `<TopHudCapsule />`: one 358 × 64 glass capsule in every mode (Atomic 05 §3.2, UX §1.1 ·
- * §1.2 · §2.1.2): กาย · ใจ · แรง as five pips each, the three-strand bond necklace, the woven
- * 2 × 2 pouch and the settings gear. Values change in place, so the capsule never moves
- * (layout shift 0) and each change fades instead of jumping.
+ * `<TopHudCapsule />`: one 64 px glass capsule in every mode (Atomic 05 §3.2, UX §1.1 · §1.2 ·
+ * §2.1.2) holding only the frog's world: กาย · ใจ · แรง as five pips each, the three-strand
+ * bond necklace and the woven 2 × 2 pouch. The settings gear is a separate round glass button
+ * floating in the top-right corner (PO decision of 2026-11-07, SSOT §1.2), so the capsule
+ * breathes. Values change in place, so nothing moves (layout shift 0) and changes fade.
  *
  * The capsule shows numbers to nobody: pips, knots and woven cells only; screen readers get
  * the counts in words from the presentation (UX §0.1 · §1.6).
- * Trace: ADR-P0-034 D10.2, Atomic 05 §3.1–§3.2, UX §1.2 · §1.6 · §2.1, TC-S5-HUD-001, TC-S5-A11Y-001.
+ * Trace: ADR-P0-034 D10.2, Atomic 05 §3.1–§3.2, UX §1.1–§1.2 · §1.6 · §2.1, SSOT §1.2 (2026-11-07),
+ * TC-S5-HUD-001, TC-S5-A11Y-001.
  */
 
 import { element, setAttributes } from "../journey-dom.js";
@@ -68,13 +70,15 @@ export function createTopHudCapsule({ document, messages, onPouch = () => {}, on
   pouch.append(pouchArt);
   pouch.addEventListener("click", () => onPouch());
 
-  const settings = element(document, "button", "jk-hud__button jk-hud__settings", { type: "button", "aria-label": messages.ui.settings, "data-action": "settings" });
-  settings.append(createIcon(document, "gear", "jk-hud__gear"));
+  capsule.append(pouch);
+  const settings = element(document, "button", "jk-settings jk-glass", { type: "button", "aria-label": messages.ui.settings, "data-action": "settings", "data-component": "SettingsButton" });
+  settings.append(createIcon(document, "gear", "jk-settings__gear"));
   settings.addEventListener("click", () => onSettings());
-  capsule.append(pouch, settings);
 
   return Object.freeze({
     element: root,
+    /** The floating settings button; the renderer places it in the top-right corner. */
+    settingsButton: settings,
     /** @param {object} hud The `hud` of a presentation model. */
     update(hud) {
       for (const meter of hud.meters) {

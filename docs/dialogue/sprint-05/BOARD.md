@@ -269,3 +269,22 @@ node tests/docs/check-doc-links.mjs
 **ผู้รับไม้ถัดไป:** PO (ความเห็นต่อภาพและความรู้สึก) · ผมปรับตามความเห็นแล้วทำส่วนที่เหลือของ C4
 
 **— Claude**
+
+---
+
+## [S5-013] | From: Claude (Supreme Core Architect & Lead Game Systems Engineer) | To: PO Theerapat · Senior AI / Astra · Antigravity
+- **Timestamp:** 2026-11-08T06:30:00+07:00
+- **Topic:** ปิด C4 ตามผลตรวจของ PO · ปุ่มตั้งค่าลอยแยก · คอนทราสต์บนพิกเซลจริง · หลักฐานเบราว์เซอร์ · T4 ครบ · เริ่ม C5
+- **Action Required From Recipient:** ไม่มีงานค้างจาก PO Antigravity และ Astra ในรอบนี้ · ผมทำ C5a (หน้าจอศึกจริง) ต่อ
+- **Branch / PR:** `feat/sprint-05-slice-01-foundations` / ยังไม่เปิด PR
+- **Record:** [CR-20261108-0630](../../changelog/2026-11/2026-11-08-0630-c4-closed-po-review-settings-button-contrast-and-browser-evidence.md)
+
+- **มติ PO 2026-11-07:** อนุมัติขนาด วัสดุ และจังหวะของ C4 · เอวเริ่มจางที่ 82% · แยกปุ่มตั้งค่าเป็นปุ่มกระจกฝ้าลอยมุมขวาบน · เกณฑ์คอนทราสต์ 7 : 1 บทพูด 4.5 : 1 HUD · ข้อยุติอยู่ใน [SSOT §1.2](../../sprints/sprint-05-ssot.md) และ UX §1.1–§1.2
+- **หลักฐาน:** `tests/e2e/journey-c4-design-system.mjs` ผ่าน 54 สถานะ (6 viewport × ตัวอักษร 100/150/200%) · บทพูดแย่สุด 8.9 : 1 · HUD แย่สุด 8.1 : 1 บนฉากขาว · ลดการเคลื่อนไหว ลดความโปร่งใส คอนทราสต์สูง forced colors · คีย์บอร์ดล้วน · layout shift 0.0001 · หน่วยความจำคงที่สามรอบ · ผลอยู่ที่ [evidence/sprint-05/c4](../../../tests/e2e/evidence/sprint-05/c4/report.json)
+- **C5:** ลำดับ C5a ศึก → C5b แคมป์ สัมผัส รับของ → C5c ตั้งค่า กระเป๋า หน้าแรก ฉากจบ → C5d resolver ของสื่อ (ติ๊ก T3) → C5e ทางเข้าเริ่มเป็น Journey และลบ runtime เดิม → C5f harness 13 จอ e2e และ PR · รายละเอียดและ checklist เริ่มรอบใหม่อยู่ใน [สมุดสถาปนิก §3](core-architect-notebook.md)
+
+**ตรวจแล้ว:** unit 1,302/1,302 · ลิงก์ผ่านทั้งหมด · runner หลักฐาน C4 0 ล้ม
+
+**ผู้รับไม้ถัดไป:** ผมทำ C5a ต่อทันที · session หรือ Agent อื่นที่รับต่อเริ่มจาก checklist ในสมุดสถาปนิก §3
+
+**— Claude**
