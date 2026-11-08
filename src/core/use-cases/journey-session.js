@@ -33,6 +33,7 @@ import { campFinished, activityBlock, openCamp, pickActivity, readyCandidates } 
 import { microValid, microView } from "../domain/encounters/micro.js";
 import { methodCost, obstacleBlock, obstacleHomesick, resolveObstacle } from "../domain/encounters/obstacle.js";
 import { offerApplies, offerBlock, offerChoices, resolveOffer } from "../domain/encounters/pouch-offer.js";
+import { refusedItemOf } from "../domain/keepsake-pouch.js";
 import { allows, visibleLines } from "../domain/journey/conditions.js";
 import { affordable, applyEffects, effectSummary } from "../domain/journey/effects.js";
 import { ENDINGS, ENDING_REASONS, evaluateEndings } from "../domain/journey/endings.js";
@@ -556,7 +557,13 @@ export function createJourneySession(pkg) {
         act: j.act,
         meters: { ...j.meters },
         bonds: Object.fromEntries(BONDS.map((b) => [b, { value: j.bonds[b], tier: addressTier(j.bonds[b]) }])),
-        pouch: { capacity: j.pouch.capacity, held: j.pouch.held.map((item) => ({ item, locked: cat.rules.lockedItems.has(item), ready: j.ready.includes(item) })) },
+        pouch: {
+          capacity: j.pouch.capacity,
+          held: j.pouch.held.map((item) => ({ item, locked: cat.rules.lockedItems.has(item), ready: j.ready.includes(item) })),
+          // The pouch's memory (ADR-P0-020): keepsakes handed on and keepsakes refused, never deleted.
+          released: [...j.pouch.released],
+          refused: j.pouch.memory.map(refusedItemOf),
+        },
       };
       const base = { revision: state.revision, mode, accepts: acceptedCommands(mode), hud, completion: { endingsSeen: [...p.completion.endingsSeen] } };
       if (node === undefined) return deepFreeze({ ...base, node: { id: p.cursor.node, act: cat.actOf(p.cursor.node), boundary: true }, line: null });

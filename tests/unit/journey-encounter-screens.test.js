@@ -58,7 +58,7 @@ function encounterScreen(pkg, session, state, { settings = {} } = {}) {
   const document = new JourneyDocument();
   const host = document.createElement("main");
   document.body.append(host);
-  const screen = { state, model: null, commands: [], pouchOpened: 0, timers: manualSchedule(), frames: manualFrames(), document, settings: { ...JOURNEY_DEFAULT_SETTINGS, ...settings } };
+  const screen = { state, model: null, commands: [], timers: manualSchedule(), frames: manualFrames(), document, settings: { ...JOURNEY_DEFAULT_SETTINGS, ...settings } };
   const show = (events = []) => {
     screen.model = presentation.present({ phase: "playing", settings: screen.settings, persistence: "active", view: session.view(screen.state), events, notice: null });
     screen.renderer.render(screen.model);
@@ -66,7 +66,6 @@ function encounterScreen(pkg, session, state, { settings = {} } = {}) {
   screen.renderer = createJourneyRenderer({
     document, root: host, messages: TH_JOURNEY, loadImage: recordingLoader().loadImage,
     schedule: screen.timers.schedule, frame: screen.frames.frame, now: screen.frames.now, prefersReducedMotion: () => false,
-    onPouch: () => { screen.pouchOpened += 1; },
     onCommand: (kind, args) => {
       screen.commands.push({ kind, args });
       const result = session[kind](screen.state, { ...args, now: NOW });
@@ -262,7 +261,7 @@ test("TC-S5-UX-001 MA-1: Space, a tap and an assistive click make three ripples;
   assert.equal(oneByClass(s.root, "jk-hud__pouch").getAttribute("aria-disabled"), "true", "the HUD is dim; only the gear works");
   s.document.key("i");
   oneByClass(s.root, "jk-hud__pouch").click();
-  assert.equal(s.pouchOpened, 0);
+  assert.equal(s.renderer.modal(), null, "the pouch does not open during a micro-action");
   const revision = s.model.revision;
   s.document.key(" ");
   assert.equal(hint.getAttribute("data-gone"), "true", "the hint leaves the moment the player starts, keeping its box");

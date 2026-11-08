@@ -61,3 +61,13 @@ JKB_PLAYWRIGHT_PATH=/absolute/path/to/playwright/index.mjs node tests/e2e/journe
 ```
 
 It checks 5 viewports × text 100/200 % × six states (the C1 camp board, C1 after one drop with the activity's line, MA-1 tap, hold, stitch, the offer): no sideways or nested scroll, every visible button ≥ 44 × 44, the dock panel below the face band (fit) or below the stage strip (flow), the camp clock never over a panel and the stitch guide points 28–32 px wide; keyboard-only play through the camp, MA-1 and the offer; layout shift while the camp board and the activity lines swap; no console error and no request outside the page's origin. When the installed Playwright expects a browser build that is not on the machine, `JKB_CHROMIUM_PATH` points it at a Chromium already there (nothing is downloaded). Output: [evidence/sprint-05/c5b](evidence/sprint-05/c5b/report.json). Safari, physical devices, screen-reader listening and the PO's eye are not covered.
+
+## Sprint 5 · C5c title, modals and ending cards
+
+`journey-c5c-panels.mjs` drives the same review page, which since C5c shows only the real screens (title, play, settings and pouch modals, chapter end), and `play.html?package=mini` for the ending choice:
+
+```sh
+JKB_PLAYWRIGHT_PATH=/absolute/path/to/playwright/index.mjs node tests/e2e/journey-c5c-panels.mjs
+```
+
+It checks 5 viewports × text 100/200 % × five states (title, settings modal, pouch modal with its memory, the three ending cards, the chapter end): no sideways scroll, every visible control ≥ 44 × 44, a modal inside the viewport with its close button in view, the ending cards and the chapter end below the face band or the stage strip; keyboard-only: Enter on the title starts, `I` opens the pouch and Escape gives focus back, Tab stays inside the settings modal, the chapter end leads back to the title with focus on continue; no console error and no request outside the origin. `JKB_CHROMIUM_PATH` works as in the C5b runner (the C4 runner accepts it too). Output: [evidence/sprint-05/c5c](evidence/sprint-05/c5c/report.json). Safari, physical devices and screen-reader listening are not covered.

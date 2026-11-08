@@ -1,30 +1,23 @@
 /**
  * Journey review page: the real Journey screens on the real application (ADR-P0-034 D10.4,
- * SSOT §1.2 C4). Everything in the game area comes from `src/`; this file only adds the PO's
- * review chrome: start and continue, a placeholder with a skip that sends real engine commands
- * for the one screen still to come (the ending choice, C5c), a settings sheet for the checks,
- * and `window.journeyReview` for the device frame and the browser evidence runner. The clash
- * (C5a), the camp, the micro-actions and the keepsake offer (C5b) are played on their real
- * screens. Not part of the game or the release allowlist.
+ * SSOT §1.2 C4). Everything on screen comes from `src/`: the title with continue, start and the
+ * one-time notices, every play mode, the settings and pouch modals and the chapter end. This file
+ * only boots the shell, shows a load error, and exposes `window.journeyReview` for the device frame
+ * and the browser evidence runners (real engine commands through the application, saved silently
+ * like any play). `?package=mini` plays the test package that has every node type. Not part of the
+ * game or the release allowlist.
  */
 
 import { createJourneyShell, loadJourneyResources } from "../../../../src/bootstrap/journey-shell.js";
 import { TRAY_GROUPS } from "../../../../src/core/domain/clash/clash-rules.js";
 
-const $ = (id) => document.getElementById(id);
-const els = {
-  game: $("game"), title: $("jr-title"), notices: $("jr-notices"), continue: $("jr-continue"), newGame: $("jr-new"),
-  consent: $("jr-consent"), consentYes: $("jr-consent-yes"), pending: $("jr-pending"), pendingTitle: $("jr-pending-title"),
-  pendingNote: $("jr-pending-note"), step: $("jr-step"), skip: $("jr-skip"), end: $("jr-end"), leave: $("jr-leave"),
-  settings: $("jr-settings"), pouch: $("jr-pouch"), pouchList: $("jr-pouch-list"), error: $("jr-error"),
-};
-
-const PENDING = {
-  endings: ["หน้าจอเลือกฉากจบ", "การ์ดสามเกลียวมาใน C5c"],
-};
+const game = document.getElementById("game");
+const error = document.getElementById("jr-error");
 const STOP_MODES = new Set(["CLASH_OUTCOME", "DECISION", "BOUNDARY", "COMPLETE"]);
 /** `?package=mini` plays the test package that has every node type (offer, hold, stitch, endings). */
 const MINI_PACKAGE = "../../../../tests/fixtures/journey/mini-journey.json";
+
+let shell = null;
 
 async function reviewResources() {
   const resources = await loadJourneyResources();
@@ -33,8 +26,6 @@ async function reviewResources() {
   if (!response.ok) throw new Error(`MINI_PACKAGE_${response.status}`);
   return { ...resources, packageData: await response.json() };
 }
-
-let shell = null, latest = null;
 
 /** The first open way of the current beat, read from the application's view (no rule here). */
 function firstCommand(view) {
@@ -57,7 +48,7 @@ function firstCommand(view) {
     }
     case "MICRO": return { kind: "microDone" };
     case "POUCH_SWAP": {
-      const option = view.pouch.options.find((entry) => entry.available);
+      const option = view.pouch.options.find((entry) => entry.available && entry.offered);
       return option ? { kind: "pouchDecide", args: { option: option.key } } : null;
     }
     case "ENDING_RESONANCE": {
@@ -81,7 +72,7 @@ function step() {
   return shell.perform(command.kind, { ...(command.args ?? {}), revision: view.revision });
 }
 
-/** Real commands until the encounter's node is left or the clash shows its outcome. */
+/** Real commands until the current node is left or the clash shows its outcome. */
 function skipScene() {
   const start = playView();
   if (!start) return;
@@ -93,7 +84,7 @@ function skipScene() {
   }
 }
 
-/** Advance real commands until the screen reaches `predicate` (used by the evidence runner). */
+/** Advance real commands until the screen reaches `predicate` (used by the evidence runners). */
 function playUntil(predicate, limit = 400) {
   for (let guard = 0; guard < limit; guard += 1) {
     const snapshot = shell.snapshot();
@@ -104,97 +95,28 @@ function playUntil(predicate, limit = 400) {
   return shell.snapshot().model;
 }
 
-function drawTitle(title) {
-  els.continue.hidden = title.continue === null;
-  els.consent.hidden = true;
-  els.notices.replaceChildren(...title.notices.map((notice) => {
-    const item = document.createElement("li");
-    const text = document.createElement("span");
-    text.textContent = notice.text;
-    const ok = document.createElement("button");
-    ok.type = "button";
-    ok.className = "jr-button jr-button--small";
-    ok.textContent = "รับทราบ";
-    ok.addEventListener("click", () => shell.acknowledgeNotice(notice.id));
-    item.append(text, ok);
-    return item;
-  }));
-}
-
 function draw(snapshot) {
-  latest = snapshot;
-  els.title.hidden = snapshot.phase !== "title";
-  if (snapshot.phase === "title") drawTitle(snapshot.title);
-  const pending = snapshot.model?.pending ?? null;
-  const encounter = pending !== null && Object.hasOwn(PENDING, pending);
-  els.pending.hidden = !encounter;
-  if (encounter) {
-    els.pendingTitle.textContent = PENDING[pending][0];
-    els.pendingNote.textContent = PENDING[pending][1];
-  }
-  els.end.hidden = !(pending === "boundary" || pending === "complete");
   if (snapshot.error) {
-    els.error.textContent = `คำสั่งไม่ผ่าน: ${snapshot.error.code} · สถานะเดิมยังอยู่`;
-    els.error.hidden = false;
+    error.textContent = `คำสั่งไม่ผ่าน: ${snapshot.error.code} · สถานะเดิมยังอยู่`;
+    error.hidden = false;
   } else {
-    els.error.hidden = true;
+    error.hidden = true;
   }
   window.dispatchEvent(new CustomEvent("journey-review-change", { detail: snapshot }));
-}
-
-function syncSettings() {
-  const settings = latest?.model?.settings;
-  if (!settings) return;
-  const form = els.settings.querySelector("form");
-  for (const input of form.querySelectorAll("input[type=checkbox]")) input.checked = settings[input.name] === true;
-  for (const input of form.querySelectorAll("input[name=fontScale]")) input.checked = Number(input.value) === settings.fontScale;
-}
-
-function openSettings() {
-  syncSettings();
-  els.settings.showModal();
-}
-
-function openPouch() {
-  const slots = latest?.model?.hud.pouch.slots ?? [];
-  els.pouchList.replaceChildren(...slots.map((slot, index) => {
-    const item = document.createElement("li");
-    item.textContent = slot === null ? `ช่องที่ ${index + 1} · ว่าง` : `ช่องที่ ${index + 1} · ${slot.name}${slot.ready ? " · พร้อมผสาน" : ""}`;
-    return item;
-  }));
-  els.pouch.showModal();
-}
-
-function wire() {
-  els.newGame.addEventListener("click", () => {
-    const title = latest?.title;
-    if (title?.needsConsent) { els.consent.hidden = false; els.consentYes.focus(); return; }
-    shell.newGame();
-  });
-  els.consentYes.addEventListener("click", () => shell.newGame({ consentToken: latest?.title?.consentToken ?? null }));
-  els.continue.addEventListener("click", () => shell.continue());
-  els.step.addEventListener("click", () => step());
-  els.skip.addEventListener("click", () => skipScene());
-  els.leave.addEventListener("click", () => shell.leave());
-  els.settings.querySelector("form").addEventListener("change", (event) => {
-    const input = event.target;
-    shell.changeSettings({ [input.name]: input.type === "checkbox" ? input.checked : Number(input.value) });
-  });
 }
 
 async function start() {
   try {
     const resources = await reviewResources();
-    shell = createJourneyShell({ document, root: els.game, ...resources, onChange: draw, onSettings: openSettings, onPouch: openPouch });
-    wire();
+    shell = createJourneyShell({ document, root: game, ...resources, onChange: draw });
     window.journeyReview = Object.freeze({ shell, step, skipScene, playUntil, firstCommand });
     const booted = shell.boot();
     if (!booted.ok) throw new Error(booted.error.code);
-  } catch (error) {
-    els.error.textContent = location.protocol === "file:"
+  } catch (failure) {
+    error.textContent = location.protocol === "file:"
       ? "เปิดผ่าน file:// ไม่ได้ · รัน node tools/dev/serve-review.mjs แล้วเปิด URL ที่พิมพ์ออกมา"
-      : `เปิดหน้าตรวจไม่สำเร็จ: ${error.message}`;
-    els.error.hidden = false;
+      : `เปิดหน้าตรวจไม่สำเร็จ: ${failure.message}`;
+    error.hidden = false;
   }
   document.documentElement.setAttribute("data-review-ready", "true");
 }

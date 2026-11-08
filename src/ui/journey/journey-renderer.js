@@ -23,8 +23,11 @@
  * The clash (C5a): the intent badge on top, the gauge at the top of the dock, the dialogue card
  * for the intent and resolve beats and the tabbed tray for the choose beat. The camp, the
  * micro-action and the keepsake offer (C5b): the camp clock beside the HUD line, the board, the
- * prompt and the sheet in the dock. The ending choice arrives in C5c (`pending`).
- * Trace: ADR-P0-034 D9/D10, UX §1.4–§1.10 · §2.1 · §3–§5 · §7, Atomic 05 §3, TC-S5-VN-001,
+ * prompt and the sheet in the dock. C5c: the settings and pouch modals (the gear, the pouch
+ * button and `I` open them; the game waits and sends no command while one is open), the
+ * three-strand ending cards, and the chapter end at the boundary or after an ending with its way
+ * back to the title.
+ * Trace: ADR-P0-034 D9/D10, UX §1.4–§1.10 · §2.1 · §3–§7, Atomic 05 §3, TC-S5-VN-001,
  * TC-S5-HUD-001, TC-S5-SILENT-001, TC-S5-A11Y-001, TC-S5-INLINE-001, TC-S5-UX-001.
  */
 
@@ -33,33 +36,41 @@ import { createCampDropTimer } from "./components/camp-drop-timer.js";
 import { createClashActionTray } from "./components/clash-action-tray.js";
 import { createClashIntentAndGauge } from "./components/clash-intent-gauge.js";
 import { createHudToasts } from "./components/hud-toasts.js";
+import { createJourneyModal } from "./components/journey-modal.js";
 import { createMicroPrompt } from "./components/micro-prompt.js";
+import { createPouchPanel } from "./components/pouch-panel.js";
 import { createPouchSwapSheet } from "./components/pouch-swap-sheet.js";
 import { createSaaDialogueCard } from "./components/saa-dialogue-card.js";
 import { createSceneTitleCard } from "./components/scene-title-card.js";
+import { createSettingsPanel } from "./components/settings-panel.js";
 import { createTactileActionCard } from "./components/tactile-action-card.js";
+import { createThreeStrandDestinyCard } from "./components/three-strand-destiny-card.js";
 import { createTopHudCapsule } from "./components/top-hud-capsule.js";
 import { createVnTachieStage } from "./components/vn-tachie-stage.js";
 import { createIdSource, element, setAttributes, setText } from "./journey-dom.js";
 
 const MAX_CARDS = 5;
 const INTERACTIVE = new Set(["BUTTON", "A", "INPUT", "SELECT", "TEXTAREA", "SUMMARY"]);
+/** Controls that take typed letters: a shortcut letter there is the control's own. */
+const TYPING = new Set(["INPUT", "SELECT", "TEXTAREA"]);
 /** Modes whose content is a panel in the dock rather than the dialogue card. */
-const PANEL_MODES = new Set(["DECISION", "CLASH_CHOOSE", "CAMP", "POUCH_SWAP", "MICRO"]);
+const PANEL_MODES = new Set(["DECISION", "CLASH_CHOOSE", "CAMP", "POUCH_SWAP", "MICRO", "ENDING_RESONANCE", "BOUNDARY", "COMPLETE"]);
 /** Modes where a digit picks a card. */
-const DIGIT_MODES = new Set(["DECISION", "CLASH_CHOOSE", "CAMP", "POUCH_SWAP"]);
+const DIGIT_MODES = new Set(["DECISION", "CLASH_CHOOSE", "CAMP", "POUCH_SWAP", "ENDING_RESONANCE"]);
+/** Modes that end the playable part: the chapter end shows the way back to the title. */
+const END_MODES = new Set(["BOUNDARY", "COMPLETE"]);
 const ITEM_KEY = "item:";
 
 /**
  * @param {{document: Document, root: Element, messages: object, loadImage: Function,
- *   onCommand: (kind: string, args: object) => void, onPouch?: () => void, onSettings?: () => void,
- *   schedule?: (callback: () => void, ms: number) => unknown, frame?: (callback: () => void) => unknown,
- *   now?: () => number, prefersReducedMotion?: () => boolean}} options
+ *   onCommand: (kind: string, args: object) => void, onChangeSettings?: (patch: object) => void,
+ *   onLeave?: () => void, schedule?: (callback: () => void, ms: number) => unknown,
+ *   frame?: (callback: () => void) => unknown, now?: () => number, prefersReducedMotion?: () => boolean}} options
  */
 export function createJourneyRenderer(options) {
   const { document, root: host, messages, loadImage, onCommand } = options;
-  const onPouch = options.onPouch ?? (() => {});
-  const onSettings = options.onSettings ?? (() => {});
+  const onChangeSettings = options.onChangeSettings ?? (() => {});
+  const onLeave = options.onLeave ?? (() => {});
   const schedule = options.schedule ?? ((callback, ms) => globalThis.setTimeout(callback, ms));
   const view = document.defaultView ?? null;
   const frame = options.frame ?? (typeof view?.requestAnimationFrame === "function" ? view.requestAnimationFrame.bind(view) : (callback) => schedule(callback, 16));
@@ -69,8 +80,7 @@ export function createJourneyRenderer(options) {
 
   const root = element(document, "div", "jk-journey", { "data-mode": "VN", "data-motion": "full", "data-surface": "glass", "data-intensity": "normal", "data-text": "normal", "data-overflow": "false" });
   const stage = createVnTachieStage({ document, loadImage, schedule });
-  const openPouch = () => { if (model?.mode !== "MICRO") onPouch(); };
-  const hud = createTopHudCapsule({ document, messages, onPouch: openPouch, onSettings: () => onSettings() });
+  const hud = createTopHudCapsule({ document, messages, onPouch: () => openModal("pouch"), onSettings: () => openModal("settings") });
   const toasts = createHudToasts({ document, schedule });
   const sceneTitle = createSceneTitleCard({ document, schedule });
   const dialogue = createSaaDialogueCard({ document, messages, loadImage, onAdvance: () => advance() });
@@ -111,8 +121,22 @@ export function createJourneyRenderer(options) {
     onProgress: (fill) => root.style.setProperty("--micro-fill", fill.toFixed(3)),
     onSay: (text) => announce(text),
   });
-  const panels = [choices, tray.element, campBoard.element, pouchSheet.element, micro.element];
+  const endingCards = createThreeStrandDestinyCard({ document, messages, idSource: id, onActivate: (key) => activate(key) });
+  const chapterEnd = element(document, "section", "jk-chapter-end jk-paper", { "data-component": "ChapterEnd", hidden: true });
+  const chapterText = element(document, "p", "jk-chapter-end__text");
+  const chapterBack = element(document, "button", "jk-chapter-end__back", { type: "button", "data-action": "leave" }, messages.title.back);
+  chapterBack.addEventListener("click", () => { if (model !== null && END_MODES.has(model.mode)) onLeave(); });
+  chapterEnd.append(chapterText, chapterBack);
+  const panels = [choices, tray.element, campBoard.element, pouchSheet.element, micro.element, endingCards.element, chapterEnd];
   dock.append(clashView.gauge, dialogue.element, ...panels, descriptions);
+
+  const settingsPanel = createSettingsPanel({ document, messages, idSource: id, onChange: (patch) => onChangeSettings(patch) });
+  const settingsModal = createJourneyModal({ document, name: "settings", title: messages.settings.title, closeLabel: messages.settings.close, idSource: id, onClose: () => closeModal() });
+  settingsModal.body.append(settingsPanel.element);
+  const pouchPanel = createPouchPanel({ document, messages, loadImage });
+  const pouchModal = createJourneyModal({ document, name: "pouch", title: messages.pouchPanel.title, closeLabel: messages.pouchPanel.close, idSource: id, onClose: () => closeModal() });
+  pouchModal.body.append(pouchPanel.element);
+  const modals = Object.freeze({ settings: settingsModal, pouch: pouchModal });
 
   const notice = element(document, "div", "jk-notice jk-paper", { role: "status", hidden: true });
   const noticeText = element(document, "p", "jk-notice__text");
@@ -122,11 +146,11 @@ export function createJourneyRenderer(options) {
 
   const stageDescription = element(document, "p", "jk-sr");
   const live = element(document, "p", "jk-sr", { "aria-live": "polite", "aria-atomic": "true" });
-  root.append(stage.element, hudLayer, corner, clashTop, campTop, sceneTitle.element, dock, notice, stageDescription, live);
+  root.append(stage.element, hudLayer, corner, clashTop, campTop, sceneTitle.element, dock, notice, stageDescription, live, settingsModal.element, pouchModal.element);
   host.append(root);
 
   let model = null, armed = null, armedRevision = null, lastScene = null, lastAnnounced = null, lastMode = null, lastNotice = null, lastRevision = null, disposed = false;
-  let picking = false, pickingRevision = null;
+  let picking = false, pickingRevision = null, modal = null, deferredMicro = null;
 
   const canAdvance = () => model !== null && model.line !== null && model.accepts.includes("advance");
 
@@ -143,6 +167,7 @@ export function createJourneyRenderer(options) {
     }
     if (model.mode === "CAMP" && model.camp !== null && model.accepts.includes("campPick")) return { options: model.camp.cards, command: "campPick", argument: "activity" };
     if (model.mode === "POUCH_SWAP" && model.pouch !== null && model.accepts.includes("pouchDecide")) return { options: model.pouch.cards, command: "pouchDecide", argument: "option" };
+    if (model.mode === "ENDING_RESONANCE" && model.endings !== null && model.accepts.includes("chooseEnding")) return { options: model.endings.cards, command: "chooseEnding", argument: "option" };
     if (model.decision !== null && model.decision !== undefined && model.accepts.includes("choose")) return { options: model.decision.options, command: "choose", argument: "option" };
     return null;
   }
@@ -206,10 +231,44 @@ export function createJourneyRenderer(options) {
     onCommand("campLeave", { revision: model.revision });
   }
 
-  /** The micro-action reports done once; the command is bound to the revision it was drawn at. */
+  /** The micro-action reports done once; the command is bound to the revision it was drawn at and waits for an open modal. */
   function microDone(key) {
     if (model?.micro?.key !== key || !model.accepts.includes("microDone")) return;
+    if (modal !== null) { deferredMicro = key; return; }
     onCommand("microDone", { revision: model.revision });
+  }
+
+  /**
+   * The settings or pouch modal. The game waits while one is open: no command goes out (UX §1.7);
+   * an armed card stays armed (ADR-P0-034 D9.3). Focus returns to where it was, or to the HUD control.
+   */
+  function openModal(kind) {
+    if (modal !== null || model === null || (kind === "pouch" && model.mode === "MICRO")) return;
+    modal = kind;
+    setAttributes(root, { "data-modal": kind });
+    const active = document.activeElement;
+    const fallback = kind === "settings" ? hud.settingsButton : hud.controls.pouch;
+    const returnTo = active !== null && active !== undefined && active !== document.body && root.contains?.(active) === true ? active : fallback;
+    if (kind === "settings") {
+      settingsPanel.update(model.settings);
+      settingsModal.show({ returnTo, focus: settingsPanel.first() });
+    } else {
+      pouchPanel.update(model.pouchPanel);
+      pouchModal.show({ returnTo });
+    }
+  }
+
+  function closeModal() {
+    if (modal === null) return;
+    const closing = modals[modal];
+    modal = null;
+    setAttributes(root, { "data-modal": null });
+    closing.hide();
+    if (deferredMicro !== null) {
+      const key = deferredMicro;
+      deferredMicro = null;
+      microDone(key);
+    }
   }
 
   function disarm() {
@@ -261,6 +320,10 @@ export function createJourneyRenderer(options) {
     tray.update(model?.clash ?? null, { selected: selectedGroup, armed, layout: trayLayout() });
     campBoard.update(model?.camp ?? null, { armed, picking });
     pouchSheet.update(model?.mode === "POUCH_SWAP" ? model.pouch : null, { armed });
+    endingCards.update(model?.endings ?? null, { armed });
+    const ended = model !== null && END_MODES.has(model.mode);
+    setAttributes(chapterEnd, { hidden: !ended });
+    if (ended) setText(chapterText, model.mode === "COMPLETE" ? messages.title.complete : messages.title.boundary);
     setAttributes(choices, { hidden: options.length === 0, "data-count": options.length });
     cards.forEach((card, index) => {
       const option = options[index];
@@ -276,10 +339,10 @@ export function createJourneyRenderer(options) {
     return active === null || active === undefined || active === document.body || root.contains?.(active) === true;
   }
 
-  function moveFocus(previousMode, fresh) {
-    if (!focusInsideOrIdle()) return;
+  function moveFocus(previousMode, fresh, force = false) {
+    if (!force && !focusInsideOrIdle()) return;
     const focus = (node) => node?.focus?.({ preventScroll: true });
-    const entered = model.mode !== previousMode;
+    const entered = force || model.mode !== previousMode;
     if (model.mode === "DECISION" && entered) {
       const index = model.decision.options.findIndex((option) => option.available);
       focus(cards[Math.max(0, index)]?.element);
@@ -291,7 +354,11 @@ export function createJourneyRenderer(options) {
       focus(pouchSheet.firstFocus());
     } else if (model.mode === "MICRO" && entered) {
       focus(micro.target);
-    } else if (PANEL_MODES.has(previousMode) && !PANEL_MODES.has(model.mode) && canAdvance()) {
+    } else if (model.mode === "ENDING_RESONANCE" && entered) {
+      focus(endingCards.firstFocus());
+    } else if (END_MODES.has(model.mode) && entered) {
+      focus(chapterBack);
+    } else if ((force || PANEL_MODES.has(previousMode)) && !PANEL_MODES.has(model.mode) && canAdvance()) {
       focus(dialogue.nextButton);
     }
   }
@@ -325,6 +392,8 @@ export function createJourneyRenderer(options) {
     if (next.mode === "CAMP" && next.camp !== null) return [messages.camp.board, next.camp.timer.text].filter((part) => part !== "").join(" · ");
     if (next.mode === "MICRO" && previousMode !== "MICRO" && next.micro !== null) return `${next.micro.hint} · ${next.micro.instructions}`;
     if (next.mode === "POUCH_SWAP" && previousMode !== "POUCH_SWAP" && next.pouch !== null) return next.pouch.description;
+    if (next.mode === "ENDING_RESONANCE" && previousMode !== "ENDING_RESONANCE") return messages.endings.group;
+    if (END_MODES.has(next.mode) && previousMode !== next.mode) return next.mode === "COMPLETE" ? messages.title.complete : messages.title.boundary;
     return null;
   }
 
@@ -357,6 +426,8 @@ export function createJourneyRenderer(options) {
     clashView.update(next.clash);
     campTimer.update(next.camp?.timer ?? null);
     micro.update(next.mode === "MICRO" ? next.micro : null);
+    if (modal === "settings") settingsPanel.update(next.settings);
+    if (modal === "pouch") pouchPanel.update(next.pouchPanel);
     setText(stageDescription, next.scene.description);
 
     const sceneChanged = next.scene.sceneKey !== lastScene;
@@ -402,7 +473,7 @@ export function createJourneyRenderer(options) {
   const isSpaceOrEnter = (event) => event.key === " " || event.key === "Enter";
 
   function onKeyDown(event) {
-    if (model === null || event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey) return;
+    if (model === null || modal !== null || event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey) return;
     const target = event.target;
     const inside = target === document.body || target === document.documentElement || root.contains?.(target) === true;
     if (!inside) return;
@@ -432,20 +503,21 @@ export function createJourneyRenderer(options) {
       if (armed !== null) { event.preventDefault(); disarm(); }
       return;
     }
-    if ((event.key === "i" || event.key === "I") && !onControl && model.mode !== "MICRO") { event.preventDefault(); onPouch(); }
+    if ((event.key === "i" || event.key === "I") && !TYPING.has(target?.tagName) && model.mode !== "MICRO") { event.preventDefault(); openModal("pouch"); }
   }
 
   /** A hold lets go when Space or Enter comes up; the key-up also keeps the button from clicking. */
   function onKeyUp(event) {
-    if (model?.mode !== "MICRO" || !isSpaceOrEnter(event)) return;
+    if (model?.mode !== "MICRO" || modal !== null || !isSpaceOrEnter(event)) return;
     if (isControl(event.target) && !micro.owns(event.target)) return;
     event.preventDefault();
     micro.release();
   }
 
   function onStageClick(event) {
+    if (modal !== null) return;
     const target = event.target;
-    const away = [hudLayer, corner, dialogue.element, ...panels, campTop, notice];
+    const away = [hudLayer, corner, dialogue.element, ...panels, campTop, notice, settingsModal.element, pouchModal.element];
     if (away.some((node) => node.contains?.(target))) return;
     advance();
   }
@@ -466,8 +538,14 @@ export function createJourneyRenderer(options) {
   return Object.freeze({
     element: root,
     render,
-    /** The pouch and settings controls of the HUD, for focus return after their panels (C5). */
+    /** The pouch and settings controls of the HUD. */
     controls: hud.controls,
+    /** The open modal (`settings`, `pouch`) or null. */
+    modal: () => modal,
+    /** Put focus on the way on (▽ or the first card) when the game screen appears, e.g. from the title. */
+    focusEntry() {
+      if (model !== null && modal === null) moveFocus(null, true, true);
+    },
     dispose() {
       disposed = true;
       document.removeEventListener("keydown", onKeyDown);
@@ -479,6 +557,7 @@ export function createJourneyRenderer(options) {
       tray.dispose();
       campBoard.dispose();
       pouchSheet.dispose();
+      pouchPanel.dispose();
       micro.dispose();
       root.remove?.();
     },

@@ -1,5 +1,5 @@
 /**
- * Device frame of the C4 review page: the game (`play.html`) in an iframe of an exact CSS
+ * Device frame of the Journey review page: the game (`play.html`) in an iframe of an exact CSS
  * viewport, scaled to fit unless "ขนาดจริง" is ticked, with the face band guide and a live
  * status read from `window.journeyReview` inside the frame. One frame only, so two copies of
  * the game never share one save. Review chrome; not part of the game.
@@ -50,7 +50,7 @@ function showStatus(snapshot) {
   status.replaceChildren(
     ...row("ช่วง", snapshot?.phase ?? "-"),
     ...row("โหนด", model ? `${model.scene.nodeId} · ${model.scene.title ?? ""}` : "-"),
-    ...row("โหมด", model ? `${model.mode}${model.pending ? ` (C5: ${model.pending})` : ""}` : "-"),
+    ...row("โหมด", model ? model.mode : snapshot?.phase === "title" ? "หน้าแรก" : "-"),
     ...row("revision", model ? String(model.revision) : "-"),
     ...row("การบันทึก", model ? (model.persistence === "active" ? "บันทึกเงียบลงเครื่อง" : "เล่นในหน่วยความจำ") : "-"),
     ...row("ภาพที่ยังไม่มีทิศที่บทขอ", gaps.length === 0 ? "ไม่มี" : gaps.join(" · ")),

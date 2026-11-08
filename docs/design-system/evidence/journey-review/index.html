@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
-  <title>JaoKob · หน้าตรวจ C4 (ระบบออกแบบ กระจกฝ้า HUD เวที)</title>
+  <title>JaoKob · หน้าตรวจ Journey (C4–C5)</title>
   <link rel="stylesheet" href="frame.css">
 </head>
 <body>
   <header class="jf-toolbar">
     <div class="jf-brand">
-      <strong>เจ้ากบ · หน้าตรวจ C4</strong>
-      <span>เกมจริงจาก <code>src/</code> บนแอป Journey · Act 1 ต้นแบบ</span>
+      <strong>เจ้ากบ · หน้าตรวจ Journey</strong>
+      <span>เกมจริงจาก <code>src/</code> บนแอป Journey · Act 1 ต้นแบบ · <a class="jf-link" href="play.html?package=mini" target="_blank" rel="noopener">แพ็กเกจจิ๋ว (รับของ กดค้าง เย็บ ฉากจบ)</a></span>
     </div>
     <div class="jf-devices" role="radiogroup" aria-label="ขนาดหน้าจอ">
       <button type="button" role="radio" data-w="390" data-h="844" aria-checked="true">มือถือ 390×844</button>
@@ -32,7 +32,7 @@
   <main class="jf-main">
     <div class="jf-viewport" id="jf-viewport">
       <div class="jf-device" id="jf-device">
-        <iframe id="jf-frame" src="play.html" title="เกมเจ้ากบ ต้นแบบ C4"></iframe>
+        <iframe id="jf-frame" src="play.html" title="เกมเจ้ากบ ต้นแบบ Journey"></iframe>
       </div>
     </div>
 
@@ -43,14 +43,16 @@
         <li><b>เวที</b> · ฉากเต็มจอ · ตัวละครครึ่งตัว ตาอยู่ในแถบใบหน้า (ติ๊ก “แถบใบหน้า”) · ผู้พูดสว่าง คนอื่นหรี่ · ภาพเปลี่ยนแบบจางเข้า</li>
         <li><b>จังหวะ</b> · ป้ายชื่อฉากขึ้นเมื่อเปลี่ยนฉากแล้วจาง · บรรทัดใหม่ค่อย ๆ ขึ้น · ▽ อ่านต่อ</li>
         <li><b>ตัดสินใจ</b> · การ์ดตัวเลือกแทนที่กล่องบทพูดในที่เดิม · ป้ายชนิด ราคาเป็นเม็ด · ฉาก A1-06 มีห้าการ์ด</li>
-        <li><b>ตั้งค่า</b> · ปุ่มฟันเฟืองบน HUD · ตัวอักษร 150/200% · ลดการเคลื่อนไหว · คอนทราสต์สูง</li>
+        <li><b>ศึก แคมป์ สัมผัส รับของ</b> · ถาดการ์ดศึก · นาฬิกาแคมป์และการ์ดกิจกรรม · เคาะ กดค้าง เย็บ · แผ่นรับของ (แพ็กเกจจิ๋ว)</li>
+        <li><b>ตั้งค่าและกระเป๋า</b> · ปุ่มฟันเฟือง · ปุ่มกระเป๋าหรือกด I · Esc ปิด · โฟกัสกลับที่เดิม</li>
+        <li><b>หน้าแรกและฉากจบ</b> · เล่นต่อ เริ่มใหม่พร้อมยืนยัน · การ์ดสามเกลียว (แพ็กเกจจิ๋ว) · จบบทแล้วกลับหน้าแรก</li>
       </ol>
       <h2>ปุ่มลัด</h2>
-      <p>Space หรือ Enter อ่านต่อ · 1–5 เลือกการ์ด · Esc ยกเลิกการ์ดที่เลือกไว้ · I เปิดกระเป๋า · แตะเวทีเพื่ออ่านต่อ</p>
+      <p>Space หรือ Enter อ่านต่อ · ตัวเลขเลือกการ์ด · Esc ยกเลิกการ์ดที่เลือกไว้หรือปิดแผง · I เปิดกระเป๋า · Space เคาะหรือกดค้างในสัมผัส · แตะเวทีเพื่ออ่านต่อ</p>
       <h2>สถานะ</h2>
       <dl class="jf-status" id="jf-status"></dl>
-      <h2>ข้อจำกัดของ C4</h2>
-      <p>ศึก แคมป์ สัมผัส กระเป๋า และฉากจบเป็นงาน C5 · ถึงจุดนั้นจะมีปุ่มส่งคำสั่งจริงของ engine ให้เล่นผ่าน · เซฟจริงบันทึกเงียบใน localStorage ของ origin นี้</p>
+      <h2>ข้อจำกัด</h2>
+      <p>ทุกฉากเล่นผ่านหน้าจอจริงแล้ว ไม่มีปุ่มข้าม · เสียงมากับ T7 · เซฟจริงบันทึกเงียบใน localStorage ของ origin นี้ และแพ็กเกจจิ๋วมีเซฟแยกของมันเอง</p>
     </aside>
   </main>
   <script type="module" src="frame.js"></script>

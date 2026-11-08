@@ -8,10 +8,11 @@
  * The clash is drawn from C5a: intent badge, gauge, turn drops and the tray, all from Core's
  * clash view. C5b adds the camp (in-world clock, every activity card with what it gives,
  * costs and takes before it is pressed, the ready picker and the leave button), the
- * micro-action prompt and the keepsake offer. The ending choice arrives in C5c and is reported
- * as `pending` until then, like the boundary and the completion that wait for the title.
+ * micro-action prompt and the keepsake offer. C5c adds the three-strand ending cards, the pouch
+ * modal with the pouch's memory, and the title. Only the boundary and the completion are
+ * reported as `pending`: the screen shows the chapter end there.
  *
- * Trace: ADR-P0-034 D9/D10, ADR-P0-032 D7, UX §0.2 · §1.1–§1.10 · §2.1 · §3–§5 · §7, Atomic 05 §3,
+ * Trace: ADR-P0-034 D7–D10, ADR-P0-032 D7, UX §0.2 · §1.1–§1.10 · §2.1 · §3–§7, Atomic 05 §3,
  * TC-S5-VN-001, TC-S5-HUD-001, TC-S5-A11Y-001, TC-S5-TRAY-001, TC-S5-UX-001.
  */
 
@@ -34,7 +35,9 @@ const GROUPS = Object.freeze(["basic", "family", "friends", "pouch"]);
 
 /** Modes whose words the dialogue card shows; the others draw their own panel in the dock. */
 const LINE_MODES = new Set(["VN", "CLASH_INTRO", "CLASH_INTENT", "CLASH_RESOLVE", "CLASH_OUTCOME"]);
-const PENDING = Object.freeze({ ENDING_RESONANCE: "endings", BOUNDARY: "boundary", COMPLETE: "complete" });
+const PENDING = Object.freeze({ BOUNDARY: "boundary", COMPLETE: "complete" });
+/** Strands of each ending card in the order they are drawn; the E-HOME button is its bead (UX §6.2). */
+const BEAD = "button";
 /** Art of a camp activity that names no keepsake or companion (UX §8.4): eating, wounds, the heart. */
 const CAMP_METER_ICON = Object.freeze({ sta: "moth", hp: "bandage", mind: "star" });
 const CAMP_ICON_ORDER = Object.freeze(["sta", "hp", "mind"]);
@@ -357,6 +360,47 @@ export function createJourneyPresentation({ pkg, media, messages }) {
     };
   }
 
+  /** The pouch modal: the four slots and the pouch's memory of keepsakes handed on or refused. */
+  function pouchPanel(view) {
+    const named = (ids) => ids.map((id) => ({ item: id, name: keepsakeName(id), image: keepsake(id)?.image ?? null }));
+    return { slots: slots(view, (slot) => slot), released: named(view.hud.pouch.released ?? []), refused: named(view.hud.pouch.refused ?? []) };
+  }
+
+  /**
+   * The ending choice (UX §6): three cards in a fixed order, each with its strands lit or grey, the
+   * in-story line of its first missing condition, and the Safety Fallback's fourth strand.
+   */
+  function endings(view) {
+    if (view.mode !== "ENDING_RESONANCE" || view.endings === undefined) return null;
+    const e = view.endings;
+    const fallbackLine = e.fallbackLine === null ? null : text(e.fallbackLine).body;
+    return {
+      fallback: e.fallback,
+      cards: e.options.map((option, index) => {
+        const label = text(option.label).body;
+        const names = messages.endings.strands[option.ending] ?? {};
+        const strands = Object.entries(option.strands).map(([axis, lit]) => ({ axis, lit: lit === true, label: names[axis] ?? axis, bead: axis === BEAD }));
+        const threads = strands.filter((strand) => !strand.bead);
+        const lock = option.lockLine === null ? null : text(option.lockLine).body;
+        return {
+          key: option.key,
+          ending: option.ending,
+          mark: messages.endings.marks[index] ?? null,
+          shortcut: index < SHORTCUT_MAX ? index + 1 : null,
+          label,
+          kind: option.ending,
+          strands,
+          words: threads.map((strand) => strand.label).join(" · "),
+          available: option.open,
+          lock,
+          fallback: option.fallback === true,
+          fallbackLine: option.fallback === true ? fallbackLine : null,
+          description: sentenceOf([label, ...threads.map((strand) => `${strand.label} ${strand.lit ? messages.endings.lit : messages.endings.dim}`), option.fallback === true ? fallbackLine : null, option.open ? null : messages.endings.closed, lock]),
+        };
+      }),
+    };
+  }
+
   function toasts(events, revision) {
     const result = [];
     for (const [index, event] of (events ?? []).entries()) {
@@ -397,6 +441,8 @@ export function createJourneyPresentation({ pkg, media, messages }) {
         camp: camp(view),
         micro: micro(view, appView.settings),
         pouch: pouch(view),
+        pouchPanel: pouchPanel(view),
+        endings: endings(view),
         pending: PENDING[view.mode] ?? null,
         toasts: toasts(appView.events, view.revision),
         notice: appView.notice === null || appView.notice === undefined ? null : { id: appView.notice, text: messages.notices[appView.notice] ?? messages.notices["save-failed"] },
@@ -405,6 +451,28 @@ export function createJourneyPresentation({ pkg, media, messages }) {
     /** The notices of the title, in words. @param {object} titleView */
     notices(titleView) {
       return deepFreeze((titleView?.notices ?? []).map((id) => ({ id, text: messages.notices[id] ?? id })));
+    },
+    /**
+     * The title screen (ADR-P0-034 D7–D8): the package's name over its opening plate, continue
+     * (never writes), start (with consent when a record is stored), play without saving when the
+     * stored record is protected, and the one-time notices. @param {object} titleView
+     */
+    title(titleView) {
+      if (titleView?.phase !== "title") throw new TypeError("title() takes the title view of the Journey application");
+      const opening = pkg.nodes.find((node) => node.id === pkg.start.node)?.stage?.bg;
+      const resume = titleView.continue;
+      return deepFreeze({
+        phase: "title",
+        name: pkg.package.title,
+        subtitle: messages.title.subtitle,
+        background: opening === undefined ? null : media.image(opening),
+        continue: resume === null ? null : { label: messages.title.continue, detail: messages.title.continueAt(resume.act), note: resume.memoryOnly ? messages.title.memoryOnly : null },
+        start: { label: messages.title.start, needsConsent: titleView.newGame.needsConsent === true },
+        offerMemory: titleView.offerMemory === true,
+        notices: (titleView.notices ?? []).map((id) => ({ id, text: messages.notices[id] ?? messages.notices["save-failed"] })),
+        notice: titleView.notice === null || titleView.notice === undefined ? null : { id: titleView.notice, text: messages.notices[titleView.notice] ?? messages.notices["save-failed"] },
+        settings: { ...titleView.settings },
+      });
     },
   });
 }

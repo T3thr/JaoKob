@@ -10,14 +10,19 @@
  * is drawn again; a rejected command changes nothing. The page lifecycle suspends the clock
  * and saves when hidden, and wakes it when shown again.
  *
- * C4 composes this for the PO review page (`docs/design-system/evidence/journey-review/`);
- * C5 makes it the game's entry point and adds the title screen and the C5 panels.
- * Trace: ADR-P0-034 D1/D7/D9/D10, SSOT §1.2 (C4) · §3.1 · §3.3, TC-S5-SILENT-001.
+ * The title (C5c) is the real one: continue (never writes), start with the consent the shell
+ * keeps (the token never reaches the screen), play in memory when a record is protected, the
+ * one-time notices and settings. Settings changed in a modal and the way back from the chapter
+ * end go through the same application. C4 composed this for the PO review page
+ * (`docs/design-system/evidence/journey-review/`); C5e makes it the game's entry point.
+ * Trace: ADR-P0-034 D1/D7/D8/D9/D10, SSOT §1.2 (C4) · §3.1–§3.3, TC-S5-SILENT-001, TC-S5-SAVE-001.
  */
 
 import { createJourneyMediaIndex } from "../data/assets/journey-media.js";
 import { createJourneyPresentation } from "../data/content/journey-presentation.js";
 import { TH_JOURNEY } from "../data/localization/th-journey.js";
+import { createJourneyTitle } from "../ui/journey/components/journey-title.js";
+import { createIdSource } from "../ui/journey/journey-dom.js";
 import { createJourneyRenderer } from "../ui/journey/journey-renderer.js";
 import { createPlainImageLoader } from "../ui/journey/plain-image-loader.js";
 import { createJourneyApplication } from "./journey-application.js";
@@ -45,8 +50,7 @@ export async function loadJourneyResources({ baseUrl = journeyBaseUrl(), fetch: 
 
 /**
  * @param {{document: Document, root: Element, packageData: unknown, manifest: unknown, baseUrl: string,
- *   storage?: Storage, clock?: () => string, loadImage?: Function, onChange?: (snapshot: object) => void,
- *   onPouch?: () => void, onSettings?: () => void}} options
+ *   storage?: Storage, clock?: () => string, loadImage?: Function, onChange?: (snapshot: object) => void}} options
  */
 export function createJourneyShell(options) {
   const { document, root, packageData, manifest, baseUrl } = options;
@@ -56,7 +60,7 @@ export function createJourneyShell(options) {
     ...(Object.hasOwn(options, "storage") ? { storage: options.storage } : {}),
     ...(options.clock ? { clock: options.clock } : {}),
   });
-  let media = null, presentation = null, renderer = null;
+  let media = null, presentation = null, renderer = null, titleScreen = null, titleValue = null;
   let phase = "unbooted", model = null, title = null, lastError = null;
   const view = document.defaultView ?? null;
 
@@ -65,6 +69,7 @@ export function createJourneyShell(options) {
   function showTitle(value) {
     phase = "title";
     model = null;
+    titleValue = value;
     title = Object.freeze({
       storage: value.storage,
       continue: value.continue,
@@ -73,16 +78,22 @@ export function createJourneyShell(options) {
       consentToken: value.consentToken,
       notices: presentation.notices(value),
       notice: value.notice === null || value.notice === undefined ? null : presentation.notices({ notices: [value.notice] })[0],
+      screen: presentation.title(value),
     });
     if (renderer !== null) renderer.element.hidden = true;
+    titleScreen?.update(title.screen);
   }
 
   function showPlay(value) {
     phase = "playing";
     title = null;
     model = presentation.present(value);
+    const fromTitle = !titleScreen.element.hidden;
+    titleScreen.update(null);
     renderer.element.hidden = false;
     renderer.render(model);
+    // The title's button that started the game is gone: focus moves into the game so keys reach it.
+    if (fromTitle) renderer.focusEntry();
   }
 
   /** Draw an application result; a failure leaves the screen as it was. */
@@ -108,7 +119,7 @@ export function createJourneyShell(options) {
     if (phase === "playing") app.suspend();
   }
 
-  return Object.freeze({
+  const shell = Object.freeze({
     /** Admit the package, build the screens and read the title. */
     boot() {
       const booted = app.boot();
@@ -116,16 +127,30 @@ export function createJourneyShell(options) {
       const { identity, package: pkg } = app.content().value;
       media = createJourneyMediaIndex({ manifest, identity, baseUrl });
       presentation = createJourneyPresentation({ pkg, media, messages: TH_JOURNEY });
+      const loadImage = options.loadImage ?? createPlainImageLoader();
+      const changeSettings = (patch) => { accept(app.changeSettings(patch)); };
       renderer = createJourneyRenderer({
         document,
         root,
         messages: TH_JOURNEY,
-        loadImage: options.loadImage ?? createPlainImageLoader(),
+        loadImage,
         onCommand: (kind, args) => { accept(app.perform(kind, args)); },
-        onPouch: options.onPouch,
-        onSettings: options.onSettings,
+        onChangeSettings: changeSettings,
+        onLeave: () => { accept(app.leave()); },
       });
       renderer.element.hidden = true;
+      titleScreen = createJourneyTitle({
+        document,
+        messages: TH_JOURNEY,
+        loadImage,
+        idSource: createIdSource("jt"),
+        onContinue: () => { accept(app.continue()); },
+        onStart: ({ consent }) => { accept(app.newGame(consent ? { consentToken: titleValue?.consentToken ?? null } : {})); },
+        onMemory: () => { accept(app.newGame({ memory: true })); },
+        onAcknowledge: (id) => { shell.acknowledgeNotice(id); },
+        onChangeSettings: changeSettings,
+      });
+      root.append(titleScreen.element);
       document.addEventListener("visibilitychange", onVisibility);
       view?.addEventListener?.("pagehide", onPageHide);
       return accept(booted);
@@ -152,6 +177,8 @@ export function createJourneyShell(options) {
       document.removeEventListener("visibilitychange", onVisibility);
       view?.removeEventListener?.("pagehide", onPageHide);
       renderer?.dispose();
+      titleScreen?.dispose();
     },
   });
+  return shell;
 }

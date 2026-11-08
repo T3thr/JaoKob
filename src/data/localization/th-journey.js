@@ -93,6 +93,63 @@ export const TH_JOURNEY = Object.freeze({
     }),
     done: "ครบแล้ว",
   }),
+  /** The settings modal (UX §1.9): every control writes one field of the journey settings. */
+  settings: Object.freeze({
+    title: "ตั้งค่า",
+    close: "ปิดตั้งค่า",
+    text: "ขนาดตัวอักษร",
+    scale: (percent) => `${percent}%`,
+    view: "การมองเห็นและการเคลื่อนไหว",
+    play: "การเล่น",
+    options: Object.freeze({
+      reducedMotion: Object.freeze(["ลดการเคลื่อนไหว", "แผงเปลี่ยนแบบจางเข้า ไม่เลื่อนและไม่เด้ง"]),
+      reducedIntensity: Object.freeze(["ลดความเข้มแสง", "ฟ้าแลบเป็นแสงหรี่ ไม่วาบและไม่สั่นจอ"]),
+      highContrast: Object.freeze(["คอนทราสต์สูง", "พื้นทึบแทนกระจกฝ้า เส้นขอบชัดขึ้น"]),
+      confirmHighImpactChoices: Object.freeze(["ยืนยันทางเลือกสองจังหวะ", "กดครั้งแรกเพื่อเล็ง กดอีกครั้งเพื่อยืนยัน"]),
+      counterTags: Object.freeze(["ป้ายแก้ทาง", "ป้ายซ้ำและราคาแสดงเสมอ"]),
+      autoMicro: Object.freeze(["สัมผัสโต้ตอบอัตโนมัติ", "สำเร็จเองหลังหนึ่งวินาที"]),
+    }),
+  }),
+  /** The pouch modal (ADR-P0-020): what is in the four slots and what the pouch remembers. */
+  pouchPanel: Object.freeze({
+    title: "กระเป๋าสาน",
+    close: "ปิดกระเป๋า",
+    held: "ในกระเป๋าตอนนี้",
+    memory: "ความทรงจำของกระเป๋า",
+    released: "ฝากไปแล้ว",
+    refused: "ไม่ได้รับไว้",
+    emptyMemory: "ยังไม่มีของที่ฝากไปหรือปฏิเสธ",
+  }),
+  /** The title of the Journey (ADR-P0-034 D7–D8): start, continue, consent and the one-time notices. */
+  title: Object.freeze({
+    subtitle: "เสื้อสีฟ้ากับการเดินทางในคืนพายุ",
+    start: "เริ่มการเดินทาง",
+    continue: "เล่นต่อ",
+    continueAt: (act) => `จากองก์ ${act}`,
+    memoryOnly: "ครั้งนี้เล่นโดยไม่บันทึกทับข้อมูลเดิม",
+    settings: "ตั้งค่า",
+    consent: "มีการเดินทางที่บันทึกไว้ในเบราว์เซอร์นี้ การเริ่มใหม่จะแทนที่ข้อมูลนั้น",
+    consentYes: "ยืนยันเริ่มใหม่",
+    consentNo: "ยกเลิก",
+    memory: "เล่นโดยไม่บันทึก",
+    acknowledge: "รับทราบ",
+    back: "กลับหน้าแรก",
+    boundary: "เรื่องหน้าต่อจากนี้ยังไม่เปิด",
+    complete: "การเดินทางครั้งนี้จบแล้ว",
+  }),
+  /** The three-strand ending cards (UX §6.2): strand names in the story's own words. */
+  endings: Object.freeze({
+    group: "ทางเลือกในแสงแรก",
+    strands: Object.freeze({
+      "e-home": Object.freeze({ heart: "หัวใจ", promise: "คำสัญญา", button: "กระดุม" }),
+      "e-pond": Object.freeze({ legs: "ขาที่พากลับ", roots: "รากเหง้า" }),
+      "e-dawn": Object.freeze({ core: "ใจและขา", bonds: "ทุกสายใย", worlds: "สองโลก" }),
+    }),
+    lit: "พร้อม",
+    dim: "ยังไม่พร้อม",
+    closed: "ยังเลือกไม่ได้",
+    marks: Object.freeze(["ก", "ข", "ค"]),
+  }),
   /** The keepsake offer (UX §7, ADR-P0-020 D5). */
   pouch: Object.freeze({
     sheet: "รับของใหม่",

@@ -4,6 +4,7 @@
  *
  *   node tests/e2e/journey-c4-design-system.mjs
  *   JKB_PLAYWRIGHT_PATH=/abs/path/playwright/index.mjs JKB_EVIDENCE_DIR=/abs/out node tests/e2e/journey-c4-design-system.mjs
+ *   JKB_CHROMIUM_PATH=/abs/path/to/chromium uses a Chromium already on the machine (nothing is downloaded)
  *
  * Checks (TC-S5-VN-001 · TC-S5-HUD-001 · TC-S5-SILENT-001 · TC-S5-A11Y-001):
  *   - 6 viewports × text 100 / 150 / 200 % × three states (three on stage, five choices, four on
@@ -64,7 +65,7 @@ const evidence = {
 };
 const check = (condition, message) => { if (!condition) evidence.failures.push(message); };
 
-const browser = await chromium.launch();
+const browser = await chromium.launch(process.env.JKB_CHROMIUM_PATH ? { executablePath: process.env.JKB_CHROMIUM_PATH } : {});
 evidence.browser = browser.version();
 
 async function open(options = {}, settings = null) {
