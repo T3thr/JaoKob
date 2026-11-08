@@ -198,16 +198,6 @@ test("TC-S5-VN-001 a new pose cross-fades out the old one and releases its image
   assert.ok(loader.releases.length >= leaving.length, "each leaving actor released its image");
 });
 
-test("TC-S5-VN-001 the plain loader decodes before handing the URL over and fails closed on a wrong size", async () => {
-  const { createPlainImageLoader } = await import("../../src/ui/journey/plain-image-loader.js");
-  const fake = (width, height) => () => ({ removed: false, decode: async () => {}, naturalWidth: width, naturalHeight: height, removeAttribute() { this.removed = true; } });
-  const descriptor = { url: "http://127.0.0.1:8000/assets/images/a.webp", width: 1024, height: 1024 };
-  const lease = await createPlainImageLoader({ createImage: fake(1024, 1024) })(descriptor);
-  assert.equal(lease.url, descriptor.url);
-  lease.release();
-  await assert.rejects(createPlainImageLoader({ createImage: fake(512, 512) })(descriptor), /IMAGE_SIZE/);
-});
-
 test("TC-S5-INLINE-001 a clash card arms first, commits clashAct with the revision, and digits pick the basic row", () => {
   const { root, document, commands, until } = screen();
   const choose = until((m) => m.mode === "CLASH_CHOOSE");

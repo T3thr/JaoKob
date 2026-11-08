@@ -79,7 +79,7 @@ export function createJourneyTitle({ document, messages, loadImage, idSource, on
     plateKey = key;
     const generation = ++plateGeneration;
     plate.setAttribute("data-shown", "false");
-    if (key === null) return;
+    if (key === null) { plateLease?.release(); plateLease = null; return; }
     let lease = null;
     try { lease = await loadImage(image); } catch { lease = null; }
     if (generation !== plateGeneration) { lease?.release(); return; }
@@ -101,6 +101,7 @@ export function createJourneyTitle({ document, messages, loadImage, idSource, on
         model = null;
         focused = false;
         settingsModal.hide();
+        void showPlate(null);
         return;
       }
       const first = model === null;

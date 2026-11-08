@@ -1,6 +1,7 @@
 /**
  * Content digests for the Journey runtime: the package digest that binds a save to the exact
- * package it was played on, and the save integrity digest (ADR-P0-034 D6.4 · D7).
+ * package it was played on, the save integrity digest (ADR-P0-034 D6.4 · D7) and the byte
+ * digest of a media file checked against its manifest entry (D10.3).
  *
  * Canonicalization `jaokob-canonical-json-v1`: plain JSON data only (null, booleans, finite
  * numbers, strings, arrays, plain objects); object keys sorted by UTF-16 code units; no
@@ -9,9 +10,11 @@
  *
  * SHA-256 is computed here, synchronously, instead of through `crypto.subtle`: Web Crypto
  * exists only in secure contexts, and a phone opening the game over a LAN address must still
- * boot and save. This is a check against accidental damage, not a security signature.
+ * boot and save. This is a check against accidental damage and swapped files, not a
+ * security signature.
  *
- * Trace: ADR-P0-034 D6.4 · D7, specs/README.md (journey canonicalization), TC-S5-SAVE-002.
+ * Trace: ADR-P0-034 D6.4 · D7 · D10.3, specs/README.md (journey canonicalization),
+ * TC-S5-SAVE-002, TC-S5-ASSET-001.
  */
 
 export const CANONICALIZATION = "jaokob-canonical-json-v1";
@@ -62,37 +65,63 @@ const K = new Uint32Array([
 ]);
 
 const rotr = (x, n) => (x >>> n) | (x << (32 - n));
+const INITIAL_STATE = Object.freeze([0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19]);
 
 /** SHA-256 (FIPS 180-4) of a string's UTF-8 bytes, as 64 lowercase hex digits. */
 export function sha256Hex(text) {
   if (typeof text !== "string") throw new TypeError("sha256Hex expects a string");
-  const bytes = new TextEncoder().encode(text);
-  const blocks = Math.ceil((bytes.length + 9) / 64);
-  const message = new Uint8Array(blocks * 64);
-  message.set(bytes);
-  message[bytes.length] = 0x80;
-  const view = new DataView(message.buffer);
-  const bits = bytes.length * 8;
-  view.setUint32(message.length - 8, Math.floor(bits / 0x100000000));
-  view.setUint32(message.length - 4, bits >>> 0);
+  return sha256Bytes(new TextEncoder().encode(text));
+}
 
-  const hash = new Uint32Array([0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19]);
+/**
+ * SHA-256 (FIPS 180-4) of raw bytes, as 64 lowercase hex digits: the check of a media file
+ * against the `sha256` of its manifest entry (ADR-P0-034 D10.3, TC-S5-ASSET-001).
+ * Full blocks are read in place; only the last one or two blocks are copied for padding.
+ * @param {Uint8Array | ArrayBuffer | ArrayBufferView} input
+ */
+export function sha256Bytes(input) {
+  const bytes = toBytes(input);
+  const total = bytes.length;
+  const full = total - (total % 64);
+  const rest = total - full;
+  const tail = new Uint8Array(rest + 9 > 64 ? 128 : 64);
+  tail.set(bytes.subarray(full));
+  tail[rest] = 0x80;
+  const tailView = new DataView(tail.buffer);
+  tailView.setUint32(tail.length - 8, Math.floor(total / 0x20000000));
+  tailView.setUint32(tail.length - 4, (total * 8) >>> 0);
+
+  const state = Uint32Array.from(INITIAL_STATE);
   const w = new Uint32Array(64);
-  for (let offset = 0; offset < message.length; offset += 64) {
-    for (let i = 0; i < 16; i += 1) w[i] = view.getUint32(offset + i * 4);
-    for (let i = 16; i < 64; i += 1) {
-      const s0 = rotr(w[i - 15], 7) ^ rotr(w[i - 15], 18) ^ (w[i - 15] >>> 3);
-      const s1 = rotr(w[i - 2], 17) ^ rotr(w[i - 2], 19) ^ (w[i - 2] >>> 10);
-      w[i] = w[i - 16] + s0 + w[i - 7] + s1;
-    }
-    let [a, b, c, d, e, f, g, h] = hash;
-    for (let i = 0; i < 64; i += 1) {
-      const t1 = (h + (rotr(e, 6) ^ rotr(e, 11) ^ rotr(e, 25)) + ((e & f) ^ (~e & g)) + K[i] + w[i]) >>> 0;
-      const t2 = ((rotr(a, 2) ^ rotr(a, 13) ^ rotr(a, 22)) + ((a & b) ^ (a & c) ^ (b & c))) >>> 0;
-      h = g; g = f; f = e; e = (d + t1) >>> 0; d = c; c = b; b = a; a = (t1 + t2) >>> 0;
-    }
-    hash[0] += a; hash[1] += b; hash[2] += c; hash[3] += d;
-    hash[4] += e; hash[5] += f; hash[6] += g; hash[7] += h;
+  for (let offset = 0; offset < full; offset += 64) compress(state, w, bytes, offset);
+  for (let offset = 0; offset < tail.length; offset += 64) compress(state, w, tail, offset);
+  return Array.from(state, (word) => word.toString(16).padStart(8, "0")).join("");
+}
+
+function toBytes(input) {
+  if (input instanceof Uint8Array) return input;
+  if (input instanceof ArrayBuffer) return new Uint8Array(input);
+  if (ArrayBuffer.isView(input)) return new Uint8Array(input.buffer, input.byteOffset, input.byteLength);
+  throw new TypeError("sha256Bytes expects bytes");
+}
+
+/** One 64-byte block of `bytes` at `offset` into `state`; `w` is the message schedule. */
+function compress(state, w, bytes, offset) {
+  for (let i = 0; i < 16; i += 1) {
+    const j = offset + i * 4;
+    w[i] = (bytes[j] << 24) | (bytes[j + 1] << 16) | (bytes[j + 2] << 8) | bytes[j + 3];
   }
-  return Array.from(hash, (word) => word.toString(16).padStart(8, "0")).join("");
+  for (let i = 16; i < 64; i += 1) {
+    const s0 = rotr(w[i - 15], 7) ^ rotr(w[i - 15], 18) ^ (w[i - 15] >>> 3);
+    const s1 = rotr(w[i - 2], 17) ^ rotr(w[i - 2], 19) ^ (w[i - 2] >>> 10);
+    w[i] = w[i - 16] + s0 + w[i - 7] + s1;
+  }
+  let a = state[0], b = state[1], c = state[2], d = state[3], e = state[4], f = state[5], g = state[6], h = state[7];
+  for (let i = 0; i < 64; i += 1) {
+    const t1 = (h + (rotr(e, 6) ^ rotr(e, 11) ^ rotr(e, 25)) + ((e & f) ^ (~e & g)) + K[i] + w[i]) >>> 0;
+    const t2 = ((rotr(a, 2) ^ rotr(a, 13) ^ rotr(a, 22)) + ((a & b) ^ (a & c) ^ (b & c))) >>> 0;
+    h = g; g = f; f = e; e = (d + t1) >>> 0; d = c; c = b; b = a; a = (t1 + t2) >>> 0;
+  }
+  state[0] += a; state[1] += b; state[2] += c; state[3] += d;
+  state[4] += e; state[5] += f; state[6] += g; state[7] += h;
 }

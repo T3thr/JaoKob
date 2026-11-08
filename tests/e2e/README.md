@@ -71,3 +71,13 @@ JKB_PLAYWRIGHT_PATH=/absolute/path/to/playwright/index.mjs node tests/e2e/journe
 ```
 
 It checks 5 viewports × text 100/200 % × five states (title, settings modal, pouch modal with its memory, the three ending cards, the chapter end): no sideways scroll, every visible control ≥ 44 × 44, a modal inside the viewport with its close button in view, the ending cards and the chapter end below the face band or the stage strip; keyboard-only: Enter on the title starts, `I` opens the pouch and Escape gives focus back, Tab stays inside the settings modal, the chapter end leads back to the title with focus on continue; no console error and no request outside the origin. `JKB_CHROMIUM_PATH` works as in the C5b runner (the C4 runner accepts it too). Output: [evidence/sprint-05/c5c](evidence/sprint-05/c5c/report.json). Safari, physical devices and screen-reader listening are not covered.
+
+## Sprint 5 · C5d verified Journey media
+
+`journey-c5d-media.mjs` drives the same review page on the media resolver and the shared image cache (T3): every image is read same-origin, its WebP header and SHA-256 checked against asset manifest v2, and decoded once under the package identity.
+
+```sh
+JKB_PLAYWRIGHT_PATH=/absolute/path/to/playwright/index.mjs node tests/e2e/journey-c5d-media.mjs
+```
+
+It plays the whole Act 1 and the whole mini package one command at a time with `crypto.subtle` removed (the insecure-context case of a phone on a LAN address) and checks after every command: no image refused, the cache within 32 MiB, every drawn image a decoded `blob:` URL with pixels, every image request same-origin under `assets/images/`. It also checks that an image already drawn keeps its pixels after its object URL is revoked, and serves a damaged opening plate: the plate is never drawn, Act 1 still plays to its boundary with no console error, and once the file is whole the plate is read again without a reload. `report.json` records the peak bytes kept and held on screen. Output: [evidence/sprint-05/c5d](evidence/sprint-05/c5d/report.json). A real LAN address, Safari, Firefox and physical devices are not covered.

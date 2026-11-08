@@ -86,7 +86,7 @@ export function createCampActivityBoard({ document, messages, loadImage, idSourc
     update(camp, { armed, picking }) {
       const show = camp !== null && camp.open;
       setAttributes(root, { hidden: !show });
-      if (!show) return;
+      if (!show) { cards.forEach(({ card }) => card.clear()); slots.forEach((slot) => slot.clear()); return; }
       shown = camp.cards;
       const choosing = picking && camp.picker !== null;
       setAttributes(root, { "data-view": choosing ? "picker" : "cards" });
@@ -94,12 +94,13 @@ export function createCampActivityBoard({ document, messages, loadImage, idSourc
       cards.forEach(({ card, description }, index) => {
         const option = camp.cards[index];
         setAttributes(card.element, { hidden: option === undefined });
-        if (option === undefined) return;
+        if (option === undefined) { card.clear(); return; }
         card.update(option, { armed: armed === option.key });
         setText(description, option.description);
       });
       setAttributes(picker, { hidden: !choosing });
-      if (camp.picker !== null) {
+      if (!choosing) slots.forEach((slot) => slot.clear());
+      else {
         slots.forEach((slot, index) => {
           const data = camp.picker.slots[index];
           const key = data.item === null ? null : `item:${data.item}`;

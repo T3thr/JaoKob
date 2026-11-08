@@ -93,7 +93,7 @@ export function createClashActionTray({ document, messages, loadImage, idSource,
     update(clash, { selected, armed, layout }) {
       const groups = clash === null || clash.beat !== "choose" ? [] : clash.groups;
       setAttributes(root, { hidden: groups.length === 0, "data-layout": layout });
-      if (groups.length === 0) return;
+      if (groups.length === 0) { for (const cards of pools.values()) cards.forEach(({ card }) => card.clear()); return; }
       const present = new Map(groups.map((group) => [group.id, group]));
       shownTabs = TABBED.filter((group) => present.has(group));
       const tabbed = layout === "tabs" && shownTabs.length > 1;
@@ -108,7 +108,7 @@ export function createClashActionTray({ document, messages, loadImage, idSource,
         pools.get(group).forEach(({ card, description }, index) => {
           const option = data?.cards[index];
           setAttributes(card.element, { hidden: option === undefined });
-          if (option === undefined) return;
+          if (option === undefined) { card.clear(); return; }
           card.update(option, { armed: armed === option.key });
           setText(description, option.description);
         });

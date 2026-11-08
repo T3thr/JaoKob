@@ -5,6 +5,9 @@ export const IMAGE_BUDGET_BYTES = 32 * 1024 * 1024;
  * acquire returns a decoded image lease, or null on any failure. Every successful
  * caller must release its lease after removal from the stage. Retained images and
  * in-flight decodes count toward the same budget; only inactive entries are evicted.
+ * At most two scene plates (`kind: "background"`, or a path under the backgrounds folder for
+ * the earlier runtime) are kept; when that limit binds, the least recently used idle plate
+ * goes first, never an unrelated image.
  * Entries are keyed by the reference's package identity (Journey: profile + package id +
  * contentVersion) or, for the earlier runtime, its contentVersion, so two packages that
  * share a version never share an image.
@@ -19,11 +22,20 @@ export function createImageCache({ readAsset, createImage = () => new Image(),
     entries.delete(key); bytes -= entry.bytes;
     revokeObjectURL(entry.url); entry.image.removeAttribute?.("src");
   }
+  /** The least recently used entry nobody holds (a plate only, when `plates`), or undefined. */
+  function idle(plates) {
+    return [...entries.entries()].filter(([, entry]) => !entry.refs && !entry.decoding && (!plates || entry.background))
+      .sort((a, b) => a[1].used - b[1].used)[0];
+  }
   function room(size, background) {
     const backgrounds = () => [...entries.values()].filter((entry) => entry.background).length;
-    while (bytes + size > budget || (background && backgrounds() >= 2)) {
-      const candidate = [...entries.entries()].filter(([, entry]) => !entry.refs && !entry.decoding)
-        .sort((a, b) => a[1].used - b[1].used)[0];
+    while (background && backgrounds() >= 2) {
+      const candidate = idle(true);
+      if (!candidate) return false;
+      remove(...candidate);
+    }
+    while (bytes + size > budget) {
+      const candidate = idle(false);
       if (!candidate) return false;
       remove(...candidate);
     }
@@ -36,7 +48,7 @@ export function createImageCache({ readAsset, createImage = () => new Image(),
       if (disposed || signal.aborted || !result?.ok || result.value.descriptor.type !== "image") return null;
       const { descriptor, bytes: encoded } = result.value;
       const size = descriptor.width * descriptor.height * 4;
-      const background = descriptor.path.startsWith("assets/images/backgrounds/");
+      const background = descriptor.kind === "background" || String(descriptor.path ?? "").startsWith("assets/images/backgrounds/");
       if (!Number.isSafeInteger(size) || size <= 0 || size > budget || !room(size, background)) return null;
       const image = createImage();
       const url = createObjectURL(new Blob([encoded], { type: descriptor.mimeType }));
@@ -86,6 +98,11 @@ export function createImageCache({ readAsset, createImage = () => new Image(),
     for (const job of pending.values()) job.controller.abort();
     for (const [key, entry] of entries) if (!entry.refs) remove(key, entry);
   }
-  return Object.freeze({ acquire, dispose, stats: () => Object.freeze({ bytes, entries: entries.size, pending: pending.size,
-    retained: [...entries.values()].filter((entry) => entry.refs).length, budget }) });
+  /** Decoded bytes kept (`bytes`), and of those the ones held by a caller now (`retainedBytes`). */
+  function stats() {
+    const held = [...entries.values()].filter((entry) => entry.refs);
+    return Object.freeze({ bytes, entries: entries.size, pending: pending.size, retained: held.length,
+      retainedBytes: held.reduce((sum, entry) => sum + entry.bytes, 0), budget });
+  }
+  return Object.freeze({ acquire, dispose, stats });
 }

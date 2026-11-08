@@ -14,7 +14,7 @@
 
 | ไฟล์ | เรื่อง | หมายเหตุ |
 |---|---|---|
-| `asset-preloader.test.js` · `asset-resolver.test.js` · `image-cache.test.js` | โหลดและแคชภาพ | ใช้ต่อกับ asset ของ Journey |
+| `asset-preloader.test.js` · `asset-resolver.test.js` · `image-cache.test.js` | โหลดและแคชภาพ | `image-cache.js` รับภาพของ Journey แล้วใน C5d (key ของ identity · ฉากหลังจาก `kind`) · Journey อ่านไบต์ผ่าน `journey-media-resolver.js` ไม่ใช่ `asset-resolver.js` ซึ่งผูกกับ registry ของเนื้อหาเดิม · C5e ตัดสินว่า resolver และ preloader เดิมยังมีผู้ใช้หรือไม่ |
 | `audio-adapter.test.js` · `ports.test.js` | AudioPort และ port ของ Core | ใช้ต่อ (ADR-P0-015) |
 | `session-history.test.js` | Log 50 บท + 50 การกระทำ | ใช้ต่อกับ Journey |
 | `keepsake-pouch.test.js` | โดเมนกระเป๋าสี่ช่อง (ADR-P0-020) | ใช้ต่อ · กฎของที่ล็อกอยู่ใน `effects.js` และ `pouch-offer.js` ของ Core ใหม่ เทสต์ใน `journey-encounters.test.js` (C2) |
@@ -56,9 +56,9 @@
 | `persistence.test.js` (27) | transaction ของ namespace เดิม (`jaokob:save:*` · `jaokob:settings`) ซึ่ง Journey ไม่ใช้ | ADR-P0-034 D7.3 · D8 · กลไกเดียวกันพอร์ตไว้ใน `journey-save-repository.js` | `journey-save.test.js`: stage–backup–promote–clean · race กับแท็บอื่น · quota · เขียนหายและอ่านกลับไม่ตรง · ไม่มี storage · ความยินยอมผูกกับระเบียนที่เห็น · ระเบียนจากอนาคตไม่ถูกเขียนทับ (`TC-S5-SAVE-001` · `TC-S5-SAVE-002`) |
 | `journey-legacy-rehearsal.test.js` (1) | ซ้อมย้อนกลับกับแอป Sprint 4 ที่ยังอยู่ใน repository | ADR-P0-034 D1.3 · D8 | ไบต์ของ key เดิมใน `journey-application.test.js` (`TC-S5-LEGACY-001`) · ซ้อมกับ static build ของ Sprint 4 ใน T19 |
 
-## 4. assertion ของ Slice 1 ที่เปลี่ยนใน C2
+## 4. assertion ของ Slice 1 ที่เปลี่ยนใน C2 และ C5d
 
-engine ของ ADR-P0-033 กลายเป็น adapter ของ Core ตาม ADR-P0-034 D5.2 assertion ที่เคยเทียบกับ engine นั้นจึงเทียบกับตัวเองไปแล้ว ([CR-20261104-0440](../changelog/2026-11/2026-11-04-0440-c2-evidence-on-core-and-balance-gate.md))
+engine ของ ADR-P0-033 กลายเป็น adapter ของ Core ตาม ADR-P0-034 D5.2 assertion ที่เคยเทียบกับ engine นั้นจึงเทียบกับตัวเองไปแล้ว ([CR-20261104-0440](../changelog/2026-11/2026-11-04-0440-c2-evidence-on-core-and-balance-gate.md)) · C5d แทน loader ชั่วคราวของ C4 ด้วย resolver ที่ตรวจไบต์ ([CR-20261109-0430](../changelog/2026-11/2026-11-09-0430-c5d-journey-media-resolver-sha256-and-image-budget.md))
 
 | assertion เดิม | ไฟล์ | เปลี่ยนเป็น | เทสต์ทดแทนที่เข้มกว่า |
 |---|---|---|---|
@@ -66,6 +66,7 @@ engine ของ ADR-P0-033 กลายเป็น adapter ของ Core ต�
 | every round in the mechanics spec equals the proved engine round | `journey-content.test.js` (C1) | ยกทั้งหกผ่าน `assertRound` ของ Core · แพ็กเกจพกเฉพาะยกที่ใช้ | parity ทุกลำดับการกดจาก 18 จุดเข้าศึก (`journey-clash.test.js`) ตรึงพฤติกรรมของทุกยก |
 | Act 1 nodes follow the balance model order exactly | `journey-content.test.js` (C1) | แบบจำลองสมดุลเล่น Act 1 จากแพ็กเกจที่คอมไพล์ ตามลำดับหัวข้อของพิมพ์เขียว | `TC-S5-BALANCE-001` |
 | ตารางความจริงของฉากจบเทียบ `endings()` ของแบบจำลอง | `journey-encounters.test.js` (C2 ช่วงสอง) | เทียบสมการของมหาพิมพ์เขียว §2.13 ที่ถอดตรงตัวในเทสต์ | เทสต์เดิมทุกจุดตัดของเกณฑ์ |
+| the plain loader decodes before handing the URL over and fails closed on a wrong size | `journey-renderer.test.js` (C4) | `plain-image-loader.js` ถูกลบ · ภาพทุกภาพผ่าน `journey-media-resolver.js` และ image cache กลาง (ADR-P0-034 D10.3 · T3) | `journey-media-resolver.test.js` (ไบต์ ขนาดจาก header SHA-256 same-origin) · `image-cache.test.js` (ขนาดหลัง decode) · `journey-media-screens.test.js` (เล่นครบบนไบต์จริงในงบ 32 MiB) |
 
 ## 5. บันทึกการลบ
 

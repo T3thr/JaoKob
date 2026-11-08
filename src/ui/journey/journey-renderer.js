@@ -264,6 +264,7 @@ export function createJourneyRenderer(options) {
     modal = null;
     setAttributes(root, { "data-modal": null });
     closing.hide();
+    if (closing === pouchModal) pouchPanel.clear();
     if (deferredMicro !== null) {
       const key = deferredMicro;
       deferredMicro = null;
@@ -328,7 +329,7 @@ export function createJourneyRenderer(options) {
     cards.forEach((card, index) => {
       const option = options[index];
       setAttributes(card.element, { hidden: option === undefined });
-      if (option === undefined) return;
+      if (option === undefined) { card.clear(); return; }
       card.update(option, { armed: armed === option.key });
       setText(descriptionNodes[index], option.description);
     });
@@ -545,6 +546,20 @@ export function createJourneyRenderer(options) {
     /** Put focus on the way on (▽ or the first card) when the game screen appears, e.g. from the title. */
     focusEntry() {
       if (model !== null && modal === null) moveFocus(null, true, true);
+    },
+    /**
+     * The game screen goes behind the title: every image it holds is let go, so the image budget
+     * keeps only what is on screen, and the next render draws the scene again.
+     */
+    rest() {
+      if (disposed) return;
+      stage.clear();
+      dialogue.clear();
+      cards.forEach((card) => card.clear());
+      tray.update(null, { selected: null, armed: null, layout: trayLayout() });
+      campBoard.update(null, { armed: null, picking: false });
+      pouchSheet.update(null, { armed: null });
+      pouchPanel.clear();
     },
     dispose() {
       disposed = true;

@@ -1,0 +1,134 @@
+{
+  "runner": "tests/e2e/journey-c5d-media.mjs",
+  "head": "2f6eb8d7199ab5761fe7849e77e10eeed4c96a76",
+  "requirements": [
+    "TC-S5-ASSET-001",
+    "TC-S5-PACKAGE-001",
+    "TC-S5-PERF-001"
+  ],
+  "plays": [
+    {
+      "pkg": "act1",
+      "subtleRemoved": true,
+      "steps": 111,
+      "modes": [
+        "VN",
+        "DECISION",
+        "CLASH_INTRO",
+        "CLASH_INTENT",
+        "CLASH_CHOOSE",
+        "CLASH_RESOLVE",
+        "CLASH_OUTCOME",
+        "CAMP",
+        "MICRO",
+        "BOUNDARY"
+      ],
+      "peakBytes": 32491520,
+      "peakMiB": 31,
+      "peakHeldBytes": 22537216,
+      "peakHeldMiB": 21.5,
+      "peakEntries": 8,
+      "end": {
+        "phase": "playing",
+        "mode": "BOUNDARY",
+        "images": {
+          "bytes": 32491520,
+          "entries": 7,
+          "pending": 0,
+          "retained": 0,
+          "retainedBytes": 0,
+          "budget": 33554432,
+          "failures": 0
+        },
+        "drawn": 4,
+        "notBlob": [],
+        "broken": 0
+      },
+      "imageRequests": 31,
+      "distinctImages": 21,
+      "mostFetched": 3
+    },
+    {
+      "pkg": "mini",
+      "subtleRemoved": true,
+      "steps": 36,
+      "modes": [
+        "VN",
+        "DECISION",
+        "CLASH_INTRO",
+        "CLASH_INTENT",
+        "CLASH_CHOOSE",
+        "CLASH_RESOLVE",
+        "CLASH_OUTCOME",
+        "CAMP",
+        "MICRO",
+        "POUCH_SWAP",
+        "ENDING_RESONANCE",
+        "COMPLETE"
+      ],
+      "peakBytes": 32491520,
+      "peakMiB": 31,
+      "peakHeldBytes": 14148608,
+      "peakHeldMiB": 13.5,
+      "peakEntries": 10,
+      "end": {
+        "phase": "playing",
+        "mode": "COMPLETE",
+        "images": {
+          "bytes": 32491520,
+          "entries": 10,
+          "pending": 0,
+          "retained": 1,
+          "retainedBytes": 5760000,
+          "budget": 33554432,
+          "failures": 0
+        },
+        "drawn": 2,
+        "notBlob": [],
+        "broken": 0
+      },
+      "imageRequests": 17,
+      "distinctImages": 17,
+      "mostFetched": 1
+    }
+  ],
+  "revokedStillDrawn": {
+    "complete": true,
+    "naturalWidth": 1600,
+    "opaquePixels": 256,
+    "refetchAfterRevoke": "refused"
+  },
+  "damaged": {
+    "asset": "bg_act1_willow_roots",
+    "title": {
+      "shown": "false",
+      "src": null,
+      "failures": 1,
+      "phase": "title"
+    },
+    "steps": 111,
+    "end": "BOUNDARY",
+    "failures": 2,
+    "entries": 7,
+    "recovered": {
+      "shown": "true",
+      "src": "blob:http://127.0.0.1:58400/1f34f3fd-76fd-4c57-bbe5-dbe1f8862b32"
+    }
+  },
+  "screenshots": [
+    "act1-end-390x844.jpg",
+    "mini-end-390x844.jpg",
+    "damaged-title-390x844.jpg",
+    "recovered-title-390x844.jpg"
+  ],
+  "failures": [],
+  "errors": [],
+  "notRun": [
+    "Safari/WebKit and Firefox",
+    "physical iPhone and Android",
+    "a real LAN address (insecure context simulated by removing crypto.subtle)",
+    "PO visual acceptance"
+  ],
+  "browser": "151.0.7922.34",
+  "passed": true
+}

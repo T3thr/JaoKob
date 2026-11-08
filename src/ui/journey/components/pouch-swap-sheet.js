@@ -80,14 +80,21 @@ export function createPouchSwapSheet({ document, messages, loadImage, idSource, 
     update(pouch, state) {
       setAttributes(root, { hidden: pouch === null });
       model = pouch;
-      if (pouch === null) { armed = null; pointed = null; return; }
+      if (pouch === null) {
+        armed = null;
+        pointed = null;
+        incoming.clear();
+        slots.forEach((slot) => slot.clear());
+        cards.forEach(({ card }) => card.clear());
+        return;
+      }
       armed = state.armed;
       incoming.update({ item: pouch.incoming.item, name: pouch.incoming.name, image: pouch.incoming.image }, { note: messages.pouch.incoming, noteKind: "incoming" });
       setAttributes(choices, { "data-count": pouch.cards.length });
       cards.forEach(({ card, description }, index) => {
         const option = pouch.cards[index];
         setAttributes(card.element, { hidden: option === undefined });
-        if (option === undefined) return;
+        if (option === undefined) { card.clear(); return; }
         card.update(option, { armed: armed === option.key });
         setText(description, option.description);
       });

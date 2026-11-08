@@ -8,7 +8,9 @@
  *   - A card that cannot be taken still shows, dimmed, with its reason in words; it stays
  *     focusable (`aria-disabled`) so the reason can be heard.
  *   - `armed` is the inline first press of a two-step choice (green outline and a short hint).
- *   - Art is an icon, a keepsake, a face, or a keepsake with a companion's face (combo).
+ *   - Art is an icon, a keepsake, a face, or a keepsake with a companion's face (combo). Its
+ *     image leases are held only while the card is on screen: `clear()` lets them go when the
+ *     owner hides the card, so a hidden tray never keeps decoded images in the budget.
  *   - Up to two corner tags (`แก้ทาง` and `ซ้ำ`, or a kind tag) as UX §3.3 ข้อ 6 allows.
  *   - Camp and keepsake cards carry an effect line under the label (`สายใยเตื๊อก +` ·
  *     `แรง ●●` · `สละ…`), shown until a reason or the armed hint takes its place, and a chosen
@@ -65,6 +67,15 @@ export function createTactileActionCard({ document, messages, loadImage, describ
     }
   }
 
+  function letGo() {
+    artGeneration += 1;
+    artLeases.forEach((lease) => lease?.release());
+    artLeases = [];
+    artKey = null;
+    art.replaceChildren();
+    art.setAttribute("data-empty", "true");
+  }
+
   return Object.freeze({
     element: button,
     /** @param {object} option A decision option of the presentation. @param {{armed: boolean}} state */
@@ -97,9 +108,8 @@ export function createTactileActionCard({ document, messages, loadImage, describ
       setAttributes(shortcut, { hidden: option.shortcut === null });
       void showArt(option.art);
     },
-    dispose() {
-      artGeneration += 1;
-      artLeases.forEach((lease) => lease?.release());
-    },
+    /** Let go of the art while the card is hidden; the next update draws it again. */
+    clear: letGo,
+    dispose: letGo,
   });
 }

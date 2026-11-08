@@ -38,6 +38,8 @@ export function createSaaDialogueCard({ document, messages, loadImage, onAdvance
     const generation = ++faceGeneration;
     if (image === null || image === undefined) {
       avatar.setAttribute("data-state", "empty");
+      faceLease?.release();
+      faceLease = null;
       return;
     }
     avatar.style.setProperty("--eye", String(image.eyeFromTop));
@@ -73,9 +75,18 @@ export function createSaaDialogueCard({ document, messages, loadImage, onAdvance
         setText(text, line.text);
       }
     },
+    /** Let go of the speaker's face while the game screen is hidden; the next update draws it again. */
+    clear() {
+      faceGeneration += 1;
+      faceKey = null;
+      faceLease?.release();
+      faceLease = null;
+      avatar.setAttribute("data-state", "empty");
+    },
     dispose() {
       faceGeneration += 1;
       faceLease?.release();
+      faceLease = null;
     },
   });
 }

@@ -2,8 +2,9 @@
  * Journey media index: the asset IDs of a Journey package resolved to same-origin image
  * descriptors from asset manifest v2 (ADR-P0-034 D10.3, physics v2 §8).
  *
- *   - Every descriptor is keyed by the package identity (`<identity.key>:<assetId>`), so two
- *     packages of one version never share an image (ADR-P0-034 D7.5, image cache).
+ *   - Every descriptor carries the package identity (`identity`) and is keyed by it
+ *     (`<identity.key>:<assetId>`), so two packages of one version never share an image
+ *     (ADR-P0-034 D7.5, image cache).
  *   - Paths must be relative WebP files under `assets/images/` and resolve inside `baseUrl`;
  *     anything else, duplicated IDs included, is left out and resolves to null.
  *   - Facing: a slot that asks for the other facing gets the manifest's `variantOf` entry.
@@ -13,8 +14,9 @@
  *     The stage uses it to put every face inside the protected band (ADR-P0-032 D7.2,
  *     PO decision C4 of 2026-11-05: one eye anchor per 1024 px image).
  *
- * Byte integrity (`sha256`, `byteLength`) travels on the descriptor for the verified loader.
- * Trace: ADR-P0-034 D7/D10, ADR-P0-032 D7, SSOT §1.2 (C4), TC-S5-VN-001.
+ * Byte integrity (`sha256`, `byteLength`) travels on the descriptor; the media resolver reads
+ * it from this index, never from the caller (`journey-media-resolver.js`).
+ * Trace: ADR-P0-034 D7/D10, ADR-P0-032 D7, SSOT §1.2 (C4), TC-S5-VN-001, TC-S5-ASSET-001.
  */
 
 const CATEGORY_KIND = Object.freeze({ characters: "character", backgrounds: "background", cinematicCGs: "cg", keepsakes: "keepsake" });
@@ -65,6 +67,7 @@ export function createJourneyMediaIndex({ manifest, identity, baseUrl } = {}) {
       facingMatched,
       sha256: entry.sha256,
       byteLength: entry.byteLength,
+      identity: identity.key,
       key: `${identity.key}:${entry.assetId}`,
     });
   }

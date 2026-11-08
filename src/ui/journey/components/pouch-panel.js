@@ -50,6 +50,10 @@ export function createPouchPanel({ document, messages, loadImage }) {
         })));
       setText(memoryHeading, messages.pouchPanel.memory);
     },
+    /** Let go of the keepsake images when the modal closes; the next update draws them again. */
+    clear() {
+      slots.forEach((slot) => slot.clear());
+    },
     dispose() {
       slots.forEach((slot) => slot.dispose());
     },

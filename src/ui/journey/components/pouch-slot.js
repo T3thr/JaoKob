@@ -3,7 +3,8 @@
  * (a button) and the keepsake offer (a list item): the keepsake image, its name, a short note
  * and its state as attributes (`data-empty` · `data-locked` · `data-ready` · `data-lifted`).
  * Text goes in through the DOM only. The image is a lease from the loader, released when the
- * slot shows another keepsake or the screen is disposed, so no decoded image is kept twice.
+ * slot shows another keepsake, when its owner hides it (`clear()`) or when the screen is
+ * disposed, so a hidden slot never keeps a decoded image in the budget.
  * Trace: ADR-P0-020 D5, UX §4.1.5 · §7, ADR-P0-034 D10.3, TC-S5-UX-001, TC-S5-A11Y-001.
  */
 
@@ -38,6 +39,15 @@ export function createPouchSlot({ document, loadImage, tag = "div", onActivate =
     if (next !== null) art.append(element(document, "img", "jk-slot__image", { src: next.url, alt: "", draggable: "false" }));
   }
 
+  function letGo() {
+    generation += 1;
+    lease?.release();
+    lease = null;
+    imageKey = null;
+    art.replaceChildren();
+    art.setAttribute("data-empty", "true");
+  }
+
   return Object.freeze({
     element: root,
     /**
@@ -52,10 +62,8 @@ export function createPouchSlot({ document, loadImage, tag = "div", onActivate =
       setAttributes(root, { "data-empty": slot.item === null ? "true" : "false", "data-locked": slot.locked === true ? "true" : null, "data-ready": slot.ready === true ? "true" : null, ...attributes });
       void showImage(slot.image);
     },
-    dispose() {
-      generation += 1;
-      lease?.release();
-      lease = null;
-    },
+    /** Let go of the image while the slot is hidden; the next update draws it again. */
+    clear: letGo,
+    dispose: letGo,
   });
 }

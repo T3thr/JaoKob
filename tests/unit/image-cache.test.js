@@ -97,3 +97,21 @@ test("TC-S5-PACKAGE-001: two packages of the same version never share a decoded 
   for (const reference of [{ assetId: "a" }, { identity: "", assetId: "a" }, { identity: 7, assetId: "a" }]) assert.equal(await cache.acquire(reference), null);
   core.release(); mini.release(); again.release(); cache.dispose();
 });
+test("TC-S5-ASSET-001: a Journey plate (kind background) counts toward the two plates, and an idle plate goes before other idle images", async () => {
+  const kinds = { p1: "background", p2: "background", p3: "background", face: "character" };
+  const { cache, revoked } = setup({ readAsset: async (reference) => ({ ok: true, value: {
+    descriptor: { type: "image", kind: kinds[reference.assetId], mimeType: "image/webp", width: 10, height: 10 }, bytes: new ArrayBuffer(8),
+  } }) });
+  const journey = (assetId) => ({ identity: "journey:story.jaokob.core@0.1.0", assetId });
+  const face = await cache.acquire(journey("face")); face.release();
+  const p1 = await cache.acquire(journey("p1")), p2 = await cache.acquire(journey("p2"));
+  assert.equal(await cache.acquire(journey("p3")), null, "two plates on screen leave no room for a third");
+  p1.release();
+  const p3 = await cache.acquire(journey("p3"));
+  assert.ok(p3);
+  assert.equal(cache.stats().retainedBytes, 800, "two plates held, the idle face kept but not held");
+  assert.equal(cache.stats().bytes, 1200);
+  assert.deepEqual(revoked, [p1.url], "the idle plate went; the idle face stayed");
+  assert.equal(cache.stats().entries, 3);
+  p2.release(); p3.release(); cache.dispose();
+});

@@ -12,6 +12,10 @@
  *   - A new plate or a new pose is decoded first and then cross-faded, so nothing pops in
  *     half-drawn; a stale load never resurrects an earlier scene; a failed image leaves the
  *     slot empty and the story goes on.
+ *   - Image leases follow what stays on screen: a plate, pose or CG that starts to fade out is
+ *     released at once (an image already drawn keeps showing while it fades), and the hidden
+ *     plate layer lets go before the next plate loads, so the image budget holds the scene in
+ *     view and the one coming, never the ones already gone.
  *
  * The stage is decorative for assistive technology: who is present is written in words by
  * the renderer. Trace: ADR-P0-032 D7, ADR-P0-034 D10, UX §1.1 · §2.1, TC-S5-VN-001.
@@ -47,7 +51,13 @@ export function createVnTachieStage({ document, loadImage, schedule = (callback,
     if (key === cgKey) return;
     cgKey = key;
     const generation = ++cgGeneration;
-    if (descriptor === null || descriptor === undefined) { cg.setAttribute("data-shown", "false"); root.setAttribute("data-cg", "false"); return; }
+    if (descriptor === null || descriptor === undefined) {
+      cg.setAttribute("data-shown", "false");
+      root.setAttribute("data-cg", "false");
+      cgLease?.release();
+      cgLease = null;
+      return;
+    }
     let lease = null;
     try { lease = await loadImage(descriptor); } catch { lease = null; }
     if (disposed || generation !== cgGeneration) { lease?.release(); return; }
@@ -65,20 +75,26 @@ export function createVnTachieStage({ document, loadImage, schedule = (callback,
     if (key === backgroundKey) return;
     backgroundKey = key;
     const generation = ++backgroundGeneration;
+    // The layer behind the plate in view is hidden or fading out: its image goes first.
+    const back = 1 - front;
+    leases[back]?.release();
+    leases[back] = null;
     if (descriptor === null || descriptor === undefined) {
       layers.forEach((layer) => layer.setAttribute("data-shown", "false"));
+      leases[front]?.release();
+      leases[front] = null;
       return;
     }
     let lease = null;
     try { lease = await loadImage(descriptor); } catch { lease = null; }
     if (disposed || generation !== backgroundGeneration) { lease?.release(); return; }
     if (lease === null) return;
-    const back = 1 - front;
-    leases[back]?.release();
     leases[back] = lease;
     layers[back].setAttribute("src", lease.url);
     layers[back].setAttribute("data-shown", "true");
     layers[front].setAttribute("data-shown", "false");
+    leases[front]?.release();
+    leases[front] = null;
     front = back;
   }
 
@@ -86,10 +102,9 @@ export function createVnTachieStage({ document, loadImage, schedule = (callback,
     entry.generation += 1;
     entry.node.setAttribute("data-state", "leaving");
     actors.delete(slot);
-    schedule(() => {
-      entry.node.remove?.();
-      entry.lease?.release();
-    }, LEAVE_MS);
+    entry.lease?.release();
+    entry.lease = null;
+    schedule(() => { entry.node.remove?.(); }, LEAVE_MS);
   }
 
   function enter(actor) {
@@ -113,6 +128,21 @@ export function createVnTachieStage({ document, loadImage, schedule = (callback,
     return entry;
   }
 
+  function letGo() {
+    backgroundGeneration += 1;
+    backgroundKey = null;
+    leases.forEach((lease, index) => { lease?.release(); leases[index] = null; });
+    layers.forEach((layer) => layer.setAttribute("data-shown", "false"));
+    cgGeneration += 1;
+    cgKey = null;
+    cgLease?.release();
+    cgLease = null;
+    cg.setAttribute("data-shown", "false");
+    root.setAttribute("data-cg", "false");
+    for (const entry of actors.values()) { entry.generation += 1; entry.lease?.release(); entry.lease = null; entry.node.remove?.(); }
+    actors.clear();
+  }
+
   return Object.freeze({
     element: root,
     /** @param {object} scene The `scene` of a presentation model. */
@@ -133,14 +163,11 @@ export function createVnTachieStage({ document, loadImage, schedule = (callback,
       }
       setAttributes(root, { "data-speaker": scene.actors.some((actor) => actor.speaking) ? "true" : "false", "data-count": wanted.size, "data-scene": scene.sceneKey });
     },
+    /** Let go of every image while the game screen is hidden (the title); the next update draws the scene again. */
+    clear: letGo,
     dispose() {
       disposed = true;
-      backgroundGeneration += 1;
-      leases.forEach((lease) => lease?.release());
-      cgGeneration += 1;
-      cgLease?.release();
-      for (const entry of actors.values()) { entry.generation += 1; entry.lease?.release(); }
-      actors.clear();
+      letGo();
     },
   });
 }

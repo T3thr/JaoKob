@@ -3,6 +3,8 @@
  *
  *   application (C3)  → admits the package, runs the Core session, saves every commit silently
  *   media index       → asset IDs to same-origin images, keyed by the package identity
+ *   media resolver    → the bytes of an image, proved against the manifest (size, SHA-256) (C5d)
+ *   image cache       → each image decoded once under the package identity, within 32 MiB
  *   presentation      → the play view in words, images and pips
  *   renderer          → draws the model and sends the player's commands back here
  *
@@ -19,12 +21,13 @@
  */
 
 import { createJourneyMediaIndex } from "../data/assets/journey-media.js";
+import { createJourneyMediaResolver } from "../data/assets/journey-media-resolver.js";
 import { createJourneyPresentation } from "../data/content/journey-presentation.js";
 import { TH_JOURNEY } from "../data/localization/th-journey.js";
+import { createImageCache } from "../ui/assets/image-cache.js";
 import { createJourneyTitle } from "../ui/journey/components/journey-title.js";
 import { createIdSource } from "../ui/journey/journey-dom.js";
 import { createJourneyRenderer } from "../ui/journey/journey-renderer.js";
-import { createPlainImageLoader } from "../ui/journey/plain-image-loader.js";
 import { createJourneyApplication } from "./journey-application.js";
 
 export const JOURNEY_PACKAGE_PATH = "src/data/content/journey/story-jaokob-core.json";
@@ -48,9 +51,16 @@ export async function loadJourneyResources({ baseUrl = journeyBaseUrl(), fetch: 
   return { packageData, manifest, baseUrl };
 }
 
+/** The browser ports of the verified image loader that tests may replace. */
+const MEDIA_PORTS = Object.freeze(["createImage", "createObjectURL", "revokeObjectURL", "maxBytes"]);
+
 /**
  * @param {{document: Document, root: Element, packageData: unknown, manifest: unknown, baseUrl: string,
- *   storage?: Storage, clock?: () => string, loadImage?: Function, onChange?: (snapshot: object) => void}} options
+ *   storage?: Storage, clock?: () => string, loadImage?: Function,
+ *   media?: {fetch?: typeof fetch, createImage?: Function, createObjectURL?: Function, revokeObjectURL?: Function, maxBytes?: number},
+ *   onChange?: (snapshot: object) => void}} options
+ * `loadImage` replaces the verified image loader (tests of the screens); `media` replaces the
+ * browser ports under it (tests of the loader on real bytes).
  */
 export function createJourneyShell(options) {
   const { document, root, packageData, manifest, baseUrl } = options;
@@ -62,6 +72,7 @@ export function createJourneyShell(options) {
   });
   let media = null, presentation = null, renderer = null, titleScreen = null, titleValue = null;
   let phase = "unbooted", model = null, title = null, lastError = null;
+  let images = null, imageFailures = 0, disposed = false;
   const view = document.defaultView ?? null;
 
   const snapshot = () => Object.freeze({ phase, model, title, error: lastError, status: app.status(), gaps: media?.gaps() ?? [] });
@@ -80,7 +91,10 @@ export function createJourneyShell(options) {
       notice: value.notice === null || value.notice === undefined ? null : presentation.notices({ notices: [value.notice] })[0],
       screen: presentation.title(value),
     });
-    if (renderer !== null) renderer.element.hidden = true;
+    if (renderer !== null) {
+      renderer.element.hidden = true;
+      renderer.rest();
+    }
     titleScreen?.update(title.screen);
   }
 
@@ -119,6 +133,23 @@ export function createJourneyShell(options) {
     if (phase === "playing") app.suspend();
   }
 
+  /**
+   * The `loadImage(descriptor)` port of the screens: read through the media resolver, decoded
+   * once in the image cache under the package identity, handed over as a lease with `url` and
+   * `release()`. An image that cannot be shown rejects, and its slot stays empty.
+   */
+  function verifiedLoader(identity) {
+    const ports = options.media ?? {};
+    const resolver = createJourneyMediaResolver({ media, identity, ...(ports.fetch ? { fetch: ports.fetch } : {}) });
+    images = createImageCache({ readAsset: resolver.read, ...Object.fromEntries(MEDIA_PORTS.filter((name) => ports[name] !== undefined).map((name) => [name, ports[name]])) });
+    return async (descriptor) => {
+      const lease = await images.acquire(descriptor);
+      if (lease !== null) return lease;
+      if (!disposed) imageFailures += 1;
+      throw new Error("IMAGE_UNAVAILABLE");
+    };
+  }
+
   const shell = Object.freeze({
     /** Admit the package, build the screens and read the title. */
     boot() {
@@ -127,7 +158,7 @@ export function createJourneyShell(options) {
       const { identity, package: pkg } = app.content().value;
       media = createJourneyMediaIndex({ manifest, identity, baseUrl });
       presentation = createJourneyPresentation({ pkg, media, messages: TH_JOURNEY });
-      const loadImage = options.loadImage ?? createPlainImageLoader();
+      const loadImage = options.loadImage ?? verifiedLoader(identity);
       const changeSettings = (patch) => { accept(app.changeSettings(patch)); };
       renderer = createJourneyRenderer({
         document,
@@ -173,11 +204,15 @@ export function createJourneyShell(options) {
     snapshot,
     /** The play view of the application (for the review page's engine skip). */
     view() { return app.view(); },
+    /** The image cache now (bytes, entries, retained, budget) and the images that could not be shown; null with an injected loader. */
+    images() { return images === null ? null : Object.freeze({ ...images.stats(), failures: imageFailures }); },
     dispose() {
+      disposed = true;
       document.removeEventListener("visibilitychange", onVisibility);
       view?.removeEventListener?.("pagehide", onPageHide);
       renderer?.dispose();
       titleScreen?.dispose();
+      images?.dispose();
     },
   });
   return shell;
