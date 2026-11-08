@@ -86,14 +86,45 @@ export class JourneyDocument {
   addEventListener(type, listener) { this.listeners.set(type, [...(this.listeners.get(type) ?? []), listener]); }
   removeEventListener(type, listener) { this.listeners.set(type, (this.listeners.get(type) ?? []).filter((entry) => entry !== listener)); }
   fire(type, event) { for (const listener of this.listeners.get(type) ?? []) listener(event); }
-  /** A key press aimed at the focused element (or the body). */
-  key(key) {
+  /** A key press aimed at the focused element (or the body); `repeat` is a held key's auto-repeat. */
+  key(key, { repeat = false } = {}) {
+    return this.keyEvent("keydown", key, repeat);
+  }
+  /** A key release aimed at the focused element (or the body). */
+  keyUp(key) {
+    return this.keyEvent("keyup", key, false);
+  }
+  keyEvent(type, key, repeat) {
     const target = this.activeElement ?? this.body;
-    const event = { type: "keydown", key, target, altKey: false, ctrlKey: false, metaKey: false, defaultPrevented: false };
+    const event = { type, key, repeat, target, altKey: false, ctrlKey: false, metaKey: false, defaultPrevented: false };
     event.preventDefault = () => { event.defaultPrevented = true; };
-    this.fire("keydown", event);
+    this.fire(type, event);
     return event;
   }
+}
+
+/** A clock and an animation-frame queue the test advances by hand. */
+export function manualFrames() {
+  let time = 0;
+  const queue = [];
+  return {
+    now: () => time,
+    frame: (callback) => { queue.push(callback); return queue.length; },
+    /** Move the clock by `ms` and run the frames queued so far, `times` rounds. */
+    tick(ms, times = 1) {
+      for (let i = 0; i < times; i += 1) {
+        time += ms;
+        const due = queue.splice(0);
+        due.forEach((callback) => callback());
+      }
+    },
+    get pending() { return queue.length; },
+  };
+}
+
+/** Give a node a fixed box, as the browser's layout would (pointer tests). */
+export function placeBox(node, { left = 0, top = 0, width, height }) {
+  node.getBoundingClientRect = () => ({ left, top, width, height, right: left + width, bottom: top + height, x: left, y: top });
 }
 
 /** Every node under `root` (root included). */

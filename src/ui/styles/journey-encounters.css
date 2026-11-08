@@ -1,0 +1,470 @@
+/*
+ * Journey encounters (C5b): the camp clock and board, the micro-action prompt and the keepsake
+ * offer (UX §4 · §5 · §7, Atomic 05 §3, v3 screens 5–8). The same two materials as every other
+ * panel: saa paper for what is read and pressed, frosted glass for what floats over the stage.
+ *
+ * Zones: on phones the camp clock sits at the top of the dock, right-aligned (the HUD's toasts
+ * own the line under the capsule); on wide screens it rides the HUD line beside the gear (UX
+ * §4.2). The board, the prompt and the sheet live in the lower dock below the face band, and the
+ * renderer's fit-or-flow turns the screen into one column when they cannot fit.
+ * Trace: UX §1.5 · §1.6 · §4.1–§4.2 · §5 · §7 · §9, Atomic 05 §3, TC-S5-UX-001, TC-S5-A11Y-001.
+ */
+
+/* --------------------------------------------------------------- Camp clock */
+.jk-camp-top {
+  position: absolute;
+  z-index: 12;
+  inset-block-start: calc(var(--band-bottom) + var(--dock-gap));
+  inset-inline-end: var(--gutter);
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+.jk-camp-timer {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-block-size: 44px;
+  padding: 6px 16px 6px 12px;
+  border-radius: 999px;
+  font-size: calc(14px * min(var(--jk-font-scale), 1.5));
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.jk-camp-timer__vessel { display: grid; place-items: center; color: #f2c86b; }
+.jk-camp-timer__icon { display: block; inline-size: 24px; block-size: 24px; }
+.jk-camp-timer__marks { display: inline-flex; align-items: center; gap: 4px; }
+
+.jk-camp-timer__mark {
+  display: block;
+  inline-size: 7px;
+  block-size: 18px;
+  border: 1.5px solid #f2c86b;
+  border-radius: 4px;
+  background: #f2c86b;
+  box-shadow: 0 0 6px rgb(242 200 107 / 0.35);
+  transition: background-color var(--t-base) var(--ease-soft), border-color var(--t-base) var(--ease-soft), box-shadow var(--t-base) var(--ease-soft);
+}
+
+/* A spent drop is hollow and dashed, as on v3 screen 5; the words carry the meaning too. */
+.jk-camp-timer__mark[data-state="used"] {
+  background: transparent;
+  border-style: dashed;
+  border-color: rgb(242 200 107 / 0.7);
+  box-shadow: none;
+}
+
+/* ---------------------------------------------------------------- Camp board */
+.jk-camp { display: flex; flex-direction: column; gap: var(--dock-gap); }
+
+.jk-camp__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: minmax(72px, auto);
+  gap: var(--dock-gap);
+}
+
+.jk-camp .jk-card { --stripe: var(--stripe-family); gap: 10px; min-block-size: 72px; padding: 8px 10px 8px 10px; }
+.jk-camp .jk-card__art { flex-basis: 36px; inline-size: 36px; block-size: 36px; }
+.jk-camp .jk-card__icon { inline-size: 30px; block-size: 30px; }
+.jk-camp .jk-card__keepsake,
+.jk-camp .jk-card__face { inline-size: 36px; block-size: 36px; }
+.jk-camp .jk-card__label { line-height: 1.4; }
+
+.jk-card[data-chosen="true"] {
+  color: var(--ink-primary);
+  background-color: #eef0e1;
+  box-shadow: inset 0 0 0 2px var(--selected), var(--paper-shadow);
+  filter: none;
+}
+
+.jk-card__note[data-note="effect"] { color: var(--ink-muted); }
+.jk-tag[data-tag="chosen"] { background: #e3efd9; border-color: var(--selected); }
+
+.jk-journey .jk-camp__leave {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-block-size: 48px;
+  padding: 6px 20px;
+  border: 1px solid rgb(214 198 165 / 0.72);
+  border-radius: 14px;
+  background: rgb(23 39 30 / 0.9);
+  color: var(--paper-bg);
+  font-size: var(--text-card);
+  line-height: 1.4;
+  transition: background-color var(--t-fast) var(--ease-soft), transform var(--t-fast) var(--ease-soft);
+}
+
+.jk-camp__leave-icon { display: block; inline-size: 18px; block-size: 18px; }
+.jk-camp__leave[data-available="true"]:hover { background: rgb(36 60 46 / 0.95); }
+.jk-camp__leave[data-available="true"]:active { transform: scale(0.99); }
+.jk-camp__leave[data-available="false"] { cursor: default; color: #b9c4b5; border-style: dashed; background: rgb(18 32 26 / 0.86); }
+
+/* The ready picker: the four woven slots take the cards' place (UX §4.1.5). */
+.jk-camp__picker { display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 18px; }
+.jk-camp__picker-heading { margin: 0; font-size: var(--text-card); line-height: 1.5; }
+.jk-camp__slots { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+
+.jk-journey .jk-camp__back {
+  align-self: flex-start;
+  min-block-size: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--paper-edge);
+  border-radius: 12px;
+  background: var(--paper-deep);
+  color: var(--ink-primary);
+  font-size: calc(14px * var(--jk-font-scale));
+}
+
+/* ------------------------------------------------------------- Pouch slots */
+.jk-slot {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-inline-size: 0;
+  min-block-size: 76px;
+  margin: 0;
+  padding: 6px 4px;
+  border: 1px solid rgb(214 198 165 / 0.55);
+  border-radius: 12px;
+  background: rgb(23 39 30 / 0.88);
+  color: var(--paper-bg);
+  text-align: center;
+  transition: transform var(--t-base) var(--ease-out), border-color var(--t-base) var(--ease-soft), box-shadow var(--t-base) var(--ease-soft);
+}
+
+.jk-slot__art { display: grid; place-items: center; inline-size: 40px; block-size: 40px; }
+.jk-slot__art[data-empty="true"] { border: 1.5px dashed rgb(214 198 165 / 0.45); border-radius: 10px; }
+.jk-slot__image { display: block; inline-size: 40px; block-size: 40px; object-fit: contain; }
+.jk-slot__name { font-size: var(--text-tag); line-height: 1.35; overflow-wrap: anywhere; }
+
+.jk-slot__note {
+  padding: 0 7px;
+  border: 1px solid #bfae86;
+  border-radius: 999px;
+  background: var(--paper-deep);
+  color: var(--ink-primary);
+  font-size: var(--text-tag);
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.jk-slot[data-empty="true"] { border-style: dashed; color: #c9d1c4; }
+
+/* The button keeps a gold knot and ฝากไม่ได้, always (UX §7). */
+.jk-slot[data-locked="true"] { border-color: #e2c27f; box-shadow: inset 0 0 0 1px rgb(226 194 127 / 0.55); }
+.jk-slot[data-locked="true"]::after {
+  content: "";
+  position: absolute;
+  inset-block-start: 5px;
+  inset-inline-end: 6px;
+  inline-size: 9px;
+  block-size: 9px;
+  border: 2px solid #f2c86b;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+}
+.jk-slot__note[data-note="locked"] { background: #f7e3b3; border-color: var(--tag-combo); }
+
+/* A keepsake that would be handed on rises with จะฝาก. */
+.jk-slot[data-lifted="true"] { transform: translateY(-8px); border-color: #e09a7c; box-shadow: 0 8px 18px rgb(4 12 8 / 0.4); }
+.jk-slot__note[data-note="handon"] { background: #f4d6c8; border-color: var(--stripe-grit); }
+
+/* In the camp picker the slots are paper buttons; a ready keepsake has a gold stitch round it. */
+.jk-journey .jk-camp__picker .jk-slot {
+  inline-size: 100%;
+  min-block-size: 84px;
+  border-color: var(--paper-edge);
+  background: var(--paper-deep);
+  color: var(--ink-primary);
+}
+.jk-camp__picker .jk-slot[data-available="false"] { cursor: default; color: #4a5a50; background: var(--paper-dim); }
+.jk-camp__picker .jk-slot[data-empty="true"] { border-style: dashed; }
+.jk-camp__picker .jk-slot[data-ready="true"] { box-shadow: inset 0 0 0 2px #d4a63e; }
+.jk-camp__picker .jk-slot[data-armed="true"] { outline: 2px solid var(--selected); outline-offset: -4px; background: #f4f6e7; }
+.jk-camp__picker .jk-slot__art[data-empty="true"] { border-color: var(--paper-edge); }
+.jk-slot__note[data-note="armed"] { border-color: var(--selected); background: #e3efd9; }
+
+/* ---------------------------------------------------------- Keepsake offer */
+.jk-pouch-sheet { display: flex; flex-direction: column; gap: 12px; }
+/* Phones: the new keepsake is a paper row on top, the four slots a row below it. */
+.jk-pouch-sheet__head { display: flex; flex-direction: column; gap: 10px; }
+
+.jk-pouch-sheet__slots {
+  display: grid;
+  flex: 1 1 auto;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.jk-journey .jk-slot--incoming {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  grid-template-areas: "art kicker" "art name";
+  align-items: center;
+  justify-items: start;
+  column-gap: 12px;
+  row-gap: 2px;
+  min-block-size: 60px;
+  padding: 8px 14px;
+  border-color: #d4a63e;
+  background: linear-gradient(180deg, #fff9ec, var(--paper-bg) 38%, #faefd9);
+  color: var(--ink-primary);
+  text-align: start;
+  box-shadow: inset 0 0 0 1px rgb(212 166 62 / 0.6), var(--paper-shadow);
+}
+.jk-slot--incoming .jk-slot__art { grid-area: art; }
+.jk-slot--incoming .jk-slot__name { grid-area: name; font-size: var(--text-card); line-height: 1.4; }
+.jk-slot--incoming .jk-slot__note { grid-area: kicker; background: #f2c86b; border-color: var(--tag-combo); }
+.jk-slot--incoming .jk-slot__art,
+.jk-slot--incoming .jk-slot__image { inline-size: 44px; block-size: 44px; }
+
+.jk-pouch-sheet__choices { display: grid; grid-template-columns: minmax(0, 1fr); grid-auto-rows: minmax(64px, auto); gap: var(--dock-gap); }
+.jk-card[data-kind="take"] { --stripe: var(--selected); }
+.jk-card[data-kind="handon"] { --stripe: var(--stripe-grit); }
+.jk-card[data-kind="refuse"] { --stripe: var(--stripe-wait); }
+
+/* ------------------------------------------------------------ Micro-action */
+.jk-micro { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.jk-micro__well { display: grid; place-items: center; inline-size: 100%; }
+
+.jk-journey .jk-micro__target {
+  position: relative;
+  display: grid;
+  place-items: center;
+  inline-size: 168px;
+  block-size: 168px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--paper-bg);
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.jk-micro__target > * { grid-area: 1 / 1; }
+.jk-micro__point,
+.jk-micro__ripples,
+.jk-micro__echo,
+.jk-micro__ring,
+.jk-micro__core,
+.jk-micro__cloth { display: none; pointer-events: none; }
+
+/* tap3 · press: a glowing point and the ripples it leaves */
+.jk-micro[data-kind="tap3"] :is(.jk-micro__point, .jk-micro__ripples, .jk-micro__echo),
+.jk-micro[data-kind="press"] :is(.jk-micro__point, .jk-micro__ripples) { display: block; }
+
+.jk-micro__point {
+  inline-size: 64px;
+  block-size: 64px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff3cf 0 18%, rgb(242 200 107 / 0.92) 34%, rgb(231 169 59 / 0.35) 62%, rgb(231 169 59 / 0) 72%);
+  box-shadow: 0 0 22px rgb(242 200 107 / 0.55), inset 0 0 0 2px rgb(255 242 199 / 0.7);
+}
+
+.jk-micro__ripples,
+.jk-micro__echo { position: relative; inline-size: 100%; block-size: 100%; }
+
+.jk-micro__ripple {
+  position: absolute;
+  inset-inline-start: var(--x, 50%);
+  inset-block-start: var(--y, 50%);
+  inline-size: 132px;
+  block-size: 132px;
+  margin: -66px 0 0 -66px;
+  border: 2px solid rgb(255 242 199 / 0.85);
+  border-radius: 50%;
+  opacity: 0.3;
+}
+
+.jk-micro__echo-ring {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  inline-size: 220px;
+  block-size: 220px;
+  margin: -110px 0 0 -110px;
+  border: 1.5px solid rgb(214 228 240 / 0.7);
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.jk-micro[data-state="done"] .jk-micro__echo-ring { opacity: 0.4; }
+
+/* hold: a breathing ring that fills with warm light */
+.jk-micro[data-kind="hold"] :is(.jk-micro__ring, .jk-micro__core) { display: block; }
+.jk-micro__ring { inline-size: 156px; block-size: 156px; transform: rotate(-90deg); overflow: visible; }
+.jk-micro__ring-track { fill: none; stroke: rgb(252 244 227 / 0.28); stroke-width: 6; }
+.jk-micro__ring-fill { fill: none; stroke: #f2c86b; stroke-width: 6; stroke-linecap: round; filter: drop-shadow(0 0 6px rgb(242 200 107 / 0.6)); }
+
+.jk-micro__core {
+  inline-size: calc(76px + 28px * var(--fill, 0));
+  block-size: calc(76px + 28px * var(--fill, 0));
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff3cf 0 16%, rgb(242 200 107 / calc(0.6 + 0.35 * var(--fill, 0))) 34%, rgb(231 169 59 / calc(0.22 + 0.4 * var(--fill, 0))) 58%, rgb(231 169 59 / 0) 72%);
+  box-shadow: 0 0 calc(18px + 30px * var(--fill, 0)) rgb(242 200 107 / calc(0.35 + 0.4 * var(--fill, 0)));
+}
+
+/* The hold fills the screen with gold, gently (UX §5 MA-6). */
+.jk-stage::after {
+  content: "";
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 70% at 50% 60%, rgb(255 222 160 / 0.62), rgb(255 196 112 / 0.22) 58%, rgb(255 196 112 / 0) 100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms linear;
+}
+.jk-journey[data-micro="hold"] .jk-stage::after { opacity: calc(var(--micro-fill, 0) * 0.85); }
+
+/* stitch: the brass button on the blue shirt, three gold guide points, white thread that stays */
+.jk-journey .jk-micro[data-kind="stitch"] .jk-micro__target {
+  inline-size: 264px;
+  block-size: 184px;
+  border-radius: 20px;
+  background:
+    repeating-linear-gradient(90deg, rgb(255 255 255 / 0.05) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(0deg, rgb(0 0 0 / 0.08) 0 1px, transparent 1px 4px),
+    radial-gradient(ellipse at 40% 30%, #4f86de, #2b5fb8 70%);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.18), 0 10px 26px rgb(4 12 8 / 0.4);
+}
+.jk-micro[data-kind="stitch"] .jk-micro__cloth { display: block; inline-size: 240px; block-size: 160px; overflow: visible; }
+.jk-micro__button { fill: #c9a24a; stroke: #7d5f1e; stroke-width: 2.5; }
+.jk-micro__hole { fill: #3b2d10; }
+.jk-micro__thread { fill: none; stroke: #fdfaf2; stroke-width: 3.2; stroke-linecap: round; filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.35)); }
+.jk-micro__thread--live { stroke-dasharray: 5 5; stroke-opacity: 0.75; }
+.jk-micro__guide { fill: rgb(242 200 107 / 0.88); stroke: #fff2c7; stroke-width: 2.5; }
+.jk-micro__guide[data-done="true"] { fill: rgb(253 250 242 / 0.25); stroke: rgb(253 250 242 / 0.7); }
+
+/* The hint keeps its box when it fades, so nothing moves (layout shift 0). */
+.jk-micro__hint {
+  inline-size: min(32rem, 100%);
+  min-block-size: 56px;
+  margin: 0;
+  padding: 14px 24px;
+  border-radius: 18px;
+  font-size: var(--text-line);
+  line-height: 1.5;
+  text-align: center;
+  transition: opacity var(--t-base) var(--ease-soft), visibility 0s linear var(--t-base);
+}
+.jk-micro__hint[data-gone="true"] { opacity: 0; visibility: hidden; }
+
+/* A micro-action leaves the HUD dim and only the gear open (UX §5). */
+.jk-journey[data-mode="MICRO"] .jk-hud { opacity: 0.4; pointer-events: none; transition: opacity var(--t-base) var(--ease-soft); }
+
+/* ------------------------------------------------------------------- Motion */
+@media (prefers-reduced-motion: no-preference) {
+  .jk-journey[data-motion="full"] .jk-camp:not([hidden]),
+  .jk-journey[data-motion="full"] .jk-pouch-sheet:not([hidden]),
+  .jk-journey[data-motion="full"] .jk-micro:not([hidden]) { animation: jk-rise var(--t-base) var(--ease-out) both; }
+  .jk-journey[data-motion="full"] .jk-camp-timer__mark[data-fresh="true"] { animation: jk-drop-fall 640ms var(--ease-out) both; }
+  .jk-journey[data-motion="full"] .jk-micro[data-state="idle"] .jk-micro__point { animation: jk-glow-pulse 1.8s var(--ease-soft) infinite; }
+  .jk-journey[data-motion="full"] .jk-micro__ripple { animation: jk-ripple 900ms var(--ease-out) both; }
+  .jk-journey[data-motion="full"] .jk-micro[data-state="done"] .jk-micro__echo-ring { animation: jk-echo 1100ms var(--ease-out) calc((var(--n) - 1) * 260ms) both; }
+  .jk-journey[data-motion="full"] .jk-micro[data-kind="hold"][data-holding="false"]:not([data-state="done"]) .jk-micro__core { animation: jk-breathe 2.4s var(--ease-soft) infinite; }
+  .jk-journey[data-motion="full"] .jk-micro[data-kind="stitch"]:not([data-state="done"]) .jk-micro__guide[data-done="false"] { animation: jk-guide 1.6s var(--ease-soft) infinite; transform-box: fill-box; transform-origin: center; }
+}
+
+@keyframes jk-drop-fall {
+  0% { transform: translateY(-14px); opacity: 0; background: #f2c86b; }
+  55% { transform: translateY(0); opacity: 1; background: #f2c86b; }
+  100% { transform: none; opacity: 1; }
+}
+@keyframes jk-glow-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+@keyframes jk-ripple { from { transform: scale(0.2); opacity: 0.95; } to { transform: scale(1); opacity: 0.3; } }
+@keyframes jk-echo { 0% { transform: scale(0.3); opacity: 0; } 30% { opacity: 0.7; } 100% { transform: scale(1); opacity: 0.4; } }
+@keyframes jk-breathe { 0%, 100% { transform: scale(0.94); } 50% { transform: scale(1.05); } }
+@keyframes jk-guide { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+
+.jk-journey[data-motion="reduced"] .jk-slot { transition: border-color 120ms linear; }
+.jk-journey[data-motion="reduced"] .jk-slot[data-lifted="true"] { transform: none; outline: 2px solid #e09a7c; outline-offset: 2px; }
+.jk-journey[data-motion="reduced"] .jk-micro__hint { transition-duration: 120ms; }
+@media (prefers-reduced-motion: reduce) {
+  .jk-journey .jk-slot[data-lifted="true"] { transform: none; outline: 2px solid #e09a7c; outline-offset: 2px; }
+}
+
+/* ------------------------------------------------- Contrast and forced colours */
+.jk-journey[data-surface="solid"] .jk-slot { background: #1c2f25; }
+.jk-journey[data-contrast="high"] .jk-camp__leave[data-available="false"] { color: #dfe6da; }
+.jk-journey[data-contrast="high"] .jk-micro__hint { border: 1.5px solid #6f6040; }
+
+@media (forced-colors: active) {
+  .jk-journey .jk-camp-timer__mark { forced-color-adjust: none; background: CanvasText; border-color: CanvasText; }
+  .jk-journey .jk-camp-timer__mark[data-state="used"] { background: Canvas; }
+  .jk-journey .jk-slot,
+  .jk-journey .jk-camp__leave,
+  .jk-journey .jk-camp__back { border: 2px solid CanvasText; }
+  .jk-journey .jk-slot[data-lifted="true"],
+  .jk-journey .jk-slot[data-armed="true"] { outline: 3px solid Highlight; }
+  .jk-journey .jk-camp__leave[data-available="false"] { border-style: dashed; }
+  .jk-journey .jk-micro__target { border: 2px solid CanvasText; }
+  .jk-journey .jk-micro__point,
+  .jk-journey .jk-micro__core { forced-color-adjust: none; background: Highlight; }
+  .jk-journey .jk-micro__guide { forced-color-adjust: none; fill: Highlight; stroke: CanvasText; }
+  .jk-journey .jk-micro__thread,
+  .jk-journey .jk-micro__ring-fill { forced-color-adjust: none; stroke: CanvasText; }
+}
+
+/* ------------------------------------------------------ Tablets and wider */
+@media (min-width: 600px) {
+  .jk-camp-top { inset-inline-end: max(var(--gutter), calc((100% - 48rem) / 2)); }
+  .jk-camp,
+  .jk-pouch-sheet { inline-size: min(44rem, 100%); margin-inline: auto; }
+}
+
+/* ------------------------------------------------------------------ Desktop */
+@media (min-width: 800px) and (min-height: 560px) {
+  .jk-camp-top { inset-block-start: calc(var(--hud-inset) + 8px); inset-inline-end: calc(var(--hud-inset) + 60px); }
+  .jk-camp-timer { min-block-size: 48px; padding-inline: 14px 20px; }
+  .jk-journey[data-mode="CAMP"] .jk-dock { inset-inline: max(24px, calc((100% - 1352px) / 2)); }
+  .jk-camp { inline-size: 100%; }
+  .jk-camp__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: minmax(64px, auto); }
+  .jk-camp .jk-card { min-block-size: 64px; }
+  .jk-camp__leave { align-self: flex-end; min-inline-size: 240px; }
+  .jk-camp__picker { inline-size: min(40rem, 100%); align-self: center; }
+  .jk-pouch-sheet { inline-size: min(48rem, 100%); }
+  .jk-pouch-sheet__head { flex-direction: row; align-items: stretch; }
+  .jk-journey .jk-slot--incoming { flex: 0 0 15rem; }
+  .jk-pouch-sheet__choices { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .jk-pouch-sheet__choices[data-count="1"] { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ------------------------------------------- Landscape phones (short screens) */
+@media (max-height: 520px) and (orientation: landscape) {
+  .jk-camp-top { inset-inline-end: max(var(--gutter), calc((100% - 46rem) / 2)); }
+  .jk-camp__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: minmax(56px, auto); }
+  .jk-camp .jk-card { min-block-size: 56px; padding-block: 6px; }
+  .jk-camp__leave { min-block-size: 44px; }
+  .jk-pouch-sheet__choices { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: minmax(56px, auto); }
+  /* Short screens: the hint sits beside the well, so the prompt fits under the face band. */
+  .jk-micro { flex-direction: row; justify-content: center; gap: 16px; }
+  .jk-micro__well { inline-size: auto; }
+  .jk-journey .jk-micro__target { inline-size: 132px; block-size: 132px; }
+  .jk-micro__ring { inline-size: 124px; block-size: 124px; }
+  .jk-journey .jk-micro[data-kind="stitch"] .jk-micro__target { inline-size: 244px; block-size: 170px; }
+  .jk-micro__hint { inline-size: auto; max-inline-size: 20rem; min-block-size: 48px; padding-block: 10px; }
+  .jk-pouch-sheet__head { flex-direction: row; }
+  .jk-journey .jk-slot--incoming { flex: 0 0 14rem; }
+}
+
+/* ------------------------- One-column flow (any dock that cannot fit below the band) */
+.jk-journey[data-overflow="true"] .jk-camp-top {
+  inset-block-start: calc(var(--flow-stage) - 56px);
+  inset-inline-end: var(--gutter);
+}
+.jk-journey[data-overflow="true"][data-text="large"] .jk-camp__grid { grid-template-columns: minmax(0, 1fr); }
+.jk-journey[data-text="large"] .jk-camp-timer { white-space: normal; }

@@ -51,3 +51,13 @@ JKB_PLAYWRIGHT_PATH=/absolute/path/to/playwright/index.mjs node tests/e2e/journe
 
 It checks 6 viewports × text 100/150/200 % × three Act 1 states (layout, face band, nested and sideways scroll, targets), contrast on the real pixels behind each text with the text hidden (dialogue and cards ≥ 7 : 1, HUD ≥ 4.5 : 1, also over a white plate), reduced motion, reduced transparency through the CDP media feature, high contrast, forced colors, keyboard-only play, layout shift and memory across three whole plays. `JKB_EVIDENCE_DIR` overrides the output folder (default [evidence/sprint-05/c4](evidence/sprint-05/c4/report.json)). Safari, physical devices and screen-reader listening are not covered.
 
+
+## Sprint 5 · C5b camp, micro-actions and keepsake offer
+
+`journey-c5b-encounters.mjs` uses the same loopback server and review page, and `play.html?package=mini` for the screens Act 1 does not have (the keepsake offer, a hold and a stitch):
+
+```sh
+JKB_PLAYWRIGHT_PATH=/absolute/path/to/playwright/index.mjs node tests/e2e/journey-c5b-encounters.mjs
+```
+
+It checks 5 viewports × text 100/200 % × six states (the C1 camp board, C1 after one drop with the activity's line, MA-1 tap, hold, stitch, the offer): no sideways or nested scroll, every visible button ≥ 44 × 44, the dock panel below the face band (fit) or below the stage strip (flow), the camp clock never over a panel and the stitch guide points 28–32 px wide; keyboard-only play through the camp, MA-1 and the offer; layout shift while the camp board and the activity lines swap; no console error and no request outside the page's origin. When the installed Playwright expects a browser build that is not on the machine, `JKB_CHROMIUM_PATH` points it at a Chromium already there (nothing is downloaded). Output: [evidence/sprint-05/c5b](evidence/sprint-05/c5b/report.json). Safari, physical devices, screen-reader listening and the PO's eye are not covered.

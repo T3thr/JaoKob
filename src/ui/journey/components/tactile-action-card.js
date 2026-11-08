@@ -10,8 +10,11 @@
  *   - `armed` is the inline first press of a two-step choice (green outline and a short hint).
  *   - Art is an icon, a keepsake, a face, or a keepsake with a companion's face (combo).
  *   - Up to two corner tags (`แก้ทาง` and `ซ้ำ`, or a kind tag) as UX §3.3 ข้อ 6 allows.
+ *   - Camp and keepsake cards carry an effect line under the label (`สายใยเตื๊อก +` ·
+ *     `แรง ●●` · `สละ…`), shown until a reason or the armed hint takes its place, and a chosen
+ *     activity keeps its effect with the `เลือกแล้ว` tag (UX §4.1.3–§4.1.4).
  *
- * Trace: Atomic 05 §3.4, UX §1.4 · §1.6 · §2.1.5, ADR-P0-034 D9.3, TC-S5-VN-001, TC-S5-A11Y-001.
+ * Trace: Atomic 05 §3.4, UX §1.4 · §1.6 · §2.1.5 · §4.1, ADR-P0-034 D9.3, TC-S5-VN-001, TC-S5-A11Y-001.
  */
 
 import { element, setAttributes, setText } from "../journey-dom.js";
@@ -71,14 +74,17 @@ export function createTactileActionCard({ document, messages, loadImage, describ
         "data-key": option.key,
         "data-kind": option.kind,
         "data-available": option.available ? "true" : "false",
+        "data-chosen": option.chosen === true ? "true" : null,
         "data-armed": armed ? "true" : "false",
         "aria-disabled": option.available ? null : "true",
         "aria-pressed": armed ? "true" : "false",
       });
       setText(label, option.label);
-      const noteText = !option.available ? option.reason : armed ? messages.ui.armedHint : "";
+      const reason = option.available ? null : option.reason ?? null;
+      const noteKind = reason !== null ? "reason" : armed ? "armed" : "effect";
+      const noteText = noteKind === "reason" ? reason : noteKind === "armed" ? messages.ui.armedHint : option.effect ?? "";
       setText(note, noteText);
-      setAttributes(note, { hidden: noteText === "", "data-note": !option.available ? "reason" : "armed" });
+      setAttributes(note, { hidden: noteText === "", "data-note": noteKind });
       tagNodes.forEach((node, index) => {
         const tag = option.tags[index] ?? null;
         setText(node, tag?.text ?? "");

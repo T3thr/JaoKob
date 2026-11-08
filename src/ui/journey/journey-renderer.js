@@ -4,29 +4,37 @@
  * are accepted, what a card costs, whether it is open and why not all arrive in the model.
  *
  *   - One screen, fixed zones: the HUD capsule on top, the stage behind, the face band empty,
- *     the dialogue card or the choice cards in the same lower dock (layout shift 0).
- *   - Input: ▽, a tap on the stage or the card, Space and Enter read on; 1–5 pick a card; a
- *     two-step choice arms first (inline, bound to the revision) when the player keeps
- *     `confirmHighImpactChoices` on; Escape disarms; I opens the pouch.
+ *     the dialogue card or a panel (choices, clash tray, camp board, keepsake offer, micro-action)
+ *     in the same lower dock, so nothing shifts (layout shift 0).
+ *   - Input: ▽, a tap on the stage or the card, Space and Enter read on; digits pick a card; a
+ *     choice, clash move, camp activity or keepsake choice arms first (inline, bound to the
+ *     revision) when the player keeps `confirmHighImpactChoices` on; Escape disarms or closes the
+ *     ready picker; I opens the pouch (not during a micro-action, UX §5).
  *   - Silent save: nothing on screen or in the live region when a save works; a notice only
  *     when the application reports a failure (TC-S5-SILENT-001).
- *   - Each line, its scene title and its toasts are announced once through one polite live
- *     region; focus moves to the first open card when a choice opens and back to ▽ after.
+ *   - Each line, its scene title, a panel that opens and the toasts are announced once through
+ *     one polite live region; focus moves to the first open card when a panel opens and back to
+ *     ▽ after.
  *   - Settings: reduced motion, Reduced Intensity, high contrast (solid surfaces) and the
  *     text size become attributes the styles read; OS preferences apply in CSS as well.
  *   - Fit or flow: the dock stays below the face band; when it cannot, the screen becomes one
  *     scrolling column with the stage as a top strip (no nested scroll, no sideways scroll).
  *
  * The clash (C5a): the intent badge on top, the gauge at the top of the dock, the dialogue card
- * for the intent and resolve beats and the tabbed tray for the choose beat, in the same dock.
- * Modes whose panels arrive later in C5 (`pending`) leave the dock empty; the host says so.
- * Trace: ADR-P0-034 D9/D10, UX §1.4–§1.10 · §2.1, Atomic 05 §3, TC-S5-VN-001, TC-S5-HUD-001,
- * TC-S5-SILENT-001, TC-S5-A11Y-001.
+ * for the intent and resolve beats and the tabbed tray for the choose beat. The camp, the
+ * micro-action and the keepsake offer (C5b): the camp clock beside the HUD line, the board, the
+ * prompt and the sheet in the dock. The ending choice arrives in C5c (`pending`).
+ * Trace: ADR-P0-034 D9/D10, UX §1.4–§1.10 · §2.1 · §3–§5 · §7, Atomic 05 §3, TC-S5-VN-001,
+ * TC-S5-HUD-001, TC-S5-SILENT-001, TC-S5-A11Y-001, TC-S5-INLINE-001, TC-S5-UX-001.
  */
 
+import { createCampActivityBoard } from "./components/camp-activity-board.js";
+import { createCampDropTimer } from "./components/camp-drop-timer.js";
 import { createClashActionTray } from "./components/clash-action-tray.js";
 import { createClashIntentAndGauge } from "./components/clash-intent-gauge.js";
 import { createHudToasts } from "./components/hud-toasts.js";
+import { createMicroPrompt } from "./components/micro-prompt.js";
+import { createPouchSwapSheet } from "./components/pouch-swap-sheet.js";
 import { createSaaDialogueCard } from "./components/saa-dialogue-card.js";
 import { createSceneTitleCard } from "./components/scene-title-card.js";
 import { createTactileActionCard } from "./components/tactile-action-card.js";
@@ -36,23 +44,33 @@ import { createIdSource, element, setAttributes, setText } from "./journey-dom.j
 
 const MAX_CARDS = 5;
 const INTERACTIVE = new Set(["BUTTON", "A", "INPUT", "SELECT", "TEXTAREA", "SUMMARY"]);
+/** Modes whose content is a panel in the dock rather than the dialogue card. */
+const PANEL_MODES = new Set(["DECISION", "CLASH_CHOOSE", "CAMP", "POUCH_SWAP", "MICRO"]);
+/** Modes where a digit picks a card. */
+const DIGIT_MODES = new Set(["DECISION", "CLASH_CHOOSE", "CAMP", "POUCH_SWAP"]);
+const ITEM_KEY = "item:";
 
 /**
  * @param {{document: Document, root: Element, messages: object, loadImage: Function,
  *   onCommand: (kind: string, args: object) => void, onPouch?: () => void, onSettings?: () => void,
- *   schedule?: (callback: () => void, ms: number) => unknown, prefersReducedMotion?: () => boolean}} options
+ *   schedule?: (callback: () => void, ms: number) => unknown, frame?: (callback: () => void) => unknown,
+ *   now?: () => number, prefersReducedMotion?: () => boolean}} options
  */
 export function createJourneyRenderer(options) {
   const { document, root: host, messages, loadImage, onCommand } = options;
   const onPouch = options.onPouch ?? (() => {});
   const onSettings = options.onSettings ?? (() => {});
   const schedule = options.schedule ?? ((callback, ms) => globalThis.setTimeout(callback, ms));
+  const view = document.defaultView ?? null;
+  const frame = options.frame ?? (typeof view?.requestAnimationFrame === "function" ? view.requestAnimationFrame.bind(view) : (callback) => schedule(callback, 16));
+  const now = options.now ?? (() => globalThis.performance?.now?.() ?? Date.now());
   const prefersReducedMotion = options.prefersReducedMotion ?? (() => globalThis.matchMedia?.("(prefers-reduced-motion: reduce)").matches === true);
   const id = createIdSource("jk");
 
   const root = element(document, "div", "jk-journey", { "data-mode": "VN", "data-motion": "full", "data-surface": "glass", "data-intensity": "normal", "data-text": "normal", "data-overflow": "false" });
   const stage = createVnTachieStage({ document, loadImage, schedule });
-  const hud = createTopHudCapsule({ document, messages, onPouch: () => onPouch(), onSettings: () => onSettings() });
+  const openPouch = () => { if (model?.mode !== "MICRO") onPouch(); };
+  const hud = createTopHudCapsule({ document, messages, onPouch: openPouch, onSettings: () => onSettings() });
   const toasts = createHudToasts({ document, schedule });
   const sceneTitle = createSceneTitleCard({ document, schedule });
   const dialogue = createSaaDialogueCard({ document, messages, loadImage, onAdvance: () => advance() });
@@ -78,7 +96,23 @@ export function createJourneyRenderer(options) {
   const tray = createClashActionTray({ document, messages, loadImage, idSource: id, onActivate: (key) => activate(key), onSelect: (group) => selectGroup(group) });
   const clashTop = element(document, "div", "jk-clash-top");
   clashTop.append(clashView.badge, clashView.preview);
-  dock.append(clashView.gauge, dialogue.element, choices, tray.element, descriptions);
+
+  const campTimer = createCampDropTimer({ document });
+  const campTop = element(document, "div", "jk-camp-top");
+  campTop.append(campTimer.element);
+  const campBoard = createCampActivityBoard({
+    document, messages, loadImage, idSource: id,
+    onActivate: (key) => activate(key), onPick: (item) => pickKeepsake(item), onBack: () => closePicker(true), onLeave: () => leaveCamp(),
+  });
+  const pouchSheet = createPouchSwapSheet({ document, messages, loadImage, idSource: id, onActivate: (key) => activate(key) });
+  const micro = createMicroPrompt({
+    document, messages, idSource: id, schedule, frame, now,
+    onDone: (key) => microDone(key),
+    onProgress: (fill) => root.style.setProperty("--micro-fill", fill.toFixed(3)),
+    onSay: (text) => announce(text),
+  });
+  const panels = [choices, tray.element, campBoard.element, pouchSheet.element, micro.element];
+  dock.append(clashView.gauge, dialogue.element, ...panels, descriptions);
 
   const notice = element(document, "div", "jk-notice jk-paper", { role: "status", hidden: true });
   const noticeText = element(document, "p", "jk-notice__text");
@@ -88,10 +122,11 @@ export function createJourneyRenderer(options) {
 
   const stageDescription = element(document, "p", "jk-sr");
   const live = element(document, "p", "jk-sr", { "aria-live": "polite", "aria-atomic": "true" });
-  root.append(stage.element, hudLayer, corner, clashTop, sceneTitle.element, dock, notice, stageDescription, live);
+  root.append(stage.element, hudLayer, corner, clashTop, campTop, sceneTitle.element, dock, notice, stageDescription, live);
   host.append(root);
 
   let model = null, armed = null, armedRevision = null, lastScene = null, lastAnnounced = null, lastMode = null, lastNotice = null, lastRevision = null, disposed = false;
+  let picking = false, pickingRevision = null;
 
   const canAdvance = () => model !== null && model.line !== null && model.accepts.includes("advance");
 
@@ -100,13 +135,29 @@ export function createJourneyRenderer(options) {
     onCommand("advance", { revision: model.revision });
   }
 
-  /** The cards on screen now and the command they send: story choices or clash moves. */
+  /** The cards on screen now and the command they send. */
   function currentOptions() {
-    if (model?.mode === "CLASH_CHOOSE" && model.clash !== null && model.accepts.includes("clashAct")) {
+    if (model === null) return null;
+    if (model.mode === "CLASH_CHOOSE" && model.clash !== null && model.accepts.includes("clashAct")) {
       return { options: model.clash.groups.flatMap((group) => group.cards), command: "clashAct", argument: "action" };
     }
-    if (model?.decision !== null && model?.decision !== undefined && model.accepts.includes("choose")) return { options: model.decision.options, command: "choose", argument: "option" };
+    if (model.mode === "CAMP" && model.camp !== null && model.accepts.includes("campPick")) return { options: model.camp.cards, command: "campPick", argument: "activity" };
+    if (model.mode === "POUCH_SWAP" && model.pouch !== null && model.accepts.includes("pouchDecide")) return { options: model.pouch.cards, command: "pouchDecide", argument: "option" };
+    if (model.decision !== null && model.decision !== undefined && model.accepts.includes("choose")) return { options: model.decision.options, command: "choose", argument: "option" };
     return null;
+  }
+
+  /** Arm first when the player keeps two-step confirmation on; commit on the second press. */
+  function armOrCommit(key, label, commit) {
+    if (model.settings.confirmHighImpactChoices === true && !(armed === key && armedRevision === model.revision)) {
+      armed = key;
+      armedRevision = model.revision;
+      drawPanels();
+      announce(`${label} · ${messages.ui.armedHint}`);
+      return;
+    }
+    armed = null;
+    commit();
   }
 
   function activate(key) {
@@ -114,31 +165,66 @@ export function createJourneyRenderer(options) {
     if (current === null) return;
     const option = current.options.find((entry) => entry.key === key);
     if (option === undefined || !option.available) return;
-    if (model.settings.confirmHighImpactChoices === true && !(armed === key && armedRevision === model.revision)) {
-      armed = key;
-      armedRevision = model.revision;
-      drawChoices();
-      announce(`${option.label} · ${messages.ui.armedHint}`);
-      return;
-    }
+    if (current.command === "campPick" && option.ready === true) { openPicker(); return; }
+    armOrCommit(key, option.label, () => onCommand(current.command, { [current.argument]: key, revision: model.revision }));
+  }
+
+  /** The ready picker of the camp (UX §4.1.5): the four woven slots take the cards' place. */
+  function openPicker() {
+    if (model?.camp?.picker === null || model?.camp?.picker === undefined) return;
+    picking = true;
+    pickingRevision = model.revision;
     armed = null;
-    onCommand(current.command, { [current.argument]: key, revision: model.revision });
+    drawPanels();
+    measureFit();
+    campBoard.firstSlot()?.focus?.({ preventScroll: true });
+    announce(messages.camp.picker);
+  }
+
+  function closePicker(returnFocus) {
+    if (!picking) return;
+    picking = false;
+    armed = null;
+    drawPanels();
+    measureFit();
+    if (returnFocus) campBoard.cardOf(model?.camp?.picker?.activity)?.focus?.({ preventScroll: true });
+  }
+
+  function pickKeepsake(item) {
+    const picker = model?.camp?.picker ?? null;
+    if (!picking || picker === null || !model.accepts.includes("campPick")) return;
+    const slot = picker.slots.find((entry) => entry.item === item);
+    if (slot === undefined || !slot.available) return;
+    armOrCommit(`${ITEM_KEY}${item}`, slot.name, () => {
+      picking = false;
+      onCommand("campPick", { activity: picker.activity, item, revision: model.revision });
+    });
+  }
+
+  function leaveCamp() {
+    if (model?.camp?.leave.available !== true || !model.accepts.includes("campLeave")) return;
+    onCommand("campLeave", { revision: model.revision });
+  }
+
+  /** The micro-action reports done once; the command is bound to the revision it was drawn at. */
+  function microDone(key) {
+    if (model?.micro?.key !== key || !model.accepts.includes("microDone")) return;
+    onCommand("microDone", { revision: model.revision });
   }
 
   function disarm() {
     if (armed === null) return;
     armed = null;
-    drawChoices();
+    drawPanels();
   }
 
   /** The open tab is the player's: kept for the whole clash, never switched for them (UX §3.3). */
   let selectedGroup = null, clashKey = null;
   function selectGroup(group) {
     selectedGroup = group;
-    drawChoices();
+    drawPanels();
   }
 
-  const view = document.defaultView ?? null;
   const wideQuery = view?.matchMedia?.("(min-width: 800px) and (min-height: 560px)") ?? null;
   const trayLayout = () => (wideQuery?.matches === true ? "columns" : "tabs");
 
@@ -160,12 +246,21 @@ export function createJourneyRenderer(options) {
     root.style.setProperty("--jk-font-scale", String(settings.fontScale ?? 1));
   }
 
-  function drawChoices() {
+  /** An armed card stays armed only on the revision it was armed at and while it is still open. */
+  function armedStillValid() {
+    if (armed === null || armedRevision !== model?.revision) return false;
+    if (armed.startsWith(ITEM_KEY)) return picking && model.camp?.picker?.slots.some((slot) => `${ITEM_KEY}${slot.item}` === armed && slot.available) === true;
+    return (currentOptions()?.options ?? []).some((option) => option.key === armed && option.available);
+  }
+
+  function drawPanels() {
     const decision = model?.decision ?? null;
     const options = decision === null ? [] : decision.options.slice(0, MAX_CARDS);
-    const live = currentOptions()?.options ?? [];
-    if (armed !== null && (armedRevision !== model?.revision || !live.some((option) => option.key === armed && option.available))) armed = null;
+    if (picking && (model?.mode !== "CAMP" || pickingRevision !== model.revision || model.camp?.picker === null || model.camp?.picker === undefined)) picking = false;
+    if (!armedStillValid()) armed = null;
     tray.update(model?.clash ?? null, { selected: selectedGroup, armed, layout: trayLayout() });
+    campBoard.update(model?.camp ?? null, { armed, picking });
+    pouchSheet.update(model?.mode === "POUCH_SWAP" ? model.pouch : null, { armed });
     setAttributes(choices, { hidden: options.length === 0, "data-count": options.length });
     cards.forEach((card, index) => {
       const option = options[index];
@@ -181,35 +276,56 @@ export function createJourneyRenderer(options) {
     return active === null || active === undefined || active === document.body || root.contains?.(active) === true;
   }
 
-  function moveFocus(previousMode) {
+  function moveFocus(previousMode, fresh) {
     if (!focusInsideOrIdle()) return;
-    const choosing = (mode) => mode === "DECISION" || mode === "CLASH_CHOOSE";
-    if (model.mode === "DECISION" && previousMode !== "DECISION") {
+    const focus = (node) => node?.focus?.({ preventScroll: true });
+    const entered = model.mode !== previousMode;
+    if (model.mode === "DECISION" && entered) {
       const index = model.decision.options.findIndex((option) => option.available);
-      cards[Math.max(0, index)]?.element.focus?.({ preventScroll: true });
-    } else if (model.mode === "CLASH_CHOOSE" && previousMode !== "CLASH_CHOOSE") {
-      tray.firstCard()?.focus?.({ preventScroll: true });
-    } else if (choosing(previousMode) && !choosing(model.mode) && canAdvance()) {
-      dialogue.nextButton.focus?.({ preventScroll: true });
+      focus(cards[Math.max(0, index)]?.element);
+    } else if (model.mode === "CLASH_CHOOSE" && entered) {
+      focus(tray.firstCard());
+    } else if (model.mode === "CAMP" && fresh) {
+      focus(campBoard.firstFocus());
+    } else if (model.mode === "POUCH_SWAP" && entered) {
+      focus(pouchSheet.firstFocus());
+    } else if (model.mode === "MICRO" && entered) {
+      focus(micro.target);
+    } else if (PANEL_MODES.has(previousMode) && !PANEL_MODES.has(model.mode) && canAdvance()) {
+      focus(dialogue.nextButton);
     }
   }
 
   /**
    * Fit or flow: when the dock rises into the face band (long Thai at 150–200 %, a short
-   * landscape phone, five cards on a small phone), the screen becomes one scrolling column
+   * landscape phone, many cards on a small phone), the screen becomes one scrolling column
    * with the stage as a top strip (UX §1.6). Measured in the fit layout only, once per state
    * and on resize, so it cannot oscillate.
    */
   function measureFit() {
     if (typeof root.getBoundingClientRect !== "function") return;
     root.setAttribute("data-overflow", "false");
-    const frame = root.getBoundingClientRect();
-    const shown = [dialogue.element, choices, tray.element].find((node) => !node.hidden);
+    const frameBox = root.getBoundingClientRect();
+    const shown = [dialogue.element, ...panels].find((node) => !node.hidden);
     if (shown === undefined) return;
-    const top = shown.getBoundingClientRect().top - frame.top;
-    const gauge = clashView.gauge.hidden ? null : clashView.gauge.getBoundingClientRect();
-    const intoGauge = gauge !== null && shown.getBoundingClientRect().top < gauge.bottom + 4 && shown.getBoundingClientRect().bottom > gauge.top;
-    root.setAttribute("data-overflow", top < frame.height * 0.48 + 7.5 || intoGauge ? "true" : "false");
+    const box = shown.getBoundingClientRect();
+    const top = box.top - frameBox.top;
+    // The clash gauge and the camp clock sit at the top of the dock; the panel must stay below them.
+    const crowded = [clashView.gauge, campTimer.element].some((node) => {
+      if (node.hidden) return false;
+      const other = node.getBoundingClientRect();
+      return box.top < other.bottom + 4 && box.bottom > other.top && box.left < other.right && box.right > other.left;
+    });
+    root.setAttribute("data-overflow", top < frameBox.height * 0.48 + 7.5 || crowded ? "true" : "false");
+  }
+
+  /** Words spoken once for a panel that opens on this revision. */
+  function panelWords(next, previousMode) {
+    if (next.mode === "DECISION" && previousMode !== "DECISION") return messages.ui.decision;
+    if (next.mode === "CAMP" && next.camp !== null) return [messages.camp.board, next.camp.timer.text].filter((part) => part !== "").join(" · ");
+    if (next.mode === "MICRO" && previousMode !== "MICRO" && next.micro !== null) return `${next.micro.hint} · ${next.micro.instructions}`;
+    if (next.mode === "POUCH_SWAP" && previousMode !== "POUCH_SWAP" && next.pouch !== null) return next.pouch.description;
+    return null;
   }
 
   function render(next) {
@@ -218,8 +334,13 @@ export function createJourneyRenderer(options) {
     model = next;
     lastMode = next.mode;
     applySettings(next.settings);
-    setAttributes(root, { "data-mode": next.mode, "data-pending": next.pending ?? null, "data-persistence": next.persistence, "data-clash": next.clash === null ? null : next.clash.beat });
+    setAttributes(root, {
+      "data-mode": next.mode, "data-pending": next.pending ?? null, "data-persistence": next.persistence,
+      "data-clash": next.clash === null ? null : next.clash.beat, "data-micro": next.mode === "MICRO" && next.micro !== null ? next.micro.kind : null,
+    });
     hud.update(next.hud);
+    // A micro-action leaves the HUD dim and only the settings open (UX §5).
+    setAttributes(hud.controls.pouch, { "aria-disabled": next.mode === "MICRO" ? "true" : null, tabindex: next.mode === "MICRO" ? "-1" : null });
     stage.update(next.scene);
     // The clash's light around the frog (UX §3.6: rounds without a wall show a warm radius).
     const hero = next.scene.actors.find((actor) => actor.characterId === "char_jao_kob") ?? null;
@@ -234,19 +355,21 @@ export function createJourneyRenderer(options) {
     }
     if (next.clash !== null && selectedGroup === null) selectedGroup = next.clash.groups.find((group) => group.id !== "basic")?.id ?? null;
     clashView.update(next.clash);
+    campTimer.update(next.camp?.timer ?? null);
+    micro.update(next.mode === "MICRO" ? next.micro : null);
     setText(stageDescription, next.scene.description);
 
     const sceneChanged = next.scene.sceneKey !== lastScene;
     lastScene = next.scene.sceneKey;
     if (sceneChanged && next.scene.title !== null) {
       sceneTitle.show({ act: [next.scene.actLabel, next.scene.actTitle].filter((part) => part !== null && part !== "").join(" · "), title: next.scene.title });
-    } else if (next.mode === "DECISION" || next.pending !== null || (next.clash !== null && next.clash.beat !== "intro")) {
+    } else if (PANEL_MODES.has(next.mode) || next.pending !== null || (next.clash !== null && next.clash.beat !== "intro")) {
       sceneTitle.hide();
     }
 
     const face = next.scene.actors.find((actor) => actor.speaking)?.image ?? null;
     dialogue.update(next.mode === "DECISION" || next.pending !== null ? null : next.line, { revision: next.revision, canAdvance: canAdvance(), face });
-    drawChoices();
+    drawPanels();
     toasts.push(next.toasts);
 
     const freshNotice = next.notice !== null && next.notice.id !== lastNotice;
@@ -256,14 +379,14 @@ export function createJourneyRenderer(options) {
     }
     lastNotice = next.notice?.id ?? lastNotice;
 
-    // Once per event: a new revision speaks its scene title, line, choice and toasts; a redraw of
+    // Once per event: a new revision speaks its scene title, line, panel and toasts; a redraw of
     // the same revision (settings, a resize) speaks only a notice it has not spoken yet.
     const fresh = next.revision !== lastRevision;
     lastRevision = next.revision;
     const spoken = (fresh ? [
       sceneChanged && next.scene.title !== null ? next.scene.title : null,
       next.line === null ? null : next.line.announcement,
-      next.mode === "DECISION" && previousMode !== "DECISION" ? messages.ui.decision : null,
+      panelWords(next, previousMode),
       next.clash?.beat === "intent" ? next.clash.intent.label : null,
       next.clash?.beat === "choose" ? next.clash.description : null,
       next.clash?.beat === "resolve" && next.clash.resolved?.answered ? messages.clash.answered : null,
@@ -272,31 +395,58 @@ export function createJourneyRenderer(options) {
     ] : []).concat(freshNotice ? [next.notice.text] : []).filter((part) => part !== null && part !== "");
     if (spoken.length > 0) announce(spoken.join(" · "));
     measureFit();
-    moveFocus(previousMode);
+    moveFocus(previousMode, fresh);
   }
+
+  const isControl = (node) => node !== null && node !== undefined && INTERACTIVE.has(node.tagName);
+  const isSpaceOrEnter = (event) => event.key === " " || event.key === "Enter";
 
   function onKeyDown(event) {
     if (model === null || event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey) return;
     const target = event.target;
     const inside = target === document.body || target === document.documentElement || root.contains?.(target) === true;
     if (!inside) return;
-    const onControl = target !== null && target !== undefined && INTERACTIVE.has(target.tagName);
-    if ((event.key === " " || event.key === "Enter") && !onControl) {
+    const onControl = isControl(target);
+    if (model.mode === "MICRO" && isSpaceOrEnter(event) && (!onControl || micro.owns(target))) {
+      event.preventDefault();
+      if (event.repeat !== true) micro.press();
+      return;
+    }
+    if (isSpaceOrEnter(event) && !onControl) {
       if (canAdvance()) { event.preventDefault(); advance(); }
       return;
     }
-    if (/^[1-9]$/.test(event.key) && (model.mode === "DECISION" || model.mode === "CLASH_CHOOSE")) {
-      const option = currentOptions()?.options.find((entry) => entry.shortcut === Number(event.key));
+    if (/^[1-9]$/.test(event.key) && DIGIT_MODES.has(model.mode)) {
+      const digit = Number(event.key);
+      if (picking) {
+        const slot = model.camp?.picker?.slots[digit - 1];
+        if (slot?.item) { event.preventDefault(); pickKeepsake(slot.item); }
+        return;
+      }
+      const option = currentOptions()?.options.find((entry) => entry.shortcut === digit);
       if (option !== undefined) { event.preventDefault(); activate(option.key); }
       return;
     }
-    if (event.key === "Escape" && armed !== null) { event.preventDefault(); disarm(); return; }
-    if ((event.key === "i" || event.key === "I") && !onControl) { event.preventDefault(); onPouch(); }
+    if (event.key === "Escape") {
+      if (picking) { event.preventDefault(); closePicker(true); return; }
+      if (armed !== null) { event.preventDefault(); disarm(); }
+      return;
+    }
+    if ((event.key === "i" || event.key === "I") && !onControl && model.mode !== "MICRO") { event.preventDefault(); onPouch(); }
+  }
+
+  /** A hold lets go when Space or Enter comes up; the key-up also keeps the button from clicking. */
+  function onKeyUp(event) {
+    if (model?.mode !== "MICRO" || !isSpaceOrEnter(event)) return;
+    if (isControl(event.target) && !micro.owns(event.target)) return;
+    event.preventDefault();
+    micro.release();
   }
 
   function onStageClick(event) {
     const target = event.target;
-    if (hudLayer.contains?.(target) || corner.contains?.(target) || dialogue.element.contains?.(target) || choices.contains?.(target) || tray.element.contains?.(target) || notice.contains?.(target)) return;
+    const away = [hudLayer, corner, dialogue.element, ...panels, campTop, notice];
+    if (away.some((node) => node.contains?.(target))) return;
     advance();
   }
 
@@ -304,11 +454,12 @@ export function createJourneyRenderer(options) {
   function onResize() {
     if (resizeQueued || model === null) return;
     resizeQueued = true;
-    const frame = view?.requestAnimationFrame?.bind(view) ?? ((callback) => schedule(callback, 16));
-    frame(() => { resizeQueued = false; if (!disposed) { drawChoices(); measureFit(); } });
+    const later = view?.requestAnimationFrame?.bind(view) ?? ((callback) => schedule(callback, 16));
+    later(() => { resizeQueued = false; if (!disposed) { drawPanels(); measureFit(); } });
   }
 
   document.addEventListener("keydown", onKeyDown);
+  document.addEventListener("keyup", onKeyUp);
   root.addEventListener("click", onStageClick);
   view?.addEventListener?.("resize", onResize);
 
@@ -320,11 +471,15 @@ export function createJourneyRenderer(options) {
     dispose() {
       disposed = true;
       document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("keyup", onKeyUp);
       view?.removeEventListener?.("resize", onResize);
       stage.dispose();
       dialogue.dispose();
       cards.forEach((card) => card.dispose());
       tray.dispose();
+      campBoard.dispose();
+      pouchSheet.dispose();
+      micro.dispose();
       root.remove?.();
     },
   });

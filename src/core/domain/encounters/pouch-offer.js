@@ -40,6 +40,20 @@ export function offerBlock(entry, journey, lockedItems) {
 }
 
 /**
+ * Whether a choice belongs to the pouch as it is now (Act 3 blueprint A3-13): with a free slot
+ * the offer is take or refuse; with all four full it is a hand-on of a keepsake really held,
+ * never the locked button, or refuse. A choice that applies may still be closed by its cost.
+ *
+ * @returns {boolean}
+ */
+export function offerApplies(entry, journey, lockedItems) {
+  const full = journey.pouch.held.length >= POUCH_CAPACITY;
+  if (entry.kind === "take") return !full;
+  if (entry.kind === "release") return full && !lockedItems.has(entry.choice.release) && journey.pouch.held.includes(entry.choice.release);
+  return true;
+}
+
+/**
  * Resolve an open choice on a mutable JourneyState draft: the pouch first, then the
  * choice's own effects.
  */

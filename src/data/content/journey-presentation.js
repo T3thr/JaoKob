@@ -5,12 +5,14 @@
  * Nothing in this module decides a rule: availability, costs, the ซ้ำ warning, reasons and
  * the accepted commands come from Core through the view; this only names and places them.
  *
- * Modes the screen does not draw yet (camp, micro-actions, pouch offers and the ending choice
- * arrive later in C5) are reported as `pending` so the host can say so. The clash is drawn
- * from C5a: intent badge, gauge, turn drops and the tray, all from Core's clash view.
+ * The clash is drawn from C5a: intent badge, gauge, turn drops and the tray, all from Core's
+ * clash view. C5b adds the camp (in-world clock, every activity card with what it gives,
+ * costs and takes before it is pressed, the ready picker and the leave button), the
+ * micro-action prompt and the keepsake offer. The ending choice arrives in C5c and is reported
+ * as `pending` until then, like the boundary and the completion that wait for the title.
  *
- * Trace: ADR-P0-034 D9/D10, ADR-P0-032 D7, UX §1.1–§1.10 · §2.1 · §3, Atomic 05 §3,
- * TC-S5-VN-001, TC-S5-HUD-001, TC-S5-A11Y-001, TC-S5-TRAY-001.
+ * Trace: ADR-P0-034 D9/D10, ADR-P0-032 D7, UX §0.2 · §1.1–§1.10 · §2.1 · §3–§5 · §7, Atomic 05 §3,
+ * TC-S5-VN-001, TC-S5-HUD-001, TC-S5-A11Y-001, TC-S5-TRAY-001, TC-S5-UX-001.
  */
 
 import { BONDS, BOND_MAX, METERS, METER_MAX } from "../../core/domain/journey/journey-rules.js";
@@ -30,11 +32,17 @@ const COMPANION_FACE = Object.freeze({ pkam: "char_pkam_neutral_guarded", fiw: "
 const CLASH_BEATS = Object.freeze({ CLASH_INTRO: "intro", CLASH_INTENT: "intent", CLASH_CHOOSE: "choose", CLASH_RESOLVE: "resolve", CLASH_OUTCOME: "outcome" });
 const GROUPS = Object.freeze(["basic", "family", "friends", "pouch"]);
 
-/** Modes whose words the dialogue card shows; the rest wait for their C5 panel. */
+/** Modes whose words the dialogue card shows; the others draw their own panel in the dock. */
 const LINE_MODES = new Set(["VN", "CLASH_INTRO", "CLASH_INTENT", "CLASH_RESOLVE", "CLASH_OUTCOME"]);
-const PENDING = Object.freeze({
-  CAMP: "camp", MICRO: "micro", POUCH_SWAP: "pouch", ENDING_RESONANCE: "endings", BOUNDARY: "boundary", COMPLETE: "complete",
-});
+const PENDING = Object.freeze({ ENDING_RESONANCE: "endings", BOUNDARY: "boundary", COMPLETE: "complete" });
+/** Art of a camp activity that names no keepsake or companion (UX §8.4): eating, wounds, the heart. */
+const CAMP_METER_ICON = Object.freeze({ sta: "moth", hp: "bandage", mind: "star" });
+const CAMP_ICON_ORDER = Object.freeze(["sta", "hp", "mind"]);
+/** Micro-actions with three marks (taps or stitches); the others fill once. */
+const MICRO_STEPS = Object.freeze({ tap3: 3, stitch: 3, hold: 1, press: 1 });
+/** Left stripe of a keepsake offer card: a hand-on is a cost, a refusal keeps a memory. */
+const POUCH_KIND = Object.freeze({ take: "take", release: "handon", refuse: "refuse" });
+const SHORTCUT_MAX = 9;
 
 /**
  * @param {{pkg: object, media: {image: Function}, messages: object}} options
@@ -205,14 +213,164 @@ export function createJourneyPresentation({ pkg, media, messages }) {
     };
   }
 
+  /** A keepsake of the package in words and image, or null when the package does not list it. */
+  function keepsake(id) {
+    const item = items.get(id);
+    return item === undefined ? null : { item: id, name: item.name, image: media.image(item.icon) };
+  }
+  const keepsakeName = (id) => items.get(id)?.name ?? id;
+
+  /**
+   * What a card gives, from Core's `summary` (UX §0.2 · §4.1.3): the effect line under the
+   * label (a keepsake given up first, then pips, bonds and พร้อมผสาน) and the same in words.
+   */
+  function yields(summary, readyPick = false) {
+    const gains = METERS.filter((meter) => (summary.meters[meter] ?? 0) > 0).map((meter) => [messages.meters[meter], summary.meters[meter]]);
+    const bonds = BONDS.filter((bond) => (summary.bonds[bond] ?? 0) > 0);
+    const line = [
+      ...summary.release.map((id) => messages.camp.release(keepsakeName(id))),
+      gains.length === 0 ? null : gains.map(([label, pips]) => `${label} ${"●".repeat(pips)}`).join("  "),
+      ...bonds.map((bond) => messages.camp.bond(messages.companions[bond])),
+      summary.ready.length > 0 || readyPick ? messages.tags.ready : null,
+    ].filter((part) => part !== null);
+    const sentence = [
+      ...summary.release.map((id) => messages.say.release(keepsakeName(id))),
+      messages.say.gain(gains),
+      ...bonds.map((bond) => messages.say.bondGain(messages.companions[bond])),
+      ...summary.ready.map((id) => messages.say.ready(keepsakeName(id))),
+      readyPick ? messages.say.readyPick : null,
+    ].filter((part) => part !== null && part !== "");
+    return { line, sentence, bonds };
+  }
+
+  const sentenceOf = (parts) => parts.filter((part) => part !== null && part !== "").join(" · ");
+
+  /** One activity of the camp board: art, the effect line, its cost and why it is closed. */
+  function campCard(activity, index) {
+    const label = text(activity.label).body;
+    const effect = yields(activity.summary, activity.ready);
+    const pips = cost(activity.cost);
+    const shown = activity.summary.release[0] ?? activity.summary.ready[0];
+    const meter = CAMP_ICON_ORDER.find((id) => (activity.summary.meters[id] ?? 0) > 0);
+    const art = shown !== undefined ? { icon: null, keepsake: keepsake(shown)?.image ?? null, face: null }
+      : activity.ready ? { icon: "pouch", keepsake: null, face: null }
+        : effect.bonds.length > 0 ? { icon: null, keepsake: null, face: faceOf(COMPANION_FACE[effect.bonds[0]]) }
+          : { icon: CAMP_METER_ICON[meter] ?? null, keepsake: null, face: null };
+    const reason = activity.available || activity.chosen ? null : messages.reasons[activity.reason] ?? messages.reasons.unknown;
+    return {
+      key: activity.key,
+      shortcut: index < SHORTCUT_MAX ? index + 1 : null,
+      label,
+      kind: "camp",
+      tags: activity.chosen ? [{ kind: "chosen", text: messages.tags.chosen }] : [],
+      cost: pips,
+      effect: effect.line.length === 0 ? null : effect.line.join(" · "),
+      art,
+      available: activity.available,
+      chosen: activity.chosen,
+      ready: activity.ready,
+      reason,
+      description: sentenceOf([label, ...effect.sentence, messages.say.cost(pips.map((part) => [part.label, part.pips])), activity.chosen ? messages.tags.chosen : null, reason]),
+    };
+  }
+
+  /** The four woven slots as the screen shows them (held keepsakes in order, then empty slots). */
+  function slots(view, describe) {
+    return Array.from({ length: view.hud.pouch.capacity }, (_, index) => {
+      const entry = view.hud.pouch.held[index];
+      if (entry === undefined) return { index: index + 1, item: null, name: messages.pouch.slotEmpty, image: null, locked: false, ready: false };
+      const found = keepsake(entry.item);
+      return describe({ index: index + 1, item: entry.item, name: found?.name ?? entry.item, image: found?.image ?? null, locked: entry.locked, ready: entry.ready });
+    });
+  }
+
+  /** The camp (UX §4): in-world clock, every activity, the ready picker and the leave button. */
+  function camp(view) {
+    if (view.camp === undefined) return null;
+    const c = view.camp;
+    const timer = messages.camp.timers[c.camp];
+    const ready = c.activities.find((activity) => activity.ready) ?? null;
+    return {
+      id: c.camp,
+      timer: { vessel: timer?.vessel ?? "drop", total: c.drops, left: c.dropsLeft, text: timer === undefined ? "" : c.dropsLeft === 0 ? timer.done : timer.left(c.dropsLeft) },
+      open: view.mode === "CAMP",
+      cards: c.activities.map(campCard),
+      picker: ready === null ? null : {
+        activity: ready.key,
+        slots: slots(view, (slot) => ({
+          ...slot,
+          available: c.readyCandidates.includes(slot.item),
+          description: sentenceOf([messages.pouch.slot(slot.index, slot.name), slot.ready ? messages.tags.ready : null]),
+        })),
+      },
+      leave: { label: messages.camp.leave, available: c.finished && view.accepts.includes("campLeave"), note: c.finished ? null : messages.camp.leaveWait },
+    };
+  }
+
+  /** A micro-action (UX §5): what to do, how many marks, the hint and the auto setting. */
+  function micro(view, settings) {
+    if (view.micro === undefined) return null;
+    const m = view.micro;
+    return {
+      key: `${view.node.id}:${view.revision}`,
+      kind: m.kind,
+      ma: m.ma,
+      steps: MICRO_STEPS[m.kind] ?? 1,
+      hint: text(m.hint).body,
+      instructions: messages.micro.instructions[m.kind] ?? messages.micro.instructions.press,
+      auto: settings.autoMicro === true,
+    };
+  }
+
+  /** The keepsake offer (UX §7): the new keepsake, the four slots and the choices that apply now. */
+  function pouch(view) {
+    if (view.pouch === undefined) return null;
+    const p = view.pouch;
+    const incoming = keepsake(p.incoming) ?? { item: p.incoming, name: p.incoming, image: null };
+    const cards = p.options.filter((option) => option.offered).map((option, index) => {
+      const label = text(option.label).body;
+      const effect = yields(option.summary);
+      const handOn = option.release === null ? null : keepsakeName(option.release);
+      const pips = cost(option.cost);
+      const reason = option.available ? null : messages.reasons[option.reason] ?? messages.reasons.unknown;
+      const line = [handOn === null ? null : messages.pouch.handOnEffect(handOn), ...effect.line, option.kind === "refuse" ? messages.pouch.memory : null].filter((part) => part !== null);
+      return {
+        key: option.key,
+        shortcut: index < SHORTCUT_MAX ? index + 1 : null,
+        label,
+        kind: POUCH_KIND[option.kind],
+        tags: [],
+        cost: pips,
+        effect: line.length === 0 ? null : line.join(" · "),
+        art: { icon: null, keepsake: option.kind === "release" ? keepsake(option.release)?.image ?? null : option.kind === "take" ? incoming.image : null, face: null },
+        available: option.available,
+        reason,
+        release: option.release,
+        description: sentenceOf([label, handOn === null ? null : messages.say.handOn(handOn), ...effect.sentence, option.kind === "refuse" ? messages.say.memory : null, messages.say.cost(pips.map((part) => [part.label, part.pips])), reason]),
+      };
+    });
+    return {
+      incoming,
+      slots: slots(view, (slot) => slot),
+      cards,
+      description: `${messages.pouch.incoming} ${incoming.name}`,
+    };
+  }
+
   function toasts(events, revision) {
     const result = [];
     for (const [index, event] of (events ?? []).entries()) {
+      const key = `${revision}:${index}`;
       if (event.type === "meter") {
-        result.push({ key: `${revision}:${index}`, kind: "meter", meter: event.meter, direction: event.to < event.from ? "down" : "up", text: messages.toast.meter(messages.meters[event.meter], event.to - event.from) });
-      } else if (event.type === "keepsake" && event.change === "gained" && items.has(event.item)) {
-        const item = items.get(event.item);
-        result.push({ key: `${revision}:${index}`, kind: "keepsake", item: event.item, text: messages.toast.keepsake(item.name), image: media.image(item.icon) });
+        result.push({ key, kind: "meter", meter: event.meter, direction: event.to < event.from ? "down" : "up", text: messages.toast.meter(messages.meters[event.meter], event.to - event.from) });
+      } else if (event.type === "bond" && event.to > event.from) {
+        result.push({ key, kind: "bond", bond: event.bond, direction: "up", text: messages.toast.bond(messages.companions[event.bond], event.to - event.from) });
+      } else if (event.type === "keepsake" && items.has(event.item) && (event.change === "gained" || event.change === "handed-on")) {
+        const item = keepsake(event.item);
+        result.push({ key, kind: event.change === "gained" ? "keepsake" : "handed-on", item: event.item, text: event.change === "gained" ? messages.toast.keepsake(item.name) : messages.toast.handedOn(item.name), image: item.image });
+      } else if (event.type === "ready" && items.has(event.item)) {
+        const item = keepsake(event.item);
+        result.push({ key, kind: "ready", item: event.item, text: messages.toast.ready(item.name), image: item.image });
       }
     }
     return result;
@@ -236,6 +394,9 @@ export function createJourneyPresentation({ pkg, media, messages }) {
         line: current,
         decision: decision(view),
         clash: clash(view, appView.settings),
+        camp: camp(view),
+        micro: micro(view, appView.settings),
+        pouch: pouch(view),
         pending: PENDING[view.mode] ?? null,
         toasts: toasts(appView.events, view.revision),
         notice: appView.notice === null || appView.notice === undefined ? null : { id: appView.notice, text: messages.notices[appView.notice] ?? messages.notices["save-failed"] },

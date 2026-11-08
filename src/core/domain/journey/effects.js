@@ -105,6 +105,27 @@ export function applyEffects(draft, effects, rules) {
 }
 
 /**
+ * What a list of effects gives, for the card that offers it (UX §0.2 "บอกก่อนเก็บ", §4.1.3):
+ * meters it adds, bonds it ties, keepsakes it readies, takes in or hands on. Voluntary costs
+ * are read through `affordable` and the cost pips; flags, picks, floors and hazards are story
+ * state that no card shows. The meaning of each word stays here, so the screen only names it.
+ *
+ * @param {object[]|undefined} effects
+ * @returns {{meters: Record<string, number>, bonds: Record<string, number>, ready: string[], grant: string[], release: string[]}}
+ */
+export function effectSummary(effects) {
+  const summary = { meters: {}, bonds: {}, ready: [], grant: [], release: [] };
+  for (const effect of effects ?? []) {
+    if (effect.op === "meter.add") summary.meters[effect.meter] = (summary.meters[effect.meter] ?? 0) + effect.amount;
+    else if (effect.op === "bond.add") summary.bonds[effect.bond] = (summary.bonds[effect.bond] ?? 0) + effect.amount;
+    else if (effect.op === "item.ready") summary.ready.push(effect.item);
+    else if (effect.op === "item.grant") summary.grant.push(effect.item);
+    else if (effect.op === "item.release") summary.release.push(effect.item);
+  }
+  return summary;
+}
+
+/**
  * Whether every voluntary cost in `effects` leaves each meter at one or more.
  *
  * @param {object[]|undefined} effects @param {object} journey

@@ -37,8 +37,10 @@ export function createHudToasts({ document, schedule = (callback, ms) => globalT
         seen.add(toast.key);
         if (seen.size > 64) seen.delete(seen.values().next().value);
         const node = element(document, "div", "jk-toast jk-glass", { "data-kind": toast.kind, "data-direction": toast.direction ?? "up" });
-        node.append(createIcon(document, toast.kind === "meter" ? (toast.direction === "down" ? "down" : "up") : "pouch", "jk-toast__icon"), element(document, "span", "jk-toast__text", {}, toast.text));
+        const arrow = toast.kind === "meter" || toast.kind === "bond";
+        node.append(createIcon(document, arrow ? (toast.direction === "down" ? "down" : "up") : "pouch", "jk-toast__icon"), element(document, "span", "jk-toast__text", {}, toast.text));
         if (toast.kind === "meter") node.setAttribute("data-meter", toast.meter);
+        if (toast.kind === "bond") node.setAttribute("data-bond", toast.bond);
         while (live.length >= MAX_VISIBLE) remove(live[0]);
         const taken = new Set(slots.values());
         const slot = [0, 1, 2].find((index) => !taken.has(index));

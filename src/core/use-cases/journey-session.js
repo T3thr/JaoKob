@@ -32,9 +32,9 @@ import { projectClash } from "../domain/clash/clash-tray.js";
 import { campFinished, activityBlock, openCamp, pickActivity, readyCandidates } from "../domain/encounters/camp.js";
 import { microValid, microView } from "../domain/encounters/micro.js";
 import { methodCost, obstacleBlock, obstacleHomesick, resolveObstacle } from "../domain/encounters/obstacle.js";
-import { offerBlock, offerChoices, resolveOffer } from "../domain/encounters/pouch-offer.js";
+import { offerApplies, offerBlock, offerChoices, resolveOffer } from "../domain/encounters/pouch-offer.js";
 import { allows, visibleLines } from "../domain/journey/conditions.js";
-import { affordable, applyEffects } from "../domain/journey/effects.js";
+import { affordable, applyEffects, effectSummary } from "../domain/journey/effects.js";
 import { ENDINGS, ENDING_REASONS, evaluateEndings } from "../domain/journey/endings.js";
 import { JOURNEY_ERROR_CODES as CODES, JourneyError, ensure } from "../domain/journey/journey-errors.js";
 import { BONDS, addressTier } from "../domain/journey/journey-rules.js";
@@ -587,7 +587,7 @@ export function createJourneySession(pkg) {
           camp: node.camp, drops: node.drops, dropsLeft: p.encounter.dropsLeft, finished: campFinished(node, j, p.encounter),
           activities: node.activities.map((a) => {
             const block = activityBlock(a, node, j, p.encounter);
-            return { key: a.key, label: a.label, group: a.group ?? null, ready: a.ready === true, chosen: p.encounter.chosen.includes(a.key), available: block === null, reason: block, cost: spendCost(a.effects), releases: a.effects.filter((e) => e.op === "item.release").map((e) => e.item) };
+            return { key: a.key, label: a.label, group: a.group ?? null, ready: a.ready === true, chosen: p.encounter.chosen.includes(a.key), available: block === null, reason: block, cost: spendCost(a.effects), releases: a.effects.filter((e) => e.op === "item.release").map((e) => e.item), summary: effectSummary(a.effects) };
           }),
           readyCandidates: readyCandidates(j),
         };
@@ -598,7 +598,10 @@ export function createJourneySession(pkg) {
           incoming: node.offer.item,
           options: offerChoices(node.offer).map((entry) => {
             const block = offerBlock(entry, j, cat.rules.lockedItems);
-            return { key: entry.choice.key, kind: entry.kind, label: entry.choice.label, release: entry.choice.release ?? null, available: block === null, reason: block };
+            return {
+              key: entry.choice.key, kind: entry.kind, label: entry.choice.label, release: entry.choice.release ?? null, available: block === null, reason: block,
+              offered: offerApplies(entry, j, cat.rules.lockedItems), cost: spendCost(entry.choice.effects), summary: effectSummary(entry.choice.effects),
+            };
           }),
         };
       }

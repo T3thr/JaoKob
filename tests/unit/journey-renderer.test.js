@@ -174,12 +174,17 @@ test("TC-S5-HUD-001 the HUD capsule shows pips, strands and woven cells, with na
   assert.doesNotMatch(hud.textContent, /[0-9]/, "the capsule shows no number");
 });
 
-test("TC-S5-VN-001 modes still to come in C5 leave the dock empty and tell the host through data-pending", () => {
+test("TC-S5-VN-001 the camp draws its board in the dock; only the boundary still tells the host through data-pending", () => {
   const { root, until } = screen();
   until((m) => m.mode === "CAMP");
-  assert.equal(root.getAttribute("data-pending"), "camp");
+  assert.equal(root.getAttribute("data-pending"), null);
+  assert.equal(oneByClass(root, "jk-camp").hidden, false);
   assert.equal(oneByClass(root, "jk-dialogue").hidden, true);
   assert.equal(oneByClass(root, "jk-choices").hidden, true);
+  until((m) => m.mode === "BOUNDARY");
+  assert.equal(root.getAttribute("data-pending"), "boundary");
+  assert.equal(oneByClass(root, "jk-dialogue").hidden, true);
+  assert.equal(oneByClass(root, "jk-camp").hidden, true);
 });
 
 test("TC-S5-VN-001 a new pose cross-fades out the old one and releases its image", async () => {

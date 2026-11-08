@@ -1,10 +1,11 @@
 /**
- * C4 review page: the real Journey screens on the real application (ADR-P0-034 D10.4,
+ * Journey review page: the real Journey screens on the real application (ADR-P0-034 D10.4,
  * SSOT §1.2 C4). Everything in the game area comes from `src/`; this file only adds the PO's
- * review chrome: start and continue, the C5 placeholders with a skip that sends real engine
- * commands through the application (saved silently like any play), a settings sheet for the
- * C4 checks, and `window.journeyReview` for the device frame and the browser evidence runner.
- * Not part of the game or the release allowlist.
+ * review chrome: start and continue, a placeholder with a skip that sends real engine commands
+ * for the one screen still to come (the ending choice, C5c), a settings sheet for the checks,
+ * and `window.journeyReview` for the device frame and the browser evidence runner. The clash
+ * (C5a), the camp, the micro-actions and the keepsake offer (C5b) are played on their real
+ * screens. Not part of the game or the release allowlist.
  */
 
 import { createJourneyShell, loadJourneyResources } from "../../../../src/bootstrap/journey-shell.js";
@@ -19,12 +20,19 @@ const els = {
 };
 
 const PENDING = {
-  camp: ["แคมป์หลบฝน", "นาฬิกาแคมป์และการ์ดกิจกรรมมาใน C5 · บรรทัดก่อนและหลังกิจกรรมแสดงในกล่องบทพูดแล้ว"],
-  micro: ["สัมผัสโต้ตอบ", "วงคลื่น วงลมหายใจ และจุดฝีเข็มมาใน C5"],
-  pouch: ["รับของใหม่", "แผ่นรับของและเลือกชิ้นที่จะฝากมาใน C5"],
-  endings: ["หน้าจอเลือกฉากจบ", "การ์ดสามเกลียวมาใน C5"],
+  endings: ["หน้าจอเลือกฉากจบ", "การ์ดสามเกลียวมาใน C5c"],
 };
 const STOP_MODES = new Set(["CLASH_OUTCOME", "DECISION", "BOUNDARY", "COMPLETE"]);
+/** `?package=mini` plays the test package that has every node type (offer, hold, stitch, endings). */
+const MINI_PACKAGE = "../../../../tests/fixtures/journey/mini-journey.json";
+
+async function reviewResources() {
+  const resources = await loadJourneyResources();
+  if (new URLSearchParams(location.search).get("package") !== "mini") return resources;
+  const response = await fetch(new URL(MINI_PACKAGE, location.href).href, { credentials: "omit", mode: "same-origin", redirect: "error", cache: "no-cache" });
+  if (!response.ok) throw new Error(`MINI_PACKAGE_${response.status}`);
+  return { ...resources, packageData: await response.json() };
+}
 
 let shell = null, latest = null;
 
@@ -176,7 +184,7 @@ function wire() {
 
 async function start() {
   try {
-    const resources = await loadJourneyResources();
+    const resources = await reviewResources();
     shell = createJourneyShell({ document, root: els.game, ...resources, onChange: draw, onSettings: openSettings, onPouch: openPouch });
     wire();
     window.journeyReview = Object.freeze({ shell, step, skipScene, playUntil, firstCommand });

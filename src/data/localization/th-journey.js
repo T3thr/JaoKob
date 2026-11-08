@@ -51,7 +51,59 @@ export const TH_JOURNEY = Object.freeze({
     "bond-low": "สายใยยังไม่แน่นพอจะขอให้ช่วย",
     "mind-low": "ใจยังไม่มั่นคงพอจะไปคนเดียว",
     "sta-low": "แรงเหลือไม่พอ",
+    "no-drops": "หมดเวลาพักแล้ว",
+    "group-taken": "เลือกอีกทางไปแล้ว",
+    "nothing-to-ready": "ไม่มีของให้เตรียมแล้ว",
     unknown: "ยังทำทางนี้ไม่ได้ในตอนนี้",
+  }),
+  /**
+   * Shelter camps (UX §4): the in-world clock of each camp (C1–C4 is the schema's closed set),
+   * the words on the cards' effect line and the leave button.
+   */
+  camp: Object.freeze({
+    timers: Object.freeze({
+      C1: Object.freeze({ vessel: "shell", left: (n) => `กะลารับได้อีก${thaiCount(n)}หยด`, done: "กะลาเต็มแล้ว" }),
+      C2: Object.freeze({ vessel: "can", left: (n) => `กระป๋องรับได้อีก${thaiCount(n)}หยด`, done: "กระป๋องเต็มแล้ว" }),
+      C3: Object.freeze({ vessel: "lantern", left: (n) => `ตะเกียงเหลือ${thaiCount(n)}รอบ`, done: "ตะเกียงหมดลานแล้ว" }),
+      C4: Object.freeze({ vessel: "bucket", left: (n) => `ถังรับได้อีก${thaiCount(n)}หยด`, done: "ถังเต็มแล้ว" }),
+    }),
+    board: "สิ่งที่ทำได้ใต้ชายคา",
+    leave: "ออกเดินทางต่อ",
+    leaveWait: "ยังพักต่อได้อีก",
+    release: (name) => `สละ${name}`,
+    bond: (name) => `สายใย${name} +`,
+    picker: "เลือกของหนึ่งชิ้นให้พร้อมผสาน",
+    back: "กลับไปที่กิจกรรม",
+    slotEmpty: "ช่องว่าง",
+  }),
+  /** Tactile micro-actions (UX §5): how to do each kind by touch, mouse and keyboard. */
+  micro: Object.freeze({
+    region: "สัมผัสโต้ตอบ",
+    instructions: Object.freeze({
+      tap3: "แตะสามครั้ง หรือกด Space สามครั้ง",
+      hold: "กดค้างไว้ หรือกด Space ค้าง ปล่อยก่อนก็ได้ แสงจะค่อย ๆ เต็มเอง",
+      stitch: "แตะจุดทองทีละจุด หรือกด Space สามครั้ง",
+      press: "แตะหนึ่งครั้ง หรือกด Space",
+    }),
+    progress: Object.freeze({
+      tap3: (n) => `แตะแล้ว${thaiCount(n)}ครั้ง`,
+      stitch: (n) => `เย็บแล้ว${thaiCount(n)}ฝี`,
+      hold: () => "แสงกำลังเต็ม",
+      press: () => "แตะแล้ว",
+    }),
+    done: "ครบแล้ว",
+  }),
+  /** The keepsake offer (UX §7, ADR-P0-020 D5). */
+  pouch: Object.freeze({
+    sheet: "รับของใหม่",
+    incoming: "ของใหม่",
+    slots: "กระเป๋าสานสี่ช่อง",
+    slotEmpty: "ช่องว่าง",
+    locked: "ฝากไม่ได้",
+    handOn: "จะฝาก",
+    handOnEffect: (name) => `ฝาก${name}`,
+    memory: "เก็บไว้ในความทรงจำ",
+    slot: (index, name) => `ช่องที่${thaiCount(index)} ${name}`,
   }),
   ui: Object.freeze({
     game: "เจ้ากบ",
@@ -85,6 +137,13 @@ export const TH_JOURNEY = Object.freeze({
     bond: (name, knots) => (knots === 0 ? `สายใยกับ${name} ยังไม่มีปม` : `สายใยกับ${name} ${thaiCount(knots)}ปม`),
     pouch: (used, capacity) => `เปิดกระเป๋าสาน มีของ${thaiCount(used)}จาก${thaiCount(capacity)}ช่อง`,
     cost: (parts) => (parts.length === 0 ? "" : `ใช้${parts.map(([label, pips]) => `${label}${thaiCount(pips)}เม็ด`).join("และ")}`),
+    gain: (parts) => (parts.length === 0 ? "" : `ได้${parts.map(([label, pips]) => `${label}${thaiCount(pips)}เม็ด`).join("และ")}`),
+    bondGain: (name) => `สายใยกับ${name}เพิ่มหนึ่งปม`,
+    ready: (name) => `${name}พร้อมผสานในศึกถัดไป`,
+    readyPick: "เลือกของหนึ่งชิ้นให้พร้อมผสานในศึกถัดไป",
+    release: (name) => `สละ${name}`,
+    handOn: (name) => `ฝาก${name}`,
+    memory: "ของชิ้นนี้จะอยู่ในความทรงจำของกระเป๋า",
     repeat: "ใช้ซ้ำแล้วจะคิดถึงบ้าน",
     act: (act) => `องก์ ${act}`,
     line: (speaker, text) => (speaker === null ? text : `${speaker}: ${text}`),
@@ -93,5 +152,8 @@ export const TH_JOURNEY = Object.freeze({
   toast: Object.freeze({
     meter: (label, delta) => (delta < 0 ? `${label} ลดลง ${-delta}` : `${label} เพิ่มขึ้น ${delta}`),
     keepsake: (name) => `ได้รับ ${name}`,
+    bond: (name, delta) => `สายใย${name} เพิ่มขึ้น ${delta}`,
+    ready: (name) => `${name} พร้อมผสาน`,
+    handedOn: (name) => `ฝาก ${name} แล้ว`,
   }),
 });

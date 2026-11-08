@@ -57,11 +57,12 @@ test("TC-S5-VN-001 every beat of Act 1 is shown in the package's own words, with
   assert.equal(seen.at(-1).model.pending, "boundary");
 });
 
-test("TC-S5-VN-001 modes still to come in C5 are reported as pending, with no line on the card", () => {
+test("TC-S5-VN-001 only the boundary of Act 1 is pending now (the ending choice is C5c's), with no line on the card", () => {
   const { seen } = playAll();
   const pendingOf = new Map();
   for (const { model } of seen) if (model.pending !== null) pendingOf.set(model.mode, model.pending);
-  assert.deepEqual(Object.fromEntries(pendingOf), { CAMP: "camp", MICRO: "micro", BOUNDARY: "boundary" });
+  assert.deepEqual(Object.fromEntries(pendingOf), { BOUNDARY: "boundary" });
+  assert.ok(seen.some(({ model }) => model.mode === "CAMP" && model.camp.open) && seen.some(({ model }) => model.mode === "MICRO" && model.micro !== null));
   for (const { model } of seen) {
     if (["CLASH_CHOOSE", "CAMP", "MICRO", "BOUNDARY"].includes(model.mode)) assert.equal(model.line, null, model.mode);
     if (["VN", "CLASH_INTRO", "CLASH_INTENT", "CLASH_RESOLVE", "CLASH_OUTCOME"].includes(model.mode) && model.scene.title !== null) assert.equal(model.pending, null);
