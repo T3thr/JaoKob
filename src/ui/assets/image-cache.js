@@ -5,12 +5,10 @@ export const IMAGE_BUDGET_BYTES = 32 * 1024 * 1024;
  * acquire returns a decoded image lease, or null on any failure. Every successful
  * caller must release its lease after removal from the stage. Retained images and
  * in-flight decodes count toward the same budget; only inactive entries are evicted.
- * At most two scene plates (`kind: "background"`, or a path under the backgrounds folder for
- * the earlier runtime) are kept; when that limit binds, the least recently used idle plate
- * goes first, never an unrelated image.
- * Entries are keyed by the reference's package identity (Journey: profile + package id +
- * contentVersion) or, for the earlier runtime, its contentVersion, so two packages that
- * share a version never share an image.
+ * At most two scene plates (`kind: "background"`) are kept; when that limit binds, the least
+ * recently used idle plate goes first, never an unrelated image.
+ * Entries are keyed by the reference's package identity (profile + package id + contentVersion)
+ * and asset ID, so two packages that share a version never share an image.
  */
 export function createImageCache({ readAsset, createImage = () => new Image(),
   createObjectURL = (blob) => URL.createObjectURL(blob), revokeObjectURL = (url) => URL.revokeObjectURL(url),
@@ -48,7 +46,7 @@ export function createImageCache({ readAsset, createImage = () => new Image(),
       if (disposed || signal.aborted || !result?.ok || result.value.descriptor.type !== "image") return null;
       const { descriptor, bytes: encoded } = result.value;
       const size = descriptor.width * descriptor.height * 4;
-      const background = descriptor.kind === "background" || String(descriptor.path ?? "").startsWith("assets/images/backgrounds/");
+      const background = descriptor.kind === "background";
       if (!Number.isSafeInteger(size) || size <= 0 || size > budget || !room(size, background)) return null;
       const image = createImage();
       const url = createObjectURL(new Blob([encoded], { type: descriptor.mimeType }));
@@ -67,7 +65,7 @@ export function createImageCache({ readAsset, createImage = () => new Image(),
     } catch { if (entry && entries.get(key) === entry) remove(key, entry); return null; }
   }
   async function acquire(reference, { signal } = {}) {
-    const owner = reference?.identity ?? reference?.contentVersion;
+    const owner = reference?.identity;
     if (disposed || signal?.aborted || !reference?.assetId || typeof owner !== "string" || owner === "") return null;
     const key = `${owner}:${reference.assetId}`;
     let entry = entries.get(key);

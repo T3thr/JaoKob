@@ -4,17 +4,16 @@
 
 | โฟลเดอร์ | ตรวจอะไร | วิธีรัน |
 |---|---|---|
-| [unit/](unit/) | core, data, ui แยกชั้น (ชุดหลักที่ต้องผ่าน 100% ก่อนทุก commit) | `node --test 'tests/unit/**/*.test.js'` |
+| [unit/](unit/) | core, data, ui แยกชั้นของ Journey (ชุดหลักที่ต้องผ่าน 100% ก่อนทุก commit) · เทสต์ของ runtime Sprint 4 ถูกลบใน C5e ตาม[ทะเบียน assertion](../docs/traceability/sprint-05-superseded-assertions.md) | `node --test 'tests/unit/**/*.test.js'` |
 | [fixtures/](fixtures/) · [helpers/](helpers/) | ข้อมูลและตัวช่วยของเทสต์ | ใช้ร่วมกับ unit |
-| [schema/](schema/) | ข้อมูลจริงกับ JSON Schema อ้างอิง (ต้องมี Ajv ของเครื่องพัฒนา ผ่าน `JKB_AJV_PATH`) | `node tests/schema/<ชื่อ>.mjs` |
-| [design/](design/) | กราฟฉากจบของรอบ Sprint 4 | `node tests/design/ending-trajectories.mjs` |
+| [schema/](schema/) | schema 3.0.0 เทียบ Ajv อ้างอิง (ต้องมี Ajv ของเครื่องพัฒนา ผ่าน `JKB_AJV_PATH`) | `node tests/schema/journey-reference.mjs` |
 | [docs/](docs/) | ลิงก์ภายในเอกสารทุกลิงก์ต้องมีปลายทางจริงและเป็น relative | `node tests/docs/check-doc-links.mjs` |
-| [release/](release/) | ซ้อมสร้าง static artifact จาก allowlist โดยไม่ deploy | `node tests/release/verify-static-artifact.mjs` |
+| [release/](release/) | ซ้อมสร้าง static artifact ของ Journey จาก allowlist และซ้อมย้อนกลับไป Sprint 4 โดยไม่ deploy | `node tests/release/verify-static-artifact.mjs` |
 | [e2e/](e2e/) | เล่นจริงในเบราว์เซอร์ และ [e2e/evidence/](e2e/evidence/) เก็บหลักฐานภาพหน้าจอราย Sprint | ดู [e2e/README.md](e2e/README.md) |
 | [accessibility/](accessibility/) · [contract/](contract/) · [integration/](integration/) · [persistence/](persistence/) · [state-transition/](state-transition/) | โฟลเดอร์จองไว้ แต่ละโฟลเดอร์มี README บอกว่าจะใส่อะไร | - |
 
 **กติกาเหล็ก**
 
-1. ห้ามคัดลอกไฟล์ runtime มาเป็น fixture ถ้าใช้ไฟล์เดียวกันได้ ให้อ่านจาก `src/` โดยตรงและตรึง SHA-256 ไว้ในเทสต์ (ตัวอย่าง: `content-migration.test.js`)
+1. ห้ามคัดลอกไฟล์ runtime มาเป็น fixture ถ้าใช้ไฟล์เดียวกันได้ ให้อ่านจาก `src/` โดยตรงและตรึง SHA-256 ไว้ในเทสต์ (ตัวอย่าง: `journey-media-resolver.test.js` อ่านภาพจริงทุกไฟล์ใน manifest)
 2. หลักฐานใน `e2e/evidence/` เป็นประวัติ ห้ามแก้ภาพหรือผลเดิม ไฟล์ที่ซ้ำกันทุกไบต์ถูกยุบแล้ว ดัชนีอยู่ที่ [e2e/evidence/deduplicated-aliases.json](e2e/evidence/deduplicated-aliases.json)
 3. จำนวนเทสต์ที่ผ่านต้องรายงานใน Change Record ทุกครั้ง

@@ -13,6 +13,12 @@ const NUMBER_WORDS = Object.freeze(["ศูนย์", "หนึ่ง", "ส�
 export const thaiCount = (value) => (Number.isInteger(value) && value >= 0 && value < NUMBER_WORDS.length ? NUMBER_WORDS[value] : String(value));
 
 export const TH_JOURNEY = Object.freeze({
+  /** The page around the game: its name and the one message shown when the game cannot start. */
+  app: Object.freeze({
+    name: "เจ้ากบ",
+    bootFailed: "เปิดการเดินทางไม่สำเร็จ ลองโหลดหน้านี้ใหม่อีกครั้ง",
+    fileProtocol: "เปิดไฟล์จากเครื่องโดยตรงไม่ได้ ต้องเปิดผ่านที่อยู่เว็บของเกม",
+  }),
   meters: Object.freeze({ hp: "กาย", mind: "ใจ", sta: "แรง" }),
   /** Companion forms used on the combo tag (UX §8.3) and in bond announcements. */
   companions: Object.freeze({ pkam: "พี่ก้าม", fiw: "เจ้าฟิ้ว", teuk: "เตื๊อก" }),

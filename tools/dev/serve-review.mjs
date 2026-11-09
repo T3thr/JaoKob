@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * Serve the repository for the PO review pages (C4: `docs/design-system/evidence/journey-review/`).
+ * Serve the repository for the game (`/`, the Journey since C5e) and the PO review pages
+ * (C4: `docs/design-system/evidence/journey-review/`).
  *
  *   node tools/dev/serve-review.mjs            # port 8000, this machine and the local network
  *   node tools/dev/serve-review.mjs --port 8123
@@ -8,7 +9,7 @@
  *
  * Static files only, read-only, no dependency, `Cache-Control: no-store` so every reload shows
  * the working tree. Paths stay inside the repository; dot-folders (`.git`) are refused. Prints
- * the review URL for this machine and for a phone on the same Wi-Fi. Development only: not part
+ * the game and review URLs for this machine and for a phone on the same Wi-Fi. Development only: not part
  * of the game or the release allowlist (tools/README.md).
  */
 
@@ -50,7 +51,6 @@ const server = createServer(async (request, response) => {
   try {
     let path = decodeURIComponent(new URL(request.url ?? "/", "http://localhost").pathname);
     if (request.method !== "GET" && request.method !== "HEAD") { response.writeHead(405).end(); return; }
-    if (path === "/") { response.writeHead(302, { Location: REVIEW }).end(); return; }
     if (path.endsWith("/")) path += "index.html";
     const file = resolve(repo, `.${path}`);
     if (!file.startsWith(`${repo}${sep}`) || path.split("/").some((part) => part.startsWith("."))) { response.writeHead(403).end(); return; }
@@ -66,11 +66,12 @@ const server = createServer(async (request, response) => {
 
 server.listen(port, host, () => {
   console.log(`JaoKob review server · ${repo}`);
-  console.log(`  This machine:  http://localhost:${port}${REVIEW}`);
+  console.log(`  The game:      http://localhost:${port}/`);
+  console.log(`  Review page:   http://localhost:${port}${REVIEW}`);
   if (host === "0.0.0.0") {
     for (const entries of Object.values(networkInterfaces())) {
       for (const entry of entries ?? []) {
-        if (entry.family === "IPv4" && !entry.internal) console.log(`  Phone (Wi-Fi): http://${entry.address}:${port}${REVIEW}play.html`);
+        if (entry.family === "IPv4" && !entry.internal) console.log(`  Phone (Wi-Fi): http://${entry.address}:${port}/  ·  review http://${entry.address}:${port}${REVIEW}play.html`);
       }
     }
   }

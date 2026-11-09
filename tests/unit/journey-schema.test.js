@@ -2,7 +2,6 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile, readdir } from "node:fs/promises";
 import { JOURNEY_SCHEMA_CATALOG } from "../../src/data/validation/journey-schema-catalog.js";
-import { CONTENT_SCHEMA_CATALOG } from "../../src/data/validation/content-schema-catalog.js";
 import { createContentSchemaValidator } from "../../src/data/validation/content-schema-validator.js";
 import { CATALOG_FILE, readJourneySchemas, renderJourneyCatalog } from "../../tools/schema/build-journey-catalog.mjs";
 import {
@@ -27,8 +26,7 @@ test("TC-S5-SCHEMA-001 journey catalog equals specs/schemas/v3.0.0 and the gener
   assert.equal(await readFile(CATALOG_FILE, "utf8"), renderJourneyCatalog(await readJourneySchemas()));
 });
 
-test("TC-S5-SCHEMA-001 journey and legacy catalogs stay separate for the strangler-fig retirement", () => {
-  assert.equal(Object.keys(CONTENT_SCHEMA_CATALOG).some((key) => key.startsWith("v3.0.0/")), false);
+test("TC-S5-SCHEMA-001 the runtime catalog holds only the journey schemas of 3.0.0", () => {
   assert.equal(Object.keys(JOURNEY_SCHEMA_CATALOG).every((key) => key.startsWith("v3.0.0/journey-")), true);
 });
 

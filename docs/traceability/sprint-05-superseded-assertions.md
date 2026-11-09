@@ -4,39 +4,41 @@
 |---|---|
 | **ระดับ** | Tier 1 · ส่วนหนึ่งของ [Traceability 0.3.0 §5](sprint-05-execution-matrix.md) |
 | **กติกา** | [SSOT 0.3.0 §5.3](../sprints/sprint-05-ssot.md): ก่อนลบหรือเปลี่ยน assertion ใด ต้องลงทะเบียนพร้อม authority และเทสต์ทดแทน · ห้าม skip · ห้ามลด guard ที่ไม่เกี่ยว |
-| **ฐาน** | `feat/sprint-05-slice-01-foundations` · unit 1,148 ผ่าน (เดิม 1,060 ใน 40 ไฟล์ + `journey-schema.test.js` 86 + `architecture.test.js` 2) |
-| **สถานะ** | **ยังไม่ลบ assertion ใด** · การลบเกิดใน C5 เมื่อทางเข้าเริ่มเปลี่ยนเป็น Journey ([ADR-P0-034 D1](../adr/ADR-P0-034-five-act-journey-runtime-save2-journey-profile-and-blueprint-compiled-content.md)) · C3 ([CR-20261104-0620](../changelog/2026-11/2026-11-04-0620-c3-journey-save-identity-and-legacy-archive.md)) ย้าย `persistence.test.js` จาก §1 ไป §3 เพราะ Journey ใช้ repository ของตัวเองบน namespace ใหม่ |
+| **ฐาน** | `feat/sprint-05-slice-01-foundations` · เริ่มที่ unit 1,148 (C1) · ก่อนลบ 1,349 บน `39bf56b` · หลังลบ C5e ดู [CR-20261109-0500](../changelog/2026-11/2026-11-09-0500-c5e-journey-entry-and-sprint-4-runtime-removed.md) |
+| **สถานะ** | **ลบแล้วใน C5e 2026-11-09** เมื่อ `index.html` เปลี่ยนเป็น Journey ([ADR-P0-034 D1](../adr/ADR-P0-034-five-act-journey-runtime-save2-journey-profile-and-blueprint-compiled-content.md)) · invariant ใน §2 ย้ายครบก่อนลบ · ทุกเทสต์ที่ลบมีชื่อทีละตัวใน [รายชื่อเทสต์ที่ลบ](sprint-05-deleted-tests.md) · C3 ([CR-20261104-0620](../changelog/2026-11/2026-11-04-0620-c3-journey-save-identity-and-legacy-archive.md)) ย้าย `persistence.test.js` จาก §1 ไป §3 · C5d ย้าย `asset-resolver.test.js` และ `asset-preloader.test.js` จาก §1 ไป §5 เพราะ Journey อ่านสื่อผ่าน resolver ของตัวเอง |
 | **ผู้ดูแล** | Architect และ QA · บันทึกเริ่มต้น [CR-20261102-1015](../changelog/2026-11/2026-11-02-1015-c1-schema-3-0-0-and-superseded-register.md) |
 
-จำนวนเทสต์ต่อไฟล์ในตารางเป็นการนับ `test(` แบบคงที่ ไฟล์ที่สร้างเทสต์ในลูปจะมีเทสต์จริงมากกว่านี้ · ตอนลบจริงใน C5 ให้แทนแถวไฟล์ด้วยรายชื่อเทสต์ทีละตัวที่ได้จากการรันจริง
+จำนวนเทสต์ต่อไฟล์ใน §3 เป็นการนับ `test(` แบบคงที่ตอนวางแผน ไฟล์ที่สร้างเทสต์ในลูปมีเทสต์จริงมากกว่านี้ · จำนวนและชื่อจริงจากการรันอยู่ใน §5 และ[รายชื่อเทสต์ที่ลบ](sprint-05-deleted-tests.md)
 
 ## 1. ใช้ต่อหลัง C5 (โครงสร้างพื้นฐาน)
 
 | ไฟล์ | เรื่อง | หมายเหตุ |
 |---|---|---|
-| `asset-preloader.test.js` · `asset-resolver.test.js` · `image-cache.test.js` | โหลดและแคชภาพ | `image-cache.js` รับภาพของ Journey แล้วใน C5d (key ของ identity · ฉากหลังจาก `kind`) · Journey อ่านไบต์ผ่าน `journey-media-resolver.js` ไม่ใช่ `asset-resolver.js` ซึ่งผูกกับ registry ของเนื้อหาเดิม · C5e ตัดสินว่า resolver และ preloader เดิมยังมีผู้ใช้หรือไม่ |
-| `audio-adapter.test.js` · `ports.test.js` | AudioPort และ port ของ Core | ใช้ต่อ (ADR-P0-015) |
-| `session-history.test.js` | Log 50 บท + 50 การกระทำ | ใช้ต่อกับ Journey |
-| `keepsake-pouch.test.js` | โดเมนกระเป๋าสี่ช่อง (ADR-P0-020) | ใช้ต่อ · กฎของที่ล็อกอยู่ใน `effects.js` และ `pouch-offer.js` ของ Core ใหม่ เทสต์ใน `journey-encounters.test.js` (C2) |
+| `image-cache.test.js` | แคชภาพ | ใช้กับ Journey แล้วใน C5d (key ของ identity · ฉากหลังจาก `kind`) · C5e ถอดทาง `contentVersion` และ path ที่เหลือไว้ให้ runtime เดิม · `asset-resolver` และ `asset-preloader` ย้ายไป §5 |
+| `audio-adapter.test.js` · `ports.test.js` | AudioPort ของ Core และ adapter เสียง | คงไว้ (ADR-P0-015) · **ยังไม่มีผู้ใช้ใน production จนเสียงมากับ T7** · RendererPort และ StoragePort ของ runtime เดิมลบใน C5e (§5) |
+| `session-history.test.js` | Log 50 บท + 50 การกระทำ | คงไว้ · **ยังไม่มีผู้ใช้ใน production จนมีแผงประวัติของ UX §1.7** (Journey ยังไม่มีแผงนี้) |
+| `keepsake-pouch.test.js` | โดเมนกระเป๋าสี่ช่อง (ADR-P0-020) | ใช้ต่อ · กฎของที่ล็อกอยู่ใน `effects.js` และ `pouch-offer.js` ของ Core ใหม่ เทสต์ใน `journey-encounters.test.js` (C2) · C5e ตัดเทสต์ของ `pouch-transaction.js` เดิมออก 11 ข้อ (§5) |
 | `journey-schema.test.js` | schema 3.0.0 | ใหม่ใน C1 |
-| `architecture.test.js` | production ห้าม import จาก `tools/` · Core ห้าม `new Date(` และ `performance.now(` · โค้ด Journey ไม่เอ่ยถึง key เดิม | ใหม่ใน C1 · รับ TC-S3-ARCH-001 และ TC-S4-ARCH-001 ใน C5 · กฎ key เดิมเพิ่มใน C3 |
+| `architecture.test.js` | production ห้าม import จาก `tools/` · Core ห้าม `new Date(` และ `performance.now(` · โค้ด Journey ไม่เอ่ยถึง key เดิม · กราฟ import ของ Core Data UI · Core ไม่ใช้ Browser API ไม่สุ่ม ไม่อ่านนาฬิกา | ใหม่ใน C1 · กฎ key เดิมเพิ่มใน C3 · รับ TC-S3-ARCH-001 และ TC-S4-ARCH-001 แล้วใน C5e |
 | `journey-package.test.js` · `journey-save.test.js` · `journey-application.test.js` | การรับแพ็กเกจและ identity · เซฟ journey และ transaction · แอป Journey แบบไม่มีหน้าจอ | ใหม่ใน C3 · รับ invariant ของ `persistence.test.js` (§3) |
+| `content-schema-validator.test.js` · `published-schemas.test.js` · `asset-provenance.test.js` | validator JSON Schema และด่าน JSON data · ไบต์ของ schema ที่ตีพิมพ์แล้วทั้ง 21 ไฟล์ · ไบต์ของไฟล์ที่ provenance บันทึก | ใหม่ใน C5e จาก §2 |
+| `journey-media-resolver.test.js` · `journey-media-screens.test.js` · `release-allowlist.test.js` | resolver ของสื่อและงบภาพ · allowlist ของ release และกำแพงกันสปอยล์ | ใหม่ใน C5d · C5e |
 
-## 2. ต้องย้ายออกก่อนลบไฟล์เดิม
+## 2. ย้ายออกก่อนลบไฟล์เดิม (ย้ายครบแล้วใน C5e)
 
-| invariant | ตอนนี้อยู่ใน | ย้ายไป | authority |
+| invariant | เคยอยู่ใน | ย้ายไป (C5e) | authority |
 |---|---|---|---|
-| TC-S3-ARCH-001 Core ไม่ใช้ Browser API และ production ไม่ import tests | `content-presentation.test.js` | `architecture.test.js` (ใหม่) | AGENTS.md §9 |
-| TC-S4-ARCH-001 กราฟ import ของ Core Data UI และห้ามสุ่มหรืออ่านนาฬิกา | `pouch-schema.test.js` | `architecture.test.js` พร้อมเพิ่ม `new Date(` และ `performance.now(` | AGENTS.md §9 · ADR-P0-034 D2 |
-| พฤติกรรมทั่วไปของ validator (keyword · ref ภายใน · `__proto__` · ขีดจำกัด) | `content-loader.test.js` | `content-schema-validator.test.js` (ใหม่) | ADR-P0-013 |
-| SHA-256 ของ schema ที่ตีพิมพ์แล้ว | `content-loader.test.js` · `pouch-schema.test.js` | คงไว้จน T19 ตัดสินว่าจะเก็บ schema เดิมไว้ใน artifact หรือไม่ | AGENTS.md §9 · specs/README |
-| มาตรฐาน anti-slop ของบท (ไม่มีบทซ้ำ ขีดยาว emoji) | `narrative-adr-021.test.js` | drift gate และ lint ของ compiler (`TC-S5-CONTENT-001` · `TC-S5-THAI-001`) | ADR-P0-021 |
-| เป้ากด ≥ 44 · ไม่มีตัวเลขในกล่องบทพูด · ไม่มีแถบเลื่อนซ้อน | `vn-runtime-ergonomics.test.js` · `dom-renderer.test.js` | เทสต์ของ UI ใหม่ (`TC-S5-VN-001` · `TC-S5-HUD-001`) | ADR-P0-019 |
-| render ข้อความด้วย Safe DOM ไม่ใช้ `innerHTML` | `dom-renderer.test.js` | เทสต์ของ `src/ui/journey/` | AGENTS.md §10 |
-| โฟกัส Escape และการคืนโฟกัสของแผงซ้อน | `settings-dialog.test.js` · `history-dialog.test.js` · `keepsake-pouch-dialog.test.js` | เทสต์ของแผงใหม่ (`TC-S5-A11Y-001`) | ADR-P0-019 · WCAG 2.2 |
-| บันทึกเงียบ และความล้มเหลวยังแจ้งได้ | `act1-bootstrap.test.js` · `dom-renderer.test.js` | `TC-S5-SILENT-001` | ADR-P0-022 |
+| TC-S3-ARCH-001 Core ไม่ใช้ Browser API และ production ไม่ import tests | `content-presentation.test.js` | `architecture.test.js`: `TC-S3-ARCH-001 TC-S4-ARCH-001` สองข้อ (รวมการ import แบบ side-effect และ dynamic) | AGENTS.md §9 |
+| TC-S4-ARCH-001 กราฟ import ของ Core Data UI และห้ามสุ่มหรืออ่านนาฬิกา | `pouch-schema.test.js` | `architecture.test.js` (กฎ `new Date(` และ `performance.now(` อยู่แล้วตั้งแต่ C1) | AGENTS.md §9 · ADR-P0-034 D2 |
+| พฤติกรรมทั่วไปของ validator (keyword · ref ภายใน · `__proto__` · ขีดจำกัด) | `content-loader.test.js` | `content-schema-validator.test.js`: Draft 2020-12 สามข้อตามเดิม · getter toJSON prototype sparse cycle proxy · ลึกและกว้างเกิน · `__proto__` บนทางรับแพ็กเกจ Journey | ADR-P0-013 |
+| SHA-256 ของ schema ที่ตีพิมพ์แล้ว | `content-loader.test.js` · `pouch-schema.test.js` | `published-schemas.test.js`: ตรึงทุกไฟล์ใน `specs/schemas` (21 ไฟล์ เดิมตรึง 9) จน T19 ตัดสิน | AGENTS.md §9 · specs/README |
+| มาตรฐาน anti-slop ของบท (ไม่มีบทซ้ำ ขีดยาว emoji) | `narrative-adr-021.test.js` | compiler ปฏิเสธขีดและ emoji · `journey-content.test.js`: บทของแพ็กเกจไม่ซ้ำและไม่มีคำของระบบ (`TC-S5-CONTENT-001` · `TC-S5-THAI-001`) | ADR-P0-021 |
+| เป้ากด ≥ 44 · ไม่มีตัวเลขในกล่องบทพูด · ไม่มีแถบเลื่อนซ้อน | `vn-runtime-ergonomics.test.js` · `dom-renderer.test.js` | `tests/e2e/journey-c4-design-system.mjs` (เป้ากดและแถบเลื่อนซ้อน) · `journey-presentation.test.js` (`every beat of Act 1 is shown in the package's own words, with no digit on screen`) | ADR-P0-019 |
+| render ข้อความด้วย Safe DOM ไม่ใช้ `innerHTML` | `dom-renderer.test.js` | `architecture.test.js` (`Journey screens write text through the DOM only`) | AGENTS.md §10 |
+| โฟกัส Escape และการคืนโฟกัสของแผงซ้อน | `settings-dialog.test.js` · `history-dialog.test.js` · `keepsake-pouch-dialog.test.js` | `journey-panels.test.js` (แผงตั้งค่าและกระเป๋า: Tab อยู่ในกรอบ Escape คืนโฟกัส) | ADR-P0-019 · WCAG 2.2 |
+| บันทึกเงียบ และความล้มเหลวยังแจ้งได้ | `act1-bootstrap.test.js` · `dom-renderer.test.js` | `journey-shell.test.js` (`TC-S5-SILENT-001`) | ADR-P0-022 |
 
-## 3. ลบใน C5 พร้อม runtime เดิม
+## 3. ลบใน C5 พร้อม runtime เดิม (ลบแล้วใน C5e)
 
 | ไฟล์ (จำนวน `test(`) | เหตุที่ถูกแทนที่ | authority | เทสต์ทดแทน |
 |---|---|---|---|
@@ -72,4 +74,6 @@ engine ของ ADR-P0-033 กลายเป็น adapter ของ Core ต�
 
 | วันที่ | assertion | authority | เทสต์ทดแทน | commit |
 |---|---|---|---|---|
-| (ยังไม่มี) | | | | |
+| 2026-11-09 | 846 เทสต์ระดับบนสุดและ 84 เทสต์ย่อย (930 ตามที่ `node --test` นับ) ใน 36 ไฟล์: ทุกไฟล์ใน §3 กับ `asset-resolver.test.js` (46) และ `asset-preloader.test.js` (6) · ชื่อทีละตัวและจำนวนต่อไฟล์ใน[รายชื่อเทสต์ที่ลบ §1 · §3](sprint-05-deleted-tests.md) | ตาม §3 แต่ละแถว · ADR-P0-034 D1 · D10.3 | ตาม §3 แต่ละแถว · invariant ของ §2 ย้ายแล้ว | C5e · CR-20261109-0500 |
+| 2026-11-09 | 20 เทสต์ที่ตัดจากไฟล์ที่คงไว้: RendererPort และ StoragePort 9 ข้อใน `ports.test.js` · `pouch-transaction` 11 ข้อใน `keepsake-pouch.test.js` ([รายชื่อเทสต์ที่ลบ §2](sprint-05-deleted-tests.md)) | ADR-P0-034 D1 | AudioPort และโดเมนกระเป๋าคงไว้ · ข้อเสนอรับของผูก revision ใน `journey-session.test.js` | C5e · CR-20261109-0500 |
+| 2026-11-09 | assertion ที่เปลี่ยน: `journey-schema.test.js` ไม่เทียบกับ catalog เดิมแล้ว (catalog เดิมถูกลบ เหลือข้อที่ว่า runtime มีเฉพาะ schema 3.0.0) · `journey-application.test.js` เทียบ key ของคลังเซฟเก่ากับ key ที่ runtime เดิมเขียนจริง (ตรึงเป็นข้อความ) แทนการ import adapter ที่ถูกลบ · `image-cache.test.js` ใช้ reference แบบ identity และ `kind` แทน `contentVersion` และ path พร้อมข้อใหม่ว่า reference ที่มีแค่ `contentVersion` ถูกปฏิเสธ | ADR-P0-034 D7.5 · D8 | ข้อเดิมเข้มเท่าเดิมหรือเข้มขึ้น | C5e · CR-20261109-0500 |

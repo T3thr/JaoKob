@@ -14,8 +14,9 @@
 | [use-cases/journey-session.js](use-cases/journey-session.js) | คำสั่งทั้งหมดของผู้เล่นเป็น transaction เดียวต่อครั้งที่ผูก revision · cursor เชิงความหมาย · snapshot ต้นองก์และการเล่นซ้ำ · view model ทุกโหมด |
 | [state-machine/play-mode.js](state-machine/play-mode.js) | โหมดเล่นตาม UX §1.7 · คำสั่งที่แต่ละโหมดรับ · modal ซ้อนทับ · ไม่มี Game Over |
 | [domain/keepsake-pouch.js](domain/keepsake-pouch.js) | กระเป๋าสี่ช่องของ ADR-P0-020 (ใช้ต่อใน Journey) |
+| [ports/audio-port.js](ports/audio-port.js) · [use-cases/session-history.js](use-cases/session-history.js) | port ของเสียง (ADR-P0-015) และบันทึก 50 บท + 50 การกระทำ · คงไว้พร้อมเทสต์ ยังไม่มีผู้ใช้จนเสียงของ T7 และแผงประวัติของ UX §1.7 |
 
-ไฟล์อื่นใน `domain/` `use-cases/` และ `state-machine/` เป็น runtime เดิมของ Sprint 4 ที่แช่แข็งแล้ว และจะถูกลบที่ C5 ตาม [ทะเบียน assertion ที่ถูกแทนที่](../../docs/traceability/sprint-05-superseded-assertions.md)
+runtime เดิมของ Sprint 2–4 (มาตรวัด 0–100 · state machine ที่มี Game Over · choice transaction · orchestration · RendererPort · StoragePort) ถูกลบใน C5e ตาม[ทะเบียน assertion ที่ถูกแทนที่](../../docs/traceability/sprint-05-superseded-assertions.md)
 
 ## กติกาเหล็ก
 

@@ -5,8 +5,6 @@ import { createJourneySession } from "../../src/core/use-cases/journey-session.j
 import { admitJourneyPackage } from "../../src/data/content/journey-package.js";
 import { JOURNEY_DEFAULT_SETTINGS, JOURNEY_NOTICES_KEY, JOURNEY_SETTINGS_KEY } from "../../src/data/persistence/journey-device-records.js";
 import { LEGACY_ARCHIVE_KEYS, inspectLegacyArchive } from "../../src/data/persistence/legacy-archive.js";
-import { LOCAL_STORAGE_KEYS } from "../../src/data/persistence/local-storage-adapter.js";
-import { UI_PREFERENCES_KEY } from "../../src/data/persistence/local-ui-preferences-adapter.js";
 import { buildJourneySave, sealJourneySave } from "../../src/data/validation/journey-save-validator.js";
 import { NOW, SESSION_ID, loadAct1Package, planned, playSession } from "../helpers/journey-driver.js";
 import { KEYS, MINI_KEYS, START, SpyStorage, createApp, drive, loadMini, quotaError, value } from "../helpers/journey-storage.js";
@@ -304,6 +302,9 @@ test("TC-S5-REPLAY-001 endings already seen stay seen through a replay and a rel
 // ---------------------------------------------------------------------------------------
 // Legacy archive and packages
 // ---------------------------------------------------------------------------------------
+/** The Sprint 4 runtime's keys, as it wrote them (pinned in C5e when that runtime was removed). */
+const LOCAL_STORAGE_KEYS = Object.freeze({ canonical: "jaokob:save:canonical", staging: "jaokob:save:staging", backup: "jaokob:save:backup", settings: "jaokob:settings" });
+const UI_PREFERENCES_KEY = "jaokob:preferences";
 test("TC-S5-LEGACY-001 the legacy namespace is never written, and its one-line notice shows once", () => {
   const legacy = {
     [LOCAL_STORAGE_KEYS.canonical]: "{\"saveFormatVersion\":2,\"contentVersion\":\"3.0.0\",\"revision\":4}",
@@ -330,7 +331,7 @@ test("TC-S5-LEGACY-001 the legacy namespace is never written, and its one-line n
   assert.deepEqual(value(createApp(storage).boot()).notices, [], "shown once");
 });
 
-test("TC-S5-LEGACY-001 any one of the five legacy keys counts, and the archive keys are the earlier runtime's keys", () => {
+test("TC-S5-LEGACY-001 any one of the five legacy keys counts, and the archive keys are the earlier runtime's keys as it wrote them", () => {
   assert.deepEqual(LEGACY_ARCHIVE_KEYS, [LOCAL_STORAGE_KEYS.canonical, LOCAL_STORAGE_KEYS.staging, LOCAL_STORAGE_KEYS.backup, LOCAL_STORAGE_KEYS.settings, UI_PREFERENCES_KEY]);
   assert.deepEqual(inspectLegacyArchive({ storage: new SpyStorage() }).value, { present: false });
   for (const key of LEGACY_ARCHIVE_KEYS) {

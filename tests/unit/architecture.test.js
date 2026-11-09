@@ -57,3 +57,29 @@ test("TC-S5-VN-001 Journey screens import nothing outside src/ui/journey, so no 
   const presentation = resolve(root, "data/content/journey-presentation.js");
   for (const target of importsOf(presentation)) assert.equal(target.startsWith(resolve(root, "ui") + "/") || target.startsWith(resolve(root, "bootstrap") + "/"), false, target);
 });
+
+// Moved in C5e from content-presentation.test.js (TC-S3-ARCH-001) and pouch-schema.test.js (TC-S4-ARCH-001),
+// see the superseded assertion register §2 and §5. Side-effect imports and dynamic imports count too.
+const everyImport = (file) => [...readFileSync(file, "utf8").matchAll(/(?:\bfrom\s*|\bimport\s*\(?\s*)["']([^"']+)["']/g)].map((match) => resolve(dirname(file), match[1]));
+
+test("TC-S3-ARCH-001 TC-S4-ARCH-001 production imports keep Core, Data and UI apart and never reach tests", () => {
+  const core = resolve(root, "core") + "/", data = resolve(root, "data") + "/", ui = resolve(root, "ui") + "/";
+  const tests = resolve(root, "../tests") + "/";
+  for (const file of files) {
+    for (const target of everyImport(file)) {
+      assert.equal(target.startsWith(tests), false, `${file} imports ${target}`);
+      if (file.startsWith(core)) assert.ok(target.startsWith(core), `${file} imports ${target}`);
+      if (file.startsWith(data)) assert.equal(target.startsWith(ui), false, `${file} imports ${target}`);
+      if (file.startsWith(ui)) assert.equal(target.startsWith(data), false, `${file} imports ${target}`);
+    }
+  }
+});
+
+test("TC-S3-ARCH-001 TC-S4-ARCH-001 Core is browser-free and never draws randomness or reads the clock by itself", () => {
+  const core = files.filter((path) => path.startsWith(resolve(root, "core") + "/"));
+  assert.ok(core.length >= 20, core.join("\n"));
+  for (const file of core) {
+    assert.doesNotMatch(withoutComments(readFileSync(file, "utf8")),
+      /\b(?:window|document|localStorage|sessionStorage|globalThis|fetch|navigator|HTMLElement|HTMLImageElement|AudioContext)\b|Math\.random\(|Date\.now\(/, file);
+  }
+});

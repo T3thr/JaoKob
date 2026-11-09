@@ -1,17 +1,8 @@
 /*
- * Review chrome of the Journey review page only (not game UI, not shipped): the page itself, a
- * load error and the face-band guide the device frame toggles. Every screen of the game, its title
- * included, comes from `src/` since C5c.
+ * Review chrome of the Journey review page only (not game UI, not shipped): a load error and the
+ * face-band guide the device frame toggles. The page itself uses the game's `journey-page.css`
+ * (C5e), and every screen of the game, its title included, comes from `src/` since C5c.
  */
-
-html,
-body {
-  margin: 0;
-  min-block-size: 100%;
-  background: #12201a;
-  color: #fcf4e3;
-  font-family: "Sarabun", "Thonburi", "Leelawadee UI", sans-serif;
-}
 
 .jr-game { display: block; }
 

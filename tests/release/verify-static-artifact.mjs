@@ -1,4 +1,10 @@
-/** Local allowlisted staging rehearsal. Never deploys, tags or modifies Git. */
+/**
+ * Local allowlisted staging rehearsal. Never deploys, tags or modifies Git.
+ * The current artifact is the Journey (Sprint 5 allowlist, generated from index.html and checked
+ * by tests/unit/release-allowlist.test.js); the rollback rehearsal stages the Sprint 4 build at
+ * `bc167d3` from its own allowlist. Both must run at the site root and under a subpath, which is
+ * why every reference must be relative and inside the list.
+ */
 import assert from "node:assert/strict";
 import { readFile, writeFile, mkdir, lstat, realpath } from "node:fs/promises";
 import { resolve, dirname, relative, sep, isAbsolute } from "node:path";
@@ -8,11 +14,14 @@ import { execFileSync } from "node:child_process";
 import { gzipSync } from "node:zlib";
 
 const root = fileURLToPath(new URL("../../", import.meta.url));
-const manifest = JSON.parse(await readFile(new URL("../../specs/releases/sprint-04-static-files.json", import.meta.url)));
+const readList = async (name) => JSON.parse(await readFile(new URL(`../../specs/releases/${name}`, import.meta.url)));
+const journeyList = await readList("sprint-05-static-files.json");
+const sprint4List = await readList("sprint-04-static-files.json");
 const hash = bytes => createHash("sha256").update(bytes).digest("hex");
-const allowed = new Set(manifest.files);
-assert.equal(manifest.manifestVersion, 1); assert.equal(allowed.size, manifest.files.length);
-assert.ok(allowed.has("index.html"));
+for (const list of [journeyList, sprint4List]) {
+  assert.equal(list.manifestVersion, 1); assert.equal(new Set(list.files).size, list.files.length);
+  assert.ok(list.files.includes("index.html"));
+}
 function safePath(path) {
   assert.match(path, /^(?:index\.html|(?:src|assets)\/[a-zA-Z0-9/_.-]+)$/);
   assert.ok(!path.split("/").some(p => !p || p.startsWith(".") || /^(?:vendor|models|tests|references)$/i.test(p)));
@@ -41,7 +50,7 @@ function verifyReferences(path, bytes, files) {
     assert.doesNotMatch(text, /from\s*["'][^"']*(?:\/ui\/|\/data\/)|\b(?:document|localStorage|sessionStorage)\s*[.(]/);
   }
 }
-async function stage(destination, baseline) {
+async function stage(destination, baseline, list) {
   assert.ok(destination && isAbsolute(destination), "Use a new absolute JKB_ARTIFACT_DIR/JKB_ROLLBACK_DIR outside the checkout");
   destination = resolve(destination);
   assert.ok(!destination.startsWith(resolve(root) + sep) && destination !== resolve(root));
@@ -49,7 +58,7 @@ async function stage(destination, baseline) {
   // A fresh destination is mandatory. Never empty or delete a caller's folder.
   await mkdir(destination);
   const files = new Map();
-  for (const path of manifest.files) {
+  for (const path of list.files) {
     safePath(path); await noSymlinks(resolve(root, path));
     let bytes;
     if (baseline) {
@@ -76,13 +85,20 @@ async function stage(destination, baseline) {
       assert.equal(hash(files.get(asset.path)), asset.sha256); assert.equal(files.get(asset.path).length, asset.byteLength);
     }
   }
+  const mediaManifest = "assets/images/asset-manifest-v2.json";
+  if (files.has(mediaManifest)) {
+    for (const entry of Object.values(JSON.parse(files.get(mediaManifest)).categories).flat()) {
+      assert.ok(files.has(entry.outputPath), `Unstaged manifest image ${entry.outputPath}`);
+      assert.equal(hash(files.get(entry.outputPath)), entry.sha256); assert.equal(files.get(entry.outputPath).length, entry.byteLength);
+    }
+  }
   return { destination: await realpath(destination), baseline: baseline ?? "working tree", fileCount: files.size,
     gzipBytes: inventory.reduce((a,b) => a + b.gzipBytes,0), inventory };
 }
-const current = await stage(process.env.JKB_ARTIFACT_DIR);
-const rollback = await stage(process.env.JKB_ROLLBACK_DIR, "bc167d3");
-const result = { result: "PASS", manifestSha256: hash(JSON.stringify(manifest)), current, rollback,
-  checks: ["explicit file allowlist", "fresh destination", "regular files and no ancestor symlinks", "imports/CSS/HTML relative references", "registry bytes/hashes", "credential pattern scan", "pure Core imports", "no docs/specs/tests/private references/3D/vendor"],
+const current = await stage(process.env.JKB_ARTIFACT_DIR, undefined, journeyList);
+const rollback = await stage(process.env.JKB_ROLLBACK_DIR, "bc167d3", sprint4List);
+const result = { result: "PASS", manifestSha256: { current: hash(JSON.stringify(journeyList)), rollback: hash(JSON.stringify(sprint4List)) }, current, rollback,
+  checks: ["explicit file allowlist", "fresh destination", "regular files and no ancestor symlinks", "imports/CSS/HTML relative references", "registry and manifest image bytes/hashes", "credential pattern scan", "pure Core imports", "no docs/specs/tests/private references/3D/vendor"],
   limits: "Scoped local staging and pattern inspection; no formal security certification or release/deployment authorization." };
 assert.ok(process.env.JKB_RELEASE_EVIDENCE, "Set JKB_RELEASE_EVIDENCE outside the artifact.");
 await writeFile(process.env.JKB_RELEASE_EVIDENCE, JSON.stringify(result, null, 2) + "\n");

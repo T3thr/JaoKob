@@ -36,18 +36,18 @@
 
 Created:
 
-- [act-01.json](../../../src/data/content/packages/act-01.json): seven scenes / 14 nodes / 46 dialogue records / 13 events / 7 choices / 6 interactions / 8 flags / 5 checkpoints; Thai source และ act-rest contract ไม่มี asset ใหม่
-- [act-01-test-catalog.json](../../../src/data/content/packages/act-01-test-catalog.json): 7 stable test IDs สำหรับ caller inject แยกจาก package ไม่ import test code เข้า runtime
-- [content-graph.js](../../../tests/helpers/content-graph.js): test-only graph/state model, strict refs, SCC/reverse reachability, actual Core condition/meter/transaction/planner และ deterministic witnesses
-- [content-graph.test.js](../../../tests/unit/content-graph.test.js): 76 cases ครอบคลุม Canon routes, counter, predicates, default variants, graph faults และ synthetic crisis/retry
-- [act-01-expectations.json](../../../tests/fixtures/content/graph/act-01-expectations.json): independent expected scene/variant/prototype/callback manifest
-- [invalid-orphan.json](../../../tests/fixtures/content/graph/invalid-orphan.json) และ [invalid-cycle.json](../../../tests/fixtures/content/graph/invalid-cycle.json): schema-valid แต่ graph-invalid fixtures; cycle มีทางแยกไป rest จากภายนอกแต่ SCC วนไม่มีทางออก
+- [act-01.json](https://github.com/T3thr/JaoKob/blob/39bf56b/src/data/content/packages/act-01.json): seven scenes / 14 nodes / 46 dialogue records / 13 events / 7 choices / 6 interactions / 8 flags / 5 checkpoints; Thai source และ act-rest contract ไม่มี asset ใหม่
+- [act-01-test-catalog.json](https://github.com/T3thr/JaoKob/blob/39bf56b/src/data/content/packages/act-01-test-catalog.json): 7 stable test IDs สำหรับ caller inject แยกจาก package ไม่ import test code เข้า runtime
+- [content-graph.js](https://github.com/T3thr/JaoKob/blob/39bf56b/tests/helpers/content-graph.js): test-only graph/state model, strict refs, SCC/reverse reachability, actual Core condition/meter/transaction/planner และ deterministic witnesses
+- [content-graph.test.js](https://github.com/T3thr/JaoKob/blob/39bf56b/tests/unit/content-graph.test.js): 76 cases ครอบคลุม Canon routes, counter, predicates, default variants, graph faults และ synthetic crisis/retry
+- [act-01-expectations.json](https://github.com/T3thr/JaoKob/blob/39bf56b/tests/fixtures/content/graph/act-01-expectations.json): independent expected scene/variant/prototype/callback manifest
+- [invalid-orphan.json](https://github.com/T3thr/JaoKob/blob/39bf56b/tests/fixtures/content/graph/invalid-orphan.json) และ [invalid-cycle.json](https://github.com/T3thr/JaoKob/blob/39bf56b/tests/fixtures/content/graph/invalid-cycle.json): schema-valid แต่ graph-invalid fixtures; cycle มีทางแยกไป rest จากภายนอกแต่ SCC วนไม่มีทางออก
 - [Content Matrix](../../traceability/sprint-02-content-matrix.md): node/edge/TR/flag/variant/ledger/test mapping, coverage denominator, provenance และ Step 3 capability requirements
 - Change Record ฉบับนี้
 
 Modified:
 
-- [content-loader.test.js](../../../tests/unit/content-loader.test.js): เพิ่ม 3 tests โหลด package จริงทั้ง object/JSON และ same-origin URL ที่ root/repository subpath ตรวจ immutable records/indexes และ version/test-catalog failure
+- [content-loader.test.js](https://github.com/T3thr/JaoKob/blob/39bf56b/tests/unit/content-loader.test.js): เพิ่ม 3 tests โหลด package จริงทั้ง object/JSON และ same-origin URL ที่ root/repository subpath ตรวจ immutable records/indexes และ version/test-catalog failure
 - [Sprint 2 SSOT](../../sprints/sprint-02-ssot.md): version 0.3.0, disposition Step 2, Task 2/3 `[x]` ตาม local scope, tooling evidence และ audit register
 - [Root CHANGELOG](../../../CHANGELOG.md): สรุปงานและลิงก์ audit
 

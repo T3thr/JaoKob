@@ -84,7 +84,7 @@ Editorial review reads the full path aloud and in the actual mobile layout. Chec
 
 **Binding outcome:** `saveFormatVersion` stays **2**. The former Save 3 proposal is retired. Existing valid saves remain readable on their exact archived content, without reset or a mandatory format migration. A new story version is not a numeric Save-format upgrade.
 
-The published [schema 2.0.0](../../../specs/schemas/v2.0.0/save-state.schema.json) and [runtime validator](../../../src/data/validation/save-envelope-validator.js) both reject unknown envelope/payload fields. The [actual validator probe](evidence/save2-current-validator-probe.json) confirms this. Consequently, keeping the integer 2 does not prove old applications can read added fields.
+The published [schema 2.0.0](../../../specs/schemas/v2.0.0/save-state.schema.json) and [runtime validator](https://github.com/T3thr/JaoKob/blob/39bf56b/src/data/validation/save-envelope-validator.js) both reject unknown envelope/payload fields. The [actual validator probe](evidence/save2-current-validator-probe.json) confirms this. Consequently, keeping the integer 2 does not prove old applications can read added fields.
 
 Recommended implementation contract for T0/T1/T3:
 

@@ -110,3 +110,18 @@ for (const [name, input, pattern] of failures) {
     await assert.rejects(compileWith(input), (error) => error instanceof CompileError && pattern.test(error.message));
   });
 }
+
+// Moved in C5e from narrative-adr-021.test.js (ADR-P0-021 D2, superseded assertion register §2): dashes and
+// emoji are refused by the compiler (above); this keeps "no repeated prose block, no system commentary".
+test("TC-S5-CONTENT-001 TC-S5-THAI-001 the compiled story repeats no prose block and never talks like a system", () => {
+  const label = /^lex\.|\.(?:o|a)\d+$|\.[kp]\.[a-z_]+$/;
+  const prose = pkg.texts.filter((entry) => !label.test(entry.id));
+  assert.ok(prose.length >= 100, `${prose.length} prose texts`);
+  const seen = new Map();
+  for (const entry of prose) {
+    const normalized = entry.body.normalize("NFC").replace(/\s+/gu, "").replace(/[“”‘’".,!?…]/gu, "");
+    assert.ok(!seen.has(normalized), `${entry.id} repeats ${seen.get(normalized)}`);
+    seen.set(normalized, entry.id);
+  }
+  assert.doesNotMatch(pkg.texts.map((entry) => entry.body).join("\n"), /ไม่ว่าเช้านั้น|เลือกอะไร.*พายุ|ความจุ|คะแนน|ครบทุกชิ้น|ผู้เล่น/);
+});

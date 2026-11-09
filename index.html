@@ -3,20 +3,27 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="description" content="เจ้ากบ เกมผจญภัยเชิงสัญลักษณ์ที่ขับเคลื่อนด้วยการตัดสินใจ">
-    <link
-      rel="icon"
-      href="./assets/images/ui/lotus-mark.svg"
-    >
-    <title>เจ้ากบ (JaoKob)</title>
-    <link rel="stylesheet" href="./src/ui/styles/index.css">
-    <link rel="modulepreload" href="./src/data/content/content-runtime.js">
-    <link rel="modulepreload" href="./src/data/validation/content-validator.js">
-    <link rel="modulepreload" href="./src/data/validation/content-schema-catalog.js">
-    <link rel="modulepreload" href="./src/core/use-cases/content-orchestration.js">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+    <meta name="referrer" content="no-referrer">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#12201a">
+    <meta name="description" content="เจ้ากบ เสื้อสีฟ้ากับการเดินทางในคืนพายุ">
+    <title>เจ้ากบ</title>
+    <link rel="icon" href="./assets/images/ui/lotus-mark.svg">
+    <link rel="preload" href="./assets/fonts/sarabun-thai.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="./src/ui/styles/journey-tokens.css">
+    <link rel="stylesheet" href="./src/ui/styles/journey-page.css">
+    <link rel="stylesheet" href="./src/ui/styles/journey-screen.css">
+    <link rel="stylesheet" href="./src/ui/styles/journey-encounters.css">
+    <link rel="stylesheet" href="./src/ui/styles/journey-panels.css">
+    <link rel="stylesheet" href="./src/ui/styles/journey-adaptive.css">
+    <link rel="modulepreload" href="./src/bootstrap/journey-shell.js">
+    <link rel="modulepreload" href="./src/bootstrap/journey-application.js">
+    <link rel="modulepreload" href="./src/core/use-cases/journey-session.js">
   </head>
   <body>
-    <div id="app" class="jk-app"></div>
+    <main id="app" class="jk-app" aria-label="เจ้ากบ"></main>
+    <noscript><p class="jk-boot">เกมนี้ต้องเปิดใช้ JavaScript ในเบราว์เซอร์</p></noscript>
     <script type="module" src="./src/bootstrap/index.js"></script>
   </body>
 </html>
