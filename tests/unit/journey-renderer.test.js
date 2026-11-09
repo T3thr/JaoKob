@@ -151,6 +151,20 @@ test("TC-S5-VN-001 the scene title rises on a new plate and fades on its timer; 
   assert.equal(title.getAttribute("data-state"), "hidden");
 });
 
+test("TC-S5-VN-001 a screen that opens inside a clash beat (a resume) keeps the scene title down but still says it", () => {
+  const { until } = screen();
+  const choose = until((m) => m.mode === "CLASH_CHOOSE");
+  const document = new JourneyDocument();
+  const host = document.createElement("main");
+  document.body.append(host);
+  const fresh = createJourneyRenderer({ document, root: host, messages: TH_JOURNEY, loadImage: recordingLoader().loadImage, schedule: manualSchedule().schedule, onCommand: () => {} });
+  fresh.render(choose);
+  assert.equal(oneByClass(fresh.element, "jk-scene-title").getAttribute("data-state"), "hidden", "the intent badge keeps its place");
+  const live = nodes(fresh.element).find((node) => node.getAttribute("aria-live") === "polite");
+  assert.ok(live.textContent.includes(choose.scene.title), "the scene is still named for assistive technology");
+  fresh.dispose();
+});
+
 test("TC-S5-A11Y-001 settings and system preferences become the attributes the styles read", () => {
   const plain = screen();
   assert.deepEqual(["data-motion", "data-surface", "data-intensity", "data-text"].map((name) => plain.root.getAttribute(name)), ["full", "glass", "normal", "normal"]);

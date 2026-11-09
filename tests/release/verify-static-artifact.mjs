@@ -85,8 +85,7 @@ async function stage(destination, baseline, list) {
       assert.equal(hash(files.get(asset.path)), asset.sha256); assert.equal(files.get(asset.path).length, asset.byteLength);
     }
   }
-  const mediaManifest = "assets/images/asset-manifest-v2.json";
-  if (files.has(mediaManifest)) {
+  for (const mediaManifest of [...files.keys()].filter((path) => path.endsWith(".media.json"))) {
     for (const entry of Object.values(JSON.parse(files.get(mediaManifest)).categories).flat()) {
       assert.ok(files.has(entry.outputPath), `Unstaged manifest image ${entry.outputPath}`);
       assert.equal(hash(files.get(entry.outputPath)), entry.sha256); assert.equal(files.get(entry.outputPath).length, entry.byteLength);

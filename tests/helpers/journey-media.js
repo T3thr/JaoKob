@@ -29,13 +29,21 @@ export const fileBytes = (path) => new Uint8Array(readFileSync(new URL(path, rep
 
 /**
  * `createObjectURL` over real Blobs and an image that decodes by reading the WebP header of its
- * blob, so the image cache runs its real budget and size checks in Node.
+ * blob, so the image cache runs its real budget and size checks in Node. `downscale` stands in for
+ * the browser's: it records the request and returns a small PNG-typed blob the image decodes at
+ * exactly the asked size.
  */
 export function browserImages() {
   const blobs = new Map();
   const revoked = [];
+  const scaled = [];
   let created = 0;
   return {
+    async downscale(blob, width, height) {
+      scaled.push({ bytes: blob.size, width, height });
+      return new Blob([JSON.stringify({ width, height })], { type: "image/png" });
+    },
+    scaled,
     createObjectURL(blob) {
       created += 1;
       const url = `blob:test-${created}`;
@@ -53,7 +61,7 @@ export function browserImages() {
       naturalHeight: 0,
       async decode() {
         const blob = blobs.get(this.src);
-        const size = blob === undefined ? null : webpSize(new Uint8Array(await blob.arrayBuffer()));
+        const size = blob === undefined ? null : blob.type === "image/png" ? JSON.parse(await blob.text()) : webpSize(new Uint8Array(await blob.arrayBuffer()));
         if (size === null) throw new Error("decode");
         this.naturalWidth = size.width;
         this.naturalHeight = size.height;

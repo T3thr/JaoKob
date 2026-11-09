@@ -14,17 +14,61 @@ import { pathToFileURL } from 'node:url';
 import { JOURNEY_SCHEMA_CATALOG } from '../../src/data/validation/journey-schema-catalog.js';
 import { createContentSchemaValidator } from '../../src/data/validation/content-schema-validator.js';
 
+import { CARD_FACES } from '../../src/data/content/journey-presentation.js';
 export const DESIGN_DIR = new URL('../../docs/design-system/', import.meta.url);
 export const MECHANICS_DIR = new URL('mechanics/', DESIGN_DIR);
 export const OUTPUT_FILES = {
   package: new URL('../../src/data/content/journey/story-jaokob-core.json', import.meta.url),
   receipts: new URL('../../src/data/content/journey/story-jaokob-core.receipts.json', import.meta.url),
+  media: new URL('../../src/data/content/journey/story-jaokob-core.media.json', import.meta.url),
   report: new URL('compile-report.json', MECHANICS_DIR),
 };
 const MANIFEST = new URL('../../assets/images/asset-manifest-v2.json', import.meta.url);
 const PACKAGE_SCHEMA_ID = 'https://t3thr.github.io/JaoKob/specs/schemas/v3.0.0/journey-package.schema.json';
 
 export class CompileError extends Error {}
+
+/** The runtime fields of a manifest v2 entry; prompts, notes and review data never ship. */
+const MEDIA_FIELDS = Object.freeze(['assetId', 'characterId', 'outputPath', 'dimensions', 'facing', 'variantOf', 'altTh', 'sha256', 'byteLength']);
+
+/**
+ * The media manifest of one package (spoiler wall, ADR-P0-034 D10 · C5f): only the images the
+ * package can put on screen, so the shipped files name no image of an act that is not promoted.
+ * That is every asset the package names (plates, cast, CGs, item icons), the facing variants of
+ * those images, and the card faces of the siblings and companions its rounds and options use.
+ * Same shape as manifest v2, so the media index reads either.
+ */
+export function mediaManifest(pkg, manifest) {
+  const wanted = new Set();
+  const visit = (value, key) => {
+    if (Array.isArray(value)) { value.forEach((item) => visit(item, key)); return; }
+    if (value === null || typeof value !== 'object') {
+      if (typeof value === 'string' && ['bg', 'cg', 'asset', 'icon'].includes(key)) wanted.add(value);
+      if (typeof value === 'string' && key === 'ally' && CARD_FACES.companions[value]) wanted.add(CARD_FACES.companions[value]);
+      return;
+    }
+    for (const [k, v] of Object.entries(value)) visit(v, k);
+  };
+  visit(pkg, null);
+  for (const round of pkg.rounds) {
+    for (const sibling of round.siblings ?? []) wanted.add(CARD_FACES.siblings[sibling]);
+    for (const ally of round.allies ?? []) wanted.add(CARD_FACES.companions[ally]);
+  }
+  const categories = {};
+  const found = new Set();
+  for (const [category, list] of Object.entries(manifest.categories)) {
+    categories[category] = (Array.isArray(list) ? list : []).filter((entry) => wanted.has(entry.assetId) || wanted.has(entry.variantOf)).map((entry) => {
+      found.add(entry.assetId);
+      const out = {};
+      for (const field of MEDIA_FIELDS) if (entry[field] !== undefined) out[field] = entry[field];
+      if (entry.stage?.eyeAnchorFromTop !== undefined) out.stage = { eyeAnchorFromTop: entry.stage.eyeAnchorFromTop };
+      return out;
+    });
+  }
+  const missing = [...wanted].filter((id) => id !== undefined && !found.has(id)).sort();
+  if (missing.length) throw new CompileError(`media: the package shows images manifest v2 does not hold: ${missing.join(', ')}`);
+  return { manifestVersion: manifest.manifestVersion, source: 'assets/images/asset-manifest-v2.json', package: pkg.package.id, contentVersion: pkg.package.contentVersion, categories };
+}
 const fail = (where, message) => { throw new CompileError(`${where}: ${message}`); };
 
 const NODE_ID = /^(?:A\d[AB]?-\d{2}|E-[A-Z]+-\d)$/;
@@ -424,13 +468,14 @@ export async function compileJourney(sources) {
     assetAliases: [...aliases].map(([design, uses]) => ({ design, uses, nodes: aliasUses.get(design) })),
     warnings,
   };
-  return { package: pkg, receipts, report };
+  return { package: pkg, receipts, media: mediaManifest(pkg, manifest), report };
 }
 
 export function renderOutputs(compiled) {
   return {
     package: `${JSON.stringify(compiled.package, null, 2)}\n`,
     receipts: `${JSON.stringify(compiled.receipts, null, 2)}\n`,
+    media: `${JSON.stringify(compiled.media, null, 2)}\n`,
     report: `${JSON.stringify(compiled.report, null, 2)}\n`,
   };
 }
@@ -445,11 +490,11 @@ async function main() {
       if (actual !== rendered[key]) stale.push(key);
     }
     if (stale.length) { console.error(`ผลของ compiler ไม่ตรงกับไฟล์ที่ commit: ${stale.join(', ')} · รัน node tools/content/compile-journey.mjs`); process.exit(1); }
-    console.log('แพ็กเกจ ใบเสร็จ และรายงาน ตรงกับต้นทาง');
+    console.log('แพ็กเกจ ใบเสร็จ สื่อ และรายงาน ตรงกับต้นทาง');
     return;
   }
   for (const [key, url] of Object.entries(OUTPUT_FILES)) await writeFile(url, rendered[key], 'utf8');
-  console.log('เขียนแพ็กเกจ ใบเสร็จ และรายงานแล้ว');
+  console.log('เขียนแพ็กเกจ ใบเสร็จ สื่อ และรายงานแล้ว');
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {

@@ -29,8 +29,9 @@ test("TC-S5-PROTO-001 nothing outside the game ships: no harness, fixture, test,
 });
 
 test("TC-S5-PROTO-001 the one shipped package holds only the acts it promotes and stops at their boundaries", () => {
-  const packages = allowlist.files.filter((path) => path.startsWith("src/data/content/") && path.endsWith(".json"));
+  const packages = allowlist.files.filter((path) => path.startsWith("src/data/content/") && path.endsWith(".json") && !path.endsWith(".media.json"));
   assert.deepEqual(packages, [JOURNEY_PACKAGE_PATH], "the host package is the only content");
+  assert.deepEqual(allowlist.files.filter((path) => path.endsWith(".media.json")), [JOURNEY_PACKAGE_PATH.replace(/\.json$/, ".media.json")], "and its own media manifest");
   const pkg = read(JOURNEY_PACKAGE_PATH);
   const promoted = new Set(pkg.acts.map((act) => act.act));
   assert.deepEqual([...promoted], [1], "Slice 1 promotes Act 1 only");
@@ -39,4 +40,23 @@ test("TC-S5-PROTO-001 the one shipped package holds only the acts it promotes an
     assert.equal(promoted.has(boundary.act), false, `${boundary.node} is a boundary into an act that is not promoted`);
     assert.equal(pkg.nodes.some((node) => node.id === boundary.node), false, `${boundary.node} has no content`);
   }
+});
+
+test("TC-S5-PROTO-001 the shipped media manifest names only images the package can show, with runtime fields only", async () => {
+  const { mediaManifest } = await import("../../tools/content/compile-journey.mjs");
+  const { JOURNEY_MEDIA_MANIFEST_PATH } = await import("../../src/bootstrap/journey-shell.js");
+  const pkg = read(JOURNEY_PACKAGE_PATH);
+  const shipped = read(JOURNEY_MEDIA_MANIFEST_PATH);
+  assert.deepEqual(shipped, JSON.parse(JSON.stringify(mediaManifest(pkg, read("assets/images/asset-manifest-v2.json")))));
+  const entries = Object.values(shipped.categories).flat();
+  const full = Object.values(read("assets/images/asset-manifest-v2.json").categories).flat();
+  assert.ok(entries.length > 0 && entries.length < full.length, `${entries.length} of ${full.length}`);
+  for (const entry of entries) {
+    assert.deepEqual(Object.keys(entry).filter((key) => !["assetId", "characterId", "outputPath", "dimensions", "facing", "variantOf", "altTh", "sha256", "byteLength", "stage"].includes(key)), [], entry.assetId);
+    assert.doesNotMatch(entry.assetId, /_act[2-5]_|^cg_e_|ending|dawn|homecoming/, `${entry.assetId} belongs to an act that is not promoted`);
+  }
+  assert.doesNotMatch(JSON.stringify(shipped), /prompt|masterPath|sourcePrompt|change|review/i, "no design notes ship");
+  const images = allowlist.files.filter((path) => path.startsWith("assets/images/") && path.endsWith(".webp"));
+  assert.deepEqual(images.sort(), entries.map((entry) => entry.outputPath).sort(), "the allowlist ships exactly those images");
+  assert.equal(allowlist.files.includes("assets/images/asset-manifest-v2.json"), false, "the full manifest never ships");
 });

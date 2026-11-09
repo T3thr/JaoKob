@@ -31,7 +31,8 @@ import { createJourneyRenderer } from "../ui/journey/journey-renderer.js";
 import { createJourneyApplication } from "./journey-application.js";
 
 export const JOURNEY_PACKAGE_PATH = "src/data/content/journey/story-jaokob-core.json";
-export const JOURNEY_MEDIA_MANIFEST_PATH = "assets/images/asset-manifest-v2.json";
+/** The package's own media manifest: only the images its promoted acts show (spoiler wall, C5f). */
+export const JOURNEY_MEDIA_MANIFEST_PATH = "src/data/content/journey/story-jaokob-core.media.json";
 
 /** The application directory (two levels above this module), with its trailing slash. */
 export const journeyBaseUrl = () => new URL("../../", import.meta.url).href;
@@ -52,12 +53,12 @@ export async function loadJourneyResources({ baseUrl = journeyBaseUrl(), fetch: 
 }
 
 /** The browser ports of the verified image loader that tests may replace. */
-const MEDIA_PORTS = Object.freeze(["createImage", "createObjectURL", "revokeObjectURL", "maxBytes"]);
+const MEDIA_PORTS = Object.freeze(["createImage", "createObjectURL", "revokeObjectURL", "downscale", "maxBytes"]);
 
 /**
  * @param {{document: Document, root: Element, packageData: unknown, manifest: unknown, baseUrl: string,
  *   storage?: Storage, clock?: () => string, loadImage?: Function,
- *   media?: {fetch?: typeof fetch, createImage?: Function, createObjectURL?: Function, revokeObjectURL?: Function, maxBytes?: number},
+ *   media?: {fetch?: typeof fetch, createImage?: Function, createObjectURL?: Function, revokeObjectURL?: Function, downscale?: Function, maxBytes?: number},
  *   onChange?: (snapshot: object) => void}} options
  * `loadImage` replaces the verified image loader (tests of the screens); `media` replaces the
  * browser ports under it (tests of the loader on real bytes).

@@ -16,15 +16,21 @@ const error = document.getElementById("jr-error");
 const STOP_MODES = new Set(["CLASH_OUTCOME", "DECISION", "BOUNDARY", "COMPLETE"]);
 /** `?package=mini` plays the test package that has every node type (offer, hold, stitch, endings). */
 const MINI_PACKAGE = "../../../../tests/fixtures/journey/mini-journey.json";
+/** The mini package shows images of every act, so it reads the whole manifest v2 (the game ships only its own). */
+const FULL_MANIFEST = "../../../../assets/images/asset-manifest-v2.json";
 
 let shell = null;
 
 async function reviewResources() {
   const resources = await loadJourneyResources();
   if (new URLSearchParams(location.search).get("package") !== "mini") return resources;
-  const response = await fetch(new URL(MINI_PACKAGE, location.href).href, { credentials: "omit", mode: "same-origin", redirect: "error", cache: "no-cache" });
-  if (!response.ok) throw new Error(`MINI_PACKAGE_${response.status}`);
-  return { ...resources, packageData: await response.json() };
+  const read = async (path) => {
+    const response = await fetch(new URL(path, location.href).href, { credentials: "omit", mode: "same-origin", redirect: "error", cache: "no-cache" });
+    if (!response.ok) throw new Error(`MINI_PACKAGE_${response.status}`);
+    return response.json();
+  };
+  const [packageData, manifest] = await Promise.all([read(MINI_PACKAGE), read(FULL_MANIFEST)]);
+  return { ...resources, packageData, manifest };
 }
 
 /** The first open way of the current beat, read from the application's view (no rule here). */

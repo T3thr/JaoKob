@@ -433,7 +433,10 @@ export function createJourneyRenderer(options) {
 
     const sceneChanged = next.scene.sceneKey !== lastScene;
     lastScene = next.scene.sceneKey;
-    if (sceneChanged && next.scene.title !== null) {
+    // A resume that lands inside a clash beat would put the title under the intent badge: the title
+    // rises only where it would not be hidden at once (it is still spoken below).
+    const midClash = next.clash !== null && next.clash.beat !== "intro";
+    if (sceneChanged && next.scene.title !== null && !midClash) {
       sceneTitle.show({ act: [next.scene.actLabel, next.scene.actTitle].filter((part) => part !== null && part !== "").join(" · "), title: next.scene.title });
     } else if (PANEL_MODES.has(next.mode) || next.pending !== null || (next.clash !== null && next.clash.beat !== "intro")) {
       sceneTitle.hide();

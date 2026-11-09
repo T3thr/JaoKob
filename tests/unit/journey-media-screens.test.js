@@ -134,6 +134,10 @@ for (const [name, plan] of Object.entries(PLANS)) {
       assert.equal(call.init.redirect, "error");
     }
     assert.ok(byClass(root, "jk-stage__bg").some((layer) => (layer.getAttribute("src") ?? "").startsWith("blob:test-")), "the plate is drawn from a proved blob");
+    if (name === "act1") {
+      assert.ok(ports.scaled.length > 0, "the clash's sibling faces were decoded small");
+      assert.ok(ports.scaled.every((entry) => entry.width === 256 && entry.height === 256 && entry.bytes > 10_000), JSON.stringify(ports.scaled));
+    }
     shell.dispose();
     assert.equal(ports.live(), 0, "disposing revokes every object URL");
     assert.equal(shell.images().bytes, 0);

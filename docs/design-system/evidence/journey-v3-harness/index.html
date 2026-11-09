@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>เจ้ากบ · หน้าตรวจ 13 จอของ Mockups v3</title>
+  <link rel="stylesheet" href="../../../../src/ui/styles/journey-tokens.css">
+  <link rel="stylesheet" href="../../../../src/ui/styles/journey-page.css">
+  <link rel="stylesheet" href="harness.css">
+</head>
+<body>
+  <main class="jh-gallery">
+    <h1>13 จอของ Mockups v3 จากสถานะจริงของ engine</h1>
+    <p>ซ้ายคือหน้าจอจริงของเกม (โค้ดใน <code>src/</code>) บนสถานะที่ engine ไปถึงด้วยคำสั่งจริง ขวาคือภาพ v3 ที่ใช้เป็นแบบ · หน้าตรวจนี้อยู่นอก release allowlist ผู้เล่นไม่เห็น · ข้อความของ Act 2–5 มาจาก fixture ของ v3 ซึ่งยังไม่ผ่านการรับรองของ T6–T12</p>
+    <div class="jh-picker" role="group" aria-label="เลือกจอ" id="picker"></div>
+    <div class="jh-compare">
+      <figure class="jh-pane"><figcaption id="live-caption">หน้าจอจริง</figcaption><div class="jh-frame" id="frame"><iframe id="live" title="หน้าจอจริงของจอที่เลือก"></iframe></div></figure>
+      <figure class="jh-pane"><figcaption id="v3-caption">ภาพ v3</figcaption><img id="v3" alt=""></figure>
+    </div>
+  </main>
+  <script type="module" src="gallery.js"></script>
+</body>
+</html>

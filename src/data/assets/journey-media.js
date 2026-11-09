@@ -53,7 +53,7 @@ export function createJourneyMediaIndex({ manifest, identity, baseUrl } = {}) {
   }
   const gaps = new Map();
 
-  function descriptor(entry, facingMatched) {
+  function descriptor(entry, facingMatched, thumb) {
     return Object.freeze({
       assetId: entry.assetId,
       kind: entry.kind,
@@ -68,23 +68,26 @@ export function createJourneyMediaIndex({ manifest, identity, baseUrl } = {}) {
       sha256: entry.sha256,
       byteLength: entry.byteLength,
       identity: identity.key,
-      key: `${identity.key}:${entry.assetId}`,
+      ...(thumb === null ? {} : { thumb }),
+      key: `${identity.key}:${entry.assetId}${thumb === null ? "" : `@${thumb}`}`,
     });
   }
 
   return Object.freeze({
     /**
-     * The image for an asset ID, turned to `facing` when the manifest has that variant.
-     * @param {string} assetId @param {{facing?: "left"|"right"}} [options]
+     * The image for an asset ID, turned to `facing` when the manifest has that variant. `thumb`
+     * asks for a small decode of the same proved file (a card face), a width in pixels.
+     * @param {string} assetId @param {{facing?: "left"|"right", thumb?: number}} [options]
      */
-    image(assetId, { facing } = {}) {
+    image(assetId, { facing, thumb } = {}) {
       const entry = entries.get(assetId);
       if (entry === undefined) return null;
-      if (facing === undefined || entry.facing === null || entry.facing === facing) return descriptor(entry, true);
+      const small = Number.isSafeInteger(thumb) && thumb > 0 && thumb < entry.width ? thumb : null;
+      if (facing === undefined || entry.facing === null || entry.facing === facing) return descriptor(entry, true, small);
       const variant = variants.get(`${assetId}|${facing}`);
-      if (variant !== undefined) return descriptor(variant, true);
+      if (variant !== undefined) return descriptor(variant, true, small);
       gaps.set(`${assetId}|${facing}`, Object.freeze({ assetId, facing }));
-      return descriptor(entry, false);
+      return descriptor(entry, false, small);
     },
     /** Facings that were asked for but have no image yet, for the review page. */
     gaps() {

@@ -115,3 +115,20 @@ test("TC-S5-ASSET-001: a Journey plate (kind background) counts toward the two p
   assert.equal(cache.stats().entries, 3);
   p2.release(); p3.release(); cache.dispose();
 });
+test("TC-S5-ASSET-001: a thumb reference decodes the proved file small, under its own key, and counts only its own bytes", async () => {
+  const scaled = [], reads = [];
+  const { cache } = setup({
+    readAsset: async (reference) => ({ ok: reads.push(reference) > 0, value: { descriptor: { type: "image", kind: "character", mimeType: "image/webp", width: 1024, height: 1024 }, bytes: new ArrayBuffer(8) } }),
+    downscale: async (blob, width, height) => { scaled.push([blob.size, width, height]); return new Blob(["small"], { type: "image/png" }); },
+    createImage: () => ({ decode: async () => undefined, get naturalWidth() { return this.src ? 256 : 0; }, get naturalHeight() { return this.src ? 256 : 0; }, removeAttribute() {} }),
+  });
+  const ref = { identity: "journey:story.jaokob.core@0.1.0", assetId: "face" };
+  const face = await cache.acquire({ ...ref, thumb: 256 });
+  assert.ok(face);
+  assert.deepEqual(scaled, [[8, 256, 256]], "the full proved bytes go in, the small size comes out");
+  assert.equal(cache.stats().bytes, 256 * 256 * 4);
+  const again = await cache.acquire({ ...ref, thumb: 256 });
+  assert.equal(again.url, face.url); assert.equal(reads.length, 1);
+  for (const thumb of [0, -1, 1.5, "256"]) assert.equal(await cache.acquire({ ...ref, thumb }), null, String(thumb));
+  face.release(); again.release(); cache.dispose();
+});

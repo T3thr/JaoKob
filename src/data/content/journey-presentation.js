@@ -28,8 +28,14 @@ const SKILL_ICON = Object.freeze({ rain: "drop", wind: "jump", eye: "eye" });
 /** Clash card icons (UX §8.4): base moves, family skills and the finisher; the rest use faces or keepsakes. */
 const ACTION_ICON = Object.freeze({ strike: "advance", grit: "advance", guard: "shield", rest: "wind", rain: "drop", wind: "jump", eye: "eye", hem: "hem" });
 /** Faces on sibling, companion and combo cards (UX §3.3 ข้อ 6), from the delivered portraits. */
-const SIBLING_FACE = Object.freeze({ kab: "char_jao_kab_neutral_proud", kib: "char_jao_kib_neutral_cheerful" });
-const COMPANION_FACE = Object.freeze({ pkam: "char_pkam_neutral_guarded", fiw: "char_jao_fiw_neutral_lively", teuk: "char_jao_teuk_storm_kneeling" });
+/** The face a card shows for a sibling or a companion (the compiler ships exactly the faces a package's rounds use). */
+export const CARD_FACES = Object.freeze({
+  siblings: Object.freeze({ kab: "char_jao_kab_neutral_proud", kib: "char_jao_kib_neutral_cheerful" }),
+  companions: Object.freeze({ pkam: "char_pkam_neutral_guarded", fiw: "char_jao_fiw_neutral_lively", teuk: "char_jao_teuk_storm_kneeling" }),
+});
+const CARD_FACE_PX = 256;
+const SIBLING_FACE = CARD_FACES.siblings;
+const COMPANION_FACE = CARD_FACES.companions;
 const CLASH_BEATS = Object.freeze({ CLASH_INTRO: "intro", CLASH_INTENT: "intent", CLASH_CHOOSE: "choose", CLASH_RESOLVE: "resolve", CLASH_OUTCOME: "outcome" });
 const GROUPS = Object.freeze(["basic", "family", "friends", "pouch"]);
 
@@ -165,7 +171,8 @@ export function createJourneyPresentation({ pkg, media, messages }) {
     };
   }
 
-  const faceOf = (assetId) => (assetId === undefined ? null : media.image(assetId));
+  /** A card face is a 40 px circle showing the portrait at 250 %: a 256 px decode stays sharp at 2–3× density. */
+  const faceOf = (assetId) => (assetId === undefined ? null : media.image(assetId, { thumb: CARD_FACE_PX }));
   const intentText = (id) => text(pkg.lexicon.intents[id]).body;
 
   function clashCard(card, labels, settings, index, group) {

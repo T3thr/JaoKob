@@ -348,3 +348,23 @@ node tests/docs/check-doc-links.mjs
 **ผู้รับไม้ถัดไป:** ผมทำ C5d (resolver ของสื่อที่ตรวจ SHA-256) เมื่อ PO สั่ง
 
 **— Claude**
+
+---
+
+## [S5-017] | From: Claude (Supreme Core Architect & Lead Game Systems Engineer) | To: PO Theerapat · Antigravity · Senior AI / Astra
+- **Timestamp:** 2026-11-09T09:45:00+07:00
+- **Topic:** Slice 1 ส่งมอบครบในส่วนวิศวกรรม (C5d · C5e · C5f) · `index.html` เปิด Journey แล้ว · PR ของ Slice 1 เปิดรอตรวจ
+- **Action Required From Recipient:** **PO** เล่น `/` จนจบ Act 1 บนเครื่องหลักและมือถือ (`node tools/dev/serve-review.mjs`) แล้วบันทึกอุปกรณ์ เบราว์เซอร์ เวลา และสิ่งที่สะดุด เพื่อปิด DoD ของ T5 (Q12) · เปิด[หน้าตรวจ 13 จอของ v3](../../design-system/evidence/journey-v3-harness/index.html)เทียบภาพ · ตอบ Q13 และ Q14 ใน[สมุดสถาปนิก §6](core-architect-notebook.md) · **Antigravity** ตรวจ PR: resolver ของสื่อ (`src/data/assets/journey-media-resolver.js`) · CSP ของ `index.html` · allowlist ใหม่ · การลบ runtime เดิมตาม[ทะเบียน](../../traceability/sprint-05-superseded-assertions.md) · **Astra** ถ้าส่งภาพใบหน้าขนาดการ์ดใน Slice 2 ระบบใช้ได้ทันที (ตอนนี้ย่อจากภาพเต็มตอนเล่น)
+- **Branch / PR:** `feat/sprint-05-slice-01-foundations` → `develop` · PR เปิดต่อจาก commit ของ C5f · ไม่ auto-merge
+- **Record:** [CR-20261109-0430](../../changelog/2026-11/2026-11-09-0430-c5d-journey-media-resolver-sha256-and-image-budget.md) · [CR-20261109-0500](../../changelog/2026-11/2026-11-09-0500-c5e-journey-entry-and-sprint-4-runtime-removed.md) · [CR-20261109-0945](../../changelog/2026-11/2026-11-09-0945-c5f-v3-harness-index-e2e-and-media-spoiler-wall.md)
+
+- **C5d · T3 `[x]`:** ภาพทุกภาพอ่านแบบ same-origin ตรวจขนาดจาก header WebP และ SHA-256 ทุกไบต์เทียบ manifest (ทำงานได้แม้ไม่มี Web Crypto บนมือถือผ่าน LAN) แล้ว decode ครั้งเดียวใน image cache ด้วย key ของ identity · ระหว่างทางพบว่าหน้าจอถือภาพที่ซ่อนแล้วไว้ตั้งแต่ C4 (`release()` เดิมไม่ทำอะไร จึงไม่มีใครเห็น) แก้ให้ถือเฉพาะภาพที่แสดงอยู่
+- **C5e:** `index.html` เปิด Journey บนแพ็กเกจหลักเท่านั้น ทั้งรากและ `/JaoKob/` พร้อม Content-Security-Policy · ลบ runtime เนื้อหา และเทสต์ของ Sprint 2–4 (โค้ด 55 ไฟล์ · เทสต์ 930 ข้อ ชื่อทีละข้อใน[รายชื่อเทสต์ที่ลบ](../../traceability/sprint-05-deleted-tests.md)) หลังย้าย invariant ที่ยังถูกครบ · allowlist ใหม่ที่เทสต์ตรวจว่าเท่ากับสิ่งที่ `index.html` เข้าถึง
+- **C5f:** หน้าตรวจ 13 จอของ v3 จากสถานะจริงของ engine (Core พิสูจน์ทุกจอ) · E2E บนตัวเกมจาก allowlist: Act 1 จบด้วยคีย์บอร์ดล้วน · ลดการเคลื่อนไหวและความโปร่งใส · โหลดใหม่กลางศึกกลับมาจังหวะเดิมโดยไม่เขียน · กดรัว commit ครั้งเดียว · probe กำแพงกันสปอยล์ 404 ทุกเส้นทาง · เกมส่ง manifest ของสื่อของตัวเอง (29 ภาพจาก 70 · artifact 4.85 MB gzip)
+- **ข้อค้นพบที่แก้แล้ว:** ใบหน้าบนการ์ดใช้ภาพเต็ม 4 MiB ต่อใบจนถาด R4A 16 ใบล้นงบ 32 MiB (จะเกิดจริงใน Act 4) → decode เป็นภาพย่อ 256 px · ชื่อฉากซ้อนใต้ป้ายเจตนาเมื่อ Resume กลางศึก
+
+**ตรวจแล้ว:** unit 430/430 · ลิงก์ผ่าน · drift gate ผ่าน · staging ผ่าน (Journey 99 ไฟล์ · ซ้อมย้อนกลับ Sprint 4) · runner เบราว์เซอร์หกตัว 0 ล้ม · **ยังไม่ได้ตรวจ:** การเล่นจริงของ PO · สายตา PO เทียบ v3 · Safari Firefox เครื่องจริง โปรแกรมอ่านหน้าจอ
+
+**ผู้รับไม้ถัดไป:** PO (Q12–Q14 และตรวจ PR) · Antigravity (ตรวจ PR) · หลัง merge Slice 2 เริ่มที่ T6
+
+**— Claude**

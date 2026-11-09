@@ -1,0 +1,14 @@
+/* PO harness of the 13 Mockups v3 screens: the gallery around the live screens (not shipped). */
+.jh-gallery { box-sizing: border-box; min-block-size: 100vh; padding: 20px; color: var(--paper-bg); font-family: var(--font-body); }
+.jh-gallery h1 { margin: 0 0 4px; font-size: 22px; font-weight: 400; }
+.jh-gallery p { margin: 0 0 14px; color: #c9d6cc; font-size: 15px; line-height: 1.6; max-inline-size: 72rem; }
+.jh-picker { display: flex; flex-wrap: wrap; gap: 8px; margin-block-end: 16px; }
+.jh-picker button { min-inline-size: 44px; min-block-size: 44px; padding: 6px 12px; border: 1px solid #5f7a69; border-radius: 12px; background: #1c2f25; color: var(--paper-bg); font: inherit; cursor: pointer; }
+.jh-picker button[aria-pressed="true"] { border-color: var(--clash-light); background: #2c4535; }
+.jh-picker button:focus-visible { outline: 3px solid var(--clash-light); outline-offset: 2px; }
+.jh-compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; align-items: start; }
+.jh-pane { margin: 0; }
+.jh-pane figcaption { margin-block-end: 6px; font-size: 14px; color: #c9d6cc; }
+.jh-frame { position: relative; overflow: hidden; border: 1px solid #44604f; border-radius: 12px; background: #0b140f; }
+.jh-frame iframe { position: absolute; inset: 0 auto auto 0; border: 0; transform-origin: 0 0; }
+.jh-pane img { display: block; inline-size: 100%; block-size: auto; border-radius: 12px; border: 1px solid #44604f; }

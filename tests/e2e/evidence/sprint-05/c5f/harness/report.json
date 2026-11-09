@@ -1,0 +1,489 @@
+{
+  "runner": "tests/e2e/journey-c5f-harness.mjs",
+  "head": "ac6e1ec4da31da74c201f67a08524d0dd79b651a",
+  "requirements": [
+    "TC-S5-PROTO-001",
+    "TC-S5-UX-001"
+  ],
+  "screens": [
+    {
+      "n": 1,
+      "stem": "mode1-vn-desktop",
+      "viewport": [
+        1440,
+        900
+      ],
+      "mode": "VN",
+      "tray": 18,
+      "counter": [],
+      "repeat": [],
+      "light": null,
+      "gauge": null,
+      "choices": [],
+      "camp": 10,
+      "endings": [],
+      "fallback": false,
+      "micro": null,
+      "speaker": "เตื๊อก",
+      "images": {
+        "bytes": 14148608,
+        "entries": 3,
+        "pending": 0,
+        "retained": 3,
+        "retainedBytes": 14148608,
+        "budget": 33554432,
+        "failures": 0
+      }
+    },
+    {
+      "n": 2,
+      "stem": "mode1-choice-mobile",
+      "viewport": [
+        390,
+        844
+      ],
+      "mode": "DECISION",
+      "tray": 18,
+      "counter": [],
+      "repeat": [],
+      "light": null,
+      "gauge": null,
+      "choices": [
+        "combo",
+        "wind",
+        "eye",
+        "alone",
+        "grit"
+      ],
+      "camp": 10,
+      "endings": [],
+      "fallback": false,
+      "micro": null,
+      "speaker": null,
+      "images": {
+        "bytes": 15459328,
+        "entries": 5,
+        "pending": 0,
+        "retained": 5,
+        "retainedBytes": 15459328,
+        "budget": 33554432,
+        "failures": 0
+      }
+    },
+    {
+      "n": 3,
+      "stem": "mode2-clash-r5-mobile",
+      "viewport": [
+        390,
+        844
+      ],
+      "mode": "CLASH_CHOOSE",
+      "tray": 10,
+      "counter": [
+        "guard",
+        "rain",
+        "a_pkam"
+      ],
+      "repeat": [],
+      "light": "4",
+      "gauge": "แสงสี่จากสิบ · เทิร์นที่หนึ่งจากสี่",
+      "choices": [],
+      "camp": 10,
+      "endings": [],
+      "fallback": false,
+      "micro": null,
+      "speaker": "แมลงสาบแมน",
+      "images": {
+        "bytes": 15197184,
+        "entries": 7,
+        "pending": 0,
+        "retained": 7,
+        "retainedBytes": 15197184,
+        "budget": 33554432,
+        "failures": 0
+      }
+    },
+    {
+      "n": 4,
+      "stem": "mode2-clash-r5-desktop",
+      "viewport": [
+        1440,
+        900
+      ],
+      "mode": "CLASH_CHOOSE",
+      "tray": 10,
+      "counter": [
+        "strike",
+        "guard",
+        "wind",
+        "s_kib"
+      ],
+      "repeat": [
+        "rain",
+        "wind",
+        "eye",
+        "s_kab",
+        "s_kib"
+      ],
+      "light": "6",
+      "gauge": "แสงหกจากสิบ · เทิร์นที่สามจากสี่",
+      "choices": [],
+      "camp": 10,
+      "endings": [],
+      "fallback": false,
+      "micro": null,
+      "speaker": "แมลงสาบแมน",
+      "images": {
+        "bytes": 15197184,
+        "entries": 7,
+        "pending": 0,
+        "retained": 6,
+        "retainedBytes": 14935040,
+        "budget": 33554432,
+        "failures": 0
+      }
+    },
+    {
+      "n": 5,
+      "stem": "mode3-camp-c3-desktop",
+      "viewport": [
+        1440,
+        900
+      ],
+      "mode": "CAMP",
+      "tray": 18,
+      "counter": [],
+      "repeat": [],
+      "light": null,
+      "gauge": null,
+      "choices": [],
+      "camp": 8,
+      "endings": [],
+      "fallback": false,
+      "micro": null,
+      "speaker": null,
+      "images": {
+        "bytes": 15983616,
+        "entries": 7,
+        "pending": 0,
+        "retained": 7,
+        "retainedBytes": 15983616,
+        "budget": 33554432,
+        "failures": 0
+      }
+    },
+    {
+      "n": 6,
+      "stem": "mode3-camp-c3-mobile",
+      "viewport": [
+        390,
+        844
+      ],
+      "mode": "CAMP",
+      "tray": 18,
+      "counter": [],
+      "repeat": [],
+      "light": null,
+      "gauge": null,
+      "choices": [],
+      "camp": 8,
+      "endings": [],
+      "fallback": false,
+      "micro": null,
+      "speaker": null,
+      "images": {
+        "bytes": 15983616,
+        "entries": 7,
+        "pending": 0,
+        "retained": 7,
+        "retainedBytes": 15983616,
+        "budget": 33554432,
+        "failures": 0
+      }
+    },
+    {
+      "n": 7,
+      "stem": "mode4-stitch-mobile",
+      "viewport": [
+        390,
+        844
+      ],
+      "mode": "MICRO",
+      "tray": 18,
+      "counter": [],
+      "repeat": [],
+      "light": null,
+      "gauge": null,
+      "choices": [],
+      "camp": 10,
+      "endings": [],
+      "fallback": false,
+      "micro": "stitch",
+      "speaker": null,
+      "images": {
+        "bytes": 5760000,
+        "entries": 1,
+        "pending": 0,
+        "retained": 1,
+        "retainedBytes": 5760000,
+        "budget": 33554432,
+        "failures": 0
+      }
+    },
+    {
+      "n": 8,
+      "stem": "mode4-tap-rail-desktop",
+      "viewport": [
+        1440,
+        900
+      ],
+      "mode": "MICRO",
+      "tray": 18,
+      "counter": [],
+      "repeat": [],
+      "light": null,
+      "gauge": null,
+      "choices": [],
+      "camp": 10,
+      "endings": [],
+      "fallback": false,
+      "micro": "tap3",
+      "speaker": null,
+      "images": {
+        "bytes": 14148608,
+        "entries": 3,
+        "pending": 0,
+        "retained": 3,
+        "retainedBytes": 14148608,
+        "budget": 33554432,
+        "failures": 0
+      }
+    },
+    {
+      "n": 9,
+      "stem": "mode5-endings-desktop",
+      "viewport": [
+        1440,
+        900
+      ],
+      "mode": "ENDING_RESONANCE",
+      "tray": 18,
+      "counter": [],
+      "repeat": [],
+      "light": null,
+      "gauge": null,
+      "choices": [],
+      "camp": 10,
+      "endings": [
+        [
+          "home",
+          true
+        ],
+        [
+          "pond",
+          true
+        ],
+        [
+          "dawn",
+          false
+        ]
+      ],
+      "fallback": false,
+      "micro": null,
+      "speaker": null,
+      "images": {
+        "bytes": 5760000,
+        "entries": 1,
+        "pending": 0,
+        "retained": 1,
+        "retainedBytes": 5760000,
+        "budget": 33554432,
+        "failures": 0
+      }
+    },
+    {
+      "n": 10,
+      "stem": "mode5-endings-mobile",
+      "viewport": [
+        390,
+        844
+      ],
+      "mode": "ENDING_RESONANCE",
+      "tray": 18,
+      "counter": [],
+      "repeat": [],
+      "light": null,
+      "gauge": null,
+      "choices": [],
+      "camp": 10,
+      "endings": [
+        [
+          "home",
+          true
+        ],
+        [
+          "pond",
+          true
+        ],
+        [
+          "dawn",
+          false
+        ]
+      ],
+      "fallback": false,
+      "micro": null,
+      "speaker": null,
+      "images": {
+        "bytes": 5760000,
+        "entries": 1,
+        "pending": 0,
+        "retained": 1,
+        "retainedBytes": 5760000,
+        "budget": 33554432,
+        "failures": 0
+      }
+    },
+    {
+      "n": 11,
+      "stem": "mode2-clash-r4a-tray-mobile",
+      "viewport": [
+        390,
+        844
+      ],
+      "mode": "CLASH_CHOOSE",
+      "tray": 16,
+      "counter": [
+        "strike",
+        "guard",
+        "wind",
+        "s_kib",
+        "a_pkam",
+        "seeds"
+      ],
+      "repeat": [],
+      "light": "4",
+      "gauge": "แสงสี่จากสิบ · เทิร์นที่หนึ่งจากสี่",
+      "choices": [],
+      "camp": 10,
+      "endings": [],
+      "fallback": false,
+      "micro": null,
+      "speaker": "แมลงสาบแมน",
+      "images": {
+        "bytes": 19653632,
+        "entries": 12,
+        "pending": 0,
+        "retained": 12,
+        "retainedBytes": 19653632,
+        "budget": 33554432,
+        "failures": 0
+      }
+    },
+    {
+      "n": 12,
+      "stem": "mode2-clash-r2-desktop",
+      "viewport": [
+        1440,
+        900
+      ],
+      "mode": "CLASH_CHOOSE",
+      "tray": 11,
+      "counter": [
+        "strike",
+        "guard",
+        "wind",
+        "seeds",
+        "gear_pkam",
+        "seeds_fiw"
+      ],
+      "repeat": [
+        "rain",
+        "wind",
+        "eye"
+      ],
+      "light": "4",
+      "gauge": "แสงสี่จากสิบ · เทิร์นที่สองจากสี่",
+      "choices": [],
+      "camp": 10,
+      "endings": [],
+      "fallback": false,
+      "micro": null,
+      "speaker": null,
+      "images": {
+        "bytes": 17818624,
+        "entries": 8,
+        "pending": 0,
+        "retained": 8,
+        "retainedBytes": 17818624,
+        "budget": 33554432,
+        "failures": 0
+      }
+    },
+    {
+      "n": 13,
+      "stem": "mode5-endings-fallback-mobile",
+      "viewport": [
+        390,
+        844
+      ],
+      "mode": "ENDING_RESONANCE",
+      "tray": 18,
+      "counter": [],
+      "repeat": [],
+      "light": null,
+      "gauge": null,
+      "choices": [],
+      "camp": 10,
+      "endings": [
+        [
+          "home",
+          false
+        ],
+        [
+          "pond",
+          true
+        ],
+        [
+          "dawn",
+          false
+        ]
+      ],
+      "fallback": true,
+      "micro": null,
+      "speaker": null,
+      "images": {
+        "bytes": 5760000,
+        "entries": 1,
+        "pending": 0,
+        "retained": 1,
+        "retainedBytes": 5760000,
+        "budget": 33554432,
+        "failures": 0
+      }
+    }
+  ],
+  "screenshots": [
+    "v3-01-mode1-vn-desktop.jpg",
+    "v3-02-mode1-choice-mobile.jpg",
+    "v3-03-mode2-clash-r5-mobile.jpg",
+    "v3-04-mode2-clash-r5-desktop.jpg",
+    "v3-05-mode3-camp-c3-desktop.jpg",
+    "v3-06-mode3-camp-c3-mobile.jpg",
+    "v3-07-mode4-stitch-mobile.jpg",
+    "v3-08-mode4-tap-rail-desktop.jpg",
+    "v3-09-mode5-endings-desktop.jpg",
+    "v3-10-mode5-endings-mobile.jpg",
+    "v3-11-mode2-clash-r4a-tray-mobile.jpg",
+    "v3-12-mode2-clash-r2-desktop.jpg",
+    "v3-13-mode5-endings-fallback-mobile.jpg"
+  ],
+  "failures": [],
+  "errors": [],
+  "notRun": [
+    "PO visual comparison with the v3 pictures",
+    "Safari/WebKit and Firefox",
+    "physical devices"
+  ],
+  "browser": "151.0.7922.34",
+  "passed": true
+}

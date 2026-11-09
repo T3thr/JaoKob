@@ -48,3 +48,15 @@ JKB_PLAYWRIGHT_PATH=/absolute/path/to/playwright/index.mjs node tests/e2e/journe
 ```
 
 It plays the whole Act 1 and the whole mini package one command at a time with `crypto.subtle` removed (the insecure-context case of a phone on a LAN address) and checks after every command: no image refused, the cache within 32 MiB, every drawn image a decoded `blob:` URL with pixels, every image request same-origin under `assets/images/`. It also checks that an image already drawn keeps its pixels after its object URL is revoked, and serves a damaged opening plate: the plate is never drawn, Act 1 still plays to its boundary with no console error, and once the file is whole the plate is read again without a reload. `report.json` records the peak bytes kept and held on screen. Output: [evidence/sprint-05/c5d](evidence/sprint-05/c5d/report.json). A real LAN address, Safari, Firefox and physical devices are not covered.
+
+## Sprint 5 · C5f the game itself, and the 13 v3 screens
+
+`journey-c5f-index.mjs` serves **only the files of the Sprint 5 release allowlist** at `/` and `/JaoKob/` and plays `index.html` the way a player does, with keys only and no hook into the page:
+
+```sh
+JKB_PLAYWRIGHT_PATH=/absolute/path/to/playwright/index.mjs node tests/e2e/journey-c5f-index.mjs
+```
+
+It plays the whole Act 1 from the title to the chapter end at the root on a phone with motion and under `/JaoKob/` on a desktop with reduced motion and reduced transparency; reloads in the middle of a clash and checks that continue writes nothing and brings back the same beat, turn, light and intent; presses `1` three times on a choice and expects one commit; and probes the spoiler wall (a query cannot choose another package, and the review harness, fixtures, the full media manifest, images of later acts, build receipts and specs are not served; nothing outside the allowlist is ever requested). It also checks for console errors, Content-Security-Policy violations, requests outside the base path and storage outside `jaokob:journey:`. Output: [evidence/sprint-05/c5f](evidence/sprint-05/c5f/report.json).
+
+`journey-c5f-harness.mjs` opens each of the 13 screens of the PO harness (`docs/design-system/evidence/journey-v3-harness/`) at its v3 viewport and reads the drawn screen back: clash cards with their แก้ทาง and ซ้ำ tags, light and turn; the five choices; the eight camp cards; open and grey strands and the Safety Fallback; the micro-action and its first press; Teuk's line. It also checks that no image is refused. Output: [evidence/sprint-05/c5f/harness](evidence/sprint-05/c5f/harness/report.json). The PO compares the live screens with the v3 pictures in the harness gallery; that visual acceptance, Safari, Firefox and physical devices are not covered.

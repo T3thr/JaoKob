@@ -5,6 +5,7 @@
 | ไฟล์ | ใช้ตอนเล่น | หน้าที่ |
 |---|---|---|
 | `story-jaokob-core.json` | ใช้ | แพ็กเกจ `story.jaokob.core` ตาม [schema 3.0.0](../../../../specs/schemas/v3.0.0/journey-package.schema.json) · ตอนนี้มีเฉพาะ Act 1 ต้นแบบที่ยังไม่ผ่านการรับรองของ T6 และจบที่ทางเข้า Act 2 สองทาง |
+| `story-jaokob-core.media.json` | ใช้ | manifest ของสื่อของแพ็กเกจนี้ (C5f): เฉพาะภาพที่องก์ที่ promote แสดงได้ (ฉาก ตัวละครและภาพหันอีกทาง CG ไอคอนของ ใบหน้าบนการ์ด) และเฉพาะฟิลด์ที่ runtime ใช้ คัดจาก [manifest v2](../../../../assets/images/asset-manifest-v2.json) · กำแพงกันสปอยล์ของภาพ |
 | `story-jaokob-core.receipts.json` | ไม่ใช้ | ต้นทางของทุกข้อความ (ไฟล์และบรรทัดของพิมพ์เขียว) สำหรับตรวจย้อนและ harness ของ PO · ต้องไม่อยู่ใน release allowlist |
 
 ผู้ดูแล: Core Architect · ลำดับการปลดเนื้อหาเดิมดู [ADR-P0-034 D1](../../../../docs/adr/ADR-P0-034-five-act-journey-runtime-save2-journey-profile-and-blueprint-compiled-content.md)

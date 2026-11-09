@@ -16,6 +16,8 @@
 | [build-visual-assets-v2-review.py](build-visual-assets-v2-review.py) | สร้างหน้าตรวจรับภาพ v2 | - |
 | [act1-4-balance-model.mjs](act1-4-balance-model.mjs) · [act1-4-runtime-ledger.mjs](act1-4-runtime-ledger.mjs) | **SUPERSEDED** หลักฐานของ ADR-P0-031 รันแล้วแจ้งแค่ว่าถูกแทนที่ | - |
 
+**หน้าตรวจ 13 จอของ Mockups v3 (C5f):** [journey-v3-harness/index.html](journey-v3-harness/index.html) วางหน้าจอจริงของเกมบนสถานะที่ engine ไปถึงด้วยคำสั่งจริง ข้างภาพ v3 ทีละจอ · วิธีสร้างสถานะอยู่ใน [screens.js](journey-v3-harness/screens.js) · Core พิสูจน์ทั้ง 13 จอใน `tests/unit/journey-v3-harness.test.js` และเบราว์เซอร์ตรวจสิ่งที่วาดใน `tests/e2e/journey-c5f-harness.mjs` · อยู่นอก release allowlist · เปิดด้วย `node tools/dev/serve-review.mjs`
+
 **หน้าตรวจ C4 ของ PO (เกมจริงจาก `src/`):** [journey-review/index.html](journey-review/index.html) แสดงเกมในกรอบขนาดจอที่เลือกได้พร้อมเส้นแถบใบหน้า · [journey-review/play.html](journey-review/play.html) คือเกมเต็มหน้าต่างสำหรับเปิดบนโทรศัพท์ · เล่น Act 1 ต้นแบบบนแอป Journey จริงและบันทึกเงียบ · จังหวะที่เป็นงานของ C5 (ศึก แคมป์ สัมผัส) มีปุ่มส่งคำสั่งจริงของ engine · ไม่อยู่ใน release allowlist (ADR-P0-034 D10.4) · เปิดด้วย `node tools/dev/serve-review.mjs`
 
 หน้าตรวจรับและผลตรวจของ Astra: [visual-assets-v1-review.html](visual-assets-v1-review.html) · [visual-assets-v2-review.html](visual-assets-v2-review.html) · [ux-mockups-v2-review.html](ux-mockups-v2-review.html) พร้อมไฟล์ `*-verification.json` `*-doc-checks.json` `*-browser-review.json` และ `*-unit-summary.txt`
