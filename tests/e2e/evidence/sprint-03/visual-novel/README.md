@@ -5,7 +5,7 @@ host OS/CPU/memory, package hash, tracked diff at run start, samples and screens
 index. The [runtime verification](./runtime-verification.json) binds this final run
 to the [49-file runtime manifest](../benchmark/runtime-manifest.json), with the
 sole license whitespace normalization recorded separately below.
-The [runner](../../../visual-novel-benchmark.mjs) serves an isolated test host
+The [runner](https://github.com/T3thr/JaoKob/blob/39bf56b/tests/e2e/visual-novel-benchmark.mjs) serves an isolated test host
 that imports actual production modules. It adds diagnostics only to that host;
 production source contains no benchmark globals or timing hooks.
 

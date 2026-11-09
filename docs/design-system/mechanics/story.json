@@ -1,0 +1,70 @@
+{
+  "spec": "jaokob-mechanics-1",
+  "package": { "id": "story.jaokob.core", "contentVersion": "0.1.0", "title": "เจ้ากบ" },
+  "sourceLocale": "th",
+  "start": { "node": "A1-01", "meters": { "hp": 5, "mind": 4, "sta": 5 } },
+  "acts": [
+    { "act": 1, "blueprint": "act1-living-keepsake-rewrite-blueprint.md", "mechanics": "act1.json" }
+  ],
+  "speakers": {
+    "บรรยาย": "narrator",
+    "กบ": "char_jao_kob",
+    "กับ": "char_jao_kab",
+    "กิบ": "char_jao_kib",
+    "พ่อ": "char_father_frog",
+    "แม่": "char_mother_frog",
+    "เปี๊ยก": "char_peuak",
+    "เตื๊อก": "char_jao_teuk",
+    "แมลงสาบแมน": "char_cockroach_man",
+    "ก้าม": "char_p_kam",
+    "ฟิ้ว": "char_jao_fiw",
+    "ต้น": "char_boy_ton",
+    "ลุงยาม": "char_watchman_lung"
+  },
+  "items": [
+    { "id": "item_kib_glowing_seeds", "side": "roots", "locked": false, "name": "เมล็ดต้อยติ่งเรืองแสง", "icon": "item_kib_glowing_seeds" },
+    { "id": "item_kab_bark_guard", "side": "roots", "locked": false, "name": "สนับข้อมือเปลือกไม้", "icon": "item_kab_bark_guard" },
+    { "id": "item_pkam_tin_gear", "side": "friend", "locked": false, "name": "เฟืองสังกะสีไขลาน", "icon": "item_pkam_tin_gear" },
+    { "id": "item_teuk_peuak_button", "side": "core", "locked": true, "name": "กระดุมทองเหลือง ต.♡ป.", "icon": "item_teuk_peuak_button" },
+    { "id": "item_teuk_whistle_charm", "side": "promise", "locked": false, "name": "นกหวีดทองเหลือง ต.♡ป.", "icon": "item_teuk_whistle_charm" },
+    { "id": "item_fiw_sun_ribbon", "side": "promise", "locked": false, "name": "ริบบิ้นเหลืองกลิ่นแดด", "icon": "item_fiw_sun_ribbon" }
+  ],
+  "assetAliases": {
+    "cg_act1_three_siblings_weir": "cg_act1_three_siblings_blue_shirt",
+    "char_cockroach_man_boast_button": "char_cockroach_man_shadow_boast",
+    "char_jao_kab_child_neutral": "char_jao_kab_neutral_proud",
+    "char_jao_kib_child_neutral": "char_jao_kib_neutral_cheerful"
+  },
+  "rounds": [
+    { "id": "R1", "act": 1, "turns": 3, "p0": 5, "intents": ["grow", "lash", "taunt"], "allies": [], "siblings": ["kab", "kib"], "combos": [], "light": false, "events": [], "territory": false },
+    { "id": "R2", "act": 2, "turns": 4, "p0": 3, "intents": ["taunt", "grow", "lash", "gather"], "allies": ["pkam", "fiw"], "siblings": [], "combos": ["gear_pkam", "seeds_fiw"], "light": true, "events": [{ "turn": 3, "light": 1, "id": "code_rope" }], "territory": false },
+    { "id": "R3", "act": 3, "turns": 4, "p0": 3, "intents": ["dim", "illusion", "lash", "grow"], "allies": ["pkam", "fiw", "teuk"], "siblings": [], "combos": ["button_teuk"], "light": true, "events": [], "territory": false },
+    { "id": "R4A", "act": 4, "turns": 4, "p0": 3, "intents": ["grow", "lash", "gather", "grow"], "allies": ["pkam", "fiw", "teuk"], "siblings": ["kab", "kib"], "combos": ["whistle_teuk", "ribbon_fiw"], "light": true, "events": [], "territory": false },
+    { "id": "R4B", "act": 4, "turns": 4, "p0": 3, "intents": ["lash", "grow", "taunt", "gather"], "allies": ["pkam", "fiw", "teuk"], "siblings": ["kab", "kib"], "combos": ["whistle_teuk", "gear_pkam_b"], "light": true, "events": [], "territory": false },
+    { "id": "R5", "act": 5, "turns": 4, "p0": 2, "intents": ["whisper", "dim", "grow", "gather"], "allies": ["pkam", "fiw"], "siblings": ["kab", "kib"], "combos": [], "light": true, "events": [], "territory": true, "finisherFrom": 3 }
+  ],
+  "lexicon": {
+    "intents": {
+      "grow": "เงาขยาย", "lash": "ฟาดผ้าคลุม", "taunt": "กระซิบขู่", "whisper": "กระซิบฝันร้าย",
+      "dim": "ดับแสง", "illusion": "เงาลวง", "gather": "สูดความมืด"
+    },
+    "actions": {
+      "strike": "รุก", "grit": "ฝืนรุก", "guard": "ตั้งรับ", "rest": "สูดหายใจ",
+      "rain": "ตั้งสติฟังฝน", "wind": "ดีดตัวผ่าลม", "eye": "ตาส่องเงามืด",
+      "seeds": "เมล็ดต้อยติ่งเรืองแสง", "guardItem": "สนับข้อมือเปลือกไม้", "gear": "เฟืองสังกะสีไขลาน",
+      "button": "กระดุมทองเหลือง ต.♡ป.", "ribbon": "ริบบิ้นเหลืองกลิ่นแดด",
+      "a_pkam": "โล่กระป๋องเหล็กคู่ใจ", "a_fiw": "โฉบคว้ากลางเวหา", "a_teuk": "ลำแสงสัญญาจากนอกรั้ว",
+      "s_kab": "สปริงพี่ใหญ่", "s_kib": "ห่าเมล็ดเรือง",
+      "gear_pkam": "ล็อกสลิงถ่วงประตูน้ำ", "seeds_fiw": "ไฟเมล็ดนำร่อง", "button_teuk": "ลำแสงสะท้อนกระดุมคู่",
+      "whistle_teuk": "นกหวีดเรียกลำแสง", "ribbon_fiw": "ผ้าพันคอนำลม", "gear_pkam_b": "ล็อกท่อรางน้ำ", "hem": "ชูชายเสื้อรับแสง"
+    },
+    "sceneButtons": {
+      "รุก": "strike", "ฝืนรุก": "grit", "ตั้งรับ": "guard", "สูดหายใจ": "rest",
+      "ท่าปิดศึก": "hem", "ท่าพี่กับ": "s_kab", "ท่าน้องกิบ": "s_kib"
+    },
+    "aliases": {
+      "เมล็ดต้อยติ่ง": "seeds", "สนับข้อมือ": "guardItem", "เฟืองสังกะสี": "gear",
+      "กระดุมทองเหลือง": "button", "ริบบิ้นกลิ่นแดด": "ribbon"
+    }
+  }
+}

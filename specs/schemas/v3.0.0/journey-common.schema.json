@@ -1,0 +1,759 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://t3thr.github.io/JaoKob/specs/schemas/v3.0.0/journey-common.schema.json",
+  "title": "JaoKob Journey Common Definitions",
+  "description": "นิยามร่วมของ journey package และ Save Format 2 journey profile ตาม ADR-P0-034 D3 D4 D7 · คำศัพท์ effect และ condition เป็นชุดปิด · อยู่ระหว่างพัฒนาจนตรึงที่ T19",
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 48,
+      "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+    },
+    "semanticVersion": {
+      "type": "string",
+      "maxLength": 64,
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?$"
+    },
+    "packageId": {
+      "type": "string",
+      "maxLength": 64,
+      "pattern": "^[a-z][a-z0-9]*(?:\\.[a-z][a-z0-9]*){1,4}$"
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "dateTime": {
+      "type": "string",
+      "maxLength": 40,
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}[Tt]\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:[Zz]|[+-]\\d{2}:\\d{2})$"
+    },
+    "nodeRef": {
+      "$ref": "#/$defs/identifier",
+      "x-jaokob-reference": "journey-node"
+    },
+    "textRef": {
+      "$ref": "#/$defs/identifier",
+      "x-jaokob-reference": "journey-text"
+    },
+    "flagRef": {
+      "$ref": "#/$defs/identifier",
+      "x-jaokob-reference": "journey-flag"
+    },
+    "itemId": {
+      "type": "string",
+      "maxLength": 48,
+      "pattern": "^item_[a-z0-9]+(?:_[a-z0-9]+)*$"
+    },
+    "itemRef": {
+      "$ref": "#/$defs/itemId",
+      "x-jaokob-reference": "journey-item"
+    },
+    "characterId": {
+      "type": "string",
+      "maxLength": 48,
+      "pattern": "^char_[a-z0-9]+(?:_[a-z0-9]+)*$"
+    },
+    "characterRef": {
+      "$ref": "#/$defs/characterId",
+      "x-jaokob-reference": "journey-character"
+    },
+    "assetId": {
+      "type": "string",
+      "maxLength": 64,
+      "pattern": "^(?:bg|cg|char|item|ui)_[a-z0-9]+(?:_[a-z0-9]+)*$",
+      "x-jaokob-reference": "journey-asset"
+    },
+    "roundRef": {
+      "type": "string",
+      "pattern": "^R[1-5][AB]?$",
+      "x-jaokob-reference": "journey-round"
+    },
+    "act": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "meterName": {
+      "enum": [
+        "hp",
+        "mind",
+        "sta"
+      ]
+    },
+    "meterValue": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 5
+    },
+    "meters": {
+      "type": "object",
+      "required": [
+        "hp",
+        "mind",
+        "sta"
+      ],
+      "properties": {
+        "hp": {
+          "$ref": "#/$defs/meterValue"
+        },
+        "mind": {
+          "$ref": "#/$defs/meterValue"
+        },
+        "sta": {
+          "$ref": "#/$defs/meterValue"
+        }
+      },
+      "additionalProperties": false
+    },
+    "bondKey": {
+      "enum": [
+        "pkam",
+        "fiw",
+        "teuk"
+      ]
+    },
+    "bondValue": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4
+    },
+    "bonds": {
+      "type": "object",
+      "required": [
+        "pkam",
+        "fiw",
+        "teuk"
+      ],
+      "properties": {
+        "pkam": {
+          "$ref": "#/$defs/bondValue"
+        },
+        "fiw": {
+          "$ref": "#/$defs/bondValue"
+        },
+        "teuk": {
+          "$ref": "#/$defs/bondValue"
+        }
+      },
+      "additionalProperties": false
+    },
+    "counterName": {
+      "enum": [
+        "familySkillUses",
+        "selfReliance"
+      ]
+    },
+    "skill": {
+      "enum": [
+        "rain",
+        "wind",
+        "eye"
+      ]
+    },
+    "sibling": {
+      "enum": [
+        "kab",
+        "kib"
+      ]
+    },
+    "branch": {
+      "enum": [
+        "A",
+        "B"
+      ]
+    },
+    "endingId": {
+      "enum": [
+        "e-home",
+        "e-pond",
+        "e-dawn"
+      ]
+    },
+    "clashIntent": {
+      "enum": [
+        "grow",
+        "lash",
+        "taunt",
+        "whisper",
+        "dim",
+        "illusion",
+        "gather"
+      ]
+    },
+    "clashAction": {
+      "enum": [
+        "strike",
+        "grit",
+        "guard",
+        "rest",
+        "rain",
+        "wind",
+        "eye",
+        "seeds",
+        "guardItem",
+        "gear",
+        "button",
+        "ribbon",
+        "a_pkam",
+        "a_fiw",
+        "a_teuk",
+        "s_kab",
+        "s_kib",
+        "gear_pkam",
+        "seeds_fiw",
+        "button_teuk",
+        "whistle_teuk",
+        "ribbon_fiw",
+        "gear_pkam_b",
+        "hem"
+      ]
+    },
+    "clashCombo": {
+      "enum": [
+        "gear_pkam",
+        "seeds_fiw",
+        "button_teuk",
+        "whistle_teuk",
+        "ribbon_fiw",
+        "gear_pkam_b"
+      ]
+    },
+    "condition": {
+      "type": "object",
+      "oneOf": [
+        {
+          "required": [
+            "all"
+          ],
+          "properties": {
+            "all": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 16,
+              "items": {
+                "$ref": "#/$defs/condition"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "required": [
+            "any"
+          ],
+          "properties": {
+            "any": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 16,
+              "items": {
+                "$ref": "#/$defs/condition"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "required": [
+            "not"
+          ],
+          "properties": {
+            "not": {
+              "$ref": "#/$defs/condition"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "required": [
+            "hasItem"
+          ],
+          "properties": {
+            "hasItem": {
+              "$ref": "#/$defs/itemRef"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "required": [
+            "flag"
+          ],
+          "properties": {
+            "flag": {
+              "$ref": "#/$defs/flagRef"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "required": [
+            "meterAtLeast"
+          ],
+          "properties": {
+            "meterAtLeast": {
+              "type": "object",
+              "required": [
+                "meter",
+                "value"
+              ],
+              "properties": {
+                "meter": {
+                  "$ref": "#/$defs/meterName"
+                },
+                "value": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 5
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "required": [
+            "bondAtLeast"
+          ],
+          "properties": {
+            "bondAtLeast": {
+              "type": "object",
+              "required": [
+                "bond",
+                "value"
+              ],
+              "properties": {
+                "bond": {
+                  "$ref": "#/$defs/bondKey"
+                },
+                "value": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 4
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "required": [
+            "counterAtLeast"
+          ],
+          "properties": {
+            "counterAtLeast": {
+              "type": "object",
+              "required": [
+                "counter",
+                "value"
+              ],
+              "properties": {
+                "counter": {
+                  "$ref": "#/$defs/counterName"
+                },
+                "value": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 99
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "required": [
+            "major"
+          ],
+          "properties": {
+            "major": {
+              "$ref": "#/$defs/skill"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "required": [
+            "route"
+          ],
+          "properties": {
+            "route": {
+              "$ref": "#/$defs/branch"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "required": [
+            "plan"
+          ],
+          "properties": {
+            "plan": {
+              "$ref": "#/$defs/branch"
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "effect": {
+      "type": "object",
+      "required": [
+        "op"
+      ],
+      "properties": {
+        "op": {
+          "enum": [
+            "meter.set",
+            "meter.add",
+            "meter.spend",
+            "meter.hazard",
+            "floor.rest",
+            "bond.add",
+            "flag.set",
+            "pick.major",
+            "pick.route",
+            "pick.plan",
+            "item.grant",
+            "item.release",
+            "item.ready"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "enum": [
+                  "meter.set",
+                  "floor.rest"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "op",
+              "meters"
+            ],
+            "properties": {
+              "op": true,
+              "meters": {
+                "$ref": "#/$defs/meters"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "enum": [
+                  "meter.add",
+                  "meter.spend",
+                  "meter.hazard"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "op",
+              "meter",
+              "amount"
+            ],
+            "properties": {
+              "op": true,
+              "meter": {
+                "$ref": "#/$defs/meterName"
+              },
+              "amount": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 5
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "bond.add"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "op",
+              "bond",
+              "amount"
+            ],
+            "properties": {
+              "op": true,
+              "bond": {
+                "$ref": "#/$defs/bondKey"
+              },
+              "amount": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "flag.set"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "op",
+              "flag"
+            ],
+            "properties": {
+              "op": true,
+              "flag": {
+                "$ref": "#/$defs/flagRef"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "pick.major"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "op",
+              "value"
+            ],
+            "properties": {
+              "op": true,
+              "value": {
+                "$ref": "#/$defs/skill"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "enum": [
+                  "pick.route",
+                  "pick.plan"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "op",
+              "value"
+            ],
+            "properties": {
+              "op": true,
+              "value": {
+                "$ref": "#/$defs/branch"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "enum": [
+                  "item.grant",
+                  "item.release",
+                  "item.ready"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "op",
+              "item"
+            ],
+            "properties": {
+              "op": true,
+              "item": {
+                "$ref": "#/$defs/itemRef"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      ]
+    },
+    "effects": {
+      "type": "array",
+      "maxItems": 16,
+      "items": {
+        "$ref": "#/$defs/effect"
+      }
+    },
+    "line": {
+      "type": "object",
+      "required": [
+        "text"
+      ],
+      "properties": {
+        "text": {
+          "$ref": "#/$defs/textRef"
+        },
+        "when": {
+          "$ref": "#/$defs/condition"
+        }
+      },
+      "additionalProperties": false
+    },
+    "lines": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "$ref": "#/$defs/line"
+      }
+    },
+    "stageSlot": {
+      "type": "object",
+      "required": [
+        "slot",
+        "asset",
+        "facing"
+      ],
+      "properties": {
+        "slot": {
+          "enum": [
+            "far-left",
+            "left",
+            "center",
+            "right",
+            "far-right"
+          ]
+        },
+        "asset": {
+          "$ref": "#/$defs/assetId"
+        },
+        "facing": {
+          "enum": [
+            "left",
+            "right"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "stage": {
+      "type": "object",
+      "required": [
+        "bg",
+        "slots",
+        "silenceMs"
+      ],
+      "properties": {
+        "bg": {
+          "$ref": "#/$defs/assetId"
+        },
+        "cg": {
+          "$ref": "#/$defs/assetId"
+        },
+        "slots": {
+          "type": "array",
+          "maxItems": 5,
+          "items": {
+            "$ref": "#/$defs/stageSlot"
+          }
+        },
+        "silenceMs": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        }
+      },
+      "additionalProperties": false
+    },
+    "pouch": {
+      "type": "object",
+      "description": "กระเป๋าสี่ช่องตาม ADR-P0-020 · ความสัมพันธ์ข้ามชุดตรวจโดย Core",
+      "required": [
+        "capacity",
+        "held",
+        "acquired",
+        "released",
+        "remembered",
+        "memory"
+      ],
+      "properties": {
+        "capacity": {
+          "const": 4
+        },
+        "held": {
+          "type": "array",
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/itemRef"
+          }
+        },
+        "acquired": {
+          "type": "array",
+          "maxItems": 32,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/itemRef"
+          }
+        },
+        "released": {
+          "type": "array",
+          "maxItems": 32,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/itemRef"
+          }
+        },
+        "remembered": {
+          "type": "array",
+          "maxItems": 32,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/itemRef"
+          }
+        },
+        "memory": {
+          "type": "array",
+          "maxItems": 32,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "maxLength": 56,
+            "pattern": "^refused_[a-z0-9]+(?:_[a-z0-9]+)*$"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

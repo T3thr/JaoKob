@@ -3,12 +3,12 @@ import assert from "node:assert/strict";
 import { setImmediate as nextTurn } from "node:timers/promises";
 import { createImageCache, IMAGE_BUDGET_BYTES } from "../../src/ui/assets/image-cache.js";
 
-const ref = (id) => ({ assetId: id, contentVersion: "2.1.0" });
+const ref = (id) => ({ assetId: id, identity: "journey:story.jaokob.core@0.1.0" });
 function setup(options = {}) {
   const reads = [], revoked = [], images = [];
   const cache = createImageCache({
     readAsset: async (reference) => { reads.push(reference); return { ok: true, value: {
-      descriptor: { type: "image", path: `assets/images/backgrounds/${reference.assetId}.webp`, mimeType: "image/webp", width: 10, height: 10 }, bytes: new ArrayBuffer(8),
+      descriptor: { type: "image", kind: "background", mimeType: "image/webp", width: 10, height: 10 }, bytes: new ArrayBuffer(8),
     } }; },
     createImage: () => { const image = { naturalWidth: 10, naturalHeight: 10, decode: async () => undefined, removeAttribute(key) { delete this[key]; } }; images.push(image); return image; },
     createObjectURL: () => `blob:fixture-${images.length}`, revokeObjectURL: (url) => revoked.push(url), ...options,
@@ -63,7 +63,7 @@ test("TC-S3-ASSET-001: shared caller abort leaves another caller's same-image re
   let finish, signal;
   const { cache } = setup({ readAsset: (reference, options) => {
     signal = options.signal;
-    return new Promise((resolve) => { finish = () => resolve({ ok: true, value: { descriptor: { type: "image", path: "assets/images/backgrounds/a.webp", mimeType: "image/webp", width: 10, height: 10 }, bytes: new ArrayBuffer(8) } }); });
+    return new Promise((resolve) => { finish = () => resolve({ ok: true, value: { descriptor: { type: "image", kind: "background", mimeType: "image/webp", width: 10, height: 10 }, bytes: new ArrayBuffer(8) } }); });
   } });
   const controller = new AbortController();
   const a = cache.acquire(ref("a"), { signal: controller.signal }), b = cache.acquire(ref("a"));
@@ -86,4 +86,49 @@ test("TC-S3-ASSET-001: disposal keeps active lease alive until caller releases",
   assert.equal(cache.stats().budget, IMAGE_BUDGET_BYTES);
   cache.dispose(); assert.equal(revoked.length, 0); assert.equal(cache.stats().bytes, 400);
   a.release(); assert.equal(revoked.length, 1); assert.equal(cache.stats().bytes, 0);
+});
+test("TC-S5-PACKAGE-001: two packages of the same version never share a decoded image (ADR-P0-034 D7 identity)", async () => {
+  const { cache, reads } = setup();
+  const core = await cache.acquire({ identity: "journey:story.jaokob.core@0.1.0", assetId: "a" });
+  const mini = await cache.acquire({ identity: "journey:story.fixture.mini@0.1.0", assetId: "a" });
+  assert.notEqual(core.url, mini.url); assert.equal(reads.length, 2); assert.equal(cache.stats().entries, 2);
+  const again = await cache.acquire({ identity: "journey:story.jaokob.core@0.1.0", assetId: "a" });
+  assert.equal(again.url, core.url); assert.equal(reads.length, 2);
+  for (const reference of [{ assetId: "a" }, { identity: "", assetId: "a" }, { identity: 7, assetId: "a" }, { contentVersion: "0.1.0", assetId: "a" }]) assert.equal(await cache.acquire(reference), null);
+  core.release(); mini.release(); again.release(); cache.dispose();
+});
+test("TC-S5-ASSET-001: a Journey plate (kind background) counts toward the two plates, and an idle plate goes before other idle images", async () => {
+  const kinds = { p1: "background", p2: "background", p3: "background", face: "character" };
+  const { cache, revoked } = setup({ readAsset: async (reference) => ({ ok: true, value: {
+    descriptor: { type: "image", kind: kinds[reference.assetId], mimeType: "image/webp", width: 10, height: 10 }, bytes: new ArrayBuffer(8),
+  } }) });
+  const journey = (assetId) => ({ identity: "journey:story.jaokob.core@0.1.0", assetId });
+  const face = await cache.acquire(journey("face")); face.release();
+  const p1 = await cache.acquire(journey("p1")), p2 = await cache.acquire(journey("p2"));
+  assert.equal(await cache.acquire(journey("p3")), null, "two plates on screen leave no room for a third");
+  p1.release();
+  const p3 = await cache.acquire(journey("p3"));
+  assert.ok(p3);
+  assert.equal(cache.stats().retainedBytes, 800, "two plates held, the idle face kept but not held");
+  assert.equal(cache.stats().bytes, 1200);
+  assert.deepEqual(revoked, [p1.url], "the idle plate went; the idle face stayed");
+  assert.equal(cache.stats().entries, 3);
+  p2.release(); p3.release(); cache.dispose();
+});
+test("TC-S5-ASSET-001: a thumb reference decodes the proved file small, under its own key, and counts only its own bytes", async () => {
+  const scaled = [], reads = [];
+  const { cache } = setup({
+    readAsset: async (reference) => ({ ok: reads.push(reference) > 0, value: { descriptor: { type: "image", kind: "character", mimeType: "image/webp", width: 1024, height: 1024 }, bytes: new ArrayBuffer(8) } }),
+    downscale: async (blob, width, height) => { scaled.push([blob.size, width, height]); return new Blob(["small"], { type: "image/png" }); },
+    createImage: () => ({ decode: async () => undefined, get naturalWidth() { return this.src ? 256 : 0; }, get naturalHeight() { return this.src ? 256 : 0; }, removeAttribute() {} }),
+  });
+  const ref = { identity: "journey:story.jaokob.core@0.1.0", assetId: "face" };
+  const face = await cache.acquire({ ...ref, thumb: 256 });
+  assert.ok(face);
+  assert.deepEqual(scaled, [[8, 256, 256]], "the full proved bytes go in, the small size comes out");
+  assert.equal(cache.stats().bytes, 256 * 256 * 4);
+  const again = await cache.acquire({ ...ref, thumb: 256 });
+  assert.equal(again.url, face.url); assert.equal(reads.length, 1);
+  for (const thumb of [0, -1, 1.5, "256"]) assert.equal(await cache.acquire({ ...ref, thumb }), null, String(thumb));
+  face.release(); again.release(); cache.dispose();
 });

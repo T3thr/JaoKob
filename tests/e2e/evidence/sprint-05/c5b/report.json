@@ -1,0 +1,626 @@
+{
+  "runner": "tests/e2e/journey-c5b-encounters.mjs",
+  "head": "d7abe70027f43f9dca5d1e5722ac7c5cb56df330",
+  "requirements": [
+    "TC-S5-UX-001",
+    "TC-S5-INLINE-001",
+    "TC-S5-A11Y-001"
+  ],
+  "layout": [
+    {
+      "tag": "320x568 text 100% camp-board",
+      "mode": "flow",
+      "screen": "CAMP",
+      "panel": 291,
+      "timer": 205,
+      "guides": []
+    },
+    {
+      "tag": "320x568 text 100% camp-drop-line",
+      "mode": "fit",
+      "screen": "VN",
+      "panel": 401,
+      "timer": 281,
+      "guides": []
+    },
+    {
+      "tag": "320x568 text 100% micro-tap3",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 309,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "320x568 text 100% pouch-offer",
+      "mode": "flow",
+      "screen": "POUCH_SWAP",
+      "panel": 291,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "320x568 text 100% micro-hold",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 309,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "320x568 text 100% micro-stitch",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 293,
+      "timer": null,
+      "guides": [
+        30,
+        30,
+        30
+      ]
+    },
+    {
+      "tag": "320x568 text 200% camp-board",
+      "mode": "flow",
+      "screen": "CAMP",
+      "panel": 291,
+      "timer": 205,
+      "guides": []
+    },
+    {
+      "tag": "320x568 text 200% camp-drop-line",
+      "mode": "flow",
+      "screen": "VN",
+      "panel": 291,
+      "timer": 205,
+      "guides": []
+    },
+    {
+      "tag": "320x568 text 200% micro-tap3",
+      "mode": "flow",
+      "screen": "MICRO",
+      "panel": 291,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "320x568 text 200% pouch-offer",
+      "mode": "flow",
+      "screen": "POUCH_SWAP",
+      "panel": 291,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "320x568 text 200% micro-hold",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 282,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "320x568 text 200% micro-stitch",
+      "mode": "flow",
+      "screen": "MICRO",
+      "panel": 291,
+      "timer": null,
+      "guides": [
+        30,
+        30,
+        30
+      ]
+    },
+    {
+      "tag": "390x844 text 100% camp-board",
+      "mode": "fit",
+      "screen": "CAMP",
+      "panel": 598,
+      "timer": 413,
+      "guides": []
+    },
+    {
+      "tag": "390x844 text 100% camp-drop-line",
+      "mode": "fit",
+      "screen": "VN",
+      "panel": 677,
+      "timer": 413,
+      "guides": []
+    },
+    {
+      "tag": "390x844 text 100% micro-tap3",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 585,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "390x844 text 100% pouch-offer",
+      "mode": "fit",
+      "screen": "POUCH_SWAP",
+      "panel": 512,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "390x844 text 100% micro-hold",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 585,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "390x844 text 100% micro-stitch",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 569,
+      "timer": null,
+      "guides": [
+        30,
+        30,
+        30
+      ]
+    },
+    {
+      "tag": "390x844 text 200% camp-board",
+      "mode": "flow",
+      "screen": "CAMP",
+      "panel": 418,
+      "timer": 332,
+      "guides": []
+    },
+    {
+      "tag": "390x844 text 200% camp-drop-line",
+      "mode": "fit",
+      "screen": "VN",
+      "panel": 524,
+      "timer": 413,
+      "guides": []
+    },
+    {
+      "tag": "390x844 text 200% micro-tap3",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 504,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "390x844 text 200% pouch-offer",
+      "mode": "flow",
+      "screen": "POUCH_SWAP",
+      "panel": 418,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "390x844 text 200% micro-hold",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 558,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "390x844 text 200% micro-stitch",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 542,
+      "timer": null,
+      "guides": [
+        30,
+        30,
+        30
+      ]
+    },
+    {
+      "tag": "844x390 text 100% camp-board",
+      "mode": "fit",
+      "screen": "CAMP",
+      "panel": 250,
+      "timer": 195,
+      "guides": []
+    },
+    {
+      "tag": "844x390 text 100% camp-drop-line",
+      "mode": "fit",
+      "screen": "VN",
+      "panel": 283,
+      "timer": 195,
+      "guides": []
+    },
+    {
+      "tag": "844x390 text 100% micro-tap3",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 248,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "844x390 text 100% pouch-offer",
+      "mode": "fit",
+      "screen": "POUCH_SWAP",
+      "panel": 232,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "844x390 text 100% micro-hold",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 248,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "844x390 text 100% micro-stitch",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 210,
+      "timer": null,
+      "guides": [
+        30,
+        30,
+        30
+      ]
+    },
+    {
+      "tag": "844x390 text 200% camp-board",
+      "mode": "flow",
+      "screen": "CAMP",
+      "panel": 260,
+      "timer": 174,
+      "guides": []
+    },
+    {
+      "tag": "844x390 text 200% camp-drop-line",
+      "mode": "flow",
+      "screen": "VN",
+      "panel": 260,
+      "timer": 174,
+      "guides": []
+    },
+    {
+      "tag": "844x390 text 200% micro-tap3",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 248,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "844x390 text 200% pouch-offer",
+      "mode": "flow",
+      "screen": "POUCH_SWAP",
+      "panel": 260,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "844x390 text 200% micro-hold",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 248,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "844x390 text 200% micro-stitch",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 210,
+      "timer": null,
+      "guides": [
+        30,
+        30,
+        30
+      ]
+    },
+    {
+      "tag": "768x1024 text 100% camp-board",
+      "mode": "fit",
+      "screen": "CAMP",
+      "panel": 796,
+      "timer": 500,
+      "guides": []
+    },
+    {
+      "tag": "768x1024 text 100% camp-drop-line",
+      "mode": "fit",
+      "screen": "VN",
+      "panel": 857,
+      "timer": 500,
+      "guides": []
+    },
+    {
+      "tag": "768x1024 text 100% micro-tap3",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 765,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "768x1024 text 100% pouch-offer",
+      "mode": "fit",
+      "screen": "POUCH_SWAP",
+      "panel": 702,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "768x1024 text 100% micro-hold",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 765,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "768x1024 text 100% micro-stitch",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 749,
+      "timer": null,
+      "guides": [
+        30,
+        30,
+        30
+      ]
+    },
+    {
+      "tag": "768x1024 text 200% camp-board",
+      "mode": "fit",
+      "screen": "CAMP",
+      "panel": 687,
+      "timer": 500,
+      "guides": []
+    },
+    {
+      "tag": "768x1024 text 200% camp-drop-line",
+      "mode": "fit",
+      "screen": "VN",
+      "panel": 767,
+      "timer": 500,
+      "guides": []
+    },
+    {
+      "tag": "768x1024 text 200% micro-tap3",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 738,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "768x1024 text 200% pouch-offer",
+      "mode": "fit",
+      "screen": "POUCH_SWAP",
+      "panel": 594,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "768x1024 text 200% micro-hold",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 738,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "768x1024 text 200% micro-stitch",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 722,
+      "timer": null,
+      "guides": [
+        30,
+        30,
+        30
+      ]
+    },
+    {
+      "tag": "1440x900 text 100% camp-board",
+      "mode": "fit",
+      "screen": "CAMP",
+      "panel": 752,
+      "timer": 32,
+      "guides": []
+    },
+    {
+      "tag": "1440x900 text 100% camp-drop-line",
+      "mode": "fit",
+      "screen": "VN",
+      "panel": 705,
+      "timer": 32,
+      "guides": []
+    },
+    {
+      "tag": "1440x900 text 100% micro-tap3",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 630,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "1440x900 text 100% pouch-offer",
+      "mode": "fit",
+      "screen": "POUCH_SWAP",
+      "panel": 715,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "1440x900 text 100% micro-hold",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 630,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "1440x900 text 100% micro-stitch",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 614,
+      "timer": null,
+      "guides": [
+        30,
+        30,
+        30
+      ]
+    },
+    {
+      "tag": "1440x900 text 200% camp-board",
+      "mode": "fit",
+      "screen": "CAMP",
+      "panel": 653,
+      "timer": 32,
+      "guides": []
+    },
+    {
+      "tag": "1440x900 text 200% camp-drop-line",
+      "mode": "fit",
+      "screen": "VN",
+      "panel": 604,
+      "timer": 32,
+      "guides": []
+    },
+    {
+      "tag": "1440x900 text 200% micro-tap3",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 600,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "1440x900 text 200% pouch-offer",
+      "mode": "fit",
+      "screen": "POUCH_SWAP",
+      "panel": 614,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "1440x900 text 200% micro-hold",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 600,
+      "timer": null,
+      "guides": []
+    },
+    {
+      "tag": "1440x900 text 200% micro-stitch",
+      "mode": "fit",
+      "screen": "MICRO",
+      "panel": 584,
+      "timer": null,
+      "guides": [
+        30,
+        30,
+        30
+      ]
+    }
+  ],
+  "keyboard": [
+    {
+      "flow": "camp",
+      "start": {
+        "mode": "CAMP",
+        "node": "a1-10",
+        "revision": 87
+      },
+      "afterPick": {
+        "mode": "VN",
+        "node": "a1-10",
+        "revision": 88
+      },
+      "finished": {
+        "focus": "jk-camp__leave",
+        "leave": null
+      },
+      "left": {
+        "mode": "VN",
+        "node": "a1-11",
+        "revision": 92
+      }
+    },
+    {
+      "flow": "MA-1",
+      "micro": {
+        "mode": "MICRO",
+        "node": "a1-12",
+        "revision": 106
+      },
+      "afterMicro": {
+        "mode": "VN",
+        "node": "a1-13",
+        "revision": 107
+      }
+    },
+    {
+      "flow": "pouch offer",
+      "offer": {
+        "mode": "POUCH_SWAP",
+        "node": "n08",
+        "revision": 27
+      },
+      "taken": {
+        "mode": "VN",
+        "held": [
+          "item_pkam_tin_gear",
+          "item_teuk_whistle_charm"
+        ]
+      }
+    }
+  ],
+  "layoutShift": [
+    {
+      "during": "camp board, two activities and their lines, leave",
+      "cumulative": 0
+    }
+  ],
+  "screenshots": [
+    "390x844-text100-camp-board.jpg",
+    "390x844-text100-camp-drop-line.jpg",
+    "390x844-text100-micro-tap3.jpg",
+    "390x844-text100-pouch-offer.jpg",
+    "390x844-text100-micro-hold.jpg",
+    "390x844-text100-micro-stitch.jpg",
+    "390x844-text200-camp-board.jpg",
+    "390x844-text200-camp-drop-line.jpg",
+    "390x844-text200-micro-tap3.jpg",
+    "390x844-text200-pouch-offer.jpg",
+    "390x844-text200-micro-hold.jpg",
+    "390x844-text200-micro-stitch.jpg",
+    "844x390-text100-camp-board.jpg",
+    "844x390-text100-camp-drop-line.jpg",
+    "844x390-text100-micro-tap3.jpg",
+    "844x390-text100-pouch-offer.jpg",
+    "844x390-text100-micro-hold.jpg",
+    "844x390-text100-micro-stitch.jpg",
+    "1440x900-text100-camp-board.jpg",
+    "1440x900-text100-camp-drop-line.jpg",
+    "1440x900-text100-micro-tap3.jpg",
+    "1440x900-text100-pouch-offer.jpg",
+    "1440x900-text100-micro-hold.jpg",
+    "1440x900-text100-micro-stitch.jpg"
+  ],
+  "failures": [],
+  "errors": [],
+  "notRun": [
+    "Safari/WebKit and Firefox",
+    "physical iPhone and Android",
+    "VoiceOver and NVDA listening",
+    "PO visual acceptance",
+    "sound of the taps (audio arrives with T7)"
+  ],
+  "browser": "151.0.7922.34",
+  "passed": true
+}

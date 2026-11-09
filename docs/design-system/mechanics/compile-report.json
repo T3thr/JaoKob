@@ -1,0 +1,46 @@
+{
+  "package": "story.jaokob.core",
+  "contentVersion": "0.1.0",
+  "acts": [
+    1
+  ],
+  "nodes": 13,
+  "texts": 171,
+  "boundaries": [
+    "a2a-01",
+    "a2b-01"
+  ],
+  "assetsMissingFromManifestV2": [],
+  "assetAliases": [
+    {
+      "design": "cg_act1_three_siblings_weir",
+      "uses": "cg_act1_three_siblings_blue_shirt",
+      "nodes": [
+        "a1-08"
+      ]
+    },
+    {
+      "design": "char_cockroach_man_boast_button",
+      "uses": "char_cockroach_man_shadow_boast",
+      "nodes": [
+        "a1-07",
+        "a1-08"
+      ]
+    },
+    {
+      "design": "char_jao_kab_child_neutral",
+      "uses": "char_jao_kab_neutral_proud",
+      "nodes": [
+        "a1-01"
+      ]
+    },
+    {
+      "design": "char_jao_kib_child_neutral",
+      "uses": "char_jao_kib_neutral_cheerful",
+      "nodes": [
+        "a1-01"
+      ]
+    }
+  ],
+  "warnings": []
+}

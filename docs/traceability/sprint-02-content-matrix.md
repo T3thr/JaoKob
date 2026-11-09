@@ -6,7 +6,7 @@ Authority: Tech Lead Step 2 directive, [Sprint 2 SSOT](../sprints/sprint-02-ssot
 
 ## 1. Package และขอบเขต
 
-[act-01.json](../../src/data/content/packages/act-01.json) ใช้ package/tree schema `1.1.0`, catalogs `1.0.0`, contentVersion `2.0.0`, source locale `th`, entry `tree.act1` / `node.act1.opening`. เลือกรุ่นใหม่แยกจาก Mock `1.0.0` เพราะ stable node IDs/โครงสร้างต่างกัน ไม่มีการนำ ID เดิมมาใช้ความหมายใหม่ และไม่มี auto migration ใน Step 2
+[act-01.json](https://github.com/T3thr/JaoKob/blob/39bf56b/src/data/content/packages/act-01.json) ใช้ package/tree schema `1.1.0`, catalogs `1.0.0`, contentVersion `2.0.0`, source locale `th`, entry `tree.act1` / `node.act1.opening`. เลือกรุ่นใหม่แยกจาก Mock `1.0.0` เพราะ stable node IDs/โครงสร้างต่างกัน ไม่มีการนำ ID เดิมมาใช้ความหมายใหม่ และไม่มี auto migration ใน Step 2
 
 7 Canon scenes → 14 runtime nodes, 46 dialogue records, 13 events, 7 choices, 6 interactions, 8 flags และ 5 checkpoints. ข้อความใหม่เรียบเรียงจาก Bible ที่อยู่ใน repository รวม prototype ทั้งสี่และ coping variants ทั้งสอง ไม่มี external narrative source หรือ asset ใหม่ (`assets=[]`) ไม่มีเสียง/ภาพที่อ้างแต่ไม่มีไฟล์
 
@@ -99,7 +99,7 @@ Ledger นี้ปิดการ trace ของ setup เท่านั้�
 
 ## 6. Verification model และ coverage denominator
 
-[content-graph.test.js](../../tests/unit/content-graph.test.js) ใช้ [test-only model](../../tests/helpers/content-graph.js), [independent expectations](../../tests/fixtures/content/graph/act-01-expectations.json) และ [test catalog](../../src/data/content/packages/act-01-test-catalog.json) ที่ caller inject เข้า loader. Catalog เก็บ stable test IDs เท่านั้น ไม่ import tests ใน Production; ทุกรายการมีชื่อ test ตรงกัน: `tc.act1.schema`, `tc.act1.structure`, `tc.act1.routes`, `tc.act1.observations`, `tc.act1.variants`, `tc.act1.preconditions`, `tc.act1.boundary`
+[content-graph.test.js](https://github.com/T3thr/JaoKob/blob/39bf56b/tests/unit/content-graph.test.js) ใช้ [test-only model](https://github.com/T3thr/JaoKob/blob/39bf56b/tests/helpers/content-graph.js), [independent expectations](https://github.com/T3thr/JaoKob/blob/39bf56b/tests/fixtures/content/graph/act-01-expectations.json) และ [test catalog](https://github.com/T3thr/JaoKob/blob/39bf56b/src/data/content/packages/act-01-test-catalog.json) ที่ caller inject เข้า loader. Catalog เก็บ stable test IDs เท่านั้น ไม่ import tests ใน Production; ทุกรายการมีชื่อ test ตรงกัน: `tc.act1.schema`, `tc.act1.structure`, `tc.act1.routes`, `tc.act1.observations`, `tc.act1.variants`, `tc.act1.preconditions`, `tc.act1.boundary`
 
 - Structural และ state-feasible nodes: 14/14; edges: 21/21; ไม่มี whitelist สำหรับ orphan หรือ target ที่หาย
 - Exhaustive finite-state traversal: 689 quotient states; terminal states 192 = 16 hotspot subsets × 12 canonical combinations. เก็บทุก flag, metrics, node, event occurrence และ pending redirect ใน state key. Revision/history/time/cursor ไม่ใช่ input ของ condition DSL จึงไม่นับให้เกิด state ไม่สิ้นสุด; save/Resume fidelity ยังไม่ใช่ผลของ model นี้
@@ -141,7 +141,7 @@ Checkpoint IDs ใช้ prefix `checkpoint.act1.`: opening/storm/survival/keeps
 | GDD-UX-003, FR-LOC-001/002, FR-ACC-001/002, GDD-SAFE-005 | localized content-view-model + DOM renderer | 12 browser walks; no Bond DOM/AX nodes; Thai notices, native controls, confirmations, safe text, 320 px/200%, reduced motion |
 | NAR-SC-A1-001..007 / approved rest | unchanged act-01.json + runtime cursor/completion | all Canon final metric combinations match Section 6; final checkpoint only after last page; no Ending/Act 2 placeholder |
 
-- [Orchestration tests](../../tests/unit/content-orchestration.test.js), [production bootstrap tests](../../tests/unit/act1-bootstrap.test.js), [browser runner and limits](../../tests/e2e/README.md). Full suite 444/444, no failures/skips.
-- Mock stable IDs remain in [legacy fixture](../../tests/fixtures/legacy/prologue-slice.js); original five Sprint 1 bootstrap assertions are preserved through a test-only composition helper. No runtime imports tests or Mock.
+- [Orchestration tests](https://github.com/T3thr/JaoKob/blob/39bf56b/tests/unit/content-orchestration.test.js), [production bootstrap tests](https://github.com/T3thr/JaoKob/blob/39bf56b/tests/unit/act1-bootstrap.test.js), [browser runner and limits](../../tests/e2e/README.md). Full suite 444/444, no failures/skips.
+- Mock stable IDs remain in [legacy fixture](https://github.com/T3thr/JaoKob/blob/39bf56b/tests/fixtures/legacy/prologue-slice.js); original five Sprint 1 bootstrap assertions are preserved through a test-only composition helper. No runtime imports tests or Mock.
 - Content/package/save versions: 2.0.0 / 1.1.0 / 1. Exact Resume uses the current snapshot and recency-ordered real dialogue IDs; it performs no entry effects or save write. No silent Mock migration.
 - [Closeout audit](../changelog/2026-09/2026-09-04-1039-sprint-02-task-04-05-bootstrap-playthrough.md) records implementation completion, concrete verification and pending Human Narrative/Thai/A11y/Architecture/QA sign-off. No push, PR, merge, release or G2 claim.

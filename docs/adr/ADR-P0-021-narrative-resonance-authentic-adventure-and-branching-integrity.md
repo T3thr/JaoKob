@@ -71,7 +71,7 @@ Date: 2026-10-16. Authority: **PO Directive, Master Narrative Direction, and Arc
 
 1. **การควบคุมใน PR #16:**
    - มติตาม ADR นี้มีผลบังคับใช้ทันทีในการแก้ไขงาน Slice 4 ภายใต้ PR #16
-   - ห้ามปิดรับ PR #16 จนกว่าจะมีการปรับแก้ไฟล์ [act-01.json](../../src/data/content/packages/act-01.json) และ [05-act-2-5-map-and-endings.md](../proposals/sprint-04-overhaul/05-act-2-5-map-and-endings.md) ให้สอดคล้องกับข้อกำหนด D1–D6 ครบถ้วน
+   - ห้ามปิดรับ PR #16 จนกว่าจะมีการปรับแก้ไฟล์ [act-01.json](https://github.com/T3thr/JaoKob/blob/39bf56b/src/data/content/packages/act-01.json) และ [05-act-2-5-map-and-endings.md](../proposals/sprint-04-overhaul/05-act-2-5-map-and-endings.md) ให้สอดคล้องกับข้อกำหนด D1–D6 ครบถ้วน
 2. **การคงจำนวน Slice และ PR:**
    - การแก้ไขตาม ADR นี้จะไม่เพิ่ม Slice หรือ PR ใหม่ใน Sprint 4
    - การทำงานยังคงจำกัดอยู่ใน 5 Slices (PR #13 ถึง PR #17) ตาม Master Delivery Matrix

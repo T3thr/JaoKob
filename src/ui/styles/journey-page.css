@@ -1,0 +1,35 @@
+/*
+ * The page that holds the Journey (index.html, and the PO review page): no margin, the night
+ * ground behind the stage while the first plate loads, and the one message shown when the game
+ * cannot start. Every screen of the game is drawn by `src/ui/journey/`.
+ * Trace: ADR-P0-034 D1 · D10, SSOT §3.3.
+ */
+
+:root { --page-night: #12201a; }
+
+html,
+body {
+  margin: 0;
+  min-block-size: 100%;
+  background: var(--page-night);
+  color: var(--paper-bg);
+  font-family: var(--font-body);
+}
+
+.jk-app { display: block; }
+
+.jk-boot {
+  position: fixed;
+  inset-inline: var(--gutter);
+  inset-block-end: var(--dock-bottom);
+  max-inline-size: 30rem;
+  margin: 0 auto;
+  padding: 16px 18px;
+  border: 1px solid var(--paper-border);
+  border-radius: 14px;
+  background: var(--paper-bg);
+  color: var(--ink-primary);
+  font-size: var(--text-card);
+  line-height: 1.6;
+  box-shadow: var(--paper-shadow);
+}

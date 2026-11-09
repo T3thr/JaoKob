@@ -1,0 +1,1455 @@
+{
+  "schemaVersion": "3.0.0",
+  "profile": "journey",
+  "package": {
+    "id": "story.fixture.mini",
+    "contentVersion": "0.1.0",
+    "title": "แพ็กเกจทดสอบจิ๋ว"
+  },
+  "sourceLocale": "th",
+  "start": {
+    "node": "n01",
+    "meters": {
+      "hp": 5,
+      "mind": 4,
+      "sta": 5
+    }
+  },
+  "acts": [
+    {
+      "act": 1,
+      "title": "องก์ทดสอบหนึ่ง",
+      "entry": "n01"
+    },
+    {
+      "act": 2,
+      "title": "องก์ทดสอบสอง",
+      "entry": "n07"
+    },
+    {
+      "act": 3,
+      "title": "องก์ทดสอบสาม",
+      "entry": "n08"
+    },
+    {
+      "act": 4,
+      "title": "องก์ทดสอบสี่",
+      "entry": "n10"
+    },
+    {
+      "act": 5,
+      "title": "องก์ทดสอบห้า",
+      "entry": "n11"
+    }
+  ],
+  "characters": [
+    {
+      "id": "char_jao_kob",
+      "name": "กบ"
+    },
+    {
+      "id": "char_jao_kab",
+      "name": "กับ"
+    },
+    {
+      "id": "char_jao_kib",
+      "name": "กิบ"
+    },
+    {
+      "id": "char_p_kam",
+      "name": "ก้าม"
+    },
+    {
+      "id": "char_cockroach_man",
+      "name": "แมลงสาบแมน"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_kib_glowing_seeds",
+      "side": "roots",
+      "locked": false,
+      "name": "เมล็ดต้อยติ่งเรืองแสง",
+      "icon": "item_kib_glowing_seeds"
+    },
+    {
+      "id": "item_kab_bark_guard",
+      "side": "roots",
+      "locked": false,
+      "name": "สนับข้อมือเปลือกไม้",
+      "icon": "item_kab_bark_guard"
+    },
+    {
+      "id": "item_pkam_tin_gear",
+      "side": "friend",
+      "locked": false,
+      "name": "เฟืองสังกะสีไขลาน",
+      "icon": "item_pkam_tin_gear"
+    },
+    {
+      "id": "item_teuk_peuak_button",
+      "side": "core",
+      "locked": true,
+      "name": "กระดุมทองเหลือง",
+      "icon": "item_teuk_peuak_button"
+    },
+    {
+      "id": "item_teuk_whistle_charm",
+      "side": "promise",
+      "locked": false,
+      "name": "นกหวีดทองเหลือง",
+      "icon": "item_teuk_whistle_charm"
+    },
+    {
+      "id": "item_fiw_sun_ribbon",
+      "side": "promise",
+      "locked": false,
+      "name": "ริบบิ้นเหลืองกลิ่นแดด",
+      "icon": "item_fiw_sun_ribbon"
+    }
+  ],
+  "flags": [
+    {
+      "id": "met_pkam"
+    },
+    {
+      "id": "teuk_splint"
+    },
+    {
+      "id": "released_seeds"
+    }
+  ],
+  "rounds": [
+    {
+      "id": "R1",
+      "act": 1,
+      "turns": 3,
+      "p0": 5,
+      "intents": [
+        "grow",
+        "lash",
+        "taunt"
+      ],
+      "allies": [],
+      "siblings": [
+        "kab",
+        "kib"
+      ],
+      "combos": [],
+      "light": false,
+      "events": [],
+      "territory": false
+    },
+    {
+      "id": "R2",
+      "act": 2,
+      "turns": 4,
+      "p0": 3,
+      "intents": [
+        "taunt",
+        "grow",
+        "lash",
+        "gather"
+      ],
+      "allies": [
+        "pkam",
+        "fiw"
+      ],
+      "siblings": [],
+      "combos": [
+        "gear_pkam",
+        "seeds_fiw"
+      ],
+      "light": true,
+      "events": [
+        {
+          "turn": 3,
+          "light": 1,
+          "id": "code_rope"
+        }
+      ],
+      "territory": false
+    },
+    {
+      "id": "R5",
+      "act": 5,
+      "turns": 4,
+      "p0": 2,
+      "intents": [
+        "whisper",
+        "dim",
+        "grow",
+        "gather"
+      ],
+      "allies": [
+        "pkam",
+        "fiw"
+      ],
+      "siblings": [
+        "kab",
+        "kib"
+      ],
+      "combos": [],
+      "light": true,
+      "events": [],
+      "territory": true,
+      "finisherFrom": 3
+    }
+  ],
+  "lexicon": {
+    "intents": {
+      "grow": "lex.intent.grow",
+      "lash": "lex.intent.lash",
+      "taunt": "lex.intent.taunt",
+      "whisper": "lex.intent.whisper",
+      "dim": "lex.intent.dim",
+      "illusion": "lex.intent.illusion",
+      "gather": "lex.intent.gather"
+    },
+    "actions": {
+      "strike": "lex.action.strike",
+      "grit": "lex.action.grit",
+      "guard": "lex.action.guard",
+      "rest": "lex.action.rest",
+      "rain": "lex.action.rain",
+      "wind": "lex.action.wind",
+      "eye": "lex.action.eye",
+      "seeds": "lex.action.seeds",
+      "guardItem": "lex.action.guarditem",
+      "gear": "lex.action.gear",
+      "button": "lex.action.button",
+      "ribbon": "lex.action.ribbon",
+      "a_pkam": "lex.action.a_pkam",
+      "a_fiw": "lex.action.a_fiw",
+      "a_teuk": "lex.action.a_teuk",
+      "s_kab": "lex.action.s_kab",
+      "s_kib": "lex.action.s_kib",
+      "gear_pkam": "lex.action.gear_pkam",
+      "seeds_fiw": "lex.action.seeds_fiw",
+      "button_teuk": "lex.action.button_teuk",
+      "whistle_teuk": "lex.action.whistle_teuk",
+      "ribbon_fiw": "lex.action.ribbon_fiw",
+      "gear_pkam_b": "lex.action.gear_pkam_b",
+      "hem": "lex.action.hem"
+    }
+  },
+  "boundaries": [
+    {
+      "node": "n15",
+      "act": 5
+    }
+  ],
+  "texts": [
+    {
+      "id": "n01.l1",
+      "speaker": "narrator",
+      "body": "ฝนเพิ่งซาที่บึงทดสอบ"
+    },
+    {
+      "id": "n02.l1",
+      "speaker": "char_jao_kab",
+      "body": "เลือกทางมาสักทาง"
+    },
+    {
+      "id": "n02.o1",
+      "speaker": "narrator",
+      "body": "นั่งฟังฝน"
+    },
+    {
+      "id": "n02.o2",
+      "speaker": "narrator",
+      "body": "กระโดดข้ามร่องน้ำ"
+    },
+    {
+      "id": "n02.r1",
+      "speaker": "char_jao_kob",
+      "body": "ฝนบอกทางได้จริง"
+    },
+    {
+      "id": "n03.l1",
+      "speaker": "narrator",
+      "body": "หินลอยเหลือสามก้อน"
+    },
+    {
+      "id": "n03.o1",
+      "speaker": "narrator",
+      "body": "ฟังน้ำ"
+    },
+    {
+      "id": "n03.o2",
+      "speaker": "narrator",
+      "body": "ให้พี่ช่วย"
+    },
+    {
+      "id": "n03.o3",
+      "speaker": "narrator",
+      "body": "ใช้สนับข้อมือ"
+    },
+    {
+      "id": "n03.o4",
+      "speaker": "narrator",
+      "body": "ท่าผสาน"
+    },
+    {
+      "id": "n03.o5",
+      "speaker": "narrator",
+      "body": "ลุยเอง"
+    },
+    {
+      "id": "n03.o6",
+      "speaker": "narrator",
+      "body": "บุกทวน"
+    },
+    {
+      "id": "n03.o7",
+      "speaker": "narrator",
+      "body": "รอจังหวะ"
+    },
+    {
+      "id": "n03.o8",
+      "speaker": "narrator",
+      "body": "ฝืนเอา"
+    },
+    {
+      "id": "n04.l1",
+      "speaker": "char_cockroach_man",
+      "body": "ดูเงาข้าสิ"
+    },
+    {
+      "id": "n04.k1",
+      "speaker": "narrator",
+      "body": "พุ่งชน"
+    },
+    {
+      "id": "n04.k2",
+      "speaker": "narrator",
+      "body": "ตั้งหลัก"
+    },
+    {
+      "id": "n04.k3",
+      "speaker": "narrator",
+      "body": "หลบหลังกอกก"
+    },
+    {
+      "id": "n04.p1",
+      "speaker": "narrator",
+      "body": "เขาพุ่งผ่านละอองน้ำ"
+    },
+    {
+      "id": "n04.i1",
+      "speaker": "char_cockroach_man",
+      "body": "ยิ่งกลัว ข้ายิ่งสูง"
+    },
+    {
+      "id": "n04.i2",
+      "speaker": "narrator",
+      "body": "ผ้าคลุมพองลม"
+    },
+    {
+      "id": "n04.i3",
+      "speaker": "char_cockroach_man",
+      "body": "บึงนี้เล็กนิดเดียว"
+    },
+    {
+      "id": "n04.d",
+      "speaker": "narrator",
+      "body": "เงาแตกเป็นเสี่ยง"
+    },
+    {
+      "id": "n04.h",
+      "speaker": "narrator",
+      "body": "มันถอยเข้าท่อ"
+    },
+    {
+      "id": "n04.w",
+      "speaker": "narrator",
+      "body": "มันหนีไปได้"
+    },
+    {
+      "id": "n05.l1",
+      "speaker": "narrator",
+      "body": "หยดน้ำตกลงกะลา"
+    },
+    {
+      "id": "n05.a1",
+      "speaker": "narrator",
+      "body": "กินข้าวเย็น"
+    },
+    {
+      "id": "n05.a2",
+      "speaker": "narrator",
+      "body": "คุยกับพี่ก้าม"
+    },
+    {
+      "id": "n05.a3",
+      "speaker": "narrator",
+      "body": "เตรียมของให้พร้อม"
+    },
+    {
+      "id": "n05.a4",
+      "speaker": "narrator",
+      "body": "ดามข้อเท้า"
+    },
+    {
+      "id": "n05.a5",
+      "speaker": "narrator",
+      "body": "พันข้อเท้า"
+    },
+    {
+      "id": "n05.r1",
+      "speaker": "char_jao_kab",
+      "body": "กินอีกคำ"
+    },
+    {
+      "id": "n06.h",
+      "speaker": "narrator",
+      "body": "เคาะท่อสามครั้ง"
+    },
+    {
+      "id": "n07.l1",
+      "speaker": "narrator",
+      "body": "ท่อใต้เมืองมืดสนิท"
+    },
+    {
+      "id": "n07.l2",
+      "speaker": "char_p_kam",
+      "body": "แกยังพกเฟืองอยู่สินะ"
+    },
+    {
+      "id": "n08.l1",
+      "speaker": "narrator",
+      "body": "มีของใหม่ยื่นมาให้"
+    },
+    {
+      "id": "n08.o1",
+      "speaker": "narrator",
+      "body": "รับไว้"
+    },
+    {
+      "id": "n08.o2",
+      "speaker": "narrator",
+      "body": "รับแล้วฝากเมล็ดไว้"
+    },
+    {
+      "id": "n08.o3",
+      "speaker": "narrator",
+      "body": "ขอให้เก็บไว้เอง"
+    },
+    {
+      "id": "n09.l1",
+      "speaker": "narrator",
+      "body": "รางลมขาดกลาง"
+    },
+    {
+      "id": "n09.o1",
+      "speaker": "narrator",
+      "body": "ให้พี่ก้ามช่วย"
+    },
+    {
+      "id": "n09.o2",
+      "speaker": "narrator",
+      "body": "ฝืนเอา"
+    },
+    {
+      "id": "n10.l1",
+      "speaker": "narrator",
+      "body": "เลือกแผนบุก"
+    },
+    {
+      "id": "n10.o1",
+      "speaker": "narrator",
+      "body": "แผน A"
+    },
+    {
+      "id": "n10.o2",
+      "speaker": "narrator",
+      "body": "แผน B"
+    },
+    {
+      "id": "n11.l1",
+      "speaker": "narrator",
+      "body": "แสงแรกของเช้า"
+    },
+    {
+      "id": "n11.e1",
+      "speaker": "narrator",
+      "body": "อยู่ตรงนี้"
+    },
+    {
+      "id": "n11.e2",
+      "speaker": "narrator",
+      "body": "กลับบ้าน"
+    },
+    {
+      "id": "n11.e3",
+      "speaker": "narrator",
+      "body": "ผู้พิทักษ์ของสองรุ่งอรุณ"
+    },
+    {
+      "id": "n11.k1",
+      "speaker": "narrator",
+      "body": "ใจยังสั่นเกินไป"
+    },
+    {
+      "id": "n11.k2",
+      "speaker": "narrator",
+      "body": "ยังไม่ได้พกคำสัญญามาถึง"
+    },
+    {
+      "id": "n11.k3",
+      "speaker": "narrator",
+      "body": "ขาล้าเกินไป"
+    },
+    {
+      "id": "n11.k4",
+      "speaker": "narrator",
+      "body": "ไม่ได้พกอะไรจากบ้าน"
+    },
+    {
+      "id": "n11.k5",
+      "speaker": "narrator",
+      "body": "เสียงบ้านยังเบา"
+    },
+    {
+      "id": "n11.k6",
+      "speaker": "narrator",
+      "body": "ยังไม่ได้ยืนเองมากพอ"
+    },
+    {
+      "id": "n11.k7",
+      "speaker": "narrator",
+      "body": "เหนื่อยเกินไป"
+    },
+    {
+      "id": "n11.k8",
+      "speaker": "narrator",
+      "body": "ยังมีเพื่อนที่ยังไม่รู้จักจริง"
+    },
+    {
+      "id": "n11.k9",
+      "speaker": "narrator",
+      "body": "ยังขาดของจากอีกโลก"
+    },
+    {
+      "id": "n11.f",
+      "speaker": "narrator",
+      "body": "พี่กับจะแบกกลับเอง"
+    },
+    {
+      "id": "n12.l1",
+      "speaker": "narrator",
+      "body": "อ้อมกอดในเช้าแรก"
+    },
+    {
+      "id": "n13.l1",
+      "speaker": "narrator",
+      "body": "บึงน้ำใสยามเช้า"
+    },
+    {
+      "id": "n13.h",
+      "speaker": "narrator",
+      "body": "แตะรากหลิวสามครั้ง"
+    },
+    {
+      "id": "n14.l1",
+      "speaker": "narrator",
+      "body": "สามเคาะที่หน้าต่าง"
+    },
+    {
+      "id": "lex.intent.grow",
+      "speaker": "narrator",
+      "body": "เงาขยาย"
+    },
+    {
+      "id": "lex.intent.lash",
+      "speaker": "narrator",
+      "body": "ฟาดผ้าคลุม"
+    },
+    {
+      "id": "lex.intent.taunt",
+      "speaker": "narrator",
+      "body": "กระซิบขู่"
+    },
+    {
+      "id": "lex.intent.whisper",
+      "speaker": "narrator",
+      "body": "กระซิบฝันร้าย"
+    },
+    {
+      "id": "lex.intent.dim",
+      "speaker": "narrator",
+      "body": "ดับแสง"
+    },
+    {
+      "id": "lex.intent.illusion",
+      "speaker": "narrator",
+      "body": "เงาลวง"
+    },
+    {
+      "id": "lex.intent.gather",
+      "speaker": "narrator",
+      "body": "สูดความมืด"
+    },
+    {
+      "id": "lex.action.strike",
+      "speaker": "narrator",
+      "body": "รุก"
+    },
+    {
+      "id": "lex.action.grit",
+      "speaker": "narrator",
+      "body": "ฝืนรุก"
+    },
+    {
+      "id": "lex.action.guard",
+      "speaker": "narrator",
+      "body": "ตั้งรับ"
+    },
+    {
+      "id": "lex.action.rest",
+      "speaker": "narrator",
+      "body": "สูดหายใจ"
+    },
+    {
+      "id": "lex.action.rain",
+      "speaker": "narrator",
+      "body": "ตั้งสติฟังฝน"
+    },
+    {
+      "id": "lex.action.wind",
+      "speaker": "narrator",
+      "body": "ดีดตัวผ่าลม"
+    },
+    {
+      "id": "lex.action.eye",
+      "speaker": "narrator",
+      "body": "ตาส่องเงามืด"
+    },
+    {
+      "id": "lex.action.seeds",
+      "speaker": "narrator",
+      "body": "เมล็ดต้อยติ่งเรืองแสง"
+    },
+    {
+      "id": "lex.action.guarditem",
+      "speaker": "narrator",
+      "body": "สนับข้อมือเปลือกไม้"
+    },
+    {
+      "id": "lex.action.gear",
+      "speaker": "narrator",
+      "body": "เฟืองสังกะสีไขลาน"
+    },
+    {
+      "id": "lex.action.button",
+      "speaker": "narrator",
+      "body": "กระดุมทองเหลือง ต.♡ป."
+    },
+    {
+      "id": "lex.action.ribbon",
+      "speaker": "narrator",
+      "body": "ริบบิ้นเหลืองกลิ่นแดด"
+    },
+    {
+      "id": "lex.action.a_pkam",
+      "speaker": "narrator",
+      "body": "โล่กระป๋องเหล็กคู่ใจ"
+    },
+    {
+      "id": "lex.action.a_fiw",
+      "speaker": "narrator",
+      "body": "โฉบคว้ากลางเวหา"
+    },
+    {
+      "id": "lex.action.a_teuk",
+      "speaker": "narrator",
+      "body": "ลำแสงสัญญาจากนอกรั้ว"
+    },
+    {
+      "id": "lex.action.s_kab",
+      "speaker": "narrator",
+      "body": "สปริงพี่ใหญ่"
+    },
+    {
+      "id": "lex.action.s_kib",
+      "speaker": "narrator",
+      "body": "ห่าเมล็ดเรือง"
+    },
+    {
+      "id": "lex.action.gear_pkam",
+      "speaker": "narrator",
+      "body": "ล็อกสลิงถ่วงประตูน้ำ"
+    },
+    {
+      "id": "lex.action.seeds_fiw",
+      "speaker": "narrator",
+      "body": "ไฟเมล็ดนำร่อง"
+    },
+    {
+      "id": "lex.action.button_teuk",
+      "speaker": "narrator",
+      "body": "ลำแสงสะท้อนกระดุมคู่"
+    },
+    {
+      "id": "lex.action.whistle_teuk",
+      "speaker": "narrator",
+      "body": "นกหวีดเรียกลำแสง"
+    },
+    {
+      "id": "lex.action.ribbon_fiw",
+      "speaker": "narrator",
+      "body": "ผ้าพันคอนำลม"
+    },
+    {
+      "id": "lex.action.gear_pkam_b",
+      "speaker": "narrator",
+      "body": "ล็อกท่อรางน้ำ"
+    },
+    {
+      "id": "lex.action.hem",
+      "speaker": "narrator",
+      "body": "ชูชายเสื้อรับแสง"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "n01",
+      "type": "vn",
+      "act": 1,
+      "title": "เปิดเรื่อง",
+      "stage": {
+        "bg": "bg_act1_willow_roots",
+        "slots": [
+          {
+            "slot": "center",
+            "asset": "char_jao_kob_childhood_curious",
+            "facing": "right"
+          }
+        ],
+        "silenceMs": 2000
+      },
+      "lines": [
+        {
+          "text": "n01.l1"
+        }
+      ],
+      "effects": [
+        {
+          "op": "meter.set",
+          "meters": {
+            "hp": 5,
+            "mind": 4,
+            "sta": 5
+          }
+        }
+      ],
+      "next": "n02"
+    },
+    {
+      "id": "n02",
+      "type": "choice",
+      "act": 1,
+      "title": "เลือกวิชา",
+      "stage": {
+        "bg": "bg_act1_bamboo_home_dusk",
+        "slots": [],
+        "silenceMs": 0
+      },
+      "lines": [
+        {
+          "text": "n02.l1"
+        }
+      ],
+      "options": [
+        {
+          "key": "major-rain",
+          "label": "n02.o1",
+          "effects": [
+            {
+              "op": "pick.major",
+              "value": "rain"
+            }
+          ],
+          "responses": [
+            {
+              "text": "n02.r1"
+            }
+          ]
+        },
+        {
+          "key": "major-wind",
+          "label": "n02.o2",
+          "effects": [
+            {
+              "op": "pick.major",
+              "value": "wind"
+            },
+            {
+              "op": "pick.route",
+              "value": "A"
+            }
+          ],
+          "responses": []
+        }
+      ],
+      "next": "n03"
+    },
+    {
+      "id": "n03",
+      "type": "obstacle",
+      "act": 1,
+      "title": "ด่านแรก",
+      "stage": {
+        "bg": "bg_act1_overflow_weir",
+        "slots": [],
+        "silenceMs": 0
+      },
+      "lines": [
+        {
+          "text": "n03.l1"
+        }
+      ],
+      "options": [
+        {
+          "key": "rain",
+          "method": {
+            "kind": "skill",
+            "skill": "rain"
+          },
+          "label": "n03.o1",
+          "effects": [],
+          "responses": []
+        },
+        {
+          "key": "kab",
+          "method": {
+            "kind": "sibling",
+            "sibling": "kab"
+          },
+          "label": "n03.o2",
+          "effects": [],
+          "responses": []
+        },
+        {
+          "key": "guard",
+          "method": {
+            "kind": "item",
+            "item": "item_kab_bark_guard"
+          },
+          "label": "n03.o3",
+          "effects": [],
+          "responses": []
+        },
+        {
+          "key": "combo",
+          "method": {
+            "kind": "combo",
+            "item": "item_kib_glowing_seeds",
+            "ally": "pkam"
+          },
+          "label": "n03.o4",
+          "effects": [
+            {
+              "op": "bond.add",
+              "bond": "pkam",
+              "amount": 2
+            }
+          ],
+          "responses": []
+        },
+        {
+          "key": "alone",
+          "method": {
+            "kind": "alone",
+            "sta": 1,
+            "needSta": 2
+          },
+          "label": "n03.o5",
+          "effects": [],
+          "responses": []
+        },
+        {
+          "key": "rush",
+          "method": {
+            "kind": "rush"
+          },
+          "label": "n03.o6",
+          "effects": [],
+          "responses": []
+        },
+        {
+          "key": "wait",
+          "method": {
+            "kind": "wait"
+          },
+          "label": "n03.o7",
+          "effects": [],
+          "responses": []
+        },
+        {
+          "key": "grit",
+          "method": {
+            "kind": "grit"
+          },
+          "label": "n03.o8",
+          "effects": [],
+          "responses": []
+        }
+      ],
+      "next": "n04"
+    },
+    {
+      "id": "n04",
+      "type": "clash",
+      "act": 1,
+      "title": "ศึกแรก",
+      "stage": {
+        "bg": "bg_act1_overflow_weir",
+        "cg": "cg_act1_three_siblings_weir",
+        "slots": [],
+        "silenceMs": 0
+      },
+      "lines": [
+        {
+          "text": "n04.l1"
+        }
+      ],
+      "round": "R1",
+      "labels": {
+        "strike": "n04.k1",
+        "guard": "n04.k2",
+        "rest": "n04.k3"
+      },
+      "responses": {
+        "strike": "n04.p1"
+      },
+      "intentLines": [
+        [
+          {
+            "text": "n04.i1"
+          }
+        ],
+        [
+          {
+            "text": "n04.i2"
+          }
+        ],
+        [
+          {
+            "text": "n04.i3"
+          }
+        ]
+      ],
+      "outcome": {
+        "decisive": [
+          {
+            "text": "n04.d"
+          }
+        ],
+        "hold": [
+          {
+            "text": "n04.h"
+          }
+        ],
+        "narrow": [
+          {
+            "text": "n04.w"
+          }
+        ]
+      },
+      "outroLines": [],
+      "next": "n05"
+    },
+    {
+      "id": "n05",
+      "type": "camp",
+      "act": 1,
+      "title": "แคมป์",
+      "stage": {
+        "bg": "bg_act1_bamboo_home_dusk",
+        "slots": [],
+        "silenceMs": 0
+      },
+      "lines": [
+        {
+          "text": "n05.l1"
+        }
+      ],
+      "camp": "C1",
+      "drops": 2,
+      "activities": [
+        {
+          "key": "eat",
+          "label": "n05.a1",
+          "effects": [
+            {
+              "op": "meter.add",
+              "meter": "hp",
+              "amount": 1
+            },
+            {
+              "op": "meter.add",
+              "meter": "sta",
+              "amount": 1
+            }
+          ],
+          "responses": [
+            {
+              "text": "n05.r1"
+            }
+          ]
+        },
+        {
+          "key": "talk",
+          "label": "n05.a2",
+          "effects": [
+            {
+              "op": "bond.add",
+              "bond": "pkam",
+              "amount": 1
+            }
+          ],
+          "responses": []
+        },
+        {
+          "key": "ready",
+          "label": "n05.a3",
+          "ready": true,
+          "effects": [],
+          "responses": []
+        },
+        {
+          "key": "splint",
+          "label": "n05.a4",
+          "group": "ankle",
+          "when": {
+            "hasItem": "item_kab_bark_guard"
+          },
+          "effects": [
+            {
+              "op": "item.release",
+              "item": "item_kab_bark_guard"
+            },
+            {
+              "op": "flag.set",
+              "flag": "teuk_splint"
+            }
+          ],
+          "responses": []
+        },
+        {
+          "key": "wrap",
+          "label": "n05.a5",
+          "group": "ankle",
+          "effects": [],
+          "responses": []
+        }
+      ],
+      "next": "n06"
+    },
+    {
+      "id": "n06",
+      "type": "micro",
+      "act": 1,
+      "title": "รหัสสามจังหวะ",
+      "stage": {
+        "bg": "bg_act1_overflow_weir",
+        "slots": [],
+        "silenceMs": 1000
+      },
+      "lines": [],
+      "micro": {
+        "kind": "tap3",
+        "ma": "MA-1",
+        "durationMs": 6000,
+        "hint": "n06.h"
+      },
+      "next": "n07"
+    },
+    {
+      "id": "n07",
+      "type": "vn",
+      "act": 2,
+      "title": "ท่อใต้เมือง",
+      "stage": {
+        "bg": "bg_act2_whirlpool_grate",
+        "slots": [],
+        "silenceMs": 0
+      },
+      "lines": [
+        {
+          "text": "n07.l1",
+          "when": {
+            "all": [
+              {
+                "major": "rain"
+              },
+              {
+                "not": {
+                  "route": "B"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "text": "n07.l2",
+          "when": {
+            "any": [
+              {
+                "hasItem": "item_pkam_tin_gear"
+              },
+              {
+                "flag": "met_pkam"
+              },
+              {
+                "meterAtLeast": {
+                  "meter": "mind",
+                  "value": 3
+                }
+              },
+              {
+                "bondAtLeast": {
+                  "bond": "pkam",
+                  "value": 1
+                }
+              },
+              {
+                "counterAtLeast": {
+                  "counter": "familySkillUses",
+                  "value": 1
+                }
+              },
+              {
+                "plan": "A"
+              }
+            ]
+          }
+        }
+      ],
+      "effects": [
+        {
+          "op": "item.grant",
+          "item": "item_pkam_tin_gear"
+        },
+        {
+          "op": "item.ready",
+          "item": "item_pkam_tin_gear"
+        },
+        {
+          "op": "flag.set",
+          "flag": "met_pkam"
+        },
+        {
+          "op": "meter.hazard",
+          "meter": "mind",
+          "amount": 1
+        },
+        {
+          "op": "meter.spend",
+          "meter": "sta",
+          "amount": 1
+        },
+        {
+          "op": "floor.rest",
+          "meters": {
+            "hp": 2,
+            "mind": 2,
+            "sta": 2
+          }
+        }
+      ],
+      "next": "n08"
+    },
+    {
+      "id": "n08",
+      "type": "pouch",
+      "act": 3,
+      "title": "ของใหม่",
+      "stage": {
+        "bg": "bg_act3_wayside_shelter_teuk",
+        "slots": [],
+        "silenceMs": 0
+      },
+      "lines": [
+        {
+          "text": "n08.l1"
+        }
+      ],
+      "offer": {
+        "item": "item_teuk_whistle_charm",
+        "take": {
+          "key": "take",
+          "label": "n08.o1",
+          "effects": [
+            {
+              "op": "bond.add",
+              "bond": "teuk",
+              "amount": 1
+            }
+          ],
+          "responses": []
+        },
+        "releases": [
+          {
+            "key": "release-seeds",
+            "release": "item_kib_glowing_seeds",
+            "label": "n08.o2",
+            "effects": [
+              {
+                "op": "flag.set",
+                "flag": "released_seeds"
+              }
+            ],
+            "responses": []
+          }
+        ],
+        "refuse": {
+          "key": "refuse",
+          "label": "n08.o3",
+          "effects": [],
+          "responses": []
+        }
+      },
+      "next": "n09"
+    },
+    {
+      "id": "n09",
+      "type": "obstacle",
+      "act": 3,
+      "title": "รางลม",
+      "stage": {
+        "bg": "bg_act3_blackout_street_cart",
+        "slots": [],
+        "silenceMs": 0
+      },
+      "lines": [
+        {
+          "text": "n09.l1"
+        }
+      ],
+      "options": [
+        {
+          "key": "friend",
+          "method": {
+            "kind": "friend",
+            "ally": "pkam",
+            "minBond": 1
+          },
+          "label": "n09.o1",
+          "effects": [
+            {
+              "op": "bond.add",
+              "bond": "pkam",
+              "amount": 1
+            }
+          ],
+          "responses": []
+        },
+        {
+          "key": "grit",
+          "method": {
+            "kind": "grit"
+          },
+          "label": "n09.o2",
+          "effects": [],
+          "responses": []
+        }
+      ],
+      "next": "n10"
+    },
+    {
+      "id": "n10",
+      "type": "choice",
+      "act": 4,
+      "title": "แผนบุก",
+      "stage": {
+        "bg": "bg_act4_parapet_storm_abyss",
+        "slots": [],
+        "silenceMs": 0
+      },
+      "lines": [
+        {
+          "text": "n10.l1"
+        }
+      ],
+      "micro": {
+        "kind": "hold",
+        "ma": "MA-4",
+        "durationMs": 6000,
+        "hint": "n10.l1"
+      },
+      "options": [
+        {
+          "key": "plan-a",
+          "label": "n10.o1",
+          "effects": [
+            {
+              "op": "pick.plan",
+              "value": "A"
+            }
+          ],
+          "responses": [],
+          "next": "n11"
+        },
+        {
+          "key": "plan-b",
+          "label": "n10.o2",
+          "effects": [
+            {
+              "op": "pick.plan",
+              "value": "B"
+            }
+          ],
+          "responses": [],
+          "next": "n11"
+        }
+      ]
+    },
+    {
+      "id": "n11",
+      "type": "ending",
+      "act": 5,
+      "title": "ทางเลือกในแสงแรก",
+      "stage": {
+        "bg": "bg_act5_bedroom_golden_dawn",
+        "slots": [],
+        "silenceMs": 4000
+      },
+      "lines": [
+        {
+          "text": "n11.l1"
+        }
+      ],
+      "endings": [
+        {
+          "ending": "e-home",
+          "key": "home",
+          "label": "n11.e1",
+          "responses": [],
+          "locks": [
+            {
+              "reason": "mind",
+              "text": "n11.k1"
+            },
+            {
+              "reason": "promise",
+              "text": "n11.k2"
+            }
+          ],
+          "next": "n12"
+        },
+        {
+          "ending": "e-pond",
+          "key": "pond",
+          "label": "n11.e2",
+          "responses": [],
+          "locks": [
+            {
+              "reason": "legs",
+              "text": "n11.k3"
+            },
+            {
+              "reason": "roots",
+              "text": "n11.k4"
+            }
+          ],
+          "next": "n13"
+        },
+        {
+          "ending": "e-dawn",
+          "key": "dawn",
+          "label": "n11.e3",
+          "responses": [],
+          "locks": [
+            {
+              "reason": "family-skill",
+              "text": "n11.k5"
+            },
+            {
+              "reason": "self-reliance",
+              "text": "n11.k6"
+            },
+            {
+              "reason": "mind-sta",
+              "text": "n11.k7"
+            },
+            {
+              "reason": "bonds",
+              "text": "n11.k8"
+            },
+            {
+              "reason": "two-worlds",
+              "text": "n11.k9"
+            }
+          ],
+          "next": "n14"
+        }
+      ],
+      "fallbackLine": "n11.f"
+    },
+    {
+      "id": "n12",
+      "type": "vn",
+      "act": 5,
+      "title": "อ้อมกอด",
+      "stage": {
+        "bg": "bg_act5_bedroom_golden_dawn",
+        "slots": [],
+        "silenceMs": 0
+      },
+      "lines": [
+        {
+          "text": "n12.l1"
+        }
+      ],
+      "completes": "e-home",
+      "micro": {
+        "kind": "press",
+        "ma": "MA-6",
+        "durationMs": 3000,
+        "hint": "n12.l1"
+      }
+    },
+    {
+      "id": "n13",
+      "type": "vn",
+      "act": 5,
+      "title": "บึงน้ำใส",
+      "stage": {
+        "bg": "bg_act5_pond_homecoming_dawn",
+        "slots": [],
+        "silenceMs": 0
+      },
+      "lines": [
+        {
+          "text": "n13.l1"
+        }
+      ],
+      "micro": {
+        "kind": "stitch",
+        "ma": "MA-6",
+        "durationMs": 4000,
+        "hint": "n13.h"
+      },
+      "completes": "e-pond"
+    },
+    {
+      "id": "n14",
+      "type": "vn",
+      "act": 5,
+      "title": "สองรุ่งอรุณ",
+      "stage": {
+        "bg": "bg_act5_bedroom_golden_dawn",
+        "slots": [],
+        "silenceMs": 0
+      },
+      "lines": [
+        {
+          "text": "n14.l1"
+        }
+      ],
+      "completes": "e-dawn"
+    }
+  ]
+}

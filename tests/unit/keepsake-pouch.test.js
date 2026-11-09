@@ -1,7 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { createPouch, collectItem, refuseItem, releaseItem, replaceItem, useItem, validatePouch, PouchError } from "../../src/core/domain/keepsake-pouch.js";
-import { resolvePouchTransaction } from "../../src/core/use-cases/pouch-transaction.js";
 
 const ids = ["item_leaf", "item_dew_stone", "item_lotus_shell", "item_rain_petal", "item_red_yarn"];
 const full = () => ids.slice(0, 4).reduce((pouch, id) => collectItem(pouch, { id }).value, createPouch());
@@ -90,32 +89,4 @@ test("TC-S4-POUCH-001 deterministic replay of mixed operations preserves invaria
     assert.equal(validatePouch(p).valid, true); return p;
   };
   assert.deepEqual(run(), run());
-});
-
-const snapshot = () => ({ revision: 7, currentNodeId: "node.fixture.rest", state: "Decision", pouch: full(), metrics: { hp: 73, sanity: 55, bond: 0 } });
-const opportunity = { id: "opportunity.fixture", safe: true, nodeId: "node.fixture.rest", states: ["Decision"], actions: ["collect", "refuse", "release", "replace", "use"] };
-const command = { expectedRevision: 7, action: "replace", opportunityId: opportunity.id, oldItemId: ids[0], itemId: ids[4] };
-for (const [label, patch, offer, code] of [
-  ["stale", { expectedRevision: 6 }, opportunity, "REVISION_MISMATCH"],
-  ["unsafe", {}, { ...opportunity, safe: false }, "POUCH_CONTEXT"],
-  ["other node", {}, { ...opportunity, nodeId: "node.other" }, "POUCH_CONTEXT"],
-  ["reading", {}, { ...opportunity, states: ["Exploration"] }, "POUCH_CONTEXT"],
-  ["unknown offer", { opportunityId: "unknown" }, opportunity, "POUCH_CONTEXT"],
-  ["unknown item", { itemId: "item_unknown" }, opportunity, "POUCH_ITEM_REFERENCE"],
-  ["unknown old item", { oldItemId: "item_unknown" }, opportunity, "POUCH_ITEM_REFERENCE"],
-  ["wrong offer item", {}, { ...opportunity, itemId: ids[1] }, "POUCH_ITEM_REFERENCE"],
-  ["forbidden action", { action: "use" }, { ...opportunity, actions: ["release"] }, "POUCH_CONTEXT"],
-  ["no offer", {}, null, "POUCH_CONTEXT"],
-]) test(`TC-S4-STATE-001 application rejects ${label} without snapshot changes`, () => {
-  const s = snapshot(), before = structuredClone(s);
-  const result = resolvePouchTransaction({ snapshot: s, command: { ...command, ...patch }, opportunity: offer, itemIds: ids });
-  assert.equal(result.ok, false); assert.equal(result.error.code, code); assert.equal(result.snapshot, s); assert.deepEqual(s, before);
-});
-test("TC-S4-STATE-001 atomic guarded replacement, double input and no stat reward", () => {
-  const s = snapshot(), before = structuredClone(s);
-  const result = resolvePouchTransaction({ snapshot: s, command, opportunity, itemIds: ids });
-  assert.equal(result.ok, true); assert.deepEqual(s, before); assert.equal(result.value.pouch.held[0], ids[4]);
-  assert.equal(resolvePouchTransaction({ snapshot: { ...s, pouch: result.value.pouch }, command, opportunity, itemIds: ids }).ok, false);
-  assert.equal(resolvePouchTransaction({ snapshot: null }).ok, false);
-  assert.equal(resolvePouchTransaction({ snapshot: s }).ok, false);
 });

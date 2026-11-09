@@ -7,6 +7,7 @@
 | ไฟล์ | ระดับ |
 |---|---|
 | [sprint-05-execution-matrix.md](sprint-05-execution-matrix.md) | Tier 1 |
+| [sprint-05-superseded-assertions.md](sprint-05-superseded-assertions.md) | Tier 1 · ทะเบียน assertion ที่ถูกแทนที่ก่อนลบเทสต์ของ runtime เดิม |
 | [sprint-04-slice-02-pouch-matrix.md](sprint-04-slice-02-pouch-matrix.md) | Tier 3 |
 | [sprint-02-content-matrix.md](sprint-02-content-matrix.md) | Tier 4 · `tests/unit/content-graph.test.js` อ่านไฟล์นี้ ห้ามย้ายหรือเปลี่ยนชื่อ |
 

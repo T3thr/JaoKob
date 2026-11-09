@@ -1,0 +1,59 @@
+{
+  "spec": "jaokob-mechanics-1",
+  "act": 1,
+  "flags": ["clue_star_and_threads", "clue_button_on_shadow"],
+  "nodes": {
+    "A1-01": { "next": "A1-02" },
+    "A1-02": { "effects": [{ "op": "flag.set", "flag": "clue_star_and_threads" }], "next": "A1-03" },
+    "A1-03": {
+      "stage": { "slots": [{ "slot": "left", "asset": "char_jao_kob_childhood_neutral", "facing": "right" }] },
+      "options": {
+        "major:rain": { "effects": [{ "op": "pick.major", "value": "rain" }] },
+        "major:wind": { "effects": [{ "op": "pick.major", "value": "wind" }] },
+        "major:eye": { "effects": [{ "op": "pick.major", "value": "eye" }] }
+      },
+      "next": "A1-04"
+    },
+    "A1-04": { "effects": [{ "op": "meter.set", "meters": { "hp": 5, "mind": 4, "sta": 5 } }], "next": "A1-05" },
+    "A1-05": { "next": "A1-06" },
+    "A1-06": {
+      "options": {
+        "o:rain": { "method": { "kind": "skill", "skill": "rain" } },
+        "o:wind": { "method": { "kind": "skill", "skill": "wind" } },
+        "o:eye": { "method": { "kind": "skill", "skill": "eye" } },
+        "o:alone": { "method": { "kind": "alone", "sta": 1, "needSta": 2 } },
+        "o:grit": { "method": { "kind": "grit" } }
+      },
+      "next": "A1-07"
+    },
+    "A1-07": { "effects": [{ "op": "flag.set", "flag": "clue_button_on_shadow" }], "next": "A1-08" },
+    "A1-08": {
+      "round": "R1",
+      "stage": { "slots": [
+        { "slot": "left", "asset": "char_jao_kob_adult_determined", "facing": "right" },
+        { "slot": "right", "asset": "char_cockroach_man_boast_button", "facing": "left" }
+      ] },
+      "next": "A1-09"
+    },
+    "A1-09": { "next": "A1-10" },
+    "A1-10": {
+      "stage": { "slots": [] },
+      "activities": {
+        "c:eat": { "effects": [{ "op": "meter.add", "meter": "hp", "amount": 1 }, { "op": "meter.add", "meter": "sta", "amount": 1 }] },
+        "c:kab": { "effects": [{ "op": "item.ready", "item": "item_kab_bark_guard" }] },
+        "c:kib": { "effects": [{ "op": "item.ready", "item": "item_kib_glowing_seeds" }] },
+        "c:mother": { "effects": [{ "op": "meter.add", "meter": "mind", "amount": 1 }] }
+      },
+      "next": "A1-11"
+    },
+    "A1-11": { "effects": [{ "op": "item.grant", "item": "item_kib_glowing_seeds" }, { "op": "item.grant", "item": "item_kab_bark_guard" }], "next": "A1-12" },
+    "A1-12": { "micro": { "kind": "tap3", "hint": "แตะวงคลื่นบนท่อสามครั้ง" }, "next": "A1-13" },
+    "A1-13": {
+      "effects": [{ "op": "floor.rest", "meters": { "hp": 4, "mind": 3, "sta": 4 } }],
+      "options": {
+        "route:A": { "effects": [{ "op": "pick.route", "value": "A" }], "next": "A2A-01" },
+        "route:B": { "effects": [{ "op": "pick.route", "value": "B" }], "next": "A2B-01" }
+      }
+    }
+  }
+}

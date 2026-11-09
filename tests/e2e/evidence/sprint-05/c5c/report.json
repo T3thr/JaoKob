@@ -1,0 +1,471 @@
+{
+  "runner": "tests/e2e/journey-c5c-panels.mjs",
+  "head": "00d819a75bd09cb2044b22777a1829e24a3947f9",
+  "requirements": [
+    "TC-S5-A11Y-001",
+    "TC-S5-UX-001",
+    "TC-S5-SAVE-001"
+  ],
+  "layout": [
+    {
+      "tag": "320x568 text 100% title",
+      "flow": false,
+      "dialog": null,
+      "panel": null,
+      "focus": "jk-title__button jk-title__button--primary"
+    },
+    {
+      "tag": "320x568 text 100% settings",
+      "flow": false,
+      "dialog": [
+        16,
+        552
+      ],
+      "panel": null,
+      "focus": "jk-scale__input"
+    },
+    {
+      "tag": "320x568 text 100% pouch",
+      "flow": false,
+      "dialog": [
+        109,
+        459
+      ],
+      "panel": null,
+      "focus": "jk-modal__close"
+    },
+    {
+      "tag": "320x568 text 100% endings",
+      "flow": true,
+      "dialog": null,
+      "panel": 291,
+      "focus": "jk-ending jk-paper"
+    },
+    {
+      "tag": "320x568 text 100% chapter-end",
+      "flow": false,
+      "dialog": null,
+      "panel": 413,
+      "focus": "jk-chapter-end__back"
+    },
+    {
+      "tag": "320x568 text 200% title",
+      "flow": false,
+      "dialog": null,
+      "panel": null,
+      "focus": "jk-title__button jk-title__button--primary"
+    },
+    {
+      "tag": "320x568 text 200% settings",
+      "flow": false,
+      "dialog": [
+        16,
+        552
+      ],
+      "panel": null,
+      "focus": "jk-scale__input"
+    },
+    {
+      "tag": "320x568 text 200% pouch",
+      "flow": false,
+      "dialog": [
+        16,
+        552
+      ],
+      "panel": null,
+      "focus": "jk-modal__close"
+    },
+    {
+      "tag": "320x568 text 200% endings",
+      "flow": true,
+      "dialog": null,
+      "panel": 291,
+      "focus": "jk-ending jk-paper"
+    },
+    {
+      "tag": "320x568 text 200% chapter-end",
+      "flow": false,
+      "dialog": null,
+      "panel": 320,
+      "focus": "jk-chapter-end__back"
+    },
+    {
+      "tag": "390x844 text 100% title",
+      "flow": false,
+      "dialog": null,
+      "panel": null,
+      "focus": "jk-title__button jk-title__button--primary"
+    },
+    {
+      "tag": "390x844 text 100% settings",
+      "flow": false,
+      "dialog": [
+        109,
+        735
+      ],
+      "panel": null,
+      "focus": "jk-scale__input"
+    },
+    {
+      "tag": "390x844 text 100% pouch",
+      "flow": false,
+      "dialog": [
+        254,
+        590
+      ],
+      "panel": null,
+      "focus": "jk-modal__close"
+    },
+    {
+      "tag": "390x844 text 100% endings",
+      "flow": false,
+      "dialog": null,
+      "panel": 448,
+      "focus": "jk-ending jk-paper"
+    },
+    {
+      "tag": "390x844 text 100% chapter-end",
+      "flow": false,
+      "dialog": null,
+      "panel": 689,
+      "focus": "jk-chapter-end__back"
+    },
+    {
+      "tag": "390x844 text 200% title",
+      "flow": false,
+      "dialog": null,
+      "panel": null,
+      "focus": "jk-title__button jk-title__button--primary"
+    },
+    {
+      "tag": "390x844 text 200% settings",
+      "flow": false,
+      "dialog": [
+        16,
+        828
+      ],
+      "panel": null,
+      "focus": "jk-scale__input"
+    },
+    {
+      "tag": "390x844 text 200% pouch",
+      "flow": false,
+      "dialog": [
+        179,
+        665
+      ],
+      "panel": null,
+      "focus": "jk-modal__close"
+    },
+    {
+      "tag": "390x844 text 200% endings",
+      "flow": true,
+      "dialog": null,
+      "panel": 418,
+      "focus": "jk-ending jk-paper"
+    },
+    {
+      "tag": "390x844 text 200% chapter-end",
+      "flow": false,
+      "dialog": null,
+      "panel": 596,
+      "focus": "jk-chapter-end__back"
+    },
+    {
+      "tag": "844x390 text 100% title",
+      "flow": false,
+      "dialog": null,
+      "panel": null,
+      "focus": "jk-title__button jk-title__button--primary"
+    },
+    {
+      "tag": "844x390 text 100% settings",
+      "flow": false,
+      "dialog": [
+        16,
+        374
+      ],
+      "panel": null,
+      "focus": "jk-scale__input"
+    },
+    {
+      "tag": "844x390 text 100% pouch",
+      "flow": false,
+      "dialog": [
+        32,
+        358
+      ],
+      "panel": null,
+      "focus": "jk-modal__close"
+    },
+    {
+      "tag": "844x390 text 100% endings",
+      "flow": false,
+      "dialog": null,
+      "panel": 243,
+      "focus": "jk-ending jk-paper"
+    },
+    {
+      "tag": "844x390 text 100% chapter-end",
+      "flow": false,
+      "dialog": null,
+      "panel": 247,
+      "focus": "jk-chapter-end__back"
+    },
+    {
+      "tag": "844x390 text 200% title",
+      "flow": false,
+      "dialog": null,
+      "panel": null,
+      "focus": "jk-title__button jk-title__button--primary"
+    },
+    {
+      "tag": "844x390 text 200% settings",
+      "flow": false,
+      "dialog": [
+        16,
+        374
+      ],
+      "panel": null,
+      "focus": "jk-scale__input"
+    },
+    {
+      "tag": "844x390 text 200% pouch",
+      "flow": false,
+      "dialog": [
+        16,
+        374
+      ],
+      "panel": null,
+      "focus": "jk-modal__close"
+    },
+    {
+      "tag": "844x390 text 200% endings",
+      "flow": true,
+      "dialog": null,
+      "panel": 260,
+      "focus": "jk-ending jk-paper"
+    },
+    {
+      "tag": "844x390 text 200% chapter-end",
+      "flow": false,
+      "dialog": null,
+      "panel": 216,
+      "focus": "jk-chapter-end__back"
+    },
+    {
+      "tag": "768x1024 text 100% title",
+      "flow": false,
+      "dialog": null,
+      "panel": null,
+      "focus": "jk-title__button jk-title__button--primary"
+    },
+    {
+      "tag": "768x1024 text 100% settings",
+      "flow": false,
+      "dialog": [
+        199,
+        825
+      ],
+      "panel": null,
+      "focus": "jk-scale__input"
+    },
+    {
+      "tag": "768x1024 text 100% pouch",
+      "flow": false,
+      "dialog": [
+        348,
+        676
+      ],
+      "panel": null,
+      "focus": "jk-modal__close"
+    },
+    {
+      "tag": "768x1024 text 100% endings",
+      "flow": false,
+      "dialog": null,
+      "panel": 628,
+      "focus": "jk-ending jk-paper"
+    },
+    {
+      "tag": "768x1024 text 100% chapter-end",
+      "flow": false,
+      "dialog": null,
+      "panel": 869,
+      "focus": "jk-chapter-end__back"
+    },
+    {
+      "tag": "768x1024 text 200% title",
+      "flow": false,
+      "dialog": null,
+      "panel": null,
+      "focus": "jk-title__button jk-title__button--primary"
+    },
+    {
+      "tag": "768x1024 text 200% settings",
+      "flow": false,
+      "dialog": [
+        44,
+        980
+      ],
+      "panel": null,
+      "focus": "jk-scale__input"
+    },
+    {
+      "tag": "768x1024 text 200% pouch",
+      "flow": false,
+      "dialog": [
+        304,
+        720
+      ],
+      "panel": null,
+      "focus": "jk-modal__close"
+    },
+    {
+      "tag": "768x1024 text 200% endings",
+      "flow": false,
+      "dialog": null,
+      "panel": 533,
+      "focus": "jk-ending jk-paper"
+    },
+    {
+      "tag": "768x1024 text 200% chapter-end",
+      "flow": false,
+      "dialog": null,
+      "panel": 834,
+      "focus": "jk-chapter-end__back"
+    },
+    {
+      "tag": "1440x900 text 100% title",
+      "flow": false,
+      "dialog": null,
+      "panel": null,
+      "focus": "jk-title__button jk-title__button--primary"
+    },
+    {
+      "tag": "1440x900 text 100% settings",
+      "flow": false,
+      "dialog": [
+        133,
+        767
+      ],
+      "panel": null,
+      "focus": "jk-scale__input"
+    },
+    {
+      "tag": "1440x900 text 100% pouch",
+      "flow": false,
+      "dialog": [
+        285,
+        615
+      ],
+      "panel": null,
+      "focus": "jk-modal__close"
+    },
+    {
+      "tag": "1440x900 text 100% endings",
+      "flow": false,
+      "dialog": null,
+      "panel": 672,
+      "focus": "jk-ending jk-paper"
+    },
+    {
+      "tag": "1440x900 text 100% chapter-end",
+      "flow": false,
+      "dialog": null,
+      "panel": 734,
+      "focus": "jk-chapter-end__back"
+    },
+    {
+      "tag": "1440x900 text 200% title",
+      "flow": false,
+      "dialog": null,
+      "panel": null,
+      "focus": "jk-title__button jk-title__button--primary"
+    },
+    {
+      "tag": "1440x900 text 200% settings",
+      "flow": false,
+      "dialog": [
+        16,
+        884
+      ],
+      "panel": null,
+      "focus": "jk-scale__input"
+    },
+    {
+      "tag": "1440x900 text 200% pouch",
+      "flow": false,
+      "dialog": [
+        240,
+        660
+      ],
+      "panel": null,
+      "focus": "jk-modal__close"
+    },
+    {
+      "tag": "1440x900 text 200% endings",
+      "flow": false,
+      "dialog": null,
+      "panel": 619,
+      "focus": "jk-ending jk-paper"
+    },
+    {
+      "tag": "1440x900 text 200% chapter-end",
+      "flow": false,
+      "dialog": null,
+      "panel": 692,
+      "focus": "jk-chapter-end__back"
+    }
+  ],
+  "keyboard": [
+    {
+      "titleFocus": "start",
+      "started": "playing",
+      "pouchOpen": true,
+      "afterEscape": {
+        "open": false,
+        "focus": "jk-dialogue__next"
+      },
+      "tabStaysInside": true,
+      "gearFocus": true,
+      "endFocus": "leave",
+      "back": {
+        "phase": "title",
+        "focus": "continue"
+      }
+    }
+  ],
+  "screenshots": [
+    "390x844-text100-title.jpg",
+    "390x844-text100-settings.jpg",
+    "390x844-text100-pouch.jpg",
+    "390x844-text100-endings.jpg",
+    "390x844-text100-chapter-end.jpg",
+    "390x844-text200-title.jpg",
+    "390x844-text200-settings.jpg",
+    "390x844-text200-pouch.jpg",
+    "390x844-text200-endings.jpg",
+    "390x844-text200-chapter-end.jpg",
+    "844x390-text100-title.jpg",
+    "844x390-text100-settings.jpg",
+    "844x390-text100-pouch.jpg",
+    "844x390-text100-endings.jpg",
+    "844x390-text100-chapter-end.jpg",
+    "1440x900-text100-title.jpg",
+    "1440x900-text100-settings.jpg",
+    "1440x900-text100-pouch.jpg",
+    "1440x900-text100-endings.jpg",
+    "1440x900-text100-chapter-end.jpg"
+  ],
+  "failures": [],
+  "errors": [],
+  "notRun": [
+    "Safari/WebKit and Firefox",
+    "physical iPhone and Android",
+    "VoiceOver and NVDA listening",
+    "PO visual acceptance"
+  ],
+  "browser": "151.0.7922.34",
+  "passed": true
+}

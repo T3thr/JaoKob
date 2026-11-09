@@ -1,0 +1,1993 @@
+{
+  "schemaVersion": "3.0.0",
+  "profile": "journey",
+  "package": {
+    "id": "story.jaokob.core",
+    "contentVersion": "0.1.0",
+    "title": "เจ้ากบ"
+  },
+  "sourceLocale": "th",
+  "start": {
+    "node": "a1-01",
+    "meters": {
+      "hp": 5,
+      "mind": 4,
+      "sta": 5
+    }
+  },
+  "acts": [
+    {
+      "act": 1,
+      "title": "ดาวสามแฉกที่ชายเสื้อ",
+      "entry": "a1-01"
+    }
+  ],
+  "characters": [
+    {
+      "id": "char_jao_kob",
+      "name": "กบ"
+    },
+    {
+      "id": "char_jao_kab",
+      "name": "กับ"
+    },
+    {
+      "id": "char_jao_kib",
+      "name": "กิบ"
+    },
+    {
+      "id": "char_father_frog",
+      "name": "พ่อ"
+    },
+    {
+      "id": "char_mother_frog",
+      "name": "แม่"
+    },
+    {
+      "id": "char_peuak",
+      "name": "เปี๊ยก"
+    },
+    {
+      "id": "char_jao_teuk",
+      "name": "เตื๊อก"
+    },
+    {
+      "id": "char_cockroach_man",
+      "name": "แมลงสาบแมน"
+    },
+    {
+      "id": "char_p_kam",
+      "name": "ก้าม"
+    },
+    {
+      "id": "char_jao_fiw",
+      "name": "ฟิ้ว"
+    },
+    {
+      "id": "char_boy_ton",
+      "name": "ต้น"
+    },
+    {
+      "id": "char_watchman_lung",
+      "name": "ลุงยาม"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_kib_glowing_seeds",
+      "side": "roots",
+      "locked": false,
+      "name": "เมล็ดต้อยติ่งเรืองแสง",
+      "icon": "item_kib_glowing_seeds"
+    },
+    {
+      "id": "item_kab_bark_guard",
+      "side": "roots",
+      "locked": false,
+      "name": "สนับข้อมือเปลือกไม้",
+      "icon": "item_kab_bark_guard"
+    },
+    {
+      "id": "item_pkam_tin_gear",
+      "side": "friend",
+      "locked": false,
+      "name": "เฟืองสังกะสีไขลาน",
+      "icon": "item_pkam_tin_gear"
+    },
+    {
+      "id": "item_teuk_peuak_button",
+      "side": "core",
+      "locked": true,
+      "name": "กระดุมทองเหลือง ต.♡ป.",
+      "icon": "item_teuk_peuak_button"
+    },
+    {
+      "id": "item_teuk_whistle_charm",
+      "side": "promise",
+      "locked": false,
+      "name": "นกหวีดทองเหลือง ต.♡ป.",
+      "icon": "item_teuk_whistle_charm"
+    },
+    {
+      "id": "item_fiw_sun_ribbon",
+      "side": "promise",
+      "locked": false,
+      "name": "ริบบิ้นเหลืองกลิ่นแดด",
+      "icon": "item_fiw_sun_ribbon"
+    }
+  ],
+  "flags": [
+    {
+      "id": "clue_star_and_threads"
+    },
+    {
+      "id": "clue_button_on_shadow"
+    }
+  ],
+  "rounds": [
+    {
+      "id": "R1",
+      "act": 1,
+      "turns": 3,
+      "p0": 5,
+      "intents": [
+        "grow",
+        "lash",
+        "taunt"
+      ],
+      "allies": [],
+      "siblings": [
+        "kab",
+        "kib"
+      ],
+      "combos": [],
+      "light": false,
+      "events": [],
+      "territory": false
+    }
+  ],
+  "lexicon": {
+    "intents": {
+      "grow": "lex.intent.grow",
+      "lash": "lex.intent.lash",
+      "taunt": "lex.intent.taunt",
+      "whisper": "lex.intent.whisper",
+      "dim": "lex.intent.dim",
+      "illusion": "lex.intent.illusion",
+      "gather": "lex.intent.gather"
+    },
+    "actions": {
+      "strike": "lex.action.strike",
+      "grit": "lex.action.grit",
+      "guard": "lex.action.guard",
+      "rest": "lex.action.rest",
+      "rain": "lex.action.rain",
+      "wind": "lex.action.wind",
+      "eye": "lex.action.eye",
+      "seeds": "lex.action.seeds",
+      "guardItem": "lex.action.guarditem",
+      "gear": "lex.action.gear",
+      "button": "lex.action.button",
+      "ribbon": "lex.action.ribbon",
+      "a_pkam": "lex.action.a_pkam",
+      "a_fiw": "lex.action.a_fiw",
+      "a_teuk": "lex.action.a_teuk",
+      "s_kab": "lex.action.s_kab",
+      "s_kib": "lex.action.s_kib",
+      "gear_pkam": "lex.action.gear_pkam",
+      "seeds_fiw": "lex.action.seeds_fiw",
+      "button_teuk": "lex.action.button_teuk",
+      "whistle_teuk": "lex.action.whistle_teuk",
+      "ribbon_fiw": "lex.action.ribbon_fiw",
+      "gear_pkam_b": "lex.action.gear_pkam_b",
+      "hem": "lex.action.hem"
+    }
+  },
+  "boundaries": [
+    {
+      "node": "a2a-01",
+      "act": 2
+    },
+    {
+      "node": "a2b-01",
+      "act": 2
+    }
+  ],
+  "texts": [
+    {
+      "id": "lex.intent.grow",
+      "speaker": "narrator",
+      "body": "เงาขยาย"
+    },
+    {
+      "id": "lex.intent.lash",
+      "speaker": "narrator",
+      "body": "ฟาดผ้าคลุม"
+    },
+    {
+      "id": "lex.intent.taunt",
+      "speaker": "narrator",
+      "body": "กระซิบขู่"
+    },
+    {
+      "id": "lex.intent.whisper",
+      "speaker": "narrator",
+      "body": "กระซิบฝันร้าย"
+    },
+    {
+      "id": "lex.intent.dim",
+      "speaker": "narrator",
+      "body": "ดับแสง"
+    },
+    {
+      "id": "lex.intent.illusion",
+      "speaker": "narrator",
+      "body": "เงาลวง"
+    },
+    {
+      "id": "lex.intent.gather",
+      "speaker": "narrator",
+      "body": "สูดความมืด"
+    },
+    {
+      "id": "lex.action.strike",
+      "speaker": "narrator",
+      "body": "รุก"
+    },
+    {
+      "id": "lex.action.grit",
+      "speaker": "narrator",
+      "body": "ฝืนรุก"
+    },
+    {
+      "id": "lex.action.guard",
+      "speaker": "narrator",
+      "body": "ตั้งรับ"
+    },
+    {
+      "id": "lex.action.rest",
+      "speaker": "narrator",
+      "body": "สูดหายใจ"
+    },
+    {
+      "id": "lex.action.rain",
+      "speaker": "narrator",
+      "body": "ตั้งสติฟังฝน"
+    },
+    {
+      "id": "lex.action.wind",
+      "speaker": "narrator",
+      "body": "ดีดตัวผ่าลม"
+    },
+    {
+      "id": "lex.action.eye",
+      "speaker": "narrator",
+      "body": "ตาส่องเงามืด"
+    },
+    {
+      "id": "lex.action.seeds",
+      "speaker": "narrator",
+      "body": "เมล็ดต้อยติ่งเรืองแสง"
+    },
+    {
+      "id": "lex.action.guarditem",
+      "speaker": "narrator",
+      "body": "สนับข้อมือเปลือกไม้"
+    },
+    {
+      "id": "lex.action.gear",
+      "speaker": "narrator",
+      "body": "เฟืองสังกะสีไขลาน"
+    },
+    {
+      "id": "lex.action.button",
+      "speaker": "narrator",
+      "body": "กระดุมทองเหลือง ต.♡ป."
+    },
+    {
+      "id": "lex.action.ribbon",
+      "speaker": "narrator",
+      "body": "ริบบิ้นเหลืองกลิ่นแดด"
+    },
+    {
+      "id": "lex.action.a_pkam",
+      "speaker": "narrator",
+      "body": "โล่กระป๋องเหล็กคู่ใจ"
+    },
+    {
+      "id": "lex.action.a_fiw",
+      "speaker": "narrator",
+      "body": "โฉบคว้ากลางเวหา"
+    },
+    {
+      "id": "lex.action.a_teuk",
+      "speaker": "narrator",
+      "body": "ลำแสงสัญญาจากนอกรั้ว"
+    },
+    {
+      "id": "lex.action.s_kab",
+      "speaker": "narrator",
+      "body": "สปริงพี่ใหญ่"
+    },
+    {
+      "id": "lex.action.s_kib",
+      "speaker": "narrator",
+      "body": "ห่าเมล็ดเรือง"
+    },
+    {
+      "id": "lex.action.gear_pkam",
+      "speaker": "narrator",
+      "body": "ล็อกสลิงถ่วงประตูน้ำ"
+    },
+    {
+      "id": "lex.action.seeds_fiw",
+      "speaker": "narrator",
+      "body": "ไฟเมล็ดนำร่อง"
+    },
+    {
+      "id": "lex.action.button_teuk",
+      "speaker": "narrator",
+      "body": "ลำแสงสะท้อนกระดุมคู่"
+    },
+    {
+      "id": "lex.action.whistle_teuk",
+      "speaker": "narrator",
+      "body": "นกหวีดเรียกลำแสง"
+    },
+    {
+      "id": "lex.action.ribbon_fiw",
+      "speaker": "narrator",
+      "body": "ผ้าพันคอนำลม"
+    },
+    {
+      "id": "lex.action.gear_pkam_b",
+      "speaker": "narrator",
+      "body": "ล็อกท่อรางน้ำ"
+    },
+    {
+      "id": "lex.action.hem",
+      "speaker": "narrator",
+      "body": "ชูชายเสื้อรับแสง"
+    },
+    {
+      "id": "a1-01.l1",
+      "speaker": "narrator",
+      "body": "สองฤดูฝนก่อน ฝนเพิ่งซาที่บึงน้ำใส รากหลิวใหญ่จุ่มปลายลงน้ำเหมือนนิ้วที่ยังไม่อยากตื่น"
+    },
+    {
+      "id": "a1-01.l2",
+      "speaker": "narrator",
+      "body": "สามพี่น้องวิ่งแข่งกันบนรากหลิว พี่กับนำเสมอ น้องกิบตามเสมอ ส่วนเจ้ากบชอบหยุดดูของที่คนอื่นวิ่งผ่าน"
+    },
+    {
+      "id": "a1-01.l3",
+      "speaker": "char_jao_kib",
+      "body": "กิ๊บ-กิ๊บ! พี่ ๆ มีอะไรฟ้า ๆ ติดกอกกตรงนั้น"
+    },
+    {
+      "id": "a1-01.l4",
+      "speaker": "char_jao_kab",
+      "body": "ผ้าเปียกผืนเดียว ตื่นเต้นไปได้"
+    },
+    {
+      "id": "a1-01.l5",
+      "speaker": "narrator",
+      "body": "พูดอย่างนั้น แต่พี่ใหญ่ก็เป็นคนแรกที่ลุยน้ำเข้าไปดึง ผ้าผืนนั้นมีแขนสองข้าง มีคอกลม ๆ ตัวเล็กเท่าใบบัวอ่อน"
+    },
+    {
+      "id": "a1-01.l6",
+      "speaker": "char_jao_kab",
+      "body": "เสื้อของมนุษย์ แต่เล็กไปสำหรับมนุษย์นะ"
+    },
+    {
+      "id": "a1-01.l7",
+      "speaker": "char_jao_kib",
+      "body": "ขอกิบแกะด้ายไปสานของได้ไหม"
+    },
+    {
+      "id": "a1-01.l8",
+      "speaker": "char_jao_kab",
+      "body": "ข้าจะเอาไปทำธง ปักบนรากหลิวให้ทั้งบึงรู้ว่าใครเจอก่อน"
+    },
+    {
+      "id": "a1-01.l9",
+      "speaker": "narrator",
+      "body": "เจ้ากบไม่พูดอะไร เขายื่นมือไปแตะชายเสื้อที่ยังหยดน้ำ แล้วชักมือกลับ"
+    },
+    {
+      "id": "a1-01.l10",
+      "speaker": "char_jao_kob",
+      "body": "มันอุ่น"
+    },
+    {
+      "id": "a1-01.l11",
+      "speaker": "char_jao_kab",
+      "body": "ผ้าเปียกที่ไหนจะอุ่น"
+    },
+    {
+      "id": "a1-01.l12",
+      "speaker": "char_jao_kob",
+      "body": "ลองจับดูสิ"
+    },
+    {
+      "id": "a1-01.l13",
+      "speaker": "narrator",
+      "body": "กับจับ แล้วก็เงียบไป กิบจับ แล้วก็เงียบตาม ธงผืนนั้นไม่เคยได้ปักบนรากหลิว"
+    },
+    {
+      "id": "a1-02.l1",
+      "speaker": "narrator",
+      "body": "แม่กบซักเสื้อในน้ำใส แล้วตากไว้บนใบบัวกลางแดดจนผ้าหอมกลิ่นแดด"
+    },
+    {
+      "id": "a1-02.l2",
+      "speaker": "char_mother_frog",
+      "body": "ใครสักคนตั้งใจเย็บตัวนี้มาก ดูฝีเข็มสิ ถี่เท่ากันทุกฝี"
+    },
+    {
+      "id": "a1-02.l3",
+      "speaker": "narrator",
+      "body": "ที่ชายเสื้อด้านล่าง มีด้ายขาวปักเป็นดาวสามแฉกเล็กเท่าเมล็ดข้าว ข้างกันมีปลายด้ายขาดสองเส้นชี้ออกมา เหมือนรากที่หาดินไม่เจอ"
+    },
+    {
+      "id": "a1-02.l4",
+      "speaker": "char_mother_frog",
+      "body": "ตรงนี้เคยมีกระดุมอยู่เม็ดหนึ่ง"
+    },
+    {
+      "id": "a1-02.l5",
+      "speaker": "char_father_frog",
+      "body": "มันลอยมาจากต้นน้ำ ทางเมืองมนุษย์"
+    },
+    {
+      "id": "a1-02.l6",
+      "speaker": "char_jao_kib",
+      "body": "แล้วเจ้าของเขาไม่ตามหาเหรอ"
+    },
+    {
+      "id": "a1-02.l7",
+      "speaker": "char_father_frog",
+      "body": "ตามหาอยู่แน่ แต่น้ำไม่เคยไหลย้อน"
+    },
+    {
+      "id": "a1-02.l8",
+      "speaker": "narrator",
+      "body": "พ่อมองขึ้นไปทางต้นน้ำนานกว่าปกติ แล้วไม่พูดถึงมันอีก"
+    },
+    {
+      "id": "a1-02.l9",
+      "speaker": "narrator",
+      "body": "แม่ลองสวมให้กิบ ยาวเลยปลายเท้า ลองให้กับ แขนไม่ยอมลอดแขนเสื้อ พอถึงเจ้ากบ เสื้อหลวมโคร่ง แขนยาวถึงข้อศอก แต่ไม่มีใครถอดมันออกอีกเลย"
+    },
+    {
+      "id": "a1-02.l10",
+      "speaker": "char_mother_frog",
+      "body": "เก็บไว้นะเจ้าคนกลาง โตอีกหน่อยก็พอดีตัว"
+    },
+    {
+      "id": "a1-03.l1",
+      "speaker": "narrator",
+      "body": "ฤดูฝนนั้น ทุกเย็นหลังฝนหยุด สามพี่น้องจะแยกกันไปคนละทาง และเจ้ากบต้องเลือกว่าจะตามใครไป"
+    },
+    {
+      "id": "a1-03.o1",
+      "speaker": "narrator",
+      "body": "ก · นั่งฟังฝนกับพ่อแม่ใต้กอไผ่"
+    },
+    {
+      "id": "a1-03.o1.r1",
+      "speaker": "char_father_frog",
+      "body": "หลับตา แล้วนับเสียงหยดน้ำจากใบไผ่ หยดที่ช้าที่สุดจะบอกว่าลมกำลังมาทางไหน"
+    },
+    {
+      "id": "a1-03.o1.r2",
+      "speaker": "narrator",
+      "body": "เจ้ากบนับได้ถึงสิบเจ็ดก่อนเผลอหลับ พ่อไม่ปลุก แม่แค่ดึงชายเสื้อสีฟ้าลงมาคลุมเท้าเล็ก ๆ ให้"
+    },
+    {
+      "id": "a1-03.o1.r3",
+      "speaker": "char_father_frog",
+      "body": "ฟ้าร้องเมื่อไหร่ให้นับ นับได้เท่าไหร่หารสาม นั่นคือมันอยู่ห่างกี่กิโล"
+    },
+    {
+      "id": "a1-03.o2",
+      "speaker": "narrator",
+      "body": "ข · กระโดดข้ามร่องน้ำกับพี่กับ"
+    },
+    {
+      "id": "a1-03.o2.r1",
+      "speaker": "char_jao_kab",
+      "body": "ปึก-ปึก! ย่อให้ต่ำกว่านั้นอีก เข่าเอ็งต้องเหมือนกบที่กำลังจะโกรธ"
+    },
+    {
+      "id": "a1-03.o2.r2",
+      "speaker": "narrator",
+      "body": "ครั้งที่ห้า เจ้ากบข้ามร่องน้ำได้โดยไม่เปียกปลายเท้า พี่ใหญ่ทำเป็นไม่เห็น แต่เคาะสนับข้อมือเบา ๆ อีกสองที"
+    },
+    {
+      "id": "a1-03.o2.r3",
+      "speaker": "char_jao_kab",
+      "body": "พรุ่งนี้ร่องกว้างกว่านี้ อย่ามาร้องนะ"
+    },
+    {
+      "id": "a1-03.o3",
+      "speaker": "narrator",
+      "body": "ค · ส่องหยดน้ำค้างหาหิ่งห้อยกับน้องกิบ"
+    },
+    {
+      "id": "a1-03.o3.r1",
+      "speaker": "char_jao_kib",
+      "body": "พี่ดูสิ หิ่งห้อยตัวเดียวเกาะใกล้ใบไม้ แต่เงาบนก้อนหินใหญ่กว่าตัวมันตั้งเยอะ"
+    },
+    {
+      "id": "a1-03.o3.r2",
+      "speaker": "narrator",
+      "body": "คืนนั้นเจ้ากบรู้สองอย่าง ในที่มืด ประกายที่เล็กที่สุดก็บอกทางได้ และของเล็กที่อยู่ใกล้แสงจะทอดเงาได้ใหญ่โต"
+    },
+    {
+      "id": "a1-03.o3.r3",
+      "speaker": "char_jao_kib",
+      "body": "พี่กบตาดีกว่าพี่กับอีก อย่าไปบอกพี่กับนะ"
+    },
+    {
+      "id": "a1-04.l1",
+      "speaker": "narrator",
+      "body": "สองฤดูฝนต่อมา เจ้ากบสูงสี่สิบห้าเซนติเมตร แขนเสื้อที่เคยยาวถึงข้อศอก ตอนนี้หยุดพอดีที่ต้นแขน"
+    },
+    {
+      "id": "a1-04.l2",
+      "speaker": "narrator",
+      "body": "คืนนี้เป็นคืนแรกที่เสื้อพอดีตัวเป๊ะ ไม่หลวมสักนิ้ว ไม่คับสักฝี เหมือนมีใครวัดตัวเขาไว้ตั้งแต่ก่อนจะเจอกัน"
+    },
+    {
+      "id": "a1-04.l3",
+      "speaker": "narrator",
+      "body": "บ้านกอไผ่ยามเย็นมีกลิ่นฝนค้างบนใบไผ่ พ่อเหลาไม้ไผ่ พี่กับซ้อมกระโดดริมตลิ่ง ส่วนกิบนั่งสานอะไรสักอย่างโดยไม่ยอมบอกใคร"
+    },
+    {
+      "id": "a1-04.l4",
+      "speaker": "narrator",
+      "body": "เวลาคิดอะไรไม่ออก เจ้ากบจะแตะดาวสามแฉกที่ชายเสื้อ นิสัยนี้ติดตัวมาตั้งแต่วันแรกที่ได้ใส่"
+    },
+    {
+      "id": "a1-05.l1",
+      "speaker": "narrator",
+      "body": "ทางต้นน้ำ เมฆพายุสีครามทับขอบฟ้าของเมืองมนุษย์ ฟ้าแลบวาบหนึ่งโดยไม่มีเสียง"
+    },
+    {
+      "id": "a1-05.l2",
+      "speaker": "char_father_frog",
+      "body": "นับ"
+    },
+    {
+      "id": "a1-05.l3",
+      "speaker": "char_jao_kob",
+      "body": "หนึ่ง สอง สาม สี่ ห้า หก เจ็ด แปด เก้า"
+    },
+    {
+      "id": "a1-05.l4",
+      "speaker": "narrator",
+      "body": "เสียงครืนมาถึงตอนนับเก้า"
+    },
+    {
+      "id": "a1-05.l5",
+      "speaker": "char_father_frog",
+      "body": "เก้าวินาที หารสามได้สาม พายุยังอยู่ห่างเราสามกิโล"
+    },
+    {
+      "id": "a1-05.l6",
+      "speaker": "narrator",
+      "body": "ไฟของเมืองไกล ๆ ดับลงทีละหย่อม เหมือนมีใครเป่าเทียนจากซ้ายไปขวา"
+    },
+    {
+      "id": "a1-05.l7",
+      "speaker": "narrator",
+      "body": "หย่อมสุดท้ายดับลง ดาวสามแฉกที่ชายเสื้อก็ร้อนวาบขึ้นใต้ปลายนิ้ว ร้อนเป็นจังหวะ ถี่ และไม่ยอมหยุด"
+    },
+    {
+      "id": "a1-05.l8",
+      "speaker": "char_jao_kib",
+      "body": "พี่กบ เสื้อพี่เป็นอะไร"
+    },
+    {
+      "id": "a1-05.l9",
+      "speaker": "char_jao_kob",
+      "body": "เหมือนมีใครสักคนกำลังกลัวอยู่"
+    },
+    {
+      "id": "a1-05.l10",
+      "speaker": "narrator",
+      "body": "แม่วางมือบนหลังลูกคนกลาง มือของแม่อุ่น แต่ดาวที่ชายเสื้ออุ่นกว่า"
+    },
+    {
+      "id": "a1-06.l1",
+      "speaker": "narrator",
+      "body": "น้ำจากท่อระบายของเมืองทะลักเข้าฝายน้ำล้นเร็วผิดปกติ ผิวน้ำมีฟิล์มดำวาวลอยวน กอไผ่ริมฝายเริ่มเอียง"
+    },
+    {
+      "id": "a1-06.l2",
+      "speaker": "char_jao_kab",
+      "body": "ข้าจะไปดูฝาย ใครตามได้ก็ตามมา"
+    },
+    {
+      "id": "a1-06.l3",
+      "speaker": "narrator",
+      "body": "หินลอยข้ามฝายเหลืออยู่สามก้อน น้ำเชี่ยวจนเท้าแตะแล้วลื่น"
+    },
+    {
+      "id": "a1-06.o1",
+      "speaker": "narrator",
+      "body": "ก · ตั้งสติฟังฝน · ฟังว่าน้ำช่วงไหนไหลช้าที่สุด"
+    },
+    {
+      "id": "a1-06.o1.r1",
+      "speaker": "narrator",
+      "body": "เสียงน้ำกระทบหินก้อนกลางทุ้มกว่าก้อนอื่น เจ้ากบเลือกเหยียบก้อนนั้น แล้วก็พบว่ามันมั่นคงกว่าที่ตาเห็น"
+    },
+    {
+      "id": "a1-06.o2",
+      "speaker": "narrator",
+      "body": "ข · ดีดตัวผ่าลม · กระโดดข้ามหินทีละก้อน"
+    },
+    {
+      "id": "a1-06.o2.r1",
+      "speaker": "narrator",
+      "body": "ย่อ ดีด ลง ย่อ ดีด ลง สามก้อน สามจังหวะ ปลายเท้าไม่แตะน้ำสักหยด"
+    },
+    {
+      "id": "a1-06.o3",
+      "speaker": "narrator",
+      "body": "ค · ตาส่องเงามืด · มองหาว่าฟิล์มดำมาจากไหน"
+    },
+    {
+      "id": "a1-06.o3.r1",
+      "speaker": "narrator",
+      "body": "ฟิล์มดำไม่ได้ลอยตามน้ำ มันไหลย้อนกลับไปทางปากท่อ เหมือนมีอะไรในนั้นกำลังสูดมันคืน"
+    },
+    {
+      "id": "a1-06.o4",
+      "speaker": "narrator",
+      "body": "ง · ยืนหยัดเอง · ลุยตามสันฝายไปเอง"
+    },
+    {
+      "id": "a1-06.o4.r1",
+      "speaker": "narrator",
+      "body": "น้ำแค่ถึงเข่า แต่ดึงแรงเหมือนมือคน เจ้ากบเอียงตัวทวนน้ำทีละก้าวจนถึงฝั่ง ขาสั่นนิดหน่อย"
+    },
+    {
+      "id": "a1-06.o5",
+      "speaker": "narrator",
+      "body": "จ · ฝืนเอา · พุ่งข้ามไปทั้งที่ยังไม่ได้ดู"
+    },
+    {
+      "id": "a1-06.o5.r1",
+      "speaker": "narrator",
+      "body": "เขาข้ามถึงจริง แต่เข่ากระแทกสันฝายเต็มแรง กับหันมามองแล้วส่ายหน้า"
+    },
+    {
+      "id": "a1-07.l1",
+      "speaker": "narrator",
+      "body": "ปากท่อคอนกรีตฝั่งเมืองพ่นลมเย็นออกมา แล้วผ้าคลุมถุงดำผืนหนึ่งก็พองขึ้นจากความมืด"
+    },
+    {
+      "id": "a1-07.l2",
+      "speaker": "char_cockroach_man",
+      "body": "ฮ่า! เสื้อขี้แยตัวนี้ยังไม่เปื่อยอีกเรอะ"
+    },
+    {
+      "id": "a1-07.l3",
+      "speaker": "narrator",
+      "body": "บนอกผ้าคลุมของมันมีกระดุมทองเหลืองเม็ดหนึ่งกลัดอวดไว้ วาวขึ้นทุกครั้งที่ฟ้าแลบ"
+    },
+    {
+      "id": "a1-07.l4",
+      "speaker": "char_cockroach_man",
+      "body": "ข้าผู้ยิ่งใหญ่ ราชาแห่งซอกตู้ จอมทัพแห่งใต้เตียง แมลงสาบแมน!"
+    },
+    {
+      "id": "a1-07.l5",
+      "speaker": "char_jao_kab",
+      "body": "แมลงสาบ..."
+    },
+    {
+      "id": "a1-07.l6",
+      "speaker": "char_cockroach_man",
+      "body": "แมลงสาบแมน! มีคำว่าแมนด้วย อย่าตัดทิ้ง"
+    },
+    {
+      "id": "a1-07.l7",
+      "speaker": "char_jao_kib",
+      "body": "ทำไมต้องมีแมนด้วย"
+    },
+    {
+      "id": "a1-07.l8",
+      "speaker": "char_cockroach_man",
+      "body": "เพราะคนที่ตั้งชื่อนี้ให้ข้า เขาหัวเราะตอนพูด แล้วแม่หนูนั่นก็หัวเราะตาม ข้าเกลียดเสียงหัวเราะนั่นที่สุด"
+    },
+    {
+      "id": "a1-07.l9",
+      "speaker": "char_cockroach_man",
+      "body": "คืนนี้ไฟในเมืองดับหมดแล้ว แม่หนูเจ้าของเสื้อนั่นนอนสั่นรอข้าอยู่คนเดียว ข้าไม่ปล่อยให้เสื้อนำโชคของนางรอดไปหรอก"
+    },
+    {
+      "id": "a1-07.l10",
+      "speaker": "narrator",
+      "body": "เงามันพุ่งเข้าหาชายเสื้อสีฟ้า เจ้ากบไม่ถอยสักก้าว"
+    },
+    {
+      "id": "a1-08.k.strike",
+      "speaker": "narrator",
+      "body": "พุ่งชนกลางฝาย"
+    },
+    {
+      "id": "a1-08.k.guard",
+      "speaker": "narrator",
+      "body": "ตั้งหลักบนหินลอย"
+    },
+    {
+      "id": "a1-08.k.rest",
+      "speaker": "narrator",
+      "body": "หลบหลังกอกก"
+    },
+    {
+      "id": "a1-08.p.strike",
+      "speaker": "narrator",
+      "body": "เจ้ากบพุ่งผ่านละอองน้ำ ชนเข้ากลางผ้าคลุมจนมันเซถอย"
+    },
+    {
+      "id": "a1-08.p.guard",
+      "speaker": "narrator",
+      "body": "เขากดเท้าลงหินก้อนกลาง ปล่อยให้แรงฟาดไหลผ่านตัวไป"
+    },
+    {
+      "id": "a1-08.p.rest",
+      "speaker": "narrator",
+      "body": "เจ้ากบหอบหายใจหลังกอกก นับหนึ่งถึงสามแล้วกลับออกไป"
+    },
+    {
+      "id": "a1-08.p.grit",
+      "speaker": "narrator",
+      "body": "ขาแทบไม่เหลือแรงแล้ว แต่เจ้ากบกัดฟันพุ่งฝ่าละอองน้ำเข้าไปอีกครั้ง"
+    },
+    {
+      "id": "a1-08.p.rain",
+      "speaker": "narrator",
+      "body": "เขาฟังฝนแทนเสียงขู่ เสียงของมันเล็กลงทันที"
+    },
+    {
+      "id": "a1-08.p.wind",
+      "speaker": "narrator",
+      "body": "ย่อ ดีด ผ่า ลมจากตัวเขาตัดผ้าคลุมขาดเป็นแนว"
+    },
+    {
+      "id": "a1-08.p.eye",
+      "speaker": "narrator",
+      "body": "ประกายเล็ก ๆ ใต้ผ้าคลุมบอกตำแหน่งตัวจริงของมัน"
+    },
+    {
+      "id": "a1-08.p.s_kab",
+      "speaker": "narrator",
+      "body": "กับทุบน้ำจนกระเซ็นเป็นกำแพง เจ้ากบเหยียบบ่าพี่ลอยข้ามไป"
+    },
+    {
+      "id": "a1-08.p.s_kib",
+      "speaker": "narrator",
+      "body": "กิบโปรยเมล็ดลงน้ำทั้งกำมือ แสงแตกพร้อมกันเหมือนดาวตก"
+    },
+    {
+      "id": "a1-08.l1",
+      "speaker": "char_jao_kib",
+      "body": "กิบมีเมล็ดต้อยติ่งเต็มกระบอก!"
+    },
+    {
+      "id": "a1-08.l2",
+      "speaker": "char_jao_kab",
+      "body": "ปึก-ปึก! เอ็งไปซ้าย ข้าไปขวา"
+    },
+    {
+      "id": "a1-08.l3",
+      "speaker": "narrator",
+      "body": "เงาของมันบอกท่าก่อนทำทุกครั้ง ผ้าคลุมพองก่อนฟาด หนวดควันหดก่อนกระซิบ"
+    },
+    {
+      "id": "a1-08.l4",
+      "speaker": "char_jao_kob",
+      "body": "อย่ามองเงามัน มองว่ามันจะทำอะไร"
+    },
+    {
+      "id": "a1-08.i1.l1",
+      "speaker": "char_cockroach_man",
+      "body": "ดูเงาข้าสิ ยิ่งพวกแกกลัว ข้ายิ่งสูง"
+    },
+    {
+      "id": "a1-08.i2.l1",
+      "speaker": "narrator",
+      "body": "ผ้าคลุมพองลมจนตึงเหมือนใบเรือ"
+    },
+    {
+      "id": "a1-08.i3.l1",
+      "speaker": "char_cockroach_man",
+      "body": "บึงนี้เล็กนิดเดียว แกจะไปช่วยใครได้"
+    },
+    {
+      "id": "a1-08.d1",
+      "speaker": "narrator",
+      "body": "สามพี่น้องเคลื่อนเป็นจังหวะเดียวกันเป็นครั้งแรก น้ำแตก แสงแตก แล้วเงาก็แตก แมลงสาบแมนหดวูบหนีเข้าปากท่อ"
+    },
+    {
+      "id": "a1-08.h1",
+      "speaker": "narrator",
+      "body": "แมลงสาบแมนถอยเข้าปากท่อทั้งที่ยังหัวเราะ ผ้าคลุมของมันขาดไปมุมหนึ่ง"
+    },
+    {
+      "id": "a1-08.w1",
+      "speaker": "narrator",
+      "body": "มันหนีไปได้ แต่ทิ้งรอยช้ำไว้บนแขนเจ้ากบ กับเสียงหัวเราะที่ยังก้องอยู่ในท่อ"
+    },
+    {
+      "id": "a1-08.x1",
+      "speaker": "char_cockroach_man",
+      "body": "ไว้เจอกันในเมือง ไอ้เสื้อขี้แย!"
+    },
+    {
+      "id": "a1-09.l1",
+      "speaker": "char_jao_kib",
+      "body": "พี่เห็นไหม กระดุมบนอกมัน"
+    },
+    {
+      "id": "a1-09.l2",
+      "speaker": "narrator",
+      "body": "เจ้ากบแตะปลายด้ายขาดสองเส้นที่ชายเสื้อ"
+    },
+    {
+      "id": "a1-09.l3",
+      "speaker": "char_jao_kob",
+      "body": "ขนาดเท่ากันเลย"
+    },
+    {
+      "id": "a1-09.l4",
+      "speaker": "char_jao_kab",
+      "body": "เอ็งจะบอกว่ามันขโมยกระดุมเสื้อเอ็ง"
+    },
+    {
+      "id": "a1-09.l5",
+      "speaker": "char_jao_kob",
+      "body": "มันขโมยกระดุมของเจ้าของเสื้อ"
+    },
+    {
+      "id": "a1-09.l6",
+      "speaker": "narrator",
+      "body": "ดาวสามแฉกยังร้อนเป็นจังหวะ ร้อนกว่าตอนพลบค่ำ"
+    },
+    {
+      "id": "a1-09.l7",
+      "speaker": "char_jao_kob",
+      "body": "ข้าจะเข้าเมือง คืนนี้"
+    },
+    {
+      "id": "a1-09.l8",
+      "speaker": "char_jao_kab",
+      "body": "ข้ารู้อยู่แล้วว่าเอ็งจะพูดแบบนี้"
+    },
+    {
+      "id": "a1-09.l9",
+      "speaker": "char_jao_kab",
+      "body": "แต่ข้ายังไม่ได้บอกว่าข้ายอม"
+    },
+    {
+      "id": "a1-09.l10",
+      "speaker": "char_jao_kib",
+      "body": "พี่กับยอมตั้งแต่เห็นกระดุมแล้ว หน้าพี่บอก"
+    },
+    {
+      "id": "a1-09.l11",
+      "speaker": "narrator",
+      "body": "กับเคาะสนับข้อมือดังปึกเดียว แล้วหันไปมองบ้านกอไผ่ที่ไฟหิ่งห้อยเพิ่งจุด"
+    },
+    {
+      "id": "a1-10.l1",
+      "speaker": "narrator",
+      "body": "ฝนหนักขึ้น ครอบครัวกบนั่งรวมกันใต้ชายคากอไผ่ หยดน้ำจากชายคาตกลงกะลาทีละหยด"
+    },
+    {
+      "id": "a1-10.l2",
+      "speaker": "char_mother_frog",
+      "body": "กะลานี้รับได้อีกสองหยด แล้วลูกค่อยไป"
+    },
+    {
+      "id": "a1-10.l3",
+      "speaker": "narrator",
+      "body": "พ่อขยับกะลาให้ตรงใต้หยดน้ำ เหมือนอยากให้มันเต็มช้าลง"
+    },
+    {
+      "id": "a1-10.a1",
+      "speaker": "narrator",
+      "body": "กินข้าวเย็นกับพ่อแม่"
+    },
+    {
+      "id": "a1-10.a1.r1",
+      "speaker": "char_mother_frog",
+      "body": "กินอีกคำ ทางไกลนะลูก"
+    },
+    {
+      "id": "a1-10.a2",
+      "speaker": "narrator",
+      "body": "คุยกับพี่กับ"
+    },
+    {
+      "id": "a1-10.a2.r1",
+      "speaker": "char_jao_kab",
+      "body": "สนับข้าใส่ให้แน่น หลวมเมื่อไหร่มันจะกัดข้อมือเอ็งก่อนกัดศัตรู"
+    },
+    {
+      "id": "a1-10.a3",
+      "speaker": "narrator",
+      "body": "ช่วยกิบสานกระเป๋าให้เสร็จ"
+    },
+    {
+      "id": "a1-10.a3.r1",
+      "speaker": "char_jao_kib",
+      "body": "ช่องหนึ่งพ่อ ช่องสองแม่ ช่องสามพี่กับ ช่องสี่กิบ พี่ดึงเส้นนี้ให้ตึงหน่อย"
+    },
+    {
+      "id": "a1-10.a4",
+      "speaker": "narrator",
+      "body": "นั่งข้างแม่"
+    },
+    {
+      "id": "a1-10.a4.r1",
+      "speaker": "char_mother_frog",
+      "body": "เสื้อตัวนี้มันเรียกลูกมาตั้งนานแล้ว แม่รู้ตั้งแต่วันที่ซักมัน"
+    },
+    {
+      "id": "a1-11.l1",
+      "speaker": "narrator",
+      "body": "กิบยื่นกระเป๋าสานจากต้นกกสี่ต้นให้พี่ชาย ช่องแรกมีกระบอกไม้ไผ่จิ๋ว ข้างในคือเมล็ดต้อยติ่งเรืองแสงเต็มกระบอก"
+    },
+    {
+      "id": "a1-11.l2",
+      "speaker": "char_jao_kib",
+      "body": "เมล็ดมันแตกเมื่อโดนน้ำ พี่โยนให้โดนน้ำนะ อย่าโยนใส่หน้าศัตรู กิบลองแล้ว มันไม่แตก"
+    },
+    {
+      "id": "a1-11.l3",
+      "speaker": "narrator",
+      "body": "กับถอดสนับข้อมือเปลือกไม้ข้างขวาออกจากแขนตัวเอง ยัดใส่มือน้อง"
+    },
+    {
+      "id": "a1-11.l4",
+      "speaker": "char_jao_kab",
+      "body": "ยืม ไม่ได้ให้ เอ็งต้องเอามาคืนข้าเอง"
+    },
+    {
+      "id": "a1-11.l5",
+      "speaker": "char_jao_kib",
+      "body": "อีกสองช่องว่างไว้ให้ของระหว่างทาง ถ้ามีใครให้อะไรพี่ พี่เก็บไว้นะ"
+    },
+    {
+      "id": "a1-11.l6",
+      "speaker": "char_father_frog",
+      "body": "ฝนไม่เคยตกพร้อมกันทั้งบึง ทางไหนหนักเกิน ให้ฟังหาที่ที่ฝนเบา"
+    },
+    {
+      "id": "a1-11.l7",
+      "speaker": "char_mother_frog",
+      "body": "กลับมาเล่าให้แม่ฟังด้วยนะ ว่าเจ้าของเสื้อหน้าตาเป็นยังไง"
+    },
+    {
+      "id": "a1-11.l8",
+      "speaker": "narrator",
+      "body": "แม่ไม่พูดอะไร นอกจากดึงชายเสื้อสีฟ้าให้ตรง"
+    },
+    {
+      "id": "a1-12.l1",
+      "speaker": "char_jao_kab",
+      "body": "ข้ากับกิบจะว่ายลัดคลองรอบนอก ไปทางเดียวกับเอ็ง ท่อเหล็กพวกนี้ต่อกันไปทั้งเมือง"
+    },
+    {
+      "id": "a1-12.l2",
+      "speaker": "char_jao_kib",
+      "body": "ถ้าได้ยินเคาะสามที แปลว่าเราอยู่ใกล้"
+    },
+    {
+      "id": "a1-12.l3",
+      "speaker": "char_jao_kab",
+      "body": "ทีแรกเป็นเอ็ง ทีสองเป็นข้า ทีสามเป็นกิบ กบ กับ กิบ ลองเคาะดู"
+    },
+    {
+      "id": "a1-12.l4",
+      "speaker": "narrator",
+      "body": "ก๊อก ก๊อก ก๊อก เสียงสั่นต่อไปในเหล็กไกลกว่าที่หูตามทัน แล้วจากที่ไหนสักแห่งในท่อ ก็มีเสียงตอบกลับมาสามที"
+    },
+    {
+      "id": "a1-12.l5",
+      "speaker": "char_jao_kib",
+      "body": "กิ๊บ-กิ๊บ! ใช้ได้จริงด้วย!"
+    },
+    {
+      "id": "a1-12.l6",
+      "speaker": "char_jao_kab",
+      "body": "พ่อบอกว่าเสียงในเหล็กวิ่งเร็วกว่าเสียงในลมหลายเท่า ข้าจะได้ยินเอ็งก่อนได้ยินฝน"
+    },
+    {
+      "id": "a1-12.h",
+      "speaker": "narrator",
+      "body": "แตะวงคลื่นบนท่อสามครั้ง"
+    },
+    {
+      "id": "a1-13.l1",
+      "speaker": "narrator",
+      "body": "ประตูน้ำคอนกรีตเปิดเป็นปากมืดสองช่อง ช่องซ้ายมีเสียงหยดน้ำก้องเป็นจังหวะ ช่องขวามีลมหวีดลอดรากไทรที่ชอนลงมาจากข้างบน"
+    },
+    {
+      "id": "a1-13.l2",
+      "speaker": "narrator",
+      "body": "เจ้ากบหันกลับไปมองบึงน้ำใสครั้งหนึ่ง ไฟหิ่งห้อยที่บ้านกอไผ่ยังส่องอยู่ เล็กนิดเดียวเมื่อมองจากตรงนี้"
+    },
+    {
+      "id": "a1-13.l3",
+      "speaker": "char_jao_kab",
+      "body": "ข้าไปทางคลองนอก เจอกันในเมือง ไอ้น้อง"
+    },
+    {
+      "id": "a1-13.o1",
+      "speaker": "narrator",
+      "body": "ก · ตามเสียงหยดน้ำเข้าอุโมงค์ท่อเสียงสะท้อน"
+    },
+    {
+      "id": "a1-13.o1.r1",
+      "speaker": "narrator",
+      "body": "เจ้ากบมุดเข้าช่องซ้าย เสียงก้าวของเขาก้องกลับมาเป็นสามเสียงเสมอ เหมือนพี่น้องยังเดินตามอยู่"
+    },
+    {
+      "id": "a1-13.o2",
+      "speaker": "narrator",
+      "body": "ข · ตามลมเข้าโพรงรากไทรและรางลม"
+    },
+    {
+      "id": "a1-13.o2.r1",
+      "speaker": "narrator",
+      "body": "เจ้ากบเกาะรากไทรขึ้นไปตามลม ข้างบนมีแสงฟ้าแลบลอดช่องดินลงมาเป็นเส้น"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "a1-01",
+      "type": "vn",
+      "act": 1,
+      "title": "เสื้อที่ติดกอกก",
+      "stage": {
+        "bg": "bg_act1_willow_roots",
+        "slots": [
+          {
+            "slot": "left",
+            "asset": "char_jao_kab_neutral_proud",
+            "facing": "right"
+          },
+          {
+            "slot": "center",
+            "asset": "char_jao_kob_childhood_curious",
+            "facing": "right"
+          },
+          {
+            "slot": "right",
+            "asset": "char_jao_kib_neutral_cheerful",
+            "facing": "left"
+          }
+        ],
+        "silenceMs": 2000
+      },
+      "lines": [
+        {
+          "text": "a1-01.l1"
+        },
+        {
+          "text": "a1-01.l2"
+        },
+        {
+          "text": "a1-01.l3"
+        },
+        {
+          "text": "a1-01.l4"
+        },
+        {
+          "text": "a1-01.l5"
+        },
+        {
+          "text": "a1-01.l6"
+        },
+        {
+          "text": "a1-01.l7"
+        },
+        {
+          "text": "a1-01.l8"
+        },
+        {
+          "text": "a1-01.l9"
+        },
+        {
+          "text": "a1-01.l10"
+        },
+        {
+          "text": "a1-01.l11"
+        },
+        {
+          "text": "a1-01.l12"
+        },
+        {
+          "text": "a1-01.l13"
+        }
+      ],
+      "next": "a1-02"
+    },
+    {
+      "id": "a1-02",
+      "type": "vn",
+      "act": 1,
+      "title": "ดาวสามแฉกกับปลายด้ายที่ขาด",
+      "stage": {
+        "bg": "bg_act1_willow_roots",
+        "slots": [
+          {
+            "slot": "left",
+            "asset": "char_mother_frog_warm",
+            "facing": "right"
+          },
+          {
+            "slot": "center",
+            "asset": "char_jao_kob_childhood_neutral",
+            "facing": "left"
+          },
+          {
+            "slot": "right",
+            "asset": "char_father_frog_calm",
+            "facing": "left"
+          }
+        ],
+        "silenceMs": 3000
+      },
+      "lines": [
+        {
+          "text": "a1-02.l1"
+        },
+        {
+          "text": "a1-02.l2"
+        },
+        {
+          "text": "a1-02.l3"
+        },
+        {
+          "text": "a1-02.l4"
+        },
+        {
+          "text": "a1-02.l5"
+        },
+        {
+          "text": "a1-02.l6"
+        },
+        {
+          "text": "a1-02.l7"
+        },
+        {
+          "text": "a1-02.l8"
+        },
+        {
+          "text": "a1-02.l9"
+        },
+        {
+          "text": "a1-02.l10"
+        }
+      ],
+      "effects": [
+        {
+          "op": "flag.set",
+          "flag": "clue_star_and_threads"
+        }
+      ],
+      "next": "a1-03"
+    },
+    {
+      "id": "a1-03",
+      "type": "choice",
+      "act": 1,
+      "title": "วิชาแรกของลูกคนกลาง",
+      "stage": {
+        "bg": "bg_act1_bamboo_home_dusk",
+        "slots": [
+          {
+            "slot": "left",
+            "asset": "char_jao_kob_childhood_neutral",
+            "facing": "right"
+          }
+        ],
+        "silenceMs": 0
+      },
+      "lines": [
+        {
+          "text": "a1-03.l1"
+        }
+      ],
+      "options": [
+        {
+          "key": "rain",
+          "label": "a1-03.o1",
+          "effects": [
+            {
+              "op": "pick.major",
+              "value": "rain"
+            }
+          ],
+          "responses": [
+            {
+              "text": "a1-03.o1.r1"
+            },
+            {
+              "text": "a1-03.o1.r2"
+            },
+            {
+              "text": "a1-03.o1.r3"
+            }
+          ]
+        },
+        {
+          "key": "wind",
+          "label": "a1-03.o2",
+          "effects": [
+            {
+              "op": "pick.major",
+              "value": "wind"
+            }
+          ],
+          "responses": [
+            {
+              "text": "a1-03.o2.r1"
+            },
+            {
+              "text": "a1-03.o2.r2"
+            },
+            {
+              "text": "a1-03.o2.r3"
+            }
+          ]
+        },
+        {
+          "key": "eye",
+          "label": "a1-03.o3",
+          "effects": [
+            {
+              "op": "pick.major",
+              "value": "eye"
+            }
+          ],
+          "responses": [
+            {
+              "text": "a1-03.o3.r1"
+            },
+            {
+              "text": "a1-03.o3.r2"
+            },
+            {
+              "text": "a1-03.o3.r3"
+            }
+          ]
+        }
+      ],
+      "next": "a1-04"
+    },
+    {
+      "id": "a1-04",
+      "type": "vn",
+      "act": 1,
+      "title": "สองฤดูฝนต่อมา",
+      "stage": {
+        "bg": "bg_act1_bamboo_home_dusk",
+        "slots": [
+          {
+            "slot": "center",
+            "asset": "char_jao_kob_adult_neutral",
+            "facing": "right"
+          }
+        ],
+        "silenceMs": 3000
+      },
+      "lines": [
+        {
+          "text": "a1-04.l1"
+        },
+        {
+          "text": "a1-04.l2"
+        },
+        {
+          "text": "a1-04.l3"
+        },
+        {
+          "text": "a1-04.l4"
+        }
+      ],
+      "effects": [
+        {
+          "op": "meter.set",
+          "meters": {
+            "hp": 5,
+            "mind": 4,
+            "sta": 5
+          }
+        }
+      ],
+      "next": "a1-05"
+    },
+    {
+      "id": "a1-05",
+      "type": "vn",
+      "act": 1,
+      "title": "ไฟเมืองดับทีละโซน",
+      "stage": {
+        "bg": "bg_act1_bamboo_home_dusk",
+        "slots": [
+          {
+            "slot": "left",
+            "asset": "char_jao_kob_adult_observant",
+            "facing": "right"
+          },
+          {
+            "slot": "right",
+            "asset": "char_father_frog_calm",
+            "facing": "left"
+          },
+          {
+            "slot": "far-right",
+            "asset": "char_jao_kib_neutral_cheerful",
+            "facing": "left"
+          }
+        ],
+        "silenceMs": 4000
+      },
+      "lines": [
+        {
+          "text": "a1-05.l1"
+        },
+        {
+          "text": "a1-05.l2"
+        },
+        {
+          "text": "a1-05.l3"
+        },
+        {
+          "text": "a1-05.l4"
+        },
+        {
+          "text": "a1-05.l5"
+        },
+        {
+          "text": "a1-05.l6"
+        },
+        {
+          "text": "a1-05.l7"
+        },
+        {
+          "text": "a1-05.l8"
+        },
+        {
+          "text": "a1-05.l9"
+        },
+        {
+          "text": "a1-05.l10"
+        }
+      ],
+      "next": "a1-06"
+    },
+    {
+      "id": "a1-06",
+      "type": "obstacle",
+      "act": 1,
+      "title": "น้ำที่ไหลผิดจังหวะ",
+      "stage": {
+        "bg": "bg_act1_overflow_weir",
+        "slots": [
+          {
+            "slot": "left",
+            "asset": "char_jao_kob_adult_determined",
+            "facing": "right"
+          },
+          {
+            "slot": "right",
+            "asset": "char_jao_kab_neutral_proud",
+            "facing": "left"
+          }
+        ],
+        "silenceMs": 0
+      },
+      "lines": [
+        {
+          "text": "a1-06.l1"
+        },
+        {
+          "text": "a1-06.l2"
+        },
+        {
+          "text": "a1-06.l3"
+        }
+      ],
+      "options": [
+        {
+          "key": "rain",
+          "method": {
+            "kind": "skill",
+            "skill": "rain"
+          },
+          "label": "a1-06.o1",
+          "effects": [],
+          "responses": [
+            {
+              "text": "a1-06.o1.r1"
+            }
+          ]
+        },
+        {
+          "key": "wind",
+          "method": {
+            "kind": "skill",
+            "skill": "wind"
+          },
+          "label": "a1-06.o2",
+          "effects": [],
+          "responses": [
+            {
+              "text": "a1-06.o2.r1"
+            }
+          ]
+        },
+        {
+          "key": "eye",
+          "method": {
+            "kind": "skill",
+            "skill": "eye"
+          },
+          "label": "a1-06.o3",
+          "effects": [],
+          "responses": [
+            {
+              "text": "a1-06.o3.r1"
+            }
+          ]
+        },
+        {
+          "key": "alone",
+          "method": {
+            "kind": "alone",
+            "sta": 1,
+            "needSta": 2
+          },
+          "label": "a1-06.o4",
+          "effects": [],
+          "responses": [
+            {
+              "text": "a1-06.o4.r1"
+            }
+          ]
+        },
+        {
+          "key": "grit",
+          "method": {
+            "kind": "grit"
+          },
+          "label": "a1-06.o5",
+          "effects": [],
+          "responses": [
+            {
+              "text": "a1-06.o5.r1"
+            }
+          ]
+        }
+      ],
+      "next": "a1-07"
+    },
+    {
+      "id": "a1-07",
+      "type": "vn",
+      "act": 1,
+      "title": "กระดุมบนอกเงา",
+      "stage": {
+        "bg": "bg_act1_overflow_weir",
+        "slots": [
+          {
+            "slot": "far-left",
+            "asset": "char_jao_kab_action_knuckle_tap",
+            "facing": "right"
+          },
+          {
+            "slot": "left",
+            "asset": "char_jao_kob_adult_determined",
+            "facing": "right"
+          },
+          {
+            "slot": "center",
+            "asset": "char_jao_kib_tinker_seed_tube",
+            "facing": "right"
+          },
+          {
+            "slot": "right",
+            "asset": "char_cockroach_man_shadow_boast",
+            "facing": "left"
+          }
+        ],
+        "silenceMs": 1000
+      },
+      "lines": [
+        {
+          "text": "a1-07.l1"
+        },
+        {
+          "text": "a1-07.l2"
+        },
+        {
+          "text": "a1-07.l3"
+        },
+        {
+          "text": "a1-07.l4"
+        },
+        {
+          "text": "a1-07.l5"
+        },
+        {
+          "text": "a1-07.l6"
+        },
+        {
+          "text": "a1-07.l7"
+        },
+        {
+          "text": "a1-07.l8"
+        },
+        {
+          "text": "a1-07.l9"
+        },
+        {
+          "text": "a1-07.l10"
+        }
+      ],
+      "effects": [
+        {
+          "op": "flag.set",
+          "flag": "clue_button_on_shadow"
+        }
+      ],
+      "next": "a1-08"
+    },
+    {
+      "id": "a1-08",
+      "type": "clash",
+      "act": 1,
+      "title": "ศึกแรกริมฝาย",
+      "stage": {
+        "bg": "bg_act1_overflow_weir",
+        "cg": "cg_act1_three_siblings_blue_shirt",
+        "slots": [
+          {
+            "slot": "left",
+            "asset": "char_jao_kob_adult_determined",
+            "facing": "right"
+          },
+          {
+            "slot": "right",
+            "asset": "char_cockroach_man_shadow_boast",
+            "facing": "left"
+          }
+        ],
+        "silenceMs": 0
+      },
+      "lines": [
+        {
+          "text": "a1-08.l1"
+        },
+        {
+          "text": "a1-08.l2"
+        },
+        {
+          "text": "a1-08.l3"
+        },
+        {
+          "text": "a1-08.l4"
+        }
+      ],
+      "round": "R1",
+      "labels": {
+        "strike": "a1-08.k.strike",
+        "guard": "a1-08.k.guard",
+        "rest": "a1-08.k.rest"
+      },
+      "intentLines": [
+        [
+          {
+            "text": "a1-08.i1.l1"
+          }
+        ],
+        [
+          {
+            "text": "a1-08.i2.l1"
+          }
+        ],
+        [
+          {
+            "text": "a1-08.i3.l1"
+          }
+        ]
+      ],
+      "responses": {
+        "strike": "a1-08.p.strike",
+        "guard": "a1-08.p.guard",
+        "rest": "a1-08.p.rest",
+        "grit": "a1-08.p.grit",
+        "rain": "a1-08.p.rain",
+        "wind": "a1-08.p.wind",
+        "eye": "a1-08.p.eye",
+        "s_kab": "a1-08.p.s_kab",
+        "s_kib": "a1-08.p.s_kib"
+      },
+      "outcome": {
+        "decisive": [
+          {
+            "text": "a1-08.d1"
+          }
+        ],
+        "hold": [
+          {
+            "text": "a1-08.h1"
+          }
+        ],
+        "narrow": [
+          {
+            "text": "a1-08.w1"
+          }
+        ]
+      },
+      "outroLines": [
+        {
+          "text": "a1-08.x1"
+        }
+      ],
+      "next": "a1-09"
+    },
+    {
+      "id": "a1-09",
+      "type": "vn",
+      "act": 1,
+      "title": "ด้ายที่ขาดกับกระดุมที่หาย",
+      "stage": {
+        "bg": "bg_act1_overflow_weir",
+        "slots": [
+          {
+            "slot": "left",
+            "asset": "char_jao_kob_adult_observant",
+            "facing": "right"
+          },
+          {
+            "slot": "right",
+            "asset": "char_jao_kab_neutral_proud",
+            "facing": "left"
+          }
+        ],
+        "silenceMs": 4000
+      },
+      "lines": [
+        {
+          "text": "a1-09.l1"
+        },
+        {
+          "text": "a1-09.l2"
+        },
+        {
+          "text": "a1-09.l3"
+        },
+        {
+          "text": "a1-09.l4"
+        },
+        {
+          "text": "a1-09.l5"
+        },
+        {
+          "text": "a1-09.l6"
+        },
+        {
+          "text": "a1-09.l7"
+        },
+        {
+          "text": "a1-09.l8"
+        },
+        {
+          "text": "a1-09.l9"
+        },
+        {
+          "text": "a1-09.l10"
+        },
+        {
+          "text": "a1-09.l11"
+        }
+      ],
+      "next": "a1-10"
+    },
+    {
+      "id": "a1-10",
+      "type": "camp",
+      "act": 1,
+      "title": "มื้อเย็นใต้ชายคากอไผ่",
+      "stage": {
+        "bg": "bg_act1_bamboo_home_dusk",
+        "slots": [],
+        "silenceMs": 0
+      },
+      "lines": [
+        {
+          "text": "a1-10.l1"
+        },
+        {
+          "text": "a1-10.l2"
+        },
+        {
+          "text": "a1-10.l3"
+        }
+      ],
+      "camp": "C1",
+      "drops": 2,
+      "activities": [
+        {
+          "key": "eat",
+          "label": "a1-10.a1",
+          "effects": [
+            {
+              "op": "meter.add",
+              "meter": "hp",
+              "amount": 1
+            },
+            {
+              "op": "meter.add",
+              "meter": "sta",
+              "amount": 1
+            }
+          ],
+          "responses": [
+            {
+              "text": "a1-10.a1.r1"
+            }
+          ]
+        },
+        {
+          "key": "kab",
+          "label": "a1-10.a2",
+          "effects": [
+            {
+              "op": "item.ready",
+              "item": "item_kab_bark_guard"
+            }
+          ],
+          "responses": [
+            {
+              "text": "a1-10.a2.r1"
+            }
+          ]
+        },
+        {
+          "key": "kib",
+          "label": "a1-10.a3",
+          "effects": [
+            {
+              "op": "item.ready",
+              "item": "item_kib_glowing_seeds"
+            }
+          ],
+          "responses": [
+            {
+              "text": "a1-10.a3.r1"
+            }
+          ]
+        },
+        {
+          "key": "mother",
+          "label": "a1-10.a4",
+          "effects": [
+            {
+              "op": "meter.add",
+              "meter": "mind",
+              "amount": 1
+            }
+          ],
+          "responses": [
+            {
+              "text": "a1-10.a4.r1"
+            }
+          ]
+        }
+      ],
+      "next": "a1-11"
+    },
+    {
+      "id": "a1-11",
+      "type": "vn",
+      "act": 1,
+      "title": "กระเป๋าสานกกสี่ช่อง",
+      "stage": {
+        "bg": "bg_act1_bamboo_home_dusk",
+        "slots": [
+          {
+            "slot": "left",
+            "asset": "char_jao_kob_adult_neutral",
+            "facing": "right"
+          },
+          {
+            "slot": "center",
+            "asset": "char_jao_kib_tinker_seed_tube",
+            "facing": "left"
+          },
+          {
+            "slot": "right",
+            "asset": "char_jao_kab_neutral_proud",
+            "facing": "left"
+          }
+        ],
+        "silenceMs": 4000
+      },
+      "lines": [
+        {
+          "text": "a1-11.l1"
+        },
+        {
+          "text": "a1-11.l2"
+        },
+        {
+          "text": "a1-11.l3"
+        },
+        {
+          "text": "a1-11.l4"
+        },
+        {
+          "text": "a1-11.l5"
+        },
+        {
+          "text": "a1-11.l6"
+        },
+        {
+          "text": "a1-11.l7"
+        },
+        {
+          "text": "a1-11.l8"
+        }
+      ],
+      "effects": [
+        {
+          "op": "item.grant",
+          "item": "item_kib_glowing_seeds"
+        },
+        {
+          "op": "item.grant",
+          "item": "item_kab_bark_guard"
+        }
+      ],
+      "next": "a1-12"
+    },
+    {
+      "id": "a1-12",
+      "type": "micro",
+      "act": 1,
+      "title": "รหัสสามจังหวะ",
+      "stage": {
+        "bg": "bg_act1_overflow_weir",
+        "slots": [
+          {
+            "slot": "left",
+            "asset": "char_jao_kob_adult_determined",
+            "facing": "right"
+          },
+          {
+            "slot": "right",
+            "asset": "char_jao_kab_action_knuckle_tap",
+            "facing": "left"
+          },
+          {
+            "slot": "far-right",
+            "asset": "char_jao_kib_neutral_cheerful",
+            "facing": "left"
+          }
+        ],
+        "silenceMs": 1000
+      },
+      "lines": [
+        {
+          "text": "a1-12.l1"
+        },
+        {
+          "text": "a1-12.l2"
+        },
+        {
+          "text": "a1-12.l3"
+        },
+        {
+          "text": "a1-12.l4"
+        },
+        {
+          "text": "a1-12.l5"
+        },
+        {
+          "text": "a1-12.l6"
+        }
+      ],
+      "micro": {
+        "kind": "tap3",
+        "ma": "MA-1",
+        "durationMs": 6000,
+        "hint": "a1-12.h"
+      },
+      "next": "a1-13"
+    },
+    {
+      "id": "a1-13",
+      "type": "choice",
+      "act": 1,
+      "title": "ปากประตูน้ำสู่เมือง",
+      "stage": {
+        "bg": "bg_act1_overflow_weir",
+        "slots": [
+          {
+            "slot": "center",
+            "asset": "char_jao_kob_adult_determined",
+            "facing": "right"
+          }
+        ],
+        "silenceMs": 4000
+      },
+      "lines": [
+        {
+          "text": "a1-13.l1"
+        },
+        {
+          "text": "a1-13.l2"
+        },
+        {
+          "text": "a1-13.l3"
+        }
+      ],
+      "effects": [
+        {
+          "op": "floor.rest",
+          "meters": {
+            "hp": 4,
+            "mind": 3,
+            "sta": 4
+          }
+        }
+      ],
+      "options": [
+        {
+          "key": "a",
+          "label": "a1-13.o1",
+          "effects": [
+            {
+              "op": "pick.route",
+              "value": "A"
+            }
+          ],
+          "responses": [
+            {
+              "text": "a1-13.o1.r1"
+            }
+          ],
+          "next": "a2a-01"
+        },
+        {
+          "key": "b",
+          "label": "a1-13.o2",
+          "effects": [
+            {
+              "op": "pick.route",
+              "value": "B"
+            }
+          ],
+          "responses": [
+            {
+              "text": "a1-13.o2.r1"
+            }
+          ],
+          "next": "a2b-01"
+        }
+      ]
+    }
+  ]
+}

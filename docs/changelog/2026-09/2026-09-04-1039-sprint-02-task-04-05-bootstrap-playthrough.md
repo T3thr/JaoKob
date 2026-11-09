@@ -32,17 +32,17 @@ Requirements: `CR-0002` D3/D4; `FR-CNT-001/002/004`, `FR-ENG-001/002/003/008`, `
 
 | Artifact | การเปลี่ยนแปลง |
 |---|---|
-| [src/core/use-cases/content-orchestration.js](../../../src/core/use-cases/content-orchestration.js) | Pure progression, events/conditions, cursor, checkpoint, Resume/Retry และ atomic candidates |
-| [src/data/content/content-runtime.js](../../../src/data/content/content-runtime.js) | โหลดแพ็กเกจ/registry และตรวจ executor capabilities ก่อนส่ง normalized catalog เข้า Core |
-| [src/data/content/content-view-model.js](../../../src/data/content/content-view-model.js) | project localized immutable view, content notices และ completion/consent presentation |
-| [src/data/localization/th-application.js](../../../src/data/localization/th-application.js) | Thai system strings สำหรับ Title, settings, consent, warnings และ memory-only session |
-| [tests/unit/content-orchestration.test.js](../../../tests/unit/content-orchestration.test.js) | 30 tests: 36 Canon walks, exact per-page Resume, guards, replay, rollback และ checkpoint faults |
-| [tests/unit/act1-bootstrap.test.js](../../../tests/unit/act1-bootstrap.test.js) | 35 tests: production composition/DOM/LocalStorage, all 12 routes, compatibility/consent/faults |
-| [tests/helpers/act1-session.js](../../../tests/helpers/act1-session.js) | real-package fixtures และ independent route witnesses สำหรับ focused integration |
-| [tests/helpers/application-harness.js](../../../tests/helpers/application-harness.js) | isolated DOM/Storage doubles สำหรับ integration tests |
-| [tests/helpers/prologue-bootstrap.js](../../../tests/helpers/prologue-bootstrap.js) | เก็บ composition Sprint 1 เป็น deprecated test-only helper; original assertions ไม่ลดลง |
-| [tests/fixtures/legacy/prologue-slice.js](../../../tests/fixtures/legacy/prologue-slice.js) | ย้าย Mock resource และ stable IDs เดิมออกจาก production dependency graph |
-| [tests/e2e/act1-playthrough.mjs](../../../tests/e2e/act1-playthrough.mjs) | real Chromium runner พร้อม loopback static server, isolated contexts และ assertions |
+| [src/core/use-cases/content-orchestration.js](https://github.com/T3thr/JaoKob/blob/39bf56b/src/core/use-cases/content-orchestration.js) | Pure progression, events/conditions, cursor, checkpoint, Resume/Retry และ atomic candidates |
+| [src/data/content/content-runtime.js](https://github.com/T3thr/JaoKob/blob/39bf56b/src/data/content/content-runtime.js) | โหลดแพ็กเกจ/registry และตรวจ executor capabilities ก่อนส่ง normalized catalog เข้า Core |
+| [src/data/content/content-view-model.js](https://github.com/T3thr/JaoKob/blob/39bf56b/src/data/content/content-view-model.js) | project localized immutable view, content notices และ completion/consent presentation |
+| [src/data/localization/th-application.js](https://github.com/T3thr/JaoKob/blob/39bf56b/src/data/localization/th-application.js) | Thai system strings สำหรับ Title, settings, consent, warnings และ memory-only session |
+| [tests/unit/content-orchestration.test.js](https://github.com/T3thr/JaoKob/blob/39bf56b/tests/unit/content-orchestration.test.js) | 30 tests: 36 Canon walks, exact per-page Resume, guards, replay, rollback และ checkpoint faults |
+| [tests/unit/act1-bootstrap.test.js](https://github.com/T3thr/JaoKob/blob/39bf56b/tests/unit/act1-bootstrap.test.js) | 35 tests: production composition/DOM/LocalStorage, all 12 routes, compatibility/consent/faults |
+| [tests/helpers/act1-session.js](https://github.com/T3thr/JaoKob/blob/39bf56b/tests/helpers/act1-session.js) | real-package fixtures และ independent route witnesses สำหรับ focused integration |
+| [tests/helpers/application-harness.js](https://github.com/T3thr/JaoKob/blob/39bf56b/tests/helpers/application-harness.js) | isolated DOM/Storage doubles สำหรับ integration tests |
+| [tests/helpers/prologue-bootstrap.js](https://github.com/T3thr/JaoKob/blob/39bf56b/tests/helpers/prologue-bootstrap.js) | เก็บ composition Sprint 1 เป็น deprecated test-only helper; original assertions ไม่ลดลง |
+| [tests/fixtures/legacy/prologue-slice.js](https://github.com/T3thr/JaoKob/blob/39bf56b/tests/fixtures/legacy/prologue-slice.js) | ย้าย Mock resource และ stable IDs เดิมออกจาก production dependency graph |
+| [tests/e2e/act1-playthrough.mjs](https://github.com/T3thr/JaoKob/blob/39bf56b/tests/e2e/act1-playthrough.mjs) | real Chromium runner พร้อม loopback static server, isolated contexts และ assertions |
 | [tests/e2e/README.md](../../../tests/e2e/README.md) | คำสั่ง reproduce และขอบเขต/ข้อจำกัดของ browser evidence |
 | [tests/e2e/evidence/sprint-02/act1-evidence.json](../../../tests/e2e/evidence/sprint-02/act1-evidence.json) | ผล browser run พร้อม 12 outcomes, payload measurements และ runtime hashes 28 ไฟล์ |
 | [tests/e2e/evidence/sprint-02/verification.txt](../../../tests/e2e/evidence/sprint-02/verification.txt) | Node version, คำสั่ง syntax 15 ไฟล์ และ full-suite output จริง |
@@ -60,11 +60,11 @@ Requirements: `CR-0002` D3/D4; `FR-CNT-001/002/004`, `FR-ENG-001/002/003/008`, `
 |---|---|
 | [.gitignore](../../../.gitignore) | ละเว้น output/playwright ชั่วคราว; evidence ที่ตรวจแล้วเก็บใน tests/e2e/evidence |
 | [src/bootstrap/index.js](../../../src/bootstrap/index.js) | composition Act 1 จริง, single input lock/view revision, autosave, compatibility/consent และ fatal recovery |
-| [src/data/persistence/local-storage-adapter.js](../../../src/data/persistence/local-storage-adapter.js) | optional consent receipt + conservative stage/commit write guard; legacy caller contract คงเดิม |
-| [src/ui/renderers/dom/dom-renderer.js](../../../src/ui/renderers/dom/dom-renderer.js) | page/context/content notice, stale-intent metadata, confirmation description, focus, metric live announcements และ reading preferences |
-| [src/ui/styles/components.css](../../../src/ui/styles/components.css) | ข้อความหลายย่อหน้า/ปรับขนาดและ HUD reflow ที่ 320 px/200% |
-| [src/ui/styles/motion.css](../../../src/ui/styles/motion.css) | เคารพตัวเลือก reduced-motion ของผู้เล่นนอกเหนือจาก OS |
-| [tests/unit/bootstrap.test.js](../../../tests/unit/bootstrap.test.js) | เปลี่ยน import เพียงสองจุดไป legacy fixture/helper; assertions เดิมทั้งห้าชุดคงเดิม |
+| [src/data/persistence/local-storage-adapter.js](https://github.com/T3thr/JaoKob/blob/39bf56b/src/data/persistence/local-storage-adapter.js) | optional consent receipt + conservative stage/commit write guard; legacy caller contract คงเดิม |
+| [src/ui/renderers/dom/dom-renderer.js](https://github.com/T3thr/JaoKob/blob/39bf56b/src/ui/renderers/dom/dom-renderer.js) | page/context/content notice, stale-intent metadata, confirmation description, focus, metric live announcements และ reading preferences |
+| [src/ui/styles/components.css](https://github.com/T3thr/JaoKob/blob/39bf56b/src/ui/styles/components.css) | ข้อความหลายย่อหน้า/ปรับขนาดและ HUD reflow ที่ 320 px/200% |
+| [src/ui/styles/motion.css](https://github.com/T3thr/JaoKob/blob/39bf56b/src/ui/styles/motion.css) | เคารพตัวเลือก reduced-motion ของผู้เล่นนอกเหนือจาก OS |
+| [tests/unit/bootstrap.test.js](https://github.com/T3thr/JaoKob/blob/39bf56b/tests/unit/bootstrap.test.js) | เปลี่ยน import เพียงสองจุดไป legacy fixture/helper; assertions เดิมทั้งห้าชุดคงเดิม |
 | [docs/sprints/sprint-02-ssot.md](../../../docs/sprints/sprint-02-ssot.md) | version 0.4.0, WBS 5/5, D3/D4 disposition, verification และ audit register |
 | [docs/traceability/sprint-02-content-matrix.md](../../../docs/traceability/sprint-02-content-matrix.md) | เพิ่ม execution mapping และ supersede สถานะ Step 2 โดยไม่แก้ Canon |
 | [CHANGELOG.md](../../../CHANGELOG.md) | สรุปปิด implementation Sprint 2 พร้อมลิงก์บันทึกนี้ |
@@ -83,7 +83,7 @@ Environment: Node.js `v22.23.2`; Chromium `151.0.7922.34` แบบ headed บ�
 | `node --test tests/unit/*.test.js` | **444/444 PASS**; fail/cancelled/skipped/todo=0 | 183 Sprint 1 + 117 Task 1 + 79 Tasks 2/3 + 65 Tasks 4/5; ชุดใหม่ 30 orchestration + 35 application |
 | SCHEMA / GRAPH | PASS ใน Act 1 scope | suite เดิมรวม loader 120 และ graph 76; nodes 14/14, edges 21/21, Canon routes 12/12 ยังคงผ่าน |
 | CORE / STATE / SAVE | PASS | 36 Core route/profile walks; per-page resume; before/after checkpoints; delayed event dialogue; stale/double input; failed candidate rollback; old/future/corrupt/mixed save preservation, consent/cancel/race และ storage failure |
-| Browser integration | **12/12 PASS** | [runner](../../../tests/e2e/act1-playthrough.mjs), [JSON evidence](../../../tests/e2e/evidence/sprint-02/act1-evidence.json); root/subpath, all Canon outcomes, rest reload และ post-storm cursor |
+| Browser integration | **12/12 PASS** | [runner](https://github.com/T3thr/JaoKob/blob/39bf56b/tests/e2e/act1-playthrough.mjs), [JSON evidence](../../../tests/e2e/evidence/sprint-02/act1-evidence.json); root/subpath, all Canon outcomes, rest reload และ post-storm cursor |
 | UX / A11Y smoke | PASS เฉพาะ automated/browser checks ที่รัน | Tab/Shift+Tab/Enter/Space, visible focus, native 44 px controls, no Bond DOM/AX, Thai confirmation descriptions, 320 px/200% reflow และ reduced motion |
 | SECURITY / ARCH | PASS ใน scope diff | same-origin static requests; no unexpected browser console/page errors; injection rejected at content boundary and literal-text renderer test; no Core DOM/storage/data imports; no runtime test/Mock imports/dependency |
 | PERF payload | PASS | initial gzip 79,910 bytes ≤500,000 และ ≤2,000,000; raw 380,966 bytes; maximum observed save 4,821 UTF-8 bytes ≤250,000 |

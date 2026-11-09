@@ -1,0 +1,23 @@
+{
+  "character.schema.json": "d92b85e611fa129905e5f96a221908f5c81a884a2b6d4a033d9b5a8954446f81",
+  "common.schema.json": "285a1c5076483895e8725fe7161e9f1fa1b80a5d7111c5ce84276918dd4f76b4",
+  "content-package.schema.json": "f2f2896840ddfbbcb621ca5d4fb5215fe62806b3173cc15bbadd3a61a7d388c4",
+  "dialogue.schema.json": "bc7436a502af4402be9384dcb47f3a6932b47345caa7c6b0899e67848bc8bd6e",
+  "event.schema.json": "15ee984a559696ff13f5f1931cb2423a2a40c04ebb48a6e6ea34aa55000f2f22",
+  "narrative-tree.schema.json": "21e6b6fcb2843f12721a57c2b668d5a693d2db51d2a3c27a9fbc7bf8d265d546",
+  "presentation-catalog.schema.json": "a7267bc48842634bff8b4114eec7fa1df22f886e6b08f75e764a3b50687f6ab5",
+  "save-state.schema.json": "74d374a5687e502fc14fad411c8df2b10ab7d907b2e6a77df37a58035de4332a",
+  "v1.1.0/content-package.schema.json": "ea3e6661f802668492bf2b20ed00a68550ce80e3a066adb922346c5fc0c50aed",
+  "v1.1.0/narrative-tree.schema.json": "aa5bd968fde0ee762a0791744ed7482c703432cc27c532b8ad7a251ad98a28d5",
+  "v1.2.0/content-package.schema.json": "2c47d9eab1bd97a5347fa7f0a19aa912f63694a24f2c1cb3b10ae5e7112302f6",
+  "v1.2.0/narrative-tree.schema.json": "0f80372b4fdc9e8c9898d0faf46692dc40b2d4a36f7bb399872c61e54a378242",
+  "v2.0.0/common.schema.json": "80683ea83133a19e5dc10d577477f95403394dfad876f784ec08e85b95ce24b0",
+  "v2.0.0/content-package.schema.json": "81b3d97d487a6c408eb2700151f6e632b6a328d8fecba00fa2ef7558df77c401",
+  "v2.0.0/event.schema.json": "3921c7d4b97883852b2f563521d59020184f40342ddf2bb5d70a3136ce7f5a22",
+  "v2.0.0/narrative-tree.schema.json": "085ac277dc9f20867a25d32acd3618a51e3ae2d4669f73a09161b2068ad324a6",
+  "v2.0.0/pouch.schema.json": "055ea397d41e3bf2f7b0436920a449ae5e77cc908bb93d5ec3d16356198832bc",
+  "v2.0.0/save-state.schema.json": "e945c6a209e99eb0ba808bbfe3d4d8cd787c5aed53c6f3729121b8368da9377b",
+  "v3.0.0/journey-common.schema.json": "d3b291f776348920afcefeead6cc3d625b3a6e4c91e76166a49b5eeb4c3e2c76",
+  "v3.0.0/journey-package.schema.json": "1bff8e4860c7d329711885c1250f995493b08d4a0b768a2f45b4ecdc0679781a",
+  "v3.0.0/journey-save.schema.json": "8a961fc2a8c13f180cd300da91689c111112726148355807f17af4aee92adf12"
+}

@@ -1,0 +1,162 @@
+{
+  "runner": "tests/e2e/journey-c5f-index.mjs",
+  "head": "ac6e1ec4da31da74c201f67a08524d0dd79b651a",
+  "requirements": [
+    "TC-S5-PROTO-001",
+    "TC-S5-E2E-001 (Act 1)",
+    "TC-S5-A11Y-001",
+    "TC-S5-SAVE-001",
+    "TC-S5-INLINE-001"
+  ],
+  "allowlistFiles": 99,
+  "plays": [
+    {
+      "base": "/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": "no-preference",
+      "reducedTransparency": false,
+      "seconds": 34,
+      "modes": [
+        "VN",
+        "DECISION",
+        "CLASH_INTRO",
+        "CLASH_INTENT",
+        "CLASH_CHOOSE",
+        "CLASH_RESOLVE",
+        "CLASH_OUTCOME",
+        "CAMP",
+        "MICRO"
+      ],
+      "beats": [
+        "intro",
+        "intent",
+        "choose",
+        "resolve",
+        "outcome"
+      ],
+      "revision": 112,
+      "chapter": "เรื่องหน้าต่อจากนี้ยังไม่เปิดกลับหน้าแรก",
+      "hudBackdrop": "blur(12px) saturate(1.35)",
+      "keys": [
+        "jaokob:journey:story.jaokob.core:backup",
+        "jaokob:journey:story.jaokob.core:canonical"
+      ],
+      "csp": []
+    },
+    {
+      "base": "/JaoKob/",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "reducedMotion": "reduce",
+      "reducedTransparency": true,
+      "seconds": 13,
+      "modes": [
+        "VN",
+        "DECISION",
+        "CLASH_INTRO",
+        "CLASH_INTENT",
+        "CLASH_CHOOSE",
+        "CLASH_RESOLVE",
+        "CLASH_OUTCOME",
+        "CAMP",
+        "MICRO"
+      ],
+      "beats": [
+        "intro",
+        "intent",
+        "choose",
+        "resolve",
+        "outcome"
+      ],
+      "revision": 112,
+      "chapter": "เรื่องหน้าต่อจากนี้ยังไม่เปิดกลับหน้าแรก",
+      "hudBackdrop": "none",
+      "keys": [
+        "jaokob:journey:story.jaokob.core:backup",
+        "jaokob:journey:story.jaokob.core:canonical"
+      ],
+      "csp": []
+    }
+  ],
+  "reload": {
+    "before": {
+      "mode": "CLASH_CHOOSE",
+      "beat": "choose",
+      "gauge": "แสงเจ็ดจากสิบ · เทิร์นที่สองจากสาม",
+      "light": "7",
+      "intent": "แมลงสาบแมนเตรียมใช้ · ฟาดผ้าคลุม",
+      "revision": 66,
+      "cursor": {
+        "node": "a1-08",
+        "beat": "clash-choose",
+        "line": 0
+      }
+    },
+    "title": {
+      "phase": "title",
+      "focus": "continue",
+      "revision": 66
+    },
+    "after": {
+      "mode": "CLASH_CHOOSE",
+      "beat": "choose",
+      "gauge": "แสงเจ็ดจากสิบ · เทิร์นที่สองจากสาม",
+      "light": "7",
+      "intent": "แมลงสาบแมนเตรียมใช้ · ฟาดผ้าคลุม",
+      "revision": 66,
+      "cursor": {
+        "node": "a1-08",
+        "beat": "clash-choose",
+        "line": 0
+      }
+    },
+    "playedOnTo": "BOUNDARY"
+  },
+  "rapid": {
+    "at": "a1-03",
+    "before": 25,
+    "after": 26,
+    "mode": "VN"
+  },
+  "spoiler": {
+    "title": "เจ้ากบเสื้อสีฟ้ากับการเดินทางในคืนพายุเร",
+    "askedOutsideAllowlist": [],
+    "probes": {
+      "/docs/design-system/evidence/journey-review/play.html": 404,
+      "/JaoKob/docs/design-system/evidence/journey-review/play.html": 404,
+      "/tests/fixtures/journey/mini-journey.json": 404,
+      "/JaoKob/tests/fixtures/journey/mini-journey.json": 404,
+      "/assets/images/asset-manifest-v2.json": 404,
+      "/JaoKob/assets/images/asset-manifest-v2.json": 404,
+      "/assets/images/backgrounds/act-05/versions/v2/bg-act5-bedside-table-night.webp": 404,
+      "/JaoKob/assets/images/backgrounds/act-05/versions/v2/bg-act5-bedside-table-night.webp": 404,
+      "/src/data/content/journey/story-jaokob-core.receipts.json": 404,
+      "/JaoKob/src/data/content/journey/story-jaokob-core.receipts.json": 404,
+      "/specs/releases/sprint-05-static-files.json": 404,
+      "/JaoKob/specs/releases/sprint-05-static-files.json": 404
+    }
+  },
+  "screenshots": [
+    "root-390x844-title.jpg",
+    "root-390x844-chapter-end.jpg",
+    "subpath-1440x900-title.jpg",
+    "subpath-1440x900-chapter-end.jpg",
+    "reload-before-390x844.jpg",
+    "reload-after-390x844.jpg"
+  ],
+  "failures": [],
+  "errors": [],
+  "notRun": [
+    "Safari/WebKit and Firefox",
+    "physical iPhone and Android",
+    "VoiceOver and NVDA listening",
+    "the PO's own play-through (T5 DoD)"
+  ],
+  "browser": "151.0.7922.34",
+  "passed": true
+}

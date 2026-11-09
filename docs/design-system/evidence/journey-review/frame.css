@@ -1,0 +1,106 @@
+/* Device frame of the C4 review page (review chrome only). */
+html,
+body {
+  margin: 0;
+  block-size: 100%;
+  background: #0d1712;
+  color: #e9eee9;
+  font-family: "Sarabun", "Thonburi", "Leelawadee UI", system-ui, sans-serif;
+}
+
+body { display: flex; flex-direction: column; }
+
+.jf-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+  padding: 10px 16px;
+  border-block-end: 1px solid #23362c;
+  background: #101d17;
+}
+
+.jf-brand { display: flex; flex-direction: column; line-height: 1.35; }
+.jf-brand strong { font-size: 16px; font-weight: 400; color: #fcf4e3; }
+.jf-brand span { font-size: 12px; color: #9fb0a4; }
+.jf-brand code { font-size: 12px; }
+
+.jf-devices { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.jf-devices button,
+.jf-link {
+  min-block-size: 36px;
+  padding: 4px 12px;
+  border: 1px solid #355244;
+  border-radius: 10px;
+  background: transparent;
+  color: #dfe7df;
+  font: inherit;
+  font-size: 13px;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.jf-devices button[aria-checked="true"] { background: #fcf4e3; border-color: #fcf4e3; color: #24382d; }
+.jf-devices button:focus-visible,
+.jf-link:focus-visible { outline: 3px solid #fcf4e3; outline-offset: 2px; }
+
+.jf-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; font-size: 13px; }
+.jf-tools label { display: flex; align-items: center; gap: 6px; }
+.jf-tools input { inline-size: 18px; block-size: 18px; accent-color: #4e8c57; }
+
+.jf-main { display: flex; flex: 1; min-block-size: 0; }
+
+.jf-viewport {
+  position: relative;
+  display: grid;
+  flex: 1;
+  place-items: center;
+  min-inline-size: 0;
+  overflow: auto;
+  background: radial-gradient(ellipse at 50% 40%, #1a2b22, #0b140f 70%);
+}
+
+.jf-device {
+  inline-size: calc(var(--w) * var(--scale));
+  block-size: calc(var(--h) * var(--scale));
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 0 0 1px #2c4337, 0 24px 60px rgba(0, 0, 0, 0.55);
+}
+
+.jf-device iframe {
+  display: block;
+  inline-size: var(--w);
+  block-size: var(--h);
+  border: 0;
+  transform: scale(var(--scale));
+  transform-origin: 0 0;
+  background: #12201a;
+}
+
+.jf-notes {
+  flex: 0 0 22rem;
+  overflow: auto;
+  padding: 14px 18px 24px;
+  border-inline-start: 1px solid #23362c;
+  background: #101d17;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.jf-notes h2 { margin: 14px 0 4px; color: #e9cf8f; font-size: 14px; font-weight: 400; letter-spacing: 0.03em; }
+.jf-notes ol { margin: 0; padding-inline-start: 20px; }
+.jf-notes li { margin-block-end: 6px; }
+.jf-notes b { font-weight: 400; color: #fcf4e3; }
+.jf-notes p { margin: 0; color: #cfd8cf; }
+.jf-status { display: grid; grid-template-columns: max-content 1fr; gap: 2px 10px; margin: 0; font-size: 13px; }
+.jf-status dt { color: #9fb0a4; }
+.jf-status dd { margin: 0; color: #fcf4e3; overflow-wrap: anywhere; }
+
+@media (max-width: 1100px) {
+  .jf-main { flex-direction: column; }
+  .jf-viewport { min-block-size: 70vh; }
+  .jf-notes { flex-basis: auto; border-inline-start: 0; border-block-start: 1px solid #23362c; }
+}

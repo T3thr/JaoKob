@@ -1,0 +1,39 @@
+/*
+ * Review chrome of the Journey review page only (not game UI, not shipped): a load error and the
+ * face-band guide the device frame toggles. The page itself uses the game's `journey-page.css`
+ * (C5e), and every screen of the game, its title included, comes from `src/` since C5c.
+ */
+
+.jr-game { display: block; }
+
+.jr-panel {
+  position: fixed;
+  z-index: 80;
+  inset-inline: 16px;
+  max-inline-size: 30rem;
+  margin-inline: auto;
+  padding: 16px 18px;
+  border: 1px dashed rgba(226, 194, 127, 0.7);
+  border-radius: 16px;
+  background: rgba(14, 26, 20, 0.94);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.jr-error { inset-block: 16px auto; border-color: #e2a35a; color: #ffd9a3; }
+
+/* Face band guide, toggled by the device frame (32–48 % from the top). */
+.jr-band-guide {
+  position: fixed;
+  z-index: 90;
+  inset-inline: 0;
+  inset-block-start: 32svh;
+  block-size: 16svh;
+  border-block: 2px dashed #5fe9c2;
+  background: rgba(95, 233, 194, 0.08);
+  pointer-events: none;
+  display: none;
+}
+
+html.jr-guides .jr-band-guide { display: block; }

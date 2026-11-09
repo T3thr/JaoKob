@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>JaoKob · หน้าตรวจ Journey (C4–C5)</title>
+  <link rel="stylesheet" href="frame.css">
+</head>
+<body>
+  <header class="jf-toolbar">
+    <div class="jf-brand">
+      <strong>เจ้ากบ · หน้าตรวจ Journey</strong>
+      <span>เกมจริงจาก <code>src/</code> บนแอป Journey · Act 1 ต้นแบบ · <a class="jf-link" href="play.html?package=mini" target="_blank" rel="noopener">แพ็กเกจจิ๋ว (รับของ กดค้าง เย็บ ฉากจบ)</a></span>
+    </div>
+    <div class="jf-devices" role="radiogroup" aria-label="ขนาดหน้าจอ">
+      <button type="button" role="radio" data-w="390" data-h="844" aria-checked="true">มือถือ 390×844</button>
+      <button type="button" role="radio" data-w="320" data-h="568" aria-checked="false">มือถือเล็ก 320×568</button>
+      <button type="button" role="radio" data-w="844" data-h="390" aria-checked="false">แนวนอน 844×390</button>
+      <button type="button" role="radio" data-w="768" data-h="1024" aria-checked="false">แท็บเล็ต 768×1024</button>
+      <button type="button" role="radio" data-w="1440" data-h="900" aria-checked="false">โน้ตบุ๊ก 1440×900</button>
+      <button type="button" role="radio" data-w="1920" data-h="1080" aria-checked="false">จอใหญ่ 1920×1080</button>
+      <button type="button" role="radio" data-w="0" data-h="0" aria-checked="false">เต็มพื้นที่</button>
+    </div>
+    <div class="jf-tools">
+      <label><input id="jf-guides" type="checkbox"> แถบใบหน้า</label>
+      <label><input id="jf-actual" type="checkbox"> ขนาดจริง 100%</label>
+      <a class="jf-link" href="play.html" target="_blank" rel="noopener">เปิดเกมเต็มหน้าต่าง</a>
+    </div>
+  </header>
+
+  <main class="jf-main">
+    <div class="jf-viewport" id="jf-viewport">
+      <div class="jf-device" id="jf-device">
+        <iframe id="jf-frame" src="play.html" title="เกมเจ้ากบ ต้นแบบ Journey"></iframe>
+      </div>
+    </div>
+
+    <aside class="jf-notes" aria-label="สิ่งที่ขอให้ PO ตรวจ">
+      <h2>สิ่งที่อยากให้ดู</h2>
+      <ol>
+        <li><b>วัสดุ</b> · แคปซูล HUD กระจกฝ้า · กล่องบทพูดและการ์ดกระดาษสา · ป้ายชื่อผู้พูดพร้อมหน้า</li>
+        <li><b>เวที</b> · ฉากเต็มจอ · ตัวละครครึ่งตัว ตาอยู่ในแถบใบหน้า (ติ๊ก “แถบใบหน้า”) · ผู้พูดสว่าง คนอื่นหรี่ · ภาพเปลี่ยนแบบจางเข้า</li>
+        <li><b>จังหวะ</b> · ป้ายชื่อฉากขึ้นเมื่อเปลี่ยนฉากแล้วจาง · บรรทัดใหม่ค่อย ๆ ขึ้น · ▽ อ่านต่อ</li>
+        <li><b>ตัดสินใจ</b> · การ์ดตัวเลือกแทนที่กล่องบทพูดในที่เดิม · ป้ายชนิด ราคาเป็นเม็ด · ฉาก A1-06 มีห้าการ์ด</li>
+        <li><b>ศึก แคมป์ สัมผัส รับของ</b> · ถาดการ์ดศึก · นาฬิกาแคมป์และการ์ดกิจกรรม · เคาะ กดค้าง เย็บ · แผ่นรับของ (แพ็กเกจจิ๋ว)</li>
+        <li><b>ตั้งค่าและกระเป๋า</b> · ปุ่มฟันเฟือง · ปุ่มกระเป๋าหรือกด I · Esc ปิด · โฟกัสกลับที่เดิม</li>
+        <li><b>หน้าแรกและฉากจบ</b> · เล่นต่อ เริ่มใหม่พร้อมยืนยัน · การ์ดสามเกลียว (แพ็กเกจจิ๋ว) · จบบทแล้วกลับหน้าแรก</li>
+      </ol>
+      <h2>ปุ่มลัด</h2>
+      <p>Space หรือ Enter อ่านต่อ · ตัวเลขเลือกการ์ด · Esc ยกเลิกการ์ดที่เลือกไว้หรือปิดแผง · I เปิดกระเป๋า · Space เคาะหรือกดค้างในสัมผัส · แตะเวทีเพื่ออ่านต่อ</p>
+      <h2>สถานะ</h2>
+      <dl class="jf-status" id="jf-status"></dl>
+      <h2>ข้อจำกัด</h2>
+      <p>ทุกฉากเล่นผ่านหน้าจอจริงแล้ว ไม่มีปุ่มข้าม · เสียงมากับ T7 · เซฟจริงบันทึกเงียบใน localStorage ของ origin นี้ และแพ็กเกจจิ๋วมีเซฟแยกของมันเอง</p>
+    </aside>
+  </main>
+  <script type="module" src="frame.js"></script>
+</body>
+</html>

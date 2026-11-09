@@ -1,0 +1,1430 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://t3thr.github.io/JaoKob/specs/schemas/v3.0.0/journey-package.schema.json",
+  "title": "JaoKob Journey Package",
+  "description": "แพ็กเกจเรื่องห้าองก์สำหรับ Journey runtime ตาม ADR-P0-034 · สร้างด้วย compiler จากพิมพ์เขียวและสเปกกลไก (D6) · การอ้างอิงข้ามส่วนและกติกาเชิงความหมายตรวจโดย admission ของ Data และ Core",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "profile",
+    "package",
+    "sourceLocale",
+    "start",
+    "acts",
+    "characters",
+    "items",
+    "flags",
+    "rounds",
+    "lexicon",
+    "boundaries",
+    "texts",
+    "nodes"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "3.0.0"
+    },
+    "profile": {
+      "const": "journey"
+    },
+    "package": {
+      "type": "object",
+      "required": [
+        "id",
+        "contentVersion",
+        "title"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "journey-common.schema.json#/$defs/packageId"
+        },
+        "contentVersion": {
+          "$ref": "journey-common.schema.json#/$defs/semanticVersion"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        }
+      },
+      "additionalProperties": false
+    },
+    "sourceLocale": {
+      "const": "th"
+    },
+    "start": {
+      "type": "object",
+      "required": [
+        "node",
+        "meters"
+      ],
+      "properties": {
+        "node": {
+          "$ref": "journey-common.schema.json#/$defs/nodeRef"
+        },
+        "meters": {
+          "$ref": "journey-common.schema.json#/$defs/meters"
+        }
+      },
+      "additionalProperties": false
+    },
+    "acts": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "required": [
+          "act",
+          "title",
+          "entry"
+        ],
+        "properties": {
+          "act": {
+            "$ref": "journey-common.schema.json#/$defs/act"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "entry": {
+            "$ref": "journey-common.schema.json#/$defs/nodeRef"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "characters": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 32,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "journey-common.schema.json#/$defs/characterId"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 24
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "items": {
+      "type": "array",
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "side",
+          "locked",
+          "name",
+          "icon"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "journey-common.schema.json#/$defs/itemId"
+          },
+          "side": {
+            "enum": [
+              "roots",
+              "friend",
+              "core",
+              "promise"
+            ]
+          },
+          "locked": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40
+          },
+          "icon": {
+            "$ref": "journey-common.schema.json#/$defs/assetId"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "flags": {
+      "type": "array",
+      "maxItems": 256,
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "journey-common.schema.json#/$defs/identifier"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "rounds": {
+      "type": "array",
+      "maxItems": 8,
+      "items": {
+        "$ref": "#/$defs/round"
+      }
+    },
+    "lexicon": {
+      "type": "object",
+      "description": "ชื่อไทยมาตรฐานของเจตนาและการกระทำในศึก · โหนดศึกใช้ labels ของตัวเองแทนเมื่อพิมพ์เขียวตั้งชื่อตามฉาก",
+      "required": [
+        "intents",
+        "actions"
+      ],
+      "properties": {
+        "intents": {
+          "type": "object",
+          "patternProperties": {
+            "^(?:grow|lash|taunt|whisper|dim|illusion|gather)$": {
+              "$ref": "journey-common.schema.json#/$defs/textRef"
+            }
+          },
+          "additionalProperties": false
+        },
+        "actions": {
+          "$ref": "#/$defs/actionText"
+        }
+      },
+      "additionalProperties": false
+    },
+    "boundaries": {
+      "type": "array",
+      "description": "ทางเข้าของเนื้อหาที่ยังไม่ promote · เมื่อผู้เล่นมาถึง runtime แสดงข้อความของระบบและคง cursor ไว้ที่จุดนี้ให้แพ็กเกจรุ่นถัดไปเล่นต่อได้",
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "required": [
+          "node",
+          "act"
+        ],
+        "properties": {
+          "node": {
+            "$ref": "journey-common.schema.json#/$defs/identifier"
+          },
+          "act": {
+            "$ref": "journey-common.schema.json#/$defs/act"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "texts": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 4096,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "speaker",
+          "body"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "journey-common.schema.json#/$defs/identifier"
+          },
+          "speaker": {
+            "oneOf": [
+              {
+                "$ref": "journey-common.schema.json#/$defs/characterRef"
+              },
+              {
+                "const": "narrator"
+              }
+            ]
+          },
+          "body": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 600
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 256,
+      "items": {
+        "$ref": "#/$defs/node"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "responses": {
+      "type": "array",
+      "maxItems": 16,
+      "items": {
+        "$ref": "journey-common.schema.json#/$defs/line"
+      }
+    },
+    "micro": {
+      "type": "object",
+      "required": [
+        "kind",
+        "ma",
+        "durationMs",
+        "hint"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "tap3",
+            "hold",
+            "stitch",
+            "press"
+          ]
+        },
+        "ma": {
+          "type": "string",
+          "pattern": "^MA-[1-6]$"
+        },
+        "durationMs": {
+          "type": "integer",
+          "minimum": 3000,
+          "maximum": 8000
+        },
+        "hint": {
+          "$ref": "journey-common.schema.json#/$defs/textRef"
+        }
+      },
+      "additionalProperties": false
+    },
+    "round": {
+      "type": "object",
+      "required": [
+        "id",
+        "act",
+        "turns",
+        "p0",
+        "intents",
+        "allies",
+        "siblings",
+        "combos",
+        "light",
+        "events",
+        "territory"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^R[1-5][AB]?$"
+        },
+        "act": {
+          "$ref": "journey-common.schema.json#/$defs/act"
+        },
+        "turns": {
+          "type": "integer",
+          "minimum": 3,
+          "maximum": 4
+        },
+        "p0": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9
+        },
+        "intents": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 4,
+          "items": {
+            "$ref": "journey-common.schema.json#/$defs/clashIntent"
+          }
+        },
+        "allies": {
+          "type": "array",
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "journey-common.schema.json#/$defs/bondKey"
+          }
+        },
+        "siblings": {
+          "type": "array",
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "journey-common.schema.json#/$defs/sibling"
+          }
+        },
+        "combos": {
+          "type": "array",
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "journey-common.schema.json#/$defs/clashCombo"
+          }
+        },
+        "light": {
+          "type": "boolean"
+        },
+        "events": {
+          "type": "array",
+          "maxItems": 2,
+          "items": {
+            "type": "object",
+            "required": [
+              "turn",
+              "light",
+              "id"
+            ],
+            "properties": {
+              "turn": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4
+              },
+              "light": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 3
+              },
+              "id": {
+                "$ref": "journey-common.schema.json#/$defs/identifier"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "territory": {
+          "type": "boolean"
+        },
+        "finisherFrom": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4
+        }
+      },
+      "additionalProperties": false
+    },
+    "actionText": {
+      "type": "object",
+      "patternProperties": {
+        "^(?:strike|grit|guard|rest|rain|wind|eye|seeds|guardItem|gear|button|ribbon|a_pkam|a_fiw|a_teuk|s_kab|s_kib|gear_pkam|seeds_fiw|button_teuk|whistle_teuk|ribbon_fiw|gear_pkam_b|hem)$": {
+          "$ref": "journey-common.schema.json#/$defs/textRef"
+        }
+      },
+      "additionalProperties": false
+    },
+    "obstacleMethod": {
+      "type": "object",
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "skill",
+            "sibling",
+            "item",
+            "combo",
+            "friend",
+            "alone",
+            "rush",
+            "wait",
+            "grit"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "skill"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "kind",
+              "skill"
+            ],
+            "properties": {
+              "kind": true,
+              "skill": {
+                "$ref": "journey-common.schema.json#/$defs/skill"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "sibling"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "kind",
+              "sibling"
+            ],
+            "properties": {
+              "kind": true,
+              "sibling": {
+                "$ref": "journey-common.schema.json#/$defs/sibling"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "item"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "kind",
+              "item"
+            ],
+            "properties": {
+              "kind": true,
+              "item": {
+                "$ref": "journey-common.schema.json#/$defs/itemRef"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "combo"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "kind",
+              "item",
+              "ally"
+            ],
+            "properties": {
+              "kind": true,
+              "item": {
+                "$ref": "journey-common.schema.json#/$defs/itemRef"
+              },
+              "ally": {
+                "$ref": "journey-common.schema.json#/$defs/bondKey"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "friend"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "kind",
+              "ally",
+              "minBond"
+            ],
+            "properties": {
+              "kind": true,
+              "ally": {
+                "$ref": "journey-common.schema.json#/$defs/bondKey"
+              },
+              "minBond": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "alone"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "kind",
+              "sta",
+              "needSta"
+            ],
+            "properties": {
+              "kind": true,
+              "sta": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2
+              },
+              "needSta": {
+                "type": "integer",
+                "minimum": 2,
+                "maximum": 5
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "enum": [
+                  "rush",
+                  "wait",
+                  "grit"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": true
+            },
+            "additionalProperties": false
+          }
+        }
+      ]
+    },
+    "node": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "vn",
+            "choice",
+            "obstacle",
+            "camp",
+            "clash",
+            "micro",
+            "pouch",
+            "ending"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "vn"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/vnNode"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "choice"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/choiceNode"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "obstacle"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/obstacleNode"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "camp"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/campNode"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "clash"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/clashNode"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "micro"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/microNode"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "pouch"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/pouchNode"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "ending"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/endingNode"
+          }
+        }
+      ]
+    },
+    "vnNode": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "act",
+        "title",
+        "stage",
+        "lines"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "journey-common.schema.json#/$defs/identifier"
+        },
+        "type": {
+          "const": "vn"
+        },
+        "act": {
+          "$ref": "journey-common.schema.json#/$defs/act"
+        },
+        "title": {
+          "$ref": "#/$defs/title"
+        },
+        "stage": {
+          "$ref": "journey-common.schema.json#/$defs/stage"
+        },
+        "lines": {
+          "$ref": "journey-common.schema.json#/$defs/lines"
+        },
+        "effects": {
+          "$ref": "journey-common.schema.json#/$defs/effects"
+        },
+        "micro": {
+          "$ref": "#/$defs/micro"
+        },
+        "next": {
+          "$ref": "journey-common.schema.json#/$defs/nodeRef"
+        },
+        "completes": {
+          "$ref": "journey-common.schema.json#/$defs/endingId"
+        }
+      },
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "required": [
+            "next"
+          ],
+          "not": {
+            "required": [
+              "completes"
+            ]
+          }
+        },
+        {
+          "required": [
+            "completes"
+          ],
+          "not": {
+            "required": [
+              "next"
+            ]
+          }
+        }
+      ]
+    },
+    "choiceOption": {
+      "type": "object",
+      "required": [
+        "key",
+        "label",
+        "effects",
+        "responses"
+      ],
+      "properties": {
+        "key": {
+          "$ref": "journey-common.schema.json#/$defs/identifier"
+        },
+        "label": {
+          "$ref": "journey-common.schema.json#/$defs/textRef"
+        },
+        "when": {
+          "$ref": "journey-common.schema.json#/$defs/condition"
+        },
+        "effects": {
+          "$ref": "journey-common.schema.json#/$defs/effects"
+        },
+        "responses": {
+          "$ref": "#/$defs/responses"
+        },
+        "next": {
+          "$ref": "journey-common.schema.json#/$defs/nodeRef"
+        }
+      },
+      "additionalProperties": false
+    },
+    "choiceNode": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "act",
+        "title",
+        "stage",
+        "lines",
+        "options"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "journey-common.schema.json#/$defs/identifier"
+        },
+        "type": {
+          "const": "choice"
+        },
+        "act": {
+          "$ref": "journey-common.schema.json#/$defs/act"
+        },
+        "title": {
+          "$ref": "#/$defs/title"
+        },
+        "stage": {
+          "$ref": "journey-common.schema.json#/$defs/stage"
+        },
+        "lines": {
+          "$ref": "journey-common.schema.json#/$defs/lines"
+        },
+        "effects": {
+          "$ref": "journey-common.schema.json#/$defs/effects"
+        },
+        "micro": {
+          "$ref": "#/$defs/micro"
+        },
+        "options": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 5,
+          "items": {
+            "$ref": "#/$defs/choiceOption"
+          }
+        },
+        "next": {
+          "$ref": "journey-common.schema.json#/$defs/nodeRef"
+        }
+      },
+      "additionalProperties": false
+    },
+    "obstacleOption": {
+      "type": "object",
+      "required": [
+        "key",
+        "method",
+        "label",
+        "effects",
+        "responses"
+      ],
+      "properties": {
+        "key": {
+          "$ref": "journey-common.schema.json#/$defs/identifier"
+        },
+        "method": {
+          "$ref": "#/$defs/obstacleMethod"
+        },
+        "label": {
+          "$ref": "journey-common.schema.json#/$defs/textRef"
+        },
+        "effects": {
+          "$ref": "journey-common.schema.json#/$defs/effects"
+        },
+        "responses": {
+          "$ref": "#/$defs/responses"
+        }
+      },
+      "additionalProperties": false
+    },
+    "obstacleNode": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "act",
+        "title",
+        "stage",
+        "lines",
+        "options",
+        "next"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "journey-common.schema.json#/$defs/identifier"
+        },
+        "type": {
+          "const": "obstacle"
+        },
+        "act": {
+          "$ref": "journey-common.schema.json#/$defs/act"
+        },
+        "title": {
+          "$ref": "#/$defs/title"
+        },
+        "stage": {
+          "$ref": "journey-common.schema.json#/$defs/stage"
+        },
+        "lines": {
+          "$ref": "journey-common.schema.json#/$defs/lines"
+        },
+        "effects": {
+          "$ref": "journey-common.schema.json#/$defs/effects"
+        },
+        "options": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 8,
+          "items": {
+            "$ref": "#/$defs/obstacleOption"
+          },
+          "contains": {
+            "type": "object",
+            "required": [
+              "method"
+            ],
+            "properties": {
+              "method": {
+                "type": "object",
+                "required": [
+                  "kind"
+                ],
+                "properties": {
+                  "kind": {
+                    "const": "grit"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "next": {
+          "$ref": "journey-common.schema.json#/$defs/nodeRef"
+        }
+      },
+      "additionalProperties": false
+    },
+    "campActivity": {
+      "type": "object",
+      "required": [
+        "key",
+        "label",
+        "effects",
+        "responses"
+      ],
+      "properties": {
+        "key": {
+          "$ref": "journey-common.schema.json#/$defs/identifier"
+        },
+        "label": {
+          "$ref": "journey-common.schema.json#/$defs/textRef"
+        },
+        "group": {
+          "$ref": "journey-common.schema.json#/$defs/identifier"
+        },
+        "when": {
+          "$ref": "journey-common.schema.json#/$defs/condition"
+        },
+        "ready": {
+          "const": true
+        },
+        "effects": {
+          "$ref": "journey-common.schema.json#/$defs/effects"
+        },
+        "responses": {
+          "$ref": "#/$defs/responses"
+        }
+      },
+      "additionalProperties": false
+    },
+    "campNode": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "act",
+        "title",
+        "stage",
+        "lines",
+        "camp",
+        "drops",
+        "activities",
+        "next"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "journey-common.schema.json#/$defs/identifier"
+        },
+        "type": {
+          "const": "camp"
+        },
+        "act": {
+          "$ref": "journey-common.schema.json#/$defs/act"
+        },
+        "title": {
+          "$ref": "#/$defs/title"
+        },
+        "stage": {
+          "$ref": "journey-common.schema.json#/$defs/stage"
+        },
+        "lines": {
+          "$ref": "journey-common.schema.json#/$defs/lines"
+        },
+        "camp": {
+          "type": "string",
+          "pattern": "^C[1-4]$"
+        },
+        "drops": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3
+        },
+        "activities": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 10,
+          "items": {
+            "$ref": "#/$defs/campActivity"
+          }
+        },
+        "next": {
+          "$ref": "journey-common.schema.json#/$defs/nodeRef"
+        }
+      },
+      "additionalProperties": false
+    },
+    "clashNode": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "act",
+        "title",
+        "stage",
+        "lines",
+        "round",
+        "labels",
+        "intentLines",
+        "responses",
+        "outcome",
+        "outroLines",
+        "next"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "journey-common.schema.json#/$defs/identifier"
+        },
+        "type": {
+          "const": "clash"
+        },
+        "act": {
+          "$ref": "journey-common.schema.json#/$defs/act"
+        },
+        "title": {
+          "$ref": "#/$defs/title"
+        },
+        "stage": {
+          "$ref": "journey-common.schema.json#/$defs/stage"
+        },
+        "lines": {
+          "$ref": "journey-common.schema.json#/$defs/lines"
+        },
+        "round": {
+          "$ref": "journey-common.schema.json#/$defs/roundRef"
+        },
+        "labels": {
+          "$ref": "#/$defs/actionText"
+        },
+        "responses": {
+          "$ref": "#/$defs/actionText"
+        },
+        "intentLines": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 4,
+          "items": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 4,
+            "items": {
+              "$ref": "journey-common.schema.json#/$defs/line"
+            }
+          }
+        },
+        "outcome": {
+          "type": "object",
+          "required": [
+            "decisive",
+            "hold",
+            "narrow"
+          ],
+          "properties": {
+            "decisive": {
+              "$ref": "journey-common.schema.json#/$defs/lines"
+            },
+            "hold": {
+              "$ref": "journey-common.schema.json#/$defs/lines"
+            },
+            "narrow": {
+              "$ref": "journey-common.schema.json#/$defs/lines"
+            }
+          },
+          "additionalProperties": false
+        },
+        "outroLines": {
+          "$ref": "journey-common.schema.json#/$defs/lines"
+        },
+        "next": {
+          "$ref": "journey-common.schema.json#/$defs/nodeRef"
+        }
+      },
+      "additionalProperties": false
+    },
+    "microNode": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "act",
+        "title",
+        "stage",
+        "lines",
+        "micro",
+        "next"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "journey-common.schema.json#/$defs/identifier"
+        },
+        "type": {
+          "const": "micro"
+        },
+        "act": {
+          "$ref": "journey-common.schema.json#/$defs/act"
+        },
+        "title": {
+          "$ref": "#/$defs/title"
+        },
+        "stage": {
+          "$ref": "journey-common.schema.json#/$defs/stage"
+        },
+        "lines": {
+          "$ref": "journey-common.schema.json#/$defs/lines"
+        },
+        "effects": {
+          "$ref": "journey-common.schema.json#/$defs/effects"
+        },
+        "micro": {
+          "$ref": "#/$defs/micro"
+        },
+        "next": {
+          "$ref": "journey-common.schema.json#/$defs/nodeRef"
+        }
+      },
+      "additionalProperties": false
+    },
+    "pouchChoice": {
+      "type": "object",
+      "required": [
+        "key",
+        "label",
+        "effects",
+        "responses"
+      ],
+      "properties": {
+        "key": {
+          "$ref": "journey-common.schema.json#/$defs/identifier"
+        },
+        "label": {
+          "$ref": "journey-common.schema.json#/$defs/textRef"
+        },
+        "effects": {
+          "$ref": "journey-common.schema.json#/$defs/effects"
+        },
+        "responses": {
+          "$ref": "#/$defs/responses"
+        }
+      },
+      "additionalProperties": false
+    },
+    "pouchRelease": {
+      "type": "object",
+      "required": [
+        "key",
+        "release",
+        "label",
+        "effects",
+        "responses"
+      ],
+      "properties": {
+        "key": {
+          "$ref": "journey-common.schema.json#/$defs/identifier"
+        },
+        "release": {
+          "$ref": "journey-common.schema.json#/$defs/itemRef"
+        },
+        "label": {
+          "$ref": "journey-common.schema.json#/$defs/textRef"
+        },
+        "effects": {
+          "$ref": "journey-common.schema.json#/$defs/effects"
+        },
+        "responses": {
+          "$ref": "#/$defs/responses"
+        }
+      },
+      "additionalProperties": false
+    },
+    "pouchNode": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "act",
+        "title",
+        "stage",
+        "lines",
+        "offer",
+        "next"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "journey-common.schema.json#/$defs/identifier"
+        },
+        "type": {
+          "const": "pouch"
+        },
+        "act": {
+          "$ref": "journey-common.schema.json#/$defs/act"
+        },
+        "title": {
+          "$ref": "#/$defs/title"
+        },
+        "stage": {
+          "$ref": "journey-common.schema.json#/$defs/stage"
+        },
+        "lines": {
+          "$ref": "journey-common.schema.json#/$defs/lines"
+        },
+        "effects": {
+          "$ref": "journey-common.schema.json#/$defs/effects"
+        },
+        "offer": {
+          "type": "object",
+          "required": [
+            "item",
+            "take",
+            "releases",
+            "refuse"
+          ],
+          "properties": {
+            "item": {
+              "$ref": "journey-common.schema.json#/$defs/itemRef"
+            },
+            "take": {
+              "$ref": "#/$defs/pouchChoice"
+            },
+            "releases": {
+              "type": "array",
+              "maxItems": 5,
+              "items": {
+                "$ref": "#/$defs/pouchRelease"
+              }
+            },
+            "refuse": {
+              "$ref": "#/$defs/pouchChoice"
+            }
+          },
+          "additionalProperties": false
+        },
+        "next": {
+          "$ref": "journey-common.schema.json#/$defs/nodeRef"
+        }
+      },
+      "additionalProperties": false
+    },
+    "endingOption": {
+      "type": "object",
+      "required": [
+        "ending",
+        "key",
+        "label",
+        "responses",
+        "locks",
+        "next"
+      ],
+      "properties": {
+        "ending": {
+          "$ref": "journey-common.schema.json#/$defs/endingId"
+        },
+        "key": {
+          "$ref": "journey-common.schema.json#/$defs/identifier"
+        },
+        "label": {
+          "$ref": "journey-common.schema.json#/$defs/textRef"
+        },
+        "responses": {
+          "$ref": "#/$defs/responses"
+        },
+        "locks": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "required": [
+              "reason",
+              "text"
+            ],
+            "properties": {
+              "reason": {
+                "enum": [
+                  "mind",
+                  "promise",
+                  "legs",
+                  "roots",
+                  "family-skill",
+                  "self-reliance",
+                  "mind-sta",
+                  "bonds",
+                  "two-worlds"
+                ]
+              },
+              "text": {
+                "$ref": "journey-common.schema.json#/$defs/textRef"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "next": {
+          "$ref": "journey-common.schema.json#/$defs/nodeRef"
+        }
+      },
+      "additionalProperties": false
+    },
+    "endingNode": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "act",
+        "title",
+        "stage",
+        "lines",
+        "endings"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "journey-common.schema.json#/$defs/identifier"
+        },
+        "type": {
+          "const": "ending"
+        },
+        "act": {
+          "const": 5
+        },
+        "title": {
+          "$ref": "#/$defs/title"
+        },
+        "stage": {
+          "$ref": "journey-common.schema.json#/$defs/stage"
+        },
+        "lines": {
+          "$ref": "journey-common.schema.json#/$defs/lines"
+        },
+        "endings": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "$ref": "#/$defs/endingOption"
+          }
+        },
+        "fallbackLine": {
+          "$ref": "journey-common.schema.json#/$defs/textRef"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

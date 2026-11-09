@@ -8,6 +8,8 @@ const ITEM_ID = /^item_[a-z][a-z0-9]*(?:_[a-z0-9]+)*$/;
 const FIELDS = Object.freeze(["capacity", "held", "acquired", "released", "remembered", "memory"]);
 const isId = (id) => typeof id === "string" && id.length <= 96 && ITEM_ID.test(id);
 const refusedId = (id) => `refused_${id.slice(5)}`;
+/** The keepsake a refusal in the pouch's memory names (`refused_<name>` → `item_<name>`). */
+export const refusedItemOf = (token) => `item_${token.slice(8)}`;
 
 export class PouchError extends Error {
   constructor(code) { super(code); this.name = "PouchError"; this.code = code; }

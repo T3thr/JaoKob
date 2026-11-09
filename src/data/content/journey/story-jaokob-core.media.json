@@ -1,0 +1,350 @@
+{
+  "manifestVersion": "2.0.0",
+  "source": "assets/images/asset-manifest-v2.json",
+  "package": "story.jaokob.core",
+  "contentVersion": "0.1.0",
+  "categories": {
+    "characters": [
+      {
+        "assetId": "char_jao_kob_childhood_neutral",
+        "characterId": "char_jao_kob",
+        "outputPath": "assets/images/characters/jao-kob/versions/v2/childhood-neutral-right.webp",
+        "dimensions": "1024x1024",
+        "facing": "right",
+        "altTh": "เจ้ากบวัยเด็ก — ท่าปกติ มือว่าง · หันขวา",
+        "sha256": "4005720d5d2d95be4892ac3d3e7f95420b34149189543bd8741b7481b72bd6f1",
+        "byteLength": 97400,
+        "stage": {
+          "eyeAnchorFromTop": 0.23
+        }
+      },
+      {
+        "assetId": "char_jao_kob_childhood_curious",
+        "characterId": "char_jao_kob",
+        "outputPath": "assets/images/characters/jao-kob/versions/v2/childhood-curious-right.webp",
+        "dimensions": "1024x1024",
+        "facing": "right",
+        "altTh": "เจ้ากบวัยเด็ก — สงสัยใคร่รู้ · หันขวา",
+        "sha256": "43ab0f384fcf8a1489d6921e86f439758358fe2de381fae32e4732b977df2a61",
+        "byteLength": 94202,
+        "stage": {
+          "eyeAnchorFromTop": 0.23
+        }
+      },
+      {
+        "assetId": "char_jao_kob_adult_neutral",
+        "characterId": "char_jao_kob",
+        "outputPath": "assets/images/characters/jao-kob/versions/v2/adult-neutral-right.webp",
+        "dimensions": "1024x1024",
+        "facing": "right",
+        "altTh": "เจ้ากบวัยโต — ท่ายืนปกติ · หันขวา",
+        "sha256": "e244e1d4d54cbf57955d1455c55cc2685aff21562507bc0e4d2bbe7ea2c96491",
+        "byteLength": 113780,
+        "stage": {
+          "eyeAnchorFromTop": 0.22
+        }
+      },
+      {
+        "assetId": "char_jao_kob_adult_observant",
+        "characterId": "char_jao_kob",
+        "outputPath": "assets/images/characters/jao-kob/versions/v2/adult-observant-right.webp",
+        "dimensions": "1024x1024",
+        "facing": "right",
+        "altTh": "เจ้ากบวัยโต — สังเกตอย่างตั้งใจ · หันขวา",
+        "sha256": "ac12366ff83ad876cbb5377bab67b9e0bde5b7fe21af83ed5a22f76f6464d57b",
+        "byteLength": 119478,
+        "stage": {
+          "eyeAnchorFromTop": 0.23
+        }
+      },
+      {
+        "assetId": "char_jao_kob_adult_determined",
+        "characterId": "char_jao_kob",
+        "outputPath": "assets/images/characters/jao-kob/versions/v2/adult-determined-right.webp",
+        "dimensions": "1024x1024",
+        "facing": "right",
+        "altTh": "เจ้ากบวัยโต — มุ่งมั่น · หันขวา",
+        "sha256": "a259761fe72f74f66750c28a0f615a4cf4119f9a8262d95fc644e1760bd29dd9",
+        "byteLength": 123590,
+        "stage": {
+          "eyeAnchorFromTop": 0.22
+        }
+      },
+      {
+        "assetId": "char_jao_kab_neutral_proud",
+        "characterId": "char_jao_kab",
+        "outputPath": "assets/images/characters/jao-kab/versions/v2/neutral-proud-right.webp",
+        "dimensions": "1024x1024",
+        "facing": "right",
+        "altTh": "เจ้ากับ — ยืนมั่นใจ · หันขวา",
+        "sha256": "65eb62a912b121e48202b2890d69c428bf074eed24403e768fc612732ed721a3",
+        "byteLength": 136422,
+        "stage": {
+          "eyeAnchorFromTop": 0.21
+        }
+      },
+      {
+        "assetId": "char_jao_kab_action_knuckle_tap",
+        "characterId": "char_jao_kab",
+        "outputPath": "assets/images/characters/jao-kab/versions/v2/action-knuckle-tap-right.webp",
+        "dimensions": "1024x1024",
+        "facing": "right",
+        "altTh": "เจ้ากับ — เคาะสนับข้อมือ · หันขวา",
+        "sha256": "730a800b19daa8d81f25acd3a5d23c16c2d0c7df117ededd6d2cb932648604ad",
+        "byteLength": 165066,
+        "stage": {
+          "eyeAnchorFromTop": 0.21
+        }
+      },
+      {
+        "assetId": "char_jao_kib_neutral_cheerful",
+        "characterId": "char_jao_kib",
+        "outputPath": "assets/images/characters/jao-kib/versions/v2/neutral-cheerful-right.webp",
+        "dimensions": "1024x1024",
+        "facing": "right",
+        "altTh": "เจ้ากิบ — สดใสร่าเริง · หันขวา",
+        "sha256": "1b6984a80c58bafcfee21c1cd09bacb275a0525842b1321270b694547160abfb",
+        "byteLength": 109252,
+        "stage": {
+          "eyeAnchorFromTop": 0.27
+        }
+      },
+      {
+        "assetId": "char_jao_kib_tinker_seed_tube",
+        "characterId": "char_jao_kib",
+        "outputPath": "assets/images/characters/jao-kib/versions/v2/tinker-seed-tube-right.webp",
+        "dimensions": "1024x1024",
+        "facing": "right",
+        "altTh": "เจ้ากิบ — เตรียมกระบอกเมล็ดต้อยติ่ง · หันขวา",
+        "sha256": "55c9138a18c7ff05afc5eec2a516c46bb50287dcbd29f2349d9fc94a6518d030",
+        "byteLength": 131628,
+        "stage": {
+          "eyeAnchorFromTop": 0.27
+        }
+      },
+      {
+        "assetId": "char_father_frog_calm",
+        "characterId": "char_father_frog",
+        "outputPath": "assets/images/characters/parents/versions/v2/father-frog-calm-right.webp",
+        "dimensions": "1024x1024",
+        "facing": "right",
+        "altTh": "พ่อกบ — สุขุมกับไม้เท้าไผ่ · หันขวา",
+        "sha256": "c3818c4eec290c6e274dd660539ade66eb505f1c13f79a6f0aed49136762e516",
+        "byteLength": 134568,
+        "stage": {
+          "eyeAnchorFromTop": 0.21
+        }
+      },
+      {
+        "assetId": "char_mother_frog_warm",
+        "characterId": "char_mother_frog",
+        "outputPath": "assets/images/characters/parents/versions/v2/mother-frog-warm-right.webp",
+        "dimensions": "1024x1024",
+        "facing": "right",
+        "altTh": "แม่กบ — อบอุ่นในผ้าคลุมใบบัว · หันขวา",
+        "sha256": "4a56d68f4c382820fa38cd97454d17e9c3b0427f159eea99304e547782fd30e2",
+        "byteLength": 130518,
+        "stage": {
+          "eyeAnchorFromTop": 0.2
+        }
+      },
+      {
+        "assetId": "char_cockroach_man_shadow_boast",
+        "characterId": "char_cockroach_man",
+        "outputPath": "assets/images/characters/cockroach-man/versions/v2/shadow-cloak-boast-left.webp",
+        "dimensions": "1024x1024",
+        "facing": "left",
+        "altTh": "แมลงสาบแมน — เงาผ้าคลุมโอ้อวด · หันซ้าย",
+        "sha256": "2aaa0d62b114f5b77006a21220b6da0ad812b26ea020f3b57a416bf0c9267fb7",
+        "byteLength": 340026,
+        "stage": {
+          "eyeAnchorFromTop": 0.32
+        }
+      },
+      {
+        "assetId": "char_jao_kob_childhood_neutral_facing_left",
+        "characterId": "char_jao_kob",
+        "outputPath": "assets/images/characters/jao-kob/versions/v2/childhood-neutral-left.webp",
+        "dimensions": "1024x1024",
+        "facing": "left",
+        "variantOf": "char_jao_kob_childhood_neutral",
+        "altTh": "เจ้ากบวัยเด็ก — ท่าปกติ มือว่าง · หันซ้าย",
+        "sha256": "950865ff5ce56b8a8f74c1d2da0c3c61ef7c501070c3888411284921d42ff887",
+        "byteLength": 101976,
+        "stage": {
+          "eyeAnchorFromTop": 0.22
+        }
+      },
+      {
+        "assetId": "char_jao_kob_adult_neutral_facing_left",
+        "characterId": "char_jao_kob",
+        "outputPath": "assets/images/characters/jao-kob/versions/v2/adult-neutral-left.webp",
+        "dimensions": "1024x1024",
+        "facing": "left",
+        "variantOf": "char_jao_kob_adult_neutral",
+        "altTh": "เจ้ากบวัยโต — ท่ายืนปกติ · หันซ้าย",
+        "sha256": "20c14685ba278725e9f03ab4a0b9dbd2fc65652ced19ef081e123e9f79c92d8c",
+        "byteLength": 105440,
+        "stage": {
+          "eyeAnchorFromTop": 0.22
+        }
+      },
+      {
+        "assetId": "char_jao_kab_neutral_proud_facing_left",
+        "characterId": "char_jao_kab",
+        "outputPath": "assets/images/characters/jao-kab/versions/v2/neutral-proud-left.webp",
+        "dimensions": "1024x1024",
+        "facing": "left",
+        "variantOf": "char_jao_kab_neutral_proud",
+        "altTh": "เจ้ากับ — ยืนมั่นใจ · หันซ้าย",
+        "sha256": "901df2801faf6f4f79b3a1bcba3c82496f6c86ec2ed25fb4b12b45060d5281e2",
+        "byteLength": 139672,
+        "stage": {
+          "eyeAnchorFromTop": 0.21
+        }
+      },
+      {
+        "assetId": "char_jao_kib_neutral_cheerful_facing_left",
+        "characterId": "char_jao_kib",
+        "outputPath": "assets/images/characters/jao-kib/versions/v2/neutral-cheerful-left.webp",
+        "dimensions": "1024x1024",
+        "facing": "left",
+        "variantOf": "char_jao_kib_neutral_cheerful",
+        "altTh": "เจ้ากิบ — สดใสร่าเริง · หันซ้าย",
+        "sha256": "7b4169130b36804b09ac7346f9ad4222cc0fcb11914668dd27054bd9e4ad11f3",
+        "byteLength": 104464,
+        "stage": {
+          "eyeAnchorFromTop": 0.27
+        }
+      },
+      {
+        "assetId": "char_father_frog_calm_facing_left",
+        "characterId": "char_father_frog",
+        "outputPath": "assets/images/characters/parents/versions/v2/father-frog-calm-left.webp",
+        "dimensions": "1024x1024",
+        "facing": "left",
+        "variantOf": "char_father_frog_calm",
+        "altTh": "พ่อกบ — สุขุมกับไม้เท้าไผ่ · หันซ้าย",
+        "sha256": "809c820cfc1e104cb9c30e5d6576670c0ce8742a0c0067b34f70f94a6a2f5133",
+        "byteLength": 134546,
+        "stage": {
+          "eyeAnchorFromTop": 0.22
+        }
+      },
+      {
+        "assetId": "char_mother_frog_warm_facing_left",
+        "characterId": "char_mother_frog",
+        "outputPath": "assets/images/characters/parents/versions/v2/mother-frog-warm-left.webp",
+        "dimensions": "1024x1024",
+        "facing": "left",
+        "variantOf": "char_mother_frog_warm",
+        "altTh": "แม่กบ — อบอุ่นในผ้าคลุมใบบัว · หันซ้าย",
+        "sha256": "76ba73c8e85de82590b1b40d5557dbbbe4d0b8afe0e4cf3c871dc20f38e05d3a",
+        "byteLength": 131222,
+        "stage": {
+          "eyeAnchorFromTop": 0.2
+        }
+      },
+      {
+        "assetId": "char_cockroach_man_shadow_boast_facing_right",
+        "characterId": "char_cockroach_man",
+        "outputPath": "assets/images/characters/cockroach-man/versions/v2/shadow-cloak-boast-right.webp",
+        "dimensions": "1024x1024",
+        "facing": "right",
+        "variantOf": "char_cockroach_man_shadow_boast",
+        "altTh": "แมลงสาบแมน — เงาผ้าคลุมโอ้อวด · หันขวา",
+        "sha256": "628e4c916bc2d8ff1be699fbc93256283f1e62cdb071f99cb4d6f6d567b8f162",
+        "byteLength": 280574,
+        "stage": {
+          "eyeAnchorFromTop": 0.29
+        }
+      }
+    ],
+    "backgrounds": [
+      {
+        "assetId": "bg_act1_willow_roots",
+        "outputPath": "assets/images/backgrounds/act-01/bg-act1-willow-roots.webp",
+        "dimensions": "1600x900",
+        "altTh": "Act 1 · รากต้นหลิวริมบึง",
+        "sha256": "d48cf6d391809bebce8f5cc7bfc59afd97e87d501a44d915a85445aafb96ce69",
+        "byteLength": 497986
+      },
+      {
+        "assetId": "bg_act1_bamboo_home_dusk",
+        "outputPath": "assets/images/backgrounds/act-01/bg-act1-bamboo-home-dusk.webp",
+        "dimensions": "1600x900",
+        "altTh": "Act 1 · บ้านกอไผ่ยามเย็น",
+        "sha256": "6d35e673fdb2a444666b1632a6536aba299bc4e40b2d9f1c45d43e6b7fb856ea",
+        "byteLength": 289408
+      },
+      {
+        "assetId": "bg_act1_overflow_weir",
+        "outputPath": "assets/images/backgrounds/act-01/bg-act1-overflow-weir.webp",
+        "dimensions": "1600x900",
+        "altTh": "Act 1 · ฝายน้ำล้น",
+        "sha256": "5c1c60109f926800d8c92fb0bacad3cd97ac1a40090ffdf817db932aa61eb994",
+        "byteLength": 336142
+      }
+    ],
+    "cinematicCGs": [
+      {
+        "assetId": "cg_act1_three_siblings_blue_shirt",
+        "outputPath": "assets/images/cg/act-01/versions/v2/cg-act1-three-siblings-blue-shirt.webp",
+        "dimensions": "1600x900",
+        "altTh": "Act 1 · สามพี่น้องวัยโตสู้แมลงสาบแมนที่ฝายกอไผ่",
+        "sha256": "c7b8c83eb3f8ba75d87a64cdedae9fe2a8543b2e99837d889c70243baa69ee96",
+        "byteLength": 442008
+      }
+    ],
+    "keepsakes": [
+      {
+        "assetId": "item_kib_glowing_seeds",
+        "outputPath": "assets/images/keepsakes/v2/versions/v2/item-kib-glowing-seeds.webp",
+        "dimensions": "512x512",
+        "altTh": "เมล็ดต้อยติ่งเรืองแสงของเจ้ากิบ",
+        "sha256": "e0e999a0a5b74b78263c3844ee0547c0be9623fa1aeb80dfb372927da4d53c8d",
+        "byteLength": 50134
+      },
+      {
+        "assetId": "item_kab_bark_guard",
+        "outputPath": "assets/images/keepsakes/v2/item-kab-bark-guard.webp",
+        "dimensions": "512x512",
+        "altTh": "สนับข้อมือเปลือกไม้ของเจ้ากับ",
+        "sha256": "324c681f850c9e4bf61f1993695980652cc879ffb215d901337f5ab982563048",
+        "byteLength": 67296
+      },
+      {
+        "assetId": "item_teuk_peuak_button",
+        "outputPath": "assets/images/keepsakes/v2/versions/v2/item-teuk-peuak-button.webp",
+        "dimensions": "512x512",
+        "altTh": "กระดุมทองเหลืองสลัก ต.♡ป.",
+        "sha256": "7961522db9574536c9f3da2056580650f8729ecc8401a54415b5b818d6b0a49d",
+        "byteLength": 86690
+      },
+      {
+        "assetId": "item_pkam_tin_gear",
+        "outputPath": "assets/images/keepsakes/v2/item-pkam-tin-gear.webp",
+        "dimensions": "512x512",
+        "altTh": "เฟืองสังกะสีของพี่ก้าม",
+        "sha256": "0089be2dc8690b36f44e71e477473215253673c43f94d3fcbb7a4e662f1f8afb",
+        "byteLength": 76920
+      },
+      {
+        "assetId": "item_teuk_whistle_charm",
+        "outputPath": "assets/images/keepsakes/v2/versions/v2/item-teuk-whistle-charm.webp",
+        "dimensions": "512x512",
+        "altTh": "นกหวีดพวงกุญแจผู้พิทักษ์",
+        "sha256": "c937cad463ed59265bc1a5afef4d42278fd6efc67c3fff60587c91851e2c7935",
+        "byteLength": 48706
+      },
+      {
+        "assetId": "item_fiw_sun_ribbon",
+        "outputPath": "assets/images/keepsakes/v2/item-fiw-sun-ribbon.webp",
+        "dimensions": "512x512",
+        "altTh": "ริบบิ้นกลิ่นแดดของเจ้าฟิ้ว",
+        "sha256": "6f9532ada089ffe783eb19b7d2045a61fe576794d51d6184f5d7bfc0d453a63c",
+        "byteLength": 57928
+      }
+    ]
+  }
+}

@@ -1,0 +1,177 @@
+/*
+ * Journey design tokens and the two materials (ADR-P0-034 D10.2, Atomic 05 §3.1, UX §1.3).
+ *
+ *   Saa paper  — opaque reading surface: dialogue card, choice, clash and camp cards.
+ *   Glass      — frosted surface for the HUD capsule, overlays and the clash intent badge.
+ *                It turns solid (no blur, no see-through) when the browser has no
+ *                backdrop-filter, when the system asks for reduced transparency, in forced
+ *                colors, and when the player turns on high contrast.
+ *
+ * The Atomic 05 colours are locked by the PO; the glass and motion tokens are added by C4.
+ * Sarabun ships as the Regular cut only, so weight never changes and is never synthesized.
+ * Trace: ADR-P0-034 D10, Atomic 05 §3.1, UX §1.3–§1.5, TC-S5-HUD-001, TC-S5-A11Y-001.
+ */
+
+@font-face {
+  font-family: "Sarabun";
+  src: url("../../../assets/fonts/sarabun-thai.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+  unicode-range: U+0E00-0E7F, U+200C-200D, U+25CC;
+}
+
+@font-face {
+  font-family: "Sarabun";
+  src: url("../../../assets/fonts/sarabun-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+.jk-journey {
+  /* Atomic 05 §3.1 (locked) */
+  --paper-bg: #fcf4e3;
+  --paper-border: #d6c6a5;
+  --ink-primary: #24382d;
+  --ink-muted: #556b5e;
+  --hud-bg: rgba(23, 39, 30, 0.86);
+  --hud-border: rgba(214, 198, 165, 0.48);
+  --speaker-bg: #23382c;
+  --speaker-text: #fcf4e3;
+  --pip-body: #6cc070;
+  --pip-mind: #e7a93b;
+  --pip-sta: #7cc8a2;
+  --bond-pkam: #b85d3b;
+  --bond-fiw: #e5b53a;
+  --bond-teuk: #4a6fa5;
+  --intent-violet: #5e3f94;
+  --clash-dark: #261d38;
+  --clash-light: #e7a93b;
+  --tag-combo: #9a6b12;
+  --tag-counter: #e7a93b;
+  --tag-repeat: #6e87ac;
+  --tag-repeat-ink: #0e1d14;
+  --selected: #4e8c57;
+  --lotus-mark: #8a9a7b;
+
+  /* Paper, derived from the locked paper colours */
+  --paper-deep: #f3e7cc;
+  --paper-dim: #e4dfcf;
+  --paper-edge: #c9b68e;
+  --paper-shadow: 0 1px 0 rgba(255, 255, 255, 0.75) inset, 0 12px 30px rgba(28, 20, 8, 0.24), 0 2px 6px rgba(28, 20, 8, 0.14);
+  --paper-shadow-raised: 0 1px 0 rgba(255, 255, 255, 0.75) inset, 0 16px 34px rgba(28, 20, 8, 0.3), 0 3px 8px rgba(28, 20, 8, 0.16);
+  --lotus-watermark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 76' fill='none' stroke='%238A9A7B' stroke-width='1.3' opacity='.1'%3E%3Cpath d='M14 66C13 37 30 24 60 26c18 2 28 17 24 33-6 18-35 15-56 10L49 45 14 66Z' fill='%238A9A7B'/%3E%3Cpath d='m49 45 17-8m-17 8 25 7m-25-7 3 18m-3-18-10-9M6 73c24-8 44-5 80-2'/%3E%3Cpath d='M44 28C25 27 25 10 32 4c8 4 14 10 12 24Zm0 0C43 15 53 8 60 8c4 14-3 22-16 20Zm0 0C30 17 14 20 12 27c12 9 22 9 32 1Z'/%3E%3C/svg%3E");
+  --paper-fibre: repeating-linear-gradient(8deg, transparent 0 4px, rgba(133, 115, 79, 0.024) 5px 6px);
+
+  /* Glass material (C4) */
+  --glass-tint: var(--hud-bg);
+  --glass-sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0) 46%);
+  --glass-solid: #1c2f25;
+  --glass-edge: var(--hud-border);
+  --glass-highlight: rgba(255, 255, 255, 0.14);
+  --glass-blur: 12px;
+  --glass-saturate: 1.35;
+  --glass-shadow: 0 10px 28px rgba(4, 12, 8, 0.38);
+  --glass-ink: var(--paper-bg);
+
+  /* Card stripes: meaning by the left edge (Atomic 05 §3.4) */
+  --stripe-choice: #b8a57d;
+  --stripe-family: #5e8a4e;
+  --stripe-alone: #4a6fa5;
+  --stripe-grit: #b85d3b;
+  --stripe-rush: #b98a2e;
+  --stripe-wait: #6e87ac;
+  --stripe-friend: #8a6aa8;
+
+  /* Type: the reading sizes of UX §1.4, scaled by the player's text size (100–200 %) */
+  --font-body: "Sarabun", "Thonburi", "Leelawadee UI", "Noto Sans Thai", sans-serif;
+  --jk-font-scale: 1;
+  --text-line: calc(18px * var(--jk-font-scale));
+  --text-card: calc(16px * var(--jk-font-scale));
+  --text-small: calc(12px * var(--jk-font-scale));
+  --text-tag: calc(11px * min(var(--jk-font-scale), 1.5));
+  --text-name: calc(16px * var(--jk-font-scale));
+
+  /* Geometry: the protected face band is 52–68 % from the bottom (32–48 % from the top) */
+  --band-top: 32svh;
+  --band-bottom: 48svh;
+  --eye-line: 42svh;
+  --gutter: 16px;
+  --dock-gap: 8px;
+  --dock-bottom: max(20px, calc(env(safe-area-inset-bottom, 0px) + 12px));
+  --hud-inset: 16px;
+  --actor-size: min(60svh, 60vw, 720px);
+
+  /* Motion (UX §1.5) */
+  --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast: 160ms;
+  --t-base: 240ms;
+  --t-plate: 600ms;
+}
+
+@supports not (height: 1svh) {
+  .jk-journey {
+    --band-top: 32vh;
+    --band-bottom: 48vh;
+    --eye-line: 42vh;
+    --actor-size: min(60vh, 60vw, 720px);
+  }
+}
+
+/* ---------------------------------------------------------------- Saa paper */
+.jk-paper {
+  position: relative;
+  color: var(--ink-primary);
+  background-color: var(--paper-bg);
+  background-image: var(--lotus-watermark), var(--paper-fibre), linear-gradient(180deg, #fff9ec, var(--paper-bg) 38%, #faefd9);
+  background-repeat: no-repeat, repeat, no-repeat;
+  background-position: right 10px bottom 8px, 0 0, 0 0;
+  background-size: 64px auto, auto, auto;
+  border: 1px solid var(--paper-border);
+  box-shadow: var(--paper-shadow);
+}
+
+/* ------------------------------------------------------------------- Glass */
+.jk-glass {
+  color: var(--glass-ink);
+  background-color: var(--glass-tint);
+  background-image: var(--glass-sheen);
+  border: 1px solid var(--glass-edge);
+  box-shadow: inset 0 1px 0 var(--glass-highlight), var(--glass-shadow);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .jk-glass { background-color: var(--glass-solid); }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .jk-glass {
+    background-color: var(--glass-solid);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+.jk-journey[data-surface="solid"] .jk-glass {
+  background-color: var(--glass-solid);
+  background-image: none;
+  border-color: rgba(252, 244, 227, 0.72);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+@media (forced-colors: active) {
+  .jk-glass,
+  .jk-paper {
+    color: CanvasText;
+    background: Canvas;
+    border: 2px solid CanvasText;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}

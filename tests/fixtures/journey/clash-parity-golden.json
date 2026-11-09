@@ -1,0 +1,225 @@
+{
+  "source": "docs/design-system/evidence/tactical-clash-engine.mjs at d586f46 (ADR-P0-033 evidence engine)",
+  "entries": [
+    {
+      "round": "R1",
+      "entry": 0,
+      "positions": 508,
+      "sequences": 441,
+      "outcomes": {
+        "decisive": 33,
+        "hold": 179,
+        "narrow": 229
+      },
+      "digest": "7d59d9a7f7efdbcbc0a2ef76ccf80974ba511a8ffcd49475e2f5287a32b0bc9e"
+    },
+    {
+      "round": "R1",
+      "entry": 1,
+      "positions": 538,
+      "sequences": 467,
+      "outcomes": {
+        "decisive": 36,
+        "hold": 218,
+        "narrow": 213
+      },
+      "digest": "5b63328713efa6bc7d858e78f1c58346dda3d96a37427b2ee00623b41e9f5934"
+    },
+    {
+      "round": "R1",
+      "entry": 2,
+      "positions": 537,
+      "sequences": 466,
+      "outcomes": {
+        "decisive": 43,
+        "hold": 206,
+        "narrow": 217
+      },
+      "digest": "b0e184fc51445d3d85925f4a7a66b061aaa7954568826ecc30144f432b93436c"
+    },
+    {
+      "round": "R2",
+      "entry": 0,
+      "positions": 18239,
+      "sequences": 16588,
+      "outcomes": {
+        "decisive": 2960,
+        "hold": 5069,
+        "narrow": 8559
+      },
+      "digest": "224eecbdbb4097d83ceadb75732515aae94faa21e007e00f0f444075f54f201a"
+    },
+    {
+      "round": "R2",
+      "entry": 1,
+      "positions": 10627,
+      "sequences": 9479,
+      "outcomes": {
+        "decisive": 1016,
+        "hold": 2589,
+        "narrow": 5874
+      },
+      "digest": "241e7e1fb75845547d5d72b1147fc97f77fd022663141e7a6291c42c258a3135"
+    },
+    {
+      "round": "R2",
+      "entry": 2,
+      "positions": 5557,
+      "sequences": 4848,
+      "outcomes": {
+        "decisive": 32,
+        "hold": 774,
+        "narrow": 4042
+      },
+      "digest": "607a0f8d191889cac51db5da8d35e912556ed9b230c7df10a2037a615ef29839"
+    },
+    {
+      "round": "R3",
+      "entry": 0,
+      "positions": 30198,
+      "sequences": 27709,
+      "outcomes": {
+        "decisive": 1344,
+        "hold": 8124,
+        "narrow": 18241
+      },
+      "digest": "6535cb9c2749c677a16b9d13bb95b22ec455704ecebd215a3694abaadd6b4319"
+    },
+    {
+      "round": "R3",
+      "entry": 1,
+      "positions": 11557,
+      "sequences": 10331,
+      "outcomes": {
+        "decisive": 437,
+        "hold": 2445,
+        "narrow": 7449
+      },
+      "digest": "7d73c37595afd91c03c7780e6b56d02c7c794695f8a1343962728a6642f70a5b"
+    },
+    {
+      "round": "R3",
+      "entry": 2,
+      "positions": 10987,
+      "sequences": 9787,
+      "outcomes": {
+        "decisive": 138,
+        "hold": 1823,
+        "narrow": 7826
+      },
+      "digest": "6f0b0e891d628cdc9400223f2bb55d00765833cbd6f9a44f2c73a2168490b8e4"
+    },
+    {
+      "round": "R4A",
+      "entry": 0,
+      "positions": 48484,
+      "sequences": 45025,
+      "outcomes": {
+        "decisive": 5607,
+        "hold": 13428,
+        "narrow": 25990
+      },
+      "digest": "11c50a6c93e980e68992f6e905bcdda4f79013e768df46f8502e6cfd9cf45417"
+    },
+    {
+      "round": "R4A",
+      "entry": 1,
+      "positions": 17239,
+      "sequences": 15618,
+      "outcomes": {
+        "decisive": 1038,
+        "hold": 3598,
+        "narrow": 10982
+      },
+      "digest": "ab8240aba01a8f90c303ade16b6ae17a5a12aea2f1d01beda12c1de25acac1f0"
+    },
+    {
+      "round": "R4A",
+      "entry": 2,
+      "positions": 16666,
+      "sequences": 15046,
+      "outcomes": {
+        "decisive": 89,
+        "hold": 1998,
+        "narrow": 12959
+      },
+      "digest": "59b4f0e4c3156e2dff475c30a752824e15f0c7cb5c30476b28328fef75a69c11"
+    },
+    {
+      "round": "R4B",
+      "entry": 0,
+      "positions": 51720,
+      "sequences": 48020,
+      "outcomes": {
+        "decisive": 2125,
+        "hold": 11293,
+        "narrow": 34602
+      },
+      "digest": "fa17a216a5b1e40e6a4972b7ba174c361d6dc79afe30653d7e3b465411154dd9"
+    },
+    {
+      "round": "R4B",
+      "entry": 1,
+      "positions": 23040,
+      "sequences": 21011,
+      "outcomes": {
+        "decisive": 1077,
+        "hold": 4783,
+        "narrow": 15151
+      },
+      "digest": "312773ee8c983ee175e055247fe53642ea97ab841998132bb6fbdb2fd9e7b73d"
+    },
+    {
+      "round": "R4B",
+      "entry": 2,
+      "positions": 16748,
+      "sequences": 15127,
+      "outcomes": {
+        "decisive": 4,
+        "hold": 933,
+        "narrow": 14190
+      },
+      "digest": "547c156d9584143f7a880ef44a6a2e3b72312f01b029be41371c0ec6c8a4c91f"
+    },
+    {
+      "round": "R5",
+      "entry": 0,
+      "positions": 9778,
+      "sequences": 8794,
+      "outcomes": {
+        "decisive": 914,
+        "hold": 2807,
+        "narrow": 5073
+      },
+      "digest": "da97a3c90cccc554dfd0e9bda3426b17dfd89ac8bb77505c5c8ee56da0bc07ff"
+    },
+    {
+      "round": "R5",
+      "entry": 1,
+      "positions": 7007,
+      "sequences": 6209,
+      "outcomes": {
+        "decisive": 107,
+        "hold": 1094,
+        "narrow": 5008
+      },
+      "digest": "477f7bcee4eee49508c4472a1223987086f1e0470a86cd9e4a272ac5f6b3eb30"
+    },
+    {
+      "round": "R5",
+      "entry": 2,
+      "positions": 6744,
+      "sequences": 5970,
+      "outcomes": {
+        "decisive": 85,
+        "hold": 761,
+        "narrow": 5124
+      },
+      "digest": "f98369dd09b98d10920731ba2c7cb4053086e6e3c09df2a61fdfbd17ff7bdff8"
+    }
+  ],
+  "total": {
+    "positions": 286174,
+    "sequences": 260936
+  }
+}

@@ -22,6 +22,27 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+# Attestations about files outside this delivery (sources reused in place, protected files, the
+# Sprint SSOT and the Thai copy sources) were made at delivery (CR-20261031-1326, commit 8643a30).
+# Later checkpoints legitimately change those files, for example ADR-P0-034 D5.2 turned the
+# evidence engine into an adapter over Core, so they are read at the delivery commit, as the v2
+# harness does. The delivered images, evidence and harness are still checked in the working tree.
+DELIVERY_COMMIT = '8643a30'
+
+
+def at_delivery(path):
+    """Bytes of a repository path at the delivery commit, or None when that commit is unavailable."""
+    if subprocess.run(['git', '-C', str(REPO), 'cat-file', '-e', DELIVERY_COMMIT + '^{commit}'], capture_output=True).returncode:
+        return None
+    shown = subprocess.run(['git', '-C', str(REPO), 'show', f'{DELIVERY_COMMIT}:{path}'], capture_output=True)
+    return shown.stdout if shown.returncode == 0 else b''
+
+
+def attested_digest(path):
+    data = at_delivery(path)
+    return None if data is None else hashlib.sha256(data).hexdigest()
+
+
 def main():
     manifest = read(OUT / 'ux-mockups-v3-manifest.json')
     fixtures = read(HERE / 'fixtures.json')
@@ -57,20 +78,25 @@ def main():
             for shadow in report['shadowElements']:
                 target = model['frogHeightM' if shadow['kind'] == 'frog' else 'shadeHeightM'] / model['wallM'] * pixels
                 assert abs(shadow['height'] - target) < .03
-    for source in manifest['sourcesUsedInPlace'] + manifest['newArtwork']:
+    for source in manifest['newArtwork']:
         assert digest(REPO / source['path']) == source['sha256']
-    before = read(OUT / 'evidence/protected-before.json')
-    changed = [p for p, sha in before.items() if not (REPO / p).exists() or digest(REPO / p) != sha]
-    assert not changed, changed
-    # The only permitted Sprint SSOT edit is its Section 7 registry.
-    path = 'docs/sprints/sprint-05-ssot.md'
-    baseline = subprocess.check_output(['git', 'show', 'e1705ad:' + path], cwd=REPO).decode()
-    assert baseline.split('## 7.')[0] == (REPO / path).read_text().split('## 7.')[0]
-    copy = read(OUT / 'evidence/thai-copy-audit.json')
-    for source, sha in copy['sourceHashes'].items():
-        assert digest(DS / source) == sha
-    for receipt in copy['receipts']:
-        assert receipt['text'] in (DS / receipt['source']).read_text()
+    if at_delivery('docs/sprints/sprint-05-ssot.md') is None:
+        print(f'note: commit {DELIVERY_COMMIT} is not available; sources, preservation and copy stay as attested in CR-20261031-1326')
+    else:
+        for source in manifest['sourcesUsedInPlace']:
+            assert attested_digest(source['path']) == source['sha256'], source['path']
+        before = read(OUT / 'evidence/protected-before.json')
+        changed = [p for p, sha in before.items() if attested_digest(p) != sha]
+        assert not changed, changed
+        # The only permitted Sprint SSOT edit of the delivery was its Section 7 registry.
+        path = 'docs/sprints/sprint-05-ssot.md'
+        baseline = subprocess.check_output(['git', 'show', 'e1705ad:' + path], cwd=REPO).decode()
+        assert baseline.split('## 7.')[0] == at_delivery(path).decode().split('## 7.')[0]
+        copy = read(OUT / 'evidence/thai-copy-audit.json')
+        for source, sha in copy['sourceHashes'].items():
+            assert attested_digest('docs/design-system/' + source) == sha, source
+        for receipt in copy['receipts']:
+            assert receipt['text'] in at_delivery('docs/design-system/' + receipt['source']).decode()
     assert len(fixtures['choices']) == 5 and len(fixtures['camp']) == 8
     tabs = read(OUT / 'evidence/tab-audit.json')
     sixteen = next(t for t in tabs if t['screen'] == 11)
